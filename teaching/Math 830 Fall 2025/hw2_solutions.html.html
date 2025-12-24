@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 830 Fall 2025: Homework 2 Solutions</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        .solution {
+            margin-top: 15px;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-left: 4px solid #5cb85c;
+        }
+        .solution-label {
+            font-weight: bold;
+            color: #5cb85c;
+            margin-bottom: 10px;
+        }
+        .qed {
+            float: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #6c757d;
+        }
+        mjx-container {
+            margin: 0 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Math 830 Fall 2025: Homework 2 Solutions</h1>
+    
+    <div class="instructions">
+        <p>Almost all mathematics papers written today are co-authored by two or more authors. For this assignment, you will work in groups of two. There are ten students currently enrolled in the class. Please choose your partner to work with and let me know who that is. You will work together as a team on this assignment and each team will turn in one set of solutions. These solutions should be <strong>typeset using LaTeX</strong>. If you have not used LaTeX before, this is a good opportunity to learn. Typically one learns by looking at a source file created by someone else and mimicking what they have done by cutting and pasting. One can also look online for any instructions for creating the math expressions you would like to use. Each member of the team must contribute both to the solutions and the typesetting. As before, for this assignment, you may use your notes, the Daily Summary, and any daily homework you have done. You may not consult outside sources, including any algebra textbook, the internet, graduate students not in this class, or any professor except your Math 830 instructor. You may not cite any facts not covered in class or the homework. To receive full credit, all proofs must be complete and contain the appropriate amount of detail. Hard copies of each team's solutions are due in pdf format, Monday, October 13.</p>
+        
+        <p>Throughout \(R\) will denote a commutative ring.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 1</div>
+        <p>This problem shows that two of the facts established in class for finitely generated modules over a PID fail if the module is not finitely generated. In particular, these show: (i) If \(M\) is not finitely generated over the PID \(R\), then \(T(M)\) need not be a direct summand of \(M\) and (ii) An arbitrary torsion-free module over a PID need not be free. We take the case \(R := \mathbb{Z}\). Let \(\mathcal{P}\) denote the set of prime numbers in \(\mathbb{Z}\) and set \(M := \prod_{p\in \mathcal{P}} \mathbb{Z}_p\), the <em>direct product</em> of all \(\mathbb{Z}_p\).</p>
+        
+        <ol type="i">
+            <li>Show that \(T(M) = \bigoplus_{p\in \mathcal{P}} \mathbb{Z}_p\).</li>
+            <li>Show that \(\bigcap_{p\in \mathcal{P}} pM = 0\), and thus \(\bigcap_{p\in \mathcal{P}} pN = 0\), for any submodule \(N\subseteq M\).</li>
+            <li>Set \(x := (1, 1, 1, 1, \ldots) \in M\). Show that the image of \(x\) in \(M/T(M)\) is not zero.</li>
+            <li>Show that the image of \(x\) in \(M/T(M)\) belongs to \(\bigcap_{p\in \mathcal{P}} p(M/T(M))\).</li>
+            <li>Conclude: (i) \(T(M)\) is not a direct summand of \(M\) and (ii) \(M/T(M)\) is torsion-free, but not free.</li>
+        </ol>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p><strong>(i)</strong> We first show \(T(M) = \bigoplus_{p\in \mathcal{P}} \mathbb{Z}_p\). Suppose \(x = (a_p)_{p\in \mathcal{P}} \in \bigoplus_p \mathbb{Z}_p\). Then only finitely many \(a_p\) are non-zero. If \(p_1, \ldots, p_r\) are the primes for which \(a_{p_i} \not = 0\), then for \(0 \not = c := p_1\cdots p_r\), we have \(cx = 0\) in \(M\), so that \(x\in T(M)\). Conversely, suppose \(0\not = z = (b_p)_{p\in \mathcal{P}}\) and \(rz = 0\), for \(0\not = r\) in \(\mathbb{Z}\). Then \(rb_p\equiv 0\) modulo \(p\mathbb{Z}\), for all \(p\). If \(b_p \not \equiv 0\) in \(\mathbb{Z}_p\), then \(p\mid r\). Thus, we can only have finitely many primes \(p\) for which \(b_p\not \equiv 0\) in \(\mathbb{Z}_p\), so that \(z\in T(M)\), which gives what we want.</p>
+            
+            <p><strong>(ii)</strong> Next we show that \(\bigcap_{p\in \mathcal{P}} pM = 0\), and thus \(\bigcap_{p\in \mathcal{P}} pN = 0\), for any submodule \(N\subseteq M\). For this, notice that for primes \(p\not = q\), \(p\mathbb{Z}_q = \mathbb{Z}_q\) and for \(q = p\), \(p\mathbb{Z}_p = 0\). Thus, \(pM\) is the set of \(\mathcal{P}\)-tuples in \(M\) that are zero in the \(p\)th coordinate. Intersecting these as \(p\) varies over all primes gives the zero module.</p>
+            
+            <p><strong>(iii)</strong> Now set \(x := (1, 1, 1, 1, \ldots) \in M\). Note that by the first step, \(x \not \in T(M)\), since it has infinitely many non-zero coordinates, and thus the image of \(x\) in \(M/T(M)\) is not zero.</p>
+            
+            <p><strong>(iv)</strong> We next show that the image of \(x\) in \(M/T(M)\) belongs to \(\bigcap_{p\in \mathcal{P}} p(M/T(M))\). Fix \(p\in \mathcal{P}\) and note that the image of \(x\) in \(M/T(M)\) belongs to \(p(M/T(M)\) if and only if \(x\in pM+T(M)\) in \(M\). Let \(e_p\) denote the element of \(M\) that is 1 in the \(p\)th coordinate and 0 elsewhere. Then \(e_p \in T(M)\) and by the description of \(pM\) above, \(x \in pM+Re_p \subseteq pM+T(M)\). Since this is true for all \(p\), the image of \(x\) in \(M/T(M)\) belongs to \(\bigcap_{p\in \mathcal{P}} p(M/T(M))\).</p>
+            
+            <p><strong>(v)</strong> Finally, we show that \(T(M)\) is not a direct summand of \(M\) and \(M/T(M)\) is torsion-free, but not free. For this, we first note that if \(T(M)\) were a summand of \(M\), we would have \(M = T(M)\oplus K\), for some submodule \(K\subseteq M\). But then \(K \cong M/T(M)\). By part (ii), \(\bigcap_{p\in \mathcal{P}}pK = 0\), while on the other hand, by parts (iii) and (iv) \(x\) is a non-zero element of \(\bigcap_{p\in \mathcal{P}} pK\), a contradiction. Thus, \(T(M)\) is not a summand of \(M\). For all modules \(M\), \(M/T(M)\) is torsion-free. However, in the present case, if \(M/T(M)\) were free, the canonical exact sequence \(0\to T(M)\to M\to M/T(M)\to 0\) would split and \(T(M)\) would be a summand of \(M\), contradicting what we just proved. Therefore, \(M/T(M)\) is a non-free, torsion-free module over the PID \(\mathbb{Z}\). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 2</div>
+        <p>Suppose \(M\) is a finitely generated module over the Noetherian ring \(R\). Prove that the ascending chain condition holds for the set of submodules of \(M\).</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Suppose \(M_1\subseteq M_2\subseteq \cdots\) is an ascending chain of submodules of \(M\). We will prove by induction on the number of generators of \(M\) that this chain stabilizes. If \(M = 0\), we are done. So suppose \(M\) is generated by \(n\) elements \(x_1, \ldots, x_n\). Write \(M = Rx_1+K\), where \(K\) is generated by \(x_2, \ldots, x_n\) and thus is generated by \(n-1\) elements.</p>
+            
+            <p>For each \(i\geq 1\), set \(I_i := \{r\in R\ |\ rx_1\in M_i\}\) and \(K_i := M_i\cap K\). Then \(I_1\subseteq I_2\subseteq \cdots\) is an ascending chain of ideals in \(R\) and \(K_1\subseteq K_2\subseteq \cdots\) is an ascending chain of submodules of \(K\). Since \(R\) is Noetherian, there exists \(n_1\geq 1\) such that \(I_{n_1} = I_{n_1+1} = \cdots\). By induction, there exists \(n_2\geq 1\) such that \(K_{n_2} = K_{n_2+1} = \cdots\). Set \(n := \max\{n_1, n_2\}\).</p>
+            
+            <p>We claim \(M_n = M_{n+1}\). Since the reverse inclusion is clear, it suffices to show \(M_{n+1}\subseteq M_n\). Take \(m\in M_{n+1}\). Write \(m = rx_1+k\), for \(r\in R\) and \(k\in K\). Then \(rx_1 = m-k\in M_{n+1}\), so that \(r\in I_{n+1} = I_n\). Thus, \(rx_1\in M_n\), and therefore \(k = m-rx_1\in M_{n+1}\cap K = K_{n+1} = K_n\subseteq M_n\). It follows that \(m = rx_1+k\in M_n\), which gives what we want. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 3</div>
+        <p>Let \(M\) be a free module with basis \(\{x_i\}_{i\in I}\) and \(N\) an arbitrary \(R\)-module. Prove that \(\text{Hom}_R(M,N) \cong \prod_{i\in I}N\).</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Define a map \(\phi: \text{Hom}_R(M,N)\to \prod_{i\in I}N\) by \(\phi(f) = (f(x_i))_{i\in I}\). We check that \(\phi\) is an \(R\)-module isomorphism. First, \(\phi\) is an \(R\)-module homomorphism, since for \(f, g\in \text{Hom}_R(M,N)\) and \(r\in R\), we have</p>
+            
+            <div class="math-display">
+                \[\phi(f+g) = ((f+g)(x_i))_{i\in I} = (f(x_i)+g(x_i))_{i\in I} = (f(x_i))_{i\in I}+(g(x_i))_{i\in I} = \phi(f)+\phi(g)\]
+            </div>
+            
+            <p>and \(\phi(rf) = ((rf)(x_i))_{i\in I} = (rf(x_i))_{i\in I} = r(f(x_i))_{i\in I} = r\phi(f)\).</p>
+            
+            <p>Next, \(\phi\) is injective. Suppose \(\phi(f) = 0\). Then \(f(x_i) = 0\) for all \(i\in I\). Since every element \(m\in M\) can be written uniquely as \(m = \sum_{i\in F} r_ix_i\) for a finite subset \(F\subseteq I\), we have \(f(m) = \sum_{i\in F} r_if(x_i) = 0\). Thus \(f = 0\), showing that \(\phi\) is injective.</p>
+            
+            <p>Finally, \(\phi\) is surjective. Given \((n_i)_{i\in I}\in \prod_{i\in I}N\), define \(f:M\to N\) by \(f(\sum_{i\in F} r_ix_i) = \sum_{i\in F} r_in_i\), where \(F\) is any finite subset of \(I\). This is well-defined since the representation of elements in \(M\) as linear combinations of the basis elements is unique. It is easy to check that \(f\) is an \(R\)-module homomorphism and \(\phi(f) = (n_i)_{i\in I}\). Thus \(\phi\) is surjective, and therefore an isomorphism. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 4</div>
+        <p>Assume \(P\) is a projective \(R\)-module. Prove that for any surjective \(R\)-module homomorphism \(g:B\to C\), the induced map \(g_*: \text{Hom}_R(P,B)\to \text{Hom}_R(P,C)\) is surjective.</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Since \(P\) is projective, \(P\) is a direct summand of a free module \(F\). Thus, \(F = P\oplus Q\), for some submodule \(Q\subseteq F\). Consider the diagram</p>
+            
+            <div class="math-display">
+                \[\begin{array}{ccc}
+                F & \xrightarrow{\pi} & P \\
+                & & \downarrow h \\
+                & & C
+                \end{array}\]
+            </div>
+            
+            <p>where \(\pi: F\to P\) is the projection map. Since \(g\) is surjective and \(F\) is free, there exists an \(R\)-module homomorphism \(\alpha: F\to B\) such that \(g\circ \alpha = h\circ \pi\). Set \(\beta := \alpha|_P: P\to B\). Then \(g\circ \beta = g\circ (\alpha|_P) = (g\circ \alpha)|_P = (h\circ \pi)|_P = h\), showing that \(g_*(\beta) = h\). Thus \(g_*\) is surjective. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 5</div>
+        <p>Suppose \(S\subseteq R\) is a multiplicatively closed subset and \(M\) is an \(R\)-module. For elements \((s,m), (t,n)\in S\times M\), say that \((s,m)\) and \((t,n)\) are equivalent if there exists \(u\in S\) such that \(u(tn-sm) = 0\) in \(M\).</p>
+        
+        <ol type="i">
+            <li>Show the relation defined above is an equivalence relation.</li>
+            <li>Writing \(m/s\) for the equivalence class of \((s,m)\) let \(M_S\) denote the set of all such equivalence classes and prove that \(M_S\) has a well-defined structure as an \(R_S\)-module.</li>
+        </ol>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Very straightforward. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 6</div>
+        <p>Given an exact sequence \(0\to A\overset{f}\to B\overset{g}\to C\to 0\) of \(R\)-modules and a multiplicatively closed set \(S\subseteq R\), prove that the induced sequence of \(R_S\)-modules \(0\to A_S\overset{f_S}\to B_S\overset{g_S}\to C_S\to 0\) is exact.</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Suppose \(f_S(a/s) = 0/1\), for \(a/s \in A_S\). Then \(f(a)/s = 0/1\) in \(A_S\), so \(s'f(a) = 0\) in \(A\), for some \(s'\in S\). Thus \(f(s'a) = 0\), so \(s'a = 0\), since \(f\) is 1-1. It follows that \(a/s = 0\) in \(A_S\), so \(f_S\) is 1-1.</p>
+            
+            <p>Let \(a/s \in A_S\). Then \(g_S(f_S(a/s)) = g(f(a))/s = 0/s = 0/1\), showing that the image of \(f_S\) is in the kernel of \(g_S\). Conversely, suppose \(g_S(b/s) = 0/1\). Then \(s'g(b) = 0\) in \(C\), for some \(s'\in S\). Thus, \(g(s'b) = 0\), so \(s'b = f(a)\), for some \(a\in A\). Thus, \(f(a)/s' = b/1\) in \(B_S\), so \(f(a)/ss' = b/s\) in \(B_S\), and it follows that \(f_S(a/ss') = b/s\), so that the kernel of \(g_S\) is contained in the image of \(f_S\). Therefore exactness holds at \(B_S\).</p>
+            
+            <p>Finally, suppose \(c/s\in C_S\). Then \(c = g(b)\), for some \(b\in B\) and thus, \(g_S(b/s) = c/s\), showing that \(g_S\) is onto. Thus, the induced sequence over \(R_S\) is exact. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 7</div>
+        <p>Given a short exact sequence \(0\to A\overset{f}\to B\overset{g}\to C\to 0\) of \(R\)-modules, show that there are exact sequences</p>
+        
+        <ol type="i">
+            <li>\(0\to \text{Hom}_R(C,M)\overset{g^*}\to \text{Hom}_R(B,M)\overset{f^*}\to \text{Hom}_R(A,M)\)</li>
+            <li>\(0\to \text{Hom}_R(M,A)\overset{\hat{f}}\to \text{Hom}_R(M,B)\overset{\hat{g}}\to \text{Hom}_R(M,C)\)</li>
+        </ol>
+        
+        <p>for appropriately defined maps \(f^*, g^*, \hat{f}, \hat{g}\).</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>One notes that \(g^*(\alpha) := \alpha g\), for \(\alpha \in \text{Hom}_R(C,M)\) and \(\hat{g}(\beta) = g\beta\), for \(\beta \in \text{Hom}_R(M,B)\), with \(f^*\) and \(\hat{f}\) defined similarly. It is easy to check that the starred and hatted induced maps are \(R\)-module homomorphisms.</p>
+            
+            <p>We show (i) as the proof of (ii) is similar. Suppose \(g^*(h) = 0\), for \(h\in \text{Hom}_R(C,M)\). Then \(hg = 0\) as a map from \(B\) to \(M\). Take \(c\in C\). Then, \(c = g(b)\), for some \(b\in B\), so that \(h(c) = hg(b) = 0\), showing \(h = 0\), so that \(g^*\) is injective.</p>
+            
+            <p>Take \(h\in \text{Hom}_R(C,M)\). Then,</p>
+            
+            <div class="math-display">
+                \[f^*g^*(h) = f^*(hg) = (hg)(f) = hgf = 0,\]
+            </div>
+            
+            <p>since \(gf = 0\). Thus the image of \(g^*\) is contained in the kernel of \(f^*\). Conversely, suppose \(j\in \text{Hom}_R(B,M)\) and \(f^*(j) = 0\). Then \(jf = 0\). Then \(jf(a) = 0\), for all \(a\in A\). Thus, \(j\) maps the kernel of \(g\) to zero, so there is an induced map \(j':B/\text{ker}(g) \to M\), where \(j'(\overline{b}) := j(b)\), and \(\overline{b}\) is the class of \(b\) in \(B/\text{ker}(g)\). Now, \(B/\text{ker}(g) \cong C\), the isomorphism being given by the induced map \(g': B/\text{ker}(g) \to C\). We define \(l: C\to M\) by \(l = j'(g')^{-1}\). We now note that \(g^*(l) = j\), i.e., \(lg = j\). Take \(b\in B\). Then, \(lg(b) = l(g(b)) = j' (g')^{-1}(g(b)) = j'(\overline{b}) = j(b)\), which gives what we want. Thus, exactness in the sequence (i) holds at \(\text{Hom}_R(B,M)\). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 8</div>
+        <p>Assume the short exact sequence \(0\to A\overset{f}\to B\overset{g}\to C\to 0\) splits. Prove that \(f^*\) in 7(i) and \(\hat{g}\) in 7(ii) are surjective. In other words, the given exact sequence remains exact upon applying \(\text{Hom}_R(-, M)\) and \(\text{Hom}_R(M, -)\).</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>We just show \(f^*\) is surjective, the proof that \(\hat{g}\) is surjective is similar. Suppose \(j:C\to B\) is the splitting, so that \(B = f(A)\oplus j(C)\). Let \(h\in \text{Hom}_R(A,M)\) and define \(t: B\to M\) as follows. For \(b\in B\), write \(b = f(a)+j(c)\), for \(a\in A\) and \(c\in C\). Then \(f(a)\) is unique, by the directness of the sum, and \(a\) is unique, since \(f\) is 1-1. Set \(t(b) := h(a)\). Then it is easy to check that \(t\in \text{Hom}_R(B,M)\), and by definition, \(tf(a) = h(a)\), for all \(a\in A\). Thus, \(f^*(t) = h\), showing that \(f^*\) is surjective. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 9</div>
+        <p>Fix a prime \(p\in \mathbb{Z}\) and let \(\mathbb{Z}_{p^{\infty}}\) denote the set of elements in \(\mathbb{Q}/\mathbb{Z}\) annihilated by some power of \(p\). Show (i) \(\mathbb{Z}_{p^{\infty}}\) is an injective \(\mathbb{Z}\)-module and (ii) \(\mathbb{Q}/\mathbb{Z}\) is the internal direct sum of \(\mathbb{Z}_{p^{\infty}}\), as \(p\) ranges over the set of prime integers.</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p><strong>(i)</strong> It suffices to show that \(\mathbb{Z}_{p^{\infty}}\) is a divisible \(\mathbb{Z}\)-module. Take \(n\in \mathbb{Z}\) and \(x\in \mathbb{Z}_{p^{\infty}}\). It is straightforward to check that \(x= [\frac{a}{p^i}]\) is the class of a fraction of the form \(\frac{a}{p^i}\), with \(a\in \mathbb{Z}\). Suppose \(n = p^en_0\), with \(p\) not dividing \(n_0\). Then we can write \(1 = up^{i}+vn_0\), for \(u, v \in \mathbb{Z}\). Thus, \(p^e = up^{i+e}+vn\), so \(\frac{a}{p^i} = au+\frac{avn}{p^{i+e}}\). Thus, in \(\mathbb{Z}_{p^{\infty}}\), \(x = [\frac{a}{p^i}] = n[\frac{av}{p^{i+e}}]\), which is what we want.</p>
+            
+            <p><strong>(ii)</strong> Take \(x := [\frac{a}{b}]\in \mathbb{Q}/\mathbb{Z}\). We may assume \(b > 0\). Write \(b =p_1^{e_1}\cdots p_r^{e_r}\), for primes \(p_1, \ldots, p_r\in \mathbb{Z}\). We want to show that \(x\) is a sum of elements from \(\mathbb{Z}_{p_i^{\infty}}\), for \(1\leq i\leq r\). For each \(1\leq i\leq r\), set \(n_i := \prod_{j\not= i}p_j^{e_j}\). Since \(\gcd(n_1, \ldots, n_r)= 1\), the ideal generated by \(n_1, \ldots, n_r\) is \(\mathbb{Z}\). Thus, there exist \(a_i\in \mathbb{Z}\) such that \(1 = a_1n_1+\cdots +a_rn_r\). It follows that \(\frac{1}{b} = \frac{1}{p_1^{e_1}\cdots p_r^{e_r}} = \frac{a_1}{p_1^{e_1}}+\cdots + \frac{a_r}{p_r^{e_r}}\). Thus, \([x] =[ \frac{aa_1}{p_1^{e_1}}]+\cdots + [\frac{aa_r}{p_r^{e_r}}]\) in \(\mathbb{Q}/\mathbb{Z}\). Thus \(\mathbb{Q}/\mathbb{Z}\) is the sum of the submodules \(\mathbb{Z}_{p^{\infty}}\) as \(p\) ranges over the primes in \(\mathbb{Z}\).</p>
+            
+            <p>For directness of the sum, it suffices to show that if we have sum</p>
+            
+            <div class="math-display">
+                \[(*)\quad\quad\quad  [\frac{a_1}{p_1^{e_1}}]+\cdots + [\frac{a_r}{p_r^{e_r}}] = 0\]
+            </div>
+            
+            <p>in \(\mathbb{Q}/\mathbb{Z}\), then each \([\frac{a_i}{p_i^{e_i}}] = 0\). To see this, set \(n_i := \prod_{j\not = i}p_j^{e_j}\) so that</p>
+            
+            <div class="math-display">
+                \[0 = [\frac{a_1}{p_1^{e_1}}]+\cdots + [\frac{a_r}{p_r^{e_r}}]  = [\frac{a_1n_1+\cdots + a_rn_r}{p_1^{e_1}\cdots p_r^{e_r}}]\]
+            </div>
+            
+            <p>in \(\mathbb{Q}/\mathbb{Z}\). Thus, there exists \(t\in \mathbb{Z}\) such that \(a_1n_1+\cdots +a_rn_r = tp_1^{e_1}\cdots p_r^{e_r}\) in \(\mathbb{Z}\). Thus, \(p_1^{e_1}\) divides the left side of this last equation, and hence divides \(a_1n_1\). This forces \(p_1^{e_1}\mid a_1\). Writing \(a_1 = a_1'p_1^{e_1}\), we have \([\frac{a_1}{p_1^{e_1}}] = [\frac{a_1'p_1^{e_1}}{p_1^{e_1}}] = [\frac{a_1'}{1}] = 0\) in \(\mathbb{Q}/\mathbb{Z}\). A similar argument shows that \([\frac{a_i}{p_i^{e_i}}] = 0\), for \(2\leq i\leq r\), which gives what we want, and completes the proof. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 10</div>
+        <p>Assume \(R\) is an integral domain and \(M\) is a torsion-free, divisible \(R\)-module. Show that \(M\) is an injective \(R\)-module. Conclude that \(K\) is an injective \(R\)-module for any field \(K\) containing \(R\).</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Given an ideal \(I\subseteq R\), we must find \(\rho\) that completes the diagram</p>
+            
+            <div class="math-display">
+                \[\begin{array}{ccc}
+                0 \to & I \xrightarrow{i} & R \\
+                & \downarrow g & \swarrow \rho \\
+                & M &
+                \end{array}\]
+            </div>
+            
+            <p>Take \(0 \not = j\in I\). Since \(M\) is divisible, there exists \(m_j \in M\) such that \(jm_j = g(j)\). We claim that \(m_j\) is independent of \(j\in I\). If so, then there exists \(m \in M\) such that \(jm = g(j)\), for all \(j\in I\). In this case, we define \(\rho : R\to M\) by \(\rho (r) = rm\). Then, for \(j\in I\), we have \(\rho i(j) = \rho (j) = jm = g(j)\), which shows that \(M\) is an injective \(R\)-module.</p>
+            
+            <p>For the claim, take \(j_1, j_2\in I\). On the one hand, we have \(j_1m_{j_1} = g(j_1)\) and \(j_2m_{j_2} = g(j_2)\). On the other hand \(j_1g(j_2) = g(j_1j_2) = j_2g(j_1)\), so it follows that \(j_1j_2m_{j_1} = j_1j_2m_{j_2}\). Since \(j_1j_2 \not = 0\) and \(M\) is torsion-free, we have \(m_{j_1} = m_{j_2}\), which proves the claim.</p>
+            
+            <p>For the second statement, if \(K\) is a field containing \(R\), then clearly \(K\) is a torsion-free, divisible \(R\)-module, and hence \(K\) is an injective \(R\)-module. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an accessible HTML conversion of the LaTeX homework solutions. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>

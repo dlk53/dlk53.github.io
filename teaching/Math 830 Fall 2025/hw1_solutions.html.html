@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 830 Fall 2025: Homework 1 Solutions</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        .solution {
+            margin-top: 15px;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-left: 4px solid #5cb85c;
+        }
+        .solution-label {
+            font-weight: bold;
+            color: #5cb85c;
+            margin-bottom: 10px;
+        }
+        .qed {
+            float: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #6c757d;
+        }
+        mjx-container {
+            margin: 0 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Math 830 Fall 2025: Homework 1 Solutions</h1>
+    
+    <div class="instructions">
+        <p>For this assignment, you may use your notes, the Daily Summary, and any daily homework you have done. You may also work with classmates on these problems, but please indicate who you worked with, and write up the solutions completely on your own. You may not consult outside sources, including any algebra textbook, the internet, graduate students not in this class, or any professor except your Math 830 instructor. You may not cite any facts not covered in class or the homework. To receive full credit, all proofs must be complete and contain the appropriate amount of detail. Your solutions are due at the start of class on Monday, September 15.</p>
+        
+        <p>Throughout \(R\) will denote a commutative ring.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 1</div>
+        <p>Suppose \(M\) is an \(R\)-module and \(I\subseteq R\) is an ideal. Define \(IM\) to be the set of all finite linear combinations of the form \(i_1x_1 +\cdots + i_nx_n\), with each \(i_j\in I\) and \(x_j\in M\).</p>
+        
+        <ol type="i">
+            <li>Prove that \(IM\) is a submodule of \(M\).</li>
+            <li>Show that if \(X\subseteq M\) and \(\langle X\rangle = M\), then \(IM\) is the set of all finite linear combinations of the form \(i_1x_1 +\cdots + i_nx_n\), with each \(i_j\in I\) and \(x_j\in X\).</li>
+            <li>Prove that \(M/IM\) has the structure of an \(R/I\)-module.</li>
+            <li>Conclude that if \(IM = 0\), then \(M\) is also an \(R/I\) module and \(N\subseteq M\) is an \(R\)-submodule of \(M\) if and only if \(N\) is an \(R/I\) submodule of \(M\).</li>
+        </ol>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Part (i) is straightforward, since sums and scalar multiples of expressions of the form \(i_1x_1 +\cdots + i_nx_n\), with each \(i_j\in I\) and \(x_j\in M\), clearly have this form. For (ii), a typical element in \(I\) has the form \(\sum_j i_jz_j\) with each \(i_j\in I\) and \(z_j\) in \(M\). Each \(z_j\) has the form \(\sum_k a_{jk}x_k\), for \(a_{jk}\in R\) and \(x_k \in X\). Thus, a typical element in \(I\) can be written as \(\sum_j i_j(\sum _k a_{jk}x_k) = \sum_k (\sum_ji_ja_{jk}) x_k\), which gives what we want.</p>
+            
+            <p>For (iii), \(M/IM\) is an abelian group. To make \(M/IM\) into an \(R/I\)-module, define scalar multiplications as follows: \((r+I)\cdot (m+IM) := rm+IM\). Suppose \(r+I = r'+I\) and \(m+IM = m'+IM\). Then \(r-r' \in I\) and \(m-m'\in IM\). Thus, \((r-r')m \in IM\) and \(r'(m-m') \in IM\). Adding, we obtain \(rm-r'm'\in IM\), so \(rm+IM = r'm'+IM\), and therefore scalar multiplication is well defined. The required scalar multiplication axioms are automatically inherited from the existing \(R\)-module structure on \(M\), e.g.</p>
+            
+            <div class="math-display">
+                \[(r+I)\{(s+I)(m+IM)\} = (r+I) (sm+IM) = r(sm)+IM = (rs)m+IM = \{(r+I)(s+I)\}(m+IM).\]
+            </div>
+            
+            <p>For (iv), if \(IM = 0\), then \(M/IM = M\), so the first statement follows from part (iii) and \((r+I)m = rm\), for all \(r\in R\) and \(m\in M\). Now, suppose \(N\subseteq M\) is an \(R\)-submodule of \(M\). Then \(N\) is an abelian subgroup of \(M\) and moreover, for all \(r\in R\) and \(n \in N\): \((r+I)n = rn\), since \(IN = 0\). Thus, any \(R\)-submodule of \(M\) is also an \(R/I\)-submodule of \(M\) and conversely.</p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 2</div>
+        <p>Suppose \(\phi: M\to N\) is an \(R\)-module homomorphism. Prove that \(\ker(\phi)\) and \(\operatorname{im}(\phi)\) are submodules of \(M\) and \(N\), respectively.</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Suppose \(x, y\in \ker(\phi)\). Then \(\phi(x) = \phi(y) = 0\), so that \(\phi(x+y) = \phi(x)+\phi(y) = 0+0 = 0\), showing that \(x+y\in \ker(\phi)\). Moreover, if \(r\in R\), then \(\phi(rx) = r\phi(x) = r0 = 0\), showing that \(rx\in \ker(\phi)\). Thus, \(\ker(\phi)\) is a submodule of \(M\).</p>
+            
+            <p>Now, suppose \(y_1, y_2\in \operatorname{im}(\phi)\). Then there exist \(x_1, x_2\in M\) such that \(\phi(x_1) = y_1\) and \(\phi(x_2) = y_2\). Thus, \(\phi(x_1+x_2) = \phi(x_1)+\phi(x_2) = y_1+y_2\), showing that \(y_1+y_2\in \operatorname{im}(\phi)\). Moreover, if \(r\in R\), then \(\phi(rx_1) = r\phi(x_1) = ry_1\), showing that \(ry_1\in \operatorname{im}(\phi)\). Thus, \(\operatorname{im}(\phi)\) is a submodule of \(N\).</p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 3</div>
+        <p>Suppose \(M\) is an \(R\)-module and \(N\subseteq M\) is a submodule. Define \(M/N := \{m+N\ |\ m\in M\}\).</p>
+        
+        <ol type="i">
+            <li>Prove that \(M/N\) is an abelian group under the operation \((m+N)+(m'+N) = (m+m')+N\).</li>
+            <li>Define scalar multiplication by \(r\cdot(m+N) := rm+N\), for \(r\in R\) and \(m\in M\). Prove that this is well defined and that \(M/N\) is an \(R\)-module.</li>
+        </ol>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>For (i), we first check that addition is well defined. Suppose \(m+N = m'+N\) and \(n+N = n'+N\). Then \(m-m'\in N\) and \(n-n'\in N\). Thus, \((m+n)-(m'+n') = (m-m')+(n-n')\in N\), so that \((m+n)+N = (m'+n')+N\), and therefore addition is well defined. The zero element is \(0+N = N\) and the additive inverse of \(m+N\) is \(-m+N\). Associativity and commutativity follow from the corresponding properties in \(M\).</p>
+            
+            <p>For (ii), we first check that scalar multiplication is well defined. Suppose \(m+N = m'+N\). Then \(m-m'\in N\). Thus, \(r(m-m')\in N\), so that \(rm-rm'\in N\), and therefore \(rm+N = rm'+N\). The \(R\)-module axioms follow from the corresponding axioms in \(M\). For instance, \(r\cdot\{(m+N)+(m'+N)\} = r\cdot\{(m+m')+N\} = r(m+m')+N = (rm+rm')+N = (rm+N)+(rm'+N) = r\cdot(m+N)+r\cdot(m'+N)\).</p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 4</div>
+        <p>Suppose \(M\) is an \(R\)-module and \(N\subseteq M\) is a submodule. Define \(\pi: M\to M/N\) by \(\pi(m) = m+N\).</p>
+        
+        <ol type="i">
+            <li>Prove that \(\pi\) is a surjective \(R\)-module homomorphism with kernel \(N\).</li>
+            <li>Suppose \(\phi: M\to L\) is an \(R\)-module homomorphism such that \(N\subseteq \ker(\phi)\). Prove that there exists a unique \(R\)-module homomorphism \(\overline{\phi}: M/N\to L\) such that \(\phi = \overline{\phi}\circ \pi\).</li>
+        </ol>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>For (i), clearly \(\pi\) is surjective. We check that \(\pi\) is an \(R\)-module homomorphism. We have \(\pi(m+m') = (m+m')+N = (m+N)+(m'+N) = \pi(m)+\pi(m')\), and \(\pi(rm) = rm+N = r(m+N) = r\pi(m)\). Thus, \(\pi\) is an \(R\)-module homomorphism. Moreover, \(\ker(\pi) = \{m\in M\ |\ m+N = N\} = \{m\in M\ |\ m\in N\} = N\).</p>
+            
+            <p>For (ii), define \(\overline{\phi}: M/N\to L\) by \(\overline{\phi}(m+N) = \phi(m)\). We first check that \(\overline{\phi}\) is well defined. Suppose \(m+N = m'+N\). Then \(m-m'\in N\subseteq \ker(\phi)\), so that \(\phi(m-m') = 0\). Thus, \(\phi(m) = \phi(m')\), showing that \(\overline{\phi}\) is well defined. We have \(\overline{\phi}((m+N)+(m'+N)) = \overline{\phi}((m+m')+N) = \phi(m+m') = \phi(m)+\phi(m') = \overline{\phi}(m+N)+\overline{\phi}(m'+N)\), and \(\overline{\phi}(r(m+N)) = \overline{\phi}(rm+N) = \phi(rm) = r\phi(m) = r\overline{\phi}(m+N)\). Thus, \(\overline{\phi}\) is an \(R\)-module homomorphism. Moreover, \((\overline{\phi}\circ \pi)(m) = \overline{\phi}(m+N) = \phi(m)\), so that \(\phi = \overline{\phi}\circ \pi\). Uniqueness follows since if \(\psi: M/N\to L\) satisfies \(\phi = \psi\circ \pi\), then \(\psi(m+N) = \psi(\pi(m)) = \phi(m) = \overline{\phi}(m+N)\), for all \(m\in M\).</p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 5</div>
+        <p>Let \(0\to L\xrightarrow{\alpha} M\xrightarrow{\beta} N\to 0\) be an exact sequence of \(R\)-modules.</p>
+        
+        <ol type="i">
+            <li>Prove that \(\alpha\) is injective and \(\beta\) is surjective.</li>
+            <li>Prove that \(\alpha(L)\) is a submodule of \(M\) and that the map \(\overline{\beta}: M/\alpha(L)\to N\) defined by \(\overline{\beta}(m+\alpha(L)) = \beta(m)\) is an \(R\)-module isomorphism.</li>
+        </ol>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>For (i), since the sequence is exact at \(L\), we have \(\ker(\alpha) = \{0\}\), so that \(\alpha\) is injective. Since the sequence is exact at \(N\), we have \(\operatorname{im}(\beta) = N\), so that \(\beta\) is surjective.</p>
+            
+            <p>For (ii), by Problem 2, \(\alpha(L) = \operatorname{im}(\alpha)\) is a submodule of \(M\). Since the sequence is exact at \(M\), we have \(\ker(\beta) = \operatorname{im}(\alpha) = \alpha(L)\). By Problem 4, there exists a unique \(R\)-module homomorphism \(\overline{\beta}: M/\alpha(L)\to N\) such that \(\beta = \overline{\beta}\circ \pi\), where \(\pi: M\to M/\alpha(L)\) is the natural projection. We need to show that \(\overline{\beta}\) is an isomorphism. Since \(\beta\) is surjective and \(\beta = \overline{\beta}\circ \pi\), it follows that \(\overline{\beta}\) is surjective. Now, suppose \(\overline{\beta}(m+\alpha(L)) = 0\). Then \(\beta(m) = 0\), so that \(m\in \ker(\beta) = \alpha(L)\). Thus, \(m+\alpha(L) = \alpha(L)\), showing that \(\ker(\overline{\beta}) = \{\alpha(L)\}\), and therefore \(\overline{\beta}\) is injective. Thus, \(\overline{\beta}\) is an isomorphism.</p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 6</div>
+        <p>Suppose \(0\to L\xrightarrow{\alpha} M\xrightarrow{\beta} N\to 0\) is an exact sequence of \(R\)-modules. Prove that if \(M\) is Noetherian (resp. Artinian), then \(L\) and \(N\) are Noetherian (resp. Artinian).</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Suppose \(M\) is Noetherian. Let \(L_1\subseteq L_2\subseteq \cdots\) be an ascending chain of submodules of \(L\). Then \(\alpha(L_1)\subseteq \alpha(L_2)\subseteq \cdots\) is an ascending chain of submodules of \(M\), since \(\alpha\) is an \(R\)-module homomorphism and \(\alpha\) is injective. Since \(M\) is Noetherian, there exists \(n\geq 1\) such that \(\alpha(L_n) = \alpha(L_{n+1}) = \cdots\). Since \(\alpha\) is injective, we have \(L_n = L_{n+1} = \cdots\), showing that \(L\) is Noetherian.</p>
+            
+            <p>Now let \(N_1\subseteq N_2\subseteq \cdots\) be an ascending chain of submodules of \(N\). Set \(M_i := \beta^{-1}(N_i)\), for each \(i\geq 1\). Then \(M_1\subseteq M_2\subseteq \cdots\) is an ascending chain of submodules of \(M\). Since \(M\) is Noetherian, there exists \(n\geq 1\) such that \(M_n = M_{n+1} = \cdots\). Thus, \(\beta(M_n) = \beta(M_{n+1}) = \cdots\). Since \(\beta\) is surjective, we have \(N_n = N_{n+1} = \cdots\), showing that \(N\) is Noetherian.</p>
+            
+            <p>The proof for the Artinian case is similar, using descending chains instead of ascending chains.</p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 7</div>
+        <p>Suppose \(P\subseteq R\) is a prime ideal and \(M\) is a finitely generated \(R\)-module. Prove that if \(PM = M\), then there exists \(p\in P\) such that \((1-p)M = 0\).</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Let \(M = \langle x_1, \ldots, x_n\rangle\). Since \(PM = M\), we can write \(x_i = \sum_{j=1}^n p_{ij}x_j\), for some \(p_{ij}\in P\). Thus, \(\sum_{j=1}^n (\delta_{ij}-p_{ij})x_j = 0\), where \(\delta_{ij}\) is the Kronecker delta. Let \(A\) be the \(n\times n\) matrix with \((i,j)\)-entry \(\delta_{ij}-p_{ij}\). Then \(A\) has entries in \(R\) and</p>
+            
+            <div class="math-display">
+                \[A\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} = \begin{pmatrix} 0 \\ \vdots \\ 0 \end{pmatrix}.\]
+            </div>
+            
+            <p>Let \(B\) denote the adjugate matrix of \(A\). Then \(BA = \det(A)I\), where \(I\) is the \(n\times n\) identity matrix. Thus,</p>
+            
+            <div class="math-display">
+                \[\det(A)\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} = BA\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} = B\begin{pmatrix} 0 \\ \vdots \\ 0 \end{pmatrix} = \begin{pmatrix} 0 \\ \vdots \\ 0 \end{pmatrix}.\]
+            </div>
+            
+            <p>Therefore, \(\det(A)x_i = 0\), for all \(1\leq i\leq n\). Since \(M\) is generated by \(x_1, \ldots, x_n\), we have \(\det(A)M = 0\). Now, \(\det(A) = \det(I-A')\), where \(A'\) is the matrix with \((i,j)\)-entry \(p_{ij}\). Expanding the determinant, we have \(\det(I-A') = 1 + \sum_{k=1}^n (-1)^k s_k\), where each \(s_k\) is a sum of products of entries of \(A'\), and hence belongs to \(P\). Set \(p := -\sum_{k=1}^n (-1)^k s_k\). Then \(p\in P\) and \(\det(A) = 1-p\). Thus, \((1-p)M = 0\), as required.</p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 8</div>
+        <p>Let \(R\) be an Artinian ring and \(J\subseteq R\) be the Jacobson radical of \(R\).</p>
+        
+        <ol type="i">
+            <li>Prove that \(R\) has finitely many maximal ideals.</li>
+            <li>Prove that \(J^n = 0\), for some \(n\geq 1\).</li>
+            <li>Suppose \(R\) has one maximal ideal \(P\) satisfying \(P^n = 0\), for some \(n\geq 1\). Show that \(R\) is Noetherian.</li>
+        </ol>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Suppose there are infinitely many distinct maximal ideals of \(R\), say \(P_1, P_2, \ldots\). Then we have a descending chain of ideals \(P_1 \supseteq P_1\cap P_2\supseteq \cdots\). Thus, for some \(n\geq 1\), \(P_1\cap \cdots \cap P_n = P_1\cap \cdots \cap P_n\cap P_{n+1}\). It follows that \(P_1\cap \cdots \cap P_n \subseteq P_{n+1}\). Since \(P_{n+1}\) is a prime ideal, we have \(P_i \subseteq P_{n+1}\), for some \(1\leq i\leq n\). Since \(P_{n+1}\) is a maximal ideal, we have the contradiction \(P_i = P_{n+1}\). Thus, \(R\) has finitely many maximal ideals.</p>
+            
+            <p>For (ii), on the one hand, since \(R\) is Artinian, there exists \(n_0\geq 1\) such that \(J^n= J^{n+1}\), for all \(n\geq n_0\), since \(J\supseteq J^2\supseteq \cdots\). On the other hand, suppose \(J^n \not = 0\). Then there exists \(x_1\in J^n\) such that \(x_1J^n \not = 0\), since if \(x_1J^n = 0\) for all \(x_1\in J^n\), \(J^n J^n = J^{2n} = J^n = 0\), a contradiction. Now choose \(x_2\in J^n\) such that \(x_1x_2J^n \not = 0\). We can do this, otherwise, \(x_1x_2J^n = 0\) for all \(x_2\in J^n\), and thus \(0 = x_1J^nJ^n = x_1J^n = 0\), contradicting the choice of \(x_1\). Thus, inductively, we can find \(x_1, x_2, \ldots, \in J^n\), such that for all \(c\geq 1\), \(x_1\cdots x_cJ^n \not = 0\). Now, the descending chain \(\langle x_1\rangle \supseteq \langle x_1x_2\rangle \supseteq \cdots\) must stabilize. Thus, for some \(e\geq 1\), we can write \(x_1\cdots x_e = rx_1\cdots x_ex_{e+1}\), for some \(r\in R\). Thus, \((1-rx_{e+1})x_1\cdots x_e = 0\). Since \(x_{e+1} \in J\), \(1-rx_{e+1}\) is a unit. Thus, \(x_1\cdots x_e= 0\), a contradiction. Therefore, we must have \(J^n = 0\), as required.</p>
+            
+            <p>For (iii), we use the fact that if \(V\) is a vector space over the field \(F\), then \(V\) is finite dimensional if and only if \(V\) is an Artinian \(F\)-module if and only if \(V\) is a Noetherian \(F\)-module. We now proceed by induction on \(r\), to show that \(R/P^r\) is Noetherian for all \(r\geq 1\). Since \(P^n = 0\), it follows that \(R\) is a Noetherian ring. To proceed, if \(r = 1\), then \(F := R/P\) is a field and thus Noetherian. Now suppose \(R/P^r\) is a Noetherian ring. Then \(R/P^r\) is also a Noetherian \(R\)-module. Consider the natural exact sequence of \(R\)-modules:</p>
+            
+            <div class="math-display">
+                \[0\to P^r/P^{r+1}\to R/P^{r+1} \to R/P^n\to 0.\]
+            </div>
+            
+            <p>Since \(P\cdot (P^r/P^{r+1}) = 0\), \(P^r/P^{r+1}\) is a vector space over \(F\) and its subspace structure as a vector space over \(F\) is the same as its submodule structure as an \(R\)-module, by Problem 1 (iv). Now, \(R\) is Artinian, and hence \(R/P^{r+1}\) is an Artinian \(R\)-module, and hence its submodule \(P^r/P^{r+1}\) is an Artinian \(R\)-module, and therefore an Artinian \(R/P\)-module, i.e., a finite dimensional vector space over \(F\). Thus, \(P^r/P^{r+1}\) is a Noetherian \(R/P\)-module, and hence a Noetherian \(R\)-module. The induction hypothesis, together with the exact sequence above (and a theorem from class) give \(R/P^{r+1}\) is a Noetherian \(R\)-module, and hence a Noetherian ring. Thus, \(R/P^r\) is Noetherian for all \(r\), which is what we want. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 9</div>
+        <p>Prove that an Artinian ring is Noetherian.<sup>1</sup></p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Suppose \(R\) is an Artinian ring. Let \(J\subseteq R\) be the Jacobson radical and \(P_1, \ldots, P_k\) be the maximal ideals of \(R\), which are finite in number, by Problem 8. For all \(r\geq 1\), \(P_1^r, \ldots, P_k^r\) are pairwise co-maximal, so that</p>
+            
+            <div class="math-display">
+                \[J^r = P_1^r\cdots P_k^r = P_1^r\cap \cdots \cap P_k^r,\]
+            </div>
+            
+            <p>for all \(r\geq 1\) (see the comments below). By Problem 8 (ii), we have \(J^n = 0\), for some \(n\geq 1\). Thus, as \(R\)-modules, we have</p>
+            
+            <div class="math-display">
+                \[R\cong R/J^n \cong R/(P_1^r\cap \cdots \cap P_k^r)\cong R/P_1^r\oplus \cdots \oplus R/P_k^r,\]
+            </div>
+            
+            <p>where the third isomorphism follows by the Chinese remainder theorem. It now follows from Problem 6 and induction on \(k\) that each \(R/P_i^r\) is an Artinian \(R\)-module, and hence an Artinian ring. Suppose \(Q\subseteq R/P_i^r\) is a maximal ideal. Then \(Q = P/P_i^r\), for a maximal ideal \(P\subseteq R\) containing \(P_i^r\), by the correspondence theorem. Since \(P\) is prime, \(P_i\subseteq P\), and since \(P_i\) is maximal, \(P = P_i\). Thus, \(P_i/P_i^r\) is the only maximal ideal of \(R/P_i^r\) and \((P_i/P_i^r)^r = 0\). Thus, by Problem 8 (iii), \(R/P_i^r\) is a Noetherian ring, and hence a Noetherian \(R\)-module, for each \(1\leq i\leq k\). It follows that \(R\cong R/P_1^r\oplus \cdots \oplus R/P_k^r\) is a Noetherian \(R\)-module, and hence a Noetherian ring. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 10</div>
+        <p>Follow the steps below to prove Hilbert's Basis Theorem: If \(R\) is a Noetherian ring, then the polynomial ring \(R[x]\) is a Noetherian ring. To begin, let \(J\subseteq R[x]\) be an ideal and \(I := \{ a \in R\ |\ a\ \textrm{is the leading coefficient of some element of}\ J\}\).</p>
+        
+        <ol type="i">
+            <li>Show that \(I\) is an ideal of \(R\).</li>
+        </ol>
+        
+        <p>Suppose \(I := \langle a_1, \ldots, a_r\rangle\) and let \(f_1(x), \ldots, f_r(x) \in J\) be such that the leading coefficient of \(f_i(x)\) is \(a_i\). Set \(N :=\ \textrm{max}\{\textrm{degree}(f_i(x))\}\). Let \(F\) denote the free \(R\)-module generated by \(1, x, \ldots, x^{N-1}\) and set \(M := J\cap F\).</p>
+        
+        <ol type="i" start="2">
+            <li>Show that \(M\) is an \(R\)-submodule of \(F\) and conclude that \(M\) is a finitely generated \(R\)-module.</li>
+            <li>Let \(g_1(x), \ldots, g_t(x)\) generate \(M\) as an \(R\)-module. Prove that \(J\) is generated by \(f_1(x), \ldots, f_r(x), g_1(x), \ldots, g_t(x)\). Hint: Show that if \(h(x)\in J\) and \(h(x)\) has degree greater than or equal to \(N\), then there exist \(d_1(x), \ldots, d_r(x)\) in \(R[x]\) such that \(h(x)-\{d_1(x)f_1(x)+\cdots +d_r(x)f_r(x)\}\) belongs to \(J\) and has degree strictly less than the degree of \(h(x)\).</li>
+        </ol>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>For (i), suppose \(a, b\in I\). Then there exist \(f(x) := ax^n+\cdots\) and \(g(x):= bx^m +\cdots\) in \(J\). Suppose \(n\geq m\). Then \(f(x)+x^{n-m}g(x) = (a+b)x^n +\cdots\) belongs to \(J\), and thus, \(a+b\in I\). Moreover, if \(r\in R\), \(rf(x) = rax^n+\cdots\) belongs to \(J\), and thus \(ra\in I\). Therefore \(I\) is an ideal.</p>
+            
+            <p>For (ii), suppose \(f(x), g(x)\in M\). Then \(f(x), g(x)\) belong to \(J\) and have degree less than \(N\). Thus, the sum \(f(x)+g(x) \in J\) and has degree less than \(N\). In other words, \(f(x)+g(x)\in M\). In addition, for any \(r\in R\), \(rf(x) \in J\) and has degree less than \(N\), showing that \(M\) is a submodule of \(F\). Since \(F\) is Noetherian (it's finitely generated over the Noetherian ring \(R\)), \(M\) is Noetherian, and hence finitely generated as an \(R\)-module.</p>
+            
+            <p>For (iii), write \(L\) for the ideal of \(R[x]\) generated by \(f_1(x), \ldots, f_r(x), g_1(x), \ldots, g_c(x)\). Clearly, \(L\subseteq J\). Take \(h(x) \in J\). If \(h(x)\) has degree less than \(N\), then \(h(x) \in M\), so that \(h(x)\) is a finite \(R\)-linear combination of \(g_1(x), \ldots, g_c(x)\), and hence \(h(x) \in L\). Suppose \(e := \textrm{deg}(h(x)) \geq N\). We prove by induction on \(e\) that \(h(x) \in L\). The argument for the base case \(e = N\) is the same as for the inductive step, so assume \(e > N\). Write \(h(x) = bx^e +\cdots\). Then \(b\in I\), so we can write \(b = u_1a_1+\cdots + u_ra_r\), for \(u_j\in R\). For \(1\leq i\leq r\), set \(n_i := \textrm{deg}(f_i(x))\). Then the polynomial</p>
+            
+            <div class="math-display">
+                \[h(x) -\{u_1x^{e-n_1}f_1(x)+\cdots + u_rx^{e-n_r}f_r(x)\}\]
+            </div>
+            
+            <p>belongs to \(J\) and has degree strictly less than \(e\). Thus, by induction on \(e\), \(h(x) -\{u_1x^{e-n_1}f_1(x)+\cdots + u_rx^{e-n_r}f_r(x)\}\) is in \(L\). It follows readily that \(h(x) \in L\), giving \(L\subseteq J\). Thus, \(L = J\) and \(J\) is finitely generated. Therefore, \(R[x]\) is Noetherian. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Comments on the Chinese Remainder Theorem</div>
+        
+        <p>Throughout these comments \(I, J\subseteq R\) are ideals.</p>
+        
+        <p><strong>(i)</strong> \(I, J\subseteq R\) are said to be co-maximal if there is no maximal ideal of \(R\) containing both \(I\) and \(J\). Since every ideal of \(R\) is contained in a maximal ideal, this is equivalent to the condition \(I+J = R\), which in turn is equivalent to \(i+j = 1\), for some \(i\in I\) and \(j\in J\).</p>
+        
+        <p><strong>(ii)</strong> Suppose \(I\) and \(J\) are co-maximal, and \(x\in I\cap J\). Write \(1= i+j\), for \(i\in I\) and \(j\in J\). Then \(x = xi+xj \in IJ\). Thus, \(I\cap J \subseteq IJ\). Since \(IJ\subseteq I\cap J\) always holds, we have that if \(I\) and \(J\) are co-maximal, then \(I\cap J = IJ\).</p>
+        
+        <p><strong>(iii)</strong> Suppose that \(I\) and \(J\) are co-maximal. Define \(\phi: R\to (R/I)\oplus (R/J)\), by \(\phi (r) = (r+I, r+J)\). It is easy to check that \(\phi\) is a ring homomorphism. Clearly, \(I\cap J\) is the kernel of \(\phi\). Now suppose \((a+I, b+J) \in(R/I)\oplus (R/J)\). Take \(i\in I\) and \(j\in J\) such that \(i+j = 1\). Then \(ai+aj = a\), so that \(a+I = aj+I\). Similarly, \(bi+bj = b\), so that \(b+J = bi+J\). It follows that \(\phi (aj+bi) = (aj+bi+I, aj+bi+J) = (aj+I, bi+J) = (a+I, b+J)\), so that \(\phi\) is surjective. Thus, we have \(R/(I\cap J) \cong (R/I)\oplus (R/J)\). This also yields \(R/IJ\cong (R/I)\oplus (R/J)\).</p>
+        
+        <p><strong>(iv)</strong> Ideals \(I_1, \ldots, I_k\) are pairwise co-maximal, if for each \(1\leq i\not = j\leq k\), \(I_i\) and \(I_j\) are co-maximal. Given (iii) above, one can show via induction on \(k\), that if \(I_1, \ldots, I_k\) are co-maximal, then \(R/(I_1\cap \cdots \cap I_k)\cong (R/I_1)\oplus \cdots \oplus (R/I_k)\). Indeed, since \(I_1\) and \(I_2\cap \cdots \cap I_k\) are comaximal, we have</p>
+        
+        <div class="math-display">
+            \[R/(I_1\cap \cdots \cap I_k) = R/(I_1\cap (I_2\cap \cdots \cap I_k)) \cong (R/I_1)\oplus (R/(I_2\cap \cdots \cap I_k)) \cong (R/I_1)\oplus (R/I_2)\oplus \cdots \oplus (R/I_k).\]
+        </div>
+        
+        <p><strong>(v)</strong> The modern version of the classical Chinese remainder theorem takes the following form. Suppose \(n_1, \ldots, n_k\) are pairwise relatively prime positive integers. Set \(n := n_1\cdots n_k\). Then \(\mathbb{Z}_n\cong \mathbb{Z}_{n_1}\times \cdots \times \mathbb{Z}_{n_k}\).</p>
+        
+        <p><strong>(vi)</strong> The classical form of the Chinese remainder theorem states the following: Suppose \(n_1, \ldots, n_k\) are pairwise relatively prime positive integers. Then, given \(a_1, \ldots, a_k \in \mathbb{Z}\), the system of congruences</p>
+        
+        <div class="math-display">
+            \[x \equiv a_1 \ (\textrm{mod}\ n_1\mathbb{Z}), \ldots, x\equiv a_k \ (\textrm{mod} \ n_k\mathbb{Z})\]
+        </div>
+        
+        <p>has a solution in \(\mathbb{Z}\), and any two solutions are congruent modulo \(n := n_1\cdots n_k\). Indeed, since the map from \(\mathbb{Z}_n \to \mathbb{Z}_{n_1} \times \cdots \times \mathbb{Z}_{n_k}\) taking \(r \in \mathbb{Z}\) to \((r+n_1\mathbb{Z}, \ldots, r+n_k\mathbb{Z})\) is surjective, a solution to the system of congruences is any element \(t \in \mathbb{Z}\) that maps to \((a_1+n_1\mathbb{Z}, \ldots, a_k+n_k\mathbb{Z})\), while uniqueness of solutions up to congruence modulo \(n\) follows because the map is injective.</p>
+    </div>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an accessible HTML conversion of the LaTeX homework solutions. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+        <p style="font-size: 0.9em; margin-top: 10px;"><sup>1</sup>This theorem is also true for non-commutative rings. Hopkins' Theorem states that a left (or right) Artinian ring is left (or right) Noetherian.</p>
+    </footer>
+</body>
+</html>
