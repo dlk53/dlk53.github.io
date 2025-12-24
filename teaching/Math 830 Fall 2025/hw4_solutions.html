@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 830 Fall 2025 - Homework 4 Solutions</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .introduction {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #6c757d;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .proof-section {
+            background-color: white;
+            padding: 25px;
+            margin: 35px 0;
+            border-left: 4px solid #5cb85c;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .solution {
+            margin-top: 15px;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-left: 4px solid #5cb85c;
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        .proof-title {
+            font-style: italic;
+            font-weight: 600;
+            font-size: 1.2em;
+            color: #5cb85c;
+            margin-bottom: 15px;
+        }
+        .solution-label {
+            font-weight: bold;
+            color: #5cb85c;
+            margin-bottom: 10px;
+        }
+        .qed {
+            float: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ul, ol {
+            margin-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #6c757d;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        mjx-container {
+            margin: 0 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Math 830 Fall 2025: Homework 4 Solutions</h1>
+    
+    <div class="instructions">
+        <p>For this assignment you will work in pairs as on the previous assignment. These solutions should be typeset using LaTeX. Each member of the team must contribute both to the solutions and the typesetting. As before, for this assignment, you may use your notes, the Daily Summary, and any daily homework you have done. You may not consult outside sources, including any algebra textbook, the internet, graduate students not in this class, or any professor except your Math 830 instructor. You may not cite—without proof—any facts not covered in class or the homework. To receive full credit, all proofs must be complete and contain the appropriate amount of detail. Hard copies of each team's solutions are due in pdf format at the final exam on Tuesday, December 11.</p>
+    </div>
+
+    <div class="introduction">
+        <p>Throughout \(R\) will denote a commutative ring and \(M\) will denote an \(R\)-module.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 1</div>
+        <p>Let \(R\) be a Noetherian ring, \(I\subseteq R\) an ideal and \(M\) an \(R\)-module. The \(j\)th local cohomology module of \(R\) with respect to \(I\), denoted by H\(_I^j(M)\) is the \(j\)th cohomology module obtained by applying the functor \(\Gamma_I(-)\) to a deleted injective resolution of \(M\), where for any \(R\)-module \(A\), \(\Gamma_I(A) = \{a\in A\ |\ I^na = 0\ \text{for some}\ n\geq 1\}\). This definition is independent of the injective resolution chosen.</p>
+        
+        <p>Show that:</p>
+        <ol>
+            <li>H\(_I^0(M) = \Gamma_I(M)\).</li>
+            <li>If \(M\) is torsion free, then H\(^0_I(M) = 0\) and if \(M\) has injective dimension \(d\), H\(^j_I(M) = 0\), for \(j > d\).</li>
+            <li>If \(0\to M\to Q\to C\to 0\) is an exact sequence with \(Q\) injective, then H\(^{j+1}_I(M) = \text{H}^j_I(C)\), for all \(j\geq 1\).</li>
+        </ol>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>For (i), it suffices to show that \(0 \to \Gamma_I(M)\to \Gamma_I(Q_0)\overset{j'}\to \Gamma_I(Q_1)\) is exact, where \(0\to M\to Q_0\overset{j}\to Q_1\) is the start of an injective resolution of \(M\). For this, the map \(\Gamma_I(M)\to \Gamma_I(Q_0)\) is clearly injective since it is the restriction of the map from \(M\) to \(Q_0\). For analogous reasons, the image of the map from \(\Gamma_I(M)\) to \(\Gamma_I(Q_0)\) is contained in the kernel of \(j'\). Let \(C\) denote the image of \(M\) in \(Q_0\). Then \(\Gamma_I(C)\) is the image of \(\Gamma_I(M)\) in \(\Gamma_I(Q_0)\). If \(x\) is in the kernel of \(j'\), then \(x \in C\). Since \(I^nx = 0\), for some \(n\), \(x\in \Gamma_I(C)\), which gives what we want. <span class="qed">∎</span></p>
+            
+            <p>Part (ii) is clear from part (i) and the definitions. <span class="qed">∎</span></p>
+            
+            <p>Part (iii) follows from the associated long exact sequence and the fact that H\(^j_I(Q) = 0\), for \(j > 0\), since \(0\to Q\to Q\to 0\) is an injective resolution of \(Q\). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 2</div>
+        <p>Suppose \(R\) is Noetherian and \(Q\) is an injective \(R\)-module. Show that \(\Gamma_I(Q)\) is an injective \(R\)-module. Note: This is not necessarily true when \(R\) is not Noetherian.</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>This is not an easy problem. We will use Baer's criterion and the Artin-Rees lemma. So, let \(J\subseteq R\) be an ideal and suppose we have a homomorphism \(f: J\to \Gamma_I(Q)\). We must find \(\rho: R\to \Gamma_I(Q)\) such that \(\rho\circ i = f\), where \(i: J\to R\) is just the natural inclusion map. Since \(Q\) is injective, we have \(\tau: R\to Q\) such that \(\tau\circ i = f\). If \(\tau (1)\in \Gamma_I(Q)\), we're done. But in general, this need not be the case.</p>
+            
+            <p>Now, \(f(J)\) and \(\tau(R)\) are finitely generated submodules of \(Q\), so by the Artin-Rees lemma, there exists \(k\geq 1\) such that \(I^n\tau(R)\cap f(J) \subseteq I^{n-k} f(J)\). Since \(f(J)\) is finitely generated, \(I^{n-k}f(J) = 0\), for \(n \gg 0\). Suppose \(n\) has this property, so that \(I^n\tau(R)\cap f(J) = 0\). Then as submodules of \(Q\), the sum \(I^n\tau(R)+f(J)\) is direct. But \(I^n\tau (R) = I^n\tau(1)\) and \(f(J) = \tau(J) = J\tau (1)\). Thus, the sum \(I^n\tau(1)+J\tau(1)\) is direct. There is a natural map from \(I^n+J\) to \((I^n+J)\tau (1)\), which takes \(u \in I^n+J\) to \(u\tau(1)\). We can follow this map by projection onto \(J\tau(1)\). Let \(h: I^n+J\to J\tau (1)\) be the composition of these maps. Then, there exists \(\rho: R\to Q\) such that \(\rho\circ j = h\), where \(j: I^n+J\to R\) is the natural inclusion.</p>
+            
+            <p>Now let \(x\in I^n\). Write \(x = x+0\), where we think of \(0\in J\). Then \(x\cdot \rho(1) = \rho(x) = \rho (x+0) = h(x+0) = 0\cdot \tau (1) = 0\). Thus, \(\rho(1) \in \Gamma_I(Q)\). Finally, take \(y\in J\). Then \(y = 0+y\), with \(0\in I^n\), so that</p>
+            <div class="math-display">
+                \[
+                \rho(y) = \rho (0+y) = h(y) = y\cdot \tau (1) = \tau (y) = \tau\circ i(y) = f(y).
+                \]
+            </div>
+            <p>Thus, \(\rho\) is the map we seek and \(\Gamma_I(Q)\) is injective. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 3</div>
+        <p>Let \(R\) be a Noetherian ring and \(\{M_i\}_{i\in I}\) be a collection of \(R\)-modules and set \(M := \bigoplus_{i\in I} M_i\). Show that \(\text{Ass}_R(M) = \bigcup_{i\in I}\text{Ass}_R(M_i)\).</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Suppose \(P\in \text{Ass}(M)\). Then \(P = \text{ann}(x)\), for \(0\not = x = (x_i)_{i\in I}\) in \(M\). Since localization distributes over direct sums and associated primes commute with localizations, we may localize at \(P\) and assume \(P\) is maximal. Take \(r\in P\) and \(i\in I\) such that \(x_i \not = 0\). Then \(rx_i = 0\). Thus, \(P\subseteq \text{ann}(x_i)\) and hence \(P = \text{ann}(x_i)\). It follows that \(P\in \bigcup_{i\in I}\text{Ass}_R(M_i)\), so Ass\((M) \subseteq \bigcup_{i\in I}\text{Ass}_R(M_i)\). Since each \(M_i\subseteq M\), the reverse inclusion is clear. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 4</div>
+        <p>Let \(R\) be a Noetherian ring and \(M\) be an \(R\)-module, \(I\subseteq R\) an ideal, and assume every element of \(M\) is annihilated by a power of \(I\). Let \(N\subseteq M\) be the elements of \(M\) annihilated by \(I\). Prove that \(\text{Ass}_R(M) = \text{Ass}_R(N)\).</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>We clearly have Ass\((N)\subseteq \text{Ass}(M)\). Suppose \(P\in \text{Ass}(M)\), with \(P = \text{ann}(x)\), for \(x\in M\). Since \(I^nx = 0\), for some \(n\), \(I^n\subseteq P\), and hence \(I\subseteq P\), so that \(Ix = 0\), showing \(x\in N\). Thus, \(P\in \text{Ass}(N)\). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 5</div>
+        <p>Let \(R\) be a Noetherian ring and \(M\) be a finitely generated \(R\)-module and \(P\subseteq R\) a prime ideal minimal over the annihilator of \(M\). Prove that \(M_P\) has finite length as an \(R_P\)-module and that its length equals the number of times \(R/P\) appears in any prime filtration of \(M\).</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Since \(P\) is minimal over the annihilator of \(M\), it is an associated prime of \(M\) and therefore belongs to any prime filtration of \(M\). Fix such a filtration. Any prime in this filtration contains the annihilator of \(M\), thus, if we localize at \(P\) the only prime left in the localized filtration is just \(P\) itself. It follows that the localized filtration is a composition series of \(M_P\), so that \(M_P\) has finite length and this length is the number of times \(R/P\) appears in the filtration (which is preserved under localization). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 6</div>
+        <p>For \(R\)-modules \(N\subseteq M\), show that the following are equivalent:</p>
+        <ol>
+            <li>\(L\cap N \not = 0\), for all submodules \(0\not = L\subseteq M\).</li>
+            <li>Every non-zero element in \(M\) has a non-zero multiple in \(N\).</li>
+            <li>For an \(R\)-module homomorphism \(\phi: M\to A\), if \(\phi |_N\) is injective, then \(\phi\) is injective.</li>
+        </ol>
+        <p>If these conditions hold, we say that \(M\) is an <em>essential</em> extension of \(N\).</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Suppose (i) holds and take \(0\not = x\in M\). Then (ii) follows by taking \(L := \langle x\rangle\). Assume (ii) holds and \(\phi : M\to A\) is as in (iii). If \(x\in M\) and \(0\not = x\) and \(\phi(x) = 0\), then choosing \(r\in R\) such that \(rx\in N\) and \(rx\not = 0\), we have a contradiction, namely, \(\phi(rx) = 0\). Thus \(\phi\) is injective. Finally, assume (iii) and let \(0\not = L\subseteq M\) be a submodule. If \(N\cap L = 0\), then the canonical map \(N\to M/L\) is injective. But then the map \(M\to M/L\) is injective, which is absurd. Thus (iii) implies (i). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 7</div>
+        <p>Prove the following statements:</p>
+        <ol>
+            <li>For modules \(L\subseteq N\subseteq M\), \(M\) is an essential extension of \(L\) if and only if \(N\) is an essential extension of \(L\) and \(M\) is an essential extension of \(N\).</li>
+            <li>Suppose \(N\subseteq L_i\subseteq M\) with \(\{L_i\}_{i\in I}\) a collection of submodules of \(M\) containing \(N\) satisfying \(\bigcup_{i\in I} L_i = M\). Then \(M\) is an essential extension of \(N\) if and only each \(L_i\) is an essential extension of \(N\).</li>
+            <li>Given \(N\subseteq M\), there exists a submodule \(N\subseteq L\subseteq M\), such that \(L\) is maximal with respect to being an essential extension of \(N\) in \(M\).</li>
+        </ol>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>For (i), if \(L\subseteq N\) and \(N\subseteq M\) are essential, take \(0\not = x\in M\). Then there exists \(r\in R\) such that \(0\not = rx\in N\). But then there exists \(s\in R\) such that \(0 \not = s(rx)\in L\), showing that \(M\) is essential over \(L\). The converse is just as easy. For (ii) note that if \(M\) is an essential extension of \(N\), then each \(L_i\) is also, by (i). On the other hand, if \(0\not = x\in M\), then \(x\in L_i\) some \(i\), so that if each \(L_i\) is essential over \(N\), there is a non-zero multiple of \(x\) in \(N\), which gives what we want.</p>
+            
+            <p>We need to use Zorn's lemma for (iii). So let \(X\) denote the submodules \(N\subseteq L\subseteq M\) such that \(L\) is an essential extension of \(N\). Note \(N\in X\), so \(X\) is not empty. Let \(C\) be a chain in \(X\) and \(L_0\) be the union of the submodules in \(C\). By (ii), \(L_0\) is an essential extension of \(N\), so that \(L_0\in X\) is an upper bound for \(C\). Thus, every chain has an upper bound, so by Zorn's lemma, \(X\) has a maximal element, which is the submodule we seek. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="introduction">
+        <p>Recall that every \(R\)-module \(M\) is contained in an injective \(R\)-module. For an \(R\)-module \(M\), with \(M\subseteq Q\), with \(Q\) injective, a maximal essential extension of \(M\) in \(Q\) is called an <em>injective envelope</em> of \(M\), denoted \(E(M)\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 8</div>
+        <p>Prove an injective envelope of \(M\) is an injective \(R\)-module and any two injective envelopes of \(M\) are isomorphic. Hint: First note that an injective module has no essential extensions.</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Since an injective module is a direct summand of any module containing it, if \(Q\) is injective and \(Q\subseteq E\) were an essential extension, then \(E = Q\oplus L\), and \(L\cap Q = 0\), a contradiction. Thus injective modules have no essential extensions. Now let \(M\subseteq E\subseteq Q\), where \(Q\) is an injective module containing \(M\) and \(E\) the corresponding injective envelope. We first note that \(E\) has no essential extensions of any kind. Suppose \(E \subseteq F\) is an essential extension, for some module \(F\). Then the natural inclusion \(i: E\to Q\) extends to \(j: F\to Q\), since \(Q\) is injective. By 6(iii), \(j\) is injective. But then \(j(F)\) is a proper essential extension of \(E\) in \(Q\), contradicting the maximality of \(E\).</p>
+            
+            <p>Via Zorn's lemma, we may find \(L\subseteq Q\) such that \(L\) is maximal with respect to the property that \(L\cap E = 0\). But then the natural map \(E \to Q/L\) gives rise to an essential extension of a module isomorphic to \(E\), which contradicts the statement above, unless the image of \(E\) in \(Q/L\) equals \(Q/L\). In this case, \(Q = E+L\) and hence \(Q = E\oplus L\). Since \(Q\) is injective, we have that \(E\) is injective.</p>
+            
+            <p>Now suppose we have \(M\subseteq E'\subseteq Q'\), where \(Q'\) is another injective module and \(E'\) the corresponding injective envelope of \(M\). The natural inclusion of \(M\) into \(E\) extends to an injective map \(j: E\to E'\) (since \(E'\) is injective and \(E\) is essential). Then \(M\subseteq j(E)\subseteq E'\), with \(j(E)\) injective and essential over \(M\) and \(E'\) essential over \(j(E)\). By the first paragraph above, we must have \(j(E) = E'\), so that \(E\) and \(E'\) are isomorphic. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 9</div>
+        <p>Suppose \(R\) is a \(\mathbb{Z}\)-graded ring that is not a field. Show that if \(R\) and (0) are the only homogeneous ideals, then \(R\cong k[t,t^{-1}]\), the Laurent polynomial ring in one variable over a field \(k\). Hint: The element in \(R\) corresponding to \(t\) will be homogeneous of some degree greater than zero, and will be transcendental over \(R_0\), which you must show is a field.</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>First note that since \(1\in R\), \(R_0 \not = 0\). Take \(0\not = a\in R_0\). Then \(\langle a\rangle\) is a non-zero homogeneous ideal, so that \(\langle a\rangle = R\). Thus, \(a\) is a unit and \(R_0 = k\), a field. We now note that \(R\) is an integral domain. Let \(P\subseteq R\) be a prime ideal, which always exists. Then \(P^*\) is a proper homogeneous prime ideal and hence \(P^* = (0)\), showing that \(R\) is an integral domain.</p>
+            
+            <p>Since \(R \not = R_0 = k\), there exists \(0\not = n\in \mathbb{Z}\) such that \(R_n \not = 0\). Choose \(n\) such that \(|n|\) is least. Take \(0 \not = f \in R_n\). Then \(\langle f\rangle = R\). Thus, there exists \(g\in R_{-n}\) such that \(fg = 1\). Without loss of generality we assume \(n > 0\), so that \(n\) is the least positive integer with \(R_n \not = 0\). We now note that \(f\) is transcendental over \(k\). Suppose we have an equation \(f^r+a_1f^{r-1}+\cdots + a_r = 0\), with each \(a_j\in k\). Each \(a_if^{r-i} \in R_{nr-in}\), so each such term is zero. In particular, \(f^r = 0\), so \(f = 0\), a contradiction. Thus, \(f\) is transcendental over \(k\). And since \(\langle f\rangle = R\), \(f^{-1}\in R\). Thus, \(k[f,f^{-1}]\subseteq R\), as a graded subring.</p>
+            
+            <p>Now suppose \(R_c \not = 0\), with \(c > 0\). Write \(c = qn+r\), with \(0\leq r < n\). Take \(0\not = g\in R_c\). Then \(0 \not = (f^{-1})^qg\in R_r\), which is a contradiction unless \(r = 0\). Thus, if \(R_c \not = 0\), then \(c = nq\). Thus, it follows that for any \(c\in \mathbb{Z}\), \(R_c \not = 0\) if and only if \(c = nq\), for some \(q\in \mathbb{Z}\). Moreover, if \(g\in R_{nq}\), then \(g = g(f^{-1})^q\cdot f^q\), with \(g(f^{-1})^q \in R_0 = k\), showing that \(R_c\) is the one dimensional vector space over \(k\) with basis \(f^n\). Thus, \(R = k[f, f^{-1}]\) which is isomorphic to \(k[t,t^{-1}]\), if we give \(t\) degree \(n\). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 10</div>
+        <p>Suppose \(R\) is a \(\mathbb{Z}\)-graded ring and \(P\subseteq R\) is a prime ideal. Prove that there are no prime ideals properly between \(P^*\) and \(P\). Hint: Use the previous problem.</p>
+        
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>We first localize \(R\) at the set of homogeneous elements not in \(P\). The resulting ring has the property that every homogeneous ideal is contained in the image of \(P\). Thus, we may begin again assuming that every homogeneous ideal of \(R\) is contained in \(P\), and thus in \(P^*\). If we mod out \(P^*\), we now have a graded ring \(S\) in which (0) and \(S\)
