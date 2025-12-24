@@ -146,26 +146,28 @@
             line-height: 1.8;
         }
 
-        .publication-item, .conference-item, .student-item {
+        .publication-item, .conference-item, .student-item, .course-item {
             margin-bottom: 15px;
             padding-bottom: 15px;
             border-bottom: 1px solid #e0e0e0;
         }
 
-        .publication-item:last-child, .conference-item:last-child, .student-item:last-child {
+        .publication-item:last-child, .conference-item:last-child, .student-item:last-child, .course-item:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
 
         .pub-title {
+            font-weight: 600;
+            color: #444;
             font-style: italic;
-            color: #2c3e50;
         }
 
         .pub-details {
-            color: #555;
-            margin-top: 3px;
+            color: #666;
+            font-size: 0.95em;
+            margin-top: 5px;
         }
 
         .highlight {
@@ -178,43 +180,75 @@
                 font-size: 2em;
             }
 
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
             .main-content {
                 padding: 30px 20px;
             }
 
-            .contact-grid {
-                grid-template-columns: 1fr;
+            body {
+                padding: 10px;
             }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .back-button {
+                display: none;
+            }
+
+            .header {
+                clip-path: none;
+            }
+        }
+
+        .blue-text {
+            color: #0066cc;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header class="header">
             <div class="header-content">
-                <h1>Curriculum Vitae</h1>
-                <h2 style="font-weight: 300; font-size: 1.3em; margin-top: 10px;">Daniel Katz</h2>
+                <h1>Curriculum Vitae for Daniel Katz</h1>
             </div>
-        </div>
+        </header>
 
         <div class="main-content">
-            <a href="../professional.html" class="back-button">← Back to Professional Page</a>
+            <a href="index.html" class="back-button">← Back to Home</a>
 
             <div class="cv-section">
                 <h2 class="section-title">Contact Information</h2>
                 <div class="contact-info">
                     <div class="contact-grid">
-                        <div>
-                            <div class="contact-item">Department of Mathematics</div>
-                            <div class="contact-item">The University of Kansas</div>
-                            <div class="contact-item">405 Snow Hall</div>
-                            <div class="contact-item">1460 Jayhawk Blvd</div>
-                            <div class="contact-item">Lawrence, KS 66045 USA</div>
+                        <div class="contact-item">
+                            <div class="contact-label">Department:</div>
+                            <div>Department of Mathematics</div>
+                            <div>The University of Kansas</div>
+                            <div>405 Snow Hall</div>
+                            <div>1460 Jayhawk Blvd</div>
+                            <div>Lawrence, KS 66045 USA</div>
                         </div>
-                        <div>
-                            <div class="contact-item"><span class="contact-label">Phone:</span> (785) 864-7303</div>
-                            <div class="contact-item"><span class="contact-label">Fax:</span> (785) 864-5255</div>
-                            <div class="contact-item"><span class="contact-label">Email:</span> dlk53@ku.edu</div>
+                        <div class="contact-item">
+                            <div class="contact-label">Phone:</div>
+                            <div>(785) 864-7303</div>
+                            <div class="contact-label" style="margin-top: 10px;">Fax:</div>
+                            <div>(785) 864-5255</div>
+                            <div class="contact-label" style="margin-top: 10px;">E-mail:</div>
+                            <div>dlk53@ku.edu</div>
                         </div>
                     </div>
                 </div>
@@ -233,7 +267,7 @@
                 <h2 class="section-title">Professional Experience</h2>
                 <div class="simple-list">
                     <div>1994-present, Professor, Department of Mathematics, University of Kansas</div>
-                    <div><span class="highlight">2012-2017, Departmental Chair</span>, Department of Mathematics, University of Kansas</div>
+                    <div>2012-2017, Departmental Chair, Department of Mathematics, University of Kansas</div>
                     <div>1987-1994, Associate Professor, Department of Mathematics, University of Kansas</div>
                     <div>1984-1987, Assistant Professor, Department of Mathematics, University of Kansas</div>
                     <div>1982-1984, Visiting Assistant Professor, Department of Mathematics, University of Oklahoma</div>
@@ -250,34 +284,247 @@
             </div>
 
             <div class="cv-section">
-                <h2 class="section-title">Recent Publications </h2>
+                <h2 class="section-title">Publications</h2>
                 <div class="simple-list">
                     <div class="publication-item">
-                        <div class="pub-title">On ideals with submaximal analytic spread</div>
-                        <div class="pub-details">(with J.G. Serio), Rend. Sem. Mat. Univ. Padova, published online 2025</div>
+                        <div class="pub-title">A note on asymptotic prime sequences</div>
+                        <div class="pub-details">Proc. AMS 87 (1983), 415-418.</div>
                     </div>
                     <div class="publication-item">
-                        <div class="pub-title">On abelian extensions in mixed characteristic and ramification in codimension one</div>
-                        <div class="pub-details">(with P. Sridhar), International Mathematics Research Notices, 2025 (11) 1-16.</div>
+                        <div class="pub-title">A criterion for complete intersections to be self-radical</div>
+                        <div class="pub-details">Arch. Math., Vol. 42, 423-425 (1984). (Correction: Vol. 43, 574-575 (1984)).</div>
                     </div>
                     <div class="publication-item">
-                        <div class="pub-title">Uniform symbolic topologies and hypersurfaces</div>
-                        <div class="pub-details">(with C. Huneke), Acta Mathematica Vietnamica, Vol. 49 (2024), No. 1, 99-113.</div>
+                        <div class="pub-title">On the integrity of ideal transforms</div>
+                        <div class="pub-details">Houston Jl. Math., Vol. 10, No. 3 (1984), 415-421.</div>
                     </div>
                     <div class="publication-item">
-                        <div class="pub-title">On the integral closure of radical towers in mixed characteristic</div>
-                        <div class="pub-details">(with P. Sridhar), Jl of Commutative Algebra, Vol. 15 (2023), No. 4, 543-558.</div>
+                        <div class="pub-title">Prime divisors, asymptotic R-sequences and unmixed local rings</div>
+                        <div class="pub-details">Journal of Algebra, 95 (1985), 59-71.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Essential prime divisors and sequences defined over an ideal</div>
+                        <div class="pub-details">(with L. J. Ratliff Jr.), Nagoya Jl. Math., Vol. 103 (1986) 39-66.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On the number of minimal prime ideals in the completion of a local domain</div>
+                        <div class="pub-details">Rocky Mtn. Jl. Math., Vol. 16, No. 3 (1986) 575-578.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On the symbolic Rees ring of a primary ideal</div>
+                        <div class="pub-details">(with L.J. Ratliff, Jr.), Communications in Algebra, Vol. 14, No. 5 (1986), 959-970.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Projective equivalence and form rings</div>
+                        <div class="pub-details">(with L.J. Ratliff, Jr.), Math. Proc. Camb. Phil. Soc., Vol. 99 (1986), 447-456.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Two applications of asymptotic and essential sequences</div>
+                        <div class="pub-details">Houston Jl. Math., Vol. 13, No. 1 (1987), 65-73.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Pole assignability in polynomial rings, power series rings, and Prufer domains</div>
+                        <div class="pub-details">(with J. Brewer and W. Ullery), Jl. of Algebra, Vol. 106, No. 1 (1987), 265-286.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On the pole assignability property over commutative rings</div>
+                        <div class="pub-details">(with J. Brewer and W. Ullery), Jl. of Pure and Applied Algebra, Vol. 47 (1987), 1-7.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On ideal transforms, Rees rings and Krull rings</div>
+                        <div class="pub-details">(with P. Eakin, W. Heinzer, and L.J. Ratliff, Jr.), Jl. of Algebra, Vol. 110, No. 2 (1987), 407-419.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Projective equivalence and asymptotic prime divisors</div>
+                        <div class="pub-details">(with S. McAdam, J. Okon and L.J. Ratliff Jr.), Jl. of Algebra, Vol. 109, No. 2 (1987), 468-478.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Two notes on ideal transforms</div>
+                        <div class="pub-details">(with L.J. Ratliff, Jr.), Math. Proc. Camb. Phil. Soc., Vol. 102 (1987), 389-397.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On the prime divisors of IJ when J is integrally closed</div>
+                        <div class="pub-details">(with L.J. Ratliff, Jr.), Arch. Math, Vol 50 (1988), 55-57.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Note on multiplicity</div>
+                        <div class="pub-details">Proc. AMS, 104, No. 4 (1988), 1921-1026.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Complexes associated to two vectors and a rectangular matrix</div>
+                        <div class="pub-details">J. Algebra 118 (1988), 230-255.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Two asymptotic functions</div>
+                        <div class="pub-details">(with S. McAdam), Communications in Algebra, Vol. 17, No. 5 (1989), 1069-1091.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Prime divisors and divisorial ideals</div>
+                        <div class="pub-details">(with S. McAdam and L.J. Ratliff, Jr.), Jl. of Pure and Applied Algebra, 58 (1989), 179-186.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Extended Rees algebras and mixed multiplicities</div>
+                        <div class="pub-details">(with J.K. Verma), Math. Zeitschrift, 202 (1989), 111-128.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Note on Projective modules</div>
+                        <div class="pub-details">Mathematica Pannonica, Vol. 1, No. 2 (1990), 3-5.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Uniform bounds in Noetherian rings</div>
+                        <div class="pub-details">(with C. Huneke), Inventiones Math. 107 (1992), 203-223.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On the degrees of lattice syzygies</div>
+                        <div class="pub-details">Archiv der Math. 59 (1992), 437-442.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Multiplicity of blow-ups associated to almost complete intersection space curves</div>
+                        <div class="pub-details">(with J.K. Verma), Comm. in Alg. Vol. 22, No. 2 (1994), 721-734.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Generating ideals up to projective equivalence</div>
+                        <div class="pub-details">Proc. AMS, Vol. 120, No. 1 (1994), 79-83.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Torsion-free modules and syzygies</div>
+                        <div class="pub-details">Mathematica Pannonica, Vol. 5, No. 1 (1994), 7-13.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On the relation type of large powers of an ideal</div>
+                        <div class="pub-details">(with B. Johnston), Mathematika, Vol. 41 (1994), 209-214.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Complexes acyclic up to integral closure</div>
+                        <div class="pub-details">Math. Proc. Camb. Phil. Soc., Vol. 116 (1994), 401-414.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Hilbert functions of bigraded algebras</div>
+                        <div class="pub-details">(with J. K. Verma and S. Mandal), Commutative Algebra: September 1992, Trieste, World Scientific, Singapur, edited by A. Simis, N. Trung, and G. Valla (1994), 291-303. (Paper was refereed.)</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Castelnuovo regularity and graded rings associated to an ideal</div>
+                        <div class="pub-details">(with B. Johnston), Proc. AMS, Vol. 123, No. 3 (1995), 727-734.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Reduction criteria for modules</div>
+                        <div class="pub-details">Communications in Algebra, Vol. 17, No. 12 (1995), 4543-4548.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">A note on associated and attached primes</div>
+                        <div class="pub-details">Archiv der Math. 64 (1995), 205-209.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Prime ideals associated to symmetric powers of a module</div>
+                        <div class="pub-details">(with C. Naude), Communications in Algebra, Vol. 17, No. 12 (1995), 4549-4555.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">A note on the coefficients of the Hilbert-Samuel polynomial of certain local Gorenstein rings</div>
+                        <div class="pub-details">(with J. Herzog and E. Kunz), Mathematische Zeitschrift 192 (1986), 15-20.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On the coefficient function of local cohomology modules</div>
+                        <div class="pub-details">J. Algebra 99 (1986), 40-49.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Symmetric powers of complete modules over a two-dimensional regular local ring</div>
+                        <div class="pub-details">(with V. Kodiyalam), Trans. AMS, Vol. 349 (1997), 747-762.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Sequences and Ker(R[X₁, ..., Xg] → R[tI])</div>
+                        <div class="pub-details">(with L. J. Ratliff, Jr.), Jl. Pure and Appl. Vol. 122 (1997), 265-275.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On the existence of maximal Cohen-Macaulay modules over pth root extensions</div>
+                        <div class="pub-details">Proc. AMS, Vol. 127 (1999), No. 9, 2601-2609.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">A linear function associated to asymptotic primes</div>
+                        <div class="pub-details">(with E. West), Proc. AMS, Vol. 132 (2004), 1589-1597.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Fitting ideals and finite projective dimension</div>
+                        <div class="pub-details">(with C. Huneke and D. Jorgensen), Math. Proc. Camb. Phil. Soc., Vol. 138 (2005), 41-54.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Integral closure of ideals and annihilators of homology</div>
+                        <div class="pub-details">(with A. Corso, C. Huneke and W. Vasconcelos), Lecture Notes in Pure and Applied Mathematics, Vol 224 (2006), 33-48.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On the degree of Hilbert polynomials associated with the torsion functor</div>
+                        <div class="pub-details">(with E. Theodorescu), Proc. AMS, Vol 135 (2007), 3073-3082.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Hilbert polynomials for the extension functor</div>
+                        <div class="pub-details">(with E. Theodorescu), Jl. of Algebra, Vol 319 (2008), 2319-2336.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Asymptotic prime divisors of torsion free symmetric powers of modules</div>
+                        <div class="pub-details">(with G. Rice), Jl. of Algebra, Vol 319 (2008), 2209-2234.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On the support of local cohomology modules</div>
+                        <div class="pub-details">(with C. Huneke and T. Marley), Jl. of Algebra, Vol 322 (2009), 3194-3211.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Uniform equivalence of symbolic and adic topologies</div>
+                        <div class="pub-details">(with C. Huneke and J. Validashti), Illinois Jl. Math., Vol 53, No. 1 (2009), 325-338.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Multiplicities and Rees Valuations</div>
+                        <div class="pub-details">(with J. Validashti), Collectanea Mathematica, Vol 61, No. 1 (2010), 1-24.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Hilbert Polynomials for the contravariant extension functor</div>
+                        <div class="pub-details">(with A. Crabbe, J. Striuli, E. Theodorescu), Nagoya Math. Jl., Vol. 198 (2010), 1-22.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Quasi-finite modules and asymptotic prime divisors</div>
+                        <div class="pub-details">(with T. Puthenpurakal), Jl. of Algebra, Vol 380 (2013), 18-29.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Uniform symbolic topologies and finite extensions</div>
+                        <div class="pub-details">(with C. Huneke and J. Validashti), Journal Pure and Applied Algebra, Vol 219 (2015), 543-550.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Reductions and special parts of closures</div>
+                        <div class="pub-details">(with C. Huneke), Commutative Algebra and Noncommutative Algebraic Geometry, Vol. I (2015), 19-36.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Mixed Multiplicities, Joint Reductions, and a Rees-Sally Type Formula</div>
+                        <div class="pub-details">(with V. Kodiyalam and J. Verma), Rocky Mountain J. of Math, Vol. 46, No. 1 (2016), 159-189.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Uniform symbolic topologies and finite extensions</div>
+                        <div class="pub-details">(with C. Huneke), Trans. AMS, 368 (2016), 6715-6737.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Uniform symbolic topologies via multinomial expansions</div>
+                        <div class="pub-details">(with C. Huneke), Algebra and Number Theory, 11 (2017), 1-16.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Uniform symbolic topologies in abelian extensions</div>
+                        <div class="pub-details">(with C. Huneke), Trans. AMS, Vol 372, No 3 (2019), 1735-1750.</div>
                     </div>
                     <div class="publication-item">
                         <div class="pub-title">Conductors in mixed characteristic</div>
                         <div class="pub-details">Jl of Algebra, Vol 571 (2021), 350-375.</div>
                     </div>
                     <div class="publication-item">
-                        <div class="pub-title">Uniform symbolic topologies in abelian extensions</div>
-                        <div class="pub-details">(with C. Huneke), Trans. AMS, Vol 372, No 3 (2019), 1735-1750.</div>
+                        <div class="pub-title">On the integral closure of radical towers in mixed characteristic</div>
+                        <div class="pub-details">(with P. Sridhar), Jl of Commutative Algebra, Vol. 15 (2023), No. 4, 543-558.</div>
                     </div>
-                    <div style="margin-top: 15px; text-align: center; color: #9d7e4a;">
-                        <a href="publications/publications.html" style="color: #9d7e4a; text-decoration: none; font-weight: 600;">View Complete Publications List →</a>
+                    <div class="publication-item">
+                        <div class="pub-title">Uniform symbolic topologies and hypersurfaces</div>
+                        <div class="pub-details">(with C. Huneke), Acta Mathematica Vietnamica, Vol. 49 (2024), No. 1, 99-113.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On abelian extensions in mixed characteristic and ramification in codimension one</div>
+                        <div class="pub-details">(with P. Sridhar), International Mathematics Research Notices, 2025 (11) 1-16.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On ideals with submaximal analytic spread</div>
+                        <div class="pub-details">(with J.G. Serio), Rend.Sem.Mat.Univ.Padova, to appear.</div>
                     </div>
                 </div>
             </div>
@@ -293,6 +540,151 @@
                         <div class="pub-title">S₂-ifications and a uniform Briancon-Skoda theorem for non-reduced rings</div>
                         <div class="pub-details">with T. Polstra</div>
                     </div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Conference Talks</h2>
+                <div class="simple-list">
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, regional meeting of the AMS, Columbia, Missouri, 1985</div>
+                    <div class="conference-item">Invited one-hour speaker, Florida Atlantic University Conference on Pure and Applied Algebra, Boca Raton, Florida, 1986</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, regional meeting of the AMS, Knoxville, Tennessee, 1988</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, regional meeting of the AMS, Springfield, Missouri, 1992</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, national meeting of the AMS, San Antonio, Texas, 1993</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra: Rees algebras and related topics, national meeting of the AMS, San Francisco, California, 1995</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, regional meeting of the AMS, Orlando, Florida, 1995</div>
+                    <div class="conference-item">Invited 30-minute speaker, Summer School on Commutative Algebra, Centre de Recerce Matematica, Belleterra, Spain, 1996</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, national meeting of the AMS, Seattle, Washington, 1996</div>
+                    <div class="conference-item">Invited speaker/participant (co-author presented paper), special session in Commutative Algebra, Columbia, Missouri, 1996</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra and Algebraic Geometry, national meeting of the AMS, Baltimore, MD, 1998</div>
+                    <div class="conference-item">Invited forty-five minute talk, Conference on Algebraic Geometry, Columbia, MO, 1998</div>
+                    <div class="conference-item">Invited plenary talk, Conference on Commutative Algebra in Honor of the 80th Birthday of David Rees, Exeter, England, 1998</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra and Algebraic Geometry, Joint International Meeting of the AMS and Sociedad Matematica Mexicana, Denton TX, 1999</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, regional meeting of the AMS, Salt Lake City, UT, 1999</div>
+                    <div class="conference-item">Invited speaker, Centennial Conference on Commutative Algebra, Lincoln, NA, 2000. (Not a plenary talk.)</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, regional meeting of the AMS, Ann Arbor, MI, 2002</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, regional meeting of the AMS, Orlando, FL, 2002</div>
+                    <div class="conference-item">Invited speaker, International Conference on Commutative Algebra, Lisbon, Portugal, 2003. (Not a plenary talk.)</div>
+                    <div class="conference-item">Invited speaker, KUMUNU 5 Algebra Conference, Lawrence, KS, 2003</div>
+                    <div class="conference-item">Invited speaker, WiegandFest, Lincoln, NE, 2005. (Not a plenary talk.)</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, regional meeting of the AMS, Salt Lake City, Utah, 2006</div>
+                    <div class="conference-item">Invited speaker, special session in Local and Homological Methods in Commutative Algebra, regional meeting of the AMS, Urbana-Champagne, Il, 2009</div>
+                    <div class="conference-item">Invited speaker, special session on Commutative Algebra, regional meeting of the AMS, Albuquerque, NM, 2010</div>
+                    <div class="conference-item">Invited speaker, KUMUNU 11 Algebra Conference, Columbia MO, 2012</div>
+                    <div class="conference-item">Invited fifty minute speaker, Commutative Algebra Conference in Honor of Craig Huneke's 65th Birthday, Ann Arbor Michigan, 2016</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, regional meeting of the AMS, Charlottesville, Virginia, 2020. Sessions held remotely via Zoom.</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, regional meeting of the AMS, Omaha, NE, 2023</div>
+                    <div class="conference-item">Invited Speaker, KUMUNU 24 Algebra Conference, Columbia, MO, 2025</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Conferences Attended as a Participant</h2>
+                <div class="simple-list">
+                    <div class="conference-item">Special session in Algebra, regional meeting of the AMS, Norman, OK, 1983</div>
+                    <div class="conference-item">Conference in honor of Irving Kaplansky's Chicago retirement, Chicago, Illinois, 1984</div>
+                    <div class="conference-item">Microprogram in Commutative Algebra, MSRI, Berkeley, California 1987</div>
+                    <div class="conference-item">Midwest Conference on Commutative Algebra and Algebraic Geometry, Purdue University, 1989</div>
+                    <div class="conference-item">Special session in Commutative Algebra, regional meeting of the AMS, Manhattan, Kansas, 1990</div>
+                    <div class="conference-item">Great Plains Workshop in Commutative Algebra, Lincoln, Nebraska, 1991</div>
+                    <div class="conference-item">AMS Summer Research Conference on Commutative Algebra, Mt. Holyoke, Massachusetts, 1992</div>
+                    <div class="conference-item">Algebraic Geometry: Interactions between Commutative Algebra and Algebraic Geometry, University of Missouri, 1993</div>
+                    <div class="conference-item">Midwest Conference on Algebraic Geometry, Notre Dame University, 1997</div>
+                    <div class="conference-item">MSRI Workshop, Commutative Algebra: Local and Birational Theory, Berkeley, CA, 2002</div>
+                    <div class="conference-item">MSRI Workshop, Commutative Algebra: Interactions with Homological Algebra and Representation Theory, Berkeley, CA, 2003</div>
+                    <div class="conference-item">KUMUNU 6 Algebra Conference, Lawrence, KS, 2004</div>
+                    <div class="conference-item">KUMUNU 7 Algebra Conference, Lawrence, KS 2006</div>
+                    <div class="conference-item">American Institute of Mathematics Workshop on Integral Closure, Multiplier Ideals and Core, 2006</div>
+                    <div class="conference-item">KUMUNU 8 Algebra Conference, Lincoln, NE, 2007</div>
+                    <div class="conference-item">Commutative Algebra: Connections with Algebraic Topology and representation Theory, Lincoln, NE, 2008</div>
+                    <div class="conference-item">KUMUNU 9 Algebra Conference, Lincoln, NE, 2008</div>
+                    <div class="conference-item">Invited participant, Kommutative Algebra, Mathematisches Forschungsinstitut Oberwolfach, Germany, 2009</div>
+                    <div class="conference-item">KUMUNU 10 Algebra Conference, Lincoln, NE, 2011</div>
+                    <div class="conference-item">KUMUNU 13 Algebra Conference, Columbia, MO, 2014</div>
+                    <div class="conference-item">KUMUNU 14 Algebra Conference, Columbia, MO, 2015</div>
+                    <div class="conference-item">KUMUNU 15 Algebra Conference, Lawrence, KS, 2016</div>
+                    <div class="conference-item">KUMUNU 16 Algebra Conference, Lawrence, KS, 2017</div>
+                    <div class="conference-item">KUMUNU 17 Algebra Conference, Lawrence, KS, 2018</div>
+                    <div class="conference-item">KUMUNU 20 Algebra Conference, Lincoln, NE, Spring 2022</div>
+                    <div class="conference-item">KUMUNU 21 Algebra Conference, Lincoln, NE Fall 2022</div>
+                    <div class="conference-item">KUMUNU 23 Algebra Conference, Columbia Missouri, 2024</div>
+                    <div class="conference-item">RayFest, conference in honor of Ray Heitmann's retirement, Lincoln, NE, 2025</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Conferences Organized</h2>
+                <div class="simple-list">
+                    <div class="conference-item">Co-organizer (with J. Lang), special session in Commutative Algebra, regional meeting of the AMS in Lawrence, Kansas, 1988</div>
+                    <div class="conference-item">Co-organizer (with S. Mandal), Great Plains Workshop in Commutative Algebra, Lawrence, Kansas, 1992</div>
+                    <div class="conference-item">Co-organizer (with C. Huneke), special session in Commutative Algebra, regional meeting of the AMS, Lawrence, KS, 2001</div>
+                    <div class="conference-item">Organizer, KUMUNU 4 Algebra Conference, Lawrence, KS, 2002</div>
+                    <div class="conference-item">Co-organizer (with H. Dao and C. Huneke), Special session on Topics in Commutative Algebra, regional meeting of the AMS, Lawrence, KS, Spring 2012</div>
+                    <div class="conference-item">Co-organizer (with H. Dao, D. Hernandez, and E. Witt), KUMUNU 15 Algebra Conference, Lawrence, KS, 2016</div>
+                    <div class="conference-item">Co-organizer (with H. Dao), KUMUNU 16 Algebra Conference, Lawrence, KS, 2017</div>
+                    <div class="conference-item">Co-organizer (with H. Dao), KUMUNU 17 Algebra Conference, Lawrence, KS, 2018</div>
+                    <div class="conference-item">Co-Organizer (with T. Marley), Special session on Topics in Commutative Algebra, regional meeting of the AMS, Lawrence, KS, Spring 2025</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">External Seminars and Colloquia</h2>
+                <div class="simple-list">
+                    <div>Invited one hour seminar talk, Purdue University Algebra Seminar, 1985</div>
+                    <div>Invited one hour colloquium talk, Florida State University, 1993</div>
+                    <div>Invited one hour talk, Florida State University Algebra Seminar, 1993</div>
+                    <div>Invited one hour colloquium talk, Florida Atlantic University, 1993</div>
+                    <div>Invited one hour talk, Florida Atlantic University Algebra Seminar, 1993</div>
+                    <div>Invited two one hour talks, Purdue University Algebra Seminar, 1997</div>
+                    <div>Invited one hour talk, Purdue University Algebra Seminar, 2006</div>
+                    <div>Invited one hour talk, KU Mathematics Faculty Seminar, 2008</div>
+                    <div>Invited one hour talk, University of Nebraska Algebra Seminar, Lincoln, NE, 2008</div>
+                    <div>Invited one hour talk, University of Nebraska Algebra Seminar, Lincoln, NE, 2010</div>
+                    <div>Invited one hour colloquium talk, University of Nebraska, Lincoln, NE, 2010</div>
+                    <div>Invited two one hour talks, Virtual Commutative Algebra Seminar, hosted by IIT Bombay, 2021</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Research Visits</h2>
+                <div class="simple-list">
+                    <div>Purdue University (Summer 1985)</div>
+                    <div>Purdue University (June 1986)</div>
+                    <div>Purdue University (June 1987)</div>
+                    <div>University of Virginia (June 2015)</div>
+                    <div>University of Virginia (June 2018)</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Other Professional Activities</h2>
+                <div class="simple-list">
+                    <div>Referee for various mathematical journals including: <em>Journal of Algebra</em>, <em>Communications in Algebra</em>, <em>Journal of Pure and Applied Algebra</em>, <em>Proceedings of the AMS</em>, <em>Transactions of the AMS</em>, <em>Illinois Journal of Mathematics</em>, <em>American Journal of Mathematics</em>, <em>Advances in Mathematics</em>, <em>Journal of Commutative Algebra</em></div>
+                    <div style="margin-top: 10px;">Associate Editor, <em>Rocky Mountain Journal of Mathematics</em> (2007-2015)</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Grants and Awards</h2>
+                <div class="simple-list">
+                    <div>New Faculty Award, University of Kansas, 1985</div>
+                    <div>General Research Fund, University of Kansas, l986-l989, 1993, 1994, 2002</div>
+                    <div><span class="highlight">G. Baley Price Award for Excellence in Graduate Teaching</span>, 1990, 1995, 2016, 2024</div>
+                    <div>CTE Award for excellence in graduate teaching, 1999</div>
+                    <div><span class="highlight">Max Wells Teaching Award</span>, 2010</div>
+                    <div>PI, NSF grant in support of KUMUNU 2016 (Co-PIs Dao, Hernandez, Witt)</div>
+                    <div>Co-PI (with H. Dao), NSF grant in support of KUMUNU 2017</div>
+                    <div>Co-PI (with H. Dao), NSF grant in support of KUMUNU 2018</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Postdocs Mentored</h2>
+                <div class="simple-list">
+                    <div>Jugal Verma (PhD Purdue University, 1987)</div>
+                    <div>Vijay Kodiyalam (PhD Purdue University, 1993)</div>
+                    <div>Javid Validashti (PhD Purdue University, 2007)</div>
+                    <div>Pedro Lima (PhD University of Sao Paulo, 2012)</div>
                 </div>
             </div>
 
@@ -323,84 +715,176 @@
             </div>
 
             <div class="cv-section">
-                <h2 class="section-title">Postdocs Mentored</h2>
+                <h2 class="section-title">PhD Final Exam Committees as Non-Chair</h2>
                 <div class="simple-list">
-                    <div>Jugal Verma (PhD Purdue University, 1987)</div>
-                    <div>Vijay Kodiyalam (PhD Purdue University, 1993)</div>
-                    <div>Javid Validashti (PhD Purdue University, 2007)</div>
-                    <div>Pedro Lima (PhD University of Sao Paulo, 2012)</div>
+                    <div>David Nelson, 1991</div>
+                    <div>Shine Min Line, 1991</div>
+                    <div>Yuanqian Chen, 1992</div>
+                    <div>Catalin Ciuperca, 2001</div>
+                    <div>Yongwei Yao, 2002</div>
+                    <div>Giulio Caviglia, 2002</div>
+                    <div>Neil Epstein, 2005</div>
+                    <div>Bahman Engheta, 2005</div>
+                    <div>Janet Striuli, 2005</div>
+                    <div>Manoj Kummini, 2008</div>
+                    <div>Ananth Hariharan, 2009</div>
+                    <div>Branden Stone, 2012</div>
+                    <div>Billy Sanders, 2015</div>
+                    <div>Tony Se, 2016</div>
+                    <div>Brent Holmes, 2018</div>
+                    <div>Ken Duna, 2019</div>
+                    <div>Justin Lyle, 2020</div>
+                    <div>Bibekananda Mishra, 2021</div>
+                    <div>Dylan Beck, 2022</div>
+                    <div>Souvik Dey, 2023</div>
+                    <div>John Portin, 2024</div>
+                    <div>Trevor Arrigoni, 2024</div>
+                    <div>Abraham Pascoe, 2024</div>
+                    <div>Monalisa Dutta, 2024</div>
                 </div>
             </div>
 
             <div class="cv-section">
-                <h2 class="section-title">Grants and Awards</h2>
+                <h2 class="section-title">Recent PhD Comprehensive Oral Exam Committees</h2>
                 <div class="simple-list">
-                    <div>New Faculty Award, University of Kansas, 1985</div>
-                    <div>General Research Fund, University of Kansas, 1986-1989, 1993, 1994, 2002</div>
-                    <div><span class="highlight">G. Baley Price Award for Excellence in Graduate Teaching</span>, 1990, 1995, 2016, 2024</div>
-                    <div>CTE Award for excellence in graduate teaching, 1999</div>
-                    <div><span class="highlight">Max Wells Teaching Award</span>, 2010</div>
-                    <div>PI, NSF grant in support of KUMUNU 2016 (Co-PIs Dao, Hernandez, Witt)</div>
-                    <div>Co-PI (with H. Dao), NSF grant in support of KUMUNU 2017</div>
-                    <div>Co-PI (with H. Dao), NSF grant in support of KUMUNU 2018</div>
+                    <div>Ananth Hariharan, 2009</div>
+                    <div>Brenden Stone, 2012</div>
+                    <div>Billy Sanders, 2015</div>
+                    <div>Tony Se, 2016</div>
+                    <div>Brent Holmes, 2018</div>
+                    <div>Ken Duna, 2019</div>
+                    <div>Justin Lyle, 2020</div>
+                    <div>Bibekananda Mishra, 2020</div>
+                    <div>Kevin Marshall, 2022</div>
+                    <div>Dylan Beck, 2022</div>
+                    <div>John Portin, 2022</div>
+                    <div>Souvik Dey, 2023</div>
+                    <div>Trevor Arrigoni, 2023</div>
+                    <div>Abraham Pascoe, 2024</div>
+                    <div>Monalisa Dutta, 2024</div>
                 </div>
             </div>
 
             <div class="cv-section">
-                <h2 class="section-title">Selected Conference Talks</h2>
+                <h2 class="section-title">Masters Students Advised</h2>
                 <div class="simple-list">
-                    <div class="conference-item">Invited Speaker, KUMUNU 24 Algebra Conference, Columbia, MO, 2025</div>
-                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, regional meeting of the AMS, Omaha, NE, 2023</div>
-                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, regional meeting of the AMS, Charlottesville, Virginia, 2020 (remote via Zoom)</div>
-                    <div class="conference-item">Invited fifty minute speaker, Commutative Algebra Conference in Honor of Craig Huneke's 65th Birthday, Ann Arbor Michigan, 2016</div>
-                    <div class="conference-item">Invited speaker, KUMUNU 11 Algebra Conference, Columbia MO, 2012</div>
-                    <div class="conference-item">Invited plenary talk, Conference on Commutative Algebra in Honor of the 80th Birthday of David Rees, Exeter, England, 1998</div>
-                    <div class="conference-item">Invited 30-minute speaker, Summer School on Commutative Algebra, Centre de Recerce Matematica, Belleterra, Spain, 1996</div>
+                    <div>Joseph Shaffer, 1986</div>
+                    <div>Keith McGaffin, 1987</div>
+                    <div>Eric West, 1993</div>
+                    <div>Steve Abele, 1994</div>
+                    <div>Stacey Longmire, 1995</div>
+                    <div>Eva Thanheiser, 1998</div>
+                    <div>Lauren Jacobs, 2000</div>
+                    <div>Will Hickman, 2010</div>
+                    <div>David Jones, 2011</div>
+                    <div>Nick Packauskas, 2013</div>
+                    <div>Eric Huang, 2021</div>
+                    <div>Emily Hastings, 2025 (co-advisor with Daniel Hernandez)</div>
                 </div>
             </div>
 
             <div class="cv-section">
-                <h2 class="section-title">Conferences Organized</h2>
+                <h2 class="section-title">Recent MA Oral Exam Committees</h2>
                 <div class="simple-list">
-                    <div class="conference-item">Co-Organizer (with T. Marley), Special session on Topics in Commutative Algebra, regional meeting of the AMS, Lawrence, KS, Spring 2025</div>
-                    <div class="conference-item">Co-organizer (with H. Dao), KUMUNU 17 Algebra Conference, Lawrence, KS, 2018</div>
-                    <div class="conference-item">Co-organizer (with H. Dao), KUMUNU 16 Algebra Conference, Lawrence, KS, 2017</div>
-                    <div class="conference-item">Co-organizer (with H. Dao, D. Hernandez, and E. Witt), KUMUNU 15 Algebra Conference, Lawrence, KS, 2016</div>
-                    <div class="conference-item">Co-organizer (with H. Dao and C. Huneke), Special session on Topics in Commutative Algebra, regional meeting of the AMS, Lawrence, KS, Spring 2012</div>
-                    <div class="conference-item">Organizer, KUMUNU 4 Algebra Conference, Lawrence, KS, 2002</div>
-                    <div class="conference-item">Co-organizer (with C. Huneke), special session in Commutative Algebra, regional meeting of the AMS, Lawrence, KS, 2001</div>
+                    <div>Nathan Welch, 2013</div>
+                    <div>Zach Flores, 2014</div>
+                    <div>Luke Eichelberger, 2016</div>
                 </div>
             </div>
 
             <div class="cv-section">
-                <h2 class="section-title">Other Professional Activities</h2>
+                <h2 class="section-title">Undergraduate Honors Theses Supervised</h2>
                 <div class="simple-list">
-                    <div>Referee for various mathematical journals including: <em>Journal of Algebra</em>, <em>Communications in Algebra</em>, <em>Journal of Pure and Applied Algebra</em>, <em>Proceedings of the AMS</em>, <em>Transactions of the AMS</em>, <em>Illinois Journal of Mathematics</em>, <em>American Journal of Mathematics</em>, <em>Advances in Mathematics</em>, <em>Journal of Commutative Algebra</em></div>
-                    <div style="margin-top: 10px;">Associate Editor, <em>Rocky Mountain Journal of Mathematics</em> (2007-2015)</div>
+                    <div>Zach Nason, 2020</div>
+                    <div>Kashif Khan, 2024</div>
+                    <div>Andrew Lin, 2025</div>
                 </div>
             </div>
 
             <div class="cv-section">
-                <h2 class="section-title">Selected Departmental Service</h2>
+                <h2 class="section-title">Undergraduate Honors Thesis Committee</h2>
                 <div class="simple-list">
-                    <div><span class="highlight">Departmental Chair</span>, AY 2012-2017</div>
-                    <div><span class="highlight">Interim Departmental Chair</span>, Spring 2012</div>
-                    <div>Director of Graduate Studies (1994-1997, 2010-2012)</div>
+                    <div>Triston Ruiseco, 2022</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Departmental Committees</h2>
+                <div class="simple-list">
+                    <div>Graduate Studies</div>
+                    <div>Undergraduate Curriculum</div>
+                    <div>Honors</div>
+                    <div>Salary</div>
+                    <div>Library</div>
+                    <div>Hiring (Chair, 1997-1998, co-chair, 2007-2008)</div>
+                    <div>Organizational Committee for 1988 Regional Meeting of the AMS</div>
+                    <div>Promotion and Tenure (Chair, 1998-1999, 2005, 2019, co-chair, 2008)</div>
+                    <div>Evaluation of Teaching</div>
                     <div>Director of Graduate Admissions (1991-1994)</div>
-                    <div>Promotion and Tenure Committee (Chair, 1998-1999, 2005, 2019, co-chair, 2008)</div>
-                    <div>Hiring Committee (Chair, 1997-1998, co-chair, 2007-2008)</div>
+                    <div>Director of Graduate Studies (1994-1997, 2010-2012)</div>
+                    <div>Departmental Self Study Committee (1995 and 2016)</div>
+                    <div>Bischoff Search Committee</div>
+                    <div>Research Environment</div>
+                    <div>Executive Committee</div>
+                    <div>Sabbatical</div>
+                    <div>Endowment</div>
                     <div>By-laws Committee (Chair, 2022-2024)</div>
+                    <div>External Review Response Committee (Fall 2011)</div>
+                    <div><span class="blue-text">Interim Departmental Chair, Spring 2012</span></div>
+                    <div><span class="blue-text">Departmental Chair, AY 2012-2017</span></div>
                     <div>Progress Towards Tenure Review (Chair, AY 2017-2018, AY 2018-2020, AY 2023-2024)</div>
                     <div>Post Tenure Review (Chair, AY 2019-2020, AY 2023-2024)</div>
+                    <div>Nominating Committee</div>
+                    <div>Distinguished Lecture Series Committee</div>
                 </div>
             </div>
 
             <div class="cv-section">
-                <h2 class="section-title">Selected Courses Taught at KU</h2>
+                <h2 class="section-title">College and University Committees</h2>
                 <div class="simple-list">
-                    <div><strong>Graduate Courses:</strong> Math 830/831 (Abstract Algebra I/II), Math 910 (Algebraic Curves), Math 915 (Introduction to Homological Algebra), Math 996 (Various advanced topics in algebra)</div>
-                    <div style="margin-top: 10px;"><strong>Upper-Level Undergraduate:</strong> Math 790 (Linear Algebra II), Math 791/792 (Modern Algebra I/II), Math 558 (Introductory Modern Algebra), Math 540 (Elementary Number Theory)</div>
-                    <div style="margin-top: 10px;"><strong>Lower-Level Courses:</strong> Various calculus, linear algebra, and statistics courses</div>
+                    <div>Selection Committee for Undergraduate Research Awards (1995-2003)</div>
+                    <div>Selection Committee for Dissertation Fellowships (1996-1997)</div>
+                    <div>CLAS Committee on Graduate Studies (2010-2012)</div>
+                    <div>New KU Core Curriculum Goal 1 Satellite Committee (Fall 2011)</div>
+                    <div>Member of College Academic Council (Fall 2014-Spring 2017)</div>
+                    <div>Provost's Advisory Committee (AY 2014-2015)</div>
+                    <div>CLAS Dean's Cabinet (AY 2014-2015)</div>
+                    <div>CLAS Faculty Mentor (AY 2017-2018)</div>
+                    <div>University Core Curriculum Committee (Fall 2021 - Spring 2024)</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Courses Taught at KU</h2>
+                <div class="simple-list">
+                    <div class="course-item">Math 105, Introduction to Topics in Mathematics</div>
+                    <div class="course-item">Math 111, Linear Algebra</div>
+                    <div class="course-item">Math 115, Calculus I</div>
+                    <div class="course-item">Math 116, Calculus II</div>
+                    <div class="course-item">Math 121, Calculus I</div>
+                    <div class="course-item">Math 122, Calculus II</div>
+                    <div class="course-item">Math 127, Calculus III</div>
+                    <div class="course-item">Math 142, Honors Calculus II (older version)</div>
+                    <div class="course-item">Math 143, Honors Calculus III (older version)</div>
+                    <div class="course-item">Math 147, Honors Calculus III</div>
+                    <div class="course-item">Math 223, Vector Calculus</div>
+                    <div class="course-item">Math 243, Honors Vector Calculus</div>
+                    <div class="course-item">Math 290, Elementary Linear Algebra</div>
+                    <div class="course-item">Math 365, Elementary Statistics</div>
+                    <div class="course-item">Math 450, Mathematical Foundations of Computer Science</div>
+                    <div class="course-item">Math 500, Intermediate Analysis</div>
+                    <div class="course-item">Math 526, Applied Statistics I</div>
+                    <div class="course-item">Math 540, Elementary Number Theory</div>
+                    <div class="course-item">Math 558, Introductory Modern Algebra</div>
+                    <div class="course-item">Math 590, Linear Algebra</div>
+                    <div class="course-item">Math 790, Linear Algebra II</div>
+                    <div class="course-item">Math 791, Modern Algebra I</div>
+                    <div class="course-item">Math 792, Modern Algebra II</div>
+                    <div class="course-item">Math 830, Abstract Algebra I</div>
+                    <div class="course-item">Math 831, Abstract Algebra II</div>
+                    <div class="course-item">Math 910, Algebraic Curves</div>
+                    <div class="course-item">Math 915, Introduction to Homological Algebra</div>
+                    <div class="course-item">Math 996, Various advanced topics in algebra</div>
                 </div>
             </div>
 
