@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 830 Fall 2025: Homework 3 Solutions</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        .solution {
+            margin-top: 15px;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-left: 4px solid #5cb85c;
+        }
+        .solution-label {
+            font-weight: bold;
+            color: #5cb85c;
+            margin-bottom: 10px;
+        }
+        .qed {
+            float: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #6c757d;
+        }
+        mjx-container {
+            margin: 0 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Math 830 Fall 2025: Homework 3 Solutions</h1>
+    
+    <div class="instructions">
+        <p><strong>Assignment Instructions:</strong> For this assignment you will work in pairs as on the previous assignment. These solutions should be typeset using LaTeX. Each member of the team must contribute both to the solutions and the typesetting. As before, for this assignment, you may use your notes, the Daily Summary, and any daily homework you have done. You may not consult outside sources, including any algebra textbook, the internet, graduate students not in this class, or any professor except your Math 830 instructor. You may not cite - without proof - any facts not covered in class or the homework. To receive full credit, all proofs must be complete and contain the appropriate amount of detail. Hard copies of each team's solutions are due in pdf format on Monday, November 17.</p>
+        <p><strong>Notation:</strong> Throughout \(R\) will denote a commutative ring and \(M\) will denote an \(R\)-module.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 1</div>
+        <p>Let \(\phi : R^n\to R^m\) be an \(R\)-module homomorphism. First show that there is an \(m\times n\) matrix \(A\) such that \(\phi(v) = Av\), for all \(v\in R^n\). Here we are writing the elements of \(R^n\) and \(R^m\) as column vectors. Then show that the induced map \(\phi^*:\text{Hom}_R(R^m, R)\to \text{Hom}_R(R^n, R)\) is multiplication by \(A^t\), the transpose of \(A\). Use these facts to calculate \(\text{Ext}^n_R(R/I, R)\), for all \(n\geq 0\), for \(R := k[x, y, z]/(xy-z^2)\), and \(I = (x,z)R\).</p>
+
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>The first part is just like in linear algebra: If \(e_1, \ldots, e_n \in R^n\) is the standard basis and \(\phi(e_i) = C_i\), a column vector in \(R^m\), then if we let \(A\) be the \(m\times n\) matrix whose columns are \(C_1, \ldots, C_n\), then \(\phi(v) = Av\), for all column vectors \(v\in R^n\). Let us write \(A := (a_{ij})\).</p>
+
+            <p>For the second part, we let \(e_1^*, \ldots, e_n^*\) be the dual basis for \(\text{Hom}_R(R^n, R)\) and \(f_1^*, \ldots, f_m^*\) be the dual basis for \(\text{Hom}_R(R^m, R)\), where \(f_1, \ldots, f_m \in R^m\) is the standard basis. Here the dual basis means the same as in linear algebra \(e^*_i(e_j) = \delta_{ij}\), the Kronecker delta. Now consider \(\phi^*(f_j^*)\). We need to write this in terms of \(e_1^*, \ldots, e_n^*\). By definition, \(\phi^*(f_j^*) = f_j^*\circ \phi\) as a map from \(R^n\) to \(R\). Then</p>
+            
+            <div class="math-display">
+                \[f^*_j(\phi(e_i)) = f_j^*(a_{1i}f_1 +\cdots + a_{mi}f_m) = a_{ji}.\]
+            </div>
+            
+            <p>It follows that \(f_j^*\circ \phi = a_{j1}e_1^*+\cdots + a_{jn}e_n^*\), since these functionals agree on \(e_1, \ldots, e_n\). In other words, \(\phi^*(f_j^*) = a_{j1}e_1^*+\cdots + a_{jn} e_n^*\). Therefore the matrix of \(\phi^*\) with respect to the bases \(\{e_1^*, \ldots, e_n^*\}\) and \(\{f_1^*, \ldots, f_m^*\}\) has the \(j\)th row of \(A\) as its \(j\)th column, which means this matrix is just \(A^t\). When we identify \(\text{Hom}_R(R^n, R)\) with \(R^n\), we are identifying each \(e_i^*\) with \(e_i\), and similarly when we identify \(\text{Hom}_R(R^m, R)\) with \(R^m\), so that with these identifications, \(\phi^*\) is multiplication by \(A^t\).</p>
+
+            <p>For the final statement, it turns out that once we know the relations on \(x,z\) as elements of \(R\), all further relations in the resolution of \(R/I\) and the computation of cohomology in its dual are easily identified. Suppose \(a+bz \equiv 0\) in \(R\), then \(ax+bz = c(xy-z^2)\) in \(S := k[x,y,z]\). Thus, \((a-cy)x+(b+cz)z = 0\) in \(S\). Therefore \(\begin{pmatrix} a-cy\\b+cz\end{pmatrix} = d\begin{pmatrix} -z\\x\end{pmatrix}\), so that \(\begin{pmatrix} a\\b\end{pmatrix} = d\begin{pmatrix} -z\\x\end{pmatrix}+ c\begin{pmatrix} y\\-z\end{pmatrix}\). Thus the relations on \(x,z\) are contained in the submodule generated by the columns of \(\begin{pmatrix}-z & y\\x & -z\end{pmatrix}\). On the other hand, the columns of this matrix are clearly relations on \(x\) and \(z\), so the start of a free resolution of \(R/I\) is</p>
+            
+            <div class="math-display">
+                \[R^2\overset{\begin{pmatrix}-z & y\\x & -z\end{pmatrix}}\longrightarrow R^2\overset{\begin{pmatrix} x & z\end{pmatrix}}\longrightarrow R\to R/I\to 0.\]
+            </div>
+            
+            <p>To calculate the kernel of multiplication by \(A := \begin{pmatrix}-z & y\\x & -z\end{pmatrix}\), we note that if \(\begin{pmatrix}-z & y\\x & -z\end{pmatrix} \cdot \begin{pmatrix} a\\b\end{pmatrix} \equiv \begin{pmatrix} 0\\0\end{pmatrix}\), then \(ax+(-b) z \equiv 0\) in \(R\), so that \(\begin{pmatrix} a\\-b\end{pmatrix}\) is in the column space of \(\begin{pmatrix}-z & y\\x & -z\end{pmatrix}\). Thus, \(\begin{pmatrix} a\\ b\end{pmatrix}\) is in the column space of \(B := \begin{pmatrix} z & y\\x & z\end{pmatrix}\). It is easy to check that \(AB = \begin{pmatrix} 0\\0\end{pmatrix}\), thus, the free resolution of \(R/I\) continues as</p>
+            
+            <div class="math-display">
+                \[\cdots \longrightarrow R^2\overset{B}\longrightarrow R^2 \overset{A}\longrightarrow R^2\overset{\begin{pmatrix} x & z\end{pmatrix}}\longrightarrow R\longrightarrow R/I\longrightarrow 0\]
+            </div>
+            
+            <p>Continuing in this way we see that we obtain a periodic resolution of \(R/I\)</p>
+            
+            <div class="math-display">
+                \[\cdots \longrightarrow R^2\overset{B}\longrightarrow R^2\overset{A}\longrightarrow R^2\overset{B}\longrightarrow R^2 \overset{A}\longrightarrow R^2\overset{\begin{pmatrix} x & z\end{pmatrix}}\longrightarrow R\longrightarrow R/I\longrightarrow 0\]
+            </div>
+            
+            <p>Applying \(\text{Hom}_R(-, R)\) and dropping \(R/I\), we seek the homology of the complex</p>
+            
+            <div class="math-display">
+                \[0\to R\overset{\begin{pmatrix} x\\z\end{pmatrix}}\longrightarrow R^2\overset{A^t}\longrightarrow R^2\overset{B^t}\longrightarrow R^2\overset{A^t}\longrightarrow R^2\overset{B^t}\longrightarrow \cdots\]
+            </div>
+            
+            <p>Since \(R\) is an integral domain, and the first map (on the left) in the complex above takes \(r\) to \(\begin{pmatrix} rx\\rz\end{pmatrix}\), the kernel of this map is zero, so \(\text{Ext}_R^0(R/I,R) = 0\). Calculating as above, it is easy to see that the kernel of multiplication by \(A^t\) is the image of multiplication by \(B^t\) and the kernel of multiplication by \(B^t\) is the image of multiplication by \(A^t\). This shows \(\text{Ext}_R^n(R/I,R) = 0\), for \(n\geq 2\). This also gives that \(\text{Ext}^1_R(R/I,R)\) is the cyclic module \(L := \langle \begin{pmatrix} z\\y\end{pmatrix}, \begin{pmatrix} x\\z\end{pmatrix}\rangle/\langle\begin{pmatrix} x\\z\end{pmatrix}\rangle\). Now \(x\cdot \begin{pmatrix} z\\y\end{pmatrix} \equiv z\cdot \begin{pmatrix} x\\z\end{pmatrix}\) and \(z\cdot \begin{pmatrix} z\\y\end{pmatrix} \equiv y\cdot\begin{pmatrix} x\\z\end{pmatrix}\), which shows that \(I\) annihilates \(L\). On the other hand, if \(t\cdot L \equiv 0\), then \(tz \equiv sx\), for some \(s\in R\), and our relations on \(x, z\) show that \(t\in I\). Thus, \(\text{ann}(L) = I\), giving \(\text{Ext}^1_R(R/I, R) \cong R/I\). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 2</div>
+        <p>Prove the injective version of the Ext Lemma. Namely: Given an exact sequence \(0\to N\overset{i}\to Q\overset{\pi}\to C\to 0\), with \(Q\) injective, then for any \(R\)-modules \(A\), there exists an exact sequence</p>
+        
+        <div class="math-display">
+            \[0\to \text{Hom}_R(A, N)\overset{\tilde{i}}\to \text{Hom}_R(A,Q)\overset{\tilde{\pi}} \to \text{Hom}_R(A, C)\to \text{Ext}^1_R(A, N)\to 0.\]
+        </div>
+        
+        <p>Moreover, for all \(n\geq 1\), \(\text{Ext}^n_R(A, C)\cong \text{Ext}^{n+1}_R(A, N)\). You may assume the equivalence in Proposition-Definition from Wednesday, October 8 hold.</p>
+
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Since \(0\to \text{Hom}_R(A, N)\overset{\tilde{i}}\to \text{Hom}_R(A,Q)\overset{\tilde{\pi}} \to \text{Hom}_R(A, C)\) is exact, we just need a surjective \(R\)-module homomorphism \(g: \text{Hom}_R(A, C)\to \text{Ext}^1_R(A, N)\) whose kernel is the image of \(\tilde{\pi}\). Towards this end, let \(0\to N\overset{i}\to Q\overset{\psi_1}\to Q_2\overset{\psi_2}\to Q_3\) be the start of an injective resolution of \(N\), so that the image of \(\psi_1\) (and hence the kernel of \(\psi_2\)) is \(C\). Write \(j: C\to Q_1\) for the natural inclusion. Now suppose \(h\in \text{Hom}_R(A, C)\). Then, \(jh \in \text{Hom}_R(A, Q_1)\). If we show \(\psi_2jh = 0\), then \(jh \in \text{ker}(\tilde{\psi}_2)\), and we can define \(g(h) := [jh]\), the class of \(jh\) in \(\text{ker}(\psi_2)/\text{im}(\psi_1) = \text{Ext}^1_R(A, N)\). Suppose \(a\in A\). Take \(q\in Q\) such that \(\psi_1(q) = h(a)\). Then \(\psi_2jh(a) = \psi_2\psi_1(q) = 0\), which shows that \(\psi_2jh = 0\), as required.</p>
+
+            <p>Now, \(h\in \text{ker}(g)\) if and only if \([jh] \equiv 0\) in \(\text{ker}(\tilde{\psi}_2)/\text{im}(\tilde{\psi}_1)\) if and only if \(jh = \psi_1d\), for some \(d\in \text{Hom}_R(A, Q)\). If we show that \(jh = \psi_1 d\) for \(d\in \text{Hom}_R(A, Q)\) if and only if \(h = \pi d\), then we have \(h\in \text{ker}(g)\) if and only if \(h\in \text{im}(\tilde{\pi})\), which is what we want. But this is clear from the definition of \(j\) and the fact that \(\psi_1(q) = \pi(q)\), for all \(q\in Q\).</p>
+
+            <p>Finally, to see that \(g\) is surjective, take \([l]\in \text{ker}(\tilde{\psi_2})/\text{im}(\tilde{\psi_1})\), where \(l\in \text{Hom}_R(A, Q_1)\) satisfies \(\psi_2l = 0\). Thus, \(\text{im}(l) \subseteq \text{im}(\psi_1) = C\), so \(l\) takes its values in \(C\). Thus, if we let \(l'\in \text{Hom}_R(A, C)\) be the map defined by \(l\), then \(jl' = l\) and hence \([l] = [jl'] = g(l')\), showing that \(g\) is surjective. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 3</div>
+        <p>Let \(A, B, C\) be \(R\)-modules. Prove that \(\text{Hom}_R(A\otimes_R B, C)\cong \text{Hom}_R(A, \text{Hom}_R(B, C))\), the so-called Hom-Tensor adjointness. <em>Hint: If \(f: A\otimes_RB\to C\), show there exists \(g\in \text{Hom}_R(A, \text{Hom}_R(B, C))\) satisfying \(g(a)(b) = f(a\otimes b)\), for all \(a \in A\) and \(b\in B\).</em></p>
+
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Fix \(f\in \text{Hom}_R(A\otimes B, C)\). For \(a\in A\), define \(g(a): B\to C\) as follows: \(g(a)(b) := f(a\otimes b)\), for all \(b\in B\). The bilinear properties of tensor product show that \(g(a) \in \text{Hom}_R(B, C)\). We next show that the function \(g: A\to \text{Hom}_R(B, C)\) given by \(a\to g(a)\) is an \(R\)-module homomorphism. For \(a_1, a_2\in A\), and \(b\in B\) we have</p>
+            
+            <div class="math-display">
+                \[g(a_1+a_2)(b) = f((a_1+a_2)\otimes b) = f((a_1\otimes b)+ (a_2\otimes b)) = f(a_1\otimes b) + f(a_2\otimes b) = g(a_1)(b) + g(a_2)(b) = (g(a_1)+g(a_2))(b),\]
+            </div>
+            
+            <p>showing \(g(a_1+a_2) = g(a_1)+g(a_2)\). Now take \(r\in R\), \(a\in A\). Then for any \(b\in B\),</p>
+            
+            <div class="math-display">
+                \[g(ra)(b) = f((ra)\otimes b) = f(r(a\otimes b)) = r f(a\otimes b) = r g(a)(b),\]
+            </div>
+            
+            <p>showing that \(g(ra) = rg(a)\). Therefore, \(g\in \text{Hom}_R(A, \text{Hom}_R(B, C))\). We can now define \(\phi : \text{Hom}_R(A\otimes B, C)\to \text{Hom}_R(A, \text{Hom}_R(B, C))\) by \(\phi(f) = g\).</p>
+
+            <p>We now show that \(\phi\) is an isomorphism. Let \(f_1, f_2\in \text{Hom}_R(A\otimes B, C)\), and set \(g_1 := \phi(f_1)\) and \(g_2 := \phi(f_2)\). Then, for \(a\in A\) and \(b\in B\), we have, on the one hand</p>
+            
+            <div class="math-display">
+                \[\phi(f_1+f_2)(a)(b) = (f_1+f_2)(a\otimes b) = f_1(a\otimes b) + f_2(a\otimes b) = (\phi(f_1)(a)+\phi(f_2)(a))(b).\]
+            </div>
+            
+            <p>Thus, \(\phi(f_1+f_2)(a) = \phi(f_1)(a)+\phi(f_2)(a) = (\phi(f_1)+\phi(f_2))(a)\), for all \(a\in A\), and thus, \(\phi(f_1+f_2)= \phi(f_1)+\phi(f_2)\). Similarly, one can show that \(\phi(rf) = r\phi(f)\), for all \(r\in R\) and \(f\in \text{Hom}_R(A\otimes B, C)\). Thus, \(\phi\) is an \(R\)-module homomorphism. Suppose \(\phi(f) = 0\). Then, \(\phi(f)(a)(b) = 0\), for all \(a \in A\) and \(b\in B\). Thus, \(f(a\otimes b) = 0\), for all \(a\in A\) and \(b\in B\), which implies that \(f = 0\). Therefore \(\phi\) is one-to-one.</p>
+
+            <p>Finally, suppose \(g\in \text{Hom}_R(A, \text{Hom}_R(B, C))\). The bilinearity of the map \(l(a, b) := g(a)(b)\) from \(A\times B\) to \(C\) shows there exists \(f: A\otimes B\to C\) satisfying \(f(a\otimes b) = g(a)(b)\). This shows that \(\phi(f) = g\), so that \(\phi\) is surjective. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 4</div>
+        <p>Prove that \(R/I\otimes_R M \cong M/IM\), for \(I\subseteq R\) an ideal and \(M\) an \(R\)-module. Conclude that for ideals \(I, J\subseteq R\), \((R/I)\otimes_R (R/J)\) is isomorphic to \(R/(I+J)\) and in particular, \(\mathbb{Z}_n\otimes_{\mathbb{Z}} \mathbb{Z}_m \cong \mathbb{Z}_d\), for \(d:= \text{GCD}(n, m)\).</p>
+
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>The bilinearity of the map \(g(r+I, m) = rm+IM\) from \(R/I\times M\) to \(M/IM\) shows there exists \(f: R/I\otimes M \to M/IM\) having the property that \(f((r+I)\otimes m) = rm +IM\). We now define \(l: M/IM \to R/I\otimes M\) as follows: \(l(m+IM) := (1+I)\otimes m\). To see that \(l\) is well defined, suppose \(m+IM = m'+IM\), so that \(m-m' = \sum_j i_jy_j\), with \(i_j \in I\) and \(y_j \in M\). Then</p>
+
+            <div class="math-display">
+                \begin{align*}
+                (1+I)\otimes m &= (1+I)\otimes (m'+\sum_ji_jy_j)\\
+                &= (1+I)\otimes m'+ (1+I)\otimes \sum_j i_jy_j\\
+                &= (1+I)\otimes m' + \sum_j ((1+I)i_j)\otimes y_j\\
+                &= (1+I)\otimes m' + 0 = (1+I)\otimes m',
+                \end{align*}
+            </div>
+            
+            <p>showing that \(l\) is well-defined. Taking \((r+I)\otimes m\) in \(R/I\otimes M\), we have</p>
+            
+            <div class="math-display">
+                \[lf((r+I)\otimes m) = l(rm+IM) = (1+I)\otimes rm = (1+I)r\otimes m = (r+I)\otimes m.\]
+            </div>
+            
+            <p>Conversely, for \(m+IM \in M/IM\), we have</p>
+            
+            <div class="math-display">
+                \[fl(m+IM) = f((1+I)\otimes m) = m+IM,\]
+            </div>
+            
+            <p>showing that \(R/I\otimes M\cong M/IM\).</p>
+
+            <p>For the second statement, by the first statement we have</p>
+            
+            <div class="math-display">
+                \[(R/I)\otimes (R/J) \cong (R/J)/I(R/J) \cong (R/J)/\{(I+J)/J\} \cong R/(I+J).\]
+            </div>
+            
+            <p>For the final statement, we apply the second statement to obtain</p>
+            
+            <div class="math-display">
+                \[\mathbb{Z}_n\otimes \mathbb{Z}_m = (\mathbb{Z}/n\mathbb{Z})\otimes (\mathbb{Z}/m\mathbb{Z}) \cong \mathbb{Z}/(n\mathbb{Z}+ m\mathbb{Z}) = \mathbb{Z}/\langle n, m\rangle \cong \mathbb{Z}/d\mathbb{Z},\]
+            </div>
+            
+            <p>since \(\langle n, m\rangle = d\mathbb{Z}\), where \(d = \text{GCD}(n, m)\). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 5</div>
+        <p>Prove that if \(0\to A\overset{f}\to B\overset{g}\to C \to 0\) is a short exact sequence of \(R\)-modules, and \(D\) is a projective \(R\)-module, then \(0\to A\otimes D\overset{f\otimes 1_D}\to B\otimes D\overset{g\otimes 1_D}\to C\otimes D\to 0\) is exact.</p>
+
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Since \(D\) is projective there is a free \(R\)-module \(F\) and an \(R\)-module \(K\) such that \(F \cong D\oplus K\). We first note that \(0\to A\otimes F\to B\otimes F\to C\otimes F\to 0\) is exact, and for this we just need to show that \(f\otimes 1_F: A\otimes F\to B\otimes F\) is injective. Without loss of generality, we assume that \(D, K\subseteq F\). We may assume \(F = \bigoplus_{i\in I} R\), a direct sum of \(|I|\) copies of \(R\). Then it is easy to check that \(A\otimes F \cong \bigoplus_i A\) and \(B\otimes F \cong \bigoplus_i B\).</p>
+
+            <p>The commutativity of the induced maps shows that \(f\otimes 1_F\) corresponds to the injective map \(j\) from \(\bigoplus_i A\) to \(\bigoplus_i B\) induced by \(f\). It follows that \(f\otimes 1_F\) is injective. Since \(f\otimes 1_F\) is injective and the natural isomorphisms preserve the structure, we can project to show that \(f\otimes 1_D: A\otimes D \to B\otimes D\) is injective, which gives what we want. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 6</div>
+        <p>Let \(A, B\) be \(R\)-modules and \(S\subseteq R\) a multiplicatively closed set. Prove that there is an isomorphism of \(R_S\)-modules \(\text{Tor}_n^R(A, B)_S \cong \text{Tor}^{R_S}_n(A_S, B_S)\), for all \(n\geq 1\). You may use the fact that \((A\otimes_R B)_S \cong A_S\otimes_{R_S} B_S\), as \(R_S\)-modules.</p>
+
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>Let \(\mathcal{P}: \cdots \to P_2\overset{\phi_2}\longrightarrow P_1\overset{\phi_1}\longrightarrow P_0\overset{\pi}\longrightarrow A\to 0\) be a projective resolution of \(A\). To calculate \(\text{Tor}^R_n(A, B)\), we calculate the \(n\)th homology of \(\mathcal{P}\otimes B\), after dropping the \(A\) term. Thus, \(\text{Tor}^R_n(A, B) = \text{ker}(\phi_n\otimes 1_B)/\text{im}(\phi_{n+1}\otimes 1_B)\). Therefore,</p>
+
+            <div class="math-display">
+                \begin{align*}
+                \text{Tor}^R_n(A, B)_S &= \{\text{ker}(\phi_n\otimes 1_B)/\text{im}(\phi_{n+1}\otimes 1_B)\}_S\\
+                &= \text{ker}(\phi_n\otimes 1_B)_S/\text{im}(\phi_{n+1}\otimes 1_B)_S\\
+                &= \text{ker}((\phi_n)_S\otimes (1_B)_S)/\text{im}((\phi_{n+1})_S\otimes (1_B)_S).
+                \end{align*}
+            </div>
+
+            <p>Since \(\mathcal{P}_S\) is a projective resolution of \(A_S\), this gives what we want. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 7</div>
+        <p>Calculate \(\text{Tor}_n^{\mathbb{Z}_{48}}(\mathbb{Z}_{12}, \mathbb{Z}_{16})\) in two ways, for all \(n\geq 0\).</p>
+
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>We set \(R := \mathbb{Z}_{48}\) and start with a projective resolution of \(\mathbb{Z}_{12} = R/12R\):</p>
+
+            <div class="math-display">
+                \[\cdots \overset{\cdot 4}\longrightarrow R_3 \overset{\cdot 12}\longrightarrow R_2 \overset{\cdot 4}\longrightarrow R_1 \overset{\cdot 12}\longrightarrow R_0\overset{\pi}\longrightarrow R/12R \to 0,\]
+            </div>
+
+            <p>where \(R_i\) denotes \(R\) in homological degree \(i\). Using the fact that \(R\otimes \mathbb{Z}_{16} \cong \mathbb{Z}_{16}\), if we drop \(\mathbb{Z}_{12}\) and tensor with \(\mathbb{Z}_{16}\) we obtain the complex</p>
+
+            <div class="math-display">
+                \[\cdots \overset{\cdot 4}\longrightarrow \mathbb{Z}_{16} \overset{\cdot 12}\longrightarrow \mathbb{Z}_{16} \overset{\cdot 4}\longrightarrow \mathbb{Z}_{16} \overset{\cdot 12}\longrightarrow \mathbb{Z}_{16}\to 0.\]
+            </div>
+
+            <p>The kernel of the map \(\mathbb{Z}_{16}\overset{\cdot 12}\longrightarrow \mathbb{Z}_{16}\) is \(4\mathbb{Z}_{16}\), since if \(12a = 16b\) in \(\mathbb{Z}\), then \(3a = 4b\), so \(a\) is divisible by 4. Thus the complex above is exact in odd homological degrees. On the other hand, in even homological degrees of 2 or more, the kernel of the map \(\mathbb{Z}_{16}\overset{\cdot 4}\to \mathbb{Z}_{16}\) is \(4\mathbb{Z}_{16}\), while the image is \(12\cdot \mathbb{Z}_{16} = (12\mathbb{Z}+16\mathbb{Z})/16\mathbb{Z} = 4\mathbb{Z}/16\mathbb{Z} = 4\cdot \mathbb{Z}_{16}\), so these homology modules are also 0. Thus, \(\text{Tor}_j^R(\mathbb{Z}_{12},\mathbb{Z}_{16}) = 0\), for \(j\geq 1\). On the other hand the degree zero homology module is just \(\mathbb{Z}_{12}\otimes_{\mathbb{Z}_{48}} \mathbb{Z}_{16}\). To calculate this, we note that this is</p>
+
+            <div class="math-display">
+                \[(R/12R)\otimes_R (R/16R) \cong R/\langle 12, 16\rangle \cong R/4R\cong \mathbb{Z}_4.\]
+            </div>
+
+            <p>We now take a projective resolution of \(\mathbb{Z}_{16}\):</p>
+
+            <div class="math-display">
+                \[\cdots \overset{\cdot 3}\longrightarrow R_3 \overset{\cdot 16}\longrightarrow R_2 \overset{\cdot 3}\longrightarrow R_1 \overset{\cdot 16}\longrightarrow R_0\overset{\pi}\longrightarrow \mathbb{Z}_{16}\to 0.\]
+            </div>
+
+            <p>Tensoring with \(\mathbb{Z}_{12}\) and dropping the \(\mathbb{Z}_{16}\) term we have the complex</p>
+
+            <div class="math-display">
+                \[\cdots \overset{\cdot 3}\longrightarrow \mathbb{Z}_{12} \overset{\cdot 16}\longrightarrow \mathbb{Z}_{12} \overset{\cdot 3}\longrightarrow \mathbb{Z}_{12} \overset{\cdot 16}\longrightarrow \mathbb{Z}_{12}\to 0.\]
+            </div>
+
+            <p>The zeroth homology in the complex above is \(\mathbb{Z}_{12}/16\mathbb{Z}_{12} = \mathbb{Z}_{12}/4\mathbb{Z}_{12} \cong \mathbb{Z}_4\), which agrees with our previous calculation. For \(n > 0\) and \(n\) odd, we have \(\text{Tor}_n^R(\mathbb{Z}_{16}, \mathbb{Z}_{12}) = 3\mathbb{Z}_{12}/3\mathbb{Z}_{12} = 0\), since the kernel of the map \(\mathbb{Z}_{12}\overset{\cdot 16}\to \mathbb{Z}_{12}\) is \(3\mathbb{Z}_{12}\). For \(n\) even and \(n \geq 2\), \(\text{Tor}_n^R(\mathbb{Z}_{16}, \mathbb{Z}_{12}) = 4\mathbb{Z}_{12}/16\mathbb{Z}_{12} = 4\mathbb{Z}_{12}/4\mathbb{Z}_{12} = 0\), since the kernel of the map \(\mathbb{Z}_{12}\overset{\cdot 3}\to \mathbb{Z}_{12}\) is \(4\mathbb{Z}_{12}\). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 8</div>
+        <p>Let \(p\in \mathbb{Z}\) be prime and consider the sequence of \(\mathbb{Z}\)-modules and \(\mathbb{Z}\)-module homomorphisms \(\mathbb{Z}_p\overset{\cdot p}\to \mathbb{Z}_{p^2}\overset{\cdot p}\to \mathbb{Z}_{p^3}\overset{\cdot p}\to \mathbb{Z}_{p^4}\overset{\cdot p}\to \cdots\). Show that this is a directed system of \(\mathbb{Z}\)-modules whose direct limit is isomorphic to \(\mathbb{Z}_{p^{\infty}}\).</p>
+
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>For this we set \(I := \{1, 2, 3, \ldots\}\), \(M_i := \mathbb{Z}_{p^i}\) and \(f_{ij}: M_i\to M_j\) to be multiplication by \(p^{j-i}\), for \(i\leq j\). Then we clearly have a direct system of \(\mathbb{Z}\)-modules and \(\mathbb{Z}\)-module homomorphisms. In each of the modules \(\varinjlim M_i\), \(\mathbb{Z}_{p^i}\) and \(\mathbb{Z}_{p^{\infty}}\), the elements are all equivalence classes, so we denote \([x]\) for an element of \(\varinjlim M_i\), \(\overline{a}\) for an element of \(M_i := \mathbb{Z}_{p^i}\) and \(\frac{a}{p^t}\) for an element of \(\mathbb{Z}_{p^{\infty}}\). For each \(i\), define \(g_i: M_i\to \mathbb{Z}_{p^{\infty}}\) by \(g_i(\overline{a}) := \frac{a}{p^i}\). This is well defined if we take \(a < p^i\). To see that \(g_i\) is an \(R\)-module homomorphism, suppose \(\overline{b}\in M_i\), with \(b < p^i\). Write \(\overline{a+b} = \overline{c}\), with \(c < p^i\). Then</p>
+
+            <div class="math-display">
+                \[g_i(\overline{a}+\overline{b}) = g_i(\overline{c}) = \frac{c}{p^i} = \frac{a+b-kp^i}{p^i} = \frac{a}{p^i}+\frac{b}{p^i} = g_i(\overline{a})+g_i(\overline{b}),\]
+            </div>
+
+            <p>for some integer \(k\). The argument showing \(g_i(r\cdot \overline{a}) = rg_i(\overline{a})\), for \(r\in \mathbb{Z}\) is similar.</p>
+
+            <p>Now, for \(i\leq j\),</p>
+
+            <div class="math-display">
+                \[g_jf_{ij}(\overline{a}) = g_j(p^{j-i}\overline{a}) = g_j(\overline{p^{j-i}a}) = \frac{p^{j-i}a}{p^j} = \frac{a}{p^i} = g_i(\overline{a}),\]
+            </div>
+
+            <p>so \(g_i = g_j\circ f_{ij}\), for all \(i\leq j\). Thus, by the universal property of direct limits, there exists a (unique) \(\mathbb{Z}\)-module homomorphism \(\phi : \varinjlim M_i\to \mathbb{Z}_{p^{\infty}}\) given by \(\phi([\overline{a}]) = \frac{a}{p^i}\), if \(\overline{a}\in M_i\). Since \(a < p^i\), \(\frac{a}{p^i} \neq 0\), unless \(\overline{a} = \overline{0}\), so \(\phi\) is one-to-one. Moreover, given \(\frac{b}{p^j} \in \mathbb{Z}_{p^{\infty}}\), we may assume that \(b< p^j\), so that if we take \(\overline{b}\in M_j\), then \(\phi([\overline{b}]) = \frac{b}{p^j}\), showing that \(\phi\) is surjective and hence an isomorphism. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 9</div>
+        <p>Let \(A\) be an \(R\)-module and suppose \(x\in R\) is a non-zerodivisor on both \(R\) and \(A\). Suppose</p>
+
+        <div class="math-display">
+            \[\mathcal{F}:\quad \cdots \to F_2\overset{\phi_2}\to F_1\overset{\phi_1} \to F_0\overset{\pi} \to A\to 0\]
+        </div>
+
+        <p>is a free resolution of \(A\).</p>
+
+        <ol type="i">
+            <li>Show directly that the induced sequence
+                <div class="math-display">
+                    \[\mathcal{F}/x\mathcal{F}:\quad \cdots \to F_2/xF_2\overset{\phi_2'}\to F_1/xF_1\overset{\phi_1'} \to F_0/xF_0\overset{\pi'} \to A/xA\to 0\]
+                </div>
+                is exact.
+            </li>
+            <li>Conclude that \(\text{Tor}_n^R(A, R/xR) = 0\), for all \(n\geq 1\).</li>
+            <li>Now reprove (i) by recalculating \(\text{Tor}_n^R(A, R/xR)\), for all \(n\geq 1\).</li>
+        </ol>
+
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p><strong>Part (i):</strong> Clearly \(\mathcal{F}/x\mathcal{F}\) is a complex and \(\pi'\) is surjective. Suppose \(\pi'(v') = 0\), for \(v'\in F_0/xF_0\), the image of \(v \in F_0\). Then \(\pi(v) = xa\), for some \(a \in A\). Since \(\pi\) is surjective, \(a = \pi(w)\), for some \(w\in F_0\). Thus, \(\pi(v) = \pi(xw)\), so that \(\pi(v-xw) = 0\). Thus, \(v-xw = \phi_1(u)\), for some \(u\in F_1\). Thus, \(v-\phi_1(u) \in xF_0\), so that \(\phi_1'(u') = v'\) in \(F_0/xF_0\), where \(u'\) is the image of \(u\) in \(F_1/xF_1\). Thus, exactness holds at \(F_0/xF_0\) in \(\mathcal{F}/x\mathcal{F}\).</p>
+
+            <p>Now suppose \(\phi_1'(y') = 0\), for \(y'\in F_1/xF_1\). Then \(\phi_1(y) = xz\), for some \(z\in F_0\). Therefore, \(0 = \pi(xz) = x\pi(z)\). Since \(x\) is a non-zerodivisor on \(A\), \(\pi(z) = 0\). Thus, \(z\in \text{ker}(\pi) = \text{im}(\phi_1)\), so that \(z = \phi_1(t)\), for \(t\in F_1\). It follows that \(\phi_1(y) = \phi_1(xt)\), so that \(\phi_1(y-xt) = 0\). Thus, \(y-xt = \phi_2(h)\), for \(h\in F_2\). Thus, in \(F_1/xF_1\), we have \(y' = \phi_2'(h')\), so exactness in \(\mathcal{F}/x\mathcal{F}\) holds at \(F_1/xF_1\). The proof proceeds in similar fashion for exactness at each \(F_n/xF_n\), only for \(n\geq 2\), one uses that \(x\) is a non-zerodivisor on each \(F_n\) by virtue of being a non-zerodivisor on \(R\).</p>
+
+            <p><strong>Part (ii):</strong> This follows immediately from (i), since \(\mathcal{F}/x\mathcal{F}\) is obtained by tensoring \(\mathcal{F}\) with \(R/xR\).</p>
+
+            <p><strong>Part (iii):</strong> We may calculate \(\text{Tor}_n^R(A, R/xR)\) by taking a projective (or free) resolution of \(R/xR\) and tensoring with \(A\). Since \(0\to R\overset{\cdot x}\to R\to R/xR\to 0\) is a free resolution of \(R/xR\), tensoring with \(A\) and dropping the \(A/xA\) term on the right shows that the Tor modules are the homology modules in the complex \(0\to A\overset{\cdot x}\to A\to 0\). Since \(x\) is a non-zerodivisor on \(A\), it follows that this complex has zero homology in all homological degrees greater than zero, i.e., \(\text{Tor}_n^R(A, R/xR) = 0\), for all \(n\geq 1\). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Problem 10</div>
+        <p>An \(R\)-module \(F\) is said to be <em>flat</em> if whenever \(0\to C\to D\to E\to 0\) is a short exact sequence of \(R\)-modules, then the induced sequence \(0\to C\otimes F\to D\otimes F\to E\otimes F\to 0\) is exact. Let \(A\) be an \(R\)-module. A <em>flat resolution</em> of \(A\) is an exact sequence of the form</p>
+
+        <div class="math-display">
+            \[\mathcal{F}:\quad \cdots \to F_2\to F_1\to F_0\to A\to 0\]
+        </div>
+
+        <p>such that each \(F_j\) is a flat \(R\)-module. The <em>flat dimension</em> of \(A\) is the least \(n\geq 0\) (if it exists) such that \(A\) has a flat resolution of length \(n\). For example, a flat module has flat dimension zero. For an \(R\)-module \(A\), prove that the following conditions are equivalent:</p>
+
+        <ol type="i">
+            <li>\(A\) has flat dimension less than or equal to \(n\).</li>
+            <li>\(\text{Tor}^R_j(A, B) = 0\), for all \(j\geq n+1\) and all \(R\)-modules \(B\).</li>
+            <li>\(\text{Tor}^R_{n+1}(A, B) = 0\), for all \(R\)-modules \(B\).</li>
+        </ol>
+
+        <div class="solution">
+            <div class="solution-label">Solution:</div>
+            <p>We begin with three observations. The first is that if \(\mathcal{M}: \cdots \to M_2\overset{f_2}\to M_1\overset{f_1}\to M_0\to 0\) is an exact sequence of \(R\)-modules and \(A\) is a flat \(R\)-module, then tensoring \(\mathcal{M}\) with \(A\) preserves exactness. To see this, let \(K\) be the kernel of \(f_1\), so that \(0\to K\overset{i}\to M_1\overset{f_1}\to M_0\to 0\) is exact. Thus, \(0\to K\otimes A\overset{i\otimes1_A}\to M_1\otimes A\overset{f_1\otimes 1_A}\to M_0\otimes A\to 0\) is exact. This shows that \(K\otimes A\) is the kernel of \(f_1\otimes 1_A\). On the other hand, since \(f_2\) maps \(M_2\) onto \(K\), \(f_2\otimes 1_A\) maps \(M_2\otimes A\) onto \(K\otimes A = \text{ker}(f_1\otimes 1_A)\). In other words, the sequence \(M_2\otimes A\overset{f_2\otimes 1_A}\to M_1\otimes A\overset{f_1\otimes 1_A}\to M_0\otimes A\to 0\) is exact. This argument can be repeated inductively to show \(\mathcal{M}\otimes A\) is exact. The second observation is that if in the flat resolution \(\mathcal{F}\) above, \(K\) is the kernel of the map from \(F_0\) to \(A\), then for \(n \geq 1\), the flat dimension of \(A\) is less than or equal to \(n\) if and only if the flat dimension of \(K\) is less than or equal to \(n-1\). This follows immediately from the definition of flat dimension. For the third observation, let \(K\) be as in the second observation, so that we have the exact sequence \(0\to K\to F_0\to A\to 0\). Tensoring with \(B\) yields the long exact sequence in Tor</p>
+
+            <div class="math-display">
+                \[\cdots \to \text{Tor}_{j+1}^R(F_0, B)\to \text{Tor}_{j+1}^R(A, B)\to \text{Tor}_j^R(K,B)\to \text{Tor}_j^R(F_0, B)\to \cdots\]
+            </div>
+
+            <p>By the first observation, \(\text{Tor}_j^R(F_0, B) = 0\), for all \(j\geq 1\), so that \(\text{Tor}_j^R(K, B) \cong \text{Tor}_{j+1}^R(A,B)\), for all \(j\geq 1\), showing that dimension shifting holds for a flat presentation.</p>
+
+            <p>To prove the equivalence of (i)-(iii), we induct on \(n\). Suppose \(n = 0\), so that \(A\) is a flat \(R\)-module. Then (ii) follows from (i) by the first observation above. Clearly (ii) implies (iii). Now suppose (iii) holds. Take \(0 \to D\to C\to B\to 0\) any short exact sequence of \(R\)-modules. By the long exact Tor sequence, we have</p>
+
+            <div class="math-display">
+                \[\cdots \to \text{Tor}_1^R(A,B) \to D\otimes A\to C\otimes A\to B\otimes A\to 0,\]
+            </div>
+
+            <p>which by (iii) shows that the sequence \(0\to D\otimes A\to C\otimes A\to B\otimes A\to 0\) is exact, and thus (iii) implies (i).</p>
+
+            <p>Now suppose \(n > 0\) and (i)-(iii) hold for \(n-1\). Suppose \(A\) has flat dimension less than or equal to \(n\) so that by the second observation, \(K\) has flat dimension less than or equal to \(n-1\). Thus, by induction and the third observation, \(0 = \text{Tor}_j^R(K,B) = \text{Tor}_{j+1}^R(A,B)\), for all \(j\geq n\), which gives (ii). Since (ii) implies (iii) is trivial, assume (iii). Then, by dimension shifting, \(\text{Tor}_n^R(K, B) = 0\), so by induction \(K\) has flat dimension less than or equal to \(n-1\), and thus \(A\) has flat dimension less than or equal to \(n\). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an accessible HTML conversion of the LaTeX homework solutions. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
