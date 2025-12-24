@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Curriculum Vitae - Daniel Katz, Mathematics Professor at University of Kansas">
+    <title>Curriculum Vitae - Daniel Katz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e8dcc4 0%, #d4c5a9 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #9d7e4a 0%, #b8975f 50%, #c9aa78 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: 15%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .main-content {
+            padding: 50px 40px;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #9d7e4a 0%, #b8975f 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(157, 126, 74, 0.4);
+        }
+
+        .cv-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            color: #9d7e4a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #b8975f;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #fafafa 0%, #f5f0e8 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 4px solid #b8975f;
+            margin-bottom: 20px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .contact-item {
+            line-height: 1.8;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .simple-list {
+            background: linear-gradient(135deg, #fafafa 0%, #f5f0e8 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 4px solid #b8975f;
+            line-height: 1.8;
+        }
+
+        .publication-item, .conference-item, .student-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .publication-item:last-child, .conference-item:last-child, .student-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .pub-title {
+            font-style: italic;
+            color: #2c3e50;
+        }
+
+        .pub-details {
+            color: #555;
+            margin-top: 3px;
+        }
+
+        .highlight {
+            color: #9d7e4a;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2em;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Curriculum Vitae</h1>
+                <h2 style="font-weight: 300; font-size: 1.3em; margin-top: 10px;">Daniel Katz</h2>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <a href="../professional.html" class="back-button">← Back to Professional Page</a>
+
+            <div class="cv-section">
+                <h2 class="section-title">Contact Information</h2>
+                <div class="contact-info">
+                    <div class="contact-grid">
+                        <div>
+                            <div class="contact-item">Department of Mathematics</div>
+                            <div class="contact-item">The University of Kansas</div>
+                            <div class="contact-item">405 Snow Hall</div>
+                            <div class="contact-item">1460 Jayhawk Blvd</div>
+                            <div class="contact-item">Lawrence, KS 66045 USA</div>
+                        </div>
+                        <div>
+                            <div class="contact-item"><span class="contact-label">Phone:</span> (785) 864-7303</div>
+                            <div class="contact-item"><span class="contact-label">Fax:</span> (785) 864-5255</div>
+                            <div class="contact-item"><span class="contact-label">Email:</span> dlk53@ku.edu</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Education</h2>
+                <div class="simple-list">
+                    <div>B.S. in Mathematics, The University of Texas at Austin, 1975</div>
+                    <div>M.A. in Mathematics, Brandeis University, 1976</div>
+                    <div>Ph.D. in Mathematics, The University of Texas at Austin, 1982</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="simple-list">
+                    <div>1994-present, Professor, Department of Mathematics, University of Kansas</div>
+                    <div><span class="highlight">2012-2017, Departmental Chair</span>, Department of Mathematics, University of Kansas</div>
+                    <div>1987-1994, Associate Professor, Department of Mathematics, University of Kansas</div>
+                    <div>1984-1987, Assistant Professor, Department of Mathematics, University of Kansas</div>
+                    <div>1982-1984, Visiting Assistant Professor, Department of Mathematics, University of Oklahoma</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Research Interests</h2>
+                <div class="simple-list">
+                    <div>Commutative Algebra</div>
+                    <div>Homological Algebra</div>
+                    <div>Algebraic Geometry</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Publications (Selected)</h2>
+                <div class="simple-list">
+                    <div class="publication-item">
+                        <div class="pub-title">On ideals with submaximal analytic spread</div>
+                        <div class="pub-details">(with J.G. Serio), Rend. Sem. Mat. Univ. Padova, to appear.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On abelian extensions in mixed characteristic and ramification in codimension one</div>
+                        <div class="pub-details">(with P. Sridhar), International Mathematics Research Notices, 2025 (11) 1-16.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Uniform symbolic topologies and hypersurfaces</div>
+                        <div class="pub-details">(with C. Huneke), Acta Mathematica Vietnamica, Vol. 49 (2024), No. 1, 99-113.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">On the integral closure of radical towers in mixed characteristic</div>
+                        <div class="pub-details">(with P. Sridhar), Jl of Commutative Algebra, Vol. 15 (2023), No. 4, 543-558.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Conductors in mixed characteristic</div>
+                        <div class="pub-details">Jl of Algebra, Vol 571 (2021), 350-375.</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">Uniform symbolic topologies in abelian extensions</div>
+                        <div class="pub-details">(with C. Huneke), Trans. AMS, Vol 372, No 3 (2019), 1735-1750.</div>
+                    </div>
+                    <div style="margin-top: 15px; text-align: center; color: #9d7e4a;">
+                        <a href="publications/publications.html" style="color: #9d7e4a; text-decoration: none; font-weight: 600;">View Complete Publications List →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Preprints</h2>
+                <div class="simple-list">
+                    <div class="publication-item">
+                        <div class="pub-title">Joint reductions and mixed Buchsbaum-Rim multiplicities and a joint-reduction-number-zero theorem</div>
+                        <div class="pub-details">with V. Kodiyalam and J. Verma (submitted for publication)</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-title">S₂-ifications and a Briancon-Skoda theorem for non-reduced rings</div>
+                        <div class="pub-details">with T. Polstra</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">PhD Students Advised</h2>
+                <div class="simple-list">
+                    <div class="student-item">
+                        <div><span class="highlight">Eric West</span>, 2001</div>
+                        <div class="pub-title">Primes associated to multigraded modules</div>
+                    </div>
+                    <div class="student-item">
+                        <div><span class="highlight">Emanoil Theodorescu</span>, 2002</div>
+                        <div class="pub-title">Derived functors and Hilbert polynomials</div>
+                    </div>
+                    <div class="student-item">
+                        <div><span class="highlight">Glenn Rice</span>, 2005</div>
+                        <div class="pub-title">Asymptotic properties of torsion-free symmetric powers of modules</div>
+                    </div>
+                    <div class="student-item">
+                        <div><span class="highlight">Grant Serio</span>, 2016</div>
+                        <div class="pub-title">Multiplicities in commutative algebra</div>
+                    </div>
+                    <div class="student-item">
+                        <div><span class="highlight">Prashanth Sridhar</span>, 2021</div>
+                        <div class="pub-title">Finding maximal Cohen-Macaulay modules and reflexive modules</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Postdocs Mentored</h2>
+                <div class="simple-list">
+                    <div>Jugal Verma (PhD Purdue University, 1987)</div>
+                    <div>Vijay Kodiyalam (PhD Purdue University, 1993)</div>
+                    <div>Javid Validashti (PhD Purdue University, 2007)</div>
+                    <div>Pedro Lima (PhD University of Sao Paulo, 2012)</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Grants and Awards</h2>
+                <div class="simple-list">
+                    <div>New Faculty Award, University of Kansas, 1985</div>
+                    <div>General Research Fund, University of Kansas, 1986-1989, 1993, 1994, 2002</div>
+                    <div><span class="highlight">G. Baley Price Award for Excellence in Graduate Teaching</span>, 1990, 1995, 2016, 2024</div>
+                    <div>CTE Award for excellence in graduate teaching, 1999</div>
+                    <div><span class="highlight">Max Wells Teaching Award</span>, 2010</div>
+                    <div>PI, NSF grant in support of KUMUNU 2016 (Co-PIs Dao, Hernandez, Witt)</div>
+                    <div>Co-PI (with H. Dao), NSF grant in support of KUMUNU 2017</div>
+                    <div>Co-PI (with H. Dao), NSF grant in support of KUMUNU 2018</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Selected Conference Talks</h2>
+                <div class="simple-list">
+                    <div class="conference-item">Invited Speaker, KUMUNU 24 Algebra Conference, Columbia, MO, 2025</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, regional meeting of the AMS, Omaha, NE, 2023</div>
+                    <div class="conference-item">Invited speaker, special session in Commutative Algebra, regional meeting of the AMS, Charlottesville, Virginia, 2020 (remote via Zoom)</div>
+                    <div class="conference-item">Invited fifty minute speaker, Commutative Algebra Conference in Honor of Craig Huneke's 65th Birthday, Ann Arbor Michigan, 2016</div>
+                    <div class="conference-item">Invited speaker, KUMUNU 11 Algebra Conference, Columbia MO, 2012</div>
+                    <div class="conference-item">Invited plenary talk, Conference on Commutative Algebra in Honor of the 80th Birthday of David Rees, Exeter, England, 1998</div>
+                    <div class="conference-item">Invited 30-minute speaker, Summer School on Commutative Algebra, Centre de Recerce Matematica, Belleterra, Spain, 1996</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Conferences Organized</h2>
+                <div class="simple-list">
+                    <div class="conference-item">Co-Organizer (with T. Marley), Special session on Topics in Commutative Algebra, regional meeting of the AMS, Lawrence, KS, Spring 2025</div>
+                    <div class="conference-item">Co-organizer (with H. Dao), KUMUNU 17 Algebra Conference, Lawrence, KS, 2018</div>
+                    <div class="conference-item">Co-organizer (with H. Dao), KUMUNU 16 Algebra Conference, Lawrence, KS, 2017</div>
+                    <div class="conference-item">Co-organizer (with H. Dao, D. Hernandez, and E. Witt), KUMUNU 15 Algebra Conference, Lawrence, KS, 2016</div>
+                    <div class="conference-item">Co-organizer (with H. Dao and C. Huneke), Special session on Topics in Commutative Algebra, regional meeting of the AMS, Lawrence, KS, Spring 2012</div>
+                    <div class="conference-item">Organizer, KUMUNU 4 Algebra Conference, Lawrence, KS, 2002</div>
+                    <div class="conference-item">Co-organizer (with C. Huneke), special session in Commutative Algebra, regional meeting of the AMS, Lawrence, KS, 2001</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Other Professional Activities</h2>
+                <div class="simple-list">
+                    <div>Referee for various mathematical journals including: <em>Journal of Algebra</em>, <em>Communications in Algebra</em>, <em>Journal of Pure and Applied Algebra</em>, <em>Proceedings of the AMS</em>, <em>Transactions of the AMS</em>, <em>Illinois Journal of Mathematics</em>, <em>American Journal of Mathematics</em>, <em>Advances in Mathematics</em>, <em>Journal of Commutative Algebra</em></div>
+                    <div style="margin-top: 10px;">Associate Editor, <em>Rocky Mountain Journal of Mathematics</em> (2007-2015)</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Selected Departmental Service</h2>
+                <div class="simple-list">
+                    <div><span class="highlight">Departmental Chair</span>, AY 2012-2017</div>
+                    <div><span class="highlight">Interim Departmental Chair</span>, Spring 2012</div>
+                    <div>Director of Graduate Studies (1994-1997, 2010-2012)</div>
+                    <div>Director of Graduate Admissions (1991-1994)</div>
+                    <div>Promotion and Tenure Committee (Chair, 1998-1999, 2005, 2019, co-chair, 2008)</div>
+                    <div>Hiring Committee (Chair, 1997-1998, co-chair, 2007-2008)</div>
+                    <div>By-laws Committee (Chair, 2022-2024)</div>
+                    <div>Progress Towards Tenure Review (Chair, AY 2017-2018, AY 2018-2020, AY 2023-2024)</div>
+                    <div>Post Tenure Review (Chair, AY 2019-2020, AY 2023-2024)</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Selected Courses Taught at KU</h2>
+                <div class="simple-list">
+                    <div><strong>Graduate Courses:</strong> Math 830/831 (Abstract Algebra I/II), Math 910 (Algebraic Curves), Math 915 (Introduction to Homological Algebra), Math 996 (Various advanced topics in algebra)</div>
+                    <div style="margin-top: 10px;"><strong>Upper-Level Undergraduate:</strong> Math 790 (Linear Algebra II), Math 791/792 (Modern Algebra I/II), Math 558 (Introductory Modern Algebra), Math 540 (Elementary Number Theory)</div>
+                    <div style="margin-top: 10px;"><strong>Lower-Level Courses:</strong> Various calculus, linear algebra, and statistics courses</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
