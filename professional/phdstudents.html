@@ -1,43 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PhD Students - Daniel Katz, Mathematics Professor at University of Kansas">
+    <title>PhD Students - Daniel Katz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<HEAD><TITLE>Phd Students</TITLE>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #d4e8f0 0%, #c5dce8 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
 
-<META content="MSHTML 5.50.4807.2300" name=GENERATOR></HEAD>
+        .header {
+            background: linear-gradient(135deg, #4a8faf 0%, #5fa7c7 50%, #7bbdd8 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
 
-<BODY text=#000000 vLink=#9900cc link=#0044ff bgColor=#E2DFD2
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
 
-background=examplec_files/ecgsbk.gif>
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: 15%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
 
-<H3 align=center style="font-family:helvetica">PhD STUDENTS</H3>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
 
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
 
+        .header-content h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
 
-<P>
+        .main-content {
+            padding: 50px 40px;
+        }
 
-<HR>
+        .back-button {
+            background: linear-gradient(135deg, #4a8faf 0%, #5fa7c7 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
 
-<font face = "helvetica">
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 143, 175, 0.4);
+        }
 
-<P style="margin-left=20px">Eric West, 2001. Thesis : <EM>Primes associated to multigraded modules.</EM>
+        .student-list {
+            list-style: none;
+            padding: 0;
+        }
 
-<P style="margin-left=20px">Emanoil Theodorescu, 2002. Thesis : <EM>Derived functors and Hilbert polynomials. </EM>
+        .student-item {
+            background: linear-gradient(135deg, #fafafa 0%, #f0f5f8 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-left: 4px solid #5fa7c7;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-<P style="margin-left=20px">Glenn Rice, 2005. Thesis : <EM>Asymptotic properties of torsion-free symmetric powers of modules.</EM>
+        .student-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(74, 143, 175, 0.15);
+        }
 
-<P style="margin-left=20px">Grant Serio, 2016. Thesis : <EM>Multiplicities in Commutative Algebra.</EM>
+        .student-name {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #4a8faf;
+            margin-bottom: 10px;
+        }
 
-<P style="margin-left=20px">Prashanth Sridhar, 2021. Thesis : <EM>Finding maximal Cohen-Macaulay modules and reflexive modules.</EM>
+        .student-year {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 15px;
+        }
 
+        .thesis-label {
+            font-weight: 600;
+            color: #555;
+            display: inline;
+        }
 
+        .thesis-title {
+            font-style: italic;
+            color: #2c3e50;
+            font-size: 1.05em;
+            line-height: 1.6;
+            display: inline;
+        }
 
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2em;
+            }
 
+            .main-content {
+                padding: 30px 20px;
+            }
 
+            .student-item {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>PhD Students</h1>
+            </div>
+        </div>
 
+        <div class="main-content">
+            <a href="../professional.html" class="back-button">← Back to Professional Page</a>
 
+            <ul class="student-list">
+                <li class="student-item">
+                    <div class="student-name">Eric West</div>
+                    <div class="student-year">2001</div>
+                    <div><span class="thesis-label">Thesis:</span> <span class="thesis-title">Primes associated to multigraded modules.</span></div>
+                </li>
 
+                <li class="student-item">
+                    <div class="student-name">Emanoil Theodorescu</div>
+                    <div class="student-year">2002</div>
+                    <div><span class="thesis-label">Thesis:</span> <span class="thesis-title">Derived functors and Hilbert polynomials.</span></div>
+                </li>
 
+                <li class="student-item">
+                    <div class="student-name">Glenn Rice</div>
+                    <div class="student-year">2005</div>
+                    <div><span class="thesis-label">Thesis:</span> <span class="thesis-title">Asymptotic properties of torsion-free symmetric powers of modules.</span></div>
+                </li>
 
+                <li class="student-item">
+                    <div class="student-name">Grant Serio</div>
+                    <div class="student-year">2016</div>
+                    <div><span class="thesis-label">Thesis:</span> <span class="thesis-title">Multiplicities in Commutative Algebra.</span></div>
+                </li>
 
-
-
+                <li class="student-item">
+                    <div class="student-name">Prashanth Sridhar</div>
+                    <div class="student-year">2021</div>
+                    <div><span class="thesis-label">Thesis:</span> <span class="thesis-title">Finding maximal Cohen-Macaulay modules and reflexive modules.</span></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
