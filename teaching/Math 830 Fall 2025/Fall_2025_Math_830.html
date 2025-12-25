@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage for Math 830</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6b7280 0%, #858c97 50%, #9ca3af 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: 15%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .header-content .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .back-button {
+            display: inline-block;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 1.1em;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 2px solid white;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 500;
+        }
+
+        .back-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .images-section {
+            padding: 40px;
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .image-item {
+            text-align: center;
+        }
+
+        .image-item img {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .image-item img:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-item figcaption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .main-content {
+            padding: 50px 40px;
+        }
+
+        .info-section {
+            margin-bottom: 30px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .info-text {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, #858c97 0%, transparent 100%);
+            margin: 40px 0;
+        }
+
+        .links-section {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #858c97;
+            margin: 20px 0;
+        }
+
+        .links-section a {
+            color: #6b7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .links-section a:hover {
+            color: #374151;
+            text-decoration: underline;
+        }
+
+        .homework-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .homework-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .homework-list li:last-child {
+            border-bottom: none;
+        }
+
+        .policy-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            border: 1px solid #d0d0d0;
+        }
+
+        .policy-title {
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+
+        .policy-text {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #858c97 50%, transparent 100%);
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 1.8em;
+            }
+
+            .image-gallery {
+                gap: 30px;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Math 830: Abstract Algebra I</h1>
+                <p class="subtitle">Fall 2025</p>
+                <a href="../../teaching_page.html" class="back-button">← Back to Teaching</a>
+            </div>
+        </div>
+
+        <div class="images-section">
+            <div class="image-gallery">
+                <figure class="image-item">
+                    <img src="Dedekind.jpg" height="212" width="188" alt="Dedekind">
+                    <figcaption>Dedekind</figcaption>
+                </figure>
+                <figure class="image-item">
+                    <img src="Emmy-Noether.webp" height="212" width="190" alt="Noether">
+                    <figcaption>Noether</figcaption>
+                </figure>
+                <figure class="image-item">
+                    <img src="Artin 1.jpeg" height="212" width="190" alt="Artin">
+                    <figcaption>Artin</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="info-section">
+                <div class="info-label">Course</div>
+                <div class="info-text">Math 830, Abstract Algebra I</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Time and Place</div>
+                <div class="info-text">MWF 11:00 - 11:50am, Snow Hall 456</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Description</div>
+                <div class="info-text">This course will focus on modules over commutative rings. Topics include basic module theory (e.g., submodules, homomorphisms, direct sums and tensor products); free modules, injective modules, projective modules; direct and inverse limits; elements of homological algebra. Additional topics may include the theory of modules over principal ideal domains, and normal forms; graded rings and modules.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Text</div>
+                <div class="info-text">None required.</div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Instructor</div>
+                <div class="info-text">Professor D. Katz</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Office</div>
+                <div class="info-text">Snow Hall 501</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Office Hours</div>
+                <div class="info-text">MWF 10:00am - 11am and by appointment via Zoom. Please feel free to schedule a meeting or send an email whenever you have questions about the course or questions about problems on a homework assignment. You are also welcome to drop by any time I happen to be in my office.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">E-mail</div>
+                <div class="info-text">dlk53 AT ku dot edu</div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Daily Update</div>
+                <div class="info-text">After each class, a synopsis of what was covered appears here: 
+                    <a href="Fall _025_Math_830_Daily_Update.html">Daily Update</a>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Homework Assignments</div>
+                <div class="info-text">Homework will be of two types. There will be problems assigned daily after each class. Beginning September 8, there will also be biweekly (fortnightly) homework assignments to be turned in, which consist largely of problems selected from the Daily Homework. You may discuss homework problems with your fellow classmates; in fact, I encourage you to form working groups for homework sets. However, I would like to ask that each person in the class write up the final version of each assignment on their own.</div>
+            </div>
+
+            <div class="links-section">
+                <ul class="homework-list">
+                    <li><a href="hw1_solutions.html">Solutions to Homework 1</a></li>
+                    <li><a href="hw2_solutions.html">Solutions to Homework 2</a></li>
+                    <li><a href="homework3-solutions.html">Solutions to Homework 3</a></li>
+                    <li><a href="hw4_solutions.html">Solutions to Homework 4</a></li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Daily Homework</div>
+                <div class="info-text">
+                    <a href="Math 830 Daily Homework.pdf">Can be found here</a>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Course Grading</div>
+                <div class="info-text">Your total Homework score will count 75 percent of your final grade. There will also be an in-class final exam counting 25 percent of your final grade.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Grading Scale</div>
+                <div class="info-text">A = 80-100; B = 60-79; C= 50-59; D = 40-49; F = 0-39.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Final Exam Date</div>
+                <div class="info-text">Tuesday, December 9, 10:30am - 1:00pm.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Canvas</div>
+                <div class="info-text">All important course information and relevant resources can also be found on Canvas.</div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Supplementary Material</div>
+            </div>
+
+            <div class="links-section">
+                <ul class="homework-list">
+                    <li><a href="Modules _over_PIDs.html">Structure theorem for finitely generated modules over a PID</a></li>
+                    <li><a href="Ext_Q_Z.html">Calculating Ext(<strong>Q</strong>, <strong>Z</strong>)</a></li>
+                    <li><a href="A_Tor_calculation.html">A Tor calculation</a></li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <div class="policy-section">
+                <div class="policy-title">Students with special needs</div>
+                <div class="policy-text">
+                    The Student Access Center assists students with disabilities by facilitating accommodations that remove barriers to their academic success. The SAC office is located in Strong Hall 22, and is open M-F, 8am - 5pm. Phone: 785-864-4064. Email: access@ku.edu. URL: <a href="https://access.ku.edu">Student Access Center</a>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <div class="policy-title">Policy on religious observances</div>
+                <div class="policy-text">
+                    Any student who has a conflict between the course schedule and a religious holiday should contact the instructor as soon as possible.
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <div class="policy-title">Additional resource and policy information</div>
+                <div class="policy-text">
+                    Students are encouraged to familiarize themselves with University Policies and Student Resources. Relevant information may be found here: <a href="https://studentaffairs.ku.edu/student-resources">Student Resources</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

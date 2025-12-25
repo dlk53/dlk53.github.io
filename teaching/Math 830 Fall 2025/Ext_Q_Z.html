@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculating Ext¹ℤ(ℚ, ℤ)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .lemma, .proposition, .theorem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .lemma-label, .proposition-label, .theorem-label {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        .proof {
+            margin-top: 15px;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-left: 4px solid #5cb85c;
+        }
+        .proof-label {
+            font-weight: bold;
+            color: #5cb85c;
+            margin-bottom: 10px;
+        }
+        .qed {
+            float: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #6c757d;
+        }
+        mjx-container {
+            overflow-x: auto;
+            overflow-y: visible;
+        }
+        .intro {
+            background-color: #e7f3ff;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .facts-section {
+            background-color: #fff8e1;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ff9800;
+        }
+        .facts-label {
+            font-weight: bold;
+            color: #ff9800;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculating \(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})\)</h1>
+
+    <div class="intro">
+        <p>The purpose of this note is to provide my Math 830 class with a proof that, as \(\mathbb{Z}\)-modules, i.e., abelian groups, \(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}) \cong \mathbb{R}\). There are more detailed descriptions of \(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})\) in terms of the <em>Pontryagin dual</em> and the \(p\)-adic numbers \(\mathbb{Q}_p\), but on the face of it, the description at hand has a certain appeal. The overall strategy of the proof is as follows: We will show that \(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})\) is a torsion-free, divisible \(\mathbb{Z}\)-module. This will give \(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})\) the structure of a vector space over \(\mathbb{Q}\). We will then observe: (i) The cardinality of \(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})\) is the same as the cardinality of \(\mathbb{R}\) and (ii) Any vector space over \(\mathbb{Q}\) whose cardinality is the same as the cardinality of \(\mathbb{R}\) is isomorphic to \(\mathbb{R}\) as \(\mathbb{Z}\)-modules.</p>
+        
+        <p>We proceed with a sequence of lemmas.</p>
+    </div>
+
+    <div class="lemma">
+        <div class="lemma-label">Lemma A.</div>
+        <p>For a commutative ring \(R\) and an exact sequence of \(R\)-modules \(0\to A\to B\to C\to 0\), for any \(R\)-module \(D\), there is a long exact sequence</p>
+        
+        <div class="math-display">
+            \[0\to \textrm{Hom}_R (D, A)\to \textrm{Hom}_R(D, B)\to \textrm{Hom}_R (D, C)\to \textrm{Ext}_R^1(D, A)\to \textrm{Ext}_R^1(D, B)\to \textrm{Ext}_R^1(D, C)\to \textrm{Ext}_R^2(D, A)\to \cdots .\]
+        </div>
+        
+        <p>Moreover, if the map from \(A\) to \(B\) is multiplication by \(r \in R\), then the map from \(\textrm{Ext}_R^n(D, A)\to \textrm{Ext}_R^n(D, B)\) is multiplication by \(r\), for all \(n\geq 0\).</p>
+        
+        <div class="proof">
+            <div class="proof-label">Proof:</div>
+            <p>To be presented later in the semester. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="lemma">
+        <div class="lemma-label">Lemma B.</div>
+        <p>For any integer \(n\geq 1\), \(\textrm{Hom}_{\mathbb{Z}} (\mathbb{Q}, \mathbb{Z}_n) = 0 = \textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})\).</p>
+        
+        <div class="proof">
+            <div class="proof-label">Proof:</div>
+            <p>Let \(f : \mathbb{Q}\to \mathbb{Z}_n\) be a \(\mathbb{Z}\)-module homomorphism. For \(x\in \mathbb{Q}\), we have \(f(x) = f(n\cdot \frac{x}{n}) = n\cdot f(\frac{x}{n}) = 0\), which gives the first equality. Now suppose \(f: \mathbb{Q}\to \mathbb{Z}\) and take \(x\in \mathbb{Q}\). Suppose \(f(x) = t \not = 0\). Then we have \(t = f(x) = f(xt\cdot \frac{1}{t}) = tf(\frac{x}{t})\), which implies that \(f(\frac{x}{t} ) = 1\). Thus, \(1 = f(\frac{2x}{2t}) = 2f(\frac{x}{2t})\), which is a contradiction. Thus, \(f(x) = 0\). Since \(x\) was arbitrary, \(f = 0\), which gives the second equality. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="lemma">
+        <div class="lemma-label">Lemma C.</div>
+        <p>For a prime \(p\) and \(e\geq 1\), the map \(\textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}_{p^{\infty}}) \overset{\cdot p^e}\to \textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}_{p^{\infty}})\) is surjective.</p>
+        
+        <div class="proof">
+            <div class="proof-label">Proof:</div>
+            <p>Let \(f\in \textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}_{p^{\infty}})\). Define \(g: \mathbb{Q}\to \mathbb{Z}_{p^{\infty}}\) by \(g(x) := f(p^{-e}x)\), for all \(x\in \mathbb{Q}\). Then it is easy to check that \(g\in \textrm{Hom}_{\mathbb{Z}} (\mathbb{Q}, \mathbb{Z}_{p^{\infty}})\) and for all \(x\in \mathbb{Q}\), \((p^eg)(x) = p^e f(p^{-e}x) = f(p^ep^{-e}x) = f(x)\). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="lemma">
+        <div class="lemma-label">Lemma D.</div>
+        <p>For \(n\geq 1\), \(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}_n) = 0\).</p>
+        
+        <div class="proof">
+            <div class="proof-label">Proof:</div>
+            <p>Let \(n = p_1^{e_1}\cdots p_r^{e_r}\) be the prime factorization of \(n\), so that \(\mathbb{Z}_{n} \cong \mathbb{Z}_{p_1^{e_1}}\oplus \cdots \oplus \mathbb{Z}_{p_r^{e_r}}\). Then it is easy to check that \(\textrm{Ext}^1_{\mathbb{Z}} (\mathbb{Q}, \mathbb{Z}_n)\cong \textrm{Ext}^1_{\mathbb{Z}} (\mathbb{Q}, \mathbb{Z}_{p_1^{e_1}})\oplus \cdots \oplus \textrm{Ext}^1_{\mathbb{Z}} (\mathbb{Q}, \mathbb{Z}_{p_r^{e_r}})\). Thus, it suffices to show that if \(p\) is prime and \(e\geq 1\), then \(\textrm{Ext}^1_{\mathbb{Z}} (\mathbb{Q}, \mathbb{Z}_{p^e}) = 0\). For this, we let \(K\) denote the elements \(x \in \mathbb{Z}_{p^{\infty}}\) such that \(p^ex = 0\). Then \(K \cong \mathbb{Z}_{p^e}\). Moreover, since \(\mathbb{Z}_{p^{\infty}}\) is a divisible \(\mathbb{Z}\)-module, multiplication by \(p^e\) is surjective. Thus, from the exact sequence</p>
+            
+            <div class="math-display">
+                \[0\to K\to \mathbb{Z}_{p^{\infty}}\overset{\cdot p^e}\to \mathbb{Z}_{p^{\infty}} \to 0,\]
+            </div>
+            
+            <p>and the long exact sequence in Ext, we have</p>
+            
+            <div class="math-display">
+                \[\textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}_{p^{\infty}})\overset {\cdot p^e}\to \textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}_{p^{\infty}})\to \textrm{Ext}^1_{\mathbb{Z}}( \mathbb{Q}, K) \to \textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}_{p^{\infty}}) = 0,\]
+            </div>
+            
+            <p>where the 0 on the right comes from the fact that \(\mathbb{Z}_{p^{\infty}}\) is injective. By Lemma C, the map from \(\textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}_{p^{\infty}})\) to \(\textrm{Ext}^1_{\mathbb{Z}} (\mathbb{Q}, K)\) is the zero map, so we have \(0 = \textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, K) =\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}_{p^e})\). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="proposition">
+        <div class="proposition-label">Proposition E.</div>
+        <p>\(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})\) is both torsion-free and divisible.</p>
+        
+        <div class="proof">
+            <div class="proof-label">Proof:</div>
+            <p>Fix \(n\geq 1\). From the short exact sequence \(0\to \mathbb{Z}\overset{\cdot n}\to \mathbb{Z}\to \mathbb{Z}_n\to 0\), we have the part of the long exact Ext sequence</p>
+            
+            <div class="math-display">
+                \[\textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}_n)\to \textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})\overset{\cdot n}\to \textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})\to \textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}_n).\]
+            </div>
+            
+            <p>By Lemma B, \(\textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}_n) = 0\) and by Lemma D, \(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}_n) = 0\). This shows that multiplication by \(n\) on \(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})\) is 1-1 and onto, which implies that \(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})\) is both torsion-free and divisible. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="proposition">
+        <div class="proposition-label">Proposition F.</div>
+        <p>Let \(D\) be a \(\mathbb{Z}\)-module that is both torsion-free and divisible. Then \(D\) has the structure of a \(\mathbb{Q}\)-module that is compatible with its \(\mathbb{Z}\)-module structure.</p>
+        
+        <div class="proof">
+            <div class="proof-label">Proof:</div>
+            <p>Let \(r := \frac{a}{b} \in \mathbb{Q}\) and \(x\in D\). Then there exists \(y\in D\) such that \(ax = by\), since \(D\) is divisible. If \(ax = by'\), for \(y'\in D\), then \(by = by'\), so \(b(y-y') = 0\). Since \(D\) is torsion-free, \(y-y' = 0\), i.e., \(y = y'\). Thus, there exists a unique \(y\in D\) such that \(ax = by\). We define \(\frac{a}{b}\cdot x := y\). It must now be verified that:</p>
+            
+            <ol type="i">
+                <li>\((r_1+r_2)x = r_1x+r_2x\), for all \(r_1, r_2\in \mathbb{Q}\) and \(x\in D\).</li>
+                <li>\(r(x_1+x_2) = rx_1+rx_2\), for all \(r\in \mathbb{Q}\) and \(x_i\in D\).</li>
+                <li>\((rs)x = r(sx)\), for all \(r, s\in \mathbb{Q}\) and \(x\in D\).</li>
+            </ol>
+            
+            <p>The proofs of (i)-(iii) are straight forward, so we just illustrate (i). Suppose \(\frac{a}{b}, \frac{c}{d} \in \mathbb{Q}\) and \(x\in D\). Write \(\frac{a}{b}x = y\) and \(\frac{c}{d}x = z\), so that \(ax = by\) and \(cx = dz\). Then \(adx = bdy\) and \(bcx = bdz\). Thus, \((ad+bc)x = bd(y+z)\), which gives \((\frac{a}{b}+\frac{c}{d})x = \frac{(ad+bc)}{bd}x = y+z =\frac{a}{b}x +\frac{c}{d}x\). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="lemma">
+        <div class="lemma-label">Lemma G.</div>
+        <p>\(\textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Q}) \cong \mathbb{Q}\).</p>
+        
+        <div class="proof">
+            <div class="proof-label">Proof:</div>
+            <p>Let \(f :\mathbb{Q}\to \mathbb{Q}\) be a \(\mathbb{Z}\)-module homomorphism. For any \(0 \not = b\in \mathbb{Z}\), \(f(1) = f(b\cdot \frac{1}{b}) = b f(\frac{1}{b})\), so that \(f(\frac{1}{b}) = \frac{1}{b} f(1)\). It follows that for all \(\frac{a}{b}\in \mathbb{Q}\), \(f(\frac{a}{b}) = \frac{a}{b} f(1)\). Thus, \(f\) is determined by \(f(1)\). Thus, for each \(r\in \mathbb{Q}\), we can define a map \(\mathbb{Q}\to \mathbb{Q}\) by sending 1 to \(r\). It's now easy to check that the map \(\phi : \textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Q})\to \mathbb{Q}\) defined by \(\phi (f) = f(1)\) is a \(\mathbb{Z}\)-module isomorphism. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="facts-section">
+        <div class="facts-label">Facts from set theory.</div>
+        <p>In the proofs of Lemma H and Theorem I, we need the set-theoretic facts (i)-(iii) below. We use \(|X|\) to denote the cardinality of the set \(X\), i.e., the equivalence class of all sets \(Y\) for which there exists a 1-1, onto function from \(X\) to \(Y\), in which case we have \(|X| = |Y|\). The famous Schroeder-Bernstein Theorem states that for sets \(X, Y\), \(|X| = |Y|\) if and only if \(|X|\leq |Y|\) and \(|Y|\leq |X|\), where by definition, \(|X|\leq |Y|\) if there is a 1-1 function from \(X\) to \(Y\).</p>
+        
+        <ol type="i">
+            <li>Let \(\{A_n\}_{n \geq 1}\) be a countable collection of sets with \(|A_n| = |X|\), for all \(n\). Then \(|\bigcup _{n\geq 1} A_n| = |X|\).</li>
+            <li>Suppose \(E\) is the disjoint union of the sets \(\{A_j\}_{j\in J}\), with each \(A_j\) countable. Then \(|E| = |J|\).</li>
+            <li>Let \(X\) be the set of sequences \(x_1, x_2, \ldots, \) where \(x_1\) comes from a countable set, \(x_2\) comes from a set with two elements, \(x_3\) comes from a set with three elements, etc. Then \(|X| = |\mathbb{R}|\).</li>
+        </ol>
+    </div>
+
+    <div class="lemma">
+        <div class="lemma-label">Lemma H.</div>
+        <p>Let \(V\) be a vector space over \(\mathbb{Q}\) whose cardinality as a set equals the cardinality of \(\mathbb{R}\), i.e., \(|V| = |\mathbb{R}|\). Then, \(V\cong \mathbb{R}\) as \(\mathbb{Z}\)-modules.</p>
+        
+        <div class="proof">
+            <div class="proof-label">Proof:</div>
+            <p>We first note that if \(V\) and \(\mathbb{R}\) are isomorphic as vector spaces over \(\mathbb{Q}\), then they are isomorphic as \(\mathbb{Z}\)-modules, since a vector space linear transformation is also a \(\mathbb{Z}\)-module homomorphism. We will show that if \(B\) is a basis for \(V\), then \(|B| = |V| = |\mathbb{R}|\). Applying this to the special case \(V =\mathbb{R}\) shows that if \(B'\) is a basis for \(\mathbb{R}\) as a vector space over \(\mathbb{Q}\), then \(|B'| = |\mathbb{R}|\). It follows that \(|B| = |B'|\), so \(V\cong \mathbb{R}\) as vector spaces over \(\mathbb{Q}\). Showing that \(|B| = |V|\) comes down to some basic set theory facts. Since every element in \(V\) is uniquely a finite linear combination of elements from \(B\), if we let \(C_n\) denote the set of finite linear combinations (with no zero coefficients) of \(n\) elements from \(B\), we have \(V = \bigcup_{n\geq 1} C_n \cup \{0\}\), where \(\bigcup_{n\geq 1} C_n\) is a disjoint union. By the set-theoretic property (i) above, for a countable union of infinite sets \(C_n\) such that \(|C_1| = |C_2| = \cdots\), then \(|\bigcup_{n\geq 1} C_n| = |C_1|\). Now we have \(|C_1| = |\mathbb{Q}\times B| = |B|\) since \(B\) is infinite. Similarly, \(|C_2|= |(\mathbb{Q}\times B)\times (\mathbb{Q}\times B)| = |B\times B| = |B|\). Induction yields, \(|C_n| = |B|\) for all \(n\), so \(|B| = |\bigcup_{n \geq 1} C_n| = |V| = |\mathbb{R}|\), as required. <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <div class="theorem">
+        <div class="theorem-label">Theorem I.</div>
+        <p>\(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}) \cong \mathbb{R}\) as \(\mathbb{Z}\)-modules.</p>
+        
+        <div class="proof">
+            <div class="proof-label">Proof:</div>
+            <p>By Proposition E, \(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})\) is torsion-free and divisible. By Proposition F, \(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})\) is a vector space over \(\mathbb{Q}\). Thus, by Lemma H, it suffices to show that \(|\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})| = |\mathbb{R}|\). For this, consider the exact sequence \(0 \to \mathbb{Z}\to \mathbb{Q}\to \mathbb{Q}/\mathbb{Z}\to 0\) and apply \(\textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, -)\) together with the Ext Lemma to obtain</p>
+            
+            <div class="math-display">
+                \[0\to \textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})\to \textrm{Hom}_{\mathbb{Z}} (\mathbb{Q}, \mathbb{Q})\to \textrm{Hom}_{\mathbb{Z}} (\mathbb{Q}, \mathbb{Q}/\mathbb{Z})\to \textrm{Ext}_{\mathbb{Z}}^1 (\mathbb{Q}, \mathbb{Z})\to 0.\]
+            </div>
+            
+            <p>By Lemma B, \(\textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}) = 0\), and by Lemma G, \(\textrm{Hom}_{\mathbb{Z}} (\mathbb{Q}, \mathbb{Q}) \cong \mathbb{Q}\), so the Ext Lemma sequence becomes</p>
+            
+            <div class="math-display">
+                \[0\to \mathbb{Q}\to \textrm{Hom}_{\mathbb{Z}} (\mathbb{Q}, \mathbb{Q}/\mathbb{Z})\to \textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}) \to 0.\]
+            </div>
+            
+            <p>Since \(\mathbb{Q}\) is countable and \(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}) \cong \textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Q}/\mathbb{Z})/\mathbb{Q}\), \(\textrm{Hom}_{\mathbb{Z}} (\mathbb{Q}, \mathbb{Q}/\mathbb{Z})\) is a disjoint union of \(|\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Q}/\mathbb{Z})|\) countable cosets. By the set-theoretic fact (ii) above, the proof will be complete if we show that the cardinality of \(\textrm{Hom}_{\mathbb{Z}} (\mathbb{Q}, \mathbb{Q}/\mathbb{Z})\) is \(|\mathbb{R}|\).</p>
+            
+            <p>To continue, we first make the following claim. Suppose \(r\in \mathbb{Q}\) and \(n\geq 1\). Then the equation \(r \equiv nx\) has \(n\) distinct solutions in \(\mathbb{Q}/\mathbb{Z}\). Assuming the claim holds, we set \(A_n := \mathbb{Z}\cdot \frac{1}{n!}\), a free \(\mathbb{Z}\)-module of rank one, so that a \(\mathbb{Z}\)-module homomorphism from \(A_n\) to \(\mathbb{Q}/\mathbb{Z}\) is determined by sending \(\frac{1}{n}\) to an element of \(\mathbb{Q}/\mathbb{Z}\). Then \(A_1\subsetneq A_2\subsetneq A_3\subsetneq \cdots\) and \(\mathbb{Q} = \bigcup _{n\geq 1} A_n\). We clearly have countably many \(\mathbb{Z}\)-module maps from \(A_1\) to \(\mathbb{Q}/\mathbb{Z}\). Let \(f: A_1\to \mathbb{Q}/\mathbb{Z}\) be one such map. How many ways can \(f\) be extended to a \(\mathbb{Z}\)-module map from \(A_2\to \mathbb{Q}\)? Let \(f_2\) be such a map. Then \(f(1) = f_2(1) = 2f_2(\frac{1}{2})\). Thus \(f_2(\frac{1}{2})\) must satisfy the equation \(f(1) \equiv 2x\) in \(\mathbb{Q}/\mathbb{Z}\). By the claim, there are two solutions to this equation in \(\mathbb{Q}/\mathbb{Z}\), so we may define \(f_2 : A_2\to \mathbb{Q}/\mathbb{Z}\) by sending \(\frac{1}{2}\) to any one of these two solutions. In other words, there are two ways to extend \(f\) to a \(\mathbb{Z}\)-module homomorphism \(f_2 : A_2\to \mathbb{Q}/\mathbb{Z}\). For a given \(f_2 : A_2\to \mathbb{Q}/\mathbb{Z}\), how many ways can we extend \(f_2\) to a \(\mathbb{Z}\)-module map \(f_3 : A_3\to \mathbb{Q}/\mathbb{Z}\)? Suppose \(f_3\) is such an extension. Then \(f_2(\frac{1}{2}) = f_3(\frac{1}{2}) = 3f_3(\frac{1}{6}) = 3f_3(\frac{1}{3!})\). In other words, \(f_3(\frac{1}{6})\) must satisfy the equation \(f_2(\frac{1}{2}) \equiv 3x\) in \(\mathbb{Q}/\mathbb{Z}\). Since this equation has three solutions, it follows that for a given \(f_2\), there are three ways to extend it to a \(\mathbb{Z}\)-module map \(f_3 :A_3\to \mathbb{Q}/\mathbb{Z}\).</p>
+            
+            <p>Continuing in this way, we see that given any \(\mathbb{Z}\)-module map \(f_n: A_n\to \mathbb{Q}/\mathbb{Z}\), there are \(n\) ways of extending it to a \(\mathbb{Z}\)-module map from \(A_{n+1}\) to \(\mathbb{Q}/\mathbb{Z}\). Taking a union over the \(A_n\) we construct maps from \(\mathbb{Q}\) to \(\mathbb{Q}/\mathbb{Z}\). Each map constructed in this way corresponds to a countably infinite sequence whose first term comes from a countable set and whose subsequent \(n\)th terms comes from a set with \(n\) elements. By the third set-theoretic fact above, there are \(|\mathbb{R}|\) such sequences, so that \(|\mathbb{R}|\leq |\textrm{Hom}_{\mathbb{Z}} (\mathbb{Q}, \mathbb{Q}/\mathbb{Z})|\). However, since there are \(|\mathbb{R}|\) set maps from one countable set to another, we have \(|\mathbb{R}| \leq |\textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Q}/\mathbb{Z})| \leq |\mathbb{R}|\), so \(|\mathbb{R}| = |\textrm{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Q}/\mathbb{Z})|\), as required.</p>
+            
+            <p>For the claim, suppose we have \(r\in \mathbb{Q}\), \(n\geq 1\). We want to see that there are \(n\) solutions in \(\mathbb{Q}/\mathbb{Z}\) to the equation \(r \equiv nx\). The classes of \(\frac{r}{n}, \frac{r}{n}+\frac{1}{n}, \ldots, \frac{r}{n}+\frac{n-1}{n}\) are clearly \(n\) distinct solutions. Suppose \(r_0\) is such that \(r \equiv nr_0\) in \(\mathbb{Q}/\mathbb{Z}\). Then \(n (r_0-\frac{r}{n}) \equiv 0\) in \(\mathbb{Q}/\mathbb{Z}\). But in \(\mathbb{Q}/\mathbb{Z}\), the equation \(rz \equiv 0\) if and only if \(z \equiv \frac{i}{n}\), for some \(0\leq i\leq n-1\), which shows that \(r_0 \equiv \frac{r}{n}+\frac{i}{n}\) in \(\mathbb{Q}/\mathbb{Z}\), for some \(0\leq i\leq n-1\). <span class="qed">∎</span></p>
+        </div>
+    </div>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an accessible HTML conversion of the LaTeX document. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2025: Math 830 Daily Update</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #6c757d;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        mjx-container {
+            overflow-x: auto;
+            overflow-y: visible;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fall 2025: Math 830 Daily Update</h1>
+    
+    <div class="instructions">
+        <p>Throughout, \(R\) will denote a commutative ring.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, December 3.</div>
+        <p>We began class by proving the abstract version of the Artin-Rees lemma stated at the end of the previous lecture. This was followed by</p>
+        <p><strong>Classical Artin-Rees Lemma.</strong> Suppose \(R\) is a Noetherian ring, \(I\subseteq R\) an ideal, \(M\) a finitely generated \(R\)-module and \(N\subseteq M\) a submodule. Then there exists \(k\geq 1\) such that \(I^nM\cap N = I^{n-k}(I^kM\cap N)\), for all \(n\geq k\).  In particular, if \(J\subseteq R\) is an ideal, then there exists \(k\geq 1\) such that \(I^n\cap J = I^{n-k}(I^k\cap J)\), for all \(n\geq k\).</p>
+        <p>The proof of the classical case made use of the very important <em>Rees ring of R with respect to I</em>, namely \(\mathcal{R} := \bigoplus_{n\geq 0}I^n t^n \cong \bigoplus_{n\geq 0} I^n\), a ring of fundamental importance in commutative algebra and algebraic geometry, where in the latter case it is referred to as the <em>blow up of Spec R along V(I)</em>.</p>
+        <p>Here are some consequences of the Artin-Rees lemma we did not have time to present in class.</p>
+        <p><strong>Krull's Intersection Theorem.</strong> Let \(R\) be a Noetherian ring and \(I\subseteq R\) an ideal. Set \(J := \bigcap_{n\geq 1}I^n\). Then there exists \(a\in I\) such that \((1+a)\cdot J = 0\). In particular if \(J\) is contained in the Jacobson radical of \(R\) (e.g., \(R\) is a local ring) or \(R\) is an integral domain, then \(\bigcap_{n\geq 1}I^n = 0\).</p>
+        <p><em>Proof.</em> Choose \(k\geq 1\) as in the second part of the classical case of the Artin-Rees lemma. Then, for \(n\geq k\) we have</p>
+        <div class="math-display">
+        <p>\[ J = I^n\cap J = I^{n-k}(I^k\cap J) \subseteq IJ\subseteq J. \]</p>
+        </div>
+        <p>Thus, \(IJ = J\). Let \(J := \langle j_1, \ldots, j_t\rangle\). Then we have a system of equations</p>
+        <div class="math-display">
+        <p>\begin{align*} j_1 &= i_{11}j_1+\cdots + i_{1t}j_t\\ j_2 &= i_{21}j_1+\cdots + i_{2t}j_t\\ \vdots &= \quad \quad \vdots \\ j_t &= i_{t1}j_1+\cdots + i_{tt}j_t, \end{align*}</p>
+        </div>
+        <p>for \(i_{cd}\in I\). Bringing the left hand side of these equations to the right hand side yields a homogeneous system of equations</p>
+        <div class="math-display">
+        <p>\[ A\cdot \begin{pmatrix} j_1\\j_2\\\vdots\\j_t\end{pmatrix} = \begin{pmatrix} 0\\0\\\vdots\\0\end{pmatrix}, \]</p>
+        </div>
+        <p>for</p>
+        <div class="math-display">
+        <p>\(A = \begin{pmatrix} i_{11}-1 & i_{12} & \cdots & i_{1t}\\ i_{21} & i_{22}-1 & \cdots &i_{2t}\\ \vdots &  &  \ddots& \vdots \\ i_{t1} & i_{t2} & \cdots & i_{tt}-1 \end{pmatrix}. \)</p>
+        </div>
+        <p>Multiplying both sides of the homogenous system by the classical adjoint of \(A\) shows that \(\textrm{det} \ A\) annihilates the generators of \(J\) and hence annihilates \(J\). Clearly \(\textrm{det} A\) (or its negative) has the form \(1+a\), for \(a\in I\), which gives what we want. ∎</p>
+        <p>The following result plays a central role in multiplicity theory when one introduces the notion of <em>superficial element</em>.</p>
+        <p><strong>Corollary to A-R.</strong> Let \(R\) be a Noetherian ring, \(I\subseteq R\) an ideal and \(0\not = x\in R\). There there exists \(k\geq 1\) such that for all \(n\geq k\) we have \((I^n:x) = (0:x)+I^{n-k}(I^k:x)\).</p>
+        <p><em>Proof.</em> Clearly the right hand side of the desired relation is contained in the left hand side. Now suppose \(rx \in I^n\). Then \(rx \in I^n\cap \langle x\rangle\), so choosing \(k\) as in the classical Artin-Rees lemma, \(rx \in I^{n-k}(I^k\cap \langle x\rangle)\). Since \(I^k\cap \langle x\rangle = (I^k:x)x\), we can write \(rx = \sum_t i_t(s_tx)\), where each \(s_t\in (I^k:x)\) and \(i_t\in I^{n-k}\). Thus,</p>
+        <div class="math-display">
+        <p>\[ (r-\sum_ti_ts_t)x = 0. \]</p>
+        </div>
+        <p>so that \(r-\sum_ti_ts_t \in (0:x)\), and hence \(r\in (0:x)+I^{n-k}(I^k:x)\), as required. ∎</p>
+        <p>The rest of the class was devoted to a discussion leading to a proof of the existence of the Hilbert polynomial for graded modules over standard \(\mathbb{N}\)-graded Noetherian rings. We proceeded in the following steps.</p>
+        <p>1. We assume that \(R = R_0[R_1]\) is a standard \(\mathbb{N}\)-graded Noetherian ring such that \(R_0\) is Artinian and \(M\) is a finitely generated graded \(R\)-module. We allow \(M\) to be \(\mathbb{Z}\)-graded, but since \(R\) is \(\mathbb{N}\)-graded this forces \(M_n = 0\), for \(n << 0\). We noted that since each \(M_n\) is a finite \(R_0\) module, it has finite length \(\lambda (M_n)\) as an \(R_0\)-module.</p>
+        <p>2. Every polynomial \(p(x)\in \mathbb{Q}[x]\) of degree \(d\) can be written uniquely as</p>
+        <div class="math-display">
+        <p>\[ (\star)\quad\quad p(x) = e_0{x+d\choose d} + e_1{x+d-1\choose d-1}+\cdots + e_d,\]</p>
+        </div>
+        <p>with each \(e_j \in \mathbb{Q}\).</p>
+        <p>3. If \(p(x)\in \mathbb{Q}[x]\) has the property that \(p(n)\in \mathbb{N}\) for all \(n\in \mathbb{N}\), then each \(e_j\) in \((\star)\) is an integer.</p>
+        <p>4. Suppose the function \(f: \mathbb{N}\to \mathbb{N}\) satisfies the following property: There exists \(p_0(x)\in \mathbb{Q}[x]\) with \(\textrm{deg} (p_0(x)) = d-1\) such that \(f(n+1)-f(n) = p_0(n)\), for all \(n >> 0\). Then there exists \(p(x)\in \mathbb{Q}[x]\) with \(\textrm{deg} (p(x)) = d\) such that \(f(n) = p(n)\) for all \(n >> 0\).</p>
+        <p>5. <strong>Existence of the Hilbert polynomial.</strong> Let \(R\) and \(M\) be as in 1 above. Suppose \(R = R_0[f_1, \ldots, f_d]\) with each \(f_i\in R_1\). Then there exists \(p(x)\in \mathbb{Q}[x]\) such that \(\textrm{deg}(p(x)) \leq d-1\) and \(\lambda (M_n) = p(n)\), for \(n >> 0\).</p>
+        <p>The proof of the existence of the Hilbert polynomial was by induction on \(d\), the case \(d = 0\) being trivial. For \(d > 0\), we considered the exact sequence of \(R\)-modules</p>
+        <div class="math-display">
+        <p>\[ 0\to (0:_M f_d)\longrightarrow M\overset{\cdot f_d}\longrightarrow M\longrightarrow M/f_dM\to 0. \]</p>
+        </div>
+        <p>The first and last terms are modules over \(R/f_dR\) which is an \(R_0\) algebra generated by \(d-1\) elements of degree one, so the induction hypothesis applies to these modules. The sequences above gave rise to the sequence of \(R_0\)-modules</p>
+        <div class="math-display">
+        <p>\[ 0\to (0:_M f_d)_n\longrightarrow M_n\overset{\cdot f_d}\longrightarrow M_{n+1}\longrightarrow (M/f_dM)_{n+1}\to 0. \]</p>
+        </div>
+        <p>Additivity of length in exact sequences, induction and part 4 gave the final result.</p>
+        <p>We ended class by pointing out that Hilbert's original proof of the existence of the Hilbert polynomial was a consequence of Hilbert's Syzygy Theorem which showed that a graded module over the polynomial ring \(K[x_1, \ldots, x_d]\) has a graded free resolution of finite length.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Monday, December 1.</div>
+        <p>We continued our discussion of graded rings and modules. Maintaining the notation from the previous lectures\(R\) and \(M\) are \(\mathbb{Z}\)-graded, we continued with</p>
+        <p>7. The annihilator of \(M\) is a homogeneous ideal.</p>
+        <p>8. If \(I\subseteq R\) is a homogeneous ideal, then its nilradical is also a homogeneous ideal.</p>
+        <p>9. If \(N\subseteq M\) is a graded submodules then \(\textrm{rad ann} (M/N)^* = \textrm{rad ann}(M/N^*)\).</p>
+        <p>10. Suppose \(L\) is a graded submodule of \(M\). Then \(L\) is primary if and only for every homogeneous \(r\in R\) and \(x\in M\), if \(rx\in L\), then \(x\in L\) or \(r \in \textrm{ rad ann}(M/L)\). In this case, \(\textrm{Ass}(M/L) + P = \textrm{rad ann} (M/L)\).</p>
+        <p>11. Assume \(N\subseteq M\) is a submodule of \(M\) (not necessarily graded). If \(N\) is \(P\)-primary, then \(N^*\) is \(P^*\)-primary.</p>
+        <p>12.  Suppose \(R\) is a Noetherian graded ring and \(M\) is a finitely generated, graded \(R\)-module. If \(N\subseteq M\) is a graded sub-module, then \(N\) has a reduced primary decomposition \(N = L_1\cap \cdots \cap L_t\), where each \(L_i\) is a graded primary submodule of \(M\) and writing \(P_i = \textrm{Ass} (M/L_i)\), each \(P_i\) is homogeneous and \(P_1, \ldots, P_t\) are distinct. primary</p>
+        <p>We then demonstrated the following theorem.</p>
+        <p><strong>Theorem</strong> Assume \(R\) is an \(\mathbb{N}\)-graded ring. Then \(R\) is Noetherian if and only if \(R_0\) is Noetherian and \(R_+ := \bigoplus_{n\geq 1} R_n\) is a finitely generated ideal.</p>
+        <p>We ended class by defining a <em>standard</em> \(\mathbb{N}\)-graded ring to be an \(\mathbb{N}\)-graded ring generated in degree one, i.e.,  such that \(R = R_0[R_1]\). We noted that, in this case, for \(n\geq 2\), \(R_n = (R_1)^n = R_s\cdot R_t\), whenever \(s+t = n\). We also stated, but did not prove</p>
+        <p><strong>Artin-Rees Lemma.</strong> Let \(R\) be a Noetherian, standard \(\mathbb{N}\)-graded ring and \(M\) a finitely generated graded \(R\)-module. Then there exists \(k\geq 1\) such that \(M_n = R_{n-k}M_k\), for all \(n\geq k\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Monday, November 24.</div>
+        <p>Today's class began with a discussion of graded rings, using the polynomial ring in finitely many variables over a field as an example of ring with a number of different gradings. We first noted that for \(R := k[x_1, \ldots, x_d]\), \(R\) is \(\mathbb{N}\)-graded, where writing \(R = \bigoplus_{n\geq 0}R_n\), \(R_n\) is the vector space of homogeneous polynomials of degree \(n\), and we clearly have \(R_n\cdot R_m\subseteq R_{n+m}\). We then noted that \(R\) also has the structure of an \(\mathbb{N} ^2\)-graded module by separating the variables of \(R\) into two sets and writing \(R = \bigoplus_{(n,m)\in \mathbb{N}^2} R_{(n,m)}\), where \(R_{(n,m)}\) is the space of bi-homgeneous polynomials of bi-degree \((n,m)\). In a similar vein, if for each \((e_1, \ldots, e_d)\in \mathbb{N} ^d\), we let \(R_{(e_1, \ldots, e_d)}\) denoted the one-dimensional space spanned over \(k\) by the monomial \(x_1^{e_1}\cdots x_d^{e_d}\), then \(R\) is an \(\mathbb{N}^d\)-graded ring via the decomposition \(R = \bigoplus_{(e_1, \ldots, e_d)\in \mathbb{N}^d} R_{e_1, \ldots, e_d)}\).</p>
+        <p>We then focused on \(\mathbb{Z}\)-graded rings and modules, referring to them simply as graded rings and modules. We then worked through the following items. In what follows \(R\) is a graded ring and \(M\) is a graded \(R\)-module. We first noted that \(r\in R\) or \(x\in M\) is <em>homogeneous of degree n</em> if \(r\in R_n\) or \(x\in M_n\). for some \(n \in \mathbb{Z}\).</p>
+        <p>1. An ideal \(I\subseteq R\) is said to be  <em>homogeneous</em> or <em>graded</em> if \(I = \bigoplus_n (I\cap R_n)\) and a submodule \(N\subseteq M\) is said to be a <em>graded</em> submodule if \(N = \bigoplus_n(N\cap M_n)\).</p>
+        <p>2. For an ideal \(I\subseteq R\), the following are equivalent.</p>
+        <ol>
+        <p><li>\(I\) is a homogeneous ideal.</li> <li>\(I\) has a homogeneous set of generators.</li> <li>Whenever \(f\in R\) belongs to \(I\), then its homogeneous components belong to \(I\).</li></p>
+        </ol>
+        <p>And similarly for submodules of \(M\).</p>
+        <p>3. Suppose \(P\subseteq R\) is a homogeneous ideal. Then \(P\) is a prime ideal if and only if whenever \(ab\in P\), with \(a,b\in R\) homogeneous, then \(a\in P\) or \(b\in P\).</p>
+        <p>4. Let \(I\) be an ideal. Denote by \(I^*\) the ideal of \(R\) generated by the homogeneous elements of \(I\). If \(P\subseteq R\) is prime, then \(P^*\) is prime. We noted that \(I^*\) is the largest homogeneous ideal contained in \(I\).</p>
+        <p>5. Similarly, if \(N\subseteq M\) is a submodule, \(N^*\) denotes the submodule of \(M\) generated by the homogeneous elements of \(N\).</p>
+        <p>6. Suppose \(N\subseteq M\) is a graded submodule of \(M\) and \(P\in \textrm{Ass}(M/N)\). Then \(P\) is a homogeneous ideal which is the annihilator of a homogeneous element in \(M/N\). For this we reduced to the case that \(N = 0\). we then reduced to the case that \(P^*\) contains all homogeneous ideals by localizing at the multiplicatively closed set consisting of all homogeneous elements, not in \(P\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Friday, November 21.</div>
+        <p>We continued the discussion from the previous lecture concerning associate primes and prime filtrations.</p>
+        <p>7. Let \(M\) be finitely generated and consider a prime filtration of \(M\) with primes \(P_1, \ldots, P_t\). If \(Q\in \textrm{Ass}_R(M)\), then \(Q = P_j\), for some \(j\). In particular \(\textrm{Ass}_R(M)\) is a finite set of prime ideals.</p>
+        <p>8. If \(M\) is finitely generated and \(S\subseteq R\) is a multiplicatively closed set, then \(\textrm{ann}(M)_S = \textrm{ann}_{R_S}(M_S)\).</p>
+        <p>9. Suppose \(P\) is a prime ideal minimal over \(\textrm{ann}(M)\). Then \(P\in \textrm{Ass}_R(M)\).</p>
+        <p>10. Given a prime ideal \(P\subseteq R\), we defined a submodule \(N\subseteq M\) to be  \(P\)-primary if \(\textrm{Ass} (M/N) = \{P\}\). In this case \(P^n\cdot (M/N) = 0\), for some \(n\geq 1\).</p>
+        <p>11. Suppose \(N_1, N_2\subseteq M\) are \(P\)-primary. Then \(N_1\cap N_2\) is \(P\)-primary.</p>
+        <p>12. Suppose \(M\) is finitely generated and \(N\subseteq M\) is a submodule. Fix \(0\not = r\in R\). Then, there exists \(t\geq 1\) such that the sequence of submodules \((N:_Mr)\subseteq (N:_Mr^2)\subseteq \cdots \) satisfies \((N:_M r^t) = (N:_M r^{t+1}) = \cdots \). For such a \(t\), one has \(N = (N:_Mr^t)\cap (N+r^tM)\).</p>
+        <p>13. If \(M\) is finitely generated and \(N\subseteq M\), the following are equivalent:</p>
+        <ol>
+        <p><li>\(N\) is \(P\)-primary.</li> <li>For \(x\in M\) and \(r\in R\), if \(rx\in N\), then either \(x\in N\) or \(r^nM\subseteq N\), for some \(n\geq 1\).</li></p>
+        </ol>
+        <p>For \(N\) satisfying \((ii)\), \(N\) is \(P\)-primary for \(P\) the unique prime minimal over \(\textrm{ann}(M/N)\).</p>
+        <p>14. \(N\subseteq M\) is said to be <em>irreducible</em> if \(N\) cannot be written as \(N = L_1\cap L_2\), for \(L_1, L_2\) submodules of \(M\) properly containing \(M\). If \(N\) is irreducible then \(N\) is \(P\)-primary for \(P\) minimal over \(\textrm{ann} (M/N)\).</p>
+        <p><strong>Definition.</strong> Given \(N\subseteq M\). A primary decomposition of \(N\) is a decomposition \(N = L_1\cap\cdots \cap L_t\), where each \(L_i\) is \(P_i\)-primary for some prime ideal \(P_i\). The decomposition is said to be <em>reduced</em> if \(P_1, \ldots, P_t\) are distinct.</p>
+        <p>15. Here is a major theorem: Suppose \(M\) is finitely generated. Then every submodule of \(M\) has a reduced primary decomposition.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, November 19.</div>
+        <p>Throughout \(R\) is a Noetherian ring and \(M\) is an \(R\)-module. We discussed and worked through the following statements.</p>
+        <p>1. A prime ideal \(P\subseteq R\) is an <em>associated prime</em> of \(M\) if \(P = \textrm{ann}(x)\), for some \(x\in M\). Note since \(P \not = R\), \(x\not = 0\) in \(M\). We noted that if \(R\) is an integral domain, \((0)\) is the only associated prime if \(M\) is torsion free and moreover, any associated prime \(P\) contains \(\textrm{ann} (M)\).</p>
+        <p>2. We write \(\textrm{Ass}_R(M)\) for the set of associated primes of \(M\).</p>
+        <p>3. The following hold:</p>
+        <ol>
+        <p><li>\(Ass_R(M) \not = \emptyset\) if and only if \(M \not = 0\).</li> <li>For any \(0\not = x\in M\), \(ann (x) \subseteq P\), for some \(P\in Ass_R(M)\).</li> <li>The set \(\bigcup_{P\in Ass_R(M)} P\) is precisely the set of zero divisors on \(M\).</li></p>
+        </ol>
+        <p>4. Suppose \(S\subseteq R\) is a multiplicatively closed set. For a prime ideal \(P\subseteq R\). \(P_S \in \ams\) if and only if \(P\cap S = \emptyset\) and \(P\in \textrm{Ass}_R(M)\).</p>
+        <p>5. Suppose \(0\to A\overset{i}\to B\overset{\pi}\to C\to 0\) is an exact sequence of \(R\)-modules, Then \(\textrm{Ass} _R(B)\subseteq \textrm{Ass}_R(A)\cup \textrm{Ass}_R(C)\).</p>
+        <p>6. A prime <em>prime filtration</em> of \(M\) is a chain of submodules</p>
+        <div class="math-display">
+        <p>\[ (0) = M_0\subseteq M_1\subseteq M_2\subseteq \cdots \subseteq M_n = M, \]</p>
+        </div>
+        <p>such that \(M_i/M_{i-1}\cong R/P_i\), for (not necessarily distinct prime ideals \(P_1, \ldots, P_n\). If \(M\) is finitely generated, then \(M\) has a prime filtration.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Monday, November 17.</div>
+        <p>We began class by proving parts (i) and (ii) of the comparison theorem. We then had a general discussion about categories, functors and derived functors, largely passing over the details below.</p>
+        <p><strong>Definition.</strong> A category \(\mathfrak{C}\) consists of a class of <em>objects</em> \(Obj (\mathfrak{C})\) together with pairwise disjoint sets of morphisms \(\chm (A, B)\) for every ordered pair of objects and <em>compositions</em></p>
+        <div class="math-display">
+        <p>\[ \chm (A, B)\times \chm(B, C) \to \chm(A, C) , \]</p>
+        </div>
+        <p>denoted \((f, g)\to fg\) satisfying the following axioms:</p>
+        <ol>
+        <p><li>For each object \(A\), there exists an identity morphism \(1_A \in \chm (A, A)\) such that \(f1_A = f\) and \(1_Ag = g\), for all \(f\in \chm (A, B)\) and \(g\in \chm (C, A)\).</li> <li>Given \(f\in \chm (A, B)\), \(g\in \chm (B, C)\) and \(h\in \chm (C, D)\), \(h(gf) = (hg)f\).</li></p>
+        </ol>
+        <p>efining a <em>covariant functor</em> or just <em>functor</em> \(F\) between two categories \(\mathfrak{C}\) and \(\mathfrak{D}\):</p>
+        <p><strong>Definition.</strong> A (covariant) functor \(F\) is a function \(F: \mathfrak{C}\to \mathfrak{D}\) such that</p>
+        <ol>
+        <p><li>\(F(A) \in Obj (\mathfrak{D})\), for all \(A\in Obj(\mathfrak{C})\).</li> <li>\(F(f)\in Hom_{\mathfrak{D}}(F(A), F(B))\), for all \(f\in \chm (A, B)\).</li> <li>\(F(gf) = F(g)F(f)\), for \(f\in \chm (A, B)\) and \(g\in \chm (B, C)\).</li> <li>\(F(1_A) = 1_{F(A)}\), for \(A\in Obj(\mathfrak{C})\).</li></p>
+        </ol>
+        <p>We defined <em>contravariant functor</em> similarly, only (b) becomes \(F(f) \in \textrm{Hom}_{\mathfrak{D}}(F(B), F(A)\) and (c) becomes \(F(gf) = F(f)F(g)\).  We then gave the following examples of functors:</p>
+        <ol>
+        <p><li>The identity functor from \(\mathfrak{C}\) to \(\mathfrak{C}\).</li> <li>The <em>forgetful functor</em> from \(\mathfrak{C}\to \mathfrak{S}\), where \(\mathfrak{S}\) is just the category of sets and set functions. \item[(iii)] \(\prod_1: \mathfrak{T}\to \mathfrak{G}\), the fundamental group functor from topological spaces to groups. \item[(iv)] \(H_n: \mathfrak{T}\to \mathfrak{A}\), singular homology functor from topological spaces to abelian groups. \item[(v)] For \(B\) a fixed \(R\)-module, \(-\otimes_RB\) and \(Hom_R (B, -)\) are covariant functors and \(Hom_R (-, B)\) is a contravariant functor.</li></p>
+        </ol>
+        <p>We then noted that henceforth, we will restrict our attention to module categories, and additive functors \(F\) satisfying \(F(f+g) = F(f)+F(g)\). From this we immediately saw that additive functors preserve homotopic chain maps, and thus if \(f: \mathcal{C} \to \mathcal{C}'\) is a homotopy equivalence between complexes of modules in \(\mathfrak{C}\), then \(F(f): F(\mathcal{C})\to F(\mathcal{D})\) is a homotopy equivalence in \(\mathfrak{D}\). In particular, we had the following:</p>
+        <p><strong>Corollary.</strong> Let \(\mathcal{C}\) and \(\mathcal{C}'\) be homotopy equivalent chain complexes of modules in \(\mathfrak{C}\) and \(F: \mathfrak{C}\to \mathfrak{D}\) an additive functor. Then, \(H_n(F(\mathcal{C})) \cong H_n(F(\mathcal{C}'))\), for all \(n\). Similarly for contravariant functors and both types of functors applied to co-chain complexes.</p>
+        <p>We noted that the corollary immediately implies the (already established) facts that the Tor and Ext modules are well-defined, i.e., independent of the resolutions used to calculate them. We then defined <em>right exact</em> and <em>left exact</em> functors with the following property: Given \(0\to A\to B\to C\to 0\), then \(F\) is right exact (resp left exact) if \(F(A)\to F(B)\to F(C)\to 0\) (resp \(0\to F(A)\to F(B)\to F(C)\)) is exact. And similarly for contravariant functors. We followed this by introducing the notions of <em>left derived functors</em> of right exact functors and <em>right derived functors</em> of left exact functors. We noted that the following definitions are all well-defined  and the results therein are immediate by the work we have just done.</p>
+        <p><strong>Theorem-Definition.</strong> Let \(F\) is an additive functor or an additive contravariant functor.</p>
+        <ol>
+        <p><li>Let \(F:\mathfrak{C}\to \mathfrak{D}\) be a right exact functor. For each \(n\geq 0\), let \(L_nF\), the \(n\)th left derived functor of \(F\), be defined as follows: \(L_nF(A) := H_n(F(\mathcal{P}_A))\), for \(A\in Obj(\mathfrak{C})\) and \(\mathcal{P}_A\) a deleted projective resolution of \(A\) and for \(f\in \chm (A, B)\), \(L_nF(f) := (\tilde{f})_* : H_n(F(\mathcal{P}_A))\to H_n(F(\mathcal{P}_B))\), where \(\tilde{f}:\mathcal{P}_A\to \mathcal{P}_B\) is a chain map lifting \(f\).</p>
+        <p></li> <li>If \(F: \mathfrak{C}\to \mathfrak{D}\) is left exact functor, we let \(R^nF\), the right derived functor of \(F\), be defined by \(R^nF(A) := H_n(F(\mathcal{Q} _A))\), where \(\mathcal{Q}_A\) is a deleted injective resolution of \(A\), and \(R^nF(f)\) for \(f: A\to B\) is the corresponding map on cohomology obtained by first lifting \(f\) to a chain map from \(\mathcal{Q} _A\to \mathcal{Q}_B\) and then applying \(F\).</li> <li>Similarly for right and left exact contravariant functors.</li> <li>If \(F\) is right exact, \(LF_0 = F\) or if \(F\) is left exact, \(R^0F = F\). Similarly for contravariant \(F\).</li> <li>Given and short exact sequence in \(\mathfrak{C}\), in \(\mathfrak{D}\) we have the long exact sequence \[\cdots \to L_2F(C)\to L_1F(A)\to L_1F(B)\to L_1F(C)\to A\to B\to C\to 0,\] if \(F\) is right exact and \[ 0\to F(A)\to F(B)\to F(C)\to R^1F(A)\to R^1F(B)\to R^1F(C)\to R^2F(A)\to \cdots, \] if \(F\) is left exact. And similarly for left or right exact contravariant functors.</li></p>
+        </ol>
+        <p>We noted that of course, the \(\textrm{Tor}^R_N (-, B)\) are left derived functors of \(-\otimes _B\), while  the Ext modules are right derived functors of the left exact Hom ffunctors.</p>
+        <p>We ended class with the following definition, also stating that the resulting modules play a role of fundamental importance in algebraic geometry and commutative algebra.</p>
+        <p><strong>Definition.</strong> Let \(R\) be a Noetherian ring, \(I\subseteq R\) an ideal an \(M\) an \(R\)-module. Let \(\Gamma _I\) denote the left exact functor defined as follows: \(\Gamma _I(M) := \{x\in M\ |\ I^nx = 0, \ \textrm{for some}\ n\geq 0\}\). We set \(H^n_I(M) := R^n\Gamma_I (M)\), and call this module the \(n\)th <em>local cohomology</em> module of \(M\) with respect to \(I\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Friday, November 14.</div>
+        <p>We began class by showing that if \(0\to A\to B\to C\to 0\) is an exact sequence of \(R\)-modules, then there exists a short exact sequences of acyclic complexes \(0\to \mathcal{P}_A\to \mathcal{P}_B\to \mathcal{P}_C\to 0\), where \(\mathcal{P} _A, \mathcal{P}_B, \mathcal{P}_C\) are deleted projective resolutions of \(A, B, C\) respectively. We then gave the following definitions.</p>
+        <p><strong>Definitions.</strong> Let \(f:\mathcal{C}\to \mathcal{D}\) be a chain map between complexes.</p>
+        <ol>
+        <p><li>\(f\) is a <em>quasi-isomorphism</em>, if the maps \(f_*: H_n(\mathcal{C})\to H_n(\mathcal{D})\) are isomorphisms for all \(n\).</li> <li>\(f\) is said to be <em>null homotopic</em> if, for all \(n\), there exist \(R\)-module homomorphisms \(s_n: C_n\to D_{n+1}\) such that \(\dd s_n+s_{n-1}\dc = f\). If \(f\) is null homotopic, then the induced maps \(f_* : H_n(\mathcal{C})\to H_n(\mathcal{D})\) are the zero maps, for all \(n\).</li> <li>Chain maps \(f, G: \mathcal{C}\to \mathcal{D}\) are <em>homotopic</em> or <em>chain homotopic</em> if \(f-g\) is null homotopic. In this case we write \(f\sim g\). If \(f\) and \(g\) are homotopic, then \(f_* = g_*\), as maps from \(H_n(\mathcal{C})\) to \(H_n(\mathcal{D})\), for all \(n\).</li> <li>\(f\) is a <em>homotopy equivalence</em> if there is a chain map \(g: \mathcal{D}\to \mathcal{C}\) such that \(gf \sim 1_{\mathcal{C}}\) and \(fg\sim 1_{\mathcal{D}}\). If \(f\) is a homotopy equivalence, then the induced maps \(f_* :H_n(\mathcal{C})\to H_n(\mathcal{D})\) are isomorphisms, for all \(n\), i.e., \(f\) is a quasi-isomorphism.</li></p>
+        </ol>
+        <p>In order to use these definitions, we stated:</p>
+        <p><strong>Comparison Theorem.</strong> Let \(A\) and \(B\) be \(R\)-modules and \(\pi : A\to B\) an \(R\)-module homomorphism.</p>
+        <ol>
+        <p><li>Given a diagram of complexes \[ \begin{tikzcd} \mathcal{P}:    \cdots \arrow[r] & P_2\arrow[r, "\phi_2"] \arrow[d, dotted, "f_2"] & P_1\arrow[r, "\phi _1"] \arrow[d, dotted, "f_1"] & P_0 \arrow[r, "\phi_0"]\arrow[d, dotted, "f_0"] & A\arrow[d, "\pi"]\arrow[r] & 0<br>\mathcal{M}:    \cdots \arrow[r] & M_2 \arrow[r, "\psi_2"] & M_1 \arrow[r, "\psi _1"] & M_0 \arrow[r, "\psi _0"] & B \arrow[r] & 0 \end{tikzcd} \] with each \(P_j\) a projective \(R\)-module, and \(\mathcal{M}\) exact, there exists \(R\)-module homomorphisms \(f_n: P_n\to M_n\) making the diagram commute. That is, there exists a chain map \(f: \mathcal{P}\to \mathcal{M}\) lifting \(\pi\).</p>
+        </li> <li>Given a diagram of complexes \[ \begin{tikzcd} \mathcal{N}:    0\arrow[r] & A \arrow[d, "\pi"] \arrow[r, "\phi_0"]  & N_0\arrow[r, "\phi_0"] \arrow[d, dotted, "f_0"] & N_1\arrow[r, "\phi _1"] \arrow[d, dotted, "f_1"] & N_2 \arrow[r, "\phi_2"]\arrow[d, dotted, "f_2"] & \cdots<br>\mathcal{Q}:    0 \arrow[r] & B \arrow[r, "\psi_0"]& Q_0 \arrow[r, "\psi_1"] & Q_1 \arrow[r, "\psi _2"] & Q_2 \arrow[r, "\psi_2"] &   \cdots \end{tikzcd} \] with each \(Q_j\) an injective \(R\)-module, and \(\mathcal{N}\) exact, there exists \(R\)-module homomorphisms \(f_n: N_n\to Q_n\) making the diagram commute. That is, there exists a chain map \(f: \mathcal{N}\to \mathcal{Q}\) lifting \(\pi\).
+        <p></li> <li>If \(g: \mathcal{P}\to \mathcal{M}\) or \(g: \mathcal{N}\to \mathcal{Q}\) is another chain map lifting \(\pi\), then \(f\) and \(g\) are homotopic.</li></p>
+        </ol>
+        <p>We then noted how the Comparison Theorem could be used to show that the definitions of \(\textrm{Tor}^R_n(A, B)\) and \(\textrm{Ext}_R^n (A, B)\) are independent of the resolutions (projective or injective) used to define them. This followed since, for example, by the Comparison Theorem any two projective resolutions of \(A\) are homotopy equivalent, and this equivalence is preserved by applying \(-\otimes _R B\) or \(\textrm{Hom}_R (-, B)\), and thus the corresponding homologies are isomorphic.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, November 12.</div>
+        <p>We began a discussion of chain complexes and co-chain complexes, including the following definitions:</p>
+        <p><strong>Definitions.</strong> Let \(\mathcal{C}\) be either a chain complex or a co-chain complex, with modules and boundary maps \(\cdots \to  C_{n+1}\overset{\partial}\to C_n\overset{\partial}\to C_{n-1}\to \cdots \) in the case \(\mathcal{C}\) is a chain complex and \(\cdots \to  C_{n-1}\overset{\delta}\to C_n\overset{\delta}\to C_{n+1}\to \cdots \) in the case \(\mathcal{C}\) is a  co-chain complex.</p>
+        <ol>
+        <p><li>If \(\mathcal{C}\) is a chain complex: \begin{enumerate}</li> <li>\(Z_n(\mathcal{C}) := ker (C_n\overset{\partial}\to C_{n-1})\), the \(n\)th module of cycles in \(\mathcal{C}\).</li> <li>\(B_n(\mathcal{C}) := im (C_{n+1}\overset{\partial}\to C_n)\), the \(n\)th module of boundaries in \(\mathcal{C}\).</li> <li>\(H_n(\mathcal{C}) := Z_n(\mathcal{C})/B_n(\mathcal{C})\), then \(n\)th homology module in \(\mathcal{C}\).</li></p>
+        </ol>
+        <p>\item[(ii)] If \(\mathcal{C}\) is a co-chain complex:</p>
+        <ol>
+        <p><li>\(Z^n(\mathcal{C}) := ker (C_n\overset{\delta}\to C_{n+1})\), the \(n\)th module of co-cycles in \(\mathcal{C}\).</li> <li>\(B^n(\mathcal{C}) := im (C_{n-1}\overset{\delta}\to C_n)\), the \(n\)th module of co-boundaries in \(\mathcal{C}\).</li> <li>\(H^n(\mathcal{C}) := Z^n(\mathcal{C})/B^n(\mathcal{C})\), then \(n\)th homology module in \(\mathcal{C}\).</li></p>
+        </ol>
+        <p>\end{enumerate} We then defined the following concepts: Sub-complexes and quotient complexes.</p>
+        <p>After this, we we only gave the relevant versions of each statement for chain complexes and mentioned that there is an analogous statement for co-chain complexes. This was followed by the definition: Given two complexes \(\mathcal{C}\) and \(\mathcal{D}\), a family of \(R\)-module homomorphisms \(f_n: C_n\to D_n\) is a <em>chain map</em> if \(f_n\dd = f_{n-1}\dc\) for all \(n\). This was denoted by saying that \(\mathcal{C}\overset{f}\to \mathcal{D}\) is a chain map. We then noted that if \(f: \mathcal{C}\to \mathcal{D}\) is a chain map, then there are induced homomorphisms \(f_*: H_n(\mathcal{C})\to H_n(\mathcal{D})\), for all \(n\). We also defined an exact sequence of complexes \(\mathcal{C}\overset{f}\to \mathcal{D}\overset{g}\to \mathcal{E}\) and a short exact sequence of complexes \(0\to \mathcal{C}\overset{c}\to \mathcal{D}\overset{g}\to \mathcal{E}\to 0\). The latter can be thought of as a large commutative diagram of \(R\)-modules and \(R\)-module maps</p>
+        <div class="math-display">
+        <p>\[ \begin{tikzcd} & 0 \arrow[d] & 0 \arrow[d]& 0 \arrow[d]\\ \cdots \arrow[r] & C_{n+1}\arrow[r, "\dc"] \arrow[d, "f_{n+1}"] & C_n \arrow[r, "\dc"] \arrow[d, "f_n"] & C_{n-1} \arrow[d, "f_{n-1}"] \arrow[r] & \cdots\\ \cdots \arrow[r] & D_{n+1}\arrow[r, "\dd"] \arrow[d, "g_{n+1}"] & D_n \arrow[r, "\dd"],  \arrow[d, "g_n"] & D_{n-1} \arrow[d,"g_{n-1}"] \arrow[r] & \cdots\\ \cdots \arrow[r] & E_{n+1}\arrow[r, "\de"] \arrow[d] & E_n \arrow[r, "\de"] \arrow[d] & E_{n-1}  \arrow[d] \arrow[r] & \cdots\\ & 0 & 0 & 0. \end{tikzcd} \]</p>
+        </div>
+        <p>We then proved a couple of parts of the following proposition by chasing through the diagram above.</p>
+        <p><strong>Proposition.</strong> Let \(0\to \mathcal{C}\overset{f}\to \mathcal{D} \overset{g}\to \mathcal{E}\to 0\) be a short exact sequence of complexes. Then there exists a long exact sequence in homlogy:</p>
+        <div class="math-display">
+        <p>\[ \cdots \to H_{n+1}(\mathcal{D})\overset{g_*}\to H_{n+1}(\mathcal{E})\overset{\delta}\to H_n(\mathcal{C})\overset{f_*}\to H_n(\mathcal{D})\overset{g_*}\to H_n(\mathcal{E})\overset{\delta}\to H_{n-1}(\mathcal{C}) \overset{f_*}\to \cdots . \]</p>
+        </div>
+        <p>We also noted that the maps \(H_{n+1}(\mathcal{E})\overset{\delta}\to H_n(\mathcal{C})\) are called <em>connecting homomorphisms</em>.</p>
+        <p>As a corollary to the previous proposition, we noted the following corollary.</p>
+        <p><strong>Corollary.</strong> Let \(0\to A\to B\to C\to 0\) be a short exact sequence of \(R\)-modules. Then for all \(R\)-modules \(D\), we have the following long exact sequences: {\small</p>
+        <div class="math-display">
+        <p>\[ \cdots \to \textrm{Tor}^R_2 (C, D)\to \textrm{Tor}^R_1(A, D)\to \textrm{Tor}^R_1(B, D)\to \textrm{Tor}^R_1(C, D)\to A\otimes _R D\to B\otimes _R B\to C\otimes _R D\to 0. \]</p>
+        </div>
+        <p>} {\small</p>
+        <div class="math-display">
+        <p>\[ 0 \to \textrm{Hom}_R (D, A)\to \textrm{Hom}_R (D, B)\to \textrm{Hom}_R (D, C)\to \textrm{Ext}_R ^1(D, A)\to \textrm{Ext}_R ^1(D, B)\to \textrm{Ext}_R ^1(D, C)\to \textrm{Ext}_R ^2(D, A)\to \cdots \]</p>
+        </div>
+        <p>} {\small</p>
+        <div class="math-display">
+        <p>\[ 0 \to \textrm{Hom}_R (C, D)\to \textrm{Hom}_R (B, D)\to \textrm{Hom}_R (A, D)\to \textrm{Ext}_R ^1(C, D)\to \textrm{Ext}_R ^1(B, D)\to \textrm{Ext}_R ^1(A, D)\to \textrm{Ext}_R ^2(C, D)\to \cdots \]</p>
+        </div>
+        <p>}</p>
+        <p>The proof of the corllary depended upon the following facts:: There are short exact sequences of complexes \(0\to \mathcal{P}_A\to \mathcal{P}_B\to \mathcal{P}_C\to 0\), where \(\mathcal{P} _A, \mathcal{P}_B, \mathcal{P}_C\) are deleted projective resolution of \(A, B, C\), respectively and \(0\to \mathcal{Q}_A\to \mathcal{Q}_B\to \mathcal{Q}_C\to 0\), where \(\mathcal{Q}_A, \mathcal{Q}_B, \mathcal{Q}_C\) are deleted injective resolutions of \(A, B, C\). Because in each homological or cohomological degree the sequences split, when we apply \(- \otimes _R D\), \(\textrm{Hom}_R (D, -)\), or \(\textrm{Hom}_R (-, D)\) to the appropriate resolutions, we get exact sequences of complexes or co-chain complexes. E.g.,</p>
+        <div class="math-display">
+        <p>\[0\to \mathcal{P}_A\otimes _R D\to \mathcal{P}_B\otimes _R D\to \mathcal{P}_C\otimes _R D\to 0\quad \textrm{and}\quad  0\to \textrm{Hom}_R (D, \mathcal{Q} _A)\to  \rm (D, \mathcal{Q}_B)\to \textrm{Hom}_R (D, \mathcal{Q}_C)\to 0\]</p>
+        </div>
+        <p>are short exact sequences of (co)-chain complexes, and thus the proposition above applies.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Monday, November 10.</div>
+        <p>We began class by finishing the example of Huneke-Wiegand presented during the last lecture. In particular, in the established notation, we showed that \(t(I\otimes_R I) \not = 0\), and thus, since \(R\) is an integral domain, \(t(I\otimes_R I) = I\otimes_R I\). This shows \(I\otimes_R I \not \cong I^2\).</p>
+        <p>We then showed that the Tor modules are well-defined and that \(\textrm{Tor}^R _n(B, A)\cong \textrm{Tor}^R _n(A, B)\), for all \(n\geq 1\). This was done by first fixing a projective resolution \(\mathcal{P}\) of \(A\) and a projective resolution \(\mathcal{P}'\) of \(B\) and noting that a similar diagram chase in the diagram below to the one from the lecture of October 27 gives the case \(n = 1\). In the diagram, \(P_0, \phi _1, \phi _2\) come from \(\mathcal{P}\) and  \(K_0\) is the kernel of the initial map from \(P_0\) to \(A\). The primed modules and maps are the corresponding ones from \(\mathcal{P}'\). Moreover, the top row and far right column are obtained by invoking the <em>proof</em> of theTor Lemma. The point being that the diagram chase shows that \(\textrm{ker}(\phi_1\otimes 1_B)/\textrm{im}(\phi_2\otimes 1_B) \cong \textrm{ker}(1_A\otimes \phi_1')/\textrm{im}(1_A\otimes \phi_2')\) and hence \(\textrm{Tor}^R _1(A, B)\) is well defined and isomorphic to \(\textrm{Tor}_1(B, A)\), while a further diagram chase shows that \(\textrm{Tor}^R _1(A, K_0') \cong \textrm{Tor}^R_1(B, K_0)\), which is used together with dimension shifting to give the result for the higher Tor modules.</p>
+        <div class="math-display">
+        <p>\[ \begin{tikzcd} & & 0& 0 & 0\\ 0\arrow[r] & \textrm{ker}(\phi_1\otimes 1_B)/\textrm{im}(\phi_2\otimes 1_B) \arrow[r]  & K_0\otimes B\arrow[r]\arrow[u] & P_0\otimes B\arrow[r]\arrow[u] & A\otimes B\arrow[r]\arrow[u] & 0\\ & 0\arrow[r] & K_0\otimes P_0'\arrow[r]\arrow[u] & P_0\otimes P_0'\arrow[r]\arrow[u] & A\otimes P_0'\arrow[r]\arrow[u] & 0\\ 0\arrow[r] & \textrm{Tor}_1(A, K_0') \arrow[r] & K_0\otimes K_0'\arrow[r]\arrow[u] & P_0\otimes K_0'\arrow[r]\arrow[u] & A\otimes K_0'\arrow[r]\arrow[u] & 0\\ & & \textrm{Tor}_1(B, K_0) \arrow[u] & 0\arrow[u] & \textrm{ker}(1_A\otimes \phi_1')/\textrm{im}(1_A\otimes \phi_2')\arrow[u] &\\ & &  0\arrow[u] & & 0\arrow[u] & \end{tikzcd} \]</p>
+        </div>
+        <p>The diagram above is obtained by tensoring every term in the exact sequence \(0\to K_0\to P_0\to A\to 0\) with every term in the exact sequence \(0\to K_0'\to P_0'\to B\to 0\) and using the the Tor Lemma.  When then proved the crucial part of the Tor lemma, namely that by starting with with a projective resolution of \(A\) built over \(P\), namely,</p>
+        <div class="math-display">
+        <p>\[ \cdots \to P_2\overset{\phi_2}\longrightarrow P_1\overset{\phi_1}\longrightarrow P\overset{\pi}\to A \to 0, \]</p>
+        </div>
+        <p>where in the image of \(\phi_1\) is \(K\), then there is a well defined map \(f: \textrm{ker}(\phi_1\otimes 1_B)/\textrm{im}(\phi_2\otimes 1_B)\to \textrm{ker}(i\otimes 1_B)\) taking \(\overline{p\otimes b}\) to \(t(p)\otimes b\), where \(t: P_1\to K\) is just \(\phi_1\), but thought of as a map from \(P_1\) to \(K\), rather than a map from \(P_1\) to \(P\). In other words \(\phi(x) = t(x)\), for all \(x\in P_1\) so that \(\phi_1 = i t\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Friday, November 7.</div>
+        <p>We began class by stating and proving the following proposition:</p>
+        <p><strong>Proposition.</strong> Let \(R\) be an integral domain.</p>
+        <ol>
+        <p><li>For \(R\)-modules \(A\) and \(B\), if \(A\) is finitely generated, then \(Tor^R _n(A, B)\) is a torsion module for all \(n\geq 1\).</li> <li>For ideals \(I, J\subseteq R\), we have \(Tor^R_1(R/I, J)\cong t(I\otimes J) = ker(I\otimes J\to IJ)\), where the map \(I\otimes J\to IJ\) is the canonical map taking \(\sum_ki_k\otimes j_k\) to \(\sum_ki_kj_k\).</li></p>
+        </ol>
+        <p>The proof of (i) used dimension shifting and the symmetry of Tor together with the fact that a finitely generated torsion free module \(A\) over an integral domain can be enbedded in a free module \(F\) such that \(F/A\) is annihilated by a non-zero element of \(R\). In fact, for any \(R\)-modules \(A, B\), if we let \(S\) denote the non-zero elements of \(R\) so that \(R_S\) is its quotient field, then \(\textrm{Tor}^R_n(A,B)_S\cong \textrm{Tor}^{R_S}_n(A_S, B_S) = 0\), for all \(n\geq 1\) since \(A_S\) is a free \(R_S\)-module. Thus, every element of \(\textrm{Tor}^R_n(A,B)\) is annihilated by a non-zero element of \(R\), so that \(\textrm{Tor}^R_n(A,B)\) is a torsion module, for all \(A, B\) and \(n\geq 1\).</p>
+        <p>We then worked through the first part of following example due to Huneke and Wiegand.</p>
+        <p><strong>Example.</strong> Let \(k\) be a field and set \(R := k[x^4, x^5, x^6]\), a subring of the polynomial ring in one variable. Set \(I :=(x^4, x^5)R\) and \(J := (x^4, x^6)R\). Then \(t(I\otimes J) = 0\) so that \(I\otimes J\cong IJ\) and \(t(I\otimes I) \not = 0\), so that \(I\otimes I\not \cong I^2\). For both statements, we need to show that</p>
+        <div class="math-display">
+        <p>\[R^2\overset{\begin{pmatrix} -x^5 & -x^6\\x^4 & x^5\end{pmatrix}}\longrightarrow R^2\overset{\begin{pmatrix} x^4 & x^5\end{pmatrix}}\longrightarrow R\longrightarrow R/I\to 0\]</p>
+        </div>
+        <p>is the start of a free resolution of \(R/I\). To see that \(t(I\otimes j) = 0\), we used the sequence above to calculate \(\textrm{Tor}^R _1(R/I, J)\), and saw that this was zero. %For the second statement, we were able to exhibit explicitly a non-zero torsion elements in \(I\otimes I\), namely \(x^4\otimes (-x^5)+x^5\otimes x^4\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, November 5.</div>
+        <p>After recalling the definition of \(\textrm{Tor}^R_n(A,B)\) from the previous lecture, we noted, but did not prove, that the independence of  \(\textrm{Tor}^R_n (A, B)\) of the projective resolution of \(A\) follows from  the following theorem, which we did not prove.</p>
+        <p><strong>Properties of Tor.</strong> Let \(A\), \(B\) be \(R\)-modules.</p>
+        <ol>
+        <p><li>\(Tor^R_0(A, B)\cong A\otimes _R B\).</li> <li>\(Tor^R _n(B, A)\cong Tor^R_n(A, B)\), for all \(n\geq 1\). In other words, \(Tor^R_n(A, B)\) can also be calculated by taking a projective resolution of \(B\) and tensoring with \(A\).</li> <li><em>Tor Lemma</em>: If \(0\to K\overset{i}\to P\overset{\pi}\to A\to 0\) is exact with \(P\) a projective \(R\)-module, then for all \(A\)-modules \(B\), there is an exact sequence \(0\to Tor^R_1(A, B)\overset{f}\to K\otimes _R B\overset{i\otimes 1_B}\longrightarrow P\otimes B\overset{\pi\otimes 1_B}\longrightarrow A\otimes B\to 0\). Moreover, \(Tor^R_n(K, B)\cong Tor_{n+1}^R(A,B)\), for all \(n\geq 1\) (<em>dimension shifting for</em> Tor).</li> <li>For a multiplicatively closed set \(S\subseteq R\), \(Tor^R_n(A, B)_S \cong Tor_n^{R_S}(A_S, B_S)\) as \(R_S\)-modules, for all \(n\geq 0\).</li></p>
+        </ol>
+        <p>After calculating \(\textrm{Tor}^{\mathbb{Z}}_n(A,B)\) for finitely generated \(\mathbb{Z}\)-modules \(A\) and \(B\), we then spent the rest of the class (mostly) calculating \(\textrm{Tor}^R _n (A, B)\), in two ways, for \(R := k[x, y]/\langle xy\rangle\), \(A := R/\langle x, y\rangle\) and \(B := R/xR\), noting that \(\textrm{Tor}^R_n(A,B)\cong k\), for all \(n\geq 0\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Monday, November 3.</div>
+        <p>We began class by proving item (x) on our list of tensor product properties, namely, that if \(S\subseteq R\) is a multiplicatively closed subseteq then \((M\otimes_R N )_S \cong M_S\otimes_{R_S} N_S\) as \(R_S\)-modules. We then turned to he following proposition, and proving parts (i) and (iii).</p>
+        <p><strong>Proposition.</strong> Let \(0\to A\overset{f}\to B\overset{g}\to C\to 0\) \((\star)\) be an exact sequence of \(R\)-modules. Then</p>
+        <ol>
+        <p><li>For any \(R\)-module \(D\), the sequence \(A\otimes D\overset{f\otimes 1_D}\longrightarrow B\otimes D\overset{g\otimes 1_D}\longrightarrow C\otimes D\longrightarrow 0\) is exact.</li> <li>If \(D\) is a projective \(R\)-module, then \(f\otimes 1_D\) in (i) is injective. In other words, tensoring \((\star)\)  with a projective module preserves exactness.</li> <li>If \((\star)\) is split exact, then  \(0\to A\otimes D\overset{f\otimes 1_D}\longrightarrow B\otimes C\overset{g\otimes 1_D}\longrightarrow C\otimes D \longrightarrow 0\) is split exact.</li></p>
+        </ol>
+        <p>The proofs of (i) and (iii) were straight forward, with a key step in the proof of (i) showing that the induced map \((B\otimes D)/\textrm{im}(f\otimes 1_D)\overset{g\otimes 1_B}\longrightarrow  C\otimes D\) is injective. We then noted that if we tensor the exact sequence \(0\to \mathbb{Z}\overset{\cdot 3}\to \mathbb{Z}\to \mathbb{Z}_3\) with with \(\mathbb{Z}_3\) the resulting map \((\cdot 3)\otimes 1_{\mathbb{Z}_3}\) is not injective. This was followed by stating, but not proving the</p>
+        <p><strong>Definition-Proposition.</strong> Let \(A\) be an \(R\)-module and</p>
+        <div class="math-display">
+        <p>\[ \mathcal{P}: \cdots \longrightarrow P_2\overset{\phi_2}\longrightarrow P_1\overset{\phi _1}\longrightarrow P_0\overset{\pi}\longrightarrow A\to 0 \]</p>
+        </div>
+        <p>be a projective resolution of \(A\). Define \(\textrm{Tor}^R_n (A, B) := \textrm{H}_n(\tilde{\mathcal{P}} \otimes B)\), for all \(n\geq 0\), where \(\tilde{\mathcal{P}}\) is \(\mathcal{P}\) truncated at \(P_0\). The definition of  \(\textrm{Tor}^R_n (A, B)\) is independent of \(\mathcal{P}\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Friday, October 31.</div>
+        <p>We added a tenth item to the list of properties of tensor product from the previous lecture, see below. After noting that \(R/I\otimes_R R/J = 0\) whenever \(I,J\) are co-maximal ideals, we showed:</p>
+        <p><strong>Proposition.</strong> Suppose \(R\) is a local ring with maximal ideal \(\mathfrak{m}\) and \(M, N\) are finitely generated \(R\)-modules, then \(M\otimes_R N\not = 0\).</p>
+        <p>This essentially from from Nakayama's lemma and item (vi) in the list of properties of tensor product, since \(M/\mathfrak{m} M\) and \(N/\mathfrak{m} N\) are vector spaces over \(k := R/\mathfrak{m}\). We then established properties (iii), (vi), (vii), (viii) of the tensor product.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, October 29.</div>
+        <p>We began a discussion of the tensor product of \(R\)-modules \(M\) and \(N\), with the ultimate goal of defining and proving basic properties of the modules \(\textrm{Tor}^R _n(M, N)\), for \(n\geq 1\). After discussing the idea behind tensor products in general, we gave the following definition. For those who were in Math 790 during Fall 2022, we noted that the definition below is the same as the one for vector spaces over a field.</p>
+        <p><strong>Definition.</strong> For \(R\)-modules \(M\) and \(N\), a <em>tensor product of M and N over R</em> is an \(R\)-module \(P\) together with a bilinear map \(h: M\times N\to P\) having the following property: Whenever we are given an \(R\)-module \(L\) and a bilinear map \(f: M\times N\to L\), there is a <em>unique</em> \(R\)-module homomorphism \(\phi : P\to L\) such that \(\phi h = g\). In other words, we can always complete the diagram below, given \(L\) and \(f\) as stated:</p>
+        <div class="math-display">
+        <p>\[ \begin{tikzcd} 0 \arrow[r] &  M\times N \arrow[d,  "f"]  \arrow[r,  "h"] & P \arrow[dl, dotted, swap, "\phi"]\\ & L & \end{tikzcd} . \]</p>
+        </div>
+        <p>We then established the existence of the tensor product of \(M\) and \(N\) in the usual way: Namely as the quotient of the free module \(\mathcal{F}\) whose basis is the elements of \(M\times N\) by the submodule \(\mathcal{K}\) generated by the bilinear expressions in the basis elements that ultimately impose the bilinear structure on the tensor product. After showing that the tensor product is unique, we replaced the notation \(\mathcal{F}/\mathcal{K}\) by \(M\otimes _R N\) or just \(M\otimes N\), if there is no ambiguity about the underlying ring. For a basis element \((x, y) \in M\times N\), we denoted its image in \(M\otimes N\) by \(x\otimes y\), so that we obtain the bilinear map \(h :M\times N \to M\otimes N\) given by \(h(x,y) = x\otimes y\).</p>
+        <p>After showing that if \(n, m\in \mathbb{Z}\) are relatively prime, then \(\mathbb{Z}_m\otimes_{\mathbb{Z}}\mathbb{Z}_m = 0\), we then stated, but did not prove, the following proposition.</p>
+        <p><strong>Proposition.</strong> For various modules over \(R\):</p>
+        <ol>
+        <p><li>In \(M\otimes N\), we have \(x\otimes 0 = 0\otimes y = 0\), for all \(x\in M\) and \(y\in N\).</li> <li>\(R/I\otimes M \cong M/IM\), for all ideals \(I\subseteq R\).</li> <li>\(M\otimes N \cong N\otimes M\).</li> <li>\(M\otimes (N\otimes L) \cong (M\otimes N)\otimes L\).</li> <li>\((\bigoplus_{\alpha \in A}M_{\alpha})\otimes N \cong \bigoplus _{\alpha \in A} (M_{\alpha}\otimes N)\)</li> <li>If \(F\) is a free module with basis \(\{x_{\alpha}\}_{\alpha\in A}\) and \(G\) is a free module with basis \(\{y_{\beta}\}_{\beta\in B}\), then \(F\otimes G\) is a free module with basis \(\{x_{\alpha}\otimes y_{\beta}\}_{\alpha \in A, \beta \in B}\).</li> <li>If \(f: M\to M'\) and \(g: N\to N'\) are \(R\)-module homomorphisms, then there is an \(R\)-module homomorphism \(f\otimes g: M\otimes N\to M'\otimes N'\) satisfying \((f\otimes g)(x\otimes y) = f(x)\otimes g(y)\), for all \(x\in M\) and \(y\in N\).</li> <li>If \(R\subseteq T\) are rings, with \(R\) a subring of \(T\), then \(T\otimes M\) has the structure of a \(T\)-module, with the property that \(t_1\cdot (t\otimes x) = (t_1t)\otimes x\), for all \(t_1, t\in T\) and \(x\in M\).</li> <li>If \(0\to A\overset{f}\to B\overset{g}\to C\to 0\) is a short exact sequence of \(R\)-modules then the induced sequence \(A\otimes_R D\overset{f\otimes 1_D}\to B\otimes_R\overset{g\otimes 1_D}\to C\otimes_R D\to 0\) is exact.</li> <li>Suppose \(S\subseteq R\) is a multiplicatively closed subset. Then \(M_S\otimes_{R_S} N_S \cong (M\otimes_R)_S\), as \(R_S\)-modules.</li></p>
+        </ol>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Monday, October 27.</div>
+        <p>Today's lecture was devoted to largely finishing the proof of the Ext lemma. We first verified the dimension shifting portion of the lemma. We then showed that \(\textrm{Ext}_R^1(A,B)\)  is independent of the projective resolution of \(A\) and the injective resolution of \(B\) and that the cohomology modules obtained from applying Hom\((-, B)\) to the projective resolution of \(A\) and Hom\((A,-)\) to the injective resolution of \(B\) are isomorphic. We then used this proof plus induction and dimension shifting to show that \(\textrm{Ext}^2_R(A,B)\) is similarly well defined and the independent of projective or injective resolutions used to calculate it. This showed that the arguments could be extend to all modules \(\textrm{Ext}_R^n(A,B)\), for \(n\geq 1\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Friday, October 24.</div>
+        <p>Professor Purnaprajana discussed the connection between the algebra of projective modules and the geometry of vector bundles. he also spoke about Grothendieck's connection to KU and a letter written to Serre during his time at KU.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, October 22.</div>
+        <p>We began class by finishing the example from the previous lecture by showing that, for \(R\) and \(Q\) as defined in the previous lecture, \(\textrm{pd}_R (Q) = \infty\). This was done by dimension shifting (twice), thereby reducing the proof to showing that \(\textrm{Ext}_R^n(\mathfrak{m}, R) \not = 0\), for \(n\geq 1\), which we had already established.</p>
+        <p><strong>Interesting Fact.</strong> Dualizing with respect to \(Q\) has desirable property that for any finitely generated \(R\)-module \(M\), the canonical map \(M \to \textrm{Hom}_R (\textrm{Hom}_R(M, Q), Q)\) is an isomorphism.</p>
+        <p>We then presented the following theorem, which explains why \(\textrm{pd}_R(Q) = \infty\), for \(R\) and \(Q\) as in the previous paragraph.</p>
+        <p><strong>Theorem.</strong>  Let \((R, \mathfrak{m})\) be a Noetherian local ring with the following property: There exists \(0 \not = a \in R\) such that \(a\cdot \mathfrak{m} =0\). Then for any finitely generated \(R\)-module \(M\), either \(M\) is a free \(R\)-module or \(\textrm{pd}_R M) = \infty\).</p>
+        <p>The key to the proof of the theorem was the construction of a <em>minimal free resolution</em> of \(M\), i.e., an exact sequence</p>
+        <div class="math-display">
+        <p>\[ (**)\quad \quad \quad \cdots \to F_2\overset{\phi_2}\to F_1\overset{\phi_1}\to F_0\overset{\pi}\to M\to 0, \]</p>
+        </div>
+        <p>where each \(F_i\) is a finitely generated free \(R\)-module and the maps \(\phi\) have entries in \(\mathfrak{m}\). Thus, if \(\textrm{pd}_R (M) = d\), (**) terminates as \(0\to F_d\overset{\phi_d}\to F_d\), from which one derives the contradiction</p>
+        <div class="math-display">
+        <p>\(\phi_d(\begin{pmatrix} a\\0\\\vdots\\0\end{pmatrix}) = {\bf 0}\)</p>
+        </div>
+        <p>.</p>
+        <p>We then presented a key part of the Ext lemma, namely</p>
+        <p><strong>Proposition.</strong> Suppose \(0\to K \overset{i}\to P \overset{\pi}\to M\to 0\) is a projective presentation of the \(R\)-module \(M\) and</p>
+        <div class="math-display">
+        <p>\[ \cdots \longrightarrow  P_0 \overset{\phi_2}\to P_1\overset{\phi_1}\to P \overset{\pi}\to M\to 0 \]</p>
+        </div>
+        <p>is the start of a projective resolution of \(M\) extending the given projective presentation of \(M\). Then for any \(R\)-module \(B\), there exists an exact sequence</p>
+        <div class="math-display">
+        <p>\[ 0\to \homr (M, B)\overset{\pi^*}\to \homr(P, B)\overset{i^*}\to \homr (K, B) \overset{f}\to \textrm{ker}(\phi_2^*)/\textrm{im}(\phi_1^*)\to 0, \]</p>
+        </div>
+        <p>where the maps with * are those induced by applying \(\homr(-, B)\). The map \(f\) was defined as follows: Let \(t: P_1\to K\to 0\) be the map satisfying \(t(p) = \phi_1(p)\), for all \(p\in P_1\). Then \(f\) is the composition \(ht^*\), where \(h: \textrm{ker}(\phi_2^*)\to \textrm{ker}(\phi_2^*)/\textrm{im}(\phi_1^*)\to 0\) is the canonical surjection. This makes sense since \(\textrm{im} (t^*) = \textrm{ker}(\phi_2^*)\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Monday, October 20.</div>
+        <p>This class was devoted to working through the following example, which shows that for a particular module, the projective dimension can be finite, while its injective dimension is infinite or vice versa.</p>
+        <p><strong>Example.</strong> Let \(k\) be a field and set \(R := k[X, Y]/\langle X^2, XY, Y^2\rangle\). We used lower case \(x, y\) to denote the images of \(X, Y\) in \(R\). We first noted that \(R\) is a three dimensional vector space over \(k\) with basis \(1, x, y\), and unique maximal ideal \(\mathfrak{m} := \langle x, y\rangle\). We also set</p>
+        <div class="math-display">
+        <p>\(L := \langle \begin{pmatrix} y\\0\end{pmatrix}, \begin{pmatrix} x\\-y\end{pmatrix}, \begin{pmatrix} 0\\x\end{pmatrix}\rangle\)</p>
+        </div>
+        <p>and \(Q := R^2/L\). We then established (mostly) the following two facts:</p>
+        <ol>
+        <p><li>\(pd_R (R) = 0\) and \(id_R (R) = \infty\).</li> <li>\(id_R (Q) = 0\) and \(pd_R(Q) = \infty\).</li></p>
+        </ol>
+        <p>The first statement in (i) is trivial. The second statement was established by showing that \(\textrm{Ext}_R^n (\mathfrak{m}, R) \not = 0\), for all \(n\geq 1\). This latter fact was established by showing: (a) There exists an \(R\)-module map \(f : \mathfrak{m}\to R\) that cannot be extended to \(R\) and (b) There is an exact sequence \(0\to \mathfrak{m}\oplus \mathfrak{m} \to R^2\to \mathfrak{m}\to 0\). We then showed that \(Q\) is an injective \(R\)-module. For this we needed to show that \(\{x\in Q\ |\ \mathfrak{m} x = 0\}\) is a cyclic \(R\)-module generated by the class of</p>
+        <div class="math-display">
+        <p>\(\begin{pmatrix} 0\\y\end{pmatrix}\)</p>
+        </div>
+        <p>in \(Q\). That \(\textrm{pd}_R(Q) = \infty\) will be established in the next lecture.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Friday, October 17.</div>
+        <p>We began class by defining a <em>Whitehead group</em> to be an abelian group (i.e., \(\mathbb{Z}\)-module) such that \(\textrm{Ext}^1_{\mathbb{Z}}(M, \mathbb{Z}) = 0\). The <em>Whitehead problem</em> asked whether or not Whitehead groups are free (abelian) groups. We noted that the Israeli mathematician Shelah showed that the Whitehead problem is undecidable when \(M\) is uncountable. We then proved the following theorem, and noted that it hold for finitely generated modules over a PID.</p>
+        <p><strong>Theorem.</strong> Suppose \(M\) is a finitely generated Whitehead group, i.e.,\(\textrm{Ext}^1_{\mathbb{Z}}(M, \mathbb{Z}) = 0\). Then \(M\) is a free group, i.e., \(M\) is a free \(\mathbb{Z}\)-module.</p>
+        <p>We then discussed the following results:</p>
+        <p><strong>Projective Dimension Theorem.</strong> Let \(M\) be an \(R\)-module and \(d\geq 0\). The following are equivalent:</p>
+        <ol>
+        <p><li>\(pd_R(M)\leq d\).</li> <li>\(Ext_R^n(M,B) = 0\), for all \(n\geq d+1\) and \(R\)-modules \(B\).</li> <li>\(Ext_R^{d+1}(M, B) = 0\), for all \(R\)-modules \(B\).</li></p>
+        </ol>
+        <p><strong>Injective Dimension Theorem.</strong> Let \(N\) be an \(R\)-module and \(d\geq 0\). The following are equivalent:</p>
+        <ol>
+        <p><li>\(id_R(N) \leq d\)</li> <li>\(Ext_R^n(A, N) = 0\), for all \(n\geq d+1\) and \(R\)-modules \(A\).</li> <li>\(Ext_R^{d+1}(A, N) = 0\), for all \(R\)-modules \(A\).</li> <li>\(Ext_R^{d+1}(R/I, N) = 0\), for all ideal \(I\subseteq R\).</li></p>
+        </ol>
+        <p><strong>Global Dimension Theorem.</strong> For the ring \(R\), the following values are equal:</p>
+        <ol>
+        <p><li>Sup\(\{pd_R(A)\ |\ A\ is an \ R-module\}\).</li> <li>Sup\(\{id_R(B)\ |\ B\ is an \ R-module\}\).</li> <li>Sup\(\{n\ |\ There exist \ A, B\ with\ Ext_R^n(A,B)\not = 0\}\)</li> <li>Sup\(\{pd_R(R/I)\ |\  I\subseteq R\ is an \  ideal\}\).</li></p>
+        </ol>If these conditions hold, we say that \(R\) has <em>global dimension d</em>.
+        <p>We proved the Projective Dimension Theorem and the Global Dimension Theorem using induction and the Ext Lemma. We also noted that \(R\) has global dimension 0, if and only if \(R\) is a field and that for \(k\) a field, the polynomial ring \(k[x_1, \ldots, x_d]\) has global dimension \(d\), by the <em>Hilbert Syzygy Theorem.</em></p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, October 15.</div>
+        <p>Professor Dao defined direct and inverse limits of modules and gave several examples. In particular, it was shown that the localization of a module at a multiplicatively closed set is a direct limit. He also noted that the power series ring \(k[[x]]\), where \(k\) is a field is the inverse limit of the modules (rings) \(k[x]/\langle x^n\rangle\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Friday, October 10.</div>
+        <p>After recalling the definitions of  \(\xnab\), we stated but did not prove the following:</p>
+        <p><strong>Ext Lemma.</strong> Let \(M\) and \(N\) be \(R\)-modules.</p>
+        <ol>
+        <p><li>Given an exact sequence \(0\to K\overset{i}\to P\overset{\pi}\to M\to 0\), with \(P\) projective, then for any \(R\)-modules \(B\), there exists an exact sequence \[ 0\to Hom_R(M, B)\overset{\pi^*}\to Hom_R (P,B)\overset{i^*} \to Hom_R(K, B)\to Ext_R^1(M, B)\to 0. \] Moreover, for all \(n\geq 1, \ Ext_R^n(K, B)\cong Ext_R^{n+1}(M,B)\).</li> <li>Given an exact sequence \(0\to N\overset{i}\to Q\overset{\pi}\to C\to 0\), with \(Q\) injective, then for any \(R\)-modules \(A\), there exists an exact sequence \[ 0\to Hom_R(A, N)\overset{\tilde{i}}\to Hom_R (A,Q)\overset{\tilde{\pi}} \to Hom_R(A, C)\to Ext_R^1(A, N)\to 0. \] Moreover, for all \(n\geq 1, \ Ext_R^n(A, C)\cong Ext_R^{n+1}(A, N)\).</li></p>
+        </ol>
+        <p>We then used the Ext Lemma to show that a module \(M\) is a projective \(R\)-module if \(\textrm{Ext}^1_R(M<B) = 0\) for all \(R\)-modules \(B\). This required the following Lemma, which we alluded to, but did not pove:</p>
+        <p><strong>Lemma.</strong> Let \(0\to A\overset{f}\to B\overset{g}\to C\to 0\) be an exact sequence. Then the following statement are equivalent:</p>
+        <ol>
+        <p><li>There exists a map \(j: C\to B\) such that \(gj = 1_C\).</li> <li>There exists \(\rho:B\to A\) sucththat \(\rho f = 1_A\).</li></p>
+        </ol> Moreover \(f(A)\oplus j(C) = B = f(A)\oplus \textrm{ker}(\rho)\).
+        <p>We then used the Ext Lemma to give a homological version of Baer's Criterion: An \(R\)-module \(A\) is injective if and only if for all ideals \(I\subseteq R\), \(\textrm{Ext}_R^1(R/I, Q) = 0\). We also calculated:</p>
+        <p><strong>Example.</strong> Suppose \(n, m\in \mathbb{Z}\), and write \(d = \textrm{GCD}(n,m)\). Then</p>
+        <div class="math-display">
+        <p>\(\textrm{Ext}^r_{\mathbb{Z}} (\mathbb{Z}_n, \mathbb{Z}_m) = \begin{cases} \mathbb{Z}_d,\ \textrm{if} \ r = 0, 1\\0, \ \textrm{if}\ r\geq 2.\end{cases}\)</p>
+        </div>
+        <p>.</p>
+        <p>%We then briefly discussed the famous <em>Whitehead Problem</em>: For a \(\mathbb{Z}\)-module \(M\), if \(\textrm{Ext}^1_{\mathbb{Z}}(M, \mathbb{Z}) = 0\), must \(M\) be a free \(\mathbb{Z}\)-module (i.e., a free abelian group). We proved this result when \(M\) is finitely generated, using the Ext Lemma, and noted that Shelah has shown the the Whitehead Problem is <em>undecidable</em> when \(M\) is uncountable.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, October 8.</div>
+        <p>We began class by defining an <em>injective resolution</em> of the  module \(M\) to be any exact sequence of the form</p>
+        <div class="math-display">
+        <p>\[ 0\to M\to Q_0\overset{g_1}\to Q_1\overset{g_2}\to Q_2\to \cdots \]</p>
+        </div>
+        <p>where each \(Q_j\) is an injective \(R\)-module. We noted that injective resolutions always exist, since any \(R\)-module is isomorphic to a submodule of an injective \(R\)-module. We sated that an \(R\)-module has injective dimension \(n\), denoted \(\textrm{id}_R(M) = n\), if it has an injective resolution of the form</p>
+        <div class="math-display">
+        <p>\[ 0\to M\to Q_0\overset{g_1}\to Q_1\overset{g_2}\to Q_2\to \cdots \to Q_n\to 0 \]</p>
+        </div>
+        <p>and no shorter injective resolution.</p>
+        <p>We then stated:</p>
+        <p><strong>Schanuel's Lemma for injective modules.</strong> Given short exact sequences \(0\to M\to Q\to C\to 0\) and \(0\to M\to Q'\to C'\to 0\), with \(Q, Q'\) injective \(R\)-modules, then \(Q\oplus C' \cong Q'\oplus C\).</p>
+        <p>We noted that, analogous to the projective case, Schanuel's Lemma can be used to show that if \(M\) has injective dimension \(n\), then the \((n-1)^{\textrm{st}}\) cokernel in any injective resolution of \(M\) must be injective. This was followed by demonstrating the following two examples:</p>
+        <ol>
+        <p><li>For \(R\) a PID, \(id_R(M)\leq 1\), for all \(R\)-modules \(M\).</li> <li>For \(k\) a field and \(R := k[x]/\langle x\rangle\), \(id_R (R) = 0\) and \(id_R( \overline{x}R) = \infty\).</li></p>
+        </ol>
+        <p>We then presented the following proposition (without proof) and definition.</p>
+        <p><strong>Proposition-Definition.</strong> Let \(A, B\) be \(R\)-modules, \(\mathcal{P}\) a projective resolution of \(A\) and \(\mathcal{Q}\) an injective resolution of \(B\). Then, for all \(n\geq 1\)</p>
+        <ol>
+        <p><li>\(H^n(Hom_R(\mathcal{P}, B))\) is independent of \(\mathcal{P}\).</li> <li>\(H^n(Hom_R (A, \mathcal{Q}))\) is independent on \(\mathcal{Q}\).</li> <li>\(H^n(Hom_R(\mathcal{P}, B)) \cong H^n(Hom_R (A, \mathcal{Q}))\).</li></p>
+        </ol> We defined \(\xnab\) to be the module appearing in (i)-(iii).
+        <p>For the Proposition-Definition above, we defined \(\textrm{H}^n(\textrm{Hom}_R(\mathcal{P}, B))\) to be the cohomology of the complex obtained by applying \(\textrm{Hom}_R(-, B)\) to all of the terms in \(\mathcal{P}\) except \(A\). Similarly, \(\textrm{H}^n(\textrm{Hom}_R(A,\mathcal{Q}))\) is the cohomology of the complex obtained by applying \(\textrm{Hom}_R(A, -)\) to all of the terms in \(\mathcal{Q}\), except \(B\). It followed that \(\textrm{Ext}_R^0(A, B) = \hab\).</p>
+        <p>We closed out the class by noting that: (i) \(\xnab = 0\), for all \(n\geq 1\) whenever \(A\) is projective or \(B\) is injective; (ii)  \(\textrm{Ext}_{\mathbb{Z}}^r(\mathbb{Z}_n, \mathbb{Z}_m) \cong \mathbb{Z}_d\), where \(d = \textrm{GCD}(n,m)\), for all \(r\geq 0\) and (iii) recording, but not proving, the difficult fact that \(\textrm{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}) \cong \mathbb{R}\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Monday, October 6.</div>
+        <p>Today's class was devoted to a discussion and proof of the following theorem.</p>
+        <p><strong>Theorem.</strong> Any \(R\)-module is isomorphic to a submodule of an injective \(R\)-module.</p>
+        <p>After first noting that \(R\) and any \(R\)-module \(M\) can be regarded as \(\mathbb{Z}\)-modules, the proof proceeded by verifying the following steps:</p>
+        <p>Step 1: Any \(\mathbb{Z}\)-module is isomorphic to a submodule of an injective \(\mathbb{Z}\)-module. This step used the fact that divisible and injective modules are the same over \(\mathbb{Z}\).</p>
+        <p>Step 2: If \(M\) is a \(\mathbb{Z}\)-module, then \(\textrm{Hom}_{\mathbb{Z}}(R, M)\) is an \(R\)-module, with \(R\) scalar multiplication defined by \((rf)(x):= f(rx)\), for all \(f \in \textrm{Hom}_{\mathbb{Z}}(R, M)\) and \(r, x \in R\).</p>
+        <p>Step 3: If \(Q\) is an injective \(\mathbb{Z}\)-module, then \(\textrm{Hom}_{\mathbb{Z}}(R, Q)\) is an injective \(R\)-module.</p>
+        <p>Step 4: Suppose \(M\) is an \(R\)-module and \(0\to M\overset{i}\to Q\) is a map of \(\mathbb{Z}\)-modules, with \(Q\) an injective \(\mathbb{Z}\)-module. Then the map \(\psi : M\to \textrm{Hom}_{\mathbb{Z}}(R, Q)\) given by \(\psi (m)= \phi_m\), with \(\phi_m(x) := i(xm)\), for all \(m\in M\) and \(r, x \in R\), is an injective \(R\)-module homomorphism.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Friday, October 3.</div>
+        <p>We began class by discussing, but not proving, the following properties of injective and projective modules:</p>
+        <ol>
+        <p><li>For a collection of modules \(\{Q_{\alpha}\}\), \(\prod_{\alpha} Q_{\alpha}\) is injective if and only if each \(Q_{\alpha}\) is injective.</li> <li>For a collection of modules \(\{P_{\alpha}\}\), \(\bigoplus_{\alpha} P_{\alpha}\) is projective if and only if each \(P_{\alpha}\) is projective.</li> <li>\(\bigoplus_{\alpha} Q_{\alpha}\) is injective for every collection \(\{Q_{\alpha}\}\) of injective modules if and only if \(R\) is Noetherian, by a theorem of H. Bass.</li> <li>\(\prod_{\alpha} P_{\alpha}\) is projective for every collection \(\{P_{\alpha}\}\) of projective modules if and only if \(R\) is Artinian, by a theorem of S. Chase.</li></p>
+        </ol>
+        <p>We noted that part (iv) implies that a countable direct product of \(\mathbb{Z}\) is not a projective (equivalently, a free) \(\mathbb{Z}\)-module. We then recalled dual spaces of vectors spaces and noted that for for finite dimensional vector spaces over a field and for such \(V\), that \(V\) is canonically isomorphic to \(V^{**}\). The remainder of class was devoted to proving the following theorem. .</p>
+        <p><strong>Theorem.</strong> Let \(R\) be a Noetherian ring. Then \(R\) is an injective \(R\)-module if and only if for every finitely generated \(R\)-module \(M\), the canonical map from \(M\) to \(M^{**}\) is an isomorphism.</p>
+        <p>In the theorem, we are using \(C^*\) to denote \(\textrm{Hom}_R (C, R)\). We first showed that if \(R\) is an injective \(R\)-module, then the canonical map \(M\to M^{**}\) is an isomorphism. After first showing that the diagram below is commutative, the proof that the map between \(M\) and \(M^{**}\) is an isomorphism was an easy diagram chase through the diagram</p>
+        <div class="math-display">
+        <p>\[ \begin{tikzcd} 0 \arrow[r] & K  \arrow[d] \arrow[r, "i"] & F  \arrow[d] \arrow[r, "\pi"] & M \arrow[d] \arrow[r] & 0\\ 0\arrow[r] & K^{**} \arrow[r, "\pi^{**}"] & F^{**}  \arrow[r, "i^{**}"] & M^{**} \arrow[r]  & 0 \end{tikzcd} \]</p>
+        </div>
+        <p>where the vertical maps are the canonical homomorphisms, and the middle vertical map is an isomorphism. Assuming the condition stated in the theorem, we then had to show that any diagram of \(R\)-modules and \(R\)-module homomorphisms</p>
+        <div class="math-display">
+        <p>\[ \begin{tikzcd} 0 \arrow[r] &  I \arrow[d,  "g"]  \arrow[r,  "i"] & R \arrow[dl, dotted, swap, "\rho"]\\ & R & \end{tikzcd} \]</p>
+        </div>
+        <p>can be completed by some \(\rho\). Maintaining the notation from the previous lecture, we noted that this was equivalent to showing the map \(i^*: R^*\to I^*\) is surjective or equivalently, \(\textrm{coker}(i^*) = 0\). This was done by showing that \(\textrm{coker}(i^*)^* = 0\). Dualizing gives \(0 = \textrm{coker}(i^*)^{**} \cong \textrm{coker}(i^*)\), as required.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, October 1.</div>
+        <p>We continued our discussion of injective modules by first defining an \(R\)-module \(D\) to be <em>divisible</em> if for every \(\textrm{non-zerodivisor}\) \(r \in R\) and \(d\in D\), there exists \(d'\in R\) such that \(d = rd'\). We then showed that any injective \(R\)-module is divisible and that the converse holds if \(R\) is a PID. Since homomorphic images of divisible modules are divisible, this enabled us to conclude that the \(\mathbb{Z}\)-modules \(\mathbb{Q}/\mathbb{Z}\) and \(\mathbb{R}/\mathbb{Z}\) are injective. We then noted, but did not prove, that \(\mathbb{Z}_{p^{\infty}}\) is an injective \(\mathbb{Z}\)-module. In the previous lecture, we noted that \(\mathbb{Z}_n\) is not an injective \(\mathbb{Z}\)-module. However, we also noted (but did not prove) that \(\mathbb{Z}_n\) is an injective module over the ring \(S:= \mathbb{Z}_n\). %Finally, we also mentioned that one can prove that any injective \(\mathbb{Z}\)-module is a direct sum of copies of \(\mathbb{Q}\) and \(\mathbb{Z}_{p^{\infty}}\) for various primes \(p\in \mathbb{Z}\).</p>
+        <p>We then worked through the details of the following example.</p>
+        <p><strong>Example.</strong> Let \(R := \mathbb{Q}[x,y]\) be the polynomial ring in two variables over \(\mathbb{Q}\), and let \(K\) denote its quotient field. Then \(K/R\) is a divisible \(R\)-module, but not an injective \(R\)-module. In particular, the homomorphic image of an injective \(R\)-module need not be injective.</p>
+        <p>The rest of the class was devoted to a proof of the following important theorem.</p>
+        <p><strong>Baer's Criterion.</strong> Let \(Q\) be an \(R\)-module. Then \(Q\) is injective if and only if , for all ideals \(I\subseteq R\), the diagram</p>
+        <div class="math-display">
+        <p>\[ \begin{tikzcd} 0 \arrow[r] &  I \arrow[d,  "g"]  \arrow[r,  "i"] & R \arrow[dl, dotted, swap, "\rho"]\\ & Q & \end{tikzcd} \]</p>
+        </div>
+        <p>can be completed.</p>
+        <p>The idea of the proof is the following. One can employ Zorn's lemma to find \(A\subseteq C\subseteq B\) maximal among submodules of \(B\) with a map \(h:C\to Q\) extending \(g\). If \(C = B\), the proof is complete. Otherwise one can construct a map and submodule of \(B\) contradicting the maximality of \(C\). So take \(x\in B\backslash C\) and consider the module \(C+Rx\). If \(C\cap Rx = 0\), then \(C+Rx = C\oplus Rx\) and we can extend \(h\) by sending any element of the form \(c+rx\) to \(h(c)\). Otherwise, if \(C\cap Rx \not = 0\), we have a non-zero ideal \(I := \{r\in R\ |\ rx\in C\}\). If we define \(\alpha : I\to Q\) by \(\alpha (r) := h(rx)\), then by hypothesis, there exists \(\rho: R\to Q\) extending \(\alpha\). One now defines \(\hat{h} : C+Rx\to Q\) by \(\hat{h}(c+rx) :=h(c)+\rho (r)\). One checks that \(\hat{h}\) is a well-defined \(R\textrm{-module homomorphism}\) extending \(h\), which is a contradiction, completing the proof. The point of the construction is this: For elements \(rx \in C\cap Rx\) the extension of \(h\) must take \(rx\) to \(h(rx)\). The map \(\rho\) then determines where \(x\) itself must go, in order for the proposed extension of \(h\) to be compatible with \(h\).</p>
+        <p>%%We then discussed, but did not prove, the following properties of injective and projective modules: %<ol> <li>For a collection of modules \(\{Q_{\alpha}\}\), \(\prod_{\alpha} Q_{\alpha}\) is injective if and only if each \(Q_{\alpha}\) is injective. %\item[(ii)] For a collection of modules \(\{P_{\alpha}\}\), \(\bigoplus_{\alpha} P_{\alpha}\) is projective if and only if each \(P_{\alpha}\) is projective. %\item[(iii)] \(\bigoplus_{\alpha} Q_{\alpha}\) is injective for every collection \(\{Q_{\alpha}\}\) of injective modules if and only if \(R\) is Noetherian, by a theorem of H. Bass. %\item[(iv)] \(\prod_{\alpha} P_{\alpha}\) is projective for every collection \(\{P_{\alpha}\}\) of projective modules if and only if \(R\) is Artinian, by a theorem of S. Chase. %</li></p>
+        </ol>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Monday, September 29.</div>
+        <p>We began class by finishing the proof of the theorem begun in the previous lecture. Picking up where we left off, we had that if \(Q\subseteq R\) is maximal, then there is \(f\in R\backslash Q\) such that \(P_f\) is a free \(R_f\)-module. By the lemma from the previous lecture, there exists an \(R\textrm{-module homomorphism} \ h: M\to R^n\) and \(p\geq 1\) such that \(\psi = h/f^p\). Exploiting the finite generation of \(M\), and possibly changing the values of \(p\), lead to a \(p, q\), depending on \(f\), such that \(\pi (f^qh)(x) = f^{p+q}x\), for all \(x\in M\). We then chose a similar \(f, h, p, q\) for each maximal ideal \(Q\). The ideal generated by the set of \(f^{p+q}\)'s equals \(R\), so that \(1 = r_1f_1^{p_1+q_1}+\cdots +r_cf_c^{p_c+q_c}\), for some \(r_i, f_i, p_i, q_i\).The proof was completed by showing that \(\phi := r_1f_1^{q_1}h_1+\cdots + r_cf_c^{q_c}h_c : M\to R^n\) is the required splitting.</p>
+        <p>We then began our discussion of injective modules, with an \(R\)-module \(Q\) being injective if and only if it satisfies the following equivalent conditions:</p>
+        <ol>
+        <p><li>Given a diagram of \(R\)-modules and \(R\)-module homomorphisms \[ \begin{tikzcd} 0 \arrow[r] &  A \arrow[d,  "g"]  \arrow[r,  "f"] & B \arrow[dl, dotted, swap, "\rho"]<br>& Q & \end{tikzcd}, \]there exists \(\rho\) as above such that \(\rho f = g\).</li> <li>Given a \(short exact sequence\) \(0\to A\overset{f}\to B\overset{g}\to C\to 0\), the induced sequence \[ 0 \to \hcq\overset{g^*}\to \hbq\overset{f^*}\to \haq\to 0 \] is exact.</li></p>
+        </ol>
+        <p>We ended class by stating Baer's Criterion and using it to show that: (i) \(\mathbb{Z}\) is not an injective \(\mathbb{Z}\)-module and (ii) \(\mathbb{Q}\) is an injective \(\mathbb{Z}\)-module.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Friday, September 26.</div>
+        <p>We began class by recalling that if \(A\) and \(B\) are \(R\)-modules and \(S\subseteq R\) is a \(\mc\) , then  there is a canonical \(R_S\)-module homomorphism \(\hab _S \to \textrm{Hom}_{R_S}(A_S, B_S)\), where  for \(f/s \in \hab _S\), \((f/s)(a/s') = f(a)/ss'\), for all \(a/s'\in A_S\). This map need be neither injective nor surjective. However we noted that if \(A\) is finitely generated, then this map is injective. The surjectivity when \(A\) is finitely presented follows from the:</p>
+        <p><strong>Lemma.</strong> Let \(A\) be a finitely presented \(R\)-module, \(B\) an \(R\)-module and \(S\subseteq R\) a multiplicatively closed set. Let \(\psi : A_S \rightarrow B_S\) be an \(R_S\)-module homomorphism. Then there exists an \(R\)-module homomorphism \(\tau : A\rightarrow B\) and an \(s_0\in S\) such that \(\tau/s_0 = \psi\).</p>
+        <p>A key point in the proof of the lemma was to first prove the case that \(A\) is a free \(R\)-module, and then employ the following general principle: If \(0\to L\to R^p\overset{\pi}\to A\to 0\) is a presentation of \(A\), then to define a map from \(A\) to \(B\), it suffices to define a map from \(R^p\) that is zero on \(L\). The lemma and the remarks preceding it showed that \(\hab_S\cong \textrm{Hom}_{R_S}(A_S, B_S)\) as \(R_S\)-modules, when \(A\) is finitely presented.</p>
+        <p>We then stated the theorem we have been working towards:</p>
+        <p><strong>Theorem.</strong> Let \(P\) be a finitely presented \(R\)-module, then \(P\) is projective if and only if for every maximal ideal \(Q\subseteq R\), \(P_Q\) is a free \(R_Q\) module.</p>
+        <p>We ended class by showing the first step in the proof of the theorem: Fix \(Q\subseteq R\) a maximal ideal. Then there exists \(f\not \in Q\) such that \(P_f\) is a free \(R_f\)-module.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, September 24.</div>
+        <p>We continued with our discussion of localization by continuing our discussion of the following:</p>
+        <p><strong>Proposition A.</strong>  Let \(S\subseteq R\) be a \(\mc\) and \(\phi :R\to R_S\) the natural map.</p>
+        <ol>
+        <p><li>\(ker(\phi) = \{r\in R\ |\ sr = 0, \ for some\ s\in S\}\).</li> <li>If \(I\subseteq R\) is an ideal,  \(\phi (I) = I_S := \{\frac{i}{s}\ | \ i\in I, s\in S\}\) is an ideal of \(R_S\)</li> <li>If \(J\subseteq R_S\) is an ideal. then \(J = I_S\), for some ideal \(I\subseteq R\), where \(I = \phi^{-1}(J)\).</li> <li>\(\phi^{-1}(I_S)\) can strictly contain \(I\).</li> <li>If \(P\subseteq R\) is prime and \(P\cap S = \emptyset\), then \(P_S\) is a prime ideal of \(R_S\) and \(\phi^{-1}(P_S) = P\)</li> <li>There is a one-to-one correspondence between the prime ideals \(P\subseteq R\) disjoint from \(S\) and the prime ideals of \(R_S\) given by \(P\to \phi (P)\) and \(Q \to \phi^{-1}(Q)\), for \(Q\subseteq R_S\), prime.</li></p>
+        </ol>
+        <p>This discussion was followed by a proof of the important</p>
+        <p><strong>Proposition B.</strong> Give an \(R\)-module \(M\), the following are equivalent.</p>
+        <ol>
+        <p><li>\(M = 0\)</li> <li>\(M_P = 0\), for all primes \(P\subseteq R\).</li> <li>\(M_Q = 0\), for all maximal ideals \(Q\subseteq R\)</li></p>
+        </ol>
+        <p>We continued with</p>
+        <p><strong>Further properties of localization.</strong> Given \(S\subseteq R\), a \(\mc\)</p>
+        <ol>
+        <p><li>For \(\phi :M\to N\), there exists \(\phi_S : M_S\to N_S\) defined by \(\phi_S(\frac{m}{s}) := \frac{\phi(m)}{s}\).</li> <li>For \(S, T\) multiplicativeltyclosed subsets of \(R\), \(ST\) is a multiplicatively closed subset of \(R\) and that the rings \(R_{ST}\) and \((R_S)_{T'}\) are isomorphic, where \(T' := \{\frac{t}{1}\in R_S\ |\ t\in T\}\).</li> <li>An exact sequence \(0\to A\overset{f}\to B\overset{g}\to C\to 0\) of \(R\)-modules gives rise to an exact sequence of \(R_S\)-modules \(0\to A_S\overset{f_S}\to B_S\overset{g_S}\to C_S\to 0\) iof \(R_S\)-modules.</li></p>
+        </ol>
+        <p>We ended class by defining \(\hab\), the set of \(R\)-module homomorphisms from \(A\) to \(B\), noting that \(\hab\) has the structure of an \(R\)-module. Thus, if \(S\subseteq R\) is a \(\textrm{multiplicatively closed set}\), \(\hab _S\) is an \(R_S\)-module, and as such, there is a canonical \(R_S\)-module homomorphism \(\hab _S \to \textrm{Hom}_{R_S}(A_S, B_S)\), where  for \(f/s \in \hab _S\), \(\phi((f/s))(a/s') = f(a)/ss'\), for all \(a/s'\in A_S\). This map need be neither injective nor surjective. However we noted, but did not prove, that this map is an isomorphism if \(A\) is finitely presented.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Monday, September 22.</div>
+        <p>We then began a discussion of the process of localizing the ring \(R\) and its module \(M\) at a multiplicatively closed set \(S\). We noted that the process will give a new ring \(R_S\) whose elements can ultimately be written as fractions \(r/s\), with \(r\in R\) and \(s\in S\) and an \(R_S\)-module \(M_S\) whose elements ultimately can be written as fractions \(m/s\) with \(m\in M\) and \(s\in S\). We indicated that the fractions involved can be added and multiplied in the expected way, and mentioned that - just like constructing \(\mathbb{Q}\) from \(\mathbb{Z}\) - these fractions will be equivalence classes of ordered pairs of the form \((r, s)\) and \((m, s)\), for \(r \in R, m\in M\), and \(s\in S\).</p>
+        <p>We continued our discussion of localizing rings and modules at multiplicatively closed sets. Throughout, \(M\) is an \(R\)-module and \(S\subseteq R\) is a multiplicatively closed set. We began by showing that the relation \(\sim\) on \(R\times S\) given by \((r,s)\sim (r_1, s_1)\) if and only if \(s'(s_1r-sr_1) = 0\), for some \(s'\in S\), is an equivalence relation on \(R\times S\). Writing \(R_S\) for the set of resulting equivalence classes, we agreed to write the fraction \(r/s\) for the equivalence class of \((r,s)\). We then showed that the operations \((r/s) + (r_1/s_1) := (s_1r+sr_1)/ss_1\) and \((r/s)\cdot (r_1/s_1) := (rr_1)/(ss_1)\) are well-defined and make \(R_S\) a commutative ring. We noted, but did not prove, similar statements giving \(M_S\) a well-defined \(R_S\)-module structure. After noting that \(0/1 = 0/s\), for any \(s\in S\) is the zero element in \(R_S\) and \(1/1 = s/s\), for any \(s\in S\), is the multiplicative identity for \(R_S\), we then pointed out the reason for requiring the factor \(s'\in S\) in the relation \(s'(s_1r-sr_1) = 0\): If \(s\in S\) is a zero-divisor, with \(rs = 0\), and \(r\not = 0\), then \(r/1 = 0\) in \(R_S\), which is required, since in \(R_S\), \(s\) is a unit, and therefore, cannot be a divisor of zero.</p>
+        <p>We then discussed the following properties of localization, for the ring \(R\), module \(M\) and multiplicatively closed set \(S\subseteq R\).</p>
+        <ol>
+        <p><li>The kernel of \(\phi\).</li> <li>For an ideal \(I\subseteq R\), the \(I_S\) is an ideal of \(R_S\). Moreover, \(P_S\) is a prime ideal, if \(P\subseteq R\) is a prime ideal disjoint from \(S\).</li> <li>Let \(J\subseteq R_S\) be an ideal. Then  \(\phi ^{-1}(J)\) is an ideal of \(R\) disjoint from \(S\).</li> <li>For an ideal \(J\subseteq R_S\), \(\phi^{-1}(J)_S = J\). Thus, every ideal \(J\subseteq R_S\) is of the form \(I_S\), for some ideal \(I\subseteq R\).</li></p>
+        </ol>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Friday, September 19.</div>
+        <p>We began class by restating the main theorem from the previous lecture. Note that the way the theorem was stated in class on Monday differs from the statement below in the summary of Wednesday, September 17. The latter is correct, though is stated slightly different from the statement in today's lecture. We then gave the following definition:</p>
+        <p><strong>Definition.</strong> Let \(M\) be an \(R\)-module. The <em>projective dimension</em> of \(M\), denoted \(\textrm{pd}_R (M)\), is the least \(n\geq 0\) such that there is a long exact sequence of the form</p>
+        <div class="math-display">
+        <p>\[ 0\to P_n\to \cdots \to P_1\to P_0\to M\to 0 \]</p>
+        </div>
+        <p>with each \(P_j\) a projective \(R\)-module. If no such \(n\) exists, we say that \(M\) has <em>infinite projective dimension</em>. By the theorem proven in the previous lecture, \(\textrm{pd}_R(M) = n\) if and only if in every projective resolution of \(M\), the \((n-1)\)st kernel is projective.</p>
+        <p>We then discussed the following examples:</p>
+        <p><strong>Examples.</strong> 1. If \(M\) is free or projective, \(\textrm{pd}_R(M) = 0\).</p>
+        <p>2. If \(R\) is a PID, and \(M\) is a finitely generated \(R\)-module that is not a free \(R\)-module, then \(\textrm{pd}_R(M) = 1\). This followed since in any presentation of \(M\) of the form \(0\to K\to R^n\to M\to 0\), \(K\) is free.</p>
+        <p>3. If \(R := \mathbb{Z}_4\) and \(M := R/2R\), then \(\textrm{pd}_R (M) = \infty\).</p>
+        <p>4. If \(R = k[x]\), \(k\) a field, and \(M := k = R/xR\), then \(\textrm{pd}_R(k) = 1\). However, if \(S := R/x^2R\), then \(k = S/xS\) and \(\textrm{pd}_S(k) = \infty\).</p>
+        <p>5. If \(R := k[x,y]\), then \(k = R/\langle x, y\rangle\) and we showed that the Koszul complex on \(x, y\) gives a free resolution of \(k\) of length two. In order to conclude that \(\textrm{pd}_R (k) = 2\), we needed to see that \(\textrm{pd}_R(M) \not = 1\), and for this, we needed to show that the ideal \(I := \langle x, y\rangle\) is not a projective \(R\)-module. To see this, we start with the exact sequence</p>
+        <div class="math-display">
+        <p>\[ 0\to R\overset{\begin{pmatrix} -y\\x\end{pmatrix}}\longrightarrow R^2\overset{\pi}\longrightarrow I\to 0, \]</p>
+        </div>
+        <p>where</p>
+        <div class="math-display">
+        <p>\(\pi \begin{pmatrix} a\\b\end{pmatrix} = ax+by\)</p>
+        </div>
+        <p>. Suppose by way of contradiction \(I\) is a projective \(R\)-module. Then there exists \(j: I\to R^2\) such that \(\pi j = 1_I\). Suppose</p>
+        <div class="math-display">
+        <p>\(j(x) = \begin{pmatrix} c\\d\end{pmatrix}\)</p>
+        </div>
+        <p>and</p>
+        <div class="math-display">
+        <p>\(j(y) = \begin{pmatrix} e\\f\end{pmatrix}\)</p>
+        </div>
+        <p>. Then \(x = \pi j (x) = cx+dy\), and thus, \((c-1)x+dy = 0\). Therefore,</p>
+        <div class="math-display">
+        <p>\(\begin{pmatrix} c-1\\d\end{pmatrix} = u\begin{pmatrix} -y\\x\end{pmatrix}\)</p>
+        </div>
+        <p>, for some \(u\in R\). Thus,</p>
+        <div class="math-display">
+        <p>\(j(x) = u\begin{pmatrix} -y\\x\end{pmatrix} +\begin{pmatrix} 1\\0\end{pmatrix}\)</p>
+        </div>
+        <p>. Similarly,</p>
+        <div class="math-display">
+        <p>\(j(y) = v\begin{pmatrix} -y\\x\end{pmatrix} + \begin{pmatrix} 0\\1\end{pmatrix}\)</p>
+        </div>
+        <p>, for some \(v\in R\). Thus,</p>
+        <div class="math-display">
+        <p>\(\begin{pmatrix} 1\\0\end{pmatrix} = j(x)-u\begin{pmatrix} -y\\x\end{pmatrix}\)</p>
+        </div>
+        <p>and</p>
+        <div class="math-display">
+        <p>\(\begin{pmatrix} 0\\1\end{pmatrix} = j(y) -v\begin{pmatrix} -y\\x\end{pmatrix}\)</p>
+        </div>
+        <p>. Therefore,</p>
+        <div class="math-display">
+        <p>\begin{align*} \begin{pmatrix} -y\\x\end{pmatrix} &= -y \begin{pmatrix} 1\\0\end{pmatrix} + x\begin{pmatrix} 0\\1\end{pmatrix}\\ &= -y(j(x)-u\begin{pmatrix} -y\\x\end{pmatrix}) + x(j(y)-v\begin{pmatrix} -y\\x\end{pmatrix}) \\ &= -yj(x)+xj(y) + (yu-xv)\begin{pmatrix} -y\\x\end{pmatrix}\\ &=  j(-yx+xy)+ (yu-xv)\begin{pmatrix} -y\\x\end{pmatrix}\\ &= (yu-xv)\begin{pmatrix} -y\\x\end{pmatrix}. \end{align*}</p>
+        </div>
+        <p>It follows that \(yu-xv = 1\), which yields the contradiction \(1\in I\). Thus, \(I\) is not a projective \(R\)-module, and therefore, \(\textrm{pd}_R(k) = 2\), in this case.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, September 17.</div>
+        <p>After recalling the equivalent conditions presented in the previous lecture for an \(R\)-module \(P\) to be projective, we stated the following theorem.</p>
+        <p><strong>Theorem.</strong> Let \(M\) be an \(R\)-module, and suppose \(M\) has a projective resolution</p>
+        <div class="math-display">
+        <p>\[ \mathcal{P}:\ \ 0\to P_n\overset{f_n}\longrightarrow P_{n-1}\overset{f_{n-1}}\longrightarrow \cdots \longrightarrow P_1\overset{f_1}\longrightarrow P_0\overset{\pi}\longrightarrow M\to 0. \]</p>
+        </div>
+        <p>If</p>
+        <div class="math-display">
+        <p>\[ \mathcal{P}':\ \ \cdots \to P_n'\overset{f_n'}\longrightarrow P_{n-1}'\overset{f_{n-1}'}\longrightarrow \cdots \longrightarrow P_1'\overset{f_1'}\longrightarrow P_0'\overset{\pi '}\longrightarrow M\to 0 \]</p>
+        </div>
+        <p>is another projective resolution of \(M\), then \(\ker (f_{n-1}')\) is projective, and \(\mathcal{P}'\) is a <em>projective modification</em> of the projective resolution</p>
+        <div class="math-display">
+        <p>\[ \mathcal{P}'':\ \ 0\to \ker (f_{n-1}') \overset{id}\longrightarrow P_{n-1}'\overset{f_{n-1}'}\longrightarrow \cdots \longrightarrow P_1'\overset{f_1'}\longrightarrow P_0'\overset{\pi '}\longrightarrow M\to 0. \]</p>
+        </div>
+        <p>By a modification of an exact sequence \(\cdots \to C_{i+1}\overset{f_{i+1}}\longrightarrow C_i\overset{f_i}\longrightarrow C_{i-1}\overset{f_{i-1}}\longrightarrow C_{i-2}\to \cdots \) we mean an augmentation, or sequence of augmentations, of the type \(\cdots \to C_{i+1}\overset{f_{i+1}}\longrightarrow C_i\oplus B\overset{(f_i, 1_B)}\longrightarrow C_{i-1}\oplus B\overset{(f_{i-1}, 0_B)}\longrightarrow C_{i-2}\to \cdots \), yielding a new exact sequence. We say the modification is a projective modification if \(B\) is a projective \(R\)-module.</p>
+        <p>The proof of the theorem was by induction on \(n\) together with two facts: (i) Given \(R\)-modules \(\{P_{\alpha}\}_{\alpha \in A}\), \(\bigoplus_{\alpha \in A} P_{\alpha \in A}\) is projective if and only if each \(P_{\alpha}\) is projective and (ii) Schanuel's Lemma.</p>
+        <p><strong>Schanuel's Lemma.</strong> For a fixed \(R\)-module \(M\), given two presentations \(0\to K\to P\to M\to 0\) and \(0 \to K'\to P'\to M\to 0\), with \(P\) and \(P'\) projective, then \(P\oplus K'\) is isomorphic to \(P'\oplus K\).</p>
+        <p>The modifications of the sequence \(\mathcal{P}''\) were done inductively as follows. For each \(n\geq 1\), write \(K_n'\) for the kernel of \(f_n'\), so that \(\mathcal{P}''\) is the exact sequence</p>
+        <div class="math-display">
+        <p>\[ 0\to K_{n-1}' \overset{id}\longrightarrow P_{n-1}'\overset{f_{n-1}'}\longrightarrow \cdots \longrightarrow P_1'\overset{f_1'}\longrightarrow P_0'\overset{\pi '}\longrightarrow M\to 0. \]</p>
+        </div>
+        <p>Since \(K_{n-1}\) is projective, and \(f_n'\) maps \(P_n\) onto \(K_{n-1}'\), we have \(P_n'= K_n\oplus K_{n-1}'\). If we modify \(\mathcal{P}''\) using \(K_{n-1}'\) we get</p>
+        <div class="math-display">
+        <p>\[ 0 \to K_n'\to P_n' = K_n'\oplus K_{n-1}' \xra{(0_{K_n'}, 1_{K_{n-1}'})} P_{n-1}'\overset{f_{n-1}'}\longrightarrow \cdots \longrightarrow P_1'\overset{f_1'}\longrightarrow P_0'\overset{\pi '}\longrightarrow M\to 0. \]</p>
+        </div>
+        <p>Similarly, since \(P_{n+1} = K_{n+1}\oplus K_n'\), we may modify this last sequence with \(K_n'\) to obtain</p>
+        <div class="math-display">
+        <p>\[ 0 \to K_{n+1} \to P_{n+1}' = K_{n+1}'\oplus K_n' \xrightarrow{(0_{K_{n+1}'}, 1_{K_n'})}  P_n' = K_n'\oplus K_{n-1}' \xra{(0_{K_n'}, 1_{K_{n-1}'})} P_{n-1}'\overset{f_{n-1}'}\longrightarrow \cdots \longrightarrow P_1'\overset{f_1'}\longrightarrow P_0'\overset{\pi '}\longrightarrow M\to 0. \]</p>
+        </div>
+        <p>Continuing in this way we see that we may apply a (possibly infinite) sequence of projective modifications of \(\mathcal{P}''\) to obtain \(\mathcal{P}'\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Monday, September 15.</div>
+        <p>We began class by establishing the following:</p>
+        <p><strong>Definition-Proposition.</strong> An \(R\)-module \(P\) is said to be <em>projective</em> if the following equivalent statements hold.</p>
+        <ol>
+        <p><li>Given a diagram of \(R\)-modules and \(R\)-module homomorphisms \(f, g\) \[ \begin{tikzcd} & P \arrow[dl,dotted,swap,"h"] \arrow[d,"f"] <br>M \arrow[r,"g"] & N \arrow[r] & 0 \end{tikzcd} \] there exists \(h\) as above so that the diagram commutes.</li> <li>\(P\) is a direct summand of a free \(R\)-module \(F\), i.e., there exists a free \(R\)-module \(F\) such that (up to isomorphism) \(F = P\oplus K\), for some \(K\).</li> <li>Every short exact sequence \(0\to A\overset{f}\to B\overset{g}\to P \to 0\) splits, i.e., there exists \(j: P\to B\) such that \(gj = 1_P\).</li></p>
+        </ol>
+        <p>We then briefly discussed the relevance of projective modules, by recording (but not proving)  the following fact: Suppose</p>
+        <div class="math-display">
+        <p>\[ 0\to F_n\to F_{n-1}\overset{f_{n-1}}\longrightarrow F_{n-2}\to \cdots \to F_1\overset{f_1}\longrightarrow F_0\to M\to 0 \]</p>
+        </div>
+        <p>is an exact sequences with each \(F_j\) free, so that the \((n-1)\)st kernel in the sequence is free. Then in any exacts sequence</p>
+        <div class="math-display">
+        <p>\[ 0\to L\to G_{n-1}\overset{g_{n-1}}\longrightarrow G_{n-2}\to \cdots \to G_1\overset{g_1}\longrightarrow F_0\to M\to 0 \]</p>
+        </div>
+        <p>with each \(G_j\) free, it need not be the case that the kernel of \(g_{n-1}\) is also free. However, this kernel \(L\) will be a <em>projective</em> \(R\)-module.</p>
+        <p>We then discussed (and verified) the following examples.</p>
+        <p><strong>Examples.</strong> (i) Every free module is a projective module.</p>
+        <ol>
+        <p><li>If \(R = R_1\times R_2\) is a product of rings, then \(R_1\) is a non-free, projective \(R\)-module.</li> <li>A finitely generated projective module over a Noetherian local ring is a free module.</li> <li>For the ring \(R := \mathbb{R}[x,y,z]/\langle x^2+y^2+z^2-1\rangle\), the kernel \(K\) of the map \(R^3\overset{(\overline{x}\ \overline{y}\ \overline{z})}\longrightarrow R\to 0\) is a projective \(R\)-module that is not a free \(R\)-module.</li></p>
+        </ol>
+        <p>The proof of the third example required the use of Nakayama's lemma, while the proof of the fourth example required the standard fact from algebraic topology that there is no nowhere zero continuous tangent vector field on the real two-sphere. We ended class by noting, but no proving, that if we replace \(\mathbb{R}\) by \(\mathbb{C}\) in the fourth example, the corresponding kernel <em>is</em> a free module.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Friday, September 12.</div>
+        <p>We began  class by proving the technical lemma stated in the previous lecture. From there, we summarized what we have done in regards to the structure theorem for finitely generated modules over a PID, by stating</p>
+        <p><strong>Structure theorem for finitely generated modules over a PID.</strong>  Let \(R\) be a PID and \(M\) a finitely generated module over \(R\). Then \(M\) is a direct sum of cyclic modules. In fact, there is a free finitely generated  \(R\)-submodule \(F\subseteq M\) such that if we write \(\textrm{ann} (T(M)) = aR\) and \(a = p_1^{e_1}\cdots p_r^{e_r}\), with each \(p_i\in R\) prime and \(e_i\geq 1\), then there exist integers \(n_1, \ldots, n_r\geq 1\) and for each \(1\leq i\leq r\), integers \(e_i = e_{i,1}\geq \cdots \geq e_{i, n_i} \) and elements \(x_{i, 1}, \ldots x_{i, n_i} \in T(M)\) such that \(\textrm{ann} (x_{i,j}) = p_i^{e_{i,j}}R\) and</p>
+        <div class="math-display">
+        <p>\[M = F\oplus \langle x_{1,1}\rangle \oplus \cdots \oplus \langle x_{1,n_1} \rangle \oplus\cdots \oplus   \langle x_{r,1}\rangle \oplus \cdots \oplus \langle x_{r, n_r}\rangle, \]</p>
+        </div>
+        <p>an internal direct sum of submodule. Moreover, we have</p>
+        <div class="math-display">
+        <p>\[ M\cong R^c \oplus (R/p_1^{e_{1,1}}R)\oplus \cdots \oplus (R/p_1^{e_{1,n_1}}R)\oplus \cdots \oplus (R/p_r^{e_{r,1}}R)\oplus \cdots \oplus (R/p_r^{e_{r,n_r}}R), \]</p>
+        </div>
+        <p>where \(c\) is the rank of \(F\). This second decomposition may be thought of as an external direct sum.</p>
+        <p>We then defined the set of ideals \(\{p_i^{e_{ij}}R\}\) to be the <em>elementary divisors</em> of \(M\) and the rank of \(F\) to be the <em>rank of M</em>. Most of the rest of the class was spent by proving the following uniqueness theorem.</p>
+        <p><strong>Theorem.</strong> Let \(A\) and \(B\) be finitely generated modules over the PID \(R\). Then \(A\) and \(B\) are isomorphic if and only if they have the same rank and the same elementary divisors.</p>
+        <p>The proof of the only if direction of the theorem proceeded in steps: We first noted that \(A\) and \(B\) have the same rank, reducing the theorem to the case that \(A\)and \(B\) are torsion modules. We then noted that the prime torsion parts of \(A\) and \(B\) must be isomorphic, reducing to the case \(\textrm{ann} (A) = p^eR = \textrm{ann} (M)\), for a prime \(p\in R\). Noting that \(A/pA \cong B/pB\) showed that the number of summands in the decompositions of \(A\) and \(B\) are the same. Finally, induction on \(e\) applied to \(pA\) and \(pB\) ultimately led to the desired conclusion.</p>
+        <p>We ended class by showing how the elementary divisor decomposition of a module over a PID gives rise to the Rational Canonical Form Theorem in linear algebra. The point being that if \(V\) is a finite dimensional vector space over the field \(F\) and \(T: V\to V\) is a linear operator, then \(V\) is an \(F[x]\)-module via \(f(x)\cdot v := f(T)(v)\), for \(f(x)\in F[x]\) and \(v\in V\). The decomposition of \(V\) into cyclic submodules as an \(F[x]\)-module gives rise to a decomposition of \(V\) as a vector space over \(F\) into a direct sum of \(T\)-cyclic subspaces. Each such subspace \(\langle T, v\rangle\) has a basis of the form \(v, T(v), \ldots, T^{d-1}(v)\) so that the matrix of \(T\) restricted to \(\langle T, v \rangle\) with respect to this basis is the companion matrix of the minimal polynomial of \(T\) restricted to \(\langle T, v\rangle\). Putting these bases together shows that \(V\) has a basis such that the matrix of \(T\) with respect to this basis is block diagonal, where each block is a companion matrix.</p>
+        <p>%<strong>Invariant factor decomposition.</strong> Let \(M\) be a finitely generated module over the PID \(R\). Then there exist \(F\subseteq R\), a finitely generated free \(R\)-submodule and \(x_1, \ldots, x_d\in M\) such that \(M = \langle x_1\rangle \oplus \cdots \oplus \langle x_d\rangle\), and writing  \(\textrm{ann} (x_i) = a_iR\), for \(1\leq i\leq d\),  \(a_d\mid a_2\mid \cdots \mid a_1\). Equivalently, there exists \(c > 0\) and \(a_1, \ldots, a_d\in R\) with \(a_d\mid \cdots \mid a_1\) and</p>
+        <div class="math-display">
+        <p>\[ %M\cong R^c\oplus (R/a_1R)\oplus \cdots \oplus (R/a_dR). %\]</p>
+        </div>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, September 10.</div>
+        <p>We began class with a discussion and proof of:</p>
+        <p><strong>Nakayama's Lemma</strong>. Suppose \(R\) is a commutative ring with Jacobson radical \(J\). Suppose \(M\) is a finitely generated \(R\)-module and \(N\subseteq M\) a submodule satisfying \(M = N+JM\). Then \(N = M\).</p>
+        <p><strong>Corollary.</strong> Suppose \(R\) has a unique maximal ideal \(P\) and \(M\) is a finitely generated \(R\)-module. Set \(\tilde{R} := R/P\) and \(\tilde{M} := M/PM\), so that \(\tilde{M}\) is a finite dimensional vector space over \(\tilde{R}\). Take \(x_1, \ldots, x_n\) in \(M\). Then \(x_1, \ldots,x_n\) is a minimal generating set for \(M\), ie., \(x_1, \ldots, x_n\) generate \(M\), but no subset of the \(x_j\) generates \(M\), if and only if \(\tilde{x_1}, \ldots, \tilde{x_n}\) forms a basis for \(\tilde{M}\)</p>
+        <p>We then noted that if \(M\) is a finitely generated module over the PID \(R\) satisfying \(\textrm{ann}(M)= \langle p^e\rangle\), for \(p\in R\) prime, then \(M\) is a module over the local ring \(R/p^eR\) and a minimal generating set for \(M\) as a module over \(R\) is the same as a minimal generating set for \(M\) as a module over \(R/p^eR\) and hence, by the corollary to Nakayams's lemma, a minimal generating set (i.e., a basis)  for \(M/pM\) over \(R/\langle p\rangle\) lifts to a minimal generating set for \(M\) over \(R\).</p>
+        <p>We then stated, but did not prove, the following lemma, so that we could go directly to the statement and proof of the most crucial case of the structure theorem for finitely generated modules over a PID.</p>
+        <p><strong>Technical Lemma</strong>. Let \(S\) be an integral domain, \(L\) an \(S\)-module, \(x\in L\) such that \(\textrm{ann}(L) = aS = \textrm{ann}(x)\). Set \(\overline{L} := L/\langle x\rangle\). Suppose \(z\in L\) satisfies \(\textrm{ann}(\overline{z}) = bS\). Then there exists \(t\in L\) such that \(\overline{t} = \overline{z}\) in \(\overline{L}\) and \(\textrm{ann}(t) = bS\).</p>
+        <p>We then spent the rest of the class proving the following theorem.</p>
+        <p><strong>Theorem.</strong> Let \(R\) be a PID and \(M\) a finitely generated \(R\)-module with \(\textrm{ann}(M) = p^eR\), where \(p\in R\) is prime and \(e\geq 1\). Then \(M\) is a direct sum of cyclic modules. In fact, there exist \(x_1, \ldots, x_n\in R\) and \(e = e_1\geq \cdots \geq e_n\) such that \(M = \langle x_1\rangle\oplus \cdots \oplus \langle x_n\rangle\), with \(\textrm{ann} (x_i) = p^{e_i}R\), for all \(i\).</p>
+        <p>The proof was by induction on \(n\), the number of elements in a minimal generating set for \(M\). When \(n = 1\), there is nothing to prove. For \(n > 1\), one first chooses \(x\in M\) so that \(p^{e-1}x\not = 0\), so that \(x\not \in pM\). This implies \(x\) can be extended to a minimal generating set \(x, y_2, \ldots, y_n\) for \(M\), showing that \(M/\langle x\rangle\) is minimally generated by \(n-1\) elements. Writing \(\overline{M}\) for \(M/\langle x\rangle\), induction implies there exist \(z_2, \ldots, z_n \in M\) such that \(\overline{M} = \langle \overline{z_2}\rangle \oplus \cdots \oplus \overline{z_n}\rangle\) such that \(\textrm{ann} (\overline{z_i}) = \langle p^{e_i}\rangle\), for \(2\leq i\leq n\) with \(e_2\geq \cdots \geq e_n\). The lemma yields \(x_i\in M\) so that \(\overline{x_1} =\overline{z_i}\) in \(M\) with \(\textrm{ann} (x_i) = \langle p^{e_i}\rangle\), for \(2\leq i\leq n\). Upon setting \(x_1 = x\), it followed that \(M = \langle x_1\rangle \oplus \cdots \oplus \langle x_n\rangle\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, September 13.</div>
+        <p>We began class by proving part (iv) of the proposition presented in the previous lecture. We then noted that if \(M :=  \langle x\rangle\) is as in part (iv) of the proposition, then the chain of submodules</p>
+        <div class="math-display">
+        <p>\[(0)\subsetneq \langle p^{e-1}x\rangle \langle p^{e-1}x\rangle\subsetneq \cdots \subsetneq \langle px\rangle \subsetneq M\]</p>
+        </div>
+        <p>exhibits <em>all</em> of the submodules of \(M\). We also noted that the sequence above is a composition series for \(M\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Monday, September 8.</div>
+        <p>We began class by proving the following:</p>
+        <p><strong>Proposition.</strong> Let \(R\) be a PID and \(0 \not = M\) a \(\fg\), torsion \(R\)-module, and \(N\subseteq M\) a submodule.</p>
+        <ol>
+        <p><li>Suppose \(x, z\in M\) satisfy \(ann(x) = p^nR = ann(z)\), for some \(n\geq 1\),  and \(\langle z\rangle \subseteq \langle x\rangle\). Then \(\langle z\rangle = \langle x\rangle\).</li> <li>Suppose \(M = \langle x\rangle\) and \(ann(M) = p^eR\), for some \(e\geq 1\). Then \(N = \langle p^cx\rangle\), for some \(1\leq c < e\).</li> <li>Suppose \(p \in R\) is prime and \(ann(M) = pR\). Then, \(M\) is a direct sum of cyclic modules.</li></p>
+        </ol>
+        <p>We noted that the third part of the proposition implies that that if \(pM = 0\), then \(M\cong R/\langle p\rangle\bigoplus\cdots \bigoplus R/\langle p\rangle\), where there are \(n\) copies of \(R/\langle p\rangle\), if \(M\) is minimally generated by \(n\) elements.</p>
+        <p>We then stated and proved the following <em>primary decomposition</em> theorem.</p>
+        <p><strong>Theorem.</strong> Let \(M\) be a finitely generated torsion module over the PID \(R\). Write \(\textrm{ann} (M) = aR\), and assume \(a = p_1^{e_1}\cdots p_r^{e_r}\), for primes \(p_i \in R\) and integers \(e_i\geq 1\). Then :</p>
+        <ol>
+        <p><li>\(M = M(p_1)\oplus \cdots \oplus M(p_r)\).</li> <li>\(ann (M(p_i)) = p_i^{e_i}R\), for all \(1\leq i\leq r\).</li></p>
+        </ol>
+        <p>We noted that, in light of the theorem above, and Property (iv)  from the previous lectrure, if \(M\) is a finitely generated \(R\)-module, with \(T(M) \not = 0\), then \(M = M(p_1)\oplus \cdots \oplus M(p_r)\oplus F\), where \(\textrm{ann} (T(M)) = aR\), with \(a = p_1^{e_1}\cdots p_r^{e_r}\), and \(F\) is a free submodule of \(M\). This now reduces the proof of the structure theorem for \(\fg\) modules over a PID to the case that \(\textrm{ann}(M) = p^eR\), for \(p\in R\) prime.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Friday, September 5.</div>
+        <p>We began the inital part of our discussion regarding the structure theorem for finitely generated modules over a PID. Given an integral domain \(R\) and \(R\)-module \(M\), we started by defining the <em>torsion submodule</em> of \(M\), namely, \(T(M) := \{x\in M\ |\ rx = 0\ \textrm{for some}\ 0\not = r\in M\}\). We defined \(M\) to be a <em>torsion module</em> if \(M = T(M)\) and \(M\) to be a <em>torsion-free</em> module if \(T(M) = 0\). We noted that any submodule of a free module (over an integral domain) is torsion-free and \(R/I\) is a torsion module, for any ideal \(0 \not = I\subseteq R\).</p>
+        <p>We then stated and proved the following properties:</p>
+        <p><strong>Properties.</strong> Assume \(R\) is an integral domain and \(M\) is an \(R\)-module.</p>
+        <ol>
+        <p><li>\(M/T(M)\) is torsion-free.</li> <li>If \(M\) is finitely generated and torsion-free, then \(M\) is isomorphic to a submodule of a free \(R\)-module of finite rank. Thus, by the theorem from the lecture of August 25, a finitely generated torsion-free module over a PID is free.</li> <li>If \(R\) is a PID and \(M\) can be generated by \(n\) elements, any submodule of \(M\) can be generated by \(n\) or fewer elements.</li> <li>If \(R\) is a PID and \(M\) is finitely generated, then there exists a free submodule \(F\) (of finite rank) contained in \(M\) such that \(M  = F\oplus T(M)\).</li></p>
+        </ol>
+        <p>Part (iv) above is crucial for the structure theorem for \(\fg\) modules over a PID. The proof used the exact sequence \(0\to T(M)\to M\to M/T(M)\to 0\). Since \(M/T(M)\) is torsion-free, it is free over the PID \(R\), hence by  Problem 4 on Homework 1, there is an injective \(R\textrm{-module homomorphism}\) \(j: M/T(M) \to M\) such that \(M = T(M)\oplus j(M/T(M))\). We also noted that even though \(F\) in (iv) above need not be unique, its <em>rank</em> is unique. Finally, we observed that \(F\) in (iv) is a direct sum of cyclic modules, so that (iv) reduces the proof of the structure theorem for \(\fg\) modules over a PID to the case that \(M = T(M)\).</p>
+        <p>We ended class with the following definitions. Given an \(R\)-module \(M\) over the integral domain \(R\):</p>
+        <ol>
+        <p><li>For \(x\in M\), the <em>annihilator</em> of \(x\) is \(ann(x) := \{r\in R\ |\ rx = 0\}\);</li> <li>The annihilator of \(M\) is \(ann(M) := \{r\in R\ |\ rx = 0, for all\ x\in M\}\). Both annihilators are easily seen to be ideals of \(R\);</li> <li>If \(p\in R\) is a prime element, then \(M(p) := \{x\in M\ |\ p^n x = 0\ for some\ n\geq 1\) is a submodule of \(M\)</li></p>
+        </ol>
+        <p>We then showed that if \(R\) is a PID and \(M\) is finitely generated, then \(\textrm{\textrm{ann}}(M(p)) = \langle p^e\rangle\), for some \(e\geq 1\), provided \(M(p)\not = 0\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, September 3.</div>
+        <p>We began class by recalling the definition of composition series and exhibited a composition series for \(\mathbb{Z}_8\) as a \(\mathbb{Z}\)-modules and a composition series for \(\mathbb{Q}[x,y]/(x^2,y^2)\) as a \(\mathbb{Q}[x,y]\)-module.  We then turned to the following:</p>
+        <p><strong>Proposition.</strong> The \(R\)-module \(M\) has a composition series if and only if \(M\) is both Noetherian and Artinian.</p>
+        <p>A large portion of the remainder of the class period was devoted to a discussion and proof of the following important theorem:</p>
+        <p><strong>Jordan-H\"older Theorem.</strong> Let \(M\) be an \(R\)-module with composition series</p>
+        <div class="math-display">
+        <p>\[ (0)\subsetneq M_1\subsetneq \cdots \subsetneq M_{n-1}\subsetneq M_n = M\quad\quad(A) \]</p>
+        </div>
+        <div class="math-display">
+        <p>\[ (0)\subsetneq N_1\subsetneq \cdots \subsetneq N_{m-1}\subsetneq N_m = M.\quad\quad (B) \]</p>
+        </div>
+        <p>Then \(n= m\), and up to permutation of factors, the sequences (A) and (B) have isomorphic factors.</p>
+        <p>The idea of the proof is as follows: Assuming \(n\leq m\), one proceeds by induction on \(n\), the case \(n = 1\) being trivial. For \(n > 1\), one considers two cases. The first case is \(N_{m-1} = M_{n-1}\), and the desired conclusion follows immediately by induction on \(n\). The second case is that \(M_{n-1} \not = N_{m-1}\), which forces \(K := M_{n-1}\cap N_{m-1}\) to be properly contained in both \(M_{n-1}\) and \(N_{m-1}\). One first  notes that there are isomorphisms  \(M_{n-1}/K \cong N/N_{m-1}\) and \(N_{m-1}/K \cong M/M_{n-1}\). Then taking a composition series for \(K\), one obtains the two composition series</p>
+        <div class="math-display">
+        <p>\[ (0) \subsetneq K_1\subsetneq \cdots \subsetneq K_t = K\subsetneq M_{n-1}\subsetneq M_n = M\quad\quad (C) \]</p>
+        </div>
+        <div class="math-display">
+        <p>\[ (0) \subsetneq K_1\subsetneq \cdots \subsetneq K_t = K\subsetneq N_{m-1}\subsetneq N_m = N\quad\quad (D). \]</p>
+        </div>
+        <p>Induction applied to the composition series in (C) and (D) ending one step above \(K\) gives the result, when comparing (A) with (C) and (B) with (D).</p>
+        <p>We followed the J\"ordan-Holder theorem by defining a module \(M\) to have finite length if it has a composition series, and the length of \(M\), denoted \(\lambda (M)\) is \(n\) if \(M\) has a composition series of the form (A) above. We ended class with the following proposition.</p>
+        <p><strong>Proposition.</strong> Let \(0\to A\to B\to C\to 0\) be a short exact sequence of \(R\)-modules. Then \(A\) has finite length if and only if \(B\) and \(C\) have finite length, in which case, \(\lambda (B) = \lambda (A)+\lambda (C)\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Friday, August, 29.</div>
+        <p>We began class with the following results concerning the Artinian and Noetherian conditions.</p>
+        <p><strong>Proposition.</strong> Let \(N\subseteq M\) and \(M_1, \ldots, M_r\) be \(R\)-modules.</p>
+        <ol>
+        <p><li>\(M\) is Noetherian (respectively, Artinian) if and only if \(N\) and \(M/N\) are Noetherian \(\rsa\).</li> <li>\(M_1\oplus \cdots\oplus M_r\) is \(\no\) \(\rsa\) if and only if each \(M_i\) is \(\no\) \(\rsa\).</li> <li>If \(R\) is a \(\no\) \(\rsa\) ring and \(M\) is finitely generated, then \(M\) is \(\no\) \(\rsa\).</li></p>
+        </ol>
+        <p>It followed from this proposition that every finitely generated module over a Noetherian ring is <em>finitely presented</em>, where a module \(N\) over a commutative ring \(S\) is said to be  finitely presented if there exists an exact sequence of the form \(S^m\to S^n\overset{f}\to M\to 0\), i.e., \(N\) is finitely generated via \(f\) and the kernel of \(f\) is also finitely generated. Thus, every finitely generated module \(M\) over the Noetherian ring \(R\) admits an exact sequence of the form</p>
+        <div class="math-display">
+        <p>\[ \cdots \overset{\phi_2}\to F_2\overset{\phi_2}\to F_2\overset{\phi_1}\to F_0\to M\to 0 \]</p>
+        </div>
+        <p>called a <em>free resolution</em> of \(M\) by finitely generated free modules.</p>
+        <p>Towards the end of class, we defined an \(R\)-module \(M\) to be a <em>simple</em> module if its only submodules are \((0)\) and \(M\). We showed that such a module is isomorphic to \(R/P\), for \(P\subseteq R\) a mximal ideal. This lead to the definition:  \(M\) is said to have a <em>composition series</em> if there is a sequence of submodules \((0)\subseteq M_1\cdots \subseteq M_n = M\) such that each factor \(M_{i+1}/M_i\) is a simple module. We ended class by stating, but not proving the following two facts: (i) \(M\) has a composition series if and only if \(M\) is both Artinian and Noetherian and (ii) All composition series of \(M\) have the same length.</p>
+        <p>%We ended class by exhibiting two compositions series: \((0) \subseteq 4\mathbb{Z}/8\mathbb{Z}\subseteq 2\mathbb{Z}/8\mathbb{Z}\subseteq \mathbb{Z}/8\mathbb{Z}\) over \(R := \mathbb{Z}\) and</p>
+        <div class="math-display">
+        <p>\[0\subseteq \langle x^2, xy, y^2\rangle/\langle x^2, y^2\rangle \subseteq \langle x^2, y\rangle/\langle x^2, y^2\rangle\subseteq \langle x, y\rangle/\langle x^2, y^2\rangle \subseteq R/\langle x^2, y^2\rangle\]</p>
+        </div>
+        <p>over the ring \(R := \mathbb{Q}[x, y]\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, August 27.</div>
+        <p>We began class by noting (but not proving) a stronger version of the theorem from the previous lecture, namely:</p>
+        <p><strong>Theorem.</strong> Let \(R\) be a PID, \(F\) a free \(R\)-module of rank \(n\) and \(M\subseteq F\) a submodule of \(F\). Then there exists a basis \(X = \{x_1, \ldots, x_n\}\) of \(M\) and \(a_1\mid a_2\mid\cdots \mid a_r\) in \(R\) such that \(a_1x_1, \ldots, a_rx_r\) is a basis of \(M\).</p>
+        <p>We also noted that this theorem yields the structure theorem for finitely generated modules over a PID, namely: Every finitely generated module over a PID is a direct sum of cyclic modules. This in particular yields the corresponding structure theorem for finitely generated abelian groups and the canonical form theorems for linear operators on a finite dimensional vector space. The latter follows, since a linear operator \(T\) on the \(F\)-vector space \(V\) gives rise to an \(F[x]\) module structure on \(V\), defined by \(f(x)\cdot v := f(T)(v)\), for all \(f(x) \in F[x]\) and \(v\in V\).</p>
+        <p>We then began our foray into chain conditions on modules, beginning by stating:</p>
+        <p><strong>Proposition/Definition.</strong> Let \(M\) be an \(R\)-module. The following conditions are equivalent:</p>
+        <ol>
+        <p><li>Every submodule of \(M\) (including \(M\) itself) is \(\fg\).</li> <li>The submodules of \(M\) satisfy ACC (ascending chain condition).</li> <li>Every non-empty collection of submodules of \(M\) has a maximal element.</li></p>
+        </ol>
+        <p>If \(M\) satisfies the conditions above, \(M\) is a <em>Noetherian</em> \(R\)-module.</p>
+        <p>And,</p>
+        <p><strong>Proposition/Definition.</strong> Let \(M\) be an \(R\)-module. The following conditions are equivalent:</p>
+        <ol>
+        <p><li>The submodules of \(M\) satisfy DCC (descending chain condition).</li> <li>Every non-empty collection of submodules of \(M\) has a minimal element.</li></p>
+        </ol>
+        <p>If \(M\) satisfies the conditions above, \(M\) is an <em>Artinian</em> \(R\)-module.</p>
+        <p>We gave proof for the Noetherian case, and left the Artinian case as an exercise. We noted that, by definition, \(R\) is a Noetherian  ring (respectively, Artinian ring) if it is Noetherian (respectively, Artinian) as a module over itself. We then  listed the following examples of Noetherian rings: any PID, \(\mathbb{Q} [x_1, \ldots, x_n]\) and \(R[x]\), for \(R\) Noetherian (Hilbert's basis Theorem). We also noted the following Artinian rings: Any field, \(\mathbb{Z}/n\mathbb{Z}, \mathbb{Q} [x_1, \ldots, x_n]/\langle x_1^{a_1}, \ldots, x_n^{a_n}\rangle\). We then pointed out, but did not prove, that any Artinian ring is also a Noetherian ring.</p>
+        <p>We ended class by first showing that \(\mathbb{Z}\) is a Noetherian \(\mathbb{Z}\)-module, but not an Artinian \(\mathbb{Z}\)-module, while the \(\mathbb{Z}\)-submodule \(M\) of \(\mathbb{Q}/\mathbb{Z}\) consisting of all elements annihilated by a power of \(p\), for \(p\) a fixed prime integer, is an Artinian \(\mathbb{Z}\)-module, but not a Noetherian \(\mathbb{Z}\)-module. A crucial point in the proof of this example is that the only proper submodules of \(M\) are the cyclic modules of the form \(\langle \frac{1}{p^i}+\mathbb{Z}\rangle\), for \(i\geq 1\). The absence of the Noetherian property and the presence of the Artinian property was then apparent.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Monday, August 25.</div>
+        <p>Today's lecture was spent discussing and largely proving the following theorem about free modules.</p>
+        <p><strong>Theorem.</strong> Let \(R\) be a PID and \(F\) a free module over \(R\). If \(M \subseteq F\) is a submodule, then \(M\) is also a free \(R\)-module. Moreover, if \(U\) is a basis for \(M\) and \(X\) is a basis for \(F\), then \(|U|\leq |X|\). When \(|X| < \infty\), we have that the rank of \(M\) is less than or equal to the rank of \(F\).</p>
+        <p>We first gave a complete proof in the case \(|X| < \infty\), using induction on the rank of \(F\). When \(F\) has rank one, the result followed since \(F \cong R\), as \(R\)-modules. For the rank greater than one case, taking \(M\subseteq F\) and a basis \(\{x_1, \ldots, x_n\}\) for \(F\) and setting \(G := \langle x_1, \ldots, x_{n-1}\rangle\), the crucial points were: (i) To first consider the ideal \(J\) in \(R\) whose elements occur as the coefficient of \(x_n\) for some element of \(M\) and (ii) To show that a submodule \(M\subseteq F\) can be decomposed as \((M\cap G)\bigoplus \langle x_0\rangle\), where \(m_0 = r_2x_1+\cdots + r_{n-1}x_{n-1}+cx_n\), for \(c\) a generator of \(J\). It then followed easily that a basis for \(G\cap M\) together with \(m_0\) gives a basis for \(M\) with less than or equal to \(n\) elements.</p>
+        <p>We then considered the case that \(X\) is infinite, but ignoring the attendant cardinality statement. For this we considered all pairs \((Z_Y, Y)\), where \(Y \subseteq X\), \(M\cap \langle Y\rangle\) is a free module and \(Z_Y\) is a basis for \(M\cap \langle Y\rangle\). The pairs \((Z_Y, Y)\) were ordered by inclusion. We checked that Zorn's lemma applies and that a maximal element had to be a pair of the form \((Z_X, X)\). The crucial point was that if \((Z_Y, Y)\) is maximal, and \(Y \not = X\), then if \(x\in X\backslash Y\), \(M\cap \langle Y\cup \{x\}\rangle\) is free and one creates a larger pair \((Z_{Y\cup \{x\}}, Y\cup \{x\})\), contradicting maximality. That \(M\cap \langle Y\cup\{x\}\rangle\) is free is obtained by showing that \(M\cap \langle Y\cup \{m_0\}\rangle = (M\cap \langle Y\rangle)\oplus \langle m_0\rangle\), for \(m_0\) chosen as in the finite case.</p>
+        <p>For the general case, one needs to keep track of the cardinality of the bases for the \(M\cap \langle Y\rangle\) that are free, and this is done by indexing the basis \(X\). Thus, we wrote \(X := \{x_i\}_{i\in I}\) and for \(J\subseteq I\), we wrote \(X_J := \{x_j\}_{j\in J}\). One then considers all pairs \((M\cap \langle  X_J\rangle , z)\), where \(M\cap \langle X_J\rangle\) is free and \(z: J'\to M\cap \langle X_J\rangle\) is a one-to-one function with \(\{z(j)\}_{j\in J'}\) a basis for \(M\cap \langle X_J\rangle\), for some \(J'\subseteq J\). We then partially ordered these pairs by stating \((M\cap \langle  X_{J_1}\rangle , z_1) \leq (M\cap \langle  X_{J2}\rangle , z_2)\) if and only if the three conditions \(J_1 \subseteq J_2, J'_1\subseteq J'_2, {z_2|}_{J_1'} = z_1\) hold. Now one follows exactly the same argument as in the previous case, using Zorn's Lemma</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Friday, August 20.</div>
+        <p>We began class by proving the following theorem: Let \(F\) be a free module over \(R\) with bases \(X\) and \(Y\). Then \(|X| = |Y|\). The proof of the theorem relied on first selecting a maximal ideal \(P\subseteq R\) and then proving the following two facts. For \(\overline{X}  := \{x+PF\ |\ x\in X\}\): (i) \(\overline{X}\) is a basis for the \(R/P\) vector space \(F/PF\) and (ii) \(|X| = |\overline{X}|\). This reduces the case of free modules over a commutative ring to that of vector spaces over a field, which we took as a basic fact.</p>
+        <p>We then presented (and verified) the following properties of free modules.</p>
+        <p><strong>Further properties of free modules</strong>. Let \(F\) be a free module over \(R\).</p>
+        <ol>
+        <p><li>Every \(R\)-module is a homomorphic image of a free module.</li> <li>Suppose \(X\subseteq F\) is a basis and \(M\) an \(R\)-module. To define an \(R-module homomorphism\) \(\phi: F\to M\), it suffices to give a set map \(\phi_0: X\to M\).</li> <li>Given a  commutative diagram of \(R\)-modules and module homomorphisms, \begin{displaymath} \xymatrix{ & \ar[d]^{f} \ar@{-->}[dl]_{g} F &<br>A \ar[r]^{\phi}  & B \ar[r] & 0 } \end{displaymath} there exists a module homomorphism \(g: F\to A\) such that \(\phi g = f\).</li></p>
+        </ol>
+        <p>We also noted that a module \(P\) having the property given in (iii) is called a <em>projective</em> \(R\)-module, and that such modules play a central role in homological algebra.</p>
+        <p>We finished class by discussing the direction our next few lectures will take, namely: We consider finitely generated modules over \(R\) when \(R\) is a PID. The theorem we present will show that such a modules is a direct sum of cyclic modules, i.e., modules with a single generator. This theorem has two fundamental consequences: (i) A structure theorem for finitely generated abelian groups, which after all, are just finitely generated \(\mathbb{Z}\)-modules and (ii) The Rational Canonical Form theorem from linear algebra. The latter will follow from the observation that if \(T: V\to V\) is a linear operator on the finite dimensional vector space \(V\) over the field \(F\), then \(V\) has the structure of an \(F[x]\)-module given by \(p(x)\cdot v := p(T)(v)\), for all \(p(x)\in F[x]\) and \(v\in V\). Of course, \(F[x]\) is a PID, so the theorem we seek applies.</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Wednesday, August 20.</div>
+        <p>We began class by proving the correspondence theorem stated at the end of the previous lecture. We then discussed and proved the first two of the following isomorphism theorems.</p>
+        <p><strong>First Isomorphism Theorem.</strong> Let \(\phi : A\to B\) be an \(R\)-module homomorphism. Set \(K\) to be the kernel of \(\phi\) and \(C\) to be the image of \(\phi\). Then \(A/K\) s isomorphic to \(C\).</p>
+        <p><strong>Second Isomorphism Theorem.</strong> Let \(K\subseteq N\subseteq M\) be a sequence of submodules. Then \(N/K\) is a submodule of \(M/K\) and \((M/K)/(N/K)\) is isomorphic to \(M/N\).</p>
+        <p><strong>Third Isomorphism Theorem.</strong> Let \(A, B \subseteq M\) be submodule. Then \((A+B)/B \cong A/(A\cap B)\), where \(A+B := \{a+b\ |\ a\in A, \ b\in B\}\).</p>
+        <p>We then discussed the internal direct sum of submodules, first looking at the case involving two submodules, then the general case involving finitely many submodule. In particular, if \(H_1, \ldots, H_r\subseteq M\) are submodules of the \(R\)-module \(M\), we defined \(M\) to be the <em>direct sum</em> of \(H_1, \ldots, H_r\) if:</p>
+        <ol>
+        <p><li>\(M = H_1 +\cdots + H_r\) and</li> <li>\(H_i\cap (\Sigma_{j\not = i} H_j) = 0\), for all \(1\leq i\leq r\).</li></p>
+        </ol>
+        <p>In this case, we write \(M = H_1\oplus \cdots \oplus H_r\).</p>
+        <p>We also noted that \(M\) is the direct sum of submodules \(H_1, \dots, H_r\) if and only if every \(x\in M\) can be written <em>uniquely</em> as \(x = h_1+\cdots +h_r\), with each \(h_i\in H_i\).</p>
+        <p>We then discussed the notion of internal direct sum, and then defined the (external) direct sum and external direct product of an arbitrary collection of \(R\)-modules. In particular, if \(\mathcal{C} = \{M_i\}_{i\in I}\) is a collection of \(R\)-modules, then the direct sum \(\bigoplus_{i\in I} M_i\) is the set of \(I\)-tuples \((x_i)_{i\in }\) with each \(x_i \in M_i\) and such that all but finitely many \(x_i\) are zero, while the direct product \(\Pi_{i\in I} M_i\) is simply the set of all \(I\)-tuples  \((x_i)_{i\in I}\) with each \(x_i \in M_i\). We also noted that if the modules \(M_i\) in \(\mathcal{C}\) are all submodules of a common \(R\)-module, then the internal direct sum of the modules in \(\mathcal{C}\) is isomorphic to the external direct sum of the modules in \(\mathcal{C}\), so there is no ambiguity using the notation \(\bigoplus _{i\in I} M_i\) for both.</p>
+        <p>We ended class by discussing the notion of a free module over \(R\): Namely a module \(F\) having a basis \(X\), which means that \(F = \langle X\rangle\) and \(X\) is linearly independent over \(R\). We noted that \(X\) is a basis for \(F\) if and only every element in \(F\) can be written <em>uniquely</em> as a finite linear combination of elements from \(X\). If \(|X| = n\), we say \(F\) is a free module of rank \(n\). We noted that \(R^n\), the set of \(n\)-tuples of elements from \(R\) is a free module of rank \(n\).</p>
+    </div>
+
+    <div class="problem">
+        <div class="problem-number">Monday, August 18.</div>
+        <p>We began by stating the definition of a module \(M\) over the commutative ring \(R\), noting that the definition for a module over a ring is exactly the same as the definition for a vector space over a field. We then gave several examples of modules, and discussed the following concepts for modules, which are analogous to those for vector spaces:</p>
+        <ol>
+        <p><li>Submodules, including the submodule \(\langle X\rangle\) of \(M\) generated by the subset \(X\subseteq M\).</li> <li>Module homomorphisms, including kernels, images and inverse images.</li></p>
+        </ol>
+        <p>We also noted that the non-existence of multiplicative inverses in a ring means that unlike the case for vector spaces over a field, a generating set for a submodule cannot be shrunk to a generating set consisting of linearly independent generators, even if the submodule in question has a basis. For example, if \(R = \mathbb{Z}\) and \(I := \langle 6, 10\rangle\), then neither 6 nor 10 generate \(I\), even though \(I\) has 2 as a linearly independent generator.</p>
+        <p>We ended class by stating, and mostly proving, the following correspondence theorem:</p>
+        <p><strong>Correspondence theorem.</strong> Let \(\phi : A\to B\) be an \(R\)-module homomorphism. Set \(K\) to be the kernel of \(\phi\) and \(C\) to be the image of \(\phi\). Then there is a one-to-one correspondence between the submodules of \(A\) containing \(K\) and the submodules of \(C\). This correspondence is given by \(H\to \phi(H)\), for \(K\subseteq H\subseteq A\) and \(L\to \phi^{-1}(L)\), for \(L\subseteq C\).</p>
+        <p>%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%</p>
+    </div>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an accessible HTML conversion of the LaTeX course daily update. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>

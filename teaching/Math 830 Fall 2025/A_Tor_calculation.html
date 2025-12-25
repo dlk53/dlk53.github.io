@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Tor Calculation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol.enum-list {
+            margin: 15px 0;
+            padding-left: 0;
+            list-style-type: none;
+        }
+        ol.enum-list li {
+            margin: 12px 0 12px 20px;
+        }
+        mjx-container {
+            overflow-x: auto;
+            overflow-y: visible;
+        }
+    </style>
+</head>
+<body>
+    <h1>A Tor Calculation</h1>
+    
+    <div class="problem">
+        <p>The purpose of the write-up is to present the following example for my Math 830 class.</p>
+        <p><strong>Example.</strong> Suppose \(k\) is a field and set \(R:= k[X, Y]/\langle XY\rangle\). We use lower case \(x, y\) to denote images in \(R\). Set \(\mathfrak{m} := \langle x, y\rangle\) in \(R\), so that \(R/\mathfrak{m} \cong k\). We calculate \(\textrm{Tor}^R_n(R/\mathfrak{m}, R/xR)\) for all \(n\geq 0\) in two different ways. We begin by noting that in \(R\), \(xf \equiv 0\) if and only if \(f \in yR\) and \(gy\equiv 0\) if and only if \(g\in xR\).</p>
+        <p>We will first show that</p>
+        <div class="math-display">
+        \[
+        \mathcal{F}\quad\quad : \cdots \overset{\phi_4}\longrightarrow R^2\overset{\phi _3} \longrightarrow R^2\overset{\phi _2}\longrightarrow R^2\overset{\phi _1}\longrightarrow R\overset{\pi}\to R/\mathfrak{m}\to 0
+        \]
+        </div>
+         is a free resolution of \(R/\mathfrak{m}\), where
+        <div class="math-display">
+        \begin{align*}
+        \phi _1 &= \begin{pmatrix} x & y\end{pmatrix}\\
+        \phi _2 &= \begin{pmatrix}  -y & y\\x & 0\end{pmatrix}\\
+        \phi _3 &= \begin{pmatrix} y & 0\\y & x\end{pmatrix}\\
+        \phi_4 &= \begin{pmatrix} x & 0\\0 & y\end{pmatrix}\\
+        \phi_5 &= \begin{pmatrix} y & 0\\0 & x\end{pmatrix},
+        \end{align*}
+        </div>
+         and \(\phi_n = \phi _4\), for \(n\) even and \(\phi _n = \phi _5\) for \(n\) odd, if \(n\geq 6\). Now, the image of each \(\phi_{i+1}\) is contained in the kernel of \(\phi _i\), since the product of the matrices \(\phi _i \phi _{i+1} = 0\), for all \(i\geq 1\). We must check the reverse containments. To begin, if \(\phi_1 \begin{pmatrix} a\\b\end{pmatrix} \equiv \begin{pmatrix} 0\\0\end{pmatrix}\), then \(ax+by \equiv 0\) in \(R\). Thus, \(AX+BY = CXY\), in \(k[X, Y]\), for some \(C\). Therefore, \((A-CY)X+BY = 0\), so \(\begin{pmatrix} A-CY\\B\end{pmatrix} = D\begin{pmatrix} -Y\\X\end{pmatrix}\), for some \(D\). Thus, in \(k[X, Y]\), \(\begin{pmatrix} A\\B\end{pmatrix} = 
+        D\begin{pmatrix} -Y\\X\end{pmatrix} +C\begin{pmatrix} Y\\0\end{pmatrix}\), so in \(R\) we have \(\begin{pmatrix} a\\b\end{pmatrix} \equiv d\begin{pmatrix} -y\\x\end{pmatrix}+ c\begin{pmatrix} y\\0\end{pmatrix}\), showing that \(\begin{pmatrix} a\\b\end{pmatrix} \equiv \phi_2 \begin{pmatrix} d\\c\end{pmatrix}\). That is, the kernel of \(\phi_1\) is contained in the image of \(\phi_2\), which gives exactness of \(\mathcal{F}\) in homological degree one.
+        <p>Now suppose \(\begin{pmatrix} a\\b\end{pmatrix}\) is in the kernel of \(\phi _2\). Then \(a\begin{pmatrix} -y\\x\end{pmatrix} + b\begin{pmatrix} y\\0\end{pmatrix} \equiv \begin{pmatrix} 0\\0\end{pmatrix}\) over \(R\). Then \(-ay+by \equiv 0\) and \(ax\equiv 0\) in \(R\). Thus, \(-a+b \equiv cx\) and \(a \equiv dy\), for some \(c, d\in R\). Therefore, \(b \equiv cx+dy\). Therefore, \\ \(\begin{pmatrix} a\\b\end{pmatrix} \equiv \begin{pmatrix} y & 0\\y & x\end{pmatrix} \begin{pmatrix} d\\c\end{pmatrix}\), showing that \(\begin{pmatrix} a\\b\end{pmatrix}\) is in the image of \(\phi _2\). Thus \(\mathcal{F}\) is exact in homological degree two.</p>
+        <p>Now suppose \(\begin{pmatrix} a\\b\end{pmatrix}\) is in the kernel of \(\phi _3\). Then \(a\begin{pmatrix} y\\y\end{pmatrix} + b\begin{pmatrix} 0\\x\end{pmatrix} \equiv \begin{pmatrix} 0\\0\end{pmatrix}\) over \(R\). Thus, \(ay \equiv 0\) and \(ay+bx \equiv 0\) in \(R\). The first equation implies \(a \equiv cx\), for some \(c\in R\). Using this in the second equation we get \(0 \equiv (cx)y+bx \equiv bx\), so that \(b \equiv dy\), for some \(d\in R\). Thus, \(\begin{pmatrix} a\\b\end{pmatrix} \equiv \begin{pmatrix} x & 0\\0 & y\end{pmatrix} \begin{pmatrix} c\\d\end{pmatrix}\), so that \(\begin{pmatrix} a\\b\end{pmatrix}\) is in the image of \(\phi _4\), which gives exactness of \(\mathcal{F}\) in homological degree three.</p>
+        <p>Suppose \(\begin{pmatrix} a\\b\end{pmatrix}\) belongs to the kernel of \(\phi _4\). Then \(a\begin{pmatrix} x\\0\end{pmatrix} + b\begin{pmatrix} 0\\y\end{pmatrix} \equiv \begin{pmatrix} 0\\0\end{pmatrix}\), so \(ax \equiv 0 \equiv by\) in \(R\). Thus, \(a \equiv cy\) and \(b\equiv dx\), for \(c, d \in R\), and hence \(\begin{pmatrix} y & 0\\0 & x\end{pmatrix} \begin{pmatrix} c\\d\\\end{pmatrix} \equiv \begin{pmatrix} a\\b\end{pmatrix}\), showing that the kernel of \(\phi_4\) is contained in the image of \(\phi_5\), and therefore exactness holds in \(\mathcal{F}\) in homological degree four. That \(\mathcal{F}\) is exact now follows by the periodicity, since the remaining kernels and images have already been calculated.</p>
+        <p>Now, to calculate \(\textrm{Tor}^R _n (R/\mathfrak{m}, R/xR)\) we truncate \(\mathcal{F}\) by dropping the \(R/\mathfrak{m}\) term, to obtain \(\tilde{\mathcal{F}}\), and tensor with \(R/xR\). But \(R/xR = k[y] = k[Y]\). For ease of notation, we set \(S := R/xR\). We also note that the action of \(x\) on the \(R\)-module \(S\) is zero since its image in the ring \(S\) is zero. Thus, when we tensor \(\tilde{\mathcal{F}}\) with \(S\), we get the complex</p>
+        <div class="math-display">
+        \[
+        \tilde{\mathcal{F}} \otimes S: \quad\quad  \cdots \overset{\psi_4}\longrightarrow S^2\overset{\psi _3} \longrightarrow S^2\overset{\psi _2}\longrightarrow S^2\overset{\psi _1}\longrightarrow S\to 0,
+        \]
+        </div>
+        where
+        <div class="math-display">
+        \begin{align*}
+        \psi _1 &= \begin{pmatrix} 0 & y\end{pmatrix}\\
+        \psi _2 &= \begin{pmatrix}  -y & y\\0 & 0\end{pmatrix}\\
+        \psi _3 &= \begin{pmatrix} y & 0\\y & 0\end{pmatrix}\\
+        \psi_4 &= \begin{pmatrix} 0 & 0\\0 & y\end{pmatrix}\\
+        \psi_5 &= \begin{pmatrix} y & 0\\0 & 0\end{pmatrix},
+        \end{align*}
+        </div>
+         and \(\psi_n = \psi _4\), for \(n\) even and \(\psi _n = \psi _5\) for \(n\) odd, if \(n\geq 6\). Now, \(\textrm{Tor}^R_0(R/\mathfrak{m}, R/xR)\) is the cokernel of \(\psi _1\), which is easily seen to be \(S/yS \cong k\).
+        <p>For \(\textrm{Tor}^R _1(R/\mathfrak{m}, R/xR)\) we first calculate the kernel of \(\psi _1\). Working in \(S\), if \(\begin{pmatrix} a\\b\end{pmatrix}\) is in the kernel of \(\psi _1\), then \(a0+by \equiv 0\). Since \(S\) is an integral domain, \(b = 0\), and \(a\) can be anything. Thus, the kernel of \(\psi _1 \) is \(S\cdot \begin{pmatrix} 1\\0\end{pmatrix}\). If \(\begin{pmatrix} c\\d\end{pmatrix}\) is in the image of \(\psi _2\), then \(\begin{pmatrix} c\\d\end{pmatrix} \equiv e\begin{pmatrix} -y\\0\end{pmatrix} + f\begin{pmatrix} y\\0\end{pmatrix}\), for \(e, f \in S\). Therefore, \((e-f)y \equiv c\) and \(d\equiv 0\) in \(S\). This shows that \(c\) can be any element in \(yS\) and \(d \equiv 0\). Thus, the image of \(\psi _2\) equals \(S\cdot \begin{pmatrix} y\\0\end{pmatrix}\). Therefore, we have \(\textrm{Tor}^R _1 (R/\mathfrak{m}, R/xR) = S\cdot \begin{pmatrix} 1\\0\end{pmatrix}/S\cdot \begin{pmatrix} y\\0\end{pmatrix} \cong S/yS = k\).</p>
+        <p>One more calculation for this case. For \(\textrm{Tor}^R _2 (R/\mathfrak{m}, R/xR)\), we first calculate the kernel of \(\psi _2\). If \(\begin{pmatrix} a\\b\end{pmatrix}\) is in the kernel of \(\psi _2\), then \(a\begin{pmatrix} -y\\0\end{pmatrix} +b \begin{pmatrix} y\\0\end{pmatrix} \equiv \begin{pmatrix} 0\\0\end{pmatrix}\) over \(S\). Thus, \((-a+b)y \equiv 0\) in \(S\), so \(-a+b \equiv 0\), i.e., \(a\equiv b\) in \(S\). Thus, the kernel of \(\psi _2\) is \(S\cdot \begin{pmatrix} 1\\1\end{pmatrix}\). If \(\begin{pmatrix} c\\d\end{pmatrix}\) is in the image of \(\psi _3\), then \(\begin{pmatrix} c\\d\end{pmatrix} \equiv e\begin{pmatrix} y\\y\end{pmatrix} + f\begin{pmatrix} 0\\0\end{pmatrix}\), for \(e, f \in S\). This shows that the image of \(\psi _3\) is \(S\cdot \begin{pmatrix} y\\y\end{pmatrix}\). Thus, 
+        \(\textrm{Tor}^R _2 (R/\mathfrak{m}, R/xR) = S\cdot \begin{pmatrix} 1\\1\end{pmatrix}/S\cdot \begin{pmatrix} y\\y\end{pmatrix} \cong S/yS = k\). Continuing, with one more calculation, and using the periodicity of \(\tilde{\mathcal{F}}\), we have that \(\textrm{Tor}^R _n(R/\mathfrak{m}, R/xR)\cong k\), for all \(n\geq 0\).</p>
+        <p>We now calulate \(\textrm{Tor}^R _n (R/\mathfrak{m}, R/xR)\) by taking a projective resolution of \(R/xR\) over \(R\) and tensoring it with \(R/\mathfrak{m}\). We'll see that this is a much easier calculation. We clearly have the following free resolution of \(R/xR\) over \(R\):</p>
+        <div class="math-display">
+        \[
+        \cdots \overset{\cdot x}\to  R \overset{\cdot y}\to R\overset{\cdot x}\to R\overset{\cdot y}\to R\overset{\cdot x}\to R\to R/xR\to 0.
+        \]
+        </div>
+         Dropping \(R/xR\) and tensoring with \(R/\mathfrak{m}\) we obtain the complex
+        <div class="math-display">
+        \[
+        \cdots \overset{\cdot x}\to  R/\mathfrak{m} \overset{\cdot y}\to R/\mathfrak{m}\overset{\cdot x}\to R/\mathfrak{m}\overset{\cdot y}\to R/\mathfrak{m}\overset{\cdot x}\to R/\mathfrak{m}\to  0.
+        \]
+        </div>
+         Since \(x, y\in \mathfrak{m}\), the kernel in each homological degree is \(R/\mathfrak{m}\) and the image in the same degree is \(0\). Thus, \(\textrm{Tor}^R_n (R/\mathfrak{m}, R/xR) \cong R/\mathfrak{m} = k\), for all \(n\geq 0\).
+    </div>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an accessible HTML conversion of the LaTeX document. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
