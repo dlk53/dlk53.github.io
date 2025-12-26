@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage for Math 147, Honors Calculus III</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #B22222 0%, #C93737 50%, #D04848 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: 15%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .header-content .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .back-button {
+            display: inline-block;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 1.1em;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 2px solid white;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 500;
+        }
+
+        .back-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .images-section {
+            padding: 40px;
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .image-item {
+            text-align: center;
+        }
+
+        .image-item img {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .image-item img:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-item figcaption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .main-content {
+            padding: 50px 40px;
+        }
+
+        .info-section {
+            margin-bottom: 30px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .info-text {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .highlight-text {
+            color: #8B4513;
+            font-weight: 500;
+        }
+
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, #B22222 0%, transparent 100%);
+            margin: 40px 0;
+        }
+
+        .links-section {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #B22222;
+            margin: 20px 0;
+        }
+
+        .links-section a {
+            color: #B22222;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .links-section a:hover {
+            color: #8B1A1A;
+            text-decoration: underline;
+        }
+
+        .homework-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .homework-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .homework-list li:last-child {
+            border-bottom: none;
+        }
+
+        .grading-breakdown {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #d0d0d0;
+        }
+
+        .grading-item {
+            padding: 8px 0;
+            color: #8B4513;
+            font-weight: 500;
+        }
+
+        .policy-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            border: 1px solid #d0d0d0;
+        }
+
+        .policy-title {
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+
+        .policy-text {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #B22222 50%, transparent 100%);
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 1.8em;
+            }
+
+            .image-gallery {
+                gap: 30px;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Math 147: Honors Calculus III</h1>
+                <p class="subtitle">Fall 2025</p>
+                <a href="../../teaching_page.html" class="back-button">← Back to Teaching</a>
+            </div>
+        </div>
+
+        <div class="images-section">
+            <div class="image-gallery">
+                <figure class="image-item">
+                    <img src="Gauss.jpg" height="212" width="150" alt="Gauss">
+                    <figcaption>Gauss</figcaption>
+                </figure>
+                <figure class="image-item">
+                    <img src="Maxwell.jpg" height="212" width="150" alt="Maxwell">
+                    <figcaption>Maxwell</figcaption>
+                </figure>
+                <figure class="image-item">
+                    <img src="Stokes2.jpg" height="212" width="150" alt="Stokes">
+                    <figcaption>Stokes</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="info-section">
+                <div class="info-label">Course</div>
+                <div class="info-text">Math 147, Honors Calculus III</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Time and Place</div>
+                <div class="info-text">MTuWThF 9:00 - 9:50am, Snow Hall 156</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Instructors</div>
+                <div class="info-text">Professor D. Katz and GTA Jake Weaver</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Katz Office Hours</div>
+                <div class="info-text">MWF 10-11am, Snow 501</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">E-mail</div>
+                <div class="info-text">dlk53 AT ku dot edu</div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Course Description</div>
+                <div class="info-text">In this course we will study multivariable calculus and vector calculus. By the former, we mean the study of differentiation and integration of functions of more than one variable. By the latter, we mean extending these notions further to vector valued functions (vector fields) with domains that are curves or surfaces in three-space. In particular, by the end of the semester we will have a good understanding of what it means to integrate a vector field along a curve or on a surface. Aside from its intrinsic beauty, vector calculus is extremely important in several sciences. Many of the fundamental theorems in the subject, e.g., the Divergence theorem, originated as general principles in physics and engineering.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-text">Because this is an honors class, we will often cover the material in this course from a different perspective than it is covered in the non-honors version of this class. We will also present the material in a different order than it is presented in Math 127. The problems on the exams, homework and quizzes are meant to be challenging in the sense that they will require a good understanding of the underlying ideas, not just a good understanding of how to manipulate the symbols.</div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Format</div>
+                <div class="info-text">Professor Katz will lecture on MWF and GTA Jake Weaver will run the lab sessions meeting on Tuesdays and Thursdays. During each lab session the class will work in groups on the worksheets handed out at the beginning of each session. The work done in the labs is an integral part of this course and you are expected to attend all lab sessions. <span class="highlight-text">Students will keep a math diary throughout the semester</span>. In the diary you are to record a clean and precise write up of selected problems from the assigned worksheets. These diaries will be inspected every few weeks. You will also be asked on a weekly basis to find at least one challenging problem to work and record in the diary.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Text</div>
+                <div class="info-text">The lectures will not exactly follow any text, but all of the material covered in this course is contained in the two official texts for the course. These texts are freely available online and can be found at the following links: 
+                    <a href="https://escholarship.org/uc/item/0fx5g49c">Marsden and Weinstein</a>, 
+                    <a href="https://openstax.org/details/books/calculus-volume-3/">Open Stax Calculus 3</a>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Optional Supplemental Text</div>
+                <div class="info-text"><span class="highlight-text">Div, Grad, Curl and All That</span>, by H.M. Schey</div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Daily Update</div>
+                <div class="info-text">A daily summary of what was covered in the MWF lectures can be found here: 
+                    <a href="Fall 2025 Daily Update.pdf">Daily Update</a>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Homework</div>
+                <div class="info-text">Homework will be assigned throughout the week and will be posted on our course webpage and Canvas. Homework will not be turned in, but selected problems will appear on weekly quizzes. Daily practice is vital for mastery of the subject matter and you are strongly encouraged to work on the assigned problems, if not daily, as often as you can. Occasional homework problems will be assigned for your math diary. You are also encouraged to work with classmates on your homework assignments.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-text">Check here for the weekly homework assignments: 
+                    <a href="Fall 2025 Homework.pdf">Math 147 Homework</a>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Weekly Quizzes</div>
+                <div class="info-text">We will have a ten to fifteen minute quiz every Tuesday, except during weeks when we have a midterm exam. The first quiz will be on Tuesday, August 26. In computing your final grade, the two lowest quiz scores will be dropped.</div>
+            </div>
+
+            <div class="links-section">
+                <ul class="homework-list">
+                    <li><a href="2025 Quiz 1 Solutions.pdf">Quiz 1 solutions</a></li>
+                    <li><a href="2025 Quiz 2 Solutions.pdf">Quiz 2 solutions</a></li>
+                    <li><a href="2025 Quiz 3 Solutions.pdf">Quiz 3 solutions</a></li>
+                    <li><a href="2025 Quiz 4 Solution.pdf">Quiz 4 solutions</a></li>
+                    <li><a href="2025 Quiz 5 Solutions.pdf">Quiz 5 solutions</a></li>
+                    <li><a href="2025 Quiz 6 Solutions.pdf">Quiz 6 solutions</a></li>
+                    <li><a href="2025 Quiz 7 Solutions.pdf">Quiz 7 solutions</a></li>
+                    <li><a href="2025 Quiz 8 Solutions.pdf">Quiz 8 solutions</a></li>
+                    <li><a href="2025 Quiz 9 Solutions.pdf">Quiz 9 solutions</a></li>
+                    <li><a href="2025 Quiz 10 Solutions.pdf">Quiz 10 solutions</a></li>
+                    <li><a href="2025 Quiz 11 Solutions.pdf">Quiz 11 solutions</a></li>
+                    <li><a href="2025 Quiz 12 Solutions.pdf">Quiz 12 solutions</a></li>
+                </ul>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Midterm Exams</div>
+                <div class="info-text">We will have midterm exams on September 23 and October 28. The midterm exams are from 5:50pm to 7:50 pm, and will take place in Snow 302.</div>
+            </div>
+
+            <div class="links-section">
+                <ul class="homework-list">
+                    <li><a href="2025 Solutions to Exam 1 Review.pdf">Solutions to Exam 1 Review</a></li>
+                    <li><a href="2025 Math 147 Exam 1 Solutions.pdf">Solutions to Exam 1</a></li>
+                    <li><a href="2025 Review for Exam2 Solutions.pdf">Solutions to Exam 2 Review</a></li>
+                    <li><a href="2025 Math 147 Exam 2 Solutions.pdf">Solutions to Exam 2</a></li>
+                </ul>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Bonus Problems</div>
+                <div class="info-text">Students will turn in their final bonus problem on the day of the final exam.</div>
+            </div>
+
+            <div class="links-section">
+                <ul class="homework-list">
+                    <li><a href="Bonus Problems.pdf">Solutions to Bonus Problems</a></li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Final Exam Date</div>
+                <div class="info-text">Thursday December 11, 4:30-7:00pm, in Snow Hall 156.</div>
+            </div>
+
+            <div class="links-section">
+                <ul class="homework-list">
+                    <li><a href="2025 FE Practice Problems Solutions.pdf">Solutions to Final Exam Practice Problems</a></li>
+                    <li><a href="2025 Review.pdf">Final Exam Review Slides</a></li>
+                </ul>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Course Grading</div>
+                <div class="info-text">Your final grade in the course will be determined by your math diary, quiz, midterm and final exam grades. You may use your final exam score to replace your lowest midterm grade. All students must take the final exam. Occasional problems will be assigned for bonus points. Any points earned on bonus problems will be added to the course total. <strong>Students can also earn up to 50 bonus points</strong> by keeping a well written Math Diary consisting of selected problems from weekly worksheets.</div>
+            </div>
+
+            <div class="grading-breakdown">
+                <div class="grading-item">Quizzes: 100 points (prorated)</div>
+                <div class="grading-item">Two midterm exams: 150 points each</div>
+                <div class="grading-item">Final Exam: 150 points</div>
+                <div class="grading-item">Total: 550 points</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Grading Scale</div>
+                <div class="info-text">A = 90-100%; B = 80-89%; C = 60-79%; D = 55-59%; F = 0-54%.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Best of luck in the course!</div>
+            </div>
+
+            <hr>
+
+            <div class="policy-section">
+                <div class="policy-title">Students with disability</div>
+                <div class="policy-text">
+                    The KU Office of Disability Resources (DR) coordinates accommodations and services for all eligible students with disabilities. If you have a disability and wish to request accommodations and have not contacted DR, please do so as soon as possible. Their office is located in 22 Strong Hall; their phone number is 785-864-2620 (V/TTY). Information about their services can be found at <a href="http://www.disability.ku.edu">www.disability.ku.edu</a>. Please also contact me privately in regard to your needs in this course.
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <div class="policy-title">Policy on religious observances</div>
+                <div class="policy-text">
+                    Any student who has a conflict between the course schedule and a religious holiday should contact the instructor as soon as possible.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
