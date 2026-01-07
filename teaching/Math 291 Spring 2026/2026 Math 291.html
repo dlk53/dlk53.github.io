@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage for MATH 291, Honors Elementary Linear Algebra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6A1B9A 0%, #7B1FA2 50%, #8E24AA 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: 15%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .header-content .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .back-button {
+            display: inline-block;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 1.1em;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 2px solid white;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 500;
+        }
+
+        .back-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .images-section {
+            padding: 40px;
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .image-item {
+            text-align: center;
+        }
+
+        .image-item img {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .image-item img:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-item figcaption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .main-content {
+            padding: 50px 40px;
+        }
+
+        .info-section {
+            margin-bottom: 30px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .info-text {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .info-text a {
+            color: #6A1B9A;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .info-text a:hover {
+            color: #4A148C;
+            text-decoration: underline;
+        }
+
+        .highlight-text {
+            color: #8B4513;
+            font-weight: 500;
+        }
+
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, #6A1B9A 0%, transparent 100%);
+            margin: 40px 0;
+        }
+
+        .links-section {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #6A1B9A;
+            margin: 20px 0;
+        }
+
+        .links-section a {
+            color: #6A1B9A;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .links-section a:hover {
+            color: #4A148C;
+            text-decoration: underline;
+        }
+
+        .homework-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            list-style: none;
+        }
+
+        .homework-list li {
+            flex: 1 1 calc(33.333% - 15px);
+            min-width: 200px;
+        }
+
+        .grading-breakdown {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfccb 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 4px solid #059669;
+        }
+
+        .grading-item {
+            padding: 8px 0;
+            font-size: 1.05em;
+            color: #065f46;
+            font-weight: 500;
+        }
+
+        .policy-section {
+            margin-bottom: 25px;
+        }
+
+        .policy-title {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .policy-text {
+            margin-left: 20px;
+            color: #6b7280;
+            font-size: 0.95em;
+        }
+
+        .policy-text a {
+            color: #6A1B9A;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .policy-text a:hover {
+            color: #4A148C;
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e5e7eb;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 1.8em;
+            }
+
+            .image-gallery {
+                gap: 30px;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Math 291: Honors Elementary Linear Algebra</h1>
+                <p class="subtitle">Spring 2026</p>
+                <a href="../../teaching_page.html" class="back-button">← Back to Teaching</a>
+            </div>
+        </div>
+
+        <div class="images-section">
+            <div class="image-gallery">
+                <figure class="image-item">
+                    <img src="Cauchy.jpeg" height="212" width="188" alt="Cauchy">
+                    <figcaption>Cauchy</figcaption>
+                </figure>
+                <figure class="image-item">
+                    <img src="Cayley1.jpeg" height="212" width="190" alt="Cayley">
+                    <figcaption>Cayley</figcaption>
+                </figure>
+                <figure class="image-item">
+                    <img src="Sylvester.png" height="212" width="190" alt="Sylvester">
+                    <figcaption>Sylvester</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="info-section">
+                <div class="info-label">Course</div>
+                <div class="info-text">Math 291: Honors Elementary Linear Algebra</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Time and Place</div>
+                <div class="info-text">TuTh 9:30-10:20, Strong Hall 335</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Description</div>
+                <div class="info-text">This is an introductory course on linear algebra. Because this is an honors course, we will not follow the usual path taken in Math 290, the non-honors version of this course. However, we will still study the same concepts, namely matrices, systems of equations, eigenvectors and eigenvalues, vector spaces, and linear transformations. Along the way we will learn how to prove elementary statements in linear algebra.</div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Textbook</div>
+                <div class="info-text">The course lectures will not follow any specific textbook. The official textbook for the course is the freely available text <em>Linear Algebra</em> by Jim Heffron. A free copy can be found here: 
+                    <a href="https://leanpub.com/linalgebra/">Heffron text</a> (set the price bar to $0). Lots of interesting supplementary resources can be found at Professor Heffron's linear algebra site <a href="https://hefferon.net/linearalgebra/">Heffron</a>.
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Instructor</div>
+                <div class="info-text">Professor D. Katz</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Office</div>
+                <div class="info-text">Snow Hall 501</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Office Hours</div>
+                <div class="info-text">TuTh 10:30am-11:30am, and by appointment. If you need help outside of office hours, you are more than welcome to schedule an in-person meeting, a Zoom meeting, or send an email whenever you have questions about the course or questions about problems on a homework assignment.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">E-mail</div>
+                <div class="info-text">dlk53 AT ku dot edu</div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Daily Update</div>
+                <div class="info-text">After each class, a synopsis of what was covered will appear here: 
+                    <a href="2026 Math 291 Daily Update.pdf">Daily Update</a>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Homework Assignments</div>
+                <div class="info-text">Homework will be assigned daily and assignments are due the Tuesday of the following week. You are encouraged to work together on homework problems, since it is often more fun to solve problems together. However, to bolster your mathematical writing skills, I recommend that you write up the solutions on your own. Learning mathematics is like learning a language, and the latter cannot be done without significant daily practice. The homework problems will give you plenty of opportunity to practice. You are responsible for all material covered in the homework assignments, especially since the weekly quizzes include homework problems. Check here for the daily assignments: 
+                    <a href="2026 Math 291 Homework.pdf">Math 291 Homework</a>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Weekly Quizzes</div>
+                <div class="info-text">We will have a 5-10 minute quiz each Tuesday (except those Tuesdays following a midterm exam), beginning on January 27. Each quiz will have a combination of homework problems from the previous week together with questions asking you to state definitions or results from the previous week's lectures. Your two lowest quiz grades will be dropped.</div>
+            </div>
+
+            <!-- Quiz solutions temporarily hidden
+            <div class="links-section">
+                <ul class="homework-list">
+                    <li><a href="Math 590_Quiz 1 Solutions.pdf">Quiz 1 solutions</a></li>
+                    <li><a href="Math 590_Quiz 2 Solutions.pdf">Quiz 2 solutions</a></li>
+                    <li><a href="Math 590_Quiz 3 Solutions.pdf">Quiz 3 solutions</a></li>
+                    <li><a href="Math 590_Quiz 4 Solutions.pdf">Quiz 4 solutions</a></li>
+                    <li><a href="Math 590_Quiz 5 Solutions.pdf">Quiz 5 solutions</a></li>
+                    <li><a href="Math 590_Quiz 6 Solutions.pdf">Quiz 6 solutions</a></li>
+                    <li><a href="Math 590_Quiz 7 Solutions.pdf">Quiz 7 solutions</a></li>
+                    <li><a href="Math 590_Quiz 8 Solutions.pdf">Quiz 8 solutions</a></li>
+                    <li><a href="Math 590_Quiz 9 Solutions.pdf">Quiz 9 solutions</a></li>
+                    <li><a href="Math 590_Quiz 10 Solutions.pdf">Quiz 10 solutions</a></li>
+                    <li><a href="Math 590_Quiz 11 Solutions.pdf">Quiz 11 solutions</a></li>
+                    <li><a href="Math 590_Quiz 12 Solutions.pdf">Quiz 12 solutions</a></li>
+                </ul>
+            </div>
+            -->
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Midterm Exams</div>
+                <div class="info-text">There will be two in-class midterm exams. The dates for these exams are February 26 and April 16.</div>
+            </div>
+
+            <!-- Exam solutions temporarily hidden
+            <div class="links-section">
+                <ul class="homework-list">
+                    <li><a href="Selected solutions to practice problems.pdf">Selected solutions to practice problems for Exam 1</a></li>
+                    <li><a href="Math 590_Exam 1 Solutions.pdf">Solutions to Exam 1</a></li>
+                    <li><a href="Math 590 Comments on Exam 2.pdf">Solutions to practice problems for Exam 2</a></li>
+                    <li><a href="Math 590_Exam 2 Solutions.pdf">Solutions to Exam 2</a></li>
+                </ul>
+            </div>
+            -->
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Bonus Points</div>
+                <div class="info-text">Throughout the semester students will have occasional opportunities to earn bonus points that will be added to their total score at the end of the semester.</div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Final Exam</div>
+                <div class="info-text">The final exam will be held in our classroom in May, TBD.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Course Grading</div>
+                <div class="info-text">Weekly Quizzes (100 prorated points), Homework (100 points), two midterm exams (100 points each) and the final exam (200 points). Total: 600 points. <strong>Note:</strong> All students must take the final exam. However, your (prorated) score on the final exam can replace your lowest midterm exam grade, if doing so improves your final average.</div>
+            </div>
+
+            <div class="grading-breakdown">
+                <div class="grading-item">A = 540-600 points</div>
+                <div class="grading-item">B = 480-539 points</div>
+                <div class="grading-item">C = 360-489 points</div>
+                <div class="grading-item">D = 300-359 points</div>
+                <div class="grading-item">F = 0-299 points</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Best of luck this semester!</div>
+            </div>
+
+            <hr>
+
+            <div class="policy-section">
+                <div class="policy-title">Students with disability</div>
+                <div class="policy-text">
+                    The KU Office of Disability Resources (DR) coordinates accommodations and services for all eligible students with disabilities. If you have a disability and wish to request accommodations and have not contacted DR, please do so as soon as possible. Their office is located in 22 Strong Hall; their phone number is 785-864-2620 (V/TTY). Information about their services can be found at <a href="http://www.disability.ku.edu">www.disability.ku.edu</a>. Please also contact me privately in regard to your needs in this course.
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <div class="policy-title">Policy on religious observances</div>
+                <div class="policy-text">
+                    Any student who has a conflict between the course schedule and a religious holiday should contact the instructor as soon as possible.
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <div class="policy-title">Additional resources and policy information</div>
+                <div class="policy-text">
+                    Students are encouraged to familiarize themselves with University Policies and Student Resources. Relevant information may be found here: <a href="https://studentaffairs.ku.edu/student-resources">Resources and policies</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
