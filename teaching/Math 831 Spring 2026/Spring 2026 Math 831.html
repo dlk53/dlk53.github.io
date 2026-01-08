@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage for Math 831</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #92754c 0%, #a68a64 50%, #b89968 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: 15%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .header-content .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .back-button {
+            display: inline-block;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 1.1em;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 2px solid white;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 500;
+        }
+
+        .back-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .images-section {
+            padding: 40px;
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .image-item {
+            text-align: center;
+        }
+
+        .image-item img {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .image-item img:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-item figcaption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .main-content {
+            padding: 50px 40px;
+        }
+
+        .info-section {
+            margin-bottom: 30px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .info-text {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, #a68a64 0%, transparent 100%);
+            margin: 40px 0;
+        }
+
+        .links-section {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #a68a64;
+            margin: 20px 0;
+        }
+
+        .links-section a {
+            color: #92754c;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .links-section a:hover {
+            color: #6b5838;
+            text-decoration: underline;
+        }
+
+        .homework-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .homework-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .homework-list li:last-child {
+            border-bottom: none;
+        }
+
+        .policy-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            border: 1px solid #d0d0d0;
+        }
+
+        .policy-title {
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+
+        .policy-text {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #a68a64 50%, transparent 100%);
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 1.8em;
+            }
+
+            .image-gallery {
+                gap: 30px;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Math 831: Abstract Algebra II</h1>
+                <p class="subtitle">Spring 2026</p>
+                <a href="../../teaching_page.html" class="back-button">← Back to Teaching</a>
+            </div>
+        </div>
+
+        <div class="images-section">
+            <div class="image-gallery">
+                <figure class="image-item">
+                    <img src="Auslander.jpeg" height="212" width="188" alt="Auslander">
+                    <figcaption>Auslander</figcaption>
+                </figure>
+                <figure class="image-item">
+                    <img src="Buchsbaum.jpeg" height="212" width="190" alt="Buchsbaum">
+                    <figcaption>Buchsbaum</figcaption>
+                </figure>
+                <figure class="image-item">
+                    <img src="Serre.jpeg" height="212" width="190" alt="Serre">
+                    <figcaption>Serre</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="info-section">
+                <div class="info-label">Course</div>
+                <div class="info-text">Math 831, Abstract Algebra II</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Time and Place</div>
+                <div class="info-text">TuTh 2:00 - 3:15pm, Snow Hall 408</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Description</div>
+                <div class="info-text">This is an introductory course on commutative algebra. Because there is too much material to cover at this level in a one semester course, I think it is best that we take a particular fundamental result and make it our goal to cover enough basic material in order to prove the result by the end of the semester. The theorem I have in mind is that every regular local ring is a unique factorization domain. Regular local rings come from algebraic geometry, in that they are the local rings associated to nonsingular points on an algebraic variety. In the geometric context, it was already known in the early 1940s that such rings are unique factorization domains. In the late 1940s, Krull defined the notion of a regular local ring in purely algebraic terms and conjectured that these rings are unique factorization domains. This was eventually shown to be the case in the late 1950s by Auslander and Buchsbaum using homological techniques introduced by Serre. In order to reach our goal, we will cover a number of standard introductory topics in commutative algebra. The specific topics covered will depend upon the background of students enrolled in the class, but we will certainly cover primary decomposition, UFDs, and dimension theory in local rings, plus the relevant tools from homological algebra. If time permits, we will also cover the rudiments of multiplicity theory--another important topic in commutative algebra motivated by algebraic geometry.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Text</div>
+                <div class="info-text">None required.</div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Instructor</div>
+                <div class="info-text">Professor D. Katz</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Office</div>
+                <div class="info-text">Snow Hall 501</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Office Hours</div>
+                <div class="info-text">TuTh 10:30 - 11:30am and by appointment, either in-office or via Zoom. Please feel free to schedule a meeting or send an email whenever you have questions about the course or questions about problems on a homework assignment. You are also welcome to drop by any time I happen to be in my office.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">E-mail</div>
+                <div class="info-text">dlk53 AT ku dot edu</div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Daily Update</div>
+                <div class="info-text">After each class, a synopsis of what was covered appears here: 
+                    <a href="Spring 2026 Math 831 Daily Update.html">Daily Update</a>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Homework Assignments</div>
+                <div class="info-text">Daily problems will be posted to Canvas and our course web page. These problems are optional, but you'll gain a better understanding of the course material if you try working as many of the problems as you have time for. Each math class has a language of its own, and like any language, fluency can only be obtained through regular practice.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Daily Homework</div>
+                <div class="info-text">
+                    <a href="Math 831 Daily Homework.html">Can be found here</a>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Course work</div>
+                <div class="info-text">On the day of the final exam, each student will give a presentation of a published paper of their choosing. You will also submit a short paper summarizing the main points of the paper you present.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Final Exam Date</div>
+                <div class="info-text">Tuesday, December 9, 10:30am - 1:00pm.</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Canvas</div>
+                <div class="info-text">All important course information and relevant resources can also be found on Canvas.</div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-section">
+                <div class="info-label">Supplementary Material</div>
+            </div>
+
+            <hr>
+
+            <div class="policy-section">
+                <div class="policy-title">Students with special needs</div>
+                <div class="policy-text">
+                    The Student Access Center assists students with disabilities by facilitating accommodations that remove barriers to their academic success. The SAC office is located in Strong Hall 22, and is open M-F, 8am - 5pm. Phone: 785-864-4064. Email: access@ku.edu. URL: <a href="https://access.ku.edu">Student Access Center</a>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <div class="policy-title">Policy on religious observances</div>
+                <div class="policy-text">
+                    Any student who has a conflict between the course schedule and a religious holiday should contact the instructor as soon as possible.
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <div class="policy-title">Additional resource and policy information</div>
+                <div class="policy-text">
+                    Students are encouraged to familiarize themselves with University Policies and Student Resources. Relevant information may be found here: <a href="https://studentaffairs.ku.edu/student-resources">Student Resources</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
