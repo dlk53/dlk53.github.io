@@ -4,189 +4,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spring 2026: Math 291 Homework</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
             margin: 0 auto;
-            background: white;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            overflow: hidden;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
         }
-
-        .header {
-            background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #0ea5e9 100%);
-            color: white;
-            padding: 60px 40px;
-            position: relative;
-            overflow: hidden;
-            clip-path: ellipse(150% 100% at 50% 0%);
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
         }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            right: 10%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -10%;
-            left: 15%;
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .header-content h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        .header-content .subtitle {
-            font-size: 1.2em;
-            opacity: 0.95;
-        }
-
-        .back-button {
-            display: inline-block;
-            color: white;
-            background-color: rgba(255, 255, 255, 0.2);
-            text-decoration: none;
-            margin-top: 20px;
-            font-size: 1.1em;
-            padding: 12px 24px;
-            border-radius: 8px;
-            border: 2px solid white;
-            transition: background-color 0.3s, transform 0.2s;
-            font-weight: 500;
-        }
-
-        .back-button:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .main-content {
-            padding: 50px 40px;
-        }
-
-        .note-section {
-            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+        .instructions {
+            background-color: #fff3cd;
             padding: 20px;
-            border-radius: 15px;
-            border-left: 4px solid #f97316;
-            margin-bottom: 40px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
         }
-
-        .note-text {
-            color: #7c2d12;
-            font-size: 1.05em;
-        }
-
-        .homework-entry {
-            margin-bottom: 40px;
+        .problem {
+            background-color: white;
             padding: 25px;
-            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
-            border-radius: 15px;
-            border-left: 4px solid #0369a1;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-
-        .homework-date {
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
             font-weight: 600;
-            color: #0369a1;
-            font-size: 1.3em;
-            margin-bottom: 15px;
+            color: #1a1a1a;
         }
-
-        .homework-content {
-            color: #555;
-            margin-left: 20px;
+        em {
+            font-style: italic;
         }
-
-        .section-divider {
-            height: 3px;
-            background: linear-gradient(90deg, #0369a1 0%, transparent 100%);
-            margin: 40px 0;
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
-
-        @media (max-width: 768px) {
-            .header-content h1 {
-                font-size: 1.8em;
-            }
-
-            .main-content {
-                padding: 30px 20px;
-            }
-
-            .homework-entry {
-                padding: 20px;
-            }
+        .back-link:hover {
+            background-color: #357abd;
+        }
+        .back-link:focus {
+            outline: 2px solid #357abd;
+            outline-offset: 2px;
+        }
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        /* Ensure sufficient color contrast */
+        .problem-number {
+            color: #2563eb;
+        }
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="header-content">
-                <h1>Spring 2026: Math 291 Homework</h1>
-                <p class="subtitle">Honors Elementary Linear Algebra</p>
-                <a href="2026 Math 291.html" class="back-button">← Back to Course Page</a>
-            </div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <h1>Spring 2026: Math 291 Homework</h1>
+    </header>
+
+    <main id="main-content">
+        <div class="instructions">
+            <p>Any page and section numbers in the assignments below refer to Heffron's text.</p>
         </div>
 
-        <div class="main-content">
-            <div class="note-section">
-                <p class="note-text">
-                    Any page and section numbers in the assignments below refer to Heffron's text.
-                </p>
-            </div>
-
-            <div class="homework-entry">
-                <div class="homework-date">Tuesday, January 20</div>
-                <div class="homework-content">
-                    <!-- Homework problems will be added here as the semester progresses -->
-                </div>
-            </div>
-
-            <!-- Additional homework entries will be added here throughout the semester -->
+        <div class="problem">
+            <div class="problem-number">Tuesday, January 21</div>
+            
+            <p><strong>1.</strong> Verify properties 1-8 from today's lecture, for \(A = \begin{pmatrix} 1 & -9\\2 & 6\end{pmatrix}\), \(B = \begin{pmatrix} 1 & 4\\0 & -9\end{pmatrix}\), \(C = \begin{pmatrix}0 & -4\\9 & 2\end{pmatrix}\), \(\lambda = 7, \lambda_1 = -6, \lambda_2 = 4\).</p>
+            
+            <p><strong>2.</strong> Give a proof of the cancellation property using entries in the matrices rather than the proof give in class.</p>
         </div>
-    </div>
+
+        <!-- Additional daily homework will be added below as the semester continues -->
+
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an accessible HTML conversion of the LaTeX course daily homework. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
 </body>
 </html>

@@ -63,11 +63,11 @@
         }
         .definition {
             font-style: italic;
-            background-color: #f5f5f5;
+            background-color: #fff3cd;
             padding: 15px;
             margin: 15px 0;
             border-radius: 4px;
-            border-left: 3px solid #6c757d;
+            border-left: 3px solid #ffc107;
         }
         .math-display {
             margin: 30px 0;
@@ -142,21 +142,50 @@
     </header>
 
     <main id="main-content">
-        <div class="instructions">
-            <p>We will be working over both the real and complex number systems.</p>
+        <div class="problem">
+            <div class="problem-number">Tuesday, January 21</div>
+            <p>After reviewing class procedures, and items on the syllabus, we began a discussion of \(2\times 2\) matrices over \(\mathbb{R}\), the set of which we denote by \(\textrm{M}_2(\mathbb{R})\). Given \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), we identified the entries of \(A\) as follows: \(a\) is the (1,1) entry, \(b\) is the (1,2) entry, \(c\) is the (2,1) entry and \(d\) is the (2,2) entry.</p>
+            
+            <p>We established two fundamental operations:</p>
+            
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li>(i) Matrix addition: Given \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), \(B = \begin{pmatrix} e & f\\g & h\end{pmatrix}\), define \(A+B := \begin{pmatrix} a+e & b+f\\c+g & d+h\end{pmatrix}\).</li>
+                <li>(ii) Scalar multiplication: Given \(\lambda \in \mathbb{R}\) and \(A\in \textrm{M}_2(\mathbb{R})\), define \(\lambda \cdot A = \begin{pmatrix} \lambda a & \lambda b\\\lambda c & \lambda d\end{pmatrix}\).</li>
+            </ol>
+            
+            <p>We then discussed at length the following properties. In what follows, \(A, B, C\in \textrm{M}_2(\mathbb{R})\) and \(\lambda, \lambda_1, \lambda_2 \in \mathbb{R}\).</p>
+            
+            <p>1. An additive identity exists: For \({\bf 0}_{2\times 2} := \begin{pmatrix} 0 & 0\\0 & 0\end{pmatrix}\), we have \({\bf 0}_{2\times 2}+A = A\), for all \(A\in \textrm{M}_2(\mathbb{R})\).</p>
+            
+            <p>2. Additive inverses exist: Given \(-A := \begin{pmatrix} -a & -b\\-c & -d\end{pmatrix}\), we have \(-A+A = {\bf 0}_{2\times 2}\).</p>
+            
+            <p>3. Addition is commutative: \(A+B = B+A\).</p>
+            
+            <p>4. Addition is associative: \((A+B)+C = A+(B+C)\), for \(A, B, C\in \textrm{M}_2(\mathbb{R})\).</p>
+            
+            <p>5. Scalar multiplication distributes over matrix addition: \(\lambda \cdot (A+B) = \lambda \cdot A+\lambda \cdot B\), for \(\lambda \in \mathbb{R}\).</p>
+            
+            <p>6. Scalar addition is distributive: \((\lambda_1+\lambda_2)\cdot A = \lambda_1\cdot A+\lambda_2\cdot A\), for \(\lambda_1,\lambda_1\in \mathbb{R}\).</p>
+            
+            <p>7. Scalar multiplication is associative: \((\lambda_1\lambda_2)\cdot A = \lambda _1\cdot (\lambda_2\cdot A)\).</p>
+            
+            <p>8. \(1\cdot A = A\) and \(0\cdot A = {\bf 0}_{2\times 2}\).</p>
+            
+            <p>We also discussed how one might prove these identities and noted that the properties above will be recurring throughout the semester as we discuss abstract vector spaces. We ended class by discussing the following consequences of properties (1)-(8) above. Keeping the same notation, we have</p>
+            
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li>(i) \(-1\cdot A = -A\).</li>
+                <li>(ii) Additive inverses are unique, i.e., if \(A+C = {\bf 0}_{2\times 2}\), then \(C = -A\).</li>
+                <li>(iii) Cancellation holds for matrix addition, i.e., if \(A+B = A+C\), then \(B = C\).</li>
+            </ol>
         </div>
-
-        <article class="problem">
-            <div class="problem-number" role="heading" aria-level="2">Tuesday, January 20</div>
-            <p>Daily update content will be added here as the semester progresses.</p>
-        </article>
 
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
-        <p><em>This is an accessible HTML document. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+        <p><em>This is an accessible HTML conversion of the LaTeX course daily update. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
     </footer>
 </body>
 </html>
