@@ -63,11 +63,11 @@
         }
         .definition {
             font-style: italic;
-            background-color: #f5f5f5;
+            background-color: #fff3cd;
             padding: 15px;
             margin: 15px 0;
             border-radius: 4px;
-            border-left: 3px solid #6c757d;
+            border-left: 3px solid #ffc107;
         }
         .math-display {
             margin: 30px 0;
@@ -208,6 +208,39 @@
             
             <div class="definition">
                 <strong>Krull's Lemma.</strong> Let \(I\subseteq R\) be an ideal and \(S\subseteq R\) a multiplicatively closed set such that \(I\cap S = \emptyset\). Then there exists an ideal \(P\) containing \(I\) that is maximal with respect to the property \(P\cap S = \emptyset\). Moreover, \(P\) is a prime ideal.
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, January 22</div>
+            
+            <p>We began class by defining the <em>nilradical</em> \(\sqrt{I}\) of an ideal \(I\subseteq R\) as the set of elements \(r\in R\) such that \(r^n\in I\), for some \(n\geq 1\). We also noted that \(\sqrt{(0)}\) is called the nilradical of \(R\) and consists of the nilpotent elements in \(R\). We then gave a proof of the following corollary to Krull's Lemma,</p>
+            
+            <div class="definition">
+                <strong>Corollary.</strong> Let \(I\subseteq R\) be an ideal. Then \(\sqrt{I} = \bigcap \{P\ |\ P\ \text{is a prime ideal containing}\ I\}\).
+            </div>
+            
+            <p>For a multiplicatively closed set \(S\subseteq R\) we then defined an equivalence relation on \(R\times S\) as follows: \((r_1,s_1)\sim (r_2,s_2)\) if and only if there exists \(s_3\in S\) such that \(s_3(r_1s_2-r_2s_1) = 0\). After showing that \(\sim\) is an equivalence relation, we wrote the class of \((r,s)\) as a fraction \(\frac{r}{s}\) and showed that the expected operations</p>
+            
+            <div class="math-display">
+                \[\frac{r_1}{s_1}+\frac{r_2}{s_2} := \frac{r_1s_2+r_2s_1}{s_1s_2} \quad\quad \text{and}\quad\quad \frac{r_1}{s_1}\cdot \frac{r_2}{s_2} := \frac{r_1r_2}{s_1s_2}\]
+            </div>
+            
+            <p>are well defined and make \(R_S\) into a commutative ring whose zero element is \(\frac{0}{1} = \frac{0}{s}\), for any \(s\in S\) and whose multiplicative identity is \(\frac{1}{1} = \frac{s}{s}\), for all \(s\in S\).</p>
+            
+            <p>We then noted the following:</p>
+            <ol>
+                <li>(i) The natural map \(\phi: R\to R_S\) taking \(r\) to \(\frac{r}{1}\) is a ring homomorphism.</li>
+                <li>(ii) \(\frac{r}{s} = \frac{0}{1}\) in \(R_S\) if and only if \(s'r = 0\) in \(R\) for some \(s'\in S\). In particular, the kernel of \(\phi\) is the set \(\{r\in R\ |\ sr = 0, \text{for some}\ s\in S\}\).</li>
+                <li>(iii) \(\frac{s}{1}\) is a unit in \(R_S\) for all \(s\in S\).</li>
+            </ol>
+            
+            <p>We then discussed the correspondence between the ideals of \(R\) and those of \(R_S\). For an ideal \(I\subseteq R\), we noted \(I_S := \{\frac{i}{s}\ |\ i\in I\ \text{and}\ s\in S\}\) is an ideal of \(R_S\). Similarly, we noted that \(\phi^{-1}(J)\) is an ideal of \(R\) for every ideal \(J\subseteq R_S\). Later in the lecture we further noted that \(\phi^{-1}(J)\) has the property that \(sr\in \phi^{-1}(J)\), for some \(s\in S\) implies \(r\in \phi^{-1}(J)\).</p>
+            
+            <p>We then showed that this correspondence was not quite a perfect one-to-one correspondence between the ideals of \(R\) disjoint from \(S\) and the ideals in \(R_S\). On the one hand we do have \(J = \phi^{-1}(J)_S\), for all ideals \(J\subseteq R_S\), which shows that any ideal \(J\subseteq R_S\) is \(I_S\), for some ideal \(I\subseteq R\). On the other hand, it is not the case that \(\phi^{-1}(I_S) = I\). In fact, we saw that \(\phi^{-1}(I_S) = \{r\in R\ |\ sr\in I, \ \text{for some}\ s\in S\}\), which often strictly contains \(I\). For example, if \(R = \mathbb{Z}\), \(I = \langle 6\rangle\), and \(S = \{1,2,2^2,2^3,2^4,\ldots\}\), then \(\phi^{-1}(I_S) = \langle 3\rangle\) which is strictly larger than \(I\). We ended class by proving the following theorem which shows the correspondence in question is one-to-one for prime ideals.</p>
+            
+            <div class="definition">
+                <strong>Theorem.</strong> Let \(R\) be a commutative ring and \(S\subseteq R\) a multiplicatively closed subset. Then there is a one-to-one correspondence between the prime ideals of \(R\) disjoint from \(S\) and the prime ideals of \(R_S\) given by \(P \leftrightarrow P_S\).
             </div>
         </div>
 
