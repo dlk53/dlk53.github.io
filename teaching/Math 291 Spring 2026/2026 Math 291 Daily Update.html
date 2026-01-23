@@ -180,6 +180,47 @@
             </ol>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, January 22</div>
+            <p>In today's lecture we introduced two new operations for \(2\times 2\) matrices, namely multiplication of a matrix times a column and multiplication of two (\(2\times 2\)) matrices.</p>
+            
+            <p>For \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), \(B = \begin{pmatrix} e & f\\g & h\end{pmatrix}\), \(C = \begin{pmatrix} u\\v\end{pmatrix}\), we defined</p>
+            
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li>(i) \(A\cdot C = \begin{pmatrix} a & b\\c & d\end{pmatrix} \cdot \begin{pmatrix} u\\v\end{pmatrix} := \begin{pmatrix} au+bv\\cu+dv\end{pmatrix}\).</li>
+                <li>(ii) \(A\cdot B = \begin{pmatrix} a & b\\c & d\end{pmatrix}\cdot \begin{pmatrix} e & f\\g & h\end{pmatrix} = \begin{pmatrix} ae+bg & af+bh\\ce+dg & cf+dh\end{pmatrix}\).</li>
+            </ol>
+            
+            <p>We noted that the (1,1) entry of \(AB\) is \(R_1\cdot C_1\), the (1,2) entry is \(R_1\cdot C_2\), the (2,1) entry is \(R_2\cdot C_1\) and the (2,2) entry is \(R_2\cdot C_2\), where \(R_i\) is the \(i\)th row of \(A\) and \(C_j\) is the \(j\)th column of \(B\). We also noted that if we think of \(B\) as the matrix with columns \(C_1, C_2\), i.e., \(B = [C_1\ C_2]\), then \(AB = [AC_1\ AC_2]\), the matrix with columns \(AC_1, AC_2\).</p>
+            
+            <p>We discussed how we can use the product of a matrix times a column to re-write a system of equations as a <strong>single</strong> matrix equation, as follows. Given the system of two equations in two unknowns</p>
+            
+            <div class="math-display">
+                \[\begin{align*}
+                ax+by &= u\\
+                cx+dy &= v,
+                \end{align*}\]
+            </div>
+            
+            <p>We can write this as \(AX = L\), where \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), \(X = \begin{pmatrix} x\\y\end{pmatrix}\) and \(L = \begin{pmatrix} u\\v\end{pmatrix}\).</p>
+            
+            <p>We then discussed powers of \(2\times 2\) matrices and the class calculated \(A^2, A^3, A^4\) and conjectured the value of \(A^{2026}\), for \(A = \begin{pmatrix} 1 & 0\\1 & 1\end{pmatrix}\). We were easily able to conjecture \(A^n = \begin{pmatrix} 1 & 0\\n & 1\end{pmatrix}\), for all \(n\geq 1\), which led to a discussion of how to use <em>mathematical induction</em> to prove this fact. One first establishes the base case \(n = 1\), which in this case is clear. One then shows that the \(n-1\) case implies the \(n\)th case - the <em>inductive step</em>, which in this case amounted to showing that \(A\cdot \begin{pmatrix} 1 & 0\\n-1 & 1\end{pmatrix} = \begin{pmatrix} 1 & 0\\n & 1\end{pmatrix} = A^n\). The class then used induction to prove the formula \(1+2+\cdots + n = \frac{n(n+1)}{2}\).</p>
+            
+            <p>We moved on to discuss (but not prove) the following</p>
+            
+            <p><strong>Properties of matrix multiplication.</strong> Let \(A, B, C\) be \(2\times 2\) matrices.</p>
+            
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li>(i) \({\bf 0}_{2\times 2}\cdot A = {\bf 0}_{2\times 2} = A\cdot {\bf 0}_{2\times 2}\).</li>
+                <li>(ii) For \(I_2 := \begin{pmatrix} 1 & 0\\0 & 1\end{pmatrix}\), \(A\cdot I_2 = A = I_2\cdot A\), i.e., a multiplicative identity exists.</li>
+                <li>(iii) Multiplication distributes over matrix sums: \(A\cdot (B+C) = A\cdot B+A\cdot C\).</li>
+                <li>(iv) Multiplication is associative: \(A(BC) = (AB)C\).</li>
+                <li>(v) A matrix \(D\) satisfying \(AD = I_2 = DA\) is called an <em>inverse</em> of \(A\) and is denoted \(A^{-1}\).</li>
+            </ol>
+            
+            <p>We finished class by noting that if the matrix equation \(AX = L\) represents a system of equations (as above) and \(A\) has an inverse, then we can multiply both sides of the matrix equation by \(A^{-1}\) to get the solution \(X = A^{-1}L\).</p>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
