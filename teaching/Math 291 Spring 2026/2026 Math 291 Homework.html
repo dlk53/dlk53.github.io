@@ -158,9 +158,9 @@
             <div class="problem-number">Thursday, January 22</div>
             
             <p><strong>1.</strong> For the matrices \(A, B, C\) in the previous assignment, verify:</p>
-            <ol>
-                <li>(i) \(A(B+C) = AB+AC\).</li>
-                <li>(ii) \(A(BC) = (AB)C\).</li>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(A(B+C) = AB+AC\).</li>
+                <li style="list-style-type: none;">(ii) \(A(BC) = (AB)C\).</li>
             </ol>
             
             <p><strong>2.</strong> For the matrix \(A = \begin{pmatrix} 3 & 1\\5 & 2\end{pmatrix}\) first verify that \(A^{-1} = \begin{pmatrix} 2 & -1\\-5 & 3\end{pmatrix}\), and then use \(A^{-1}\) to solve the system of equations</p>
@@ -173,10 +173,56 @@
             </div>
             
             <p><strong>3.</strong> Use mathematical induction to prove the following statements:</p>
-            <ol>
-                <li>(i) \(1^2+2^2+3^2+\cdots + n^2 = \frac{n(n+1)(2n+1)}{6}\), for all \(n\geq 1\).</li>
-                <li>(ii) \(9^n-1\) is divisible by 8, for all \(n\geq 1\).</li>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(1^2+2^2+3^2+\cdots + n^2 = \frac{n(n+1)(2n+1)}{6}\), for all \(n\geq 1\).</li>
+                <li style="list-style-type: none;">(ii) \(9^n-1\) is divisible by 8, for all \(n\geq 1\).</li>
             </ol>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, January 27</div>
+            
+            <p><strong>1.</strong> For \(A = \begin{pmatrix} 1 & -9\\2 & 6\end{pmatrix}\), \(B = \begin{pmatrix} 1 & 4\\0 & -9\end{pmatrix}\) and \(\lambda = 7\), verify properties 1-5 of the determinant given in today's lecture.</p>
+            
+            <p><strong>2.</strong> For the \(2\times 2\) matrix \(A\), we verified in class that if \(\textrm{det}(A)\not = 0\), then \(A^{-1}\) exists. Prove that if \(A^{-1}\) exists, then \(\det A \not = 0\). Thus, we have the following:</p>
+            
+            <div class="definition">
+                <strong>Theorem.</strong> The \(2\times 2\) matrix is invertible if and only if \(\det A\not = 0\).
+            </div>
+            
+            <p>We'll see later in the semester that this holds for any \(n\times n\) matrix.</p>
+            
+            <p><strong>3.</strong> Here are three systems of linear equations. Identify which one has a unique solution, infinitely many solutions and no solutions.</p>
+            
+            <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+                <div style="flex: 1; padding: 10px;">
+                    <strong>System A</strong>
+                    <div class="math-display">
+                        \[\begin{align*}
+                        2x + 3y &= 7 \\
+                        6x + 9y &= 31
+                        \end{align*}\]
+                    </div>
+                </div>
+                <div style="flex: 1; padding: 10px;">
+                    <strong>System B</strong>
+                    <div class="math-display">
+                        \[\begin{align*}
+                        2x + 3y &= -1 \\
+                        6x + 2y &= 4
+                        \end{align*}\]
+                    </div>
+                </div>
+                <div style="flex: 1; padding: 10px;">
+                    <strong>System C</strong>
+                    <div class="math-display">
+                        \[\begin{align*}
+                        2x + 3y &= 7 \\
+                        6x + 9y &= 21
+                        \end{align*}\]
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Additional daily homework will be added below as the semester continues -->
