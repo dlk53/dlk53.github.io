@@ -263,6 +263,49 @@
             <p>Thus, there can never be a \(2\times 2\) system of linear equations with exactly 17 solutions! (Or with exactly \(n\) solutions for any \(n > 1\).)</p>
         </div>
 
+
+        <div class="problem">
+            <div class="problem-number">Thursday, January 29</div>
+            
+            <p>In the previous lecture we saw that given a system of linear equations</p>
+            \[\begin{align*}
+            ax+by &= u\\
+            cx+dy &= v
+            \end{align*}\]
+            <p>whose coefficient matrix \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\) has non-zero determinant \(\Delta\), then the solution to the system is given by</p>
+            
+            <p><strong>Cramer's Rule.</strong> For the system above, with \(\Delta \not = 0\), \(x = \frac{\det\begin{pmatrix} u & b\\v & d\end{pmatrix}}{\Delta}\) and \(y = \frac{\det\begin{pmatrix} a & u\\c & v\end{pmatrix}}{\Delta}\).</p>
+            
+            <p>We noted that for large systems of linear equations, Cramer's rule is not cost effective, so we began a discussion of <em>Gaussian elimination</em>. We started with a specific system of equations (like)</p>
+            \[\begin{align*}
+            2x+6y &= 8\\
+            3x+y &= 4
+            \end{align*}\]
+            <p>and performed a sequence of operations that changed the system, but preserved the solution. These operations were of the following form: Interchange equations, add a multiple of <strong>one</strong> equation to <strong>another</strong> equation, and multiply an equation by a <strong>non-zero</strong> number. This simplified the system to one trivially solvable, namely</p>
+            \[\begin{align*}
+            x &= 1\\
+            y &= 1.
+            \end{align*}\]
+            
+            <p>We noted that in doing the various operations, the arithmetic involved the coefficients in the equations and the variables were essentially placeholders. This led to considering the corresponding <em>augmented matrix</em> \(\begin{bmatrix}2 & 6 & | & 8\\3 & 1 & | & 4\end{bmatrix}\). By performing the same operations on the rows of the augmented matrix that we did on the system of equations, this led to the augmented matrix \(\begin{bmatrix}1 & 0 & | & 1\\0 & 1 & | & 1\end{bmatrix}\), which corresponds to the system</p>
+            \[\begin{align*}
+            x &= 1\\
+            y &= 1.
+            \end{align*}\]
+            <p>We formalized this process by defining</p>
+            
+            <p><strong>Elementary Row Operations.</strong> Let \(A\) be a \(2\times 2\) matrix (or any matrix in fact). The following constitute elementary row operations:</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) Interchange two rows.</li>
+                <li style="list-style-type: none;">(ii) Add a multiple of <strong>one</strong> row to <strong>another</strong> row.</li>
+                <li style="list-style-type: none;">(iii) Multiply a row by a <strong>non-zero</strong> number.</li>
+            </ol>
+            
+            <p>We noted that the goal was to put, if possible, the beginning augmented matrix \(\begin{bmatrix}a & b & | & u\\c & d & | & v\end{bmatrix}\) into the form \(\begin{bmatrix}1 & 0 & | & s\\0 & 1 & | & t\end{bmatrix}\), from which the solution \(x = s, y = t\) could be read. We noted that the strategy for the Gaussian elimination process should be as follows: Using elementary row operations, first get a 1 in the (1,1) entry of the augmented matrix, then use that 1 to get 0 below it. Then make, if possible, the (2,2) entry of the augmented matrix 1 and then use that 1 to get a 0 above it. This will always be possible when the original system has a unique solution.</p>
+            
+            <p>We ended class by considering the remaining two cases. In one case, the final augmented matrix took the form \(\begin{bmatrix}1 & 3 & | & 4\\0 & 0 & | & 0\end{bmatrix}\), which corresponds to the system \(x+3y = 4\), from which one concludes \(x = 4-3y\). To describe the solution set we introduced another parameter \(t\) to get \(\{(4-3t, t)\ |\ t\in \mathbb{R}\}\) as the solution set. This is the case when the system has infinitely many solutions. We then saw an example where the final augmented matrix took the form \(\begin{bmatrix}1 & 3 & | & 4\\0 & 0 & | & 1\end{bmatrix}\), which meant the original system had no solution, since \(0 = 1\) is a contradiction.</p>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
