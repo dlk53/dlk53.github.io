@@ -349,6 +349,60 @@
             <p>As corollaries we noted that the polynomial rings \(\mathbb{Z}[x_1, \ldots, x_n]\) and \(K[x_1, \ldots, x_n]\) are UFDs, for \(K\) any field.</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Tuesday, February 3</div>
+            
+            <p>We spent most of the class working through the following examples.</p>
+            
+            <div class="definition">
+                <strong>Example A.</strong> The complex coordinate ring of the unit circle \(S := \mathbb{C}[x,y]/\langle x^2+y^2-1\rangle\) is a UFD.
+            </div>
+            
+            <p>We did this by first showing that \(S \cong \mathbb{C}[u, v]/\langle uv-1\rangle\), where \(u,v\) are a new set of indeterminates. We then showed that \(\mathbb{C}[u,v]/\langle uv-1\rangle \cong \mathbb{C}[u, u^{-1}]\). Since the latter ring is the localization of a UFD, namely \(\mathbb{C}[u]\), at a multiplicatively closed set whose elements are products of primes, \(\mathbb{C}[u, u^{-1}]\), and hence \(S\) is a UFD.</p>
+            
+            <div class="definition">
+                <strong>Example B.</strong> The real coordinate ring of the unit circle \(R := \mathbb{R}[x, y]/\langle x^2+y^2-1\rangle\), is <em>not</em> a UFD.
+            </div>
+            
+            <p>This fact follows because the image of \(x\) in \(R\) is an irreducible element that is not a prime element. Crucial steps in the proof required showing:</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(R\) is an integral domain.</li>
+                <li style="list-style-type: none;">(ii) \(\overline{x}\), the image of \(x\) in \(R\), is not a prime element. This followed since \(R/\langle \overline{x}\rangle \cong \mathbb{R}[y]/\langle y^2-1\rangle\), which is not an integral domain.</li>
+                <li style="list-style-type: none;">(iii) Every polynomial in \(f\in \mathbb{R}[x, y]\) can be written uniquely as \(f = f_0+f_1+\cdots + f_n\), where each \(f_j\in \mathbb{R}[x,y]\) is homogeneous of degree \(j\).</li>
+                <li style="list-style-type: none;">(iv) \(x^2+y^2\) is an irreducible polynomial in \(\mathbb{R}[x,y]\).</li>
+                <li style="list-style-type: none;">(v) \(\overline{x}\in R\) is an irreducible element.</li>
+            </ol>
+            
+            <p>We then addressed the question: Why doesn't this same approach show that \(S := \mathbb{C}[x,y]/\langle x^2+y^2-1\rangle\) is not a UFD? The answer is that while the image of \(x\) in \(S\) is still not prime, the image of \(x\) in \(S\) is no longer irreducible. In fact, in \(S\) we have</p>
+            <div class="math-display">
+                \[x\equiv \frac{1}{2}(x-iy)\cdot \{(x+iy+i)(x+iy-i)\},\]
+            </div>
+            <p>where \(x-iy\) is a unit in \(S\), but neither \(x+iy+i\) nor \(x+iy-i\) are units in \(S\).</p>
+            
+            <p>We then recorded the following result, which appears in the celebrated paper of R. Swan, <em>Vector bundles and projective modules</em>. A write up of this theorem appears in the Supplementary Materials folder on our Canvas page and our course webpage.</p>
+            
+            <div class="definition">
+                <strong>Theorem (Swan).</strong> Let \(F\) denote either the real numbers or the complex numbers and set \[R := F[x_1, \ldots, x_n]/\langle x_1^2+\cdots + x_n^2-1\rangle.\] If \(F = \mathbb{R}\), then \(R\) is a UFD for \(n\geq 3\) and if \(F = \mathbb{C}\), then \(R\) is a UFD for \(n\geq 4\).
+            </div>
+            
+            <p>We ended class with the following definition and comments.</p>
+            
+            <div class="definition">
+                <strong>Definition.</strong> Let \(R\) be an integral domain. Given non-zero, non-unit elements \(a, b\in R\), we say that the non-zero, non-unit element \(d\) in \(R\) is a <em>greatest common divisor of a and b</em> if: (i) \(d\mid a\) and \(d\mid b\) and (ii) If \(e\mid a\) and \(e\mid b\), then \(e\mid d\). In this case we will write \(d = \textrm{GCD}(a,b)\). \(R\) is a GCD domain if every pair of non-zero, non-unit elements has a GCD.
+            </div>
+            
+            <p><strong>Comments.</strong> Let \(R\) be an integral domain.</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) Using Bezout's principal, it is easy to see that concept of GCD in \(\mathbb{Z}\) is the same as GCD above.</li>
+                <li style="list-style-type: none;">(ii) GCDs are unique up to unit multiple.</li>
+                <li style="list-style-type: none;">(iii) If GCDs exist, then LCMs (least common multiples) exist and one has \(\textrm{GCD}(a,b)\cdot \textrm{LCM}(a,b) = ab\).</li>
+                <li style="list-style-type: none;">(iv) UFDs are GCD domains. In particular, if \(a, b\) have prime factorizations \(a = p_1^{e_1}\cdots p_n^{e_n}\), \(b = p_1^{f_1}\cdots p_n^{f_n}\), with each \(e_i, f_j\geq 0\), then</li>
+            </ol>
+            <div class="math-display">
+                \[\textrm{GCD}(a,b) = p_1^{\textrm{min}(e_1,f_1)} \cdots p_n^{\textrm{min}(e_n,f_n)}\quad\quad \textrm{and}\quad\quad \textrm{LCM}(a,b) = p_1^{\textrm{max}(e_1,f_1)} \cdots p_n^{\textrm{max}(e_n,f_n)}.\]
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
