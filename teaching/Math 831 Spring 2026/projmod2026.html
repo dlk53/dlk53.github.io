@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments on Projective Modules</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.9em;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #4a90e2;
+            font-size: 1.4em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 8px;
+        }
+        .content-section {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .theorem {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .lemma {
+            background-color: #e8f4f8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 3px solid #4a90e2;
+        }
+        .remark {
+            background-color: #f0f0f0;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 3px solid #666;
+        }
+        .example {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        .qed {
+            float: right;
+            font-size: 1.2em;
+        }
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <h1>Comments on Projective Modules</h1>
+    </header>
+
+    <main id="main-content">
+        <div class="content-section">
+            <p>In this handout we will briefly explore the topic of projective modules in a bit more detail than we covered in class. Throughout \(R\) is a commutative ring. Recall that, by definition, a projective module is an \(R\)-module that is a direct summand of a free \(R\)-module. As mentioned in class, if the ring \(R\) is decomposable, e.g., \(R = R_1\oplus R_2\) is a direct sum of rings, then there are many examples of non-free projective \(R\)-modules. In particular, \(R_1\) is a projective \(R\)-module that is not a free \(R\)-module. When \(R\) is indecomposable, in particular, when \(R\) is an integral domain, it is much more difficult to gives examples of projective modules that are not free modules. (Of course, over certain classes of rings, projective modules are always free modules). The purpose then of this hand out is two-fold. We first present two classical examples of integral domains admitting non-free projective modules. Our second purpose is to elaborate on the locally free property of projective modules. We saw in class that if \(R\) is a Noetherian domain, then a finitely generated locally principal ideal is a projective \(R\)-module. In fact, this holds in much greater generality as we will see below.</p>
+        </div>
+
+        <h2>Two examples</h2>
+        
+        <div class="content-section">
+            <p>In this section we present two standard examples of non-free projective \(R\)-modules. The first example is number-theoretic in character, the second topological.</p>
+            
+            <p>In our first example, \(R\) is a ring of algebraic integers, i.e., the integral closure of \(\mathbb{Z}\) is a finite extension of \(\mathbb{Q}\). It is well known that such a ring is a <em>Dedekind domain</em>. It is a standard fact that every ideal in a Dedekind domain is locally principal and therefore a projective module of rank one. However, for the example below, we will prove this fact directly.</p>
+            
+            <div class="example">
+                <p><strong>Example A.</strong> Set \(R := \mathbb{Z}[\sqrt{-5}] = \{a+ b\cdot \sqrt{-5} \ | \ a, b \in \mathbb{Z} \}\) and consider the ideal \(I\) generated by \(3\) and \(2+\sqrt{-5}\). Thus, a typical element in \(I\) has the form \(u\cdot 3 + v\cdot (2+\sqrt{-5})\), with \(u, v \in R\). We will first show that \(I\) is not a principal ideal. This means that \(I\), considered as an \(R\)-module, is not free. Indeed, given any two non-zero elements \(x, y \in I\), \(x\cdot y + (-y)\cdot x = 0\), so no two elements from \(I\) can be linearly independent. Thus, if \(I\) were free, it would have to have a basis consisting of one element, i.e., \(I\) would be principal.</p>
+                
+                <p>To see that \(I\) is not a principal ideal, we will use the function \(\phi : R \rightarrow \mathbb{Z}\) given by \(\phi (a+b\sqrt{-5}) = a^2+5b^2\). We first recall that \(\phi (r_1\cdot r_2) = \phi (r_1)\cdot \phi (r_2)\), for all \(r_1, r_2\in R\). This has the immediate consequence that \(a+b\sqrt{-5}\) is a unit in \(R\) if and only if \(a = \pm{1}\) and \(b = 0\). Now suppose that \(I\) is a principal ideal. Then there exists \(f\in I\) such that \(I = R\cdot f\). Let us first eliminate the case that \(f\) is a unit in \(R\), i.e., \(I = R\). Suppose, by way of contradiction, that \(I = R\). If we note that \(R = \mathbb{Z}[X]/(X^2+5)\) (you should check this), then \(I\) corresponds to the ideal \((3, 2+X)/(X^2+5)\) so that if \(I = R\), it would follow that \((3, X+2) = \mathbb{Z}[X]\). Write \(1 = g(X)\cdot 3 + h(X)\cdot (2+X)\), for \(g(X), h(X) \in \mathbb{Z}[X]\). If we set \(X = -2\), then we have \(1 = g(-2)\cdot 3\) in \(\mathbb{Z}\), which is a contradiction. It follows that \(I \neq R\), so \(f\) is not a unit in \(R\).</p>
+                
+                <p>Write \(3 = r\cdot f\), for \(r\in R\). Then \(9 = \phi(3) = \phi(r)\cdot \phi(f)\). Since \(\phi(f) \neq 1\), either \(\phi (r) = 3\) or \(\phi (r) = 1\). The first case can never hold, since the equation \(3 = a^2+5b^2\) has no solutions in \(\mathbb{Z}\). If \(\phi(r) = 1\), then \(r = \pm{1}\), so that \(I = 3\cdot R\). But then we may write \(2+\sqrt{-5} = (a+b\sqrt{-5})\cdot 3\) in \(R\), and this clearly cannot hold. Thus, it follows that \(I\) is not a principal ideal, and therefore, is not a free \(R\)-module.</p>
+                
+                <p>We will now show that \(I\) is a projective \(R\)-module. Let \(\phi : R^2 \rightarrow I\) be the canonical surjection taking \(\binom uv \in R^2\) to \(u\cdot 3 + v\cdot (2+\sqrt{-5})\) in \(I\). If we can find an \(R\)-module homomorphism \(j : I \rightarrow R^2\), such that \(\phi j = 1_I\), then, as we saw in class, this is enough to insure that \(I\) is a projective \(R\)-module, as desired.</p>
+                
+                <p>Let \(x = a\cdot 3+b\cdot (2+\sqrt{-5}) \in I\) (\(a, b \in R\)). A straightforward calculation shows that there exist <em>unique</em> \(u, v \in R\) such that \((2-\sqrt{-5})\cdot x = 3\cdot u\) and \((1+\sqrt{-5})\cdot x = 3\cdot v\). In fact, \(u = 2a+3b-a\sqrt{-5}\) and \(v = a-b+(a+b)\sqrt{-5}\). Since \(u\) and \(v\) are uniquely determined by \(x\), we may define \(j(x) := \binom uv\). Clearly \(j\) is an \(R\)-module homomorphism. A quick check shows that</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    \phi(\binom uv) &= u\cdot 3 + v\cdot (2+\sqrt{-5})\\ &=
+                    (2a+3b-a\sqrt{-5})\cdot 3 + (a-b+(a+b)\sqrt{-5})\cdot (2+\sqrt{-5})\\
+                    &= a\cdot 3+b(2+\sqrt{-5}). \end{align*}\]
+                </div>
+                <p>In other words, \(\phi j (x) = x\), as needed. Thus, \(I\) provides an example of a non-free projective \(R\)-module. <span class="qed">∎</span></p>
+            </div>
+            
+            <div class="remark">
+                <p><strong>Remark.</strong> The failure of the ideal \(I\) in the example above to be principal is closely related to the fact that \(R\) in the example is not a UFD. Indeed, the equation \(9 = 3\cdot 3 = (2+\sqrt{-5})\cdot (2-\sqrt{-5})\) illustrates this failure, since the elements \(3, 2+\sqrt{-5}\), and \(2-\sqrt{-5}\) are irreducible in \(R\) (just use the function \(\phi\) to check this).</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <p>For the second example, we will need the following fact from algebraic topology. Let \(S^2\) denote the real two-sphere centered at the origin in \(\mathbb{R}^3\). If \(\vec F\) is a continuos vector field on \(S^2\) and \(\vec F (p) \neq 0\) for all \(p \in S^2\), then \(\vec F\) cannot be tangent to \(S^2\) at every point \(p\). Heuristically: "You can't comb the hair on a bowling ball". Alternately, \(S^2\) does not admit a continuos nowhere-vanishing tangent vector field. (By the way, by vector field on \(S^2\), I mean exactly what is taught in calculus -- a vector valued function on \(S^2\).)</p>
+            
+            <div class="example">
+                <p><strong>Example B.</strong> Set \(R:= \mathbb{R} [X,Y,Z]/(X^2+Y^2+Z^2-1)\), the coordinate ring of the real two-sphere. Alternately, \(R\) may be thought of as the ring of <em>polynomial functions</em> defined on \(S^2\). To see this, let \(f \in R\). Then \(f\) is the residue class in \(R\) of a polynomial \(F \in \mathbb{R}[X,Y,Z]\). For \(p \in S^2\), we define \(f(p) := F(p)\). Note that if \(G\in \mathbb{R}[X,Y,Z]\) also represents the class of \(f\), then \(F-G\) is divisible by \(X^2+Y^2+Z^2-1\), so \(F(p)-G(p) = 0\), i.e., \(F(p) = G(p)\), for all \(p\in S^2\). Thus the value of \(f(p)\) is well defined. Moreover, since \(X^2+Y^2+Z^2-1\) is an irreducible polynomial, the ring \(R\) is an integral domain. We will use lower case letters to denote images of elements from \(\mathbb{R} [X,Y,Z]\) in \(R\).</p>
+                
+                <p>Let \(\phi : R^3 \rightarrow R\) be the \(R\)-module morphism taking the column vector \((a,b,c)^t\) ("t" for transpose) to \(ax + by + cz\). Note that \(\phi\) takes \((x,y,z)^t\) to \(1\), so \(\phi\) is surjective. Let \(j : R \rightarrow R^3\) be the map defined by \(j(r) = (rx, ry, rz)^t\) for all \(r \in R\). Clearly \(\phi j = 1_R\) (since \(x^2+y^2+z^2 = 1\)), so as before, \(R^3 = \ker(\phi) \oplus j(R)\). Set \(K := \ker(\phi)\), so \(K\) is a projective \(R\)-module. We will now show that \(K\) is <em>not</em> a free \(R\)-module.</p>
+                
+                <p>Suppose \(K\) were free. Then it would have a basis consisting of two elements. Why two elements? Since \(R^3 = K\oplus j(R)\), its clear that a basis for \(K\) together with a basis for \(j(R)\) gives a basis for \(R^3\). Since \((x,y,z)^t\) is clearly a basis for \(j(R)\) and all bases for \(R^3\) have three elements (can you prove this?), any basis for \(K\) must have two elements. Let \(\vec f := (f_1, f_2, f_3)^t\) and \(\vec g := (g_1, g_2, g_3)^t\) be a basis for \(K\). Hence, \(\vec f, \vec g, (x,y,z)^t\) is a basis for \(R^3\). It follows that for</p>
+                <div class="math-display">
+                    \[A := \begin{pmatrix} f_1 & g_1 & x\\ f_2 & g_2 & y\\ f_3 & g_3 & z\\ \end{pmatrix},\]
+                </div>
+                <p>\(\det(A)\) is a unit as an element of \(R\). In particular, if we think of the elements of \(R\) as functions defined on \(S^2\), then \(\det(A(p)) \neq 0\), for all \(p \in S^2\).</p>
+                
+                <p>Now consider the vector fields on \(S^2\)</p>
+                <div class="math-display">
+                    \[\vec F := f_1\cdot \vec i + f_2\cdot \vec j + f_3\cdot \vec k \quad \text{and} \quad \vec X := x\cdot \vec i + y\cdot \vec j + z\cdot \vec k.\]
+                </div>
+                
+                <p>We claim that for all \(p \in S^2\), \(\vec F (p)\) and \(\vec X (p)\) are not parallel. Indeed, if they were parallel, then any \(3\times 3\) matrix having these vectors as two of its columns would have zero determinant. But clearly, \(A(p)\) is such a matrix and \(\det(A(p)) \neq 0\). Hence, \(\vec F (p)\) and \(\vec X (p)\) are not parallel for all \(p \in S^2\).</p>
+                
+                <p>If we now note that for all \(p \in S^2\), \(\vec X (p)\) is normal to \(S^2\) (its just the "position vector" for \(p\)), then it follows that for all \(p \in S^2\), \(\vec F (p)\) is <em>not</em> normal to \(S^2\). Hence, its projection onto the plane tangent to \(S^2\) at \(p\) is not the zero vector. Let \(\vec H (p)\) denote this projection. Then \(\vec H\) is a continuos (check this) nowhere-vanishing tangent vector field on \(S^2\)! This contradicts the topological fact stated above. It follows that \(K\) cannot be a free \(R\)-module. Therefore, \(K\) is a rank two, non-free, projective \(R\)-module. <span class="qed">∎</span></p>
+            </div>
+            
+            <div class="remark">
+                <p><strong>Remark.</strong> Repeating the construction above over the complex numbers does not lead to the same result. Take \(T := \mathbb{C} [X,Y,Z]/(X^2+Y^2+Z^2-1)\) and let \(\tilde \phi : T^3 \rightarrow T\) denote the surjection defined by \((x\ y\ z)\). Then as above this map splits and \(L := \ker (\tilde \phi)\) is a direct summand of \(T^3\) and therefore projective over \(T\). However, in this case, \(L\) <em>is</em> a free \(T\)-module! See the appendix for details.</p>
+            </div>
+        </div>
+
+        <h2>Projective Modules and the Local-Global Principle</h2>
+        
+        <div class="content-section">
+            <p>In this section we elaborate on the locally free property of projective modules. Suppose that \(M\) is a finitely generated \(R\)-module. If \(Q\subseteq R\) is a maximal ideal and \(M_Q\) is a free \(R_Q\)-module, we say that \(M\) is <em>locally free at \(Q\)</em> and write \(M\) is locally free to mean that \(M\) is locally free at all maximal ideals. We noted in class that projective modules are locally free. In fact, they are characterized by this property when they are finitely presented, as we will see below.</p>
+            
+            <p>Recall that if \(M\) is an \(R\)-module, we say that \(M\) is <em>finitely presented</em> if there exists an exact sequence of \(R\)-modules \(R^n \rightarrow R^m \rightarrow M \rightarrow 0\) for some \(m,n\geq 0\). Equivalently, \(M\) is finitely presented if \(M\) is finitely generated and if for any surjection \(\pi : R^n \rightarrow M\), the kernel of \(\pi\) is finitely generated. Note that projective modules are finitely presented.</p>
+            
+            <p>Another notion we will need is the following. An \(R\)-module \(M\) is said to be <em>locally principal</em> if \(M_Q\) is a cyclic \(R_Q\)-module, for all maximal ideals \(Q\) in \(R\). The following lemma plays a crucial role in the locally free property of projective modules.</p>
+            
+            <div class="lemma">
+                <p><strong>Lemma.</strong> Let \(M,N\) be \(R\)-modules with \(M\) finitely presented and let \(f\in R\). If \(\psi : M_f \rightarrow N_f\) is an \(R_f\)-module homomorphism, then there exists an \(R\)-module homomorphism \(h : M \rightarrow N\) and an integer \(p > 0\) such that \(h/f^p = \psi\) as \(R_f\)-module homomorphisms.</p>
+            </div>
+            
+            <p><strong>Proof.</strong> Fix a finite presentation \(R^n \xrightarrow{\alpha} R^m \xrightarrow{\pi} M \rightarrow 0\) of \(M\). Let \(x_1, \ldots, x_m\) denote the elements of a generating set for \(M\) that are the images in \(M\) of the standard basis for \(R^m\) under \(\pi\). For \(i = 1, \ldots, m\), write \(\psi (x_i/1) = n_i/f^{c_i}\), for \(n_i\in N\) and \(c_i\geq 0\). Set \(p_1 := \max\{c_1, \ldots, c_m\}\) and let \(g : R^m \rightarrow N\) be the \(R\)-module homomorphism that takes the \(i\)th element of the standard basis to \(f^{p_1-c_i}\cdot n_i\). Then \(g/f^{p_1} = \psi \pi_f\) as \(R_f\)-module homomorphisms from \(R_f^m\) to \(N_f\). Therefore, \(g\alpha/f^{p_1} = \psi \pi_f \alpha_f = 0\) as \(R_f\)-module homomorphisms from \(R_f^n\) to \(N_f\). It follows that, for every \(j\), \(f^{p_2}\cdot (g\alpha(e_j)) = 0\) for some integer \(p_2\geq 0\) independent of \(j\), where \(e_j\) denotes the \(j\)th standard basis element of \(R^n\). Set \(p = p_1+p_2\) and note that \(f^{p_2}\cdot g\alpha = 0\). Thus, \(f^{p_2}\cdot g\) factors through \(\pi\) to yield an \(R\)-module homomorphism \(h : M \rightarrow N\). Since \(\pi_f\) is surjective, it now follows that \(h/f^p = \psi\). <span class="qed">∎</span></p>
+            
+            <p>How we use this lemma is roughly as follows. For each maximal ideal \(Q\) in \(R\), localize at \(Q\) to get a free module over \(R_Q\), which easily splits off from \(R_Q^n\), for some \(n\). We then find an \(f\not \in Q\) so that \(M_f\) is still free over \(R_f\). (The subscript \(f\) on \(R\) or \(M\) - or any other similar subscript on \(R\) or \(M\) - denotes the localization of \(R\) and \(M\) at the multiplicatively closed subset \(S = \{1, f, f^2, \ldots \}\).) This yields the desired map from \(M_f\) to \(R_f^n\) for each \(f\). We then note that finitely many of the \(f\)'s generate the unit ideal and we then use the finitely many maps on these localizations together with the lemma above to get the map \(\phi\) in question.</p>
+            
+            <div class="theorem">
+                <p><strong>Theorem.</strong> Let \(R\) be a commutative ring and \(M\) a finitely presented \(R\)-module. Assume that \(M_Q\) is a free \(R_Q\)-module for all maximal ideals \(Q\subseteq R\). Then \(M\) is a projective \(R\)-module.</p>
+            </div>
+            
+            <p><strong>Proof.</strong> Let \(Q\subseteq R\) be a maximal ideal. Then \(M_Q\) is a free \(R_Q\)-module, say of rank \(t\). Let \(u_1, \ldots, u_t \in M\) be such that their images in \(M_Q\) form a basis and let \(U\) denote the submodule of \(M\) they generate. Then, we have an exact sequence</p>
+            <div class="math-display">
+                \[0 \rightarrow L \xrightarrow{i} R^t \xrightarrow{\rho} U \rightarrow 0,\]
+            </div>
+            <p>where \(L\) is the kernel of \(\rho\) and \(\rho\) takes the standard basis of \(R^t\) to the elements \(u_1, \ldots, u_t\). Note that \(L\) need not be a finitely generated \(R\)-module. By our hypothesis on \(Q\) and the choice of the \(u_i\), we have \(L_Q = 0\) and \(M_Q = U_Q\). Now, since \(M\) is finitely generated and \(M_Q = U_Q\), there exists \(f_1 \notin Q\) such that \(f_1\cdot M \subseteq U\), so that \(M_{f_1} = U_{f_1}\), as \(R_{f_1}\)-modules. Thus, we have an exact sequence of \(R_{f_1}\)-modules</p>
+            <div class="math-display">
+                \[0 \rightarrow L_{f_1} \xrightarrow{i_{f_1}} R_{f_1}^t \xrightarrow{\rho _{f_1}} U_{f_1} = M_{f_1} \rightarrow 0.\]
+            </div>
+            <p>Now note that on the one hand, since \(M_{f_1}\) is a finitely presented \(R_{f_1}\)-module (by exactness of localization), \(L_{f_1}\) is a finitely generated \(R_{f_1}\)-module, by our comments above. On the other hand, since for any \(R\)-module \(T\), \((T_{f_1})_{Q_{f_1}} = T_Q\), \((L_{f_1})_{Q_{f_1}} = 0\), so there exists \(f_2/1 \in R_{f_1}\backslash Q_{f_1}\) such that \(f_2/1\cdot L_{f_1} = 0\). In other words, \((L_{f_1})_{f_2/1} = 0\) as an \((R_{f_1})_{f_2/1}\)-module. Using the fact that localizing at \(f_1\), then \(f_2/1\) is the same as localizing at \(f_1f_2\), we have that \(L_{f_1f_2} = 0\) and \(U_{f_1f_2} = M_{f_1f_2}\) as \(R_{f_1f_2}\)-modules. Therefore, if we set \(f := f_1f_2\), we have \(f\notin Q\) and \(M_f\) is a free \(R_f\)-module.</p>
+            
+            <p>Now fix a (finite) presentation \(R^n \xrightarrow{\pi} M\rightarrow 0\). Since \(M_f\) is a free \(R_f\)-module, there exists an \(R_f\) module homomorphism \(\psi : M_f \rightarrow R_f^n\) such that \(\pi_f \psi = (i_M)_f\), where \(i_M\) denotes the identity map on \(M\). By the lemma above, there exists \(h : M\rightarrow R^n\) and a power \(f^p\) such that \(h/f^p = \psi\). Let \(x \in M\) be an element in a finite generating set for \(M\). Then \(\pi_h (h/f^p)(x/1) = (i_M)_f(x/1)\). That is, \(\pi h(x)/f^p = x/1\) in \(M_f\). Thus, there exists \(q\geq 1\), so that \(f^q\cdot \pi h(x) = f^{p+q}x\) in \(M\). We may repeat this procedure for each of the generators of \(M\), and after adjusting the powers on \(f\), we may assume that \(f^q\cdot \pi h(x) = f^{p+q}x\) holds for all of the given generators of \(M\) and hence all elements \(x\) in \(M\). We now interpret this last statement as follows. For the \(R\)-module homomorphism \(f^q\cdot h : M\rightarrow R^n\), \(\pi (f^q\cdot h)(x) = f^{p+q}x\), for all \(x \in M\).</p>
+            
+            <p>We now repeat the procedure above for each maximal ideal. So we have families of \(f\)'s, \(R\)-module homomorphisms \(h : M\rightarrow R^n\) and indices \(p,q\) (depending on the various \(Q\)) so that \(\pi (f^q\cdot h)(x) = f^{p+q}x\), for all \(x \in M\). Since there is one \(f \notin Q\) for every maximal ideal \(Q\), it must be the case that the ideal generated by the set \(\{f^{p+q}\}\) is \(R\). Therefore we may write \(1 = r_1f_1^{p_1+q_1} + \cdots + r_cf_c^{p_c+q_c}\), for finitely many of the \(f\)'s, for some \(r_i \in R\). We now write \(j\) for the \(R\)-module homomorphism \((r_1f_1^{q_1})\cdot h_1 + \cdots + (r_cf_c^{q_c})\cdot h_c\). Then \(j : M\rightarrow R^n\) is the required splitting map. In fact, for all \(x\in M\)</p>
+            <div class="math-display">
+                \[\begin{align*} 
+                j(x) &= ((r_1f_1^{q_1})\cdot h_1 + \cdots + (r_cf_c^{q_c})\cdot h_c)(x)\\
+                &= (r_1f_1^{q_1})\cdot h_1(x) + \cdots + (r_cf_c^{q_c})\cdot h_c(x)\\
+                &= r_1\cdot (f_1^{q_1}\cdot h_1)(x) + \cdots + r_c\cdot (f_c^{q_c}\cdot h_c)(x)
+                \end{align*}\]
+            </div>
+            <p>Therefore,</p>
+            <div class="math-display">
+                \[\begin{align*}
+                \pi j(x) &= \pi\{r_1 (f_1^{q_1}\cdot h_1)(x) + \cdots + r_c (f_c^{q_c}\cdot h_c)(x)\}\\
+                &= r_1 \pi (f_1^{q_1}\cdot h_1)(x) + \cdots + r_c \pi (f_c^{q_c}\cdot h_c)(x)\\
+                &= r_1 f_1^{p_1+q_1}x + \cdots + r_cf_c^{p_c+q_c}x\\
+                &= (r_1 f_1^{p_1+q_1} + \cdots + r_c f_c^{p_c+q_c})x\\
+                &= 1\cdot x\\
+                &=x.
+                \end{align*}\]
+            </div>
+            <p>Thus, \(\pi j = 1_M\). Thus the map \(\pi\) splits which shows that \(M\) is a projective \(R\)-module and the proof is complete. <span class="qed">∎</span></p>
+            
+            <div class="remark">
+                <p><strong>Remark.</strong> In the proof the the theorem above we exploited the following fact. If \(A,B\) are \(R\)-modules, and \(f, g : A \rightarrow B\) are \(R\)-module homomorphisms, then for any \(r, s\in R\), \(rf+sg\) is an \(R\)-module homomorphism from \(A\) to \(B\). In other words, we implicitly used the fact that the set of \(R\)-module homomorphisms from \(A\) to \(B\) is also an \(R\)-module, typically denoted \(\textrm{Hom}_R(A,B)\). The lemma proven above is the crucial part of the statement that if \(A\) is finitely presented and \(S\subseteq R\) is a multiplicatively closed set, then \(\textrm{Hom}_R(A,B)_S\) is isomorphic to \(\textrm{Hom}_{R_S}(A_S,B_S)\). With this fact in hand, the usual proof of our theorem above runs are follows. Let \(R^n \xrightarrow{\pi} M \rightarrow 0\) be a surjective map. We seek a map \(\phi : M \rightarrow R^n\) such that \(\pi \phi = i_M\). Now, it is easy to see that there is an induced homomorphism \(\textrm{Hom}_R(M,R^n) \xrightarrow{\pi ^*} \textrm{Hom}_R(M,M)\) where \(\pi ^*(f) = \pi f\). If \(\pi ^*\) were surjective then there would exist \(\phi \in \textrm{Hom}_R(R^n,M)\) with \(\pi ^*(\phi) = i_M\), which is what we want. By the local global principal, \(\pi ^*\) is surjective if and only if \((\pi ^*)_Q\) is surjective for all maximal ideals \(Q\subseteq R\). By the Lemma, \(\textrm{Hom}_R(R^n,M)_Q = \textrm{Hom}_{R_Q}(M_Q,R^n_Q)\) and \(\textrm{Hom}_R(M,M)_Q = \textrm{Hom}_{R_Q}(M_Q,M_Q)\), so it suffices to show that \(\pi ^*\) is surjective when \(R\) is local. But then, by hypothesis, \(M\) is free (upon localization) and it is easy to see that \(\pi ^*\) is surjective in this case -- which finishes the proof of the theorem. While effective, this proof is not entirely satisfying, since while it implies that, in the general case, there exists the required map \(\phi : M \rightarrow R^n\), it is not clear where this map is coming from. The proof above constructs \(\phi\) by patching together the local maps which are easily obtained.</p>
+            </div>
+        </div>
+
+        <h2>Appendix</h2>
+        
+        <div class="content-section">
+            <p>In this appendix we show that the construction above leading to a non-free projective module over the coordinate ring of the real two-sphere does not lead to a non-free projective module over the coordinate ring of the complex two-sphere, \(T := \mathbb{C} [X,Y,Z]/(X^2+Y^2+Z^2-1)\). In other words, when we take \(\phi : T^3 \rightarrow T\) the surjection defined by \((x\ y\ z)\), \(L := \ker (\phi)\) is still a direct summand of \(T^3\) and therefore projective over \(T\), but in this case, \(L\) is a free \(T\)-module. For this, we present the following lemma whose statement is more general than we need, but is of independent interest.</p>
+            
+            <div class="lemma">
+                <p><strong>Lemma.</strong> Let \(R\) be a commutative ring and suppose that \(L\) is a projective \(R\)-module such that \(R^n = G\oplus L\) where \(G\) is a free \(R\)-module of rank \(n-r > 0\). Let \(v_1, \ldots, v_{n-r}\) be column vectors in \(R^n\) forming a basis for \(G\). Then \(L\) is a free \(R\)-module (necessarily of rank \(r\)) if and only if there exists an invertible \(n\times n\) matrix over \(R\) whose first \(n-r\) columns are \(v_1,\ldots, v_{n-r}\).</p>
+            </div>
+            
+            <p><strong>Proof.</strong> If \(L\) is free, then it is clear that the \(r\) column vectors forming a basis for \(L\) together with the column vectors \(v_1,\ldots, v_{n-r}\) together form a basis for \(R^n\). These \(n\) column vectors yield an invertible matrix over \(R\).</p>
+            
+            <p>Conversely, suppose that there is an invertible matrix over \(R\) having the vectors \(v_1, \ldots, v_{n-r}\) as its first \(n-r\) columns. Let \(v_{n-r+1}, \ldots, v_n\) be the remaining column vectors. For \(1\leq j\leq r\), write \(v_{n-r+j} :=u_j+w_j\), where \(u_j \in G\) and \(w_j \in L\). We now note that the column vectors \(w_1,\ldots, w_r\) form a basis for \(L\). Projection from \(R^n\) onto its summand \(L\) is a surjective homomorphism. Thus, the images of the basis \(v_1, \ldots, v_n\) in \(L\) generate \(L\). But these images are \(0,\ldots,0,w_1,\ldots, w_r\), so the column vectors \(w_1,\ldots, w_r\) generate \(L\). Suppose \(a_1w_1+\cdots +a_rw_r =0\), with each \(a_i\in R\). Then \(a_1v_{n-r+1} +\cdots +a_rv_n = -a_1u_1 +\cdots -a_ru_r\). This latter vector belongs to the intersection of \(G\) with the submodule generated by \(v_{n-r+1}, \ldots, v_n\), which is zero. By the linear independence of the \(v_j\), it follows that all \(a_i\) are zero, and thus \(w_1, \ldots , w_r\) are linearly independent. Therefore, \(L\) is a free \(R\)-module. <span class="qed">∎</span></p>
+            
+            <p><strong>Proof that \(L\) is a free \(T\)-module.</strong> The same argument as before shows that the map \(\phi\) splits, so that \(T^3 = L\oplus G\), where \(G\) is the free submodule with basis \(v_1 := \begin{pmatrix} x\\y\\z\end{pmatrix}\). By the previous lemma, to show \(L\) is a free \(R\)-module, it suffices to show there exist column vectors \(v_2,v_3\in R^3\) such that the \(3\times 3\) matrix with columns \(v_1,v_2,v_3\) is invertible over \(T\). Taking \(v_2 := \begin{pmatrix} -i\\1\\0\end{pmatrix}\) and \(v_3 := \begin{pmatrix} 0\\iz\\x-iy\end{pmatrix}\) works. It should be noted that \(v_2\) and \(v_3\) do not form a basis for \(L\), since they do not even belong to \(L\). However, the previous lemma tells us how to find a basis for \(L\). Following that proof leads to a basis for \(L\):</p>
+            <div class="math-display">
+                \[w_2 := \begin{pmatrix} i-xy+ix^2\\1-y^2+ixy\\ixz-yz\end{pmatrix} \quad \textrm{and}\quad w_3 := \begin{pmatrix} 
+                -x^2z - ixyz - ixz^2\\iz-xyz-iy^2z-iyz^2\\x-iy-xz^2 -iyz^2 -iz^3\end{pmatrix}.\]
+            </div>
+        </div>
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an accessible HTML conversion of the LaTeX document. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
