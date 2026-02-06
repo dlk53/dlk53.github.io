@@ -69,6 +69,10 @@
             border-radius: 4px;
             border-left: 3px solid #ffc107;
         }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
         .math-display {
             margin: 30px 0;
             text-align: center;
@@ -208,15 +212,17 @@
             
             <p>We moved on to discuss (but not prove) the following</p>
             
-            <p><strong>Properties of matrix multiplication.</strong> Let \(A, B, C\) be \(2\times 2\) matrices.</p>
+            <div class="definition">
+                <p><span class="statement-title">Properties of matrix multiplication.</span> Let \(A, B, C\) be \(2\times 2\) matrices.</p>
             
-            <ol style="list-style-type: none; padding-left: 20px;">
-                <li style="list-style-type: none;">(i) \({\bf 0}_{2\times 2}\cdot A = {\bf 0}_{2\times 2} = A\cdot {\bf 0}_{2\times 2}\).</li>
-                <li style="list-style-type: none;">(ii) For \(I_2 := \begin{pmatrix} 1 & 0\\0 & 1\end{pmatrix}\), \(A\cdot I_2 = A = I_2\cdot A\), i.e., a multiplicative identity exists.</li>
-                <li style="list-style-type: none;">(iii) Multiplication distributes over matrix sums: \(A\cdot (B+C) = A\cdot B+A\cdot C\).</li>
-                <li style="list-style-type: none;">(iv) Multiplication is associative: \(A(BC) = (AB)C\).</li>
-                <li style="list-style-type: none;">(v) A matrix \(D\) satisfying \(AD = I_2 = DA\) is called an <em>inverse</em> of \(A\) and is denoted \(A^{-1}\).</li>
-            </ol>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \({\bf 0}_{2\times 2}\cdot A = {\bf 0}_{2\times 2} = A\cdot {\bf 0}_{2\times 2}\).</li>
+                    <li style="list-style-type: none;">(ii) For \(I_2 := \begin{pmatrix} 1 & 0\\0 & 1\end{pmatrix}\), \(A\cdot I_2 = A = I_2\cdot A\), i.e., a multiplicative identity exists.</li>
+                    <li style="list-style-type: none;">(iii) Multiplication distributes over matrix sums: \(A\cdot (B+C) = A\cdot B+A\cdot C\).</li>
+                    <li style="list-style-type: none;">(iv) Multiplication is associative: \(A(BC) = (AB)C\).</li>
+                    <li style="list-style-type: none;">(v) A matrix \(D\) satisfying \(AD = I_2 = DA\) is called an <em>inverse</em> of \(A\) and is denoted \(A^{-1}\).</li>
+                </ol>
+            </div>
             
             <p>We finished class by noting that if the matrix equation \(AX = L\) represents a system of equations (as above) and \(A\) has an inverse, then we can multiply both sides of the matrix equation by \(A^{-1}\) to get the solution \(X = A^{-1}L\).</p>
         </div>
@@ -228,20 +234,22 @@
             
             <p>We then discussed and verified the following</p>
             
-            <p><strong>Properties of the determinant.</strong> Let \(A, B\) denote \(2\times 2\) matrices over \(\mathbb{R}\).</p>
-            <ol style="list-style-type: none; padding-left: 20px;">
-                <li style="list-style-type: none;">(i) If \(A'\) is obtained from \(A\) by multiplying a row or column of \(A\) by \(\lambda \in \mathbb{R}\), then \(\det A' = \lambda \det A\).</li>
-                <li style="list-style-type: none;">(ii) If \(A'\) is obtained from \(A\) by interchanging its rows or interchanging its columns, then \(\det A' = -\det A\).</li>
-                <li style="list-style-type: none;">(iii) If \(A'\) is obtained from \(A\) by adding a multiple of one of its rows to <strong>another</strong> row, then \(\det A = \det A'\). Similarly for the columns of \(A\).</li>
-            </ol>
-            
-            <p>The operations (i)-(iii) are called <em>elementary row or column operations</em>.</p>
-            
-            <ol style="list-style-type: none; padding-left: 20px;" start="4">
-                <li style="list-style-type: none;">(iv) \(\det AB = \det A\cdot \det B\).</li>
-                <li style="list-style-type: none;">(v) Suppose \(\det A \not = 0\). Set \(\Delta := \det A\). Then \(A^{-1}\) exists and we have \(A^{-1} = \begin{pmatrix} \frac{d}{\Delta} & -\frac{c}{\Delta}\\-\frac{b}{\Delta} & \frac{a}{\Delta}\end{pmatrix}\).</li>
-                <li style="list-style-type: none;">(vi) Given vectors \(u = (a,b)\) and \(v = (c,d)\), the area of the parallelogram in \(\mathbb{R}^2\) spanned by \(u\) and \(v\) is \(|ad-bc|\), i.e., the absolute value of \(\det \begin{pmatrix} a & b\\c & d\end{pmatrix}\).</li>
-            </ol>
+            <div class="definition">
+                <p><span class="statement-title">Properties of the determinant.</span> Let \(A, B\) denote \(2\times 2\) matrices over \(\mathbb{R}\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) If \(A'\) is obtained from \(A\) by multiplying a row or column of \(A\) by \(\lambda \in \mathbb{R}\), then \(\det A' = \lambda \det A\).</li>
+                    <li style="list-style-type: none;">(ii) If \(A'\) is obtained from \(A\) by interchanging its rows or interchanging its columns, then \(\det A' = -\det A\).</li>
+                    <li style="list-style-type: none;">(iii) If \(A'\) is obtained from \(A\) by adding a multiple of one of its rows to <strong>another</strong> row, then \(\det A = \det A'\). Similarly for the columns of \(A\).</li>
+                </ol>
+                
+                <p>The operations (i)-(iii) are called <em>elementary row or column operations</em>.</p>
+                
+                <ol style="list-style-type: none; padding-left: 20px;" start="4">
+                    <li style="list-style-type: none;">(iv) \(\det AB = \det A\cdot \det B\).</li>
+                    <li style="list-style-type: none;">(v) Suppose \(\det A \not = 0\). Set \(\Delta := \det A\). Then \(A^{-1}\) exists and we have \(A^{-1} = \begin{pmatrix} \frac{d}{\Delta} & -\frac{c}{\Delta}\\-\frac{b}{\Delta} & \frac{a}{\Delta}\end{pmatrix}\).</li>
+                    <li style="list-style-type: none;">(vi) Given vectors \(u = (a,b)\) and \(v = (c,d)\), the area of the parallelogram in \(\mathbb{R}^2\) spanned by \(u\) and \(v\) is \(|ad-bc|\), i.e., the absolute value of \(\det \begin{pmatrix} a & b\\c & d\end{pmatrix}\).</li>
+                </ol>
+            </div>
             
             <p>We ended class by looking at a typical system of two linear equations in two unknowns</p>
             
@@ -274,7 +282,9 @@
             \end{align*}\]
             <p>whose coefficient matrix \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\) has non-zero determinant \(\Delta\), then the solution to the system is given by</p>
             
-            <p><strong>Cramer's Rule.</strong> For the system above, with \(\Delta \not = 0\), \(x = \frac{\det\begin{pmatrix} u & b\\v & d\end{pmatrix}}{\Delta}\) and \(y = \frac{\det\begin{pmatrix} a & u\\c & v\end{pmatrix}}{\Delta}\).</p>
+            <div class="definition">
+                <p><span class="statement-title">Cramer's Rule.</span> For the system above, with \(\Delta \not = 0\), \(x = \frac{\det\begin{pmatrix} u & b\\v & d\end{pmatrix}}{\Delta}\) and \(y = \frac{\det\begin{pmatrix} a & u\\c & v\end{pmatrix}}{\Delta}\).</p>
+            </div>
             
             <p>We noted that for large systems of linear equations, Cramer's rule is not cost effective, so we began a discussion of <em>Gaussian elimination</em>. We started with a specific system of equations (like)</p>
             \[\begin{align*}
@@ -294,12 +304,14 @@
             \end{align*}\]
             <p>We formalized this process by defining</p>
             
-            <p><strong>Elementary Row Operations.</strong> Let \(A\) be a \(2\times 2\) matrix (or any matrix in fact). The following constitute elementary row operations:</p>
-            <ol style="list-style-type: none; padding-left: 20px;">
-                <li style="list-style-type: none;">(i) Interchange two rows.</li>
-                <li style="list-style-type: none;">(ii) Add a multiple of <strong>one</strong> row to <strong>another</strong> row.</li>
-                <li style="list-style-type: none;">(iii) Multiply a row by a <strong>non-zero</strong> number.</li>
-            </ol>
+            <div class="definition">
+                <p><span class="statement-title">Elementary Row Operations.</span> Let \(A\) be a \(2\times 2\) matrix (or any matrix in fact). The following constitute elementary row operations:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Interchange two rows.</li>
+                    <li style="list-style-type: none;">(ii) Add a multiple of <strong>one</strong> row to <strong>another</strong> row.</li>
+                    <li style="list-style-type: none;">(iii) Multiply a row by a <strong>non-zero</strong> number.</li>
+                </ol>
+            </div>
             
             <p>We noted that the goal was to put, if possible, the beginning augmented matrix \(\begin{bmatrix}a & b & | & u\\c & d & | & v\end{bmatrix}\) into the form \(\begin{bmatrix}1 & 0 & | & s\\0 & 1 & | & t\end{bmatrix}\), from which the solution \(x = s, y = t\) could be read. We noted that the strategy for the Gaussian elimination process should be as follows: Using elementary row operations, first get a 1 in the (1,1) entry of the augmented matrix, then use that 1 to get 0 below it. Then make, if possible, the (2,2) entry of the augmented matrix 1 and then use that 1 to get a 0 above it. This will always be possible when the original system has a unique solution.</p>
             
@@ -350,17 +362,21 @@
             
             <p>where \(\alpha \neq 0\) in case C. We noted that the solution set is infinite in case A, with a one parameter solution, the solution set in Case B is infinite with a two parameter solution set and that there was no solution in Case C. <strong>In particular, no \(2\times 3\) system of linear equations has a unique solution.</strong> We further noted that in all cases we have seen, there is the</p>
             
-            <p><strong>Important fact.</strong> The number of independent parameters needed to describe the solution set is the number of variables minus the number of leading ones that appear in the final augmented matrix.</p>
+            <div class="definition">
+                <p><span class="statement-title">Important fact.</span> The number of independent parameters needed to describe the solution set is the number of variables minus the number of leading ones that appear in the final augmented matrix.</p>
+            </div>
             
             <p>After noting that this important fact applies to systems of equations of any size, we then formalized the form the final matrix should take in the Gaussian elimination process. This applies to systems of linear equations of any size.</p>
             
-            <p><strong>Reduced Row Echelon Form.</strong> An augmented matrix is in reduced row echelon form (RREF) if it satisfies the following conditions:</p>
-            <ol style="list-style-type: none; padding-left: 20px;">
-                <li style="list-style-type: none;">(i) The leading entry of each non-zero row is 1.</li>
-                <li style="list-style-type: none;">(ii) There are only zeros above and below each non-zero leading entry.</li>
-                <li style="list-style-type: none;">(iii) The non-zero leading entries move to the right as one moves down the rows.</li>
-                <li style="list-style-type: none;">(iv) All zero rows are at the bottom of the matrix.</li>
-            </ol>
+            <div class="definition">
+                <p><span class="statement-title">Reduced Row Echelon Form.</span> An augmented matrix is in reduced row echelon form (RREF) if it satisfies the following conditions:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) The leading entry of each non-zero row is 1.</li>
+                    <li style="list-style-type: none;">(ii) There are only zeros above and below each non-zero leading entry.</li>
+                    <li style="list-style-type: none;">(iii) The non-zero leading entries move to the right as one moves down the rows.</li>
+                    <li style="list-style-type: none;">(iv) All zero rows are at the bottom of the matrix.</li>
+                </ol>
+            </div>
             
             <p>We ended class by noting that the technique of Gaussian elimination, namely converting the system to an augmented matrix and applying elementary row operations to get a RREF, applies to systems of linear equations of any size and we illustrated this by solving the system</p>
             <div class="math-display">
@@ -380,23 +396,27 @@
             
             <p>We then noted the following</p>
             
-            <p><strong>General fact.</strong> Suppose \(A\) is an \(n\times m\) matrix and \(B\) is a \(p\times t\) matrix. Then we can only form the product \(AB\) when \(m = p\). In this case \(AB\) is an \(n\times t\) matrix whose \((i,j)\) entry is the \(i\)th row of \(A\) times the \(j\)th column of \(B\).</p>
+            <div class="definition">
+                <p><span class="statement-title">General fact.</span> Suppose \(A\) is an \(n\times m\) matrix and \(B\) is a \(p\times t\) matrix. Then we can only form the product \(AB\) when \(m = p\). In this case \(AB\) is an \(n\times t\) matrix whose \((i,j)\) entry is the \(i\)th row of \(A\) times the \(j\)th column of \(B\).</p>
+            </div>
             
             <p>After computing a couple of products, we noted that the product rules (i)-(v) from January 22 hold, as long as the product exists. We then began a discussion of elementary \(2\times 2\) matrices.</p>
             
-            <p><strong>Elementary \(2\times 2\) matrices.</strong> The elementary matrices are obtained by applying elementary row operations to \(I_2 = \begin{pmatrix} 1 & 0\\0 & 1\end{pmatrix}\).</p>
-            <ol style="list-style-type: none; padding-left: 20px;">
-                <li style="list-style-type: none;">(i) Type I: Interchange the rows of \(I_2\), i.e., \(E = \begin{pmatrix} 0 & 1\\1 & 0\end{pmatrix}\).</li>
-                <li style="list-style-type: none;">(ii) Type II: Add a multiple of one row of \(I_2\) to another, e.g., \(E = \begin{pmatrix} 1 & 0\\ \lambda & 1\end{pmatrix}\) or \(E = \begin{pmatrix} 1 & \lambda\\0 & 1\end{pmatrix}\), for \(\lambda \in \mathbb{R}\).</li>
-                <li style="list-style-type: none;">(iii) Type III: Multiply a row of \(I_2\) by a non-zero number, e.g., \(E = \begin{pmatrix} \lambda & 0\\0 & 1\end{pmatrix}\) or \(E = \begin{pmatrix} 1 & 0\\0 & \lambda\end{pmatrix}\).</li>
-            </ol>
+            <div class="definition">
+                <p><span class="statement-title">Elementary \(2\times 2\) matrices.</span> The elementary matrices are obtained by applying elementary row operations to \(I_2 = \begin{pmatrix} 1 & 0\\0 & 1\end{pmatrix}\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Type I: Interchange the rows of \(I_2\), i.e., \(E = \begin{pmatrix} 0 & 1\\1 & 0\end{pmatrix}\).</li>
+                    <li style="list-style-type: none;">(ii) Type II: Add a multiple of one row of \(I_2\) to another, e.g., \(E = \begin{pmatrix} 1 & 0\\ \lambda & 1\end{pmatrix}\) or \(E = \begin{pmatrix} 1 & \lambda\\0 & 1\end{pmatrix}\), for \(\lambda \in \mathbb{R}\).</li>
+                    <li style="list-style-type: none;">(iii) Type III: Multiply a row of \(I_2\) by a non-zero number, e.g., \(E = \begin{pmatrix} \lambda & 0\\0 & 1\end{pmatrix}\) or \(E = \begin{pmatrix} 1 & 0\\0 & \lambda\end{pmatrix}\).</li>
+                </ol>
+            </div>
             
             <p>The class then verified (in the \(2\times 2\) case) that for any elementary matrix \(E\), \(EA\) is the same matrix obtained by applying the corresponding elementary row operation to \(A\). We then noted that elementary matrices are invertible, and their inverses are elementary matrices that can be easily guessed.</p>
             
             <p>We then asked what does it mean in terms of elementary matrices if \(A\) is a \(2\times 2\) matrix that reduces to \(I_2\) via elementary row operations. We inferred that there exists a \(2\times 2\) matrix \(H\) such that \(HA = I_2\) and thus (via the bonus problem listed in today's homework)  \(A\) is invertible and \(A^{-1}\) can be found via Gaussian elimination, as stated below.</p>
             
             <div class="definition">
-                <p><b>Given an \(n\times n\) matrix \(A\), start with the \(n\times (2n)\) augmented matrix \([A\ |\ I_n]\) and apply elementary row operations until either:</p>
+                <p><span class="statement-title">Using Gaussian elimination to find \(A^{-1}\), if it exists.</span> Given an \(n\times n\) matrix \(A\), start with the \(n\times (2n)\) augmented matrix \([A\ |\ I_n]\) and apply elementary row operations until either:</p>
                 <ol style="list-style-type: none; padding-left: 20px;">
                     <li style="list-style-type: none;">(i) One arrives at \([I_n\ | \ B]\), in which case \(B = A^{-1}\) or</li>
                     <li style="list-style-type: none;">(ii) At some point the left hand side of the augmented matrix has a row consisting entirely of zeros, in which case \(A\) does not have an inverse.</li>
