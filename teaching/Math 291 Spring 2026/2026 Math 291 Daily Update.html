@@ -393,10 +393,10 @@
             
             <p>The class then verified (in the \(2\times 2\) case) that for any elementary matrix \(E\), \(EA\) is the same matrix obtained by applying the corresponding elementary row operation to \(A\). We then noted that elementary matrices are invertible, and their inverses are elementary matrices that can be easily guessed.</p>
             
-            <p>We then asked what does it mean in terms of elementary matrices if \(A\) is a \(2\times 2\) that reduces to \(I_2\) via elementary row operations. We inferred that there exists a \(2\times 2\) matrix \(H\) such that \(HA = I_2\) and thus (via the bonus problem listed in today's homework) that \(A\) is invertible and that \(A^{-1}\) can be found via Gaussian elimination, as stated below.</p>
+            <p>We then asked what does it mean in terms of elementary matrices if \(A\) is a \(2\times 2\) matrix that reduces to \(I_2\) via elementary row operations. We inferred that there exists a \(2\times 2\) matrix \(H\) such that \(HA = I_2\) and thus (via the bonus problem listed in today's homework)  \(A\) is invertible and \(A^{-1}\) can be found via Gaussian elimination, as stated below.</p>
             
             <div class="definition">
-                <p><strong>Using Guassian elimination to find \(A^{-1}\), if it exists.</strong> Given an \(n\times n\) matrix \(A\), start with the \(n\times (2n)\) augmented matrix \([A\ |\ I_n]\) and apply elementary row operations until either:</p>
+                <p><b>Given an \(n\times n\) matrix \(A\), start with the \(n\times (2n)\) augmented matrix \([A\ |\ I_n]\) and apply elementary row operations until either:</p>
                 <ol style="list-style-type: none; padding-left: 20px;">
                     <li style="list-style-type: none;">(i) One arrives at \([I_n\ | \ B]\), in which case \(B = A^{-1}\) or</li>
                     <li style="list-style-type: none;">(ii) At some point the left hand side of the augmented matrix has a row consisting entirely of zeros, in which case \(A\) does not have an inverse.</li>
