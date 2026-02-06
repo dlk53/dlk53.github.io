@@ -443,7 +443,43 @@
                 <li style="list-style-type: none;">(iii) We also defined exact sequences, short exacts sequences and split exact sequences, showing that if \(0 \to A\overset{f}\to B\overset{g}\to C\to 0\) is a split exact sequence with splitting map \(j: C\to B\), then \(B = f(A)\oplus j(C)\).</li>
                 <li style="list-style-type: none;">(iv) We defined an \(R\)-module to be <em>projective</em>, if it satisfies any of the following three equivalent conditions:
                     <ol style="list-style-type: none; padding-left: 20px;">
-                        <li style="list-style-type: none;">(a) Given a diagram of \(R\)-modules and \(R\)-module homomorphisms \(f, g\) with \(M \xrightarrow{g} N \rightarrow 0\) and \(P \xrightarrow{f} N\), there exists \(h: P\to M\) so that \(gh = f\).</li>
+                        <li style="list-style-type: none;">(a) Given a diagram of \(R\)-modules and \(R\)-module homomorphisms \(f, g\)
+                            <div class="math-display" style="text-align: center; margin: 30px 0;">
+                                <svg width="200" height="120" xmlns="http://www.w3.org/2000/svg" style="display: inline-block;">
+                                    <!-- P at top center -->
+                                    <text x="100" y="20" font-size="18" text-anchor="middle" font-style="italic">P</text>
+                                    
+                                    <!-- Arrow f: P to N (downward) -->
+                                    <line x1="100" y1="25" x2="100" y2="75" stroke="black" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                                    <text x="110" y="55" font-size="14" font-style="italic">f</text>
+                                    
+                                    <!-- Arrow h: P to M (diagonal down-left, dotted) -->
+                                    <line x1="95" y1="25" x2="25" y2="75" stroke="black" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+                                    <text x="50" y="45" font-size="14" font-style="italic">h</text>
+                                    
+                                    <!-- M at bottom left -->
+                                    <text x="20" y="95" font-size="18" text-anchor="middle" font-style="italic">M</text>
+                                    
+                                    <!-- Arrow g: M to N (horizontal) -->
+                                    <line x1="30" y1="85" x2="85" y2="85" stroke="black" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                                    <text x="57" y="78" font-size="14" font-style="italic">g</text>
+                                    
+                                    <!-- N at bottom center -->
+                                    <text x="100" y="95" font-size="18" text-anchor="middle" font-style="italic">N</text>
+                                    
+                                    <!-- Arrow to 0 -->
+                                    <line x1="110" y1="85" x2="160" y2="85" stroke="black" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                                    <text x="175" y="95" font-size="18" text-anchor="middle">0</text>
+                                    
+                                    <!-- Arrowhead marker definition (smaller) -->
+                                    <defs>
+                                        <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="2" orient="auto">
+                                            <polygon points="0 0, 6 2, 0 4" fill="black"/>
+                                        </marker>
+                                    </defs>
+                                </svg>
+                            </div>
+                            there exists \(h\) as above so that the diagram commutes.</li>
                         <li style="list-style-type: none;">(b) \(P\) is a direct summand of a free \(R\)-module \(F\), i.e., there exists a free \(R\)-module \(F\) such that (up to isomorphism) \(F = P\oplus K\), for some \(K\).</li>
                         <li style="list-style-type: none;">(c) Every short exact sequence \(0\to A\overset{f}\to B\overset{g}\to P \to 0\) splits, i.e., there exists \(j: P\to B\) such that \(gj = 1_P\).</li>
                     </ol>
