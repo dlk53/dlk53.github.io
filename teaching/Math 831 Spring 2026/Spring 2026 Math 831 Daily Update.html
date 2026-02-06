@@ -69,6 +69,10 @@
             border-radius: 4px;
             border-left: 3px solid #ffc107;
         }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
         .math-display {
             margin: 30px 0;
             text-align: center;
@@ -160,7 +164,7 @@
                 <li style="list-style-type: none;">(iii) \(M\subseteq R\) is a <em>maximal</em> ideal if \(M\) is a proper ideal not contained in any other proper ideal. We showed that for \(R\) as in (ii), the set of polynomials with zero constant term is a maximal ideal. Using Zorn's lemma, we proved
                 
                 <div class="definition">
-                    <strong>Proposition.</strong> Maximal ideals exist in \(R\). In particular, every proper ideal of \(R\) is contained in a maximal ideal.
+                    <span class="statement-title">Proposition.</span> Maximal ideals exist in \(R\). In particular, every proper ideal of \(R\) is contained in a maximal ideal.
                 </div>
                 </li>
                 
@@ -194,7 +198,7 @@
             <p>We then proved that every maximal ideal in \(R\) is a prime ideal and gave an example where the converse fails, namely \(P = \langle x\rangle \subseteq \mathbb{Q}[x,y]\). From this we initiated our discussion of the process of <em>localization</em>, by giving the following definition.</p>
             
             <div class="definition">
-                <strong>Definition.</strong> A subset \(S\subseteq R\) is said to be <em>multiplicatively closed</em> (henceforth abbreviated as mc) if: \(0\not \in S\), \(1\in S\) and \(s_1, s_2\in S\) implies \(s_1s_2\in S\).
+                <span class="statement-title">Definition.</span> A subset \(S\subseteq R\) is said to be <em>multiplicatively closed</em> (henceforth abbreviated as mc) if: \(0\not \in S\), \(1\in S\) and \(s_1, s_2\in S\) implies \(s_1s_2\in S\).
             </div>
             
             <p><strong>Examples.</strong> \(S\) is a multiplicatively closed set in each of the following cases:</p>
@@ -207,7 +211,7 @@
             <p>We ended class with the following:</p>
             
             <div class="definition">
-                <strong>Krull's Lemma.</strong> Let \(I\subseteq R\) be an ideal and \(S\subseteq R\) a multiplicatively closed set such that \(I\cap S = \emptyset\). Then there exists an ideal \(P\) containing \(I\) that is maximal with respect to the property \(P\cap S = \emptyset\). Moreover, \(P\) is a prime ideal.
+                <span class="statement-title">Krull's Lemma.</span> Let \(I\subseteq R\) be an ideal and \(S\subseteq R\) a multiplicatively closed set such that \(I\cap S = \emptyset\). Then there exists an ideal \(P\) containing \(I\) that is maximal with respect to the property \(P\cap S = \emptyset\). Moreover, \(P\) is a prime ideal.
             </div>
         </div>
 
@@ -217,7 +221,7 @@
             <p>We began class by defining the <em>nilradical</em> \(\sqrt{I}\) of an ideal \(I\subseteq R\) as the set of elements \(r\in R\) such that \(r^n\in I\), for some \(n\geq 1\). We also noted that \(\sqrt{(0)}\) is called the nilradical of \(R\) and consists of the nilpotent elements in \(R\). We then gave a proof of the following corollary to Krull's Lemma,</p>
             
             <div class="definition">
-                <strong>Corollary.</strong> Let \(I\subseteq R\) be an ideal. Then \(\sqrt{I} = \bigcap \{P\ |\ P\ \text{is a prime ideal containing}\ I\}\).
+                <span class="statement-title">Corollary.</span> Let \(I\subseteq R\) be an ideal. Then \(\sqrt{I} = \bigcap \{P\ |\ P\ \text{is a prime ideal containing}\ I\}\).
             </div>
             
             <p>For a multiplicatively closed set \(S\subseteq R\) we then defined an equivalence relation on \(R\times S\) as follows: \((r_1,s_1)\sim (r_2,s_2)\) if and only if there exists \(s_3\in S\) such that \(s_3(r_1s_2-r_2s_1) = 0\). After showing that \(\sim\) is an equivalence relation, we wrote the class of \((r,s)\) as a fraction \(\frac{r}{s}\) and showed that the expected operations</p>
@@ -240,7 +244,7 @@
             <p>We then showed that this correspondence was not quite a perfect one-to-one correspondence between the ideals of \(R\) disjoint from \(S\) and the ideals in \(R_S\). On the one hand we do have \(J = \phi^{-1}(J)_S\), for all ideals \(J\subseteq R_S\), which shows that any ideal \(J\subseteq R_S\) is \(I_S\), for some ideal \(I\subseteq R\). On the other hand, it is not the case that \(\phi^{-1}(I_S) = I\). In fact, we saw that \(\phi^{-1}(I_S) = \{r\in R\ |\ sr\in I, \ \text{for some}\ s\in S\}\), which often strictly contains \(I\). For example, if \(R = \mathbb{Z}\), \(I = \langle 6\rangle\), and \(S = \{1,2,2^2,2^3,2^4,\ldots\}\), then \(\phi^{-1}(I_S) = \langle 3\rangle\) which is strictly larger than \(I\). We ended class by proving the following theorem which shows the correspondence in question is one-to-one for prime ideals.</p>
             
             <div class="definition">
-                <strong>Theorem.</strong> Let \(R\) be a commutative ring and \(S\subseteq R\) a multiplicatively closed subset. Then there is a one-to-one correspondence between the prime ideals of \(R\) disjoint from \(S\) and the prime ideals of \(R_S\) given by \(P \leftrightarrow P_S\).
+                <span class="statement-title">Theorem.</span> Let \(R\) be a commutative ring and \(S\subseteq R\) a multiplicatively closed subset. Then there is a one-to-one correspondence between the prime ideals of \(R\) disjoint from \(S\) and the prime ideals of \(R_S\) given by \(P \leftrightarrow P_S\).
             </div>
         </div>
 
@@ -250,7 +254,7 @@
             <p>We began class by proving the following <em>local-global</em> principle:</p>
             
             <div class="definition">
-                <strong>Proposition.</strong> Let \(I, J\subseteq R\) be ideals. The following are equivalent:
+                <span class="statement-title">Proposition.</span> Let \(I, J\subseteq R\) be ideals. The following are equivalent:
                 <ol style="list-style-type: none; padding-left: 20px;">
                     <li style="list-style-type: none;">(i) \(I = J\).</li>
                     <li style="list-style-type: none;">(ii) \(I_P = J_P\), for all prime ideals \(P\subseteq R\).</li>
@@ -275,13 +279,13 @@
             </ol>
             
             <div class="definition">
-                <strong>Proposition.</strong> Let \(R\) be an integral domain and suppose \(p_1\cdots p_r = q_1\cdots q_s\), with each \(p_i, q_j\) prime. Then \(r = s\) and after re-indexing \(q_i = u_ip_i\), with \(u_i\) a unit in \(R\).
+                <span class="statement-title">Proposition.</span> Let \(R\) be an integral domain and suppose \(p_1\cdots p_r = q_1\cdots q_s\), with each \(p_i, q_j\) prime. Then \(r = s\) and after re-indexing \(q_i = u_ip_i\), with \(u_i\) a unit in \(R\).
             </div>
             
             <p>We noted that for the classical example from algebraic number theory, with \(R = \mathbb{Z}[\sqrt{-5}]\) can be shown that \(3\cdot 3 = 9 = (2+\sqrt{-5})\cdot (2-\sqrt{-5})\) gives two distinct factorizations into irreducible elements in the ring \(\mathbb{Z}[\sqrt{-5}]\), showing that the proposition fails for irreducible elements. It is precisely this failure that prevents most of the rings in commutative algebra, algebraic geometry and algebraic number theory from being unique factorization domains. This led to the following</p>
             
             <div class="definition">
-                <strong>Theorem.</strong> Let \(R\) be an integral domain. The following are equivalent:
+                <span class="statement-title">Theorem.</span> Let \(R\) be an integral domain. The following are equivalent:
                 <ol style="list-style-type: none; padding-left: 20px;">
                     <li style="list-style-type: none;">(i) Every non-zero, non-unit can be written uniquely (up to order and unit multiple) as a product of irreducible elements, i.e., if \(a\in R\) is a non-zero, non-unit element and \(a = q_1\cdots q_r = q'_1\cdots q'_s\) with each \(q_i, q'_i\) irreducible, then \(r = s\) and after re-indexing, for all \(i\) we have \(q'_i = u_iq_i\), for units \(u_i\in R\).</li>
                     <li style="list-style-type: none;">(ii) Every non-zero, non-unit \(a\in R\) can be written as a product of primes.</li>
@@ -308,7 +312,7 @@
             <p>We continued our discussion of UFDs with the following sequence of results.</p>
             
             <div class="definition">
-                <strong>Definition+Proposition.</strong> Let \(R\) be an integral domain. \(R\) is said to satisfy <em>ACC on principal ideals</em> (ACC for ascending chain condition) if given a chain of principal ideals \(\langle a_1\rangle\subseteq \langle a_2\rangle \subseteq \cdots\), there exists \(n\geq 1\) such that \(\langle a_n\rangle = \langle a_{n+1}\rangle = \cdots\). The following statements are equivalent:
+                <span class="statement-title">Definition+Proposition.</span> Let \(R\) be an integral domain. \(R\) is said to satisfy <em>ACC on principal ideals</em> (ACC for ascending chain condition) if given a chain of principal ideals \(\langle a_1\rangle\subseteq \langle a_2\rangle \subseteq \cdots\), there exists \(n\geq 1\) such that \(\langle a_n\rangle = \langle a_{n+1}\rangle = \cdots\). The following statements are equivalent:
                 <ol style="list-style-type: none; padding-left: 20px;">
                     <li style="list-style-type: none;">(i) \(R\) satisfies ACC on principal ideals.</li>
                     <li style="list-style-type: none;">(ii) Every non-empty collection of principal ideals has a maximal element.</li>
@@ -318,7 +322,7 @@
             <p>With this Definition+Proposition in hand, we were able to prove the following important characterization of UFDs.</p>
             
             <div class="definition">
-                <strong>Theorem A.</strong> Let \(R\) be an integral domain. The following are equivalent:
+                <span class="statement-title">Theorem A.</span> Let \(R\) be an integral domain. The following are equivalent:
                 <ol style="list-style-type: none; padding-left: 20px;">
                     <li style="list-style-type: none;">(i) \(R\) is a UFD.</li>
                     <li style="list-style-type: none;">(ii) \(R\) satisfies ACC on principal ideals and irreducible elements are prime.</li>
@@ -331,7 +335,7 @@
             <p>We then turned to the following proposition, the second part of which is known as <em>Nagata's Lemma</em>.</p>
             
             <div class="definition">
-                <strong>Proposition.</strong> Let \(R\) be an integral domain and \(S\subseteq R\) a multiplicatively closed set in which each element is a product of prime elements. Write \(\mathcal{P}\) for the set of prime factors of the elements of \(S\). Then:
+                <span class="statement-title">Proposition.</span> Let \(R\) be an integral domain and \(S\subseteq R\) a multiplicatively closed set in which each element is a product of prime elements. Write \(\mathcal{P}\) for the set of prime factors of the elements of \(S\). Then:
                 <ol style="list-style-type: none; padding-left: 20px;">
                     <li style="list-style-type: none;">(i) If \(R\) is a UFD, then \(R_S\) is a UFD.</li>
                     <li style="list-style-type: none;">(ii) If every element of \(R\) is divisible by at most finitely many primes in \(\mathcal{P}\) and \(R_S\) is a UFD, then \(R\) is a UFD.</li>
@@ -341,7 +345,7 @@
             <p>The surprising condition (iii) in Theorem A played a key role in the proof of this proposition. We then stated and proved the following major theorem.</p>
             
             <div class="definition">
-                <strong>Theorem B.</strong> Suppose \(R\) is a UFD. Then the polynomial ring \(R[x]\) is a UFD.
+                <span class="statement-title">Theorem B.</span> Suppose \(R\) is a UFD. Then the polynomial ring \(R[x]\) is a UFD.
             </div>
             
             <p>The proof of the theorem relied on Nagata's Lemma and the following facts which we did not prove: (i) For \(a\in R\), \(a\mid f(x)\) in \(R[x]\) if and only if, in \(R\), \(a\) divides every coefficient of \(f(x)\) and (ii) If \(p\in R\) is a prime element, then \(p\) is still a prime element in \(R[x]\). The proof of the theorem then followed using Nagata's Lemma: Let \(S\) be the non-zero elements of \(R\). Thus every element of \(S\) is a product of prime elements. By the facts just stated, every element of \(S\) is a product of prime elements in \(R[x]\), thus \(R[x]\) is a UFD, if \(R[x]_S = R_S[x]\) is a UFD. But \(R_S = K\), the quotient field of \(R\) and \(R_S[x] = K[x]\) is a PID, and hence a UFD.</p>
@@ -355,13 +359,13 @@
             <p>We spent most of the class working through the following examples.</p>
             
             <div class="definition">
-                <strong>Example A.</strong> The complex coordinate ring of the unit circle \(S := \mathbb{C}[x,y]/\langle x^2+y^2-1\rangle\) is a UFD.
+                <span class="statement-title">Example A.</span> The complex coordinate ring of the unit circle \(S := \mathbb{C}[x,y]/\langle x^2+y^2-1\rangle\) is a UFD.
             </div>
             
             <p>We did this by first showing that \(S \cong \mathbb{C}[u, v]/\langle uv-1\rangle\), where \(u,v\) are a new set of indeterminates. We then showed that \(\mathbb{C}[u,v]/\langle uv-1\rangle \cong \mathbb{C}[u, u^{-1}]\). Since the latter ring is the localization of a UFD, namely \(\mathbb{C}[u]\), at a multiplicatively closed set whose elements are products of primes, \(\mathbb{C}[u, u^{-1}]\), and hence \(S\) is a UFD.</p>
             
             <div class="definition">
-                <strong>Example B.</strong> The real coordinate ring of the unit circle \(R := \mathbb{R}[x, y]/\langle x^2+y^2-1\rangle\), is <em>not</em> a UFD.
+                <span class="statement-title">Example B.</span> The real coordinate ring of the unit circle \(R := \mathbb{R}[x, y]/\langle x^2+y^2-1\rangle\), is <em>not</em> a UFD.
             </div>
             
             <p>This fact follows because the image of \(x\) in \(R\) is an irreducible element that is not a prime element. Crucial steps in the proof required showing:</p>
@@ -382,13 +386,13 @@
             <p>We then recorded the following result, which appears in the celebrated paper of R. Swan, <em>Vector bundles and projective modules</em>. A write up of this theorem appears in the Supplementary Materials folder on our Canvas page and our course webpage.</p>
             
             <div class="definition">
-                <strong>Theorem (Swan).</strong> Let \(F\) denote either the real numbers or the complex numbers and set \[R := F[x_1, \ldots, x_n]/\langle x_1^2+\cdots + x_n^2-1\rangle.\] If \(F = \mathbb{R}\), then \(R\) is a UFD for \(n\geq 3\) and if \(F = \mathbb{C}\), then \(R\) is a UFD for \(n\geq 4\).
+                <span class="statement-title">Theorem (Swan).</span> Let \(F\) denote either the real numbers or the complex numbers and set \[R := F[x_1, \ldots, x_n]/\langle x_1^2+\cdots + x_n^2-1\rangle.\] If \(F = \mathbb{R}\), then \(R\) is a UFD for \(n\geq 3\) and if \(F = \mathbb{C}\), then \(R\) is a UFD for \(n\geq 4\).
             </div>
             
             <p>We ended class with the following definition and comments.</p>
             
             <div class="definition">
-                <strong>Definition.</strong> Let \(R\) be an integral domain. Given non-zero, non-unit elements \(a, b\in R\), we say that the non-zero, non-unit element \(d\) in \(R\) is a <em>greatest common divisor of a and b</em> if: (i) \(d\mid a\) and \(d\mid b\) and (ii) If \(e\mid a\) and \(e\mid b\), then \(e\mid d\). In this case we will write \(d = \textrm{GCD}(a,b)\). \(R\) is a GCD domain if every pair of non-zero, non-unit elements has a GCD.
+                <span class="statement-title">Definition.</span> Let \(R\) be an integral domain. Given non-zero, non-unit elements \(a, b\in R\), we say that the non-zero, non-unit element \(d\) in \(R\) is a <em>greatest common divisor of a and b</em> if: (i) \(d\mid a\) and \(d\mid b\) and (ii) If \(e\mid a\) and \(e\mid b\), then \(e\mid d\). In this case we will write \(d = \textrm{GCD}(a,b)\). \(R\) is a GCD domain if every pair of non-zero, non-unit elements has a GCD.
             </div>
             
             <p><strong>Comments.</strong> Let \(R\) be an integral domain.</p>
@@ -409,7 +413,7 @@
             <p>We began class with the following observation showing the connection of the GCD property with homological considerations.</p>
             
             <div class="definition">
-                <p><strong>Homological Connection.</strong> Let \(R\) be an integral domain and take \(a, b\) non-zero, non-units in \(R\). Consider the surjective \(R\)-module map</p>
+                <p><span class="statement-title">Homological Connection.</span> Let \(R\) be an integral domain and take \(a, b\) non-zero, non-units in \(R\). Consider the surjective \(R\)-module map</p>
                 <div class="math-display">
                     \[R^2\overset{\phi}\to \langle a,b\rangle\]
                 </div>
@@ -419,7 +423,7 @@
             <p>We then presented the following theorem which shows the relationship between the UFD property and the homological connection above.</p>
             
             <div class="definition">
-                <p><strong>Theorem A.</strong> Let \(R\) be an integral domain satisfying ACC on principal ideals. The following are equivalent.</p>
+                <p><span class="statement-title">Theorem A.</span> Let \(R\) be an integral domain satisfying ACC on principal ideals. The following are equivalent.</p>
                 <ol style="list-style-type: none; padding-left: 20px;">
                     <li style="list-style-type: none;">(i) \(R\) is a UFD.</li>
                     <li style="list-style-type: none;">(ii) \(R\) is a GCD domain.</li>
@@ -430,7 +434,7 @@
             <p>After defining what it means for an ideal to have a <em>finite free resolution</em>, we then mentioned, but did not yet prove, the following major theorem that plays a key role in our quest to show that regular local rings are UFDs.</p>
             
             <div class="definition">
-                <p><strong>Theorem B.</strong> Let \(R\) be an integral domain and \(I\subseteq R\) a locally principal ideal. If \(I\) has a finite free resolution, then \(I\) is principal.</p>
+                <p><span class="statement-title">Theorem B.</span> Let \(R\) be an integral domain and \(I\subseteq R\) a locally principal ideal. If \(I\) has a finite free resolution, then \(I\) is principal.</p>
             </div>
             
             <p>We then noted how these components are relevant for our goal of showing that regular local rings are UFDs, and the course we need to take to achieve this result. We will show that a regular local ring \((R, \mathfrak{m})\) has the property that every ideal has a finite free resolution. By induction on the dimension of the ring, condition (iii) holds locally in the ring \(R_S\), for \(S = \{1, x, x^2, \ldots \}\) with \(x \in \mathfrak{m}\backslash \mathfrak{m}^2\). Such an \(x\) is a prime element. But any \(K\) in \(R_S^2\) in part (iii) is isomorphic to the ideal \((aR_S:b)\), which is then locally principal. Applying Theorem B shows \((aR_S:b)\) is principal, and hence \(K\) is cyclic. By Theorem A, \(R_S\) is a UFD and by Nagata's lemma, \(R\) is a UFD.</p>
