@@ -373,6 +373,37 @@
             <p>which had the solution \(x = 1, y = 2, z = 3\).</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, February 5</div>
+            
+            <p>We began class by reviewing the possible outcomes in terms of the RREFs for an augmented matrix representing a \(3\times 3\) system of linear equations. We then reminded the class of the <strong>important fact</strong> that given any system of linear equations, the number independent parameters needed to describe the solution set is the number of variables minus the number of leading 1s in the RREF of the corresponding augmented matrix. We also noted that a system of linear equations is said to be <strong>homogeneous</strong> if the right hand side of the system consists entirely of zeros. In this case, there will always be at least one solution, namely the solution in which all of the given variables equal zero.</p>
+            
+            <p>We then noted the following</p>
+            
+            <p><strong>General fact.</strong> Suppose \(A\) is an \(n\times m\) matrix and \(B\) is a \(p\times t\) matrix. Then we can only form the product \(AB\) when \(m = p\). In this case \(AB\) is an \(n\times t\) matrix whose \((i,j)\) entry is the \(i\)th row of \(A\) times the \(j\)th column of \(B\).</p>
+            
+            <p>After computing a couple of products, we noted that the product rules (i)-(v) from January 22 hold, as long as the product exists. We then began a discussion of elementary \(2\times 2\) matrices.</p>
+            
+            <p><strong>Elementary \(2\times 2\) matrices.</strong> The elementary matrices are obtained by applying elementary row operations to \(I_2 = \begin{pmatrix} 1 & 0\\0 & 1\end{pmatrix}\).</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) Type I: Interchange the rows of \(I_2\), i.e., \(E = \begin{pmatrix} 0 & 1\\1 & 0\end{pmatrix}\).</li>
+                <li style="list-style-type: none;">(ii) Type II: Add a multiple of one row of \(I_2\) to another, e.g., \(E = \begin{pmatrix} 1 & 0\\ \lambda & 1\end{pmatrix}\) or \(E = \begin{pmatrix} 1 & \lambda\\0 & 1\end{pmatrix}\), for \(\lambda \in \mathbb{R}\).</li>
+                <li style="list-style-type: none;">(iii) Type III: Multiply a row of \(I_2\) by a non-zero number, e.g., \(E = \begin{pmatrix} \lambda & 0\\0 & 1\end{pmatrix}\) or \(E = \begin{pmatrix} 1 & 0\\0 & \lambda\end{pmatrix}\).</li>
+            </ol>
+            
+            <p>The class then verified (in the \(2\times 2\) case) that for any elementary matrix \(E\), \(EA\) is the same matrix obtained by applying the corresponding elementary row operation to \(A\). We then noted that elementary matrices are invertible, and their inverses are elementary matrices that can be easily guessed.</p>
+            
+            <p>We then asked what does it mean in terms of elementary matrices if \(A\) is a \(2\times 2\) that reduces to \(I_2\) via elementary row operations. We inferred that there exists a \(2\times 2\) matrix \(H\) such that \(HA = I_2\) and thus (via the bonus problem listed in today's homework) that \(A\) is invertible and that \(A^{-1}\) can be found via Gaussian elimination, as stated below.</p>
+            
+            <div class="definition">
+                <p><strong>Using Guassian elimination to find \(A^{-1}\), if it exists.</strong> Given an \(n\times n\) matrix \(A\), start with the \(n\times (2n)\) augmented matrix \([A\ |\ I_n]\) and apply elementary row operations until either:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) One arrives at \([I_n\ | \ B]\), in which case \(B = A^{-1}\) or</li>
+                    <li style="list-style-type: none;">(ii) At some point the left hand side of the augmented matrix has a row consisting entirely of zeros, in which case \(A\) does not have an inverse.</li>
+                </ol>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
