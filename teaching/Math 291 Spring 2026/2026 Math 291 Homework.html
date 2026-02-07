@@ -69,6 +69,22 @@
             border-radius: 4px;
             border-left: 3px solid #ffc107;
         }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .solution {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
         .math-display {
             margin: 30px 0;
             text-align: center;
@@ -151,7 +167,19 @@
             
             <p><strong>1.</strong> Verify properties 1-8 from today's lecture, for \(A = \begin{pmatrix} 1 & -9\\2 & 6\end{pmatrix}\), \(B = \begin{pmatrix} 1 & 4\\0 & -9\end{pmatrix}\), \(C = \begin{pmatrix}0 & -4\\9 & 2\end{pmatrix}\), \(\lambda = 7, \lambda_1 = -6, \lambda_2 = 4\).</p>
             
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> This is straightforward.</p>
+            </div>
+            
             <p><strong>2.</strong> Give a proof of the cancellation property using entries in the matrices rather than the proof given class.</p>
+            
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Write \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), \(B = \begin{pmatrix} e & f\\g & h\end{pmatrix}\), \(C = \begin{pmatrix} r & s\\t & u\end{pmatrix}\). Then,</p>
+                <div class="math-display">
+                    \[\begin{pmatrix} a+e & b+f\\c+g & d+h\end{pmatrix} = A+B = A+C = \begin{pmatrix} a+r & b+s\\c+t & d+u\end{pmatrix}.\]
+                </div>
+                <p>Thus, \(a+e = a+r\), \(b+f = b+s\), \(c+g = c+t\), \(d+h = d+u\). Since we have cancellation for real numbers, \(e = r\), \(f = s\), \(g = t\), \(h = u\), so \(B = C\).</p>
+            </div>
         </div>
 
         <div class="problem">
@@ -163,6 +191,10 @@
                 <li style="list-style-type: none;">(ii) \(A(BC) = (AB)C\).</li>
             </ol>
             
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We just check (ii). \(AB = \begin{pmatrix} 1 & 85\\2 & -46\end{pmatrix}\), so \((AB)C = \begin{pmatrix} 765 & 166\\-414 & -100\end{pmatrix}\). On the other hand we have \(BC = \begin{pmatrix} 36 & 4\\-81 & -18\end{pmatrix}\), so \(A(BC) = \begin{pmatrix} 765 & 166\\-414 & -100\end{pmatrix}\).</p>
+            </div>
+            
             <p><strong>2.</strong> For the matrix \(A = \begin{pmatrix} 3 & 1\\5 & 2\end{pmatrix}\) first verify that \(A^{-1} = \begin{pmatrix} 2 & -1\\-5 & 3\end{pmatrix}\), and then use \(A^{-1}\) to solve the system of equations</p>
             
             <div class="math-display">
@@ -172,17 +204,43 @@
                 \end{align*}\]
             </div>
             
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> It's easy to check that \(AA^{-1} = I_2 = A^{-1}A\). To solve the system, one starts with the matrix equation \(A\begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix} 7\\-3\end{pmatrix}\), multiplying both sides of this equation by \(A^{-1}\) gives</p>
+                <div class="math-display">
+                    \[\begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix} 2 & -1\\-5 & 3\end{pmatrix} \cdot \begin{pmatrix} 7\\-3\end{pmatrix} = \begin{pmatrix} 17\\-44\end{pmatrix},\]
+                </div>
+                <p>so \(x = 17, y = -44\).</p>
+            </div>
+            
             <p><strong>3.</strong> Use mathematical induction to prove the following statements:</p>
             <ol style="list-style-type: none; padding-left: 20px;">
                 <li style="list-style-type: none;">(i) \(1^2+2^2+3^2+\cdots + n^2 = \frac{n(n+1)(2n+1)}{6}\), for all \(n\geq 1\).</li>
                 <li style="list-style-type: none;">(ii) \(9^n-1\) is divisible by 8, for all \(n\geq 1\).</li>
             </ol>
+            
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> (i) For the base case, \(1 = \frac{1(1+1)(2\cdot 1+1)}{6}\), as required. Now, assume the formula holds for \(n-1\) and use this to prove the case \(n\):</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    1^2+2^2+3^2+\cdots + (n-1)^2 &= \frac{(n-1)(n)(2(n-1)+1)}{6}\\
+                    1^2+2^2+3^2+\cdots + (n-1)^2 &= \frac{(n-1)(n)(2n-1)}{6}, \ \text{adding}\ n^2\ \text{both sides, we get}\\
+                    1^2+2^2+3^2+\cdots + (n-1)^2 +n^2 &= \frac{(n-1)(n)(2n-1)}{6} +n^2\\
+                    1^2+2^2+3^2+\cdots + (n-1)^2 +n^2 &= \frac{2n^3+3n^2+n}{6}\\
+                    1^2+2^2+3^2+\cdots + n^2 &= \frac{n(n+1)(2n+1)}{6}
+                    \end{align*}\]
+                </div>
+                <p>For (ii), it turns out induction is not needed. If one uses the identity \(x^n -1= (x-1)(x^{n-1}+x^{n-2}+\cdots + x+1)\), substituting \(x = 9\) shows \(8\) divides \(9^n-1\).</p>
+            </div>
         </div>
 
         <div class="problem">
             <div class="problem-number">Tuesday, January 27</div>
             
             <p><strong>1.</strong> For \(A = \begin{pmatrix} 1 & -9\\2 & 6\end{pmatrix}\), \(B = \begin{pmatrix} 1 & 4\\0 & -9\end{pmatrix}\) and \(\lambda = 7\), verify properties 1-5 of the determinant given in today's lecture.</p>
+            
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> These are straightforward calculations.</p>
+            </div>
             
             <p><strong>2.</strong> For the \(2\times 2\) matrix \(A\), we verified in class that if \(\textrm{det}(A)\not = 0\), then \(A^{-1}\) exists. Prove that if \(A^{-1}\) exists, then \(\det A \not = 0\). Thus, we have the following:</p>
             
@@ -191,6 +249,10 @@
             </div>
             
             <p>We'll see later in the semester that this holds for any \(n\times n\) matrix.</p>
+            
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We have \(A^{-1}A = I_2\), so \(\det(A)\cdot \det(A^{-1}) = \det(A^{-1}A) = \det I_2 = 1\), so \(\det(A) \not = 0\).</p>
+            </div>
             
             <p><strong>3.</strong> Here are three systems of linear equations. Identify which one has a unique solution, infinitely many solutions and no solutions.</p>
             
@@ -223,6 +285,10 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> System A has no solution, since the system corresponds to parallel lines, System B has a unique solution \(x = 1, y =-1\), and system C has infinitely many solutions, since each equation describes the same line.</p>
+            </div>
         </div>
 
 
@@ -231,12 +297,36 @@
             
             <p><strong>1.</strong> For the three systems of equations given in the previous assignment, use augmented matrices and Gaussian elimination to find the solution set of each system.</p>
             
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> For A, we have \(\left[\begin{array}{cc|c} 2 & 3 & 7\\6 & 9 & 31\end{array}\right] \xrightarrow{-3\cdot R_1+R_2} \left[\begin{array}{cc|c} 2 & 3 & 7\\0 & 0 & 10\end{array}\right]\), so the system has no solution. <br> For B, we have</p>
+                <div class="math-display">
+                    \[\left[\begin{array}{cc|c}2 & 3 & -1\\6 & 2 & 4\end{array}\right] \xrightarrow{\frac{1}{2}\cdot R_1}
+                     \left[\begin{array}{cc|c}1 & \frac{3}{2} & -\frac{1}{2}\\6 & 2 & 4\end{array}\right] \xrightarrow{-6\cdot R_1+R_2} \left[\begin{array}{cc|c}1 & \frac{3}{2} & -\frac{1}{2}\\0 & -7 & 7\end{array}\right]\]
+                </div>
+                <div class="math-display">
+                    \[\xrightarrow{-\frac{1}{7}\cdot R_2} \left[\begin{array}{cc|c}1 & \frac{3}{2} & -\frac{1}{2}\\0 & 1 & -1\end{array}\right]
+                    \xrightarrow{-\frac{3}{2}\cdot R_2+R_1} \left[\begin{array}{cc|c}1 & 0 & 1\\0 & 1 & -1\end{array}\right]\]
+                </div>
+                <p>Therefore, \(x = 1\) and \(y = -1\).  For C, <br>   <div class="math-display">\(\left[\begin{array}{cc|c} 2 & 3 & 7\\6 & 9 & 21\end{array}\right]\xrightarrow[\frac{1}{2}\cdot R_1]{-3\cdot R_1+R_2} \left[\begin{array}{cc|c}1 & \frac{3}{2} & \frac{7}{2}\\0 & 0 & 0\end{array}\right]\) .</div> Solution set: \(\{(\frac{7}{2}-\frac{3}{2}t, t)\ |\ t\in \mathbb{R}\}\).</p>
+            </div>
+            
             <p><strong>2.</strong> Something new: Find the solution set to the system of equations below using Gaussian elimination, following as closely as you can the algorithm given in class. Hint: You'll have to introduce a parameter to describe the solution set.</p>
             <div class="math-display">
                 \[\begin{align*}
                 2x+4y+6z &= 12\\
                 x+y+z &= 8.
                 \end{align*}\]
+            </div>
+            
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Converting to an augmented matrix, we have</p>
+                <div class="math-display">
+                    \[\left[\begin{array}{ccc|c}2 & 4 & 6 & 12\\1 & 1 & 1 & 8\end{array}\right]\xrightarrow{R_1\leftrightarrow R_2} \left[\begin{array}{ccc|c}1 & 1 & 1 & 8\\2 & 4 & 6 & 12\end{array}\right] \xrightarrow{-2\cdot R_1+R_2}\left[\begin{array}{ccc|c} 1 & 1 & 1 & 8\\0 & 2 & 4 & -4\end{array}\right]\]
+                </div>
+                <div class="math-display">
+                    \[\xrightarrow{\frac{1}{2}\cdot R_2}\left[\begin{array}{ccc|c}1 & 1 & 1 & 8\\0 & 1 & 2 & -2\end{array}\right]\xrightarrow{-1\cdot R_2+R_1}\left[\begin{array}{ccc|c}1 & 0 & -1 & 10\\0 & 1 & 2 & -2\end{array}\right].\]
+                </div>
+                <p>Thus, the solution set is \(\{(10+t, -2-2t, t)\ |\ t\in \mathbb{R}\}\).</p>
             </div>
             
             <p><strong>3.</strong> Suppose that the ordered pair \((s,t)\) is a solution to the system</p>
@@ -280,6 +370,18 @@
             </div>
             
             <p>Now assume that \((s,t)\) is a solution to A, B, or C, and show that \((s,t)\) is a solution to the original system of equations. You must consider all three cases. These calculations show that solutions to systems of equations are invariant under elementary row operations.</p>
+            
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We'll do the case of B. The other cases are similar, and easier. Suppose \((s,t)\) is a solution to the original system of equations, so that \(as+bt = u\) and \(cs+dt = v\). Clearly the first equation in B holds. For the second equation in B, we have</p>
+                <div class="math-display">
+                    \[(c+\lambda a)s+(d+\lambda b)t = (cs+dt) + \lambda (as+bt) = v+\lambda u,\]
+                </div>
+                <p>using the two original equations. Now suppose \((s,t)\) is a solution to the system B. Then clearly \((s,t)\) is a solution to the first equation in the original system. If \(\lambda = 0\), then the second equation in B is the second equation in the original system, so \((s,t)\) satisfies the latter. Now suppose \(\lambda \not = 0\). Then</p>
+                <div class="math-display">
+                    \[v+\lambda u =  (c+\lambda a)s + (d+\lambda b)t = (cs+dt)+\lambda (as+bt) = v+ \lambda (as+bt),\]
+                </div>
+                <p>so \(\lambda u = \lambda (as+bt)\), therefore, \(u = as+bt\), which is what we want.</p>
+            </div>
         </div>
 
         <div class="problem">
