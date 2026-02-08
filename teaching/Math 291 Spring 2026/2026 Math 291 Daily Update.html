@@ -151,14 +151,15 @@
             <p>After reviewing class procedures, and items on the syllabus, we began a discussion of \(2\times 2\) matrices over \(\mathbb{R}\), the set of which we denote by \(\textrm{M}_2(\mathbb{R})\). Given \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), we identified the entries of \(A\) as follows: \(a\) is the (1,1) entry, \(b\) is the (1,2) entry, \(c\) is the (2,1) entry and \(d\) is the (2,2) entry.</p>
             
             <p>We established two fundamental operations:</p>
-            
+             <div class="definition">
             <ol style="list-style-type: none; padding-left: 20px;">
                 <li style="list-style-type: none;">(i) Matrix addition: Given \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), \(B = \begin{pmatrix} e & f\\g & h\end{pmatrix}\), define \(A+B := \begin{pmatrix} a+e & b+f\\c+g & d+h\end{pmatrix}\).</li>
                 <li style="list-style-type: none;">(ii) Scalar multiplication: Given \(\lambda \in \mathbb{R}\) and \(A\in \textrm{M}_2(\mathbb{R})\), define \(\lambda \cdot A = \begin{pmatrix} \lambda a & \lambda b\\\lambda c & \lambda d\end{pmatrix}\).</li>
             </ol>
+            </div>
             
             <p>We then discussed at length the following properties. In what follows, \(A, B, C\in \textrm{M}_2(\mathbb{R})\) and \(\lambda, \lambda_1, \lambda_2 \in \mathbb{R}\).</p>
-            
+             <div class="definition">
             <p>1. An additive identity exists: For \({\bf 0}_{2\times 2} := \begin{pmatrix} 0 & 0\\0 & 0\end{pmatrix}\), we have \({\bf 0}_{2\times 2}+A = A\), for all \(A\in \textrm{M}_2(\mathbb{R})\).</p>
             
             <p>2. Additive inverses exist: Given \(-A := \begin{pmatrix} -a & -b\\-c & -d\end{pmatrix}\), we have \(-A+A = {\bf 0}_{2\times 2}\).</p>
@@ -174,15 +175,19 @@
             <p>7. Scalar multiplication is associative: \((\lambda_1\lambda_2)\cdot A = \lambda _1\cdot (\lambda_2\cdot A)\).</p>
             
             <p>8. \(1\cdot A = A\) and \(0\cdot A = {\bf 0}_{2\times 2}\).</p>
+            </div>
             
             <p>We also discussed how one might prove these identities and noted that the properties above will be recurring throughout the semester as we discuss abstract vector spaces. We ended class by discussing the following consequences of properties (1)-(8) above. Keeping the same notation, we have</p>
             
+             <div class="definition">
             <ol style="list-style-type: none; padding-left: 20px;">
                 <li style="list-style-type: none;">(i) \(-1\cdot A = -A\).</li>
                 <li style="list-style-type: none;">(ii) Additive inverses are unique, i.e., if \(A+C = {\bf 0}_{2\times 2}\), then \(C = -A\).</li>
                 <li style="list-style-type: none;">(iii) Cancellation holds for matrix addition, i.e., if \(A+B = A+C\), then \(B = C\).</li>
             </ol>
+            </div>
         </div>
+        
 
         <div class="problem">
             <div class="problem-number">Thursday, January 22</div>
@@ -190,10 +195,12 @@
             
             <p>For \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), \(B = \begin{pmatrix} e & f\\g & h\end{pmatrix}\), \(C = \begin{pmatrix} u\\v\end{pmatrix}\), we defined</p>
             
+             <div class="definition">
             <ol style="list-style-type: none; padding-left: 20px;">
                 <li style="list-style-type: none;">(i) \(A\cdot C = \begin{pmatrix} a & b\\c & d\end{pmatrix} \cdot \begin{pmatrix} u\\v\end{pmatrix} := \begin{pmatrix} au+bv\\cu+dv\end{pmatrix}\).</li>
                 <li style="list-style-type: none;">(ii) \(A\cdot B = \begin{pmatrix} a & b\\c & d\end{pmatrix}\cdot \begin{pmatrix} e & f\\g & h\end{pmatrix} = \begin{pmatrix} ae+bg & af+bh\\ce+dg & cf+dh\end{pmatrix}\).</li>
             </ol>
+            </div>
             
             <p>We noted that the (1,1) entry of \(AB\) is \(R_1\cdot C_1\), the (1,2) entry is \(R_1\cdot C_2\), the (2,1) entry is \(R_2\cdot C_1\) and the (2,2) entry is \(R_2\cdot C_2\), where \(R_i\) is the \(i\)th row of \(A\) and \(C_j\) is the \(j\)th column of \(B\). We also noted that if we think of \(B\) as the matrix with columns \(C_1, C_2\), i.e., \(B = [C_1\ C_2]\), then \(AB = [AC_1\ AC_2]\), the matrix with columns \(AC_1, AC_2\).</p>
             
@@ -262,11 +269,13 @@
             
             <p>We noted that each equation corresponds to a straight line \(L_1, L_2\) (respectively) in \(\mathbb{R}^2\) and \((s,t)\) is a solution to the system if and only if \((s,t)\) is a point on each line. Thus the following are the <strong>only</strong> possibilities for the solution set to the given system of equations:</p>
             
+             <div class="definition">
             <ol style="list-style-type: none; padding-left: 20px;">
                 <li style="list-style-type: none;">(i) There is a unique solution. This occurs when \(L_1\) and \(L_2\) are not parallel, and thus intersect in a single point.</li>
                 <li style="list-style-type: none;">(ii) There is no solution. This occurs when \(L_1\) and \(L_2\) are parallel.</li>
                 <li style="list-style-type: none;">(iii) There are infinitely many solutions. This occurs when \(L_1 = L_2\), so that \((s,t)\) is a solution to the system if and only if it is a solution to the first (or second) equation.</li>
             </ol>
+            </div>
             
             <p>Thus, there can never be a \(2\times 2\) system of linear equations with exactly 17 solutions! (Or with exactly \(n\) solutions for any \(n > 1\).)</p>
         </div>
@@ -421,6 +430,7 @@
                     <li style="list-style-type: none;">(i) One arrives at \([I_n\ | \ B]\), in which case \(B = A^{-1}\) or</li>
                     <li style="list-style-type: none;">(ii) At some point the left hand side of the augmented matrix has a row consisting entirely of zeros, in which case \(A\) does not have an inverse.</li>
                 </ol>
+                In terms of elementary matrices, if  \(E_1, ..., E_r\) the are elementary matrices corresponding to the row operations used in (i), then \(A^{-1} = E_r \cdots E_2 E_1\).
             </div>
         </div>
 
