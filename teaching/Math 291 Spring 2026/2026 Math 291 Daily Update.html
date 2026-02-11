@@ -434,6 +434,30 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Tuesday, February 10</div>
+            
+            <p>We began class by thinking of \(\mathbb{R}^2\) as a <em>vector space</em> even though we have not yet formally defined the general concept of a vector space. We noted that the elements of \(\mathbb{R}^2\) can be thought of as row or column vectors and as such one can add two vectors or scalar multiply a vector by a real number exactly as one does in Calculus II. We then noted that the elements of \(\mathbb{R}^2\) satisfy the Fundamental Properties from the lecture of January 20. We then pointed out (informally) that it is precisely these properties that make any set with addition and scalar multiplication into a vector space. We then gave the following</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Definition-Proposition.</span> Take \(v_1, v_2\in \mathbb{R}^2\). Then \(v_1, v_2\) are said to be <em>linearly independent</em> if the following equivalent statements hold:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) If \(\alpha v_1+\beta v_2 = \vec{0}\), for \(\alpha,\beta \in \mathbb{R}\), then \(\alpha = 0 = \beta\).</li>
+                    <li style="list-style-type: none;">(ii) We <strong>cannot</strong> write \(v_1 = \lambda v_2\) or \(v_2 = \lambda v_1\), for \(0\neq \lambda \in \mathbb{R}\).</li>
+                </ol>
+            </div>
+            
+            <p>We noted that geometrically, condition (ii) just says that \(v_1\) and \(v_2\) do not lie on the same line through the origin in \(\mathbb{R}^2\). We also noted that if one of \(v_1, v_2\) is \(\vec{0}\), then \(v_1, v_2\) cannot be linearly independent. We also defined \(v_1, v_2\) to be <em>linearly dependent</em> if they are not linearly independent. We noted that the vectors \((1,2), (2,1)\) are linearly independent, while the vectors \((1,2), (4,8)\) are linearly dependent.</p>
+            
+            <p>We then proved the following important theorem.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> Take vectors \(v_1 = (a,b), v_2 = (c,d) \in \mathbb{R}^2\) and set \(A := \begin{pmatrix} a & b\\c & d\end{pmatrix}\). Then \(v_1, v_2\) are linearly independent if and only if \(\det A \neq 0\).</p>
+            </div>
+            
+            <p>We ended class by noting, but not verifying, that if \(v_1, v_2 \in \mathbb{R}^2\) are linearly independent, then given any vector \(u\in \mathbb{R}^2\), we can find (unique) \(\alpha, \beta \in \mathbb{R}\) such that \(u = \alpha v_1+\beta v_2\).</p>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
