@@ -492,6 +492,45 @@
             </ol>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Tuesday, February 10</div>
+            
+            <p>We began class by finishing our list of facts concerning modules over the commutative ring \(R\).</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(vi) Given a short exact sequence of \(R\)-modules \(0\to A\overset{f}\to B\overset{g}\to C\to 0\), \(B\) is Noetherian (resp., Artinian) if and only if \(A\) and \(C\) are Noetherian (resp., Artinian).</li>
+                <li style="list-style-type: none;">(vii) If \(R\) is a Noetherian (resp., Artinian) ring and \(M\) is a finitely generated \(R\)-module, then \(M\) is a Noetherian (resp., Artinian) \(R\)-module.</li>
+                <li style="list-style-type: none;">(ix) If \(S\subseteq R\) is a multiplicatively closed subset and \(M\) is an \(R\)-module, then we may extend localization to \(M\) to obtain an \(R_S\)-module \(M_S\). The construction of \(M_S\) is essentially the same as the construction of \(R_S\) given in the lecture of January 22.</li>
+            </ol>
+            
+            <p>We then began a sequence of lemmas leading to a proof of Theorem B stated in the previous lecture. We first noted the following: Suppose \(R\) is an integral domain with quotient field \(K\), and \(I\subseteq R\) is a non-zero ideal. We set \(I^{-1} := \{\alpha \in K\ |\ I\alpha\subseteq R\}\). \(I^{-1}\) is called a <em>fractional ideal</em>. When \(R\) is Noetherian, \(I^{-1}\) is a finitely generated submodule of \(K\). Moreover, \(II^{-1}\) is an ideal of \(R\) containing \(I\) and \(I\) is said to be <em>invertible</em> if \(II^{-1} = R\).</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Lemma A.</span> Suppose \(R\) is an integral domain and \(I\subseteq R\) is an invertible ideal. Then \(I\) is a projective \(R\)-module.</p>
+            </div>
+            
+            <p>The proof of Lemma A required showing that \(I\) is a finitely generated ideal and there is a surjective map \(R^n\to I\) that splits.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Lemma B.</span> Suppose \(P\) is a projective \(R\)-module admitting a finite free resolution. Then there exist free \(R\)-modules \(F\), \(G\) such that \(F = P\oplus G\).</p>
+            </div>
+            
+            <p>We noted that a projective \(R\)-module as in Lemma B is called a <em>stably free</em> module and that the non-free projective module defined as the kernel of the surjective map \(R^3\xrightarrow{\begin{pmatrix} x & y & z\end{pmatrix}} R\), with \(R\) the coordinate ring of the real two-sphere, is stably free.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Lemma C.</span> Let \(I\subseteq R\) be an ideal that is stably free as an \(R\)-module. Then \(I\) is principal.</p>
+            </div>
+            
+            <p>The key idea behind the proof of Lemma C is the following. Suppose \(R^n = G\oplus K\), where \(G\) is a free summand of \(R^n\) of rank \(n-1\). If we let \(A\) denote the \(n\times (n-1)\) matrix whose columns are a basis for \(G\), then we may extend \(A\) to an invertible matrix by adding a column that consists of the signed minors of \(A\).</p>
+            
+            <p>The following major theorem now easily follows.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> Let \(R\) be an integral domain and \(I\subseteq R\) a locally principal ideal. If \(I\) has a finite free resolution, then \(I\) is a principal ideal.</p>
+                
+                <p><em>Proof.</em> By Lemma A, \(I\) is a projective module. By Lemma B, \(I\) is stably free of rank one, so by Lemma C, \(I\) is a principal ideal.</p>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
