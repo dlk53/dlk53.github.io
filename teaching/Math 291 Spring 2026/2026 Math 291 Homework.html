@@ -388,12 +388,26 @@
             <div class="problem-number">Tuesday, February 3</div>
             
             <p>Use Gaussian Elimination to solve problems 2.18 (a)-(f) in Heffron.</p>
+            
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> (a) \(\left\{\begin{pmatrix} 6-2t\\t\end{pmatrix}\ \middle|\ t\in \mathbb{R}\right\}\). (b) \(\left\{\begin{pmatrix} 0\\1\end{pmatrix}\right\}\). (c) \(\left\{\begin{pmatrix} 4-t\\-1+t\\t\end{pmatrix}\ \middle|\ t\in \mathbb{R}\right\}\). (d) \(\left\{\begin{pmatrix} 1\\1\\1\end{pmatrix}\right\}\).</p>
+                
+                <p>(e) \(\left\{\begin{pmatrix} \frac{5}{3}-\frac{1}{3}t_1-\frac{2}{3}t_2\\\frac{2}{3} +\frac{2}{3}t_1+\frac{1}{3}t_2\\t_1\\t_2\end{pmatrix}\ \middle|\ t_1, t_2\in \mathbb{R}\right\}\). (f) No solution.</p>
+            </div>
         </div>
 
         <div class="problem">
             <div class="problem-number">Thursday, February 5</div>
             
             <p><strong>1.</strong> For the matrix \(A = \begin{pmatrix} 2 & 1 & 0\\0 & 4 & 0\\1 & 2 & -1\end{pmatrix}\), use Gaussian elimination to find \(A^{-1}\). Then check that your answer is correct.</p>
+            
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> \(\begin{bmatrix}2 & 1 & 0 & | & 1 & 0 & 0\\0 & 4 & 0 & | & 0 & 1 & 0\\1 & 2 & -1 & | & 0 & 0 & 1\end{bmatrix} \overset{R_1\leftrightarrow R_3}{\longrightarrow} \begin{bmatrix}1 & 2 & -1 & | & 0 & 0 & 1\\0 & 4 & 0 & | & 0 & 1 & 0\\2 & 1 & 0 & | & 1 & 0 & 0\end{bmatrix}\)</p>
+                <p>\(\xrightarrow[\frac{1}{4}\cdot R_2]{-2\cdot R_1+R_3}\begin{bmatrix}1 & 2 & -1 & | & 0 & 0 & 1\\0 & 1 & 0 & | & 0 & \frac{1}{4} & 0\\0 & -3 & 2 & | & 1 & 0 & -2\end{bmatrix}\)
+                \(\xrightarrow[-2\cdot R_2+R_1]{3\cdot R_2+R_3}\begin{bmatrix}1 & 0 & -1 & | & 0 & -\frac{1}{2} & 1\\0 & 1 & 0 & | & 0 & \frac{1}{4} & 0\\0 & 0 & 2 & | & 1 & \frac{3}{4} & -2\end{bmatrix}\)</p>
+                <p>\(\xrightarrow{\frac{1}{2}\cdot R_3} \begin{bmatrix}1 & 0 & -1 & | & 0 & -\frac{1}{2} & 1\\0 & 1 & 0 & | & 0 & \frac{1}{4} & 0\\0 & 0 & 1 & | & \frac{1}{2} & \frac{3}{8} & -1\end{bmatrix} \xrightarrow{R_3+R_1}\begin{bmatrix}1 & 0 & 0 & | & \frac{1}{2} & -\frac{1}{8} & 0\\0 & 1 & 0 & | & 0 & \frac{1}{4} & 0\\0 & 0 & 1 & | & \frac{1}{2} & \frac{3}{8} & -1\end{bmatrix}\)</p>
+                <p>Thus, \(A^{-1} = \begin{pmatrix}\frac{1}{2} & -\frac{1}{8} & 0\\0 & \frac{1}{4} & 0\\\frac{1}{2} & \frac{3}{8} & -1\end{pmatrix}\).</p>
+            </div>
             
             <p><strong>2.</strong> For the matrix \(A = \begin{pmatrix}2 & 3 & 6\\4 & 8 & 14\end{pmatrix}\)</p>
             <ol style="list-style-type: none; padding-left: 20px;">
@@ -402,11 +416,39 @@
                 <li style="list-style-type: none;">(iii) Now multiply the elementary matrices from (ii) to get a \(2\times 2\) matrix \(B\). Check that \(BA\) gives the same RREF. Be careful: The order in which you multiply the elementary matrices matters.</li>
             </ol>
             
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> (i) \(\begin{pmatrix} 2 & 3 & 6\\4 & 8 & 14\end{pmatrix}\xrightarrow{\frac{1}{2}\cdot R_1}\begin{pmatrix} 1 & \frac{3}{2} & 3\\4 & 8 & 14\end{pmatrix}\xrightarrow{-4\cdot R_1+R_2}\begin{pmatrix} 1 & \frac{3}{2} & 3\\0 & 2 & 2\end{pmatrix}\xrightarrow{\frac{1}{2}\cdot R_2}\begin{pmatrix} 1 & \frac{3}{2} & 3\\0 & 1 & 1\end{pmatrix}\)
+                \(\xrightarrow{-\frac{3}{2}\cdot R_2+R_1}\begin{pmatrix} 1 & 0 & \frac{3}{2}\\0 & 1 & 1\end{pmatrix}\).</p>
+                
+                <p>(ii) \(\begin{pmatrix} 1 & -\frac{3}{2}\\0 & 1\end{pmatrix}\begin{pmatrix} 1 & 0\\0 & \frac{1}{2}\end{pmatrix}\begin{pmatrix} 1 & 0\\-4 & 1\end{pmatrix}\begin{pmatrix} \frac{1}{2} & 0\\0 & 1\end{pmatrix}\begin{pmatrix} 2 & 3 & 6\\4 & 8 & 14\end{pmatrix} = \begin{pmatrix} 1 & 0 & \frac{3}{2}\\0 & 1 & 1\end{pmatrix}\).</p>
+                
+                <p>(iii) \(B = \begin{pmatrix} 1 & -\frac{3}{2}\\0 & 1\end{pmatrix}\begin{pmatrix} 1 & 0\\0 & \frac{1}{2}\end{pmatrix}\begin{pmatrix} 1 & 0\\-4 & 1\end{pmatrix}\begin{pmatrix} \frac{1}{2} & 0\\0 & 1\end{pmatrix} = \begin{pmatrix} 2 & -\frac{3}{4}\\-1 & \frac{1}{2}\end{pmatrix}\) and</p>
+                <div class="math-display">
+                    \[BA = \begin{pmatrix} 2 & -\frac{3}{4}\\-1 & \frac{1}{2}\end{pmatrix} \begin{pmatrix}2 & 3 & 6\\4 & 8 & 14\end{pmatrix} = \begin{pmatrix} 1 & 0 & \frac{3}{2}\\0 & 1 & 1\end{pmatrix}.\]
+                </div>
+            </div>
+            
             <p><strong>3.</strong> A square matrix is said to be diagonal if its only non-zero entries lie on the main diagonal of the matrix. Prove that the diagonal matrix \(A = \begin{pmatrix} a & 0\\0 & b\end{pmatrix}\) has an inverse if and only if both \(a, b\) are non-zero. In this case, find \(A^{-1}\).</p>
+            
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Suppose both \(a,b \not = 0\). Then \(\begin{pmatrix} \frac{1}{a} & 0\\0 & \frac{1}{b}\end{pmatrix} \begin{pmatrix} a & 0\\0 & b\end{pmatrix} = \begin{pmatrix} 1 & 0\\0 & 1\end{pmatrix} = \begin{pmatrix} a & 0\\0 & b\end{pmatrix} \begin{pmatrix} \frac{1}{a} & 0\\0 & \frac{1}{b}\end{pmatrix}\), so \(A\) is invertible with \(A^{-1} = \begin{pmatrix} \frac{1}{a} & 0\\0 & \frac{1}{b}\end{pmatrix}\). Conversely, since \(A\) has an inverse if and only if \(\det A \not = 0\), if \(A\) has an inverse, then \(ab \not = 0\), so both \(a\) and \(b\) are non-zero.</p>
+            </div>
             
             <p><strong>Bonus Problem 2.</strong> Let \(A\) be a \(2\times 2\) matrix. Prove that \(A\) is invertible if there exists a \(2\times 2\) matrix \(H\) such that \(HA = I_2\) <strong>or</strong> there exists a \(2\times 2\) matrix \(L\) such that \(AL = I_2\). Be sure to verify both scenarios. This problem shows that just one of the conditions in the definition of invertibility is required for a \(2\times 2\) matrix to be invertible. Due Tuesday, February 10. (5 points.)</p>
             
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> If \(HA = I_2\), then \(1 = \det I_2 = \det HA = (\det H)\cdot (\det A)\), so \(\det A\not = 0\). Thus, we may form \(\begin{pmatrix} \frac{d}{\rho} & -\frac{b}{\rho}\\-\frac{c}{\rho} & \frac{a}{\rho}\end{pmatrix}\), with \(\rho = \det A\), which we know to be \(A^{-1}\). The converse is similar.</p>
+            </div>
+            
             <p><strong>Bonus Problem 3.</strong> Elementary matrices are defined for larger square matrices by applying elementary row operations to an identity matrix. Convert the elementary row operations you used in Problem 1 above to write the inverse you found as a product of elementary matrices. Be sure to check your answer. Again, be careful with the order in which you take the product of elementary matrices. Due February 10. (5 points)</p>
+            
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We have</p>
+                <div class="math-display">
+                    \[\scriptsize\begin{pmatrix} 1 & 0 & 1\\0 & 1 & 0\\0 & 0 & 1\end{pmatrix}\begin{pmatrix} 1 & 0 & 0\\0 & 1 & 0\\0 & 0 & \frac{1}{2}\end{pmatrix} \begin{pmatrix} 1 & -2 & 0\\0 & 1 & 0\\0 & 0 & 1\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\0 & 1 & 0\\0 & 3 & 1\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\0 & \frac{1}{4} & 0\\0 & 0 & 1\end{pmatrix}\begin{pmatrix} 1 & 0 & 0\\0 & 1 & 0\\-2 & 0 & 1\end{pmatrix} \begin{pmatrix} 0 & 1 & 0\\1 & 0 & 0\\0 & 0 & 1\end{pmatrix} = A^{-1}.\]
+                </div>
+                <p>You should check the details!</p>
+            </div>
         </div>
 
         <div class="problem">
