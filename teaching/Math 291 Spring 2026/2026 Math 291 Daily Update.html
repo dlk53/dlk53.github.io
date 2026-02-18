@@ -484,6 +484,53 @@
             <p>We ended class by observing that a line through the origin in \(\mathbb{R}^2\) is closed under vector addition and scalar multiplication, and noted that these properties will determine the concept of <em>subspace</em> to be discussed next week.</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Tuesday, February 17</div>
+            
+            <p>We began class with the following important definition.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> A function \(T: \mathbb{R}^2\to \mathbb{R}^2\) is a <em>linear transformation</em> if:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(T(v_1+v_2) = T(v_1)+T(v_2)\), for all \(v_1, v_2\in \mathbb{R}^2\)</li>
+                    <li style="list-style-type: none;">(ii) \(T(\lambda v) = \lambda T(v)\), for all \(\lambda \in \mathbb{R}\) and \(v\in \mathbb{R}^2\).</li>
+                </ol>
+            </div>
+            
+            <p>Examples of linear transformations given in class were:</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(T(x,y) = (2x+2y, -6x+2y)\);</li>
+                <li style="list-style-type: none;">(ii) \(T(x,y) = (-y,x)\), rotation 90 degrees counterclockwise;</li>
+                <li style="list-style-type: none;">(iii) \(T(x,y) = (y,-x+2y)\).</li>
+            </ol>
+            <p>We noted that the second linear transformation has the property that no line through the origin is mapped to itself by the linear transformation (i.e., \(T\) has no <em>eigenvectors</em>), while the third linear transformation maps the line \(y = x\) to itself (i.e., the vector \((1,1)\) is an eigenvector).</p>
+            
+            <p>We then noted that a linear transformation \(T: \mathbb{R}^2\to \mathbb{R}^2\) is totally determined by its effect on the <em>standard basis</em> of \(\mathbb{R}^2\) given by \(E = \{e_1, e_2\}\), where \(e_1 = (1,0)\) and \(e_2 = (0,1)\). In fact, if \(v = (a,b)\), then</p>
+            <div class="math-display">
+                \[T(v) = T(a,b) = T((a,0)+(0,b)) = T(a,0)+T(0,b) = aT(1,0)+bT(0,1) = aT(e_1)+bT(e_2),\]
+            </div>
+            <p>showing that the value of \(T(v)\) is already determined by the values of \(T(e_1)\) and \(T(e_2)\).</p>
+            
+            <p>We then gave the following definition, which we noted is a special case of a more general definition to come. We first reminded the class of the theorem from the previous lecture which showed that \(v_1, v_2\in \mathbb{R}^2\) are linearly independent if and only if they span \(\mathbb{R}^2\).</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Two vectors \(v_1, v_2\in \mathbb{R}^2\) form a <em>basis</em> for \(\mathbb{R}^2\) if they span \(\mathbb{R}^2\), or equivalently, they are linearly independent.</p>
+            </div>
+            
+            <p>After noting that the standard basis for \(\mathbb{R}^2\) mentioned above is a basis for \(\mathbb{R}^2\), we gave the following important definition.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Let \(T: \mathbb{R}^2\to \mathbb{R}^2\) be a linear transformation, \(\alpha := \{v_1, v_2\}\) and \(\beta := \{w_1, w_2\}\) be bases for \(\mathbb{R}^2\). Then the <em>matrix of T with respect to</em> \(\alpha\) and \(\beta\) is the matrix \(\begin{pmatrix} a & c\\b & d\end{pmatrix}\), where \(T(v_1) = aw_1+bw_2\) and \(T(v_2) = cw_1+dw_2\).</p>
+            </div>
+            
+            <p>We then noted that \([T]^E_E\) is the easiest matrix to calculate, namely if \(T(x,y) = (ax+cy, bx+dy)\), then \([T]_E^E = \begin{pmatrix} a & c\\b & d\end{pmatrix}\). From this we noted that if \(v = (e,f)\), then in terms of columns, \(T(v) = T(e,f) = A\begin{pmatrix} e\\f\end{pmatrix}\), where \(A = [T]_E^E\). This equation always holds true as long as we take the standard basis for both the input basis and output basis.</p>
+            
+            <p>We finished class by noting that if \(T(x,y) = (2x-4y, x+7y)\), then \([T]_E^E = \begin{pmatrix} 2 & -4\\1 & 7\end{pmatrix}\), while if \(B = \{w_1, w_2\}\) with \(w_1 = (1,1)\) and \(w_2 = (1,2)\), \([T]_B^E = \begin{pmatrix} -2 & -6\\8 & 15\end{pmatrix}\), which follows easily from the fact that \(T(1,1) = (-2,8)\) and \(T(1,2) = (-6,15)\). However, to calculate \([T]_E^B\), we saw that this required solving two systems of equations, namely</p>
+            <div class="math-display">
+                \[r\begin{pmatrix} 1\\1\end{pmatrix} + s\begin{pmatrix} 1\\2\end{pmatrix} = \begin{pmatrix} 2\\1\end{pmatrix}\quad\quad \textrm{and}\quad\quad u\begin{pmatrix} 1\\1\end{pmatrix} + v\begin{pmatrix} 1\\2\end{pmatrix} = \begin{pmatrix} -4\\7\end{pmatrix}.\]
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
