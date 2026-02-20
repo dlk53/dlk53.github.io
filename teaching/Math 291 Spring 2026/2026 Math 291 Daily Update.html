@@ -531,6 +531,43 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, February 19</div>
+            
+            <p>After recalling the definition of a basis for \(\mathbb{R}^2\), linear transformation and the matrix of a linear transformation with respect to two bases, we considered the following question: Suppose we are given \(S,T: \mathbb{R}^2\to \mathbb{R}^2\) are two linear transformations. Then the composition \(ST:\mathbb{R}^2\to \mathbb{R}^2\) is also a linear transformation. Can a matrix of \(ST\) be expressed in terms of matrices for \(S\) and \(T\)?</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Very Important Formula.</span> Suppose \(S, T: \mathbb{R}^2\to \mathbb{R}^2\) are linear transformations, and \(\alpha, \beta, \gamma\) are bases for \(\mathbb{R}^2\). Then \(ST: \mathbb{R}^2\to \mathbb{R}^2\) is a linear transformation and</p>
+                <div class="math-display">
+                    \[[ST]_{\alpha}^{\gamma} = [S]_{\beta}^{\gamma}\cdot [T]_{\alpha}^{\beta}.\]
+                </div>
+            </div>
+            
+            <p>After proving this formula, we described <em>change of basis matrices</em>, by noting that if \(\alpha, \beta\) are bases for \(\mathbb{R}^2\), then \([I_2]_{\alpha}^{\beta}\) is the matrix obtained by expressing the basis elements of \(\alpha\) in terms of the basis \(\beta\). Similarly, \([I_2]_{\beta}^{\alpha}\) is the matrix obtained by expressing the basis elements of \(\beta\) in terms of \(\alpha\). Using the very important formula above we saw that the matrices are inverses of one another:</p>
+            <div class="math-display">
+                \[I_2 = [I_2]_{\beta}^{\beta} = [I_2]_{\alpha}^{\beta} \cdot[I_2]_{\beta}^{\alpha}\quad \textrm{and}\quad I_2 = [I_2]_{\alpha}^{\alpha} = [I_2]_{\beta}^{\alpha} \cdot[I_2]_{\alpha}^{\beta}.\]
+            </div>
+            <p>This led to the fundamental formula, which follows from the very important formula.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Change of Basis Formula.</span> Suppose \(T: \mathbb{R}^2\to \mathbb{R}^2\) is a linear transformation and \(\alpha, \beta\) are bases for \(\mathbb{R}^2\). Then</p>
+                <div class="math-display">
+                    \[[T]_{\beta}^{\beta} = [I_2]_{\alpha}^{\beta}\cdot [T]_{\alpha}^{\alpha}\cdot [I_2]_{\beta}^{\alpha}.\]
+                </div>
+                <p>In particular, if we set \(A := [T]_{\alpha}^{\alpha}\), \(B := [T]_{\beta}^{\beta}\) and \(P:= [I_2]_{\beta}^{\alpha}\), we obtain the classic expression</p>
+                <div class="math-display">
+                    \[B = P^{-1}AP.\]
+                </div>
+            </div>
+            <!--
+            <p>The rest of the class was spent illustrating the change of basis formula with the following examples.</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(T(x,y) = (2x-4y, x+7y)\), \(A = [T]_E^E\), \(B = [T]_{\beta}^{\beta}\), for \(\beta = \{(1,1), (1,2)\}\), and \(P = [I_2]_{\beta}^E\).</li>
+                <li style="list-style-type: none;">(ii) \(T(x,y) = (x+6y, 2x+5y)\), \(A = [T]_E^E\), \(B = [T]_{\beta}^{\beta}\), for \(\beta = \{(1,1), (-3, 1)\}\) and \(P = [I_2]_{\beta}^E\).</li>
+            </ol>
+            <p>The second example was interesting because it gave an example of a <em>diagonalizable</em> linear transformation.</p>
+        </div>
+-->
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
