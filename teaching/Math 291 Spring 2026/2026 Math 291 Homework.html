@@ -456,9 +456,35 @@
             
             <p><strong>1.</strong> Show that the vectors \(v_1 = (2,3)\) and \(v_2 = (3,2)\) are linearly independent and then write \(w = (13, 12)\) as a linear combination of \(v_1\) and \(v_2\).</p>
             
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Since \(\textrm{det}\begin{pmatrix} 2 & 3\\3 & 2 \end{pmatrix}= -5 \neq 0\), \(v_1, v_2\) are linearly independent. To write \(w\) as a linear combination of \(v_1, v_2\) we must solve the system obtained from the vector equation \((13,12) = x(2,3)+y(3,2)\), i.e.,</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    2x+3y &= 13\\
+                    3x+2y &= 12.
+                    \end{align*}\]
+                </div>
+                <p>Starting with the augmented matrix \(\begin{bmatrix}2 & 3 & | & 13\\3 & 2 & | & 12\end{bmatrix}\), Gaussian elimination yields \(x = 2, y = 3\), i.e., \(w = 2v_1+3v_2\).</p>
+            </div>
+            
             <p><strong>2.</strong> Show that the vectors \(v_1 = (1,1), v_2 = (2,1), v_3 = (6,4)\) are <strong>not</strong> linearly independent by finding real numbers \(\alpha, \beta, \gamma \in \mathbb{R}\), not all zero, such that \(\alpha v_1+\beta v_2+\gamma v_3 = \vec{0}\).</p>
             
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> One seeks a non-trivial solution to the vector equation \(x(1,1)+y(2,1)+z(6,4) = \vec{0}\), i.e., a non-zero solution to the system of equations</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    x+2y+6z &= 0\\
+                    x+y+4z &= 0.
+                    \end{align*}\]
+                </div>
+                <p>This can be done using Gaussian elimination, but a close inspection shows that \(2v_1+2v_2+(-1)v_3 = \vec{0}\). There are in fact, infinitely many solutions to the system of equations above, all multiples of the vector \((2,2,-1)\).</p>
+            </div>
+            
             <p><strong>3.</strong> Consider the line through the origin in \(\mathbb{R}^2\) given by \(6x-7y = 0\). Suppose the vectors \(v_1 = (u, v)\) and \(v_2 = (r,s)\) lie on the line. Show that: (i) The vector \(v_1+v_2\) lies on the line and (ii) The vector \(\lambda v_1\) lies on the line, for all \(\lambda \in \mathbb{R}\). Thus the set of vectors in \(\mathbb{R}^2\) lying on this line is <em>closed</em> under addition and scalar multiplication.</p>
+            
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> \(v_1+v_2 = (u+r, v+s)\), substituting gives \(6(u+r)-7(v+s) = (6u-7v)+(6r-7s) = 0 + 0 = 0\), so \(v_1+v_2\) lies on the line. \(\lambda v_1 = (\lambda u, \lambda v)\). Substituting gives \(6(\lambda u) - 7(\lambda v) = \lambda (6u-7v) = \lambda\cdot 0 = 0\), so \(\lambda v_1\) lies on the line.</p>
+            </div>
         </div>
 
         <div class="problem">
@@ -468,7 +494,17 @@
             
             <p><strong>1.</strong> Verify that the line \(2x+3y = 0\) is a subspace of \(\mathbb{R}^2\), but the line \(2x+3y = 1\) is not a subspace of \(\mathbb{R}^2\).</p>
             
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> To see that the line \(2x+3y = 0\) is a subspace of \(\mathbb{R}^2\), one proceeds exactly like in Problem 3 from the previous assignment, i.e., assume the vectors \(v_1 = (u, v)\) and \(v_2 = (r,s)\) lie on the line, then show that: (i) The vector \(v_1+v_2\) lies on the line and (ii) The vector \(\lambda v_1\) lies on the line, for all \(\lambda \in \mathbb{R}\). The proof is almost exactly the same, just the coefficients in the equation of the line are different.</p>
+                
+                <p>To see that the line \(2x+3y = 1\) is not a subspace, note that the vector \((1,-1)\) is on the line, but its multiple \(2(1,-1) = (2,-2)\) is not on the line.</p>
+            </div>
+            
             <p><strong>2.</strong> Show directly from the definition of subspace that any subspace of \(\mathbb{R}^2\) must contain \((0,0)\).</p>
+            
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Take \(v\in \mathbb{R}^2\) belonging to the subspace \(W\). Then, \(v+ (-1)\cdot v = v+(-v) = \vec{0} \in W\).</p>
+            </div>
             
             <p><strong>3.</strong> Define the function \(T:\mathbb{R}^2\to \mathbb{R}^2\) by the equation \(T(x,y) = (-2x+y, x+4y)\). Thus for example, if \(v = (3,2)\), then \(T(v) = T(3,2) = (-2\cdot 3+2, 3+4\cdot 2) = (-4,11)\). Suppose \(v = (a,b)\) and \(w = (c,d)\). Show that:</p>
             <ol style="list-style-type: none; padding-left: 20px;">
@@ -477,7 +513,28 @@
             </ol>
             <p>A function with properties (i) and (ii) is called a <em>linear transformation</em>.</p>
             
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> For (i),</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    T(v+w) &= T(a+c, b+d)\\
+                    &= (-2(a+c)+(b+d), a+c+4(b+d))\\
+                    &= (-2a-2c+b+d, a+c+4b+4d)\\
+                    &= (-2a+b, a+4b)+(-2c+d,c+4d)\\
+                    &= T(v)+T(w).
+                    \end{align*}\]
+                </div>
+                <p>And for (ii),</p>
+                <div class="math-display">
+                    \[T(\lambda v) = T(\lambda a, \lambda b) = (-2(\lambda a)+(\lambda b), \lambda a+ 4(\lambda b)) = \lambda (-2a+b, a+4b) = \lambda T(a,b).\]
+                </div>
+            </div>
+            
             <p><strong>Bonus Problem 4.</strong> First verify that \(\{\vec{0}\}\) and \(\mathbb{R}^2\) are subspaces of \(\mathbb{R}^2\) and then prove that lines through the origin are the only other subspaces of \(\mathbb{R}^2\). In other words, if \(W\) is a subset of \(\mathbb{R}^2\) and \(W\) is a subspace, then \(W\) is \(\{\vec{0}\}, \mathbb{R}^2\) or a line through the origin. Due Tuesday, February 17. (5 points)</p>
+            
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> It is easy to check that \(\{\vec{0}\}\) and \(\mathbb{R}^2\) are subspaces of \(\mathbb{R}^2\). Suppose \(W\) is a non-zero subspace. Let \(0 \neq w\) be a non-zero vector in \(W\). Suppose \(w = (a,b)\). Then \(w\) lies on the line \(L: bx-ay = 0\). We want to show that \(W\) is the line \(L\), assuming \(W\) is not \(\mathbb{R}^2\). Note that \((u,v)\) lies on \(L\) if and only if \((u,v)\) is a multiple of \(w\). To see this, on the one hand, if \((u,v) = tw\), then \((u,v) = (ta,tb)\) which satisfies the equation \(bx-ay = 0\). On the other hand, suppose \((u,v)\) lies on the line \(L\). Then \(bu-av = 0\). Suppose \(a \neq 0\). Then \(v = \frac{b}{a} u\), so \((u, v) = (u, \frac{b}{a}u) = \frac{u}{a}(a,b)\), showing \((u,v)\) is a multiple of \(w\). The argument is similar if \(b\neq 0\). Now, suppose there is a vector \(h\) in \(W\) not on the line \(L\). Then \(w, h\) are linearly independent vectors and therefore \(\langle w, h\rangle = \mathbb{R}^2\). But \(\mathbb{R}^2 = \langle w,h\rangle \subseteq W\) shows that \(W = \mathbb{R}^2\), contrary to our assumption on \(W\). Thus, \(W = L\), as required.</p>
+            </div>
         </div>
 
         <div class="problem">
