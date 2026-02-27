@@ -696,6 +696,55 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, February 26</div>
+            
+            <p>We began class by reviewing the definition of regular local ring, and re-stated Comments (i)-(iv) from the previous lecture. We also provided proof of items (ii) and (iv). We then gave a proof of the Prime Avoidance Lemma, as stated in the previous lecture. We also mentioned that there are a number of variations on the PAL, including the lovely result due to S. McAdam stating that the lemma is true without any of the ideals in the union being prime, if the ring \(R\) contains an infinite field.</p>
+            
+            <p>We then stated that our next immediate goal is to prove the following</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> Let \((R, \mathfrak{m}, k)\) be a local ring. Then \(R\) is a regular local ring if and only if \(k\) admits a minimal finite free resolution, in which case the length of the resolution equals \(\dim (R)\).</p>
+            </div>
+            
+            <p>We then gave three examples of minimal finite free resolutions of \(k\), for low dimensional regular local rings.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Examples.</span> The following are minimal finite free resolutions. In fact, each case is an example of a <em>Koszul complex</em>. \((R,\mathfrak{m},k)\) is a regular local ring.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(\mathfrak{m} = \langle x\rangle\), yields: \(0\to R\overset{\cdot x}\longrightarrow R\to k\to 0\).</li>
+                    <li style="list-style-type: none;">(ii) \(\mathfrak{m} = \langle x,y\rangle\), yields: \(0\to R\overset{\begin{pmatrix} -y\\x\end{pmatrix}}\longrightarrow R^2\overset{\begin{pmatrix} x & y\end{pmatrix}}\longrightarrow R \to k\to 0\).</li>
+                    <li style="list-style-type: none;">(iii) \(\mathfrak{m} = \langle x, y, z\rangle\), yields: \(0 \rightarrow R \xrightarrow{\begin{pmatrix} z\\-y\\x\end{pmatrix}} R^3 \xrightarrow{\begin{pmatrix}-y & - z & 0\\x & 0 & -z\\0 & x & y\end{pmatrix}} R^3 \xrightarrow{\begin{pmatrix} x & y & z\end{pmatrix}} R \overset{\pi} \longrightarrow R/\mathfrak{m}\rightarrow 0.\)</li>
+                </ol>
+                <p>We proved (i), (ii) and left (iii) as an exercise.</p>
+            </div>
+            
+            <p>We then looked at the following</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Let \(R\) be a commutative ring and \(x := x_1, \ldots, x_n \in R\). Write \(K(x_1, \ldots, x_n)\) or \(K(\underline{x})\) to denote the Koszul complex on \(x_1, \ldots, x_n\). \(K(x)\) is the complex whose \(r\)th module is \(K_r := R^{\binom{n}{r}}\), for \(0 \leq r \leq n\) and is zero otherwise. For each \(1 \leq i_1 < \cdots < i_r \leq n\), let \(e_{i_1} \wedge \cdots \wedge e_{i_r}\) denote the standard basis element so that these basis elements are written in their standard order (and hence indexed 'lexicographically' by the multi-index). For each \(r\), the boundary map \(\partial : K_r\to K_{r-1}\) is defined by the equation</p>
+                <div class="math-display">
+                    \[\partial(e_{i_1} \wedge \cdots \wedge e_{i_r}) = x_1 e_{i_2} \wedge \cdots \wedge e_{i_r} + \cdots + (-1)^{r+1} x_r e_{i_1} \wedge \cdots \wedge e_{i_{r-1}}.\]
+                </div>
+            </div>
+            
+            <p>We noted that it is easy to check that \(\partial^2 = 0\), so we do have a complex (of finitely generated, free \(R\)-modules). We also noted (but did not prove) that \(x_j\cdot \textrm{H}_i(K(\underline{x}))= 0\), for all \(i, j\).</p>
+            
+            <p>We ended class with a discussion and proof of the following</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Proposition.</span> Let \((R, \mathfrak{m}, k)\) be a local ring and \(M\) a finitely generated \(R\)-module. Consider the start of two minimal free resolutions of \(M\)</p>
+                <div class="math-display" style="overflow-x: auto;">
+                    \[\begin{array}{ccccc}
+                    F_1 & \xrightarrow{\phi_1} & F_0 & \xrightarrow{\pi} & M \to 0\\
+                    && && \downarrow \alpha \\
+                    G_1 & \xrightarrow{\phi_1'} & G_0 & \xrightarrow{\pi'} & M \to 0,
+                    \end{array}\]
+                </div>
+                <p>where \(\alpha\) is an isomorphism. Taking \(K := \textrm{ker} (\pi)\) and \(L := \textrm{ker}(\pi')\), we have \(K\cong L\).</p>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
