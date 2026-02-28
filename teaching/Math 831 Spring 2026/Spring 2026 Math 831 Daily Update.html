@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spring 2026: Math 831 Daily Update</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" async></script>
     <script>
         MathJax = {
+            loader: {load: ['[tex]/amscd']},
             tex: {
+                packages: {'[+]': ['amscd']},
                 inlineMath: [['\\(', '\\)']],
                 displayMath: [['\\[', '\\]']],
                 processEscapes: true
@@ -735,11 +737,11 @@
             <div class="definition">
                 <p><span class="statement-title">Proposition.</span> Let \((R, \mathfrak{m}, k)\) be a local ring and \(M\) a finitely generated \(R\)-module. Consider the start of two minimal free resolutions of \(M\)</p>
                 <div class="math-display" style="overflow-x: auto;">
-                    \[\begin{array}{ccccc}
-                    F_1 & \xrightarrow{\phi_1} & F_0 & \xrightarrow{\pi} & M \to 0\\
-                    && && \downarrow \alpha \\
-                    G_1 & \xrightarrow{\phi_1'} & G_0 & \xrightarrow{\pi'} & M \to 0,
-                    \end{array}\]
+                    \[\begin{CD}
+                    F_1 @>\phi_1>> F_0 @>\pi>> M @>>> 0\\
+                    @. @. @VV\alpha V @.\\
+                    G_1 @>\phi_1'>> G_0 @>\pi'>> M @>>> 0
+                    \end{CD}\]
                 </div>
                 <p>where \(\alpha\) is an isomorphism. Taking \(K := \textrm{ker} (\pi)\) and \(L := \textrm{ker}(\pi')\), we have \(K\cong L\).</p>
             </div>
