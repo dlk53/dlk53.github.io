@@ -580,6 +580,42 @@
             <p>Exam 1.</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Tuesday, March 3</div>
+
+            <p>After making a few comments about Exam 1, we looked at the following</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Example A.</span> For the matrix \(A = \begin{pmatrix} 0 & -2\\1 & 3\end{pmatrix}\), find a <strong>non-zero</strong> column vector \(v\in \mathbb{R}^2\) and \(\lambda \in \mathbb{R}\) such that \(Av = \lambda v\).</p>
+            </div>
+
+            <p>We approached this example by setting \(v = \begin{pmatrix} x\\y\end{pmatrix}\) and setting up a system of equations, that ultimately became the matrix equation \(\begin{pmatrix} -\lambda & -2\\1 & -\lambda+3\end{pmatrix} \begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix} 0\\0\end{pmatrix}\). Since the vector \(v\) should be non-zero, the matrix equation should have a non-trivial solution, which happens when \(\det \begin{pmatrix} -\lambda & -2\\1 & -\lambda+3\end{pmatrix} = 0\). This led to the polynomial equation \(\lambda^2-3\lambda+2 = 0\), which has solutions \(\lambda = 2\) and \(\lambda = 1\). These are the values of \(\lambda\) we seek. What about the corresponding vectors? We saw that when \(\lambda = 2\), the matrix equation becomes \(\begin{pmatrix} -2 & -2\\1 & 1\end{pmatrix} \begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}\), which is easily seen to have a non-trivial solution \(v_1 = \begin{pmatrix} 1\\-1\end{pmatrix}\). Similarly, we saw that when \(\lambda = 1\), the matrix equation has coefficient matrix \(\begin{pmatrix} -1 & -2\\1 & 2\end{pmatrix}\), so \(v_2 = \begin{pmatrix} 2\\-1\end{pmatrix}\) is a non-trivial solution. Thus, we found two vectors \(v_1, v_2\) such that \(Av_1 = 2\cdot v_1\) and \(Av_2 = 1\cdot v_2\). We also noted that any multiple of \(v_1\) works for \(\lambda = 2\) and any multiple of \(v_2\) works for \(\lambda = 1\).</p>
+
+            <p>We then noted that \(v_1, v_2\) form a basis for \(\mathbb{R}^2\), since the determinant of \(P := \begin{pmatrix} 1 & 2\\-1 & -1\end{pmatrix}\) is not zero. We then saw that \(P^{-1} = \begin{pmatrix} -1 & -2\\1 & 1\end{pmatrix}\) and that if we set \(B = \begin{pmatrix} 2 & 0\\0 & 1\end{pmatrix}\), then \(B = P^{-1}AP\). Thus, we saw</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Summary of Example A.</span> First, there exist non-zero vectors \(v_1, v_2 \in \mathbb{R}^2\) with \(Av_1 = 2\cdot v_1\) and \(Av_2 = 1\cdot v_2\). The values 2 and 1 were found by solving the equation obtained by setting \(\det \begin{pmatrix}-\lambda & -2\\1 & -\lambda +3\end{pmatrix} = 0\); and second, if we take \(P\) to be the matrix with columns \(v_1, v_2\), then \(P^{-1}AP = \begin{pmatrix} 2 & 0\\0 & 1\end{pmatrix}\).</p>
+            </div>
+
+            <p>This led to the following</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definitions.</span> Suppose \(A\in \textrm{M}_2(\mathbb{R})\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(\lambda \in \mathbb{R}\) is an <em>eigenvalue</em> of \(A\) if there exists a non-zero vector \(v\in \mathbb{R}^2\) such that \(Av = \lambda v\). Any non-zero vector \(v\) satisfying \(Av = \lambda v\) is an <em>eigenvector</em> of \(A\) associated to \(\lambda\).</li>
+                    <li style="list-style-type: none;">(ii) \(A\) is said to be <em>diagonalizable</em> if there exists an invertible matrix \(P\in \textrm{M}_2(\mathbb{R})\) such that \(P^{-1}AP\) is a diagonal matrix, i.e., \(P^{-1}AP = \begin{pmatrix} \lambda_1 & 0\\0 & \lambda_2\end{pmatrix}\), for \(\lambda_1, \lambda_2\in \mathbb{R}\).</li>
+                </ol>
+            </div>
+
+            <p>This led to formalizing the process of finding eigenvalues.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Proposition-Definition.</span> Let \(A\in \textrm{M}_2(\mathbb{R})\). The eigenvalues of \(A\) are found by solving the polynomial equation \(\det (A-\lambda I_2) = 0\). The resulting polynomial \(\det (A-\lambda I_2)\) is called the <em>characteristic polynomial</em> of \(A\). If \(\lambda\) is an eigenvalue, then eigenvectors corresponding to \(\lambda\) are obtained by taking non-zero solutions to the system of equations \((A-\lambda I_2)\begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix} 0\\0\end{pmatrix}\).</p>
+            </div>
+
+            <p>We ended class by repeating the steps in Example A for the matrix \(B = \begin{pmatrix} -1 & 2\\4 & -3\end{pmatrix}\).</p>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
