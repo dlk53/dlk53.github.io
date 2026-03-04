@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring 2026: Math 291 Daily Update</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #357abd;
+        }
+        .back-link:focus {
+            outline: 2px solid #357abd;
+            outline-offset: 2px;
+        }
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        /* Ensure sufficient color contrast */
+        .problem-number {
+            color: #2563eb;
+        }
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <h1>Spring 2026: Math 291 Daily Update</h1>
+    </header>
+
+    <main id="main-content">
+        <div class="problem">
+            <div class="problem-number">Tuesday, January 20</div>
+            <p>After reviewing class procedures, and items on the syllabus, we began a discussion of \(2\times 2\) matrices over \(\mathbb{R}\), the set of which we denote by \(\textrm{M}_2(\mathbb{R})\). Given \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), we identified the entries of \(A\) as follows: \(a\) is the (1,1) entry, \(b\) is the (1,2) entry, \(c\) is the (2,1) entry and \(d\) is the (2,2) entry.</p>
+            
+            <p>We established two fundamental operations:</p>
+             <div class="definition">
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) Matrix addition: Given \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), \(B = \begin{pmatrix} e & f\\g & h\end{pmatrix}\), define \(A+B := \begin{pmatrix} a+e & b+f\\c+g & d+h\end{pmatrix}\).</li>
+                <li style="list-style-type: none;">(ii) Scalar multiplication: Given \(\lambda \in \mathbb{R}\) and \(A\in \textrm{M}_2(\mathbb{R})\), define \(\lambda \cdot A = \begin{pmatrix} \lambda a & \lambda b\\\lambda c & \lambda d\end{pmatrix}\).</li>
+            </ol>
+            </div>
+            
+            <p>We then discussed at length the following properties. In what follows, \(A, B, C\in \textrm{M}_2(\mathbb{R})\) and \(\lambda, \lambda_1, \lambda_2 \in \mathbb{R}\).</p>
+             <div class="definition">
+            <p>1. An additive identity exists: For \({\bf 0}_{2\times 2} := \begin{pmatrix} 0 & 0\\0 & 0\end{pmatrix}\), we have \({\bf 0}_{2\times 2}+A = A\), for all \(A\in \textrm{M}_2(\mathbb{R})\).</p>
+            
+            <p>2. Additive inverses exist: Given \(-A := \begin{pmatrix} -a & -b\\-c & -d\end{pmatrix}\), we have \(-A+A = {\bf 0}_{2\times 2}\).</p>
+            
+            <p>3. Addition is commutative: \(A+B = B+A\).</p>
+            
+            <p>4. Addition is associative: \((A+B)+C = A+(B+C)\), for \(A, B, C\in \textrm{M}_2(\mathbb{R})\).</p>
+            
+            <p>5. Scalar multiplication distributes over matrix addition: \(\lambda \cdot (A+B) = \lambda \cdot A+\lambda \cdot B\), for \(\lambda \in \mathbb{R}\).</p>
+            
+            <p>6. Scalar addition is distributive: \((\lambda_1+\lambda_2)\cdot A = \lambda_1\cdot A+\lambda_2\cdot A\), for \(\lambda_1,\lambda_1\in \mathbb{R}\).</p>
+            
+            <p>7. Scalar multiplication is associative: \((\lambda_1\lambda_2)\cdot A = \lambda _1\cdot (\lambda_2\cdot A)\).</p>
+            
+            <p>8. \(1\cdot A = A\) and \(0\cdot A = {\bf 0}_{2\times 2}\).</p>
+            </div>
+            
+            <p>We also discussed how one might prove these identities and noted that the properties above will be recurring throughout the semester as we discuss abstract vector spaces. We ended class by discussing the following consequences of properties (1)-(8) above. Keeping the same notation, we have</p>
+            
+             <div class="definition">
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(-1\cdot A = -A\).</li>
+                <li style="list-style-type: none;">(ii) Additive inverses are unique, i.e., if \(A+C = {\bf 0}_{2\times 2}\), then \(C = -A\).</li>
+                <li style="list-style-type: none;">(iii) Cancellation holds for matrix addition, i.e., if \(A+B = A+C\), then \(B = C\).</li>
+            </ol>
+            </div>
+        </div>
+        
+
+        <div class="problem">
+            <div class="problem-number">Thursday, January 22</div>
+            <p>In today's lecture we introduced two new operations for \(2\times 2\) matrices, namely multiplication of a matrix times a column and multiplication of two (\(2\times 2\)) matrices.</p>
+            
+            <p>For \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), \(B = \begin{pmatrix} e & f\\g & h\end{pmatrix}\), \(C = \begin{pmatrix} u\\v\end{pmatrix}\), we defined</p>
+            
+             <div class="definition">
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(A\cdot C = \begin{pmatrix} a & b\\c & d\end{pmatrix} \cdot \begin{pmatrix} u\\v\end{pmatrix} := \begin{pmatrix} au+bv\\cu+dv\end{pmatrix}\).</li>
+                <li style="list-style-type: none;">(ii) \(A\cdot B = \begin{pmatrix} a & b\\c & d\end{pmatrix}\cdot \begin{pmatrix} e & f\\g & h\end{pmatrix} = \begin{pmatrix} ae+bg & af+bh\\ce+dg & cf+dh\end{pmatrix}\).</li>
+            </ol>
+            </div>
+            
+            <p>We noted that the (1,1) entry of \(AB\) is \(R_1\cdot C_1\), the (1,2) entry is \(R_1\cdot C_2\), the (2,1) entry is \(R_2\cdot C_1\) and the (2,2) entry is \(R_2\cdot C_2\), where \(R_i\) is the \(i\)th row of \(A\) and \(C_j\) is the \(j\)th column of \(B\). We also noted that if we think of \(B\) as the matrix with columns \(C_1, C_2\), i.e., \(B = [C_1\ C_2]\), then \(AB = [AC_1\ AC_2]\), the matrix with columns \(AC_1, AC_2\).</p>
+            
+            <p>We discussed how we can use the product of a matrix times a column to re-write a system of equations as a <strong>single</strong> matrix equation, as follows. Given the system of two equations in two unknowns</p>
+            
+            <div class="math-display">
+                \[\begin{align*}
+                ax+by &= u\\
+                cx+dy &= v,
+                \end{align*}\]
+            </div>
+            
+            <p>We can write this as \(AX = L\), where \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), \(X = \begin{pmatrix} x\\y\end{pmatrix}\) and \(L = \begin{pmatrix} u\\v\end{pmatrix}\).</p>
+            
+            <p>We then discussed powers of \(2\times 2\) matrices and the class calculated \(A^2, A^3, A^4\) and conjectured the value of \(A^{2026}\), for \(A = \begin{pmatrix} 1 & 0\\1 & 1\end{pmatrix}\). We were easily able to conjecture \(A^n = \begin{pmatrix} 1 & 0\\n & 1\end{pmatrix}\), for all \(n\geq 1\), which led to a discussion of how to use <em>mathematical induction</em> to prove this fact. One first establishes the base case \(n = 1\), which in this case is clear. One then shows that the \(n-1\) case implies the \(n\)th case - the <em>inductive step</em>, which in this case amounted to showing that \(A\cdot \begin{pmatrix} 1 & 0\\n-1 & 1\end{pmatrix} = \begin{pmatrix} 1 & 0\\n & 1\end{pmatrix} = A^n\). The class then used induction to prove the formula \(1+2+\cdots + n = \frac{n(n+1)}{2}\).</p>
+            
+            <p>We moved on to discuss (but not prove) the following</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Properties of matrix multiplication.</span> Let \(A, B, C\) be \(2\times 2\) matrices.</p>
+            
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \({\bf 0}_{2\times 2}\cdot A = {\bf 0}_{2\times 2} = A\cdot {\bf 0}_{2\times 2}\).</li>
+                    <li style="list-style-type: none;">(ii) For \(I_2 := \begin{pmatrix} 1 & 0\\0 & 1\end{pmatrix}\), \(A\cdot I_2 = A = I_2\cdot A\), i.e., a multiplicative identity exists.</li>
+                    <li style="list-style-type: none;">(iii) Multiplication distributes over matrix sums: \(A\cdot (B+C) = A\cdot B+A\cdot C\).</li>
+                    <li style="list-style-type: none;">(iv) Multiplication is associative: \(A(BC) = (AB)C\).</li>
+                    <li style="list-style-type: none;">(v) A matrix \(D\) satisfying \(AD = I_2 = DA\) is called an <em>inverse</em> of \(A\) and is denoted \(A^{-1}\).</li>
+                </ol>
+            </div>
+            
+            <p>We finished class by noting that if the matrix equation \(AX = L\) represents a system of equations (as above) and \(A\) has an inverse, then we can multiply both sides of the matrix equation by \(A^{-1}\) to get the solution \(X = A^{-1}L\).</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, January 27</div>
+            
+            <p>We began class with the following definition. For the \(2\times 2\) matrix \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), the <em>determinant</em> of \(A\), denoted \(\det A\), equals \(ad-bc\).</p>
+            
+            <p>We then discussed and verified the following</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Properties of the determinant.</span> Let \(A, B\) denote \(2\times 2\) matrices over \(\mathbb{R}\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) If \(A'\) is obtained from \(A\) by multiplying a row or column of \(A\) by \(\lambda \in \mathbb{R}\), then \(\det A' = \lambda \det A\).</li>
+                    <li style="list-style-type: none;">(ii) If \(A'\) is obtained from \(A\) by interchanging its rows or interchanging its columns, then \(\det A' = -\det A\).</li>
+                    <li style="list-style-type: none;">(iii) If \(A'\) is obtained from \(A\) by adding a multiple of one of its rows to <strong>another</strong> row, then \(\det A = \det A'\). Similarly for the columns of \(A\).</li>
+                </ol>
+                
+                <p>The operations (i)-(iii) are called <em>elementary row or column operations</em>.</p>
+                
+                <ol style="list-style-type: none; padding-left: 20px;" start="4">
+                    <li style="list-style-type: none;">(iv) \(\det AB = \det A\cdot \det B\).</li>
+                    <li style="list-style-type: none;">(v) Suppose \(\det A \not = 0\). Set \(\Delta := \det A\). Then \(A^{-1}\) exists and we have \(A^{-1} = \begin{pmatrix} \frac{d}{\Delta} & -\frac{c}{\Delta}\\-\frac{b}{\Delta} & \frac{a}{\Delta}\end{pmatrix}\).</li>
+                    <li style="list-style-type: none;">(vi) Given vectors \(u = (a,b)\) and \(v = (c,d)\), the area of the parallelogram in \(\mathbb{R}^2\) spanned by \(u\) and \(v\) is \(|ad-bc|\), i.e., the absolute value of \(\det \begin{pmatrix} a & b\\c & d\end{pmatrix}\).</li>
+                </ol>
+            </div>
+            
+            <p>We ended class by looking at a typical system of two linear equations in two unknowns</p>
+            
+            <div class="math-display">
+                \[\begin{align*}
+                (1)\quad ax+by &= u\\
+                (2)\quad cx+dy &= v.
+                \end{align*}\]
+            </div>
+            
+            <p>We noted that each equation corresponds to a straight line \(L_1, L_2\) (respectively) in \(\mathbb{R}^2\) and \((s,t)\) is a solution to the system if and only if \((s,t)\) is a point on each line. Thus the following are the <strong>only</strong> possibilities for the solution set to the given system of equations:</p>
+            
+             <div class="definition">
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) There is a unique solution. This occurs when \(L_1\) and \(L_2\) are not parallel, and thus intersect in a single point.</li>
+                <li style="list-style-type: none;">(ii) There is no solution. This occurs when \(L_1\) and \(L_2\) are parallel.</li>
+                <li style="list-style-type: none;">(iii) There are infinitely many solutions. This occurs when \(L_1 = L_2\), so that \((s,t)\) is a solution to the system if and only if it is a solution to the first (or second) equation.</li>
+            </ol>
+            </div>
+            
+            <p>Thus, there can never be a \(2\times 2\) system of linear equations with exactly 17 solutions! (Or with exactly \(n\) solutions for any \(n > 1\).)</p>
+        </div>
+
+
+        <div class="problem">
+            <div class="problem-number">Thursday, January 29</div>
+            
+            <p>In the previous lecture we saw that given a system of linear equations</p>
+            \[\begin{align*}
+            ax+by &= u\\
+            cx+dy &= v
+            \end{align*}\]
+            <p>whose coefficient matrix \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\) has non-zero determinant \(\Delta\), then the solution to the system is given by</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Cramer's Rule.</span> For the system above, with \(\Delta \not = 0\), \(x = \frac{\det\begin{pmatrix} u & b\\v & d\end{pmatrix}}{\Delta}\) and \(y = \frac{\det\begin{pmatrix} a & u\\c & v\end{pmatrix}}{\Delta}\).</p>
+            </div>
+            
+            <p>We noted that for large systems of linear equations, Cramer's rule is not cost effective, so we began a discussion of <em>Gaussian elimination</em>. We started with a specific system of equations (like)</p>
+            \[\begin{align*}
+            2x+6y &= 8\\
+            3x+y &= 4
+            \end{align*}\]
+            <p>and performed a sequence of operations that changed the system, but preserved the solution. These operations were of the following form: Interchange equations, add a multiple of <strong>one</strong> equation to <strong>another</strong> equation, and multiply an equation by a <strong>non-zero</strong> number. This simplified the system to one trivially solvable, namely</p>
+            \[\begin{align*}
+            x &= 1\\
+            y &= 1.
+            \end{align*}\]
+            
+            <p>We noted that in doing the various operations, the arithmetic involved the coefficients in the equations and the variables were essentially placeholders. This led to considering the corresponding <em>augmented matrix</em> \(\begin{bmatrix}2 & 6 & | & 8\\3 & 1 & | & 4\end{bmatrix}\). By performing the same operations on the rows of the augmented matrix that we did on the system of equations, this led to the augmented matrix \(\begin{bmatrix}1 & 0 & | & 1\\0 & 1 & | & 1\end{bmatrix}\), which corresponds to the system</p>
+            \[\begin{align*}
+            x &= 1\\
+            y &= 1.
+            \end{align*}\]
+            <p>We formalized this process by defining</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Elementary Row Operations.</span> Let \(A\) be a \(2\times 2\) matrix (or any matrix in fact). The following constitute elementary row operations:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Interchange two rows.</li>
+                    <li style="list-style-type: none;">(ii) Add a multiple of <strong>one</strong> row to <strong>another</strong> row.</li>
+                    <li style="list-style-type: none;">(iii) Multiply a row by a <strong>non-zero</strong> number.</li>
+                </ol>
+            </div>
+            
+            <p>We noted that the goal was to put, if possible, the beginning augmented matrix \(\begin{bmatrix}a & b & | & u\\c & d & | & v\end{bmatrix}\) into the form \(\begin{bmatrix}1 & 0 & | & s\\0 & 1 & | & t\end{bmatrix}\), from which the solution \(x = s, y = t\) could be read. We noted that the strategy for the Gaussian elimination process should be as follows: Using elementary row operations, first get a 1 in the (1,1) entry of the augmented matrix, then use that 1 to get 0 below it. Then make, if possible, the (2,2) entry of the augmented matrix 1 and then use that 1 to get a 0 above it. This will always be possible when the original system has a unique solution.</p>
+            
+            <p>We ended class by considering the remaining two cases. In one case, the final augmented matrix took the form \(\begin{bmatrix}1 & 3 & | & 4\\0 & 0 & | & 0\end{bmatrix}\), which corresponds to the system \(x+3y = 4\), from which one concludes \(x = 4-3y\). To describe the solution set we introduced another parameter \(t\) to get \(\{(4-3t, t)\ |\ t\in \mathbb{R}\}\) as the solution set. This is the case when the system has infinitely many solutions. We then saw an example where the final augmented matrix took the form \(\begin{bmatrix}1 & 3 & | & 4\\0 & 0 & | & 1\end{bmatrix}\), which meant the original system had no solution, since \(0 = 1\) is a contradiction.</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, February 3</div>
+            
+            <p>After reviewing the possible outcomes for solving a system of two linear equations in two unknowns using Gaussian elimination, we considered the following \(2\times 3\) system of equations</p>
+            <div class="math-display">
+                \[\begin{align*}
+                2x+5y+2z &= 9\\
+                x+2y-z &= 4.
+                \end{align*}\]
+            </div>
+            <p>As expected, we began with the augmented matrix \(\begin{bmatrix}2 & 5 & 2 & | & 9\\1 & 2 & -12 & | & 4\end{bmatrix}\), applied elementary row operations with the same strategy as in the \(2\times 2\) case and arrived at \(\begin{bmatrix}1 & 0 & -9 & | & 2\\0 & 1 & 4 & | & 1\end{bmatrix}\), from which we derived the solution set \(\{(2+9t,1-4t,t)\ |\ t\in \mathbb{R}\}\), which is a one parameter solution set.</p>
+            
+            <p>We then considered the system</p>
+            <div class="math-display">
+                \[\begin{align*}
+                2x+4y-2z &= 8\\
+                x+2y-z &= 4.
+                \end{align*}\]
+            </div>
+            <p>Following the same procedure led to the augmented matrix \(\begin{bmatrix}1 & 2 & -1 & | & 4\\0 & 0 & 0 & | & 0\end{bmatrix}\), showing that the solution set is \(\{(4-2t_1+t_2, t_1, t_2)\ |\ t_1, t_2\in \mathbb{R}\}\), a two parameter solution set. We then recorded the fact that if we start with a system of two linear equations in three unknowns, the original augmented matrix \(\begin{bmatrix}a & b & c & | & u\\d & e & f & | & v\end{bmatrix}\) takes one of the following three forms after performing elementary row operations:</p>
+            
+            <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+                <div style="flex: 1; padding: 10px;">
+                    <strong>A</strong>
+                    <div class="math-display">
+                        \[\begin{bmatrix}1 & 0 & * & | & *\\0 & 1 & * & | & *\end{bmatrix}\]
+                    </div>
+                </div>
+                <div style="flex: 1; padding: 10px;">
+                    <strong>B</strong>
+                    <div class="math-display">
+                        \[\begin{bmatrix}1 & * & * & | & *\\0 & 0 & 0 & | & 0\end{bmatrix}\]
+                    </div>
+                </div>
+                <div style="flex: 1; padding: 10px;">
+                    <strong>C</strong>
+                    <div class="math-display">
+                        \[\begin{bmatrix}1 & * & * & | & *\\0 & 0 & 0 & | & \alpha\end{bmatrix}\]
+                    </div>
+                </div>
+            </div>
+            
+            <p>where \(\alpha \neq 0\) in case C. We noted that the solution set is infinite in case A, with a one parameter solution, the solution set in Case B is infinite with a two parameter solution set and that there was no solution in Case C. <strong>In particular, no \(2\times 3\) system of linear equations has a unique solution.</strong> We further noted that in all cases we have seen, there is the</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Important fact.</span> The number of independent parameters needed to describe the solution set is the number of variables minus the number of leading ones that appear in the final augmented matrix.</p>
+            </div>
+            
+            <p>After noting that this important fact applies to systems of equations of any size, we then formalized the form the final matrix should take in the Gaussian elimination process. This applies to systems of linear equations of any size.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Reduced Row Echelon Form.</span> An augmented matrix is in reduced row echelon form (RREF) if it satisfies the following conditions:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) The leading entry of each non-zero row is 1.</li>
+                    <li style="list-style-type: none;">(ii) There are only zeros above and below each non-zero leading entry.</li>
+                    <li style="list-style-type: none;">(iii) The non-zero leading entries move to the right as one moves down the rows.</li>
+                    <li style="list-style-type: none;">(iv) All zero rows are at the bottom of the matrix.</li>
+                </ol>
+            </div>
+            
+            <p>We ended class by noting that the technique of Gaussian elimination, namely converting the system to an augmented matrix and applying elementary row operations to get a RREF, applies to systems of linear equations of any size and we illustrated this by solving the system</p>
+            <div class="math-display">
+                \[\begin{align*}
+                x+y+z &= 6\\
+                2x+4y+6z &= 28\\
+                5x+7y+9z &= 46
+                \end{align*}\]
+            </div>
+            <p>which had the solution \(x = 1, y = 2, z = 3\).</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, February 5</div>
+            
+            <p>We began class by reviewing the possible outcomes in terms of the RREFs for an augmented matrix representing a \(3\times 3\) system of linear equations. We then reminded the class of the <strong>important fact</strong> that given any system of linear equations, the number independent parameters needed to describe the solution set is the number of variables minus the number of leading 1s in the RREF of the corresponding augmented matrix. We also noted that a system of linear equations is said to be <strong>homogeneous</strong> if the right hand side of the system consists entirely of zeros. In this case, there will always be at least one solution, namely the solution in which all of the given variables equal zero.</p>
+            
+            <p>We then noted the following</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">General fact.</span> Suppose \(A\) is an \(n\times m\) matrix and \(B\) is a \(p\times t\) matrix. Then we can only form the product \(AB\) when \(m = p\). In this case \(AB\) is an \(n\times t\) matrix whose \((i,j)\) entry is the \(i\)th row of \(A\) times the \(j\)th column of \(B\).</p>
+            </div>
+            
+            <p>After computing a couple of products, we noted that the product rules (i)-(v) from January 22 hold, as long as the product exists. We then began a discussion of elementary \(2\times 2\) matrices.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Elementary \(2\times 2\) matrices.</span> The elementary matrices are obtained by applying elementary row operations to \(I_2 = \begin{pmatrix} 1 & 0\\0 & 1\end{pmatrix}\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Type I: Interchange the rows of \(I_2\), i.e., \(E = \begin{pmatrix} 0 & 1\\1 & 0\end{pmatrix}\).</li>
+                    <li style="list-style-type: none;">(ii) Type II: Add a multiple of one row of \(I_2\) to another, e.g., \(E = \begin{pmatrix} 1 & 0\\ \lambda & 1\end{pmatrix}\) or \(E = \begin{pmatrix} 1 & \lambda\\0 & 1\end{pmatrix}\), for \(\lambda \in \mathbb{R}\).</li>
+                    <li style="list-style-type: none;">(iii) Type III: Multiply a row of \(I_2\) by a non-zero number, e.g., \(E = \begin{pmatrix} \lambda & 0\\0 & 1\end{pmatrix}\) or \(E = \begin{pmatrix} 1 & 0\\0 & \lambda\end{pmatrix}\).</li>
+                </ol>
+            </div>
+            
+            <p>The class then verified (in the \(2\times 2\) case) that for any elementary matrix \(E\), \(EA\) is the same matrix obtained by applying the corresponding elementary row operation to \(A\). We then noted that elementary matrices are invertible, and their inverses are elementary matrices that can be easily guessed.</p>
+            
+            <p>We then asked what does it mean in terms of elementary matrices if \(A\) is a \(2\times 2\) matrix that reduces to \(I_2\) via elementary row operations. We inferred that there exists a \(2\times 2\) matrix \(H\) such that \(HA = I_2\) and thus (via the bonus problem listed in today's homework)  \(A\) is invertible and \(A^{-1}\) can be found via Gaussian elimination, as stated below.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Using Gaussian elimination to find \(A^{-1}\), if it exists.</span> Given an \(n\times n\) matrix \(A\), start with the \(n\times (2n)\) augmented matrix \([A\ |\ I_n]\) and apply elementary row operations until either:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) One arrives at \([I_n\ | \ B]\), in which case \(B = A^{-1}\) or</li>
+                    <li style="list-style-type: none;">(ii) At some point the left hand side of the augmented matrix has a row consisting entirely of zeros, in which case \(A\) does not have an inverse.</li>
+                </ol>
+                In terms of elementary matrices, if  \(E_1, ..., E_r\) the are elementary matrices corresponding to the row operations used in (i), then \(A^{-1} = E_r \cdots E_2 E_1\).
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, February 10</div>
+            
+            <p>We began class by thinking of \(\mathbb{R}^2\) as a <em>vector space</em> even though we have not yet formally defined the general concept of a vector space. We noted that the elements of \(\mathbb{R}^2\) can be thought of as row or column vectors and as such one can add two vectors or scalar multiply a vector by a real number exactly as one does in Calculus II. We then noted that the elements of \(\mathbb{R}^2\) satisfy the Fundamental Properties from the lecture of January 20. We then pointed out (informally) that it is precisely these properties that make any set with addition and scalar multiplication into a vector space. We then gave the following</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Definition-Proposition.</span> Take \(v_1, v_2\in \mathbb{R}^2\). Then \(v_1, v_2\) are said to be <em>linearly independent</em> if the following equivalent statements hold:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) If \(\alpha v_1+\beta v_2 = \vec{0}\), for \(\alpha,\beta \in \mathbb{R}\), then \(\alpha = 0 = \beta\).</li>
+                    <li style="list-style-type: none;">(ii) We <strong>cannot</strong> write \(v_1 = \lambda v_2\) or \(v_2 = \lambda v_1\), for \(0\neq \lambda \in \mathbb{R}\).</li>
+                </ol>
+            </div>
+            
+            <p>We noted that geometrically, condition (ii) just says that \(v_1\) and \(v_2\) do not lie on the same line through the origin in \(\mathbb{R}^2\). We also noted that if one of \(v_1, v_2\) is \(\vec{0}\), then \(v_1, v_2\) cannot be linearly independent. We also defined \(v_1, v_2\) to be <em>linearly dependent</em> if they are not linearly independent. We noted that the vectors \((1,2), (2,1)\) are linearly independent, while the vectors \((1,2), (4,8)\) are linearly dependent.</p>
+            
+            <p>We then proved the following important theorem.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> Take vectors \(v_1 = (a,b), v_2 = (c,d) \in \mathbb{R}^2\) and set \(A := \begin{pmatrix} a & b\\c & d\end{pmatrix}\). Then \(v_1, v_2\) are linearly independent if and only if \(\det A \neq 0\).</p>
+            </div>
+            
+            <p>We ended class by noting, but not verifying, that if \(v_1, v_2 \in \mathbb{R}^2\) are linearly independent, then given any vector \(u\in \mathbb{R}^2\), we can find (unique) \(\alpha, \beta \in \mathbb{R}\) such that \(u = \alpha v_1+\beta v_2\).</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, February 12</div>
+            
+            <p>We began class by reviewing the definition of what it means for two vectors in \(\mathbb{R}^2\) to be linearly independent. This led to a discussion and example of how any vector in \(\mathbb{R}^2\) is a linear combination of a fixed set of linearly independent vectors. In particular, we showed how \((6,9)\) can be written as a linear combination of the independent vectors \((2,3)\) and \((1,3)\). We then formally gave the following definitions.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Definitions.</span> Given \(v_1, v_2\in \mathbb{R}^2\):</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) A <em>linear combination</em> of \(v_1, v_2\) is an expression of the form \(\alpha v_1+\beta v_2\), with \(\alpha, \beta \in \mathbb{R}\).</li>
+                    <li style="list-style-type: none;">(ii) The <em>span</em> of \(v_1, v_2\), denoted \(\langle v_1, v_2\rangle\), is the set of all possible linear combinations of \(v_1, v_2\).</li>
+                </ol>
+            </div>
+            
+            <p>We then established the following theorem:</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> Given vectors \(v_1, v_2\in \mathbb{R}^2\), \(v_1, v_2\) are linearly independent if and only if \(\langle v_1, v_2\rangle = \mathbb{R}^2\).</p>
+            </div>
+            
+            <div class="definition">
+                <p><span class="statement-title">Important facts.</span> The equivalence in the theorem above is a function of taking two vectors in \(\mathbb{R}^2\). In \(\mathbb{R}^3\), two independent vectors never span \(\mathbb{R}^3\) and four spanning vectors are never linearly independent. However, in \(\mathbb{R}^3\), three vectors are linearly independent if and only if they span \(\mathbb{R}^3\). We will discuss the general notions of linear independence and spanning in the near future.</p>
+            </div>
+            
+            <p>We ended class by observing that a line through the origin in \(\mathbb{R}^2\) is closed under vector addition and scalar multiplication, and noted that these properties will determine the concept of <em>subspace</em> to be discussed next week.</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, February 17</div>
+            
+            <p>We began class with the following important definition.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> A function \(T: \mathbb{R}^2\to \mathbb{R}^2\) is a <em>linear transformation</em> if:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(T(v_1+v_2) = T(v_1)+T(v_2)\), for all \(v_1, v_2\in \mathbb{R}^2\)</li>
+                    <li style="list-style-type: none;">(ii) \(T(\lambda v) = \lambda T(v)\), for all \(\lambda \in \mathbb{R}\) and \(v\in \mathbb{R}^2\).</li>
+                </ol>
+            </div>
+            
+            <p>Examples of linear transformations given in class were:</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(T(x,y) = (2x+2y, -6x+2y)\);</li>
+                <li style="list-style-type: none;">(ii) \(T(x,y) = (-y,x)\), rotation 90 degrees counterclockwise;</li>
+                <li style="list-style-type: none;">(iii) \(T(x,y) = (y,-x+2y)\).</li>
+            </ol>
+            <p>We noted that the second linear transformation has the property that no line through the origin is mapped to itself by the linear transformation (i.e., \(T\) has no <em>eigenvectors</em>), while the third linear transformation maps the line \(y = x\) to itself (i.e., the vector \((1,1)\) is an eigenvector).</p>
+            
+            <p>We then noted that a linear transformation \(T: \mathbb{R}^2\to \mathbb{R}^2\) is totally determined by its effect on the <em>standard basis</em> of \(\mathbb{R}^2\) given by \(E = \{e_1, e_2\}\), where \(e_1 = (1,0)\) and \(e_2 = (0,1)\). In fact, if \(v = (a,b)\), then</p>
+            <div class="math-display">
+                \[T(v) = T(a,b) = T((a,0)+(0,b)) = T(a,0)+T(0,b) = aT(1,0)+bT(0,1) = aT(e_1)+bT(e_2),\]
+            </div>
+            <p>showing that the value of \(T(v)\) is already determined by the values of \(T(e_1)\) and \(T(e_2)\).</p>
+            
+            <p>We then gave the following definition, which we noted is a special case of a more general definition to come. We first reminded the class of the theorem from the previous lecture which showed that \(v_1, v_2\in \mathbb{R}^2\) are linearly independent if and only if they span \(\mathbb{R}^2\).</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Two vectors \(v_1, v_2\in \mathbb{R}^2\) form a <em>basis</em> for \(\mathbb{R}^2\) if they span \(\mathbb{R}^2\), or equivalently, they are linearly independent.</p>
+            </div>
+            
+            <p>After noting that the standard basis for \(\mathbb{R}^2\) mentioned above is a basis for \(\mathbb{R}^2\), we gave the following important definition.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Let \(T: \mathbb{R}^2\to \mathbb{R}^2\) be a linear transformation, \(\alpha := \{v_1, v_2\}\) and \(\beta := \{w_1, w_2\}\) be bases for \(\mathbb{R}^2\). Then the <em>matrix of T with respect to</em> \(\alpha\) and \(\beta\) is the matrix \([T]_{\alpha}^{\beta} = \begin{pmatrix} a & c\\b & d\end{pmatrix}\), where \(T(v_1) = aw_1+bw_2\) and \(T(v_2) = cw_1+dw_2\).</p>
+            </div>
+            
+            <p>We then noted that \([T]^E_E\) is the easiest matrix to calculate, namely if \(T(x,y) = (ax+cy, bx+dy)\), then \([T]_E^E = \begin{pmatrix} a & c\\b & d\end{pmatrix}\). From this we noted that if \(v = (e,f)\), then in terms of columns, \(T(v) = T(e,f) = A\begin{pmatrix} e\\f\end{pmatrix}\), where \(A = [T]_E^E\). This equation always holds true as long as we take the standard basis for both the input basis and output basis.</p>
+            
+            <p>We finished class by noting that if \(T(x,y) = (2x-4y, x+7y)\), then \([T]_E^E = \begin{pmatrix} 2 & -4\\1 & 7\end{pmatrix}\), while if \(B = \{w_1, w_2\}\) with \(w_1 = (1,1)\) and \(w_2 = (1,2)\), \([T]_B^E = \begin{pmatrix} -2 & -6\\8 & 15\end{pmatrix}\), which follows easily from the fact that \(T(1,1) = (-2,8)\) and \(T(1,2) = (-6,15)\). However, to calculate \([T]_E^B\), we saw that this required solving two systems of equations, namely</p>
+            <div class="math-display">
+                \[r\begin{pmatrix} 1\\1\end{pmatrix} + s\begin{pmatrix} 1\\2\end{pmatrix} = \begin{pmatrix} 2\\1\end{pmatrix}\quad\quad \textrm{and}\quad\quad u\begin{pmatrix} 1\\1\end{pmatrix} + v\begin{pmatrix} 1\\2\end{pmatrix} = \begin{pmatrix} -4\\7\end{pmatrix}.\]
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, February 19</div>
+            
+            <p>After recalling the definition of a basis for \(\mathbb{R}^2\), linear transformation and the matrix of a linear transformation with respect to two bases, we considered the following question: Suppose we are given \(S,T: \mathbb{R}^2\to \mathbb{R}^2\) are two linear transformations. Then the composition \(ST:\mathbb{R}^2\to \mathbb{R}^2\) is also a linear transformation. Can a matrix of \(ST\) be expressed in terms of matrices for \(S\) and \(T\)?</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Very Important Formula.</span> Suppose \(S, T: \mathbb{R}^2\to \mathbb{R}^2\) are linear transformations, and \(\alpha, \beta, \gamma\) are bases for \(\mathbb{R}^2\). Then \(ST: \mathbb{R}^2\to \mathbb{R}^2\) is a linear transformation and</p>
+                <div class="math-display">
+                    \[[ST]_{\alpha}^{\gamma} = [S]_{\beta}^{\gamma}\cdot [T]_{\alpha}^{\beta}.\]
+                </div>
+            </div>
+            
+            <p>After proving this formula, we described <em>change of basis matrices</em>, by noting that if \(\alpha, \beta\) are bases for \(\mathbb{R}^2\), then \([I_2]_{\alpha}^{\beta}\) is the matrix obtained by expressing the basis elements of \(\alpha\) in terms of the basis \(\beta\). Similarly, \([I_2]_{\beta}^{\alpha}\) is the matrix obtained by expressing the basis elements of \(\beta\) in terms of \(\alpha\). Using the very important formula above we saw that the matrices are inverses of one another:</p>
+            <div class="math-display">
+                \[I_2 = [I_2]_{\beta}^{\beta} = [I_2]_{\alpha}^{\beta} \cdot[I_2]_{\beta}^{\alpha}\quad \textrm{and}\quad I_2 = [I_2]_{\alpha}^{\alpha} = [I_2]_{\beta}^{\alpha} \cdot[I_2]_{\alpha}^{\beta}.\]
+            </div>
+            <p>This led to the fundamental formula, which follows from the very important formula.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Change of Basis Formula.</span> Suppose \(T: \mathbb{R}^2\to \mathbb{R}^2\) is a linear transformation and \(\alpha, \beta\) are bases for \(\mathbb{R}^2\). Then</p>
+                <div class="math-display">
+                    \[[T]_{\beta}^{\beta} = [I_2]_{\alpha}^{\beta}\cdot [T]_{\alpha}^{\alpha}\cdot [I_2]_{\beta}^{\alpha}.\]
+                </div>
+                <p>In particular, if we set \(A := [T]_{\alpha}^{\alpha}\) , \(B := [T]_{\beta}^{\beta}\) and \(P:= [I_2]_{\beta}^{\alpha}\), we obtain the classic expression</p>
+                <div class="math-display">
+                    \[B = P^{-1}AP.\]
+                </div>
+            </div>
+            <!--
+            <p>The rest of the class was spent illustrating the change of basis formula with the following examples.</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(T(x,y) = (2x-4y, x+7y)\), \(A = [T]_E^E\), \(B = [T]_{\beta}^{\beta}\), for \(\beta = \{(1,1), (1,2)\}\), and \(P = [I_2]_{\beta}^E\).</li>
+                <li style="list-style-type: none;">(ii) \(T(x,y) = (x+6y, 2x+5y)\), \(A = [T]_E^E\), \(B = [T]_{\beta}^{\beta}\), for \(\beta = \{(1,1), (-3, 1)\}\) and \(P = [I_2]_{\beta}^E\).</li>
+            </ol>
+            <p>The second example was interesting because it gave an example of a <em>diagonalizable</em> linear transformation.</p>
+        </div>
+-->
+        <div class="problem">
+            <div class="problem-number">Tuesday, February 24</div>
+            
+            <p>The class worked on practice problems for Exam I.</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, February 26</div>
+            
+            <p>Exam 1.</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, March 3</div>
+
+            <p>After making a few comments about Exam 1, we looked at the following</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Example A.</span> For the matrix \(A = \begin{pmatrix} 0 & -2\\1 & 3\end{pmatrix}\), find a <strong>non-zero</strong> column vector \(v\in \mathbb{R}^2\) and \(\lambda \in \mathbb{R}\) such that \(Av = \lambda v\).</p>
+            </div>
+
+            <p>We approached this example by setting \(v = \begin{pmatrix} x\\y\end{pmatrix}\) and setting up a system of equations, that ultimately became the matrix equation \(\begin{pmatrix} -\lambda & -2\\1 & -\lambda+3\end{pmatrix} \begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix} 0\\0\end{pmatrix}\). Since the vector \(v\) should be non-zero, the matrix equation should have a non-trivial solution, which happens when \(\det \begin{pmatrix} -\lambda & -2\\1 & -\lambda+3\end{pmatrix} = 0\). This led to the polynomial equation \(\lambda^2-3\lambda+2 = 0\), which has solutions \(\lambda = 2\) and \(\lambda = 1\). These are the values of \(\lambda\) we seek. What about the corresponding vectors? We saw that when \(\lambda = 2\), the matrix equation becomes \(\begin{pmatrix} -2 & -2\\1 & 1\end{pmatrix} \begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}\), which is easily seen to have a non-trivial solution \(v_1 = \begin{pmatrix} 1\\-1\end{pmatrix}\). Similarly, we saw that when \(\lambda = 1\), the matrix equation has coefficient matrix \(\begin{pmatrix} -1 & -2\\1 & 2\end{pmatrix}\), so \(v_2 = \begin{pmatrix} 2\\-1\end{pmatrix}\) is a non-trivial solution. Thus, we found two vectors \(v_1, v_2\) such that \(Av_1 = 2\cdot v_1\) and \(Av_2 = 1\cdot v_2\). We also noted that any multiple of \(v_1\) works for \(\lambda = 2\) and any multiple of \(v_2\) works for \(\lambda = 1\).</p>
+
+            <p>We then noted that \(v_1, v_2\) form a basis for \(\mathbb{R}^2\), since the determinant of \(P := \begin{pmatrix} 1 & 2\\-1 & -1\end{pmatrix}\) is not zero. We then saw that \(P^{-1} = \begin{pmatrix} -1 & -2\\1 & 1\end{pmatrix}\) and that if we set \(B = \begin{pmatrix} 2 & 0\\0 & 1\end{pmatrix}\), then \(B = P^{-1}AP\). Thus, we saw</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Summary of Example A.</span> First, there exist non-zero vectors \(v_1, v_2 \in \mathbb{R}^2\) with \(Av_1 = 2\cdot v_1\) and \(Av_2 = 1\cdot v_2\). The values 2 and 1 were found by solving the equation obtained by setting \(\det \begin{pmatrix}-\lambda & -2\\1 & -\lambda +3\end{pmatrix} = 0\); and second, if we take \(P\) to be the matrix with columns \(v_1, v_2\), then \(P^{-1}AP = \begin{pmatrix} 2 & 0\\0 & 1\end{pmatrix}\).</p>
+            </div>
+
+            <p>This led to the following</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definitions.</span> Suppose \(A\in \textrm{M}_2(\mathbb{R})\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(\lambda \in \mathbb{R}\) is an <em>eigenvalue</em> of \(A\) if there exists a non-zero vector \(v\in \mathbb{R}^2\) such that \(Av = \lambda v\). Any non-zero vector \(v\) satisfying \(Av = \lambda v\) is an <em>eigenvector</em> of \(A\) associated to \(\lambda\).</li>
+                    <li style="list-style-type: none;">(ii) \(A\) is said to be <em>diagonalizable</em> if there exists an invertible matrix \(P\in \textrm{M}_2(\mathbb{R})\) such that \(P^{-1}AP\) is a diagonal matrix, i.e., \(P^{-1}AP = \begin{pmatrix} \lambda_1 & 0\\0 & \lambda_2\end{pmatrix}\), for \(\lambda_1, \lambda_2\in \mathbb{R}\).</li>
+                </ol>
+            </div>
+
+            <p>This led to formalizing the process of finding eigenvalues.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Proposition-Definition.</span> Let \(A\in \textrm{M}_2(\mathbb{R})\). The eigenvalues of \(A\) are found by solving the polynomial equation \(\det (A-\lambda I_2) = 0\). The resulting polynomial \(\det (A-\lambda I_2)\) is called the <em>characteristic polynomial</em> of \(A\). If \(\lambda\) is an eigenvalue, then eigenvectors corresponding to \(\lambda\) are obtained by taking non-zero solutions to the system of equations \((A-\lambda I_2)\begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix} 0\\0\end{pmatrix}\).</p>
+            </div>
+
+            <p>We ended class by repeating the steps in Example A for the matrix \(B = \begin{pmatrix} -1 & 2\\4 & -3\end{pmatrix}\).</p>
+        </div>
+
+        <!-- Additional daily updates will be added below as the semester continues -->
+
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX course daily update. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
