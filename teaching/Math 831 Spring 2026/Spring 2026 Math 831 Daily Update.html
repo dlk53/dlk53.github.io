@@ -747,6 +747,36 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Tuesday, March 3</div>
+
+            <p>After recalling the proposition presented at the end of previous lecture, we presented the following corollary to the proposition.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Corollary.</span> Let \((R, \mathfrak{m}, k)\) be a local ring and \(M\) a finitely generated \(R\)-module. If \(M\) has a minimal FFR of length \(n\), then every minimal free resolution of \(M\) has length \(n\).</p>
+            </div>
+
+            <p>The proof of the Corollary was by induction on \(n\). The base case \(n = 0\) followed from the observation that if some kernel in a minimal free resolution is zero, then all subsequent modules in the resolution are zero. The corollary enabled us to make the following definition in the special case that \((R, \mathfrak{m}, k)\) is a local ring.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Suppose \((R, \mathfrak{m}, k)\) is a local ring and \(M\) is a finitely generated \(R\)-module. Then \(M\) has <em>projective dimension n</em> if \(M\) has a minimal FFR of length \(n\). Here we allow \(n\) to be infinite. We will write \(\textrm{pd}(M)\) to denote the projective dimension of \(M\) over \(R\).</p>
+            </div>
+
+            <p>We briefly, and informally, discussed the general concept of projective dimension, and noted that our definition above is consistent with the general definition, since finitely generated projective modules over a local ring are free. In fact, we showed how this followed from Nakayama's Lemma. We then presented the following proposition.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Proposition A.</span> Let \((R, \mathfrak{m}, k)\) be a local ring and \(M\) a finitely generated \(R\)-module. Suppose \(x\in R\) is a non-zerodivisor on both \(M\) and \(R\). Set \(R_1 := R/\langle x\rangle\). Then \(\textrm{pd}(M) = \textrm{pd}_{R_1}(M/xM)\).</p>
+            </div>
+
+            <p>The proof followed from a slightly stronger result, namely if \(\cdots \longrightarrow F_1\overset{\phi_1}\longrightarrow F_0\overset{\pi}\longrightarrow M\to 0\) is a minimal free resolution of \(M\), then \(\cdots \longrightarrow F_1/xF_1\overset{\phi_1'}\longrightarrow F_0/xF_0\overset{\pi'}\longrightarrow M/xM\to 0\) is a minimal free resolution of \(M/xM\) over \(R_1\), where the primed maps are just those maps from the original resolution reduced mod \(xR\).</p>
+
+            <p>We ended the class by discussing the following proposition, and proving the base case \(\textrm{pd}(M) = 1\). We also noted how this proposition will play a key role in the homological characterization of regular local rings — namely the implication that if \(R\) is a regular local ring of dimension \(d\), then \(\textrm{pd}(k) = d\).</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Proposition B.</span> Let \((R,\mathfrak{m}, k)\) be a local ring and \(M\) a finitely generated \(R\)-module with finite projective dimension. Suppose \(x\in R\) satisfies the following conditions: \(x\) is a non-zerodivisor in \(R\), \(xM = 0\), and \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\). Then \(\textrm{pd}_{R_1}(M) = \textrm{pd}(M) -1\), for \(R_1 := R/\langle x\rangle\).</p>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
