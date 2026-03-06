@@ -616,6 +616,49 @@
             <p>We ended class by repeating the steps in Example A for the matrix \(B = \begin{pmatrix} -1 & 2\\4 & -3\end{pmatrix}\).</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, March 5</div>
+            <p>We began class by reviewing the following for \(A \in \textrm{M}_2(\mathbb{R})\):</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(\lambda \in \mathbb{R}\) is an <em>eigenvalue</em> of \(A\) if \(Av = \lambda v\), for some <strong>non-zero</strong> vector \(v\in \mathbb{R}^2\).</li>
+                <li style="list-style-type: none;">(ii) Any non-zero vector satisfying \(Av = \lambda v\) is an <em>eigenvector</em> of \(A\) associated to the eigenvalue \(\lambda\).</li>
+                <li style="list-style-type: none;">(iii) The eigenvalues are found by solving the equation \(\det (A-\lambda I_2) = 0\) for \(\lambda\). In other words, \(\alpha\) is an eigenvalue of \(A\) if and only if \(\alpha\) is a root of the polynomial \(p_A(x) := \det (A-xI_2)\). The polynomial \(p_A(x)\) is called the <em>characteristic polynomial</em> of \(A\).</li>
+                <li style="list-style-type: none;">(iv) If \(\alpha\) is an eigenvalue of \(A\), the corresponding eigenvectors are the vectors \(v\in \mathbb{R}^2\) solving the matrix equation \((A-\alpha I_2)\cdot v = \vec{0}\), or equivalently, the ordered pairs that are solutions to the system of equations
+                    \[\begin{aligned}(-\alpha +a)x+by &=0\\ cx+(-\alpha + d)y &= 0,\end{aligned}\]
+                    where \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\).</li>
+                <li style="list-style-type: none;">(v) \(A\) is said to be <em>diagonalizable</em> if there exists invertible \(P\in \textrm{M}_2(\mathbb{R})\) such that \(P^{-1}AP = \begin{pmatrix} \alpha & 0\\0 & \beta\end{pmatrix}\), for some \(\alpha, \beta \in \mathbb{R}\).</li>
+            </ol>
+
+            <p>We then considered the following</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Example.</span> Taking \(A = \begin{pmatrix} 2 & 1\\1 & 2\end{pmatrix}\), we found the eigenvalues 3, 1 with corresponding eigenvectors \(v_1 = \begin{pmatrix} 1\\-1\end{pmatrix}\) and \(v_2 = \begin{pmatrix} 1\\1\end{pmatrix}\). We then showed that for \(P = \begin{pmatrix} 1 & 1\\-1 & 1\end{pmatrix}\), \(P^{-1}AP = \begin{pmatrix} 1 & 0\\0 & 3\end{pmatrix}\).</p>
+            </div>
+
+            <p>We then observed that the characteristic polynomial of the matrix \(A = \begin{pmatrix} 0 & -1\\1 & 0\end{pmatrix}\) is \(x^2+1\), so \(A\) does not have any (real) eigenvalues. This was explained geometrically, since multiplication of a vector in \(\mathbb{R}^2\) by \(A\) rotates the vector 90 degrees counter-clockwise, so that no vector in \(\mathbb{R}^2\) is mapped to a multiple of itself.</p>
+
+            <p>We then stated the following</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Key Observations making theoretical discussions easier.</span> Let \(H\) be a \(2\times 2\) matrix over \(\mathbb{R}\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) For \(w = \begin{pmatrix} \alpha\\\beta\end{pmatrix} \in \mathbb{R}^2\), \(Hw = \alpha C_1+\beta C_2\), where \(C_1, C_2\) are the columns of \(H\).</li>
+                    <li style="list-style-type: none;">(ii) Let \(L = [D_1\ D_2]\), i.e., \(L\) is a \(2\times 2\) matrix whose columns are \(D_1, D_2\). Then \(HL = [HD_1\ HD_2]\).</li>
+                </ol>
+            </div>
+
+            <p>We ended class by stating, but not proving the following theorem, which formalizes the processes used in our previous examples.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> Let \(A\) be a \(2\times 2\) matrix with entries in \(\mathbb{R}\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Suppose \(A\) has two linearly independent eigenvectors \(v_1, v_2\), so that \(v_1, v_2\) form a basis for \(\mathbb{R}^2\). Then \(A\) is diagonalizable. More explicitly, if \(Av_1 = \alpha v_1\) and \(Av_2 = \beta v_2\), then \(P^{-1}AP = \begin{pmatrix} \alpha & 0\\0 & \beta\end{pmatrix}\), where \(P\) is the \(2\times 2\) matrix whose columns are \(v_1\) and \(v_2\).</li>
+                    <li style="list-style-type: none;">(ii) Suppose \(A\) is diagonalizable, i.e., there exists an invertible \(2\times 2\) matrix \(P\) such that \(P^{-1}AP = \begin{pmatrix} \alpha & 0\\0 & \beta\end{pmatrix}\), for \(\alpha, \beta \in \mathbb{R}\). Then, \(\alpha, \beta\) are the eigenvalues of \(A\), and if \(v_1, v_2\) are the columns of \(P\), \(Av_1 = \alpha v_1\) and \(Av_2 = \beta v_2\). In particular, \(\mathbb{R}^2\) has a basis consisting of eigenvectors of \(A\), since the columns of \(P\) form a basis for \(\mathbb{R}^2\).</li>
+                </ol>
+                <p>Thus, \(A\) is diagonalizable if and only if \(\mathbb{R}^2\) has a basis consisting of eigenvectors of \(A\).</p>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
