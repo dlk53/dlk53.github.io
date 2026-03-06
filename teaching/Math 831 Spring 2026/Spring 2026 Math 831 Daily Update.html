@@ -778,6 +778,42 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, March 5</div>
+            <p>We began class by finishing the proof of Proposition B from the previous lecture. Two key points in the case \(\mathrm{pd}(M) > 1\) were the following: Assuming that \(0\to K\to F_0 \to M\to 0\) is the start of a minimal FFR of \(M\) and \(F_0 = R^n\), the first point was that just as in the proof of the base case, \(xe_1, \ldots, xe_n\) are part of a minimal generating set for \(K\). This is where the \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\) hypothesis is used. The second point was that we had to show \(\mathrm{pd}(K/xF_0) = \mathrm{pd}(K)\). This was obtained by modifying the maps in the minimal FFR of \(K\) (derived from the minimal FFR of \(M\)) as follows: Given the minimal FFR, with \(F_1 = R^{s+n}\),
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+            \[0\to F_n\overset{\phi_n}\longrightarrow F_{n-1} \overset{\phi_{n-1}}\longrightarrow \cdots \longrightarrow F_3\overset{\phi_3}\longrightarrow F_2\overset{\phi_2} \longrightarrow F_1 \overset{\phi_1}\longrightarrow K\to 0,\]
+            then
+            \[0\to F_n\overset{\phi_n}\longrightarrow F_{n-1} \overset{\phi_{n-1}}\longrightarrow \cdots \longrightarrow F_3\overset{\phi_3}\longrightarrow F_2\overset{\phi_2'} \longrightarrow F_1' \overset{\phi_1'}\longrightarrow K/xF_0\to 0,\]
+            </div>
+            is a minimal free resolution of \(K/xF_0\), where \(F_1' = R^s\), \(\phi_1'\) takes the standard basis of \(R^s\) to the images in \(K/xF_0\) of the first \(s\) generators of \(K\) and \(\phi_2'\) is the matrix \(\phi_2\) with its last \(n\) rows removed.</p>
+
+            <p>After finishing the proof of the proposition, as a final bit of preparation for the homological characterization of regular local rings, we presented the following special case of the <em>Auslander-Buchsbaum formula</em>.</p>
+
+            <div class="definition">
+                <span class="statement-title">Lemma.</span> Let \((R, \mathfrak{m})\) be a local ring and suppose there exists \(0\neq a\in R\) such that \(a\cdot \mathfrak{m} = 0\). Then the only \(R\)-modules with a minimal FFR are free \(R\)-modules.
+            </div>
+
+            <p>At last, the homological characterization of regular local rings:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> Let \((R, \mathfrak{m}, k)\) be a local ring with Krull dimension \(d\). The following are equivalent.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(R\) is a regular local ring.</li>
+                    <li style="list-style-type: none;">(ii) Every finitely generated \(R\)-module has finite projective dimension.</li>
+                    <li style="list-style-type: none;">(iii) \(k\) has finite projective dimension.</li>
+                    <li style="list-style-type: none;">(iv) \(\mathrm{pd}(k) = d\).</li>
+                </ol>
+                <p><em>Sketch of proof.</em> The proof was by induction on \(d\), with the base case easily handled by the previous lemma. For the inductive step, assuming (i), one applies Proposition A from the previous lecture taking the module to be \(K\), the kernel of a minimal presentation of \(M\) and \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\). (ii) clearly implies (iii). That (iii) implies (iv) follows by induction from Proposition B in the previous lecture taking the module to be \(k\) and \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\). The proof of (iv) implies (i) is similar: taking the module to be \(k\) in Proposition B, and \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\), by induction \(R/\langle x \rangle\) is a regular local ring, so \(R\) is a regular local ring.</p>
+            </div>
+
+            <p>In preparation for arriving at a proof that regular local rings are UFDs, we finished class with the following lemma, which used Krull's principal ideal theorem.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Suppose \(R\) is a Noetherian domain. Then \(R\) is a UFD if and only if every height one prime is principal.
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
