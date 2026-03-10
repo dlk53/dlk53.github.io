@@ -388,7 +388,11 @@
             <p>We then recorded the following result, which appears in the celebrated paper of R. Swan, <em>Vector bundles and projective modules</em>. A write up of this theorem appears in the Supplementary Materials folder on our Canvas page and our course webpage.</p>
             
             <div class="definition">
-                <span class="statement-title">Theorem (Swan).</span> Let \(F\) denote either the real numbers or the complex numbers and set \[R := F[x_1, \ldots, x_n]/\langle x_1^2+\cdots + x_n^2-1\rangle.\] If \(F = \mathbb{R}\), then \(R\) is a UFD for \(n\geq 3\) and if \(F = \mathbb{C}\), then \(R\) is a UFD for \(n\geq 4\).
+                <p><span class="statement-title">Theorem (Swan).</span> Let \(F\) denote either the real numbers or the complex numbers and set</p>
+                <div class="math-display">
+                    \[R := F[x_1, \ldots, x_n]/\langle x_1^2+\cdots + x_n^2-1\rangle.\]
+                </div>
+                <p>If \(F = \mathbb{R}\), then \(R\) is a UFD for \(n\geq 3\) and if \(F = \mathbb{C}\), then \(R\) is a UFD for \(n\geq 4\).</p>
             </div>
             
             <p>We ended class with the following definition and comments.</p>
@@ -780,13 +784,17 @@
 
         <div class="problem">
             <div class="problem-number">Thursday, March 5</div>
-            <p>We began class by finishing the proof of Proposition B from the previous lecture. Two key points in the case \(\mathrm{pd}(M) > 1\) were the following: Assuming that \(0\to K\to F_0 \to M\to 0\) is the start of a minimal FFR of \(M\) and \(F_0 = R^n\), the first point was that just as in the proof of the base case, \(xe_1, \ldots, xe_n\) are part of a minimal generating set for \(K\). This is where the \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\) hypothesis is used. The second point was that we had to show \(\mathrm{pd}(K/xF_0) = \mathrm{pd}(K)\). This was obtained by modifying the maps in the minimal FFR of \(K\) (derived from the minimal FFR of \(M\)) as follows: Given the minimal FFR, with \(F_1 = R^{s+n}\),
+            <p>We began class by finishing the proof of Proposition B from the previous lecture. Two key points in the case \(\mathrm{pd}(M) > 1\) were the following: Assuming that \(0\to K\to F_0 \to M\to 0\) is the start of a minimal FFR of \(M\) and \(F_0 = R^n\), the first point was that just as in the proof of the base case, \(xe_1, \ldots, xe_n\) are part of a minimal generating set for \(K\). This is where the \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\) hypothesis is used. The second point was that we had to show \(\mathrm{pd}(K/xF_0) = \mathrm{pd}(K)\). This was obtained by modifying the maps in the minimal FFR of \(K\) (derived from the minimal FFR of \(M\)) as follows: Given the minimal FFR, with \(F_1 = R^{s+n}\),</p>
             <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
-            \[0\to F_n\overset{\phi_n}\longrightarrow F_{n-1} \overset{\phi_{n-1}}\longrightarrow \cdots \longrightarrow F_3\overset{\phi_3}\longrightarrow F_2\overset{\phi_2} \longrightarrow F_1 \overset{\phi_1}\longrightarrow K\to 0,\]
-            then
-            \[0\to F_n\overset{\phi_n}\longrightarrow F_{n-1} \overset{\phi_{n-1}}\longrightarrow \cdots \longrightarrow F_3\overset{\phi_3}\longrightarrow F_2\overset{\phi_2'} \longrightarrow F_1' \overset{\phi_1'}\longrightarrow K/xF_0\to 0,\]
+                <div class="math-display">
+                    \[0\to F_n\overset{\phi_n}\longrightarrow F_{n-1} \overset{\phi_{n-1}}\longrightarrow \cdots \longrightarrow F_3\overset{\phi_3}\longrightarrow F_2\overset{\phi_2} \longrightarrow F_1 \overset{\phi_1}\longrightarrow K\to 0,\]
+                </div>
+                then
+                <div class="math-display">
+                    \[0\to F_n\overset{\phi_n}\longrightarrow F_{n-1} \overset{\phi_{n-1}}\longrightarrow \cdots \longrightarrow F_3\overset{\phi_3}\longrightarrow F_2\overset{\phi_2'} \longrightarrow F_1' \overset{\phi_1'}\longrightarrow K/xF_0\to 0,\]
+                </div>
             </div>
-            is a minimal free resolution of \(K/xF_0\), where \(F_1' = R^s\), \(\phi_1'\) takes the standard basis of \(R^s\) to the images in \(K/xF_0\) of the first \(s\) generators of \(K\) and \(\phi_2'\) is the matrix \(\phi_2\) with its last \(n\) rows removed.</p>
+            <p>is a minimal free resolution of \(K/xF_0\), where \(F_1' = R^s\), \(\phi_1'\) takes the standard basis of \(R^s\) to the images in \(K/xF_0\) of the first \(s\) generators of \(K\) and \(\phi_2'\) is the matrix \(\phi_2\) with its last \(n\) rows removed.</p>
 
             <p>After finishing the proof of the proposition, as a final bit of preparation for the homological characterization of regular local rings, we presented the following special case of the <em>Auslander-Buchsbaum formula</em>.</p>
 
@@ -812,6 +820,48 @@
             <div class="definition">
                 <span class="statement-title">Proposition.</span> Suppose \(R\) is a Noetherian domain. Then \(R\) is a UFD if and only if every height one prime is principal.
             </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, March 10</div>
+
+            <p>We began class by stating the following proposition which is key for the theorem that follows it. The proof of the proposition was delayed until later in the lecture.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Let \((R, \mathfrak{m})\) be a local ring and \(M\) a finitely generated \(R\)-module. If \(M\) admits a FFR, then \(M\) admits a minimal FFR.
+            </div>
+
+            <p>We then stated and proved the following important property of regular local rings.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Theorem.</span> Let \((R, \mathfrak{m}, k)\) be a regular local ring and \(P\subseteq R\) be a prime ideal. Then \(R_P\) is a regular local ring.
+                </div>
+                <p><em>Proof.</em> Since \(R\) is a regular local ring, the \(R\)-module \(R/P\) admits a (minimal) FFR. Thus, the \(R_P\)-module \((R/P)_P\) admits a FFR. Note that even if the FFR of \(R/P\) over \(R\) is minimal, the resolution localized at \(P\) need no longer be minimal. By the Proposition, \((R/P)_P\) admits a minimal free resolution. Since \((R/P)_P\) is the residue field of \(R_P\), it follows from the homological characterization of regular local rings that \(R_P\) is a regular local ring. \(\square\)</p>
+            </div>
+
+            <p>We then noted the following</p>
+
+            <div class="definition">
+                <span class="statement-title">Remark.</span> After the concept of regular local ring was defined in purely algebraic terms, it was assumed that if \(R\) is a regular local ring, then \(R_P\) would also be a regular local ring, based upon the validity of this statement in geometric contexts. It wasn't until regular local rings were characterized in homological terms that a proof of this fact was given. Regarding the need for the Proposition, we noted that the proof of the special case of the Auslander-Buchsbaum formula given prior to the theorem characterizing regular local rings required the existence of a minimal FFR.
+            </div>
+
+            <p>We were then able to formally state and prove the main theorem of the first half of this course.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Major Theorem.</span> Let \((R, \mathfrak{m})\) be a regular local ring. Then \(R\) is a UFD.
+                </div>
+                <p><em>Proof.</em> By induction on \(d = \dim R\). If \(\dim R = 0\), \(R\) is a field, and there is nothing to prove. Suppose \(d > 0\). Take \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\) and set \(S := \{1, x, x^2, \ldots\}\). Since \(x\) is a prime element, it suffices to show that \(R_S\) is a UFD, by Nagata's Lemma. By the proposition from the end of the previous lecture, it suffices to show that any height one prime in \(R_S\) is principal. Such a prime is of the form \(P_S\), for \(P\subseteq R\) a height one prime not containing \(x\). Now, let \(Q\subseteq R_S\) be a maximal ideal, so that \(Q = Q'_S\), for \(Q'\subseteq R\) a prime ideal disjoint from \(S\). Note that \((R_S)_Q = R_{Q'}\), so \((R_S)_Q\) is a regular local ring of dimension less than \(d\). Thus \((R_S)_Q\) is a UFD, so \(P_Q\) is principal. Thus \(P\) is a locally principal ideal of \(R_S\). On the other hand, \(P = P'_S\), for \(P'\subseteq R\) a prime ideal. \(P'\) has a FFR as an \(R\)-module, and upon localizing at \(S\), we see that \(P\) has a FFR as an \(R_S\)-module. Thus, \(P\) is a locally principal ideal admitting a FFR, therefore \(P\) is principal by the main theorem from the lecture of February 10. Thus, every height one prime of \(R_S\) is principal, so \(R_S\) is a UFD, and therefore \(R\) is a UFD. \(\square\)</p>
+            </div>
+
+            <p>We followed this by giving a proof of the Proposition above. The proof was by induction on the length of the FFR of \(M\) and relied upon the following lemma.</p>
+
+            <div class="definition">
+                <span class="statement-title">Lemma.</span> Suppose the module \(K\oplus L\) has a FFR, where \(L\) is a finite free \(R\)-module. Then \(K\) has a FFR.
+            </div>
+
+            <p>We ended with a brief discussion of some of the topics we'll cover next. These included: (i) The two forms of Hilbert's Nullstellensatz; (ii) A refinement of (i) stating that if \(P\) is a prime ideal in the polynomial ring \(R\) in finitely many variables over an algebraically closed field of characteristic zero, then \(P\) is the intersection of the maximal ideals \(M\subseteq R\) such that \((R/P)_M\) is a regular local ring; (iii) The Zariski-Nagata theorem, which states that if \(P\subseteq R\) are as in (ii), then the \(n\)th symbolic power of \(P\) is the set of polynomials whose partial derivatives of order less than \(n\) vanish on the algebraic variety defined by \(P\).</p>
         </div>
 
         <!-- Additional daily updates will be added below as the semester continues -->
