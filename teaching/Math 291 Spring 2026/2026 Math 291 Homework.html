@@ -541,18 +541,50 @@
             <div class="problem-number">Tuesday, February 17</div>
             
             <p><strong>1.</strong> For the linear transformation \(T\begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix} 2x-3y\\-x+y\end{pmatrix}\), and bases for \(\mathbb{R}^2\) \(E := \{e_1, e_2\}\), \(B =\{ w_1, w_2\}\), with \(w_1 = \begin{pmatrix} 1\\1\end{pmatrix}, w_2 = \begin{pmatrix} 1\\2\end{pmatrix}\), calculate \([T]_E^E, [T]_B^E, [T]_E^B\) and \([T]_B^B\).</p>
-            
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Each matrix is obtained by solving various systems of equations. We first calculate the values of \(T\) on the given basis elements: \(T(e_1) = (2, -1)\), \(T(e_2) = (-3,1)\), \(T(w_1) = (-1,0)\), \(T(w_2) = (-4,1)\).</p>
+                <p>We can read off \([T]_E^E = \begin{pmatrix} 2 & -3\\-1 & 1\end{pmatrix}\), since any vector \((a,b) = ae_1+be_2\). Similarly, we can write down the matrix \([T]_B^E = \begin{pmatrix} -1 & -4\\0 & 1\end{pmatrix}\), since the values of \(T(w_1), T(w_2)\) are easily expressed in terms of \(e_1, e_2\).</p>
+                <p>For \([T]_E^B\), we have to express \(T(e_1) = (2,-1)\) and \(T(e_2) = (-3,1)\) as a linear combination of \(w_1, w_2\). In other words, we must solve the vector equations \((2,-1) = x(1,1)+y(1,2)\) and \((-3,1) = x(1,1)+y(1,2)\). These equations give rise to two systems of equations:</p>
+                <p style="padding-left: 20px;">System A: \(x + y = 2,\ x + 2y = -1\) &nbsp;&nbsp;&nbsp;&nbsp; System B: \(x + y = -3,\ x + 2y = 1\)</p>
+                <p>The solutions to the systems are \(x = 5, y = -3\) and \(x = -7, y = 4\). It follows that \([T]_E^B = \begin{pmatrix} 5 & -7\\-3 & 4\end{pmatrix}\).</p>
+                <p>Similarly, to calculate \([T]_B^B\), we must express \(T(w_1), T(w_2)\) as linear combinations of \(w_1, w_2\). In other words, we must solve the vector equations \((-1,0) = x(1,1)+y(1,2)\) and \((-4,1) = x(1,1)+y(1,2)\). Converting these to systems of equations and solving gives \(x = -2, y = 1\) for the first vector equation and \(x = -9, y = 5\) for the second. Therefore we have \([T]_B^B = \begin{pmatrix} -2 & -9\\1 & 5\end{pmatrix}\).</p>
+            </div>
+
             <p><strong>2.</strong> Let \(v_1, v_2\in \mathbb{R}^2\) be linearly independent. Thus, by a theorem from class, any vector \(w\in \mathbb{R}^2\) can be written as a linear combination of \(v_1, v_2\), i.e., \(w = av_1+bv_2\), for \(a,b\in \mathbb{R}\). Prove that the linear combination is unique, i.e., if \(w = cv_1+dv_2\), with \(c,d\in \mathbb{R}\) then \(a = c\) and \(b = d\). Note: This follows formally from our fundamental properties and the definition of linear independence, without having to assign coordinates to the vectors involved.</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Suppose \(av_1+bv_2 = cv_1+dv_2\). Then \((a-c)v_1 +(b-d)v_2 = 0\). Since \(v_1, v_2\) are linearly independent, \(a-c = 0\) and \(b-d = 0\), i.e., \(a = c\) and \(b = d\), as required.</p>
+            </div>
         </div>
 
         <div class="problem">
             <div class="problem-number">Thursday, February 19</div>
             
             <p><strong>1.</strong> Let \(T(x,y) = (2x-3y, -x+y)\), \(S(x,y) = (-y,x)\), \(\beta = \{(1,1), (1, 2)\}\), \(\gamma = \{(-1,1), (2,1)\}\). Verify the very important formula from today's lecture: \([ST]_E^{\gamma} = [S]_{\beta}^{\gamma}\cdot [T]_E^{\beta}\). You can use some of the calculations you have done in the previous homework.</p>
-            
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We have the values of \(T(e_1), T(e_2)\) from the previous homework set. Now \(S(w_1) = S(1,1) = (-1,1)\) and \(S(w_2) = S(1,2) = (-2,1)\) and \(ST(e_1) = (1,2)\) and \(ST(e_2) = (-1,3)\).</p>
+                <p>The technique for calculating the indicated matrices consists in solving various systems of equations as in the previous homework set. Upon doing so, we obtain:
+                \[[T]_E^\beta = \begin{pmatrix} 5 & -7\\-3 & 4\end{pmatrix}, \quad [S]_\beta^\gamma = \begin{pmatrix} 1 & \frac{4}{3}\\0 & -\frac{1}{3}\end{pmatrix}, \quad [ST]_E^\gamma = \begin{pmatrix} 1 & -\frac{5}{3}\\1 & -\frac{4}{3}\end{pmatrix}.\]
+                And we also have
+                \[\begin{pmatrix} 1 & -\frac{5}{3}\\1 & -\frac{4}{3}\end{pmatrix} = \begin{pmatrix} 1 & \frac{4}{3}\\0 & -\frac{1}{3}\end{pmatrix}\cdot \begin{pmatrix} 5 & -7\\-3 & 4\end{pmatrix},\]
+                as required.</p>
+            </div>
+
             <p><strong>2.</strong> Using the notation from problem 1, verify the change of basis formula \([S]_{\beta}^{\beta} = [I_2]_{\gamma}^{\beta}\cdot [S]_{\gamma}^{\gamma}\cdot [I_2]_{\beta}^{\gamma}\).</p>
-            
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Calculating as before yields: \([S]_{\beta}^{\beta} = \begin{pmatrix} -3 & -5\\2 & 2\end{pmatrix}\), \([S]_\gamma^\gamma = \begin{pmatrix} -\frac{1}{3} & \frac{5}{3}\\-\frac{2}{3} & \frac{1}{3}\end{pmatrix}\), \([I_2]_\beta^\gamma = \begin{pmatrix} \frac{1}{3} & 1\\\frac{2}{3} & 1\end{pmatrix}\) and \([I_2]_\gamma^\beta = \begin{pmatrix} -3 & 3\\2 & -1\end{pmatrix}\), and one easily checks that \([S]_{\beta}^{\beta} = [I_2]_{\gamma}^{\beta}\cdot [S]_{\gamma}^{\gamma}\cdot [I_2]_{\beta}^{\gamma}\).</p>
+            </div>
+
             <p><strong>Bonus Problem 5.</strong> Use the very important formula to prove that matrix multiplication of \(2\times 2\) matrices is associative. Hint: First show that if \(A\) is a \(2\times 2\) matrix, then there exists \(T: \mathbb{R}^2\to \mathbb{R}^2\) such that \([T]^E_E = A\). Due Tuesday, February 24. (5 points)</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Suppose \(A = \begin{pmatrix} a & c\\b & d\end{pmatrix}\). Define \(T(e_1) = (a,b)\) and \(T(e_2) = (c,d)\). Then \([T]_E^E = A\).</p>
+                <p>Now, let \(A, B, C\) be \(2\times 2\) matrices with entries in \(\mathbb{R}\) and \(T, S, U\) linear transformations from \(\mathbb{R}^2\) to \(\mathbb{R}^2\) such that \([T]_E^E = A\), \([S]_E^E = B\), \([U]_E^E = C\). Then by the very important formula and the fact that \(T(SU) = (TS)U\), we have
+                \[\begin{aligned} A(BC) &= [T]_E^E\cdot ([S]_E^E[U]_E^E) = [T]_E^E\cdot [SU]_E^E = [T(SU)]_E^E \\ &= [(TS)U]_E^E = [TS]_E^E\cdot [U]_E^E = ([T]_E^E\cdot [S]_E^E)\cdot [U]_E^E = (AB)C. \end{aligned}\]</p>
+            </div>
         </div>
 
         <!-- Additional daily homework will be added below as the semester continues -->
@@ -563,7 +595,22 @@
 
             <p>1. Show that the following matrices are diagonalizable by first finding their eigenvectors and eigenvalues: \(A = \begin{pmatrix} 1 & 4\\2 & 3\end{pmatrix}\) and \(B = \begin{pmatrix} 7 & 2\\-4 & 1\end{pmatrix}\).</p>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We have \(p_A(x) = \det \begin{pmatrix} -x+1 & 4\\2 & -x+3 \end{pmatrix} = (x-1)(x-3)-8 = x^2-4x-5 = (x-5)(x+1)\), so 5, \(-1\) are the eigenvalues.</p>
+                <p>For 5: We solve the homogeneous system with coefficient matrix \(\begin{pmatrix} -4 & 4\\2 & -2\end{pmatrix}\). Gaussian elimination reduces this to \(\begin{pmatrix} 1 & -1\\0 & 0\end{pmatrix}\), so the solution set has one parameter, and consists of all multiples of the eigenvector \(v_1 = \begin{pmatrix} 1\\1\end{pmatrix}\).</p>
+                <p>For \(-1\): We solve the homogeneous system with coefficient matrix \(\begin{pmatrix} 2 & 4\\2 & 4\end{pmatrix}\). Gaussian elimination reduces this to \(\begin{pmatrix} 1 & 2\\0 & 0\end{pmatrix}\), so the solution set has one parameter, and consists of all multiples of the eigenvector \(v_2 = \begin{pmatrix} 2\\-1\end{pmatrix}\).</p>
+                <p>We take \(P = \begin{pmatrix} 1 & 2\\1 & -1\end{pmatrix}\), which gives \(P^{-1} = \begin{pmatrix} \frac{1}{3} & \frac{2}{3}\\\frac{1}{3} & -\frac{1}{3}\end{pmatrix}\), so that \(P^{-1}AP = \begin{pmatrix} 5 & 0\\0 & -1\end{pmatrix}\).</p>
+                <p>For the matrix \(B\), we have \(p_B(x) = \det \begin{pmatrix} -x+7 & 2\\-4 & -x+1\end{pmatrix} = (x-1)(x-7)+8 = x^2-8x+15 = (x-3)(x-5)\), so the eigenvalues are 3, 5.</p>
+                <p>For 5: We solve the homogeneous system with coefficient matrix \(\begin{pmatrix} 2 & 2\\-4 & -4\end{pmatrix}\). Gaussian elimination reduces this to \(\begin{pmatrix} 1 & 1\\0 & 0\end{pmatrix}\), so the solution set has one parameter, and consists of all multiples of the eigenvector \(v_1 = \begin{pmatrix} 1\\-1\end{pmatrix}\).</p>
+                <p>For 3: We solve the homogeneous system with coefficient matrix \(\begin{pmatrix} 4 & 2\\-4 & -2\end{pmatrix}\). Gaussian elimination reduces this to \(\begin{pmatrix} 2 & 1\\0 & 0\end{pmatrix}\), so the solution set has one parameter, and consists of all multiples of the eigenvector \(v_2 = \begin{pmatrix} 1\\-2\end{pmatrix}\).</p>
+                <p>We take \(P = \begin{pmatrix} 1 & 1\\-1 & -2\end{pmatrix}\), which gives \(P^{-1} = \begin{pmatrix} 2 & 1\\-1 & -1\end{pmatrix}\), so that \(P^{-1}BP = \begin{pmatrix} 5 & 0\\0 & 3\end{pmatrix}\).</p>
+            </div>
+
             <p>2. A key step in the diagonalizability of the matrix \(A\) is that there should be a basis for \(\mathbb{R}^2\) consisting of eigenvectors of \(A\). For the matrix \(A = \begin{pmatrix}1 & 2\\0 & 1\end{pmatrix}\), find the eigenvectors and eigenvalues and show that there is no basis for \(\mathbb{R}^2\) consisting of eigenvectors of \(A\).</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We have \(p_A(x) = \det \begin{pmatrix} -x+1 & 2\\0 & -x+1\end{pmatrix} = (-x+1)^2\), so that 1 is a repeated root of \(p_A(x)\), and is the only eigenvalue. To find eigenvectors associated to 1, we solve the homogeneous system with coefficient matrix \(\begin{pmatrix} 0 & 2\\0 & 0\end{pmatrix}\). Gaussian elimination reduces this to \(\begin{pmatrix} 0 & 1\\0 & 0\end{pmatrix}\), so the solution set has one parameter, and consists of all multiples of the eigenvector \(v_1 = \begin{pmatrix} 1\\0\end{pmatrix}\). Thus, the matrix \(A\) does not have a second eigenvector linearly independent from \(v_1\).</p>
+            </div>
 
             <p><strong>Bonus Problem 6.</strong> A \(2\times 2\) matrix \(A\) is a <em>scalar matrix</em> if \(A = \begin{pmatrix} \lambda & 0\\0 & \lambda\end{pmatrix} = \lambda\cdot I_2\), for some \(\lambda \in \mathbb{R}\). Show that:
                 <ol style="list-style-type: none; padding-left: 20px;">
@@ -571,15 +618,63 @@
                     <li style="list-style-type: none;">(ii) Prove that if \(A \in \mathrm{M}_2(\mathbb{R})\) is diagonalizable and \(P^{-1}AP\) is a scalar matrix, then \(A\) was already a scalar matrix.</li>
                 </ol>
                 This bonus problem is due Tuesday March 10 and is worth 5 points.</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> For (i), suppose \(B = \begin{pmatrix} a & b\\c & d\end{pmatrix}\). Then \(\begin{pmatrix} a & b\\c & d\end{pmatrix} \cdot \begin{pmatrix} \lambda & 0\\0 & \lambda\end{pmatrix} = \begin{pmatrix} \lambda a & \lambda b\\\lambda c & \lambda d\end{pmatrix} = \begin{pmatrix} \lambda & 0\\0 & \lambda\end{pmatrix} \cdot \begin{pmatrix} a & b\\c & d\end{pmatrix}\).</p>
+                <p>For (ii), suppose \(P^{-1}AP = \begin{pmatrix} \lambda & 0\\0 & \lambda\end{pmatrix}\). Then, using (i) and multiplying on the left by \(P\) and on the right by \(P^{-1}\) we have</p>
+                \[A = P(P^{-1}AP)P^{-1} = P\begin{pmatrix} \lambda & 0\\0 & \lambda\end{pmatrix} P^{-1} = \begin{pmatrix} \lambda & 0\\0 & \lambda\end{pmatrix} PP^{-1} = \begin{pmatrix} \lambda & 0\\0 & \lambda \end{pmatrix}.\]
+            </div>
         </div>
 
         <div class="problem">
             <div class="problem-number">Thursday, March 5</div>
             <p>1. For the matrix \(A = \begin{pmatrix} 1 & 0 & 0\\0 & 0 & 9\\0 & 1 & 0\end{pmatrix}\), find the eigenvalues of \(A\), the corresponding eigenvectors, and a diagonalizing matrix \(P\). Be sure to check that \(P^{-1}AP\) is a diagonal matrix. Note the process here is the same as for \(2\times 2\) matrices. First find the roots of the characteristic polynomial \(p_A(x) = \det (A-xI_3)\) and then find the corresponding eigenvectors as before; namely if \(\alpha\) is an eigenvalue, solve the homogeneous system of equations whose coefficient matrix is \(A-\alpha I_3\).</p>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We have</p>
+                \[\begin{aligned}
+                p_A(x) &= \det \begin{pmatrix} -x+1 & 0 & 0\\0 & -x & 9\\0 & 1 & -x\end{pmatrix}\\
+                &= (-x+1)\cdot \det \begin{pmatrix} -x & 9\\1 & -x\end{pmatrix}\\
+                &= (-x+1)(x^2-9) = (-x+1)(x-3)(x+3),
+                \end{aligned}\]
+                <p>so the eigenvalues of \(A\) are \(1, 3, -3\).</p>
+                <p>For 1: We solve the homogeneous system with coefficient matrix \(\begin{pmatrix} 0 & 0 & 0\\0 & -1 & 9\\0 & 1 & -1\end{pmatrix}\). Gaussian elimination reduces this to \(\begin{pmatrix} 0 & 1 & 0\\0 & 0 & 1\\0 & 0 & 0\end{pmatrix}\), so the solution set has one parameter and consists of all multiples of the eigenvector \(v_1 = \begin{pmatrix} 1\\0\\0\end{pmatrix}\).</p>
+                <p>For 3: We solve the homogeneous system with coefficient matrix \(\begin{pmatrix} -2 & 0 & 0\\0 & -3 & 9\\0 & 1 & -3\end{pmatrix}\). Gaussian elimination reduces this to \(\begin{pmatrix} 1 & 0 & 0\\0 & 1 & -3\\0 & 0 & 0\end{pmatrix}\), so the solution set has one parameter and consists of all multiples of the eigenvector \(v_2 = \begin{pmatrix} 0\\3\\1\end{pmatrix}\).</p>
+                <p>For \(-3\): We solve the homogeneous system with coefficient matrix \(\begin{pmatrix} 4 & 0 & 0\\0 & 3 & 9\\0 & 1 & 3\end{pmatrix}\). Gaussian elimination reduces this to \(\begin{pmatrix} 1 & 0 & 0\\0 & 1 & 3\\0 & 0 & 0\end{pmatrix}\), so the solution set has one parameter and consists of all multiples of the eigenvector \(v_3 = \begin{pmatrix} 0\\3\\-1\end{pmatrix}\).</p>
+                <p>We take \(P = \begin{pmatrix} 1 & 0 & 0\\0 & 3 & 3\\0 & 1 & -1\end{pmatrix}\). Using Gaussian elimination, we find that \(P^{-1} = \begin{pmatrix} 1 & 0 & 0\\0 & \frac{1}{6} & \frac{1}{2}\\0 & \frac{1}{6} & -\frac{1}{2}\end{pmatrix}\), so that \(P^{-1}AP = \begin{pmatrix} 1 & 0 & 0\\0 & 3 & 0\\0 & 0 & -3\end{pmatrix}\).</p>
+            </div>
+
             <p>2. Suppose \(A, B, P\in \textrm{M}_2(\mathbb{R})\) satisfy \(B = P^{-1}AP\). Show that \(p_B(x) = p_A(x)\), i.e., \(A\) and \(B\) have the same characteristic polynomial. Hint: \(x I_2 = xP^{-1}P\).</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We have</p>
+                \[\begin{aligned}
+                p_B(x) &= \det (P^{-1}AP-xI_2)\\
+                &= \det(P^{-1}AP - xP^{-1}P)\\
+                &= \det\{P^{-1}(A-xI_2)P\}\\
+                &= \det P^{-1}\cdot \det (A-xI_2)\cdot \det P\\
+                &= \det (A-xI_2)\\
+                &= p_A(x).
+                \end{aligned}\]
+            </div>
         </div>
 
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, March 10</div>
+
+            <p>1. Let \(A = \begin{pmatrix} 2 & 1\\1 & 2\end{pmatrix}\). Verify that \(v_1 = \begin{pmatrix} 1\\1\end{pmatrix}\) and \(v_2 = \begin{pmatrix} 1\\-1\end{pmatrix}\) are eigenvectors of \(A\) with eigenvalues 3 and 1 respectively.</p>
+
+            <p>2. In preparation for Thursday's lecture, verify that \(\begin{pmatrix} x_1(t)\\x_2(t)\end{pmatrix} = c_1e^{3t}\begin{pmatrix} 1\\1\end{pmatrix} + c_2e^{t} \begin{pmatrix} 1\\-1\end{pmatrix}\), equivalently, \(x_1(t) = c_1e^{3t}+c_2e^t\) and \(x_2(t) = c_1e^{3t}-c_2e^t\) is a solution to the system of differential equations,</p>
+            <div class="math-display">
+                \[\begin{align*}
+                x_1'(t) &= 2x_1(t)+x_2(t)\\
+                x_2'(t) &= x_1(t)+2x_2(t).
+                \end{align*}\]
+            </div>
+
+            <p>3. Given the solutions to the system of differential equations in the previous problem, solve the initial condition \(\begin{pmatrix} x_1(0)\\x_2(0)\end{pmatrix} = \begin{pmatrix} 3\\-4\end{pmatrix}\).</p>
+        </div>
 
     </main>
 

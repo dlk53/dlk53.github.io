@@ -650,12 +650,35 @@
             <p>We ended class by stating, but not proving the following theorem, which formalizes the processes used in our previous examples.</p>
 
             <div class="definition">
-                <p><span class="statement-title">Theorem.</span> Let \(A\) be a \(2\times 2\) matrix with entries in \(\mathbb{R}\).</p>
+                <p><span class="statement-title">Diagonalizability Theorem.</span> Let \(A\) be a \(2\times 2\) matrix with entries in \(\mathbb{R}\).</p>
                 <ol style="list-style-type: none; padding-left: 20px;">
                     <li style="list-style-type: none;">(i) Suppose \(A\) has two linearly independent eigenvectors \(v_1, v_2\), so that \(v_1, v_2\) form a basis for \(\mathbb{R}^2\). Then \(A\) is diagonalizable. More explicitly, if \(Av_1 = \alpha v_1\) and \(Av_2 = \beta v_2\), then \(P^{-1}AP = \begin{pmatrix} \alpha & 0\\0 & \beta\end{pmatrix}\), where \(P\) is the \(2\times 2\) matrix whose columns are \(v_1\) and \(v_2\).</li>
                     <li style="list-style-type: none;">(ii) Suppose \(A\) is diagonalizable, i.e., there exists an invertible \(2\times 2\) matrix \(P\) such that \(P^{-1}AP = \begin{pmatrix} \alpha & 0\\0 & \beta\end{pmatrix}\), for \(\alpha, \beta \in \mathbb{R}\). Then, \(\alpha, \beta\) are the eigenvalues of \(A\), and if \(v_1, v_2\) are the columns of \(P\), \(Av_1 = \alpha v_1\) and \(Av_2 = \beta v_2\). In particular, \(\mathbb{R}^2\) has a basis consisting of eigenvectors of \(A\), since the columns of \(P\) form a basis for \(\mathbb{R}^2\).</li>
                 </ol>
                 <p>Thus, \(A\) is diagonalizable if and only if \(\mathbb{R}^2\) has a basis consisting of eigenvectors of \(A\).</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, March 10</div>
+
+            <p>We began class by re-stating the Diagonalizability Theorem from the end of the previous lecture. With the theorem in mind, we then considered the following three scenarios.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Three possibilities.</span> Suppose \(A \in \mathrm{M}_2(\mathbb{R})\), so that \(p_A(x)\) is a degree two polynomial with real coefficients. One of the following scenarios holds:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(p_A(x)\) has two distinct (real) roots.</li>
+                    <li style="list-style-type: none;">(ii) \(p_A(x)\) has a repeated root, i.e., \(p_A(x) = (x-\lambda)^2\), for some \(\lambda \in \mathbb{R}\).</li>
+                    <li style="list-style-type: none;">(iii) \(p_A(x)\) has no real roots.</li>
+                </ol>
+            </div>
+
+            <p>We noted that we have previously seen examples of types (i) and (iii). We then noted that for \(A = \begin{pmatrix} 2 & 7\\0 & 2\end{pmatrix}\), \(p_A(x) = (x-2)^2\) and that all eigenvectors are multiples of \(v = \begin{pmatrix} 1\\0\end{pmatrix}\), so that by the theorem, \(A\) is not diagonalizable.</p>
+
+            <p>We then gave a proof of the theorem characterizing diagonalizability. The proof of the theorem relied heavily on the two Key Observations from the previous lecture. We finished class by presenting the following <strong>very important</strong> corollary to the diagonalizability theorem.</p>
+
+            <div class="definition">
+                <span class="statement-title">Corollary.</span> Suppose \(A\in \mathrm{M}_2(\mathbb{R})\) has two distinct eigenvalues. Then \(A\) is diagonalizable.
             </div>
         </div>
 
