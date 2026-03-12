@@ -864,6 +864,68 @@
             <p>We ended with a brief discussion of some of the topics we'll cover next. These included: (i) The two forms of Hilbert's Nullstellensatz; (ii) A refinement of (i) stating that if \(P\) is a prime ideal in the polynomial ring \(R\) in finitely many variables over an algebraically closed field of characteristic zero, then \(P\) is the intersection of the maximal ideals \(M\subseteq R\) such that \((R/P)_M\) is a regular local ring; (iii) The Zariski-Nagata theorem, which states that if \(P\subseteq R\) are as in (ii), then the \(n\)th symbolic power of \(P\) is the set of polynomials whose partial derivatives of order less than \(n\) vanish on the algebraic variety defined by \(P\).</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, March 12</div>
+
+            <p>Today's lecture was a brief interlude devoted to a discussion of associated primes and regular sequences. Throughout \(R\) will denote a Noetherian ring and \(M\) a non-zero \(R\)-module. For a non-zero element \(x\in M\), we write \((0:x)\) or \((0:_R x)\) to denote the <em>annihilator</em> of \(x\), i.e., \((0:x) = \{r\in R\ |\ rx = 0\}\). We began with</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Basic Definitions and Properties.</span></p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">1. A prime ideal \(P\subseteq R\) is an <em>associated prime</em> of \(M\) if \(P = (0:x)\), for some (non-zero) \(x\in M\). We write \(\mathrm{Ass}(M)\) or \(\mathrm{Ass}_R(M)\) to denote the associated primes of \(M\).</li>
+                    <li style="list-style-type: none;">2. Suppose \(P\) is an ideal maximal among ideals of the form \((0:x)\), for \(0\not= x\in M\). Then \(P\in \mathrm{Ass}(M)\).</li>
+                    <li style="list-style-type: none;">3. \(\mathrm{Ass}(M)\) is non-empty (since \(R\) is Noetherian and \(M\not= 0\)).</li>
+                    <li style="list-style-type: none;">4. \(r\in R\) is a zero-divisor on \(M\) if and only if \(r\in P\), for some \(P\in \mathrm{Ass}(M)\). Thus the set of zero-divisors on \(M\) equals the union of the associated primes of \(M\).</li>
+                    <li style="list-style-type: none;">5. Let \(S\subseteq R\) be multiplicatively closed and \(P\subseteq R\) a prime ideal disjoint from \(S\). Then \(P_S\in \mathrm{Ass}_{R_S}(M_S)\) if and only if \(P\in \mathrm{Ass}(M)\).</li>
+                    <li style="list-style-type: none;">6. Suppose the prime ideal \(P\subseteq R\) is minimal over \((0:x)\), for \(x\in M\). Then \(P\in \mathrm{Ass}(M)\). Moreover, if \(P\) is minimal over the \(\mathrm{ann}(M)\), then \(P\in \mathrm{Ass}(M)\). In particular, if \(P\) is minimal over the ideal \(I\), \(P\in \mathrm{Ass}(R/I)\).</li>
+                </ol>
+            </div>
+
+            <p>We then proceeded to prove the following propositions.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition A.</span> Suppose \(0\to L\to M\to N\to 0\) is a short exact sequence of \(R\)-modules. Then \(\mathrm{Ass}(M)\subseteq \mathrm{Ass}(L)\bigcup \mathrm{Ass}(N)\).
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">Proposition B.</span> If \(R\) is a Noetherian ring and \(M\) a finitely generated \(R\)-module, then \(\mathrm{Ass}(M)\) is finite.
+            </div>
+
+            <p>The proof of Proposition B was by induction on the number of generators of \(M\), which easily reduced the statement to the case \(M\) is cyclic (by using Proposition A). Thus, it sufficed to show that \(R/I\) has finitely many associated primes. For this, we noted that an ideal \(I\) maximal with respect to the property that \(\mathrm{Ass}(R/I)\) is infinite must be irreducible, i.e., \(I\) is not the intersection of two proper ideals. One then invokes the following key theorem (with proof), which provides the necessary contradiction.</p>
+
+            <div class="definition">
+                <span class="statement-title">Theorem.</span> Let \(R\) be a Noetherian ring and \(I\subseteq R\) an irreducible ideal. Then \(\mathrm{Ass}(R/I) = \{P\}\) for some prime ideal \(P\subseteq R\). Moreover, whenever \(ab\in I\), then \(a\in I\) or \(b\in \sqrt{I}\).
+            </div>
+
+            <p>This led to the following important definitions.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Let \(I\subseteq R\) be an ideal.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) The ideal \(Q\subseteq R\) is said to be a <em>primary</em> ideal if \(ab\in Q\) implies \(a\in Q\) or \(b\in \sqrt{Q}\). Thus, by the theorem above and its proof, if \(Q\subseteq R\) is a primary ideal, \(\mathrm{Ass}(R/Q) = \{P\}\), for some prime ideal \(P\subseteq R\), and \(P = \sqrt{Q}\). In this case we say \(Q\) is a \(P\)-primary ideal.</li>
+                    <li style="list-style-type: none;">(ii) A <em>primary decomposition</em> of \(I\) is an intersection \(I = Q_1\cap \cdots \cap Q_r\), where each \(Q_i\) is \(P_i\)-primary for \(P_i = \mathrm{Ass}(R/Q_i)\).</li>
+                    <li style="list-style-type: none;">(iii) The primary decomposition in (ii) is said to be <em>reduced</em> or <em>irredundant</em> if \(I\) is not the intersection of a proper subset of \(Q_1, \ldots, Q_n\) and the primes \(P_1, \ldots, P_n\) are distinct.</li>
+                </ol>
+                <p>We then quickly observed that if an ideal has a primary decomposition, it has an irredundant primary decomposition.</p>
+            </div>
+
+            <p>This then led to the following important</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Primary Decomposition Theorem.</span> Let \(R\) be a Noetherian ring and \(I\subseteq R\) an ideal. Then \(I\) has an irredundant primary decomposition, \(I = Q_1\cap \cdots \cap Q_n\). Moreover, if \(\sqrt{Q_i} = P_i\), for \(1\leq i\leq n\), then \(\mathrm{Ass}(R/I) = \{P_1, \ldots, P_n\}\).
+                </div>
+                <p><em>Proof.</em> By the theorem above, it suffices to show that \(I\) can be written as a finite intersection of irreducible ideals. The proof of this is the following classic argument due to E. Noether: If this were false, one could choose \(I\) maximal with respect to the property that it cannot be written as a finite intersection of irreducible ideals. Then \(I\) is not an irreducible ideal, so \(I = K\cap L\) for ideals properly containing \(I\). But then \(K, L\) are intersections of finitely many irreducible ideals, which immediately shows that \(I\) is a finite intersection of irreducible ideals, which is a contradiction. Thus, every ideal in a Noetherian ring is a finite intersection of irreducible ideals and hence has an irredundant primary decomposition.</p>
+                <p>For the second statement, first suppose \(P_1 = \sqrt{Q_1}\). We may localize at \(P_1\). Find \(z\in Q_2\cap \cdots \cap Q_n\backslash Q_1\), which we can do because the decomposition is irredundant. Now, \(P_1^h\subseteq Q_1\) for some \(h\geq 1\), thus \(P_1^hz\subseteq I\). Choose \(h\) least with this property. Then \(tz\not\in I\), for some \(t\in P_1^{h-1}\). But then \(P_1(zt)\subseteq I\), so \(P_1\) consists of zero-divisors modulo \(I\), i.e., \(P_1\subseteq Q\), for some \(Q\in \mathrm{Ass}(R/I)\). Since \(P_1\) is prime, \(P_1 = Q\), so \(P_1\in \mathrm{Ass}(R/I)\). We may repeat the argument for \(P_2, \ldots, P_n\), so \(\{P_1, \ldots, P_n\}\subseteq \mathrm{Ass}(R/I)\).</p>
+                <p>Now take \(P\in \mathrm{Ass}(R/I)\). Then we can write \(P = (I:x)\), for some \(x\not\in I\). We then have</p>
+                <div class="math-display">
+                    \[P = (I:x) = (Q_1\cap \cdots \cap Q_n : x) = (Q_1:x)\cap \cdots \cap (Q_n:x),\]
+                </div>
+                <p>so \(P = (Q_i:x)\), for some \(1\leq i\leq n\). This shows \(P\in \mathrm{Ass}(R/Q_i) = \{P_i\}\), so \(P = P_i\), since \(P_i\) is minimal over \(Q_i\). Thus, \(\mathrm{Ass}(R/I)\subseteq \{P_1, \ldots, P_n\}\), and the proof is complete. \(\square\)</p>
+            </div>
+
+       
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
