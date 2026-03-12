@@ -682,6 +682,38 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, March 12</div>
+
+            <p>Most of the class was spent discussing how diagonalizability of a \(2\times 2\) matrix can be used to solve a coupled system of two linear first order differential equations. In particular, given the system</p>
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="math-display">
+                    \[\begin{align*}
+                    x_1'(t) &= ax_1(t)+bx_2(t)\\
+                    x_2'(t) &= cx_1(t)+dx_2(t),
+                    \end{align*}\]
+                </div>
+            </div>
+            <p>assuming \(A\) is diagonalizable, we worked through the derivation of the solution to the system and found that the solution took the form</p>
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="math-display">
+                    \[\begin{pmatrix} x_1(t)\\x_2(t)\end{pmatrix} = c_1e^{\alpha t}v_1+c_2e^{\beta t}v_2,\]
+                </div>
+            </div>
+            <p>where \(\alpha, \beta\) are the eigenvalues of \(A\), with corresponding eigenvectors \(v_1, v_2\in \mathbb{R}^2\), and where \(c_1, c_2\in \mathbb{R}\) are determined by the initial conditions \(\begin{pmatrix} x_1(0)\\x_2(0)\end{pmatrix} = P\cdot \begin{pmatrix} c_1\\c_2\end{pmatrix}\), for \(P = [v_1\ v_2]\).</p>
+
+            <p>We finished class by using the derivation above to solve the system</p>
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="math-display">
+                    \[\begin{align*}
+                    x_1'(t) &= 2x_1(t)+x_2(t)\\
+                    x_2'(t) &= x_1(t)+2x_2(t)
+                    \end{align*}\]
+                </div>
+            </div>
+            <p>with initial conditions \(x_1(0) = 3, x_2(0) = -4\).</p>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
