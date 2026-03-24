@@ -867,7 +867,7 @@
         <div class="problem">
             <div class="problem-number">Thursday, March 12</div>
 
-            <p>Today's lecture was a brief interlude devoted to a discussion of associated primes and regular sequences. Throughout \(R\) will denote a Noetherian ring and \(M\) a non-zero \(R\)-module. For a non-zero element \(x\in M\), we write \((0:x)\) or \((0:_R x)\) to denote the <em>annihilator</em> of \(x\), i.e., \((0:x) = \{r\in R\ |\ rx = 0\}\). We began with</p>
+            <p>Today's lecture was a brief interlude devoted to a discussion of associated primes and primary decomposition. Throughout \(R\) will denote a Noetherian ring and \(M\) a non-zero \(R\)-module. For a non-zero element \(x\in M\), we write \((0:x)\) or \((0:_R x)\) to denote the <em>annihilator</em> of \(x\), i.e., \((0:x) = \{r\in R\ |\ rx = 0\}\). We began with</p>
 
             <div class="definition">
                 <p><span class="statement-title">Basic Definitions and Properties.</span></p>
@@ -925,6 +925,45 @@
             </div>
 
        
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, March 24</div>
+
+            <p>Today's lecture was devoted to a discussion of integral extensions and some of their basic properties. We began with the following definitions.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definitions.</span> Let \(R\subseteq S\) be an extension of commutative rings.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(b\in S\) is said to be <em>integral over \(R\)</em> if \(b\) is a root of a monic polynomial \(f(x)\in R[x]\).</li>
+                    <li style="list-style-type: none;">(ii) \(S\) is said to be <em>integral over \(R\)</em> if every element of \(S\) is integral over \(R\), in which case \(S\) is an <em>integral extension</em> of \(R\).</li>
+                    <li style="list-style-type: none;">(iii) The <em>integral closure of \(R\) in \(S\)</em> is the set of elements in \(S\) integral over \(R\).</li>
+                    <li style="list-style-type: none;">(iv) \(R\) is <em>integrally closed in \(S\)</em> if \(b\in S\) integral over \(R\) implies \(b\in R\).</li>
+                    <li style="list-style-type: none;">(v) If \(R\) is an integral domain with quotient field \(K\), we say \(R\) is <em>integrally closed</em> if \(R\) is integrally closed in \(K\).</li>
+                </ol>
+            </div>
+
+            <p>We then proceeded to discuss and prove the following</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Basic Properties.</span> Let \(R\subseteq S\) be an extension of commutative rings.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(b\in S\) is integral over \(R\) if and only if there exists a subring \(R\subseteq L\subseteq S\) with \(R[b]\subseteq L\) and \(L\) a finitely generated \(R\)-module.</li>
+                    <li style="list-style-type: none;">(ii) Sums and products of elements from \(S\) integral over \(R\) are integral over \(R\). Thus, the integral closure of \(R\) in \(S\) is a subring of \(S\).</li>
+                    <li style="list-style-type: none;">(iii) A UFD is integrally closed.</li>
+                    <li style="list-style-type: none;">(iv) If \(R\) and \(S\) are integral domains with \(S\) integral over \(R\), then \(R\) is a field if and only if \(S\) is a field.</li>
+                    <li style="list-style-type: none;">(v) If \(S\) is integral over \(R\) and \(P\subseteq R\), \(Q\subseteq S\) are prime ideals satisfying \(Q\cap R = P\), then \(P\) is a maximal ideal if and only if \(Q\) is a maximal ideal.</li>
+                    <li style="list-style-type: none;">(vi) The <em>lying over property</em>: If \(S\) is integral over \(R\) and \(P\subseteq R\) is a prime ideal, then there exists a prime ideal \(Q\subseteq S\) such that \(Q\cap R = P\).</li>
+                    <li style="list-style-type: none;">(vii) The <em>going up property</em>: If \(S\) is integral over \(R\) and \(P_1\subseteq P_2\subseteq R\) are prime ideals, and \(Q_1\subseteq S\) is a prime ideal with \(Q_1\cap R = P_1\), then there exists a prime ideal \(Q_2\) containing \(Q_1\) such that \(Q_2\cap R = P_2\).</li>
+                    <li style="list-style-type: none;">(viii) The <em>incomparability property</em>: If \(S\) is integral over \(R\) and \(Q_1\subsetneq Q_2\) are prime ideals in \(S\), then \(Q_1\cap R\subsetneq Q_2\cap R\).</li>
+                </ol>
+            </div>
+
+            <p>We ended class by giving a proof of the following proposition.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Let \(R\subseteq S\) be integral domains with quotient fields \(K\) and \(L\) respectively. Suppose \(w\in S\) is integral over \(R\) and let \(f(x)\in K[x]\) denote the minimal polynomial of \(w\) over \(K\). If \(R\) is integrally closed, then \(f(x)\in R[x]\) and \(R[w]\cong R[x]/\langle f(x)\rangle\).
+            </div>
+        </div>
 
         <!-- Additional daily updates will be added below as the semester continues -->
 
