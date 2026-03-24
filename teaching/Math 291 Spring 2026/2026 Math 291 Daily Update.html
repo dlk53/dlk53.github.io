@@ -718,8 +718,10 @@
             <div class="problem-number">Tuesday, March 24</div>
 
             <p>We began class by discussing our second application of diagonalizability, namely, that if \(A\) is diagonalizable, it is easy to write down a formula for the \(n\)th power of \(A\), as follows, using the fact that for any square matrix \(C\), \((PCP^{-1})^n = PC^nP^{-1}\): If \(P^{-1}AP = D = \begin{pmatrix} \alpha & 0\\0 & \beta \end{pmatrix}\), then \(A = PDP^{-1}\) and</p>
-            <div class="math-display">
-                \[A^n = PD^nP^{-1} = P\begin{pmatrix} \alpha^n & 0\\0 & \beta^n\end{pmatrix} P^{-1}.\]
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="math-display">
+                    \[A^n = PD^nP^{-1} = P\begin{pmatrix} \alpha^n & 0\\0 & \beta^n\end{pmatrix} P^{-1}.\]
+                </div>
             </div>
             <p>We then calculated \(A^n\) for \(A = \begin{pmatrix} -6 & 10\\-5 & 9\end{pmatrix}\) and \(n\geq 1\), and found that \(A^n = \begin{pmatrix} 2(-1)^n - 4^n & 2(-1)^{n+1}+2\cdot 4^n\\(-1)^{n}-4^n & (-1)^{n+1}+2\cdot 4^n\end{pmatrix}\).</p>
 
@@ -728,17 +730,21 @@
             <p>We then calculated \(e^A\), for \(A = \begin{pmatrix} -6 & 10\\-5 & 9\end{pmatrix}\) and got \(e^A = \begin{pmatrix} 2e^{-1}-e^4 & -2e^{-1}+2e^4\\e^{-1}-e^4 & -e^{-1}+2e^4\end{pmatrix}\).</p>
 
             <p>We then reconciled our two applications by noting that if</p>
-            <div class="math-display">
-                \[\begin{align*}
-                x_1'(t) &= ax_1(t)+bx_2(t)\\
-                x_2'(t) &= cx_1(t)+dx_2(t)
-                \end{align*}\]
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="math-display">
+                    \[\begin{align*}
+                    x_1'(t) &= ax_1(t)+bx_2(t)\\
+                    x_2'(t) &= cx_1(t)+dx_2(t)
+                    \end{align*}\]
+                </div>
             </div>
             <p>is a coupled system of first order linear differential equations that can be written as \(X'(t) = A\cdot X(t)\), with \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), then the solution takes the very agreeable form \(X(t) = e^{At}\cdot \begin{pmatrix} x_1(0)\\x_2(0)\end{pmatrix}\), which almost looks like the solution in the simple case of one function and one equation.</p>
 
             <p>We ended class with yet a third application of diagonalizability, namely calculating the general term in the Fibonacci sequence: \(1, 1, 2, 3, 5, 8, 13, \ldots\), where \(a_0 = 1, a_1 = 1, a_2 = 2, a_3 = 3, \ldots\), and \(a_{k+2} = a_{k+1}+a_k\), for \(k\geq 0\). We noted that \(A^k\cdot v_0 = \begin{pmatrix} a_k\\a_{k+1}\end{pmatrix}\), for \(A = \begin{pmatrix} 0 & 1\\1 & 1\end{pmatrix}\) and \(v_0 = \begin{pmatrix} 0\\1\end{pmatrix}\). We saw that \(A\) was diagonalizable with eigenvalues \(\lambda_1 = \frac{1+\sqrt{5}}{2}\), \(\lambda_2 = \frac{1-\sqrt{5}}{2}\), so that we were able to calculate \(A^k\). This led to the closed form formula for the \(k\)th Fibonacci number as</p>
-            <div class="math-display">
-                \[a_k = \frac{1}{\sqrt{5}}\cdot \left\{ \left(\frac{1+\sqrt{5}}{2}\right)^k - \left(\frac{1-\sqrt{5}}{2}\right)^k\right\},\]
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="math-display">
+                    \[a_k = \frac{1}{\sqrt{5}}\cdot \left\{ \left(\frac{1+\sqrt{5}}{2}\right)^k - \left(\frac{1-\sqrt{5}}{2}\right)^k\right\},\]
+                </div>
             </div>
             <p>which is an integer!</p>
         </div>
