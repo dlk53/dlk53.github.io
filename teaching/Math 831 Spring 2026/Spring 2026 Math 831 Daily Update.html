@@ -965,6 +965,45 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, March 26</div>
+
+            <p>We began our discussion of Hilbert rings with the following</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Proposition-Definition.</span> For the commutative ring \(R\), the following conditions are equivalent.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Every prime ideal of \(R\) is an intersection of maximal ideals.</li>
+                    <li style="list-style-type: none;">(ii) Whenever \(M\subseteq R[x]\) is a maximal ideal, \(M\cap R\) is a maximal ideal.</li>
+                </ol>
+                <p>If these conditions hold, then \(R\) is a <em>Hilbert ring</em>.</p>
+            </div>
+
+            <p>Before establishing the equivalence of conditions (i) and (ii), we noted how condition (ii) plays a crucial role in the proof of Hilbert's weak Nullstellensatz theorem and that if \(Q\subseteq R[x]\) is a prime ideal with \(q := Q\cap R\), then either \(Q = q[x]\) or \(Q\) properly contains \(q[x]\) and we cannot have a prime \(Q'\subseteq R[x]\) with \(q[x]\subsetneq Q\subsetneq Q'\) and \(Q'\cap R = q\).</p>
+
+            <p>We also noted that, using the Proposition-Definition, the ring \(\mathbb{Z}\) is a Hilbert ring, since \((0)\) is the intersection of all the maximal ideals in \(\mathbb{Z}\), while the ring \(\mathbb{Z}_{(p)}\) is not a Hilbert ring since \(\langle px-1\rangle\) is a maximal ideal in \(\mathbb{Z}_{(p)}[x]\) that contracts to \((0)\) in \(\mathbb{Z}_{(p)}\).</p>
+
+            <p>After proving the equivalence of (i) and (ii) above, we presented (with proofs) the following two results.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition B.</span> Suppose \(R\) is a Hilbert domain and \(0\not= a\in R\). Then \(R_a\) is a Hilbert ring and every maximal ideal in \(R_a\) is of the form \(M_a\), for \(M\subseteq R\) a maximal ideal.
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">Lemma.</span> Let \(R\subseteq S\) be an integral extension of integral domains. If the Jacobson radical of \(R\) equals zero then the Jacobson radical of \(S\) equals zero.
+            </div>
+
+            <p>We were then able to prove the following important theorem.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Theorem.</span> If \(R\) is a Hilbert ring, then the polynomial ring \(R[x]\) is a Hilbert ring.
+                </div>
+                <p><em>Proof.</em> Let \(Q\subseteq R[x]\) be a prime ideal and set \(q := Q\cap R\). Suppose \(Q = q[x]\). Then \(q = \bigcap N\), where the intersection ranges over the maximal ideals \(N\subseteq R\) containing \(q\). Thus \(Q = q[x] = \bigcap N[x]\). But since \(R[x]/N[x]\) is a polynomial ring with coefficients in the field \(R/N\), each \(N[x] = \bigcap \langle N, f(x)\rangle\), where \(f(x)\) ranges over the polynomials \(f(x)\in R[x]\) that are irreducible modulo \(N[x]\). Thus each \(N[x]\) is an intersection of maximal ideals in \(R[x]\), so \(Q = q[x]\) is an intersection of maximal ideals in \(R[x]\).</p>
+                <p>Suppose \(Q\not= q[x]\). It is easy to see that if \(Q/q[x]\subseteq R[x]/q[x]\) is an intersection of maximal ideals, then the same holds for \(Q\subseteq R[x]\). Thus, we may mod out \(q[x]\) and assume that \(R\) is a Hilbert domain and \(Q\cap R = (0)\). Take \(0\not= a\in R\) a leading coefficient of a polynomial in \(Q\). Note, since \(Q\cap R = (0)\), \(a\not\in Q\). Then, \(R_a\) is a Hilbert ring by Proposition B and \(R_a\subseteq R_a[x]/Q_a\) is an integral extension. Since \(\mathrm{Jac}(R_a) = 0\), by the Lemma, \(\mathrm{Jac}(R_a[x]/Q_a) = 0\), so that in the ring \(R_a[x]\), \(Q_a\) is an intersection of the maximal ideals containing \(Q_a\). If we let \(A\) denote the set of ideals \(M\subseteq R[x]\) such that \(Q\subseteq M\), \(a\not\in M\), and \(M_a\subseteq R_a[x]\) is a maximal ideal, then \(Q = \bigcap \{M\ |\ M\in A\}\). Now we note that \(M\in A\) implies \(N := M\cap R\) is a maximal ideal of \(R\). First note that \(M_a\cap R = N\), since localization at a multiplicatively closed set in \(R\) commutes with formation of the polynomial ring. Now, \(R_a\) is a Hilbert ring, so \(M_a\cap R_a\) is a maximal ideal of \(R_a\). By the second statement of Proposition B, \(M_a\cap R_a\) is \(N_a\), for \(N\subseteq R\) a maximal ideal. Thus, \(M\cap R\) is a maximal ideal of \(R\) for every \(M\in A\). Now, suppose \(M\in A\), but \(M\) is not a maximal ideal in \(R[x]\). Since \(N := M\cap R\) is maximal, we must have \(M = N[x]\), so that as before, \(N[x]\) is an intersection of maximal ideals. In other words, each \(M\) in \(A\) that is not a maximal ideal in \(R[x]\) is an intersection of maximal ideals. Since \(Q = \bigcap \{M\ |\ M\in A\}\), it follows that \(Q\) is an intersection of maximal ideals, which completes the proof. \(\square\)</p>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
