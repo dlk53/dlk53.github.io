@@ -749,6 +749,44 @@
             <p>which is an integer!</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, March 26</div>
+
+            <p>We began today's lecture by considering the following:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definitions.</span> Let \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix} \in \mathrm{M}_2(\mathbb{R})\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) The <em>transpose</em> of \(A\), denoted \(A^t\), is the matrix \(A^t = \begin{pmatrix} a & c\\b & d\end{pmatrix}\).</li>
+                    <li style="list-style-type: none;">(ii) \(A\) is said to be <em>symmetric</em> if \(A = A^t\), i.e., it has the form \(\begin{pmatrix} a & b\\b & c\end{pmatrix}\).</li>
+                </ol>
+            </div>
+
+            <p>We then considered the symmetric matrix \(A = \begin{pmatrix} 2 & 1\\1 & 2\end{pmatrix}\), which had eigenvalues 1, 3 with associated eigenvectors \(v_1 = \begin{pmatrix} 1\\-1\end{pmatrix}\) and \(v_2 = \begin{pmatrix} 1\\1\end{pmatrix}\) respectively. We noted the <strong>crucial</strong> fact that \(v_1\) and \(v_2\) are orthogonal. We then noted that if we take \(u_1 := \frac{1}{\sqrt{2}}v_1\) and \(u_2 = \frac{1}{\sqrt{2}}v_2\), we now have two orthogonal vectors of unit length. In this case we call \(\{u_1, u_2\}\) an <em>orthonormal basis</em> for \(\mathbb{R}^2\). We then noted that if \(Q = [u_1\ u_2]\), then \(Q^{-1}AQ = \begin{pmatrix} 1 & 0\\0 & 3\end{pmatrix}\), so that \(A\) is <em>orthogonally diagonalizable</em>. This led to the following:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definitions.</span> Let \(Q\in \mathrm{M}_2(\mathbb{R})\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(Q\) is an <em>orthogonal</em> matrix if its columns form an orthonormal basis for \(\mathbb{R}^2\), i.e., the columns of \(Q\) have length one and are orthogonal.</li>
+                    <li style="list-style-type: none;">(ii) \(A\in \mathrm{M}_2(\mathbb{R})\) is <em>orthogonally diagonalizable</em> if there exists an orthogonal matrix \(Q\in \mathrm{M}_2(\mathbb{R})\) such that \(Q^{-1}AQ\) is a diagonal matrix.</li>
+                </ol>
+            </div>
+
+            <p>We then worked through the details showing that the symmetric matrix \(B = \begin{pmatrix} 2 & -2\\-2 & -1\end{pmatrix}\) is orthogonally diagonalizable. We were then able to state the <strong>important theorem.</strong></p>
+
+            <div class="definition">
+                <span class="statement-title">Spectral Theorem for Real Symmetric \(2\times 2\) Matrices.</span> Let \(A\in \mathrm{M}_2(\mathbb{R})\) be a symmetric matrix. Then \(A\) is orthogonally diagonalizable.
+            </div>
+
+            <p>We finished class by using the quadratic formula to work through the following proposition which gives us crucial information about \(2\times 2\) real symmetric matrices.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition A.</span> Let \(A\) be a real \(2\times 2\) symmetric matrix, and assume that \(A\) is not a scalar matrix. Then \(A\) has two distinct real eigenvalues.
+            </div>
+
+            <p>We immediately noted that Proposition A tells us that any real \(2\times 2\) symmetric matrix is diagonalizable (by the Corollary from the lecture of March 10).</p>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
