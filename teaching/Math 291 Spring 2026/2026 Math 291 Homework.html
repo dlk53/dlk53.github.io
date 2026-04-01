@@ -750,9 +750,65 @@
 
             <p>1. Let \(A\) be the \(3\times 3\) matrix presented in the first problem from the homework assignment of February 5. Write \(X(t) = \begin{pmatrix} x_1(t)\\x_2(t)\\x_3(t)\end{pmatrix}\), so we have a system of first order linear differential equations given by \(X'(t) = A\cdot X(t)\) with initial conditions \(x_1(0) = 3, x_2(0) = 2, x_3(0) = -1\). Solve this system of equations and express your answer using the exponential of a matrix.</p>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> The matrix from the February 5 assignment is \(A = \begin{pmatrix} 2 & 1 & 0\\0 & 4 & 0\\1 & 2 & -1\end{pmatrix}\). The characteristic polynomial is</p>
+                \[\begin{aligned}
+                p_A(x) &= \det\begin{pmatrix} 2-x & 1 & 0\\0 & 4-x & 0\\1 & 2 & -1-x\end{pmatrix}\\
+                &= (2-x)\det\begin{pmatrix} 4-x & 0\\2 & -1-x\end{pmatrix} - 1\cdot\det\begin{pmatrix} 0 & 0\\1 & -1-x\end{pmatrix}\\
+                &= (2-x)(4-x)(-1-x)\\
+                &= -(x-2)(x-4)(x+1),
+                \end{aligned}\]
+                <p>so the eigenvalues are \(2, 4, -1\).</p>
+                <p>For \(\lambda = 2\): Row-reducing \(A - 2I_3 = \begin{pmatrix} 0 & 1 & 0\\0 & 2 & 0\\1 & 2 & -3\end{pmatrix}\) gives \(\begin{pmatrix} 1 & 0 & -3\\0 & 1 & 0\\0 & 0 & 0\end{pmatrix}\), so the eigenvector is \(v_1 = \begin{pmatrix} 3\\0\\1\end{pmatrix}\).</p>
+                <p>For \(\lambda = 4\): Row-reducing \(A - 4I_3 = \begin{pmatrix} -2 & 1 & 0\\0 & 0 & 0\\1 & 2 & -5\end{pmatrix}\) gives \(\begin{pmatrix} 1 & 0 & -1\\0 & 1 & -2\\0 & 0 & 0\end{pmatrix}\), so the eigenvector is \(v_2 = \begin{pmatrix} 1\\2\\1\end{pmatrix}\).</p>
+                <p>For \(\lambda = -1\): Row-reducing \(A + I_3 = \begin{pmatrix} 3 & 1 & 0\\0 & 5 & 0\\1 & 2 & 0\end{pmatrix}\) gives \(\begin{pmatrix} 1 & 0 & 0\\0 & 1 & 0\\0 & 0 & 0\end{pmatrix}\), so the eigenvector is \(v_3 = \begin{pmatrix} 0\\0\\1\end{pmatrix}\).</p>
+                <p>The general solution to \(X'(t) = AX(t)\) is</p>
+                \[X(t) = c_1 e^{2t}\begin{pmatrix} 3\\0\\1\end{pmatrix} + c_2 e^{4t}\begin{pmatrix} 1\\2\\1\end{pmatrix} + c_3 e^{-t}\begin{pmatrix} 0\\0\\1\end{pmatrix}.\]
+                <p>Applying the initial conditions \(x_1(0) = 3, x_2(0) = 2, x_3(0) = -1\), we get the system</p>
+                \[\begin{aligned}
+                3c_1 + c_2 &= 3\\
+                2c_2 &= 2\\
+                c_1 + c_2 + c_3 &= -1.
+                \end{aligned}\]
+                <p>From the second equation, \(c_2 = 1\). Substituting into the first gives \(c_1 = \frac{2}{3}\). The third equation then gives \(c_3 = -1 - \frac{2}{3} - 1 = -\frac{8}{3}\). Thus the solution with the given initial conditions is</p>
+                \[X(t) = \frac{2}{3}e^{2t}\begin{pmatrix} 3\\0\\1\end{pmatrix} + e^{4t}\begin{pmatrix} 1\\2\\1\end{pmatrix} - \frac{8}{3}e^{-t}\begin{pmatrix} 0\\0\\1\end{pmatrix}.\]
+                <p>Alternatively, using the diagonalizing matrix \(P = \begin{pmatrix} 3 & 1 & 0\\0 & 2 & 0\\1 & 1 & 1\end{pmatrix}\) satisfying \(P^{-1}AP = D = \begin{pmatrix} 2 & 0 & 0\\0 & 4 & 0\\0 & 0 & -1\end{pmatrix}\), with \(P^{-1} = \begin{pmatrix} \frac{1}{3} & -\frac{1}{6} & 0\\0 & \frac{1}{2} & 0\\-\frac{1}{3} & -\frac{1}{3} & 1\end{pmatrix}\), we compute \(e^{At} = Pe^{Dt}P^{-1}\) explicitly:</p>
+                \[\begin{aligned}
+                e^{At} &= \begin{pmatrix} 3 & 1 & 0\\0 & 2 & 0\\1 & 1 & 1\end{pmatrix}\begin{pmatrix} e^{2t} & 0 & 0\\0 & e^{4t} & 0\\0 & 0 & e^{-t}\end{pmatrix}\begin{pmatrix} \frac{1}{3} & -\frac{1}{6} & 0\\0 & \frac{1}{2} & 0\\-\frac{1}{3} & -\frac{1}{3} & 1\end{pmatrix}\\
+                &= \begin{pmatrix} 3e^{2t} & e^{4t} & 0\\0 & 2e^{4t} & 0\\e^{2t} & e^{4t} & e^{-t}\end{pmatrix}\begin{pmatrix} \frac{1}{3} & -\frac{1}{6} & 0\\0 & \frac{1}{2} & 0\\-\frac{1}{3} & -\frac{1}{3} & 1\end{pmatrix}\\
+                &= \begin{pmatrix} e^{2t} & \frac{e^{4t}-e^{2t}}{2} & 0\\0 & e^{4t} & 0\\\frac{e^{2t}-e^{-t}}{3} & \frac{3e^{4t}-e^{2t}-2e^{-t}}{6} & e^{-t}\end{pmatrix}.
+                \end{aligned}\]
+                <p>One can verify: setting \(t=0\) gives \(e^{A\cdot 0} = I_3\) \(\checkmark\). The solution with the given initial conditions can then be written as</p>
+                \[X(t) = e^{At}X(0) = \begin{pmatrix} e^{2t} & \frac{e^{4t}-e^{2t}}{2} & 0\\0 & e^{4t} & 0\\\frac{e^{2t}-e^{-t}}{3} & \frac{3e^{4t}-e^{2t}-2e^{-t}}{6} & e^{-t}\end{pmatrix}\begin{pmatrix} 3\\2\\-1\end{pmatrix} = \begin{pmatrix} 2e^{2t}+e^{4t}\\2e^{4t}\\e^{4t}-\frac{8}{3}e^{-t}+\frac{2}{3}e^{2t}\end{pmatrix},\]
+                <p>which agrees with the solution found above.</p>
+            </div>
+
             <p>2. Let \(a_1 = 1, a_2 = 1, a_3 = 2, a_4 = 3, a_5 = 5, \ldots\) be the Fibonacci sequence and set \(A = \begin{pmatrix} 0 & 1\\1 & 1\end{pmatrix}\). Prove by induction on \(k\) that \(A^k\cdot \begin{pmatrix} 0\\1\end{pmatrix} = \begin{pmatrix} a_k\\a_{k+1}\end{pmatrix}\), for all \(k\geq 1\).</p>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We proceed by induction on \(k\).</p>
+                <p><em>Base case</em> (\(k=1\)): We have \(A^1\cdot\begin{pmatrix} 0\\1\end{pmatrix} = \begin{pmatrix} 0 & 1\\1 & 1\end{pmatrix}\begin{pmatrix} 0\\1\end{pmatrix} = \begin{pmatrix} 1\\1\end{pmatrix} = \begin{pmatrix} a_1\\a_2\end{pmatrix}\), as required.</p>
+                <p><em>Inductive step</em>: Assume \(A^k\cdot\begin{pmatrix} 0\\1\end{pmatrix} = \begin{pmatrix} a_k\\a_{k+1}\end{pmatrix}\). Then</p>
+                \[A^{k+1}\cdot\begin{pmatrix} 0\\1\end{pmatrix} = A\cdot A^k\cdot\begin{pmatrix} 0\\1\end{pmatrix} = \begin{pmatrix} 0 & 1\\1 & 1\end{pmatrix}\begin{pmatrix} a_k\\a_{k+1}\end{pmatrix} = \begin{pmatrix} a_{k+1}\\a_k+a_{k+1}\end{pmatrix} = \begin{pmatrix} a_{k+1}\\a_{k+2}\end{pmatrix},\]
+                <p>where the last equality uses the recurrence \(a_{k+2} = a_k + a_{k+1}\). This completes the induction.</p>
+            </div>
+
             <p>3. Let \(a_1, a_2, \ldots\) be the sequence defined by the equation \(A^k\cdot \begin{pmatrix} 0\\1\end{pmatrix} = \begin{pmatrix} a_k\\a_{k+1}\end{pmatrix}\), for \(A = \begin{pmatrix} 6 & 10\\-2 & -3\end{pmatrix}\) and \(k\geq 1\). Find the values of \(a_k\), for all \(k\).</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We diagonalize \(A\). The characteristic polynomial is \(p_A(x) = (6-x)(-3-x)+20 = x^2-3x+2 = (x-1)(x-2)\), so the eigenvalues are \(1\) and \(2\).</p>
+                <p>For \(\lambda = 1\): Row-reducing \(A - I_2 = \begin{pmatrix} 5 & 10\\-2 & -4\end{pmatrix}\) gives eigenvector \(v_1 = \begin{pmatrix} 2\\-1\end{pmatrix}\).</p>
+                <p>For \(\lambda = 2\): Row-reducing \(A - 2I_2 = \begin{pmatrix} 4 & 10\\-2 & -5\end{pmatrix}\) gives eigenvector \(v_2 = \begin{pmatrix} 5\\-2\end{pmatrix}\).</p>
+                <p>We take \(P = \begin{pmatrix} 2 & 5\\-1 & -2\end{pmatrix}\), so that \(P^{-1}AP = \begin{pmatrix} 1 & 0\\0 & 2\end{pmatrix}\). Since \(\det P = 1\), we have \(P^{-1} = \begin{pmatrix} -2 & -5\\1 & 2\end{pmatrix}\). Therefore,</p>
+                \[\begin{aligned}
+                A^k &= P\begin{pmatrix} 1 & 0\\0 & 2^k\end{pmatrix}P^{-1}\\
+                &= \begin{pmatrix} 2 & 5\cdot 2^k\\-1 & -2\cdot 2^k\end{pmatrix}\begin{pmatrix} -2 & -5\\1 & 2\end{pmatrix}\\
+                &= \begin{pmatrix} -4+5\cdot 2^k & -10+10\cdot 2^k\\2-2\cdot 2^k & 5-4\cdot 2^k\end{pmatrix}.
+                \end{aligned}\]
+                <p>Thus,</p>
+                \[A^k\begin{pmatrix} 0\\1\end{pmatrix} = \begin{pmatrix} -4+5\cdot 2^k & -10+10\cdot 2^k\\2-2\cdot 2^k & 5-4\cdot 2^k\end{pmatrix}\begin{pmatrix} 0\\1\end{pmatrix} = \begin{pmatrix} 10\cdot 2^k-10\\5-4\cdot 2^k\end{pmatrix} = \begin{pmatrix} a_k\\a_{k+1}\end{pmatrix},\]
+                <p>so \(a_k = 10\cdot 2^k-10\) for all \(k\geq 1\). We verify: \(A\begin{pmatrix} 0\\1\end{pmatrix} = \begin{pmatrix} 10\\-3\end{pmatrix}\), so \(a_1 = 10 = 10\cdot 2 - 10\), and \(A^2\begin{pmatrix} 0\\1\end{pmatrix} = A\begin{pmatrix} 10\\-3\end{pmatrix} = \begin{pmatrix} 30\\-11\end{pmatrix}\), so \(a_2 = 30 = 10\cdot 4-10\).</p>
+            </div>
         </div>
 
         <div class="problem">
@@ -760,9 +816,53 @@
 
             <p>1. Find an orthogonal matrix that diagonalizes \(A = \begin{pmatrix} 5 & 4\\4 & -1\end{pmatrix}\). Be sure to check your answer.</p>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> The characteristic polynomial is \(p_A(x) = (5-x)(-1-x)-16 = x^2-4x-21 = (x-7)(x+3)\), so the eigenvalues are \(7\) and \(-3\).</p>
+                <p>For \(\lambda = 7\): Row-reducing \(A-7I_2 = \begin{pmatrix} -2 & 4\\4 & -8\end{pmatrix}\) gives eigenvector \(\begin{pmatrix} 2\\1\end{pmatrix}\), which we normalize to \(\frac{1}{\sqrt{5}}\begin{pmatrix} 2\\1\end{pmatrix}\).</p>
+                <p>For \(\lambda = -3\): Row-reducing \(A+3I_2 = \begin{pmatrix} 8 & 4\\4 & 2\end{pmatrix}\) gives eigenvector \(\begin{pmatrix} 1\\-2\end{pmatrix}\), which we normalize to \(\frac{1}{\sqrt{5}}\begin{pmatrix} 1\\-2\end{pmatrix}\).</p>
+                <p>Note that the two eigenvectors are orthogonal, as expected for a symmetric matrix with distinct eigenvalues. We take</p>
+                \[Q = \frac{1}{\sqrt{5}}\begin{pmatrix} 2 & 1\\1 & -2\end{pmatrix}.\]
+                <p>It is easy to check that in this case \(Q^{-1} = Q\), so we verify:</p>
+                \[\begin{aligned}
+                Q^{-1}AQ &= \frac{1}{\sqrt{5}}\begin{pmatrix} 2 & 1\\1 & -2\end{pmatrix}\begin{pmatrix} 5 & 4\\4 & -1\end{pmatrix}\frac{1}{\sqrt{5}}\begin{pmatrix} 2 & 1\\1 & -2\end{pmatrix}\\
+                &= \frac{1}{5}\begin{pmatrix} 14 & 7\\1 & -6\end{pmatrix}\begin{pmatrix} 2 & 1\\1 & -2\end{pmatrix}\\
+                &= \frac{1}{5}\begin{pmatrix} 35 & 0\\0 & -15\end{pmatrix} = \begin{pmatrix} 7 & 0\\0 & -3\end{pmatrix}.
+                \end{aligned}\]
+            </div>
+
             <p>2. Suppose \(A\) is a \(2\times 2\) matrix with eigenvalue \(\lambda\). Suppose that \(v_1, v_2\) are two eigenvectors of \(A\) for \(\lambda\), i.e., \(Av_1 = \lambda v_1\) and \(Av_2 = \lambda v_2\). Prove that for any \(a, b\in \mathbb{R}\), \(av_1+bv_2\) is also an eigenvector of \(A\) for \(\lambda\).</p>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Using linearity of matrix multiplication and the fact that \(v_1, v_2\) are eigenvectors for \(\lambda\), we have</p>
+                \[A(av_1+bv_2) = aAv_1+bAv_2 = a\lambda v_1+b\lambda v_2 = \lambda(av_1+bv_2).\]
+                <p>Thus \(av_1+bv_2\) is an eigenvector of \(A\) for \(\lambda\). \(\square\)</p>
+            </div>
+
             <p><strong>Bonus Problem 8.</strong> Let \(Q\) be a \(2\times 2\) orthogonal real matrix. Prove that \(Q^{-1} = Q^t\). This problem is due Tuesday March 31. (3 points)</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> By definition, \(Q\) is orthogonal if its columns \(C_1, C_2\) form an orthonormal basis for \(\mathbb{R}^2\), i.e., \(C_1, C_2\) have length one and are orthogonal. The transpose \(Q^t\) has rows \(C_1^t, C_2^t\). We check the entries of \(Q^tQ\): the \((1,1)\) entry is \(C_1^tC_1 = C_1\cdot C_1 = 1\), the \((1,2)\) entry is \(C_1^tC_2 = C_1\cdot C_2 = 0\), the \((2,1)\) entry is \(C_2^tC_1 = 0\), and the \((2,2)\) entry is \(C_2^tC_2 = 1\). Thus \(Q^tQ = I_2\), and therefore \(Q^{-1} = Q^t\).</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, March 31</div>
+
+            <p>1. Set \(A := \begin{pmatrix} 1 & 0 & 1\\0 & 1 & -1\\1 & -1 & 2\end{pmatrix}\), so that \(A\) is symmetric. We can go through the same process as for \(2\times 2\) matrices to see that \(A\) is orthogonally diagonalizable. The same process works in this case since \(A\) has three distinct eigenvalues.</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) First find three distinct eigenvalues for \(A\). This tells us that \(A\) is diagonalizable.</li>
+                <li style="list-style-type: none;">(ii) Find one eigenvector for each eigenvalue. Call these vectors \(v_1, v_2, v_3\). Check that these three vectors are mutually orthogonal.</li>
+                <li style="list-style-type: none;">(iii) Set \(u_1 := \frac{1}{||v_1||}\cdot v_1\), \(u_2 := \frac{1}{||v_2||}\cdot v_2\), \(u_3 := \frac{1}{||v_3||}\cdot v_3\) and let \(Q\) denote the \(3\times 3\) matrix whose columns are \(u_1, u_2, u_3\), so that \(Q\) is an orthogonal \(3\times 3\) matrix. Verify that \(Q^{-1}AQ\) is diagonal, so that \(A\) is orthogonally diagonalizable.</li>
+                <li style="list-style-type: none;">(iv) Calculate \(Q^tQ\). You should get \(I_3\), which illustrates the property \(Q^t = Q^{-1}\) enjoyed by orthogonal matrices.</li>
+            </ol>
+
+            <p>2. Follow the steps below for the matrix \(B = \begin{pmatrix} 3 & -1\\1 & 1\end{pmatrix}\).</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) Find the single eigenvalue \(\lambda\) for \(B\) and the solution space to the homogeneous system of equations with coefficient matrix \(-\lambda I_2+B\). These are all of the eigenvectors associated to \(\lambda\).</li>
+                <li style="list-style-type: none;">(ii) Take any \(v_2\in \mathbb{R}^2\) that is <strong>not</strong> an eigenvector of \(B\) associated to \(\lambda\) and set \(v_1 = (-\lambda I_2+B)\cdot v_2\).</li>
+                <li style="list-style-type: none;">(iii) Verify that \(v_1\) is an eigenvector of \(B\).</li>
+                <li style="list-style-type: none;">(iv) Let \(P\) denote the \(2\times 2\) matrix with columns \(v_1, v_2\). Calculate \(P^{-1}BP\). If done correctly you should get \(\begin{pmatrix} \lambda & 1\\0 & \lambda\end{pmatrix}\), the <em>Jordan canonical form of \(B\)</em>.</li>
+            </ol>
         </div>
 
     </main>

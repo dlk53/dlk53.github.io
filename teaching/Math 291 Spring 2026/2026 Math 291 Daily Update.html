@@ -787,6 +787,28 @@
             <p>We immediately noted that Proposition A tells us that any real \(2\times 2\) symmetric matrix is diagonalizable (by the Corollary from the lecture of March 10).</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Tuesday, March 31</div>
+
+            <p>We continued our discussion of symmetric \(2\times 2\) matrices over \(\mathbb{R}\) by restating the Spectral Theorem from the previous lecture and recalling the terminology in the statement of the theorem. We also recalled that Proposition A from the previous lecture guarantees that a real \(2\times 2\) symmetric matrix that is not a scalar matrix has two distinct eigenvalues and is thus diagonalizable. Thus the key to orthogonal diagonalizability rests with the fact that the associated eigenvectors are orthogonal. For this we needed</p>
+
+            <div class="definition">
+                <span class="statement-title">A property of the dot product.</span> Let \(A\in \mathrm{M}_2(\mathbb{R})\) and suppose \(v_1, v_2\in \mathbb{R}^2\) are column vectors. Then \((Av_1)\cdot v_2 = v_1\cdot (A^tv_2)\). In particular, if \(A\) is symmetric, then \((Av_1)\cdot v_2 = v_1\cdot (Av_2)\).
+            </div>
+
+            <p>We had each half of the class calculate one side of the equation, and two students presented their calculation at the board. With this property in hand we were able to establish the following crucial fact.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition B.</span> Let \(A\) be a non-scalar symmetric \(2\times 2\) real matrix with distinct eigenvalues \(\lambda_1, \lambda_2\) and associated eigenvectors \(v_1, v_2\). Then \(v_1\cdot v_2 = 0\), i.e., \(v_1\) and \(v_2\) are orthogonal.
+            </div>
+
+            <p>We were then able to give</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Proof of the Spectral Theorem.</span> We may assume \(A\) is not a scalar matrix, as there is nothing to prove in this case. Thus, by Proposition A, the matrix \(A\) has distinct eigenvalues say \(\alpha\) and \(\beta\), and hence by Proposition B, any choice of corresponding eigenvectors \(v_1, v_2\) are orthogonal. Thus, if we set \(u_1 := \frac{1}{||v_1||}\cdot v_1\), \(u_2 := \frac{1}{||v_2||}\cdot v_2\), then \(u_1\) is an eigenvector associated with \(\alpha\), \(u_2\) is an eigenvector associated with \(\beta\), \(u_1, u_2\) are orthogonal and have length one, and thus \(Q = [u_1\ u_2]\) is an orthogonal matrix satisfying \(Q^{-1}AQ = \begin{pmatrix} \alpha & 0\\0 & \beta\end{pmatrix}\), which gives what we want. \(\square\)</p>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
