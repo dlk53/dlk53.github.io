@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 291: Guidelines and Practice Problems for Exam 1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #357abd;
+        }
+        .back-link:focus {
+            outline: 2px solid #357abd;
+            outline-offset: 2px;
+        }
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Math 291: Guidelines and Practice Problems for Exam 1</h1>
+    </header>
+
+    <main id="main-content">
+
+        <p>Exam 1 will cover all material from the first day of class up to and including whatever we cover on Thursday February 19. Questions on the exam will be of the following types: Stating definitions, propositions or theorems; short answer; true-false; and presentation of a proof of a theorem. I will try to keep time-consuming calculations to a minimum, but you should know how to do all calculations related to systems of linear equations, matrix calculations, linear independence, bases, linear transformations and matrix calculations.</p>
+
+        <p>Most of the definitions, propositions, theorems, corollaries that you need to know how to state appear in the Daily Update, but it is best to check your notes for all of these as well. You will need to be able to answer brief questions about these results as well as true-false statements about these results.</p>
+
+        <div class="instructions">
+            <p><strong>You will also be responsible for working any type of problem that was previously assigned as homework.</strong></p>
+
+            <p>On the Exam you will be required to state and provide a proof of one of the following Theorems.</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) <strong>Theorem A:</strong> Two vectors \(v_1 = (a,b)\) and \(v_2 = (c,d)\) in \(\mathbb{R}^2\) are linearly independent if and only if \(\det\begin{pmatrix} a & b\\c & d\end{pmatrix} \not= 0\).</li>
+                <li style="list-style-type: none;">(ii) <strong>Theorem B:</strong> The vectors \(v_1, v_2\in \mathbb{R}^2\) are linearly independent if and only if they span \(\mathbb{R}^2\).</li>
+            </ol>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Practice Problems</div>
+
+            <p>1. Use Gaussian elimination to find the solution set to the following system of equations. Express your answer using set notation.</p>
+            <div class="math-display">
+                \[\begin{align*}
+                2x+4y+6z &= 12\\
+                3y+6z &= 18.
+                \end{align*}\]
+            </div>
+
+            <p>2. Convert the elementary row operations used in problem 1 to elementary matrices and show that the product of these matrices with the original augmented matrix gives the final augmented matrix in RREF. Be sure to illustrate this by taking one matrix product at a time.</p>
+
+            <p>3. Suppose a system of equations in \(x, y, z, w, v\) when converted to an augmented matrix reduces to the following RREF. Write the solution set to the system.</p>
+            <div class="math-display">
+                \[\left[\begin{array}{ccccc|c} 1 & 3 & 0 & -2 & 1 & 1\\ 0 & 0 & 1 & 8 & 4 & 2\\ 0 & 0 & 0 & 0 & 0 & 0 \end{array}\right]\]
+            </div>
+
+            <p>4. Use Gaussian elimination to find the inverse of \(\begin{pmatrix} 1 & 2 & 3\\0 & 1 & 4\\5 & 5 & 0\end{pmatrix}\).</p>
+
+            <p>5. Given sets of vectors \(\alpha = \{(1,2), (-2,1)\}\) and \(\beta = \{(1,1), (-2,0)\}\):</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) Verify that \(\alpha\) and \(\beta\) are bases for \(\mathbb{R}^2\).</li>
+                <li style="list-style-type: none;">(ii) Calculate \([I]_{\alpha}^{\beta}\) and \([I]_{\beta}^{\alpha}\).</li>
+                <li style="list-style-type: none;">(iii) Verify that \([I]_{\alpha}^{\beta}\) and \([I]_{\beta}^{\alpha}\) are inverses of one another.</li>
+            </ol>
+
+            <p>6. Let \(T(x,y) = (6x-2y, 2y)\).</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) Verify the defining properties for the linear transformation \(T\) using: \(v_1 = (-1,2), v_2 = (4,8), \lambda = -3\).</li>
+                <li style="list-style-type: none;">(ii) Calculate \([T]_{\alpha}^{\alpha}\) and \([T]_{\beta}^{\beta}\), for \(\alpha, \beta\) given in the previous problem.</li>
+                <li style="list-style-type: none;">(iii) Verify the change of variables formula relating \([T]_{\beta}^{\beta}\) and \([T]_{\alpha}^{\alpha}\).</li>
+            </ol>
+        </div>
+
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX course document. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>

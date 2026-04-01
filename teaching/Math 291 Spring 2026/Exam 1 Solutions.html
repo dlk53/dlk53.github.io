@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 291 Spring 2026: Exam 1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .solution {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #357abd;
+        }
+        .back-link:focus {
+            outline: 2px solid #357abd;
+            outline-offset: 2px;
+        }
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Math 291 Spring 2026: Exam 1</h1>
+    </header>
+
+    <main id="main-content">
+
+        <div class="instructions">
+            <p>Instructions: Be sure to put your name on each page of your exam. When in doubt, it is always better to provide more detail than less. And: No calculators or other computational aids allowed.</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">True-False and Short Answer — 6 points each</div>
+
+            <p>1. True or False: There exists a system of two linear equations in two unknowns with exactly 17 solutions. What about two equations and three unknowns?</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> False. Any system of linear equations either has no solution, a unique solution, or infinitely many solutions.</p>
+            </div>
+
+            <p>2. True or False: If \(A\) and \(B\) are invertible \(2\times 2\) matrices, then \(AB\) is invertible. Justify your answer.</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> True. \(\det(AB) = \det(A)\cdot\det(B)\not= 0\), since \(\det(A)\not= 0\) and \(\det(B)\not= 0\), so \(AB\) is invertible.</p>
+            </div>
+
+            <p>3. True or False: If we remove the line \(y = x\) from \(\mathbb{R}^2\), the remaining subset forms a subspace. Justify your answer.</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> False. Any subspace must contain the origin.</p>
+            </div>
+
+            <p>4. Define what it means for a matrix to be in reduced row echelon form.</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> A matrix is in RREF if:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) The leading entry of each non-zero row is 1.</li>
+                    <li style="list-style-type: none;">(ii) There are zeros above and below each leading entry.</li>
+                    <li style="list-style-type: none;">(iii) The leading entries move from left to right as one moves down the rows.</li>
+                    <li style="list-style-type: none;">(iv) All rows consisting of zeros are at the bottom of the matrix.</li>
+                </ol>
+            </div>
+
+            <p>5. Define what it means for two vectors \(v_1, v_2\in \mathbb{R}^2\) to span \(\mathbb{R}^2\).</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> The vectors \(v_1, v_2\) span \(\mathbb{R}^2\) if, given any vector \(w\in \mathbb{R}^2\), there exist \(\alpha, \beta\in \mathbb{R}\) such that \(w = \alpha v_1+\beta v_2\).</p>
+            </div>
+
+            <p>6. We're given a system of equations in \(x, y, z, w\) such that after elementary row reductions, the reduced row echelon form of the augmented matrix has the form</p>
+            <div class="math-display">
+                \[\left[\begin{array}{cccc|c} 1 & 2 & 0 & -7 & 3\\0 & 0 & 1 & 5 & -7\\0 & 0 & 0 & 0 & 0\end{array}\right].\]
+            </div>
+            <p>Write the solution set to the original system <strong>using set notation as done in class</strong>.</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> The solution set is \(\{(3-2t_1+7t_2,\ t_1,\ -7-5t_2,\ t_2)\ |\ t_1, t_2\in \mathbb{R}\}\).</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Calculation Problems — 20 points each</div>
+
+            <p>1. Suppose the following sequence of elementary row operations was applied to the \(2\times 4\) augmented matrix used to find the inverse of a given \(2\times 2\) matrix: \(R_1\leftrightarrow R_2\); \(-2R_1+R_2\); \(3\cdot R_2\); \(-1\cdot R_2+R_1\). Convert these operations to elementary matrices and take an appropriate product of the elementary matrices to find the inverse of the given matrix.</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Writing the elementary matrices in the order of the given elementary row operations, we have</p>
+                \[E_1 = \begin{pmatrix} 0 & 1\\1 & 0\end{pmatrix} \quad E_2 = \begin{pmatrix} 1 & 0\\-2 & 1\end{pmatrix} \quad E_3 = \begin{pmatrix} 1 & 0\\0 & 3\end{pmatrix} \quad E_4 = \begin{pmatrix} 1 & -1\\0 & 1\end{pmatrix}.\]
+                <p>The inverse of the matrix is then</p>
+                \[\begin{aligned}
+                E_4E_3E_2E_1 &= \begin{pmatrix} 1 & -1\\0 & 1\end{pmatrix}\cdot\begin{pmatrix} 1 & 0\\0 & 3\end{pmatrix}\cdot\begin{pmatrix} 1 & 0\\-2 & 1\end{pmatrix}\cdot\begin{pmatrix} 0 & 1\\1 & 0\end{pmatrix}\\
+                &= \begin{pmatrix} 1 & -3\\0 & 3\end{pmatrix}\cdot\begin{pmatrix} 1 & 0\\-2 & 1\end{pmatrix}\cdot\begin{pmatrix} 0 & 1\\1 & 0\end{pmatrix}\\
+                &= \begin{pmatrix} 7 & -3\\-6 & 3\end{pmatrix}\cdot\begin{pmatrix} 0 & 1\\1 & 0\end{pmatrix}\\
+                &= \begin{pmatrix} -3 & 7\\3 & -6\end{pmatrix}.
+                \end{aligned}\]
+            </div>
+
+            <p>2. Let \(T(x,y) = (3x-y, 2x)\) and \(S(x,y) = (-3y, 5x)\). Let \(E\) be the standard basis for \(\mathbb{R}^2\) and \(\beta\) the basis \(\{(1,1), (-1,0)\}\). Find the matrix of \(T\) with input basis \(\beta\) and output basis \(E\), the matrix of \(S\) with \(E\) as both input and output basis. Then verify the Very Important Formula regarding the matrix of a composition of linear transformations. Be sure to use the relevant notation from class.</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We first calculate \(T\) evaluated on \(\beta\) and \(S\) evaluated on \(E\). \(T(1,1) = (2,2)\), \(T(-1,0) = (-3,-2)\) and \(S(1,0) = (0,5)\), \(S(0,1) = (-3,0)\). When \(E\) is the output basis, the corresponding columns in the matrix are just the values of the linear transformation on the input basis. For example, \(T(-1,0) = (-3,-2) = -3(1,0)+(-2)(0,1)\). Thus, \([T]_{\beta}^E = \begin{pmatrix} 2 & -3\\2 & -2\end{pmatrix}\) and \([S]_E^E = \begin{pmatrix} 0 & -3\\5 & 0\end{pmatrix}\).</p>
+                <p>By the Very Important Formula, \([ST]_{\beta}^E = [S]_E^E\cdot[T]_{\beta}^E\), so we first calculate \([ST]_{\beta}^E\) directly. We have \(ST(1,1) = S(2,2) = (-6,10)\) and \(ST(-1,0) = S(-3,-2) = (6,-15)\). Thus \([ST]_{\beta}^E = \begin{pmatrix} -6 & 6\\10 & -15\end{pmatrix}\).</p>
+                <p>To verify the Very Important Formula:</p>
+                \[[S]_E^E\cdot[T]_{\beta}^E = \begin{pmatrix} 0 & -3\\5 & 0\end{pmatrix}\cdot\begin{pmatrix} 2 & -3\\2 & -2\end{pmatrix} = \begin{pmatrix} -6 & 6\\10 & -15\end{pmatrix} = [ST]_{\beta}^E.\]
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Proof Problem — 24 points</div>
+
+            <p>Given \(v_1 = (a,b)\), \(v_2 = (c,d)\in \mathbb{R}^2\) and \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), prove that \(v_1, v_2\) are linearly independent if and only if \(\det(A)\not= 0\).</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> First suppose that \(v_1, v_2\) are linearly independent. Then we cannot have both \(b = 0\) and \(d = 0\), otherwise \(v_2\) would be a multiple of \(v_1\), contradicting linear independence. If \(\det(A)\) were zero, then \(ad-bc = 0\). This would give</p>
+                \[dv_1+(-b)v_2 = d(a,b)-b(c,d) = (ad-bc,\ 0) = (0,0),\]
+                <p>which is a contradiction to linear independence, since at least one of \(d\) or \(b\) is non-zero. Therefore \(\det(A)\not= 0\).</p>
+                <p>Conversely, suppose \(\det(A)\not= 0\). Then \(A\) has an inverse. If we have a dependence relation \(\alpha v_1+\beta v_2 = \vec{0}\), then \(\alpha(a,b)+\beta(c,d) = (0,0)\), i.e.,</p>
+                \[(0,0) = (\alpha,\beta)\begin{pmatrix} a & b\\c & d\end{pmatrix} = (\alpha,\beta)A.\]
+                <p>Multiplying both sides on the right by \(A^{-1}\) gives \((0,0) = (\alpha,\beta)\), so \(\alpha = 0 = \beta\), showing that \(v_1, v_2\) are linearly independent.</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Bonus Problem — 10 points</div>
+
+            <p>Given the linear transformation \(T(x,y) = (-2y, x+3y)\), show there is a non-zero vector \(v\in \mathbb{R}^2\) and \(\lambda\in \mathbb{R}\) such that \(T(v) = \lambda v\). Hint: You might try setting up a matrix equation. If done correctly you can actually find \(v\) and \(\lambda\), though this is not required.</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We seek a <strong>non-zero</strong> vector \(v = (a,b)\) and \(\lambda\in \mathbb{R}\) such that \(T(v) = \lambda v\), i.e., \((-2b, a+3b) = (\lambda a, \lambda b)\). This gives two equations \(-2b = \lambda a\) and \(a+3b = \lambda b\). Writing this as a system of homogeneous equations:</p>
+                \[\begin{aligned}
+                -\lambda a - 2b &= 0\\
+                a + (3-\lambda)b &= 0.
+                \end{aligned}\]
+                <p>Writing this as a matrix equation, we have \(\begin{pmatrix} -\lambda & -2\\1 & -\lambda+3\end{pmatrix}\cdot\begin{pmatrix} a\\b\end{pmatrix} = \begin{pmatrix} 0\\0\end{pmatrix}\). The system has a non-trivial solution exactly when \(\det\begin{pmatrix} -\lambda & -2\\1 & -\lambda+3\end{pmatrix} = 0\), i.e., when \(\lambda^2-3\lambda+2 = 0\). Thus, when \(\lambda = 1\) or \(\lambda = 2\), the system has a non-trivial solution, and in each case a non-trivial solution gives the vector we seek.</p>
+                <p>For example, when \(\lambda = 1\), the system becomes \(\begin{pmatrix} -1 & -2\\1 & 2\end{pmatrix}\cdot\begin{pmatrix} a\\b\end{pmatrix} = \begin{pmatrix} 0\\0\end{pmatrix}\), so the vector \(v = (-2,1)\) is a non-trivial solution, and thus satisfies \(T(v) = 1\cdot v\).</p>
+                <p>When \(\lambda = 2\), the system becomes \(\begin{pmatrix} -2 & -2\\1 & 1\end{pmatrix}\cdot\begin{pmatrix} a\\b\end{pmatrix} = \begin{pmatrix} 0\\0\end{pmatrix}\), so the vector \(v = (-1,1)\) is a non-trivial solution, and thus satisfies \(T(v) = 2\cdot v\).</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX course exam. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
