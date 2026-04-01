@@ -1004,6 +1004,50 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Tuesday, March 31</div>
+
+            <p>We began class with the following corollary to the theorem which asserted that \(R[x]\) is a Hilbert ring if \(R\) is a Hilbert ring.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Corollary.</span> Let \(R = k[x_1, \ldots, x_n]\) denote the polynomial ring in \(n\) variables over the field \(k\). Then:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(R\) is a Hilbert ring.</li>
+                    <li style="list-style-type: none; font-size: 0.9em;">(ii) If \(M\subseteq R\) is a maximal ideal, then \(M = \langle f_1(x_1), f_2(x_1, x_2), \ldots, f_n(x_1, \ldots, x_n)\rangle\) for \(f_1(x_1), \ldots, f_n(x_1, \ldots, x_n)\in R\).</li>
+                    <li style="list-style-type: none;">(iii) If \(M\subseteq R\) is a maximal ideal, then \(k\subseteq R/M\) is an algebraic extension of fields.</li>
+                </ol>
+            </div>
+
+            <p>We then noted that for \(R = k[x_1, \ldots, x_n]\), \(\underline{\alpha} = (\alpha_1, \ldots, \alpha_n)\) and \(M_{\underline{\alpha}} := \langle x_1-\alpha_1, \ldots, x_n-\alpha_n\rangle\), \(g\in R\) satisfies: \(g\in M_{\underline{\alpha}}\) if and only if \(g(\underline{\alpha}) = 0\). Maintaining this notation, we then stated and proved:</p>
+
+            <div class="definition">
+                <span class="statement-title">Hilbert's Weak Nullstellensatz.</span> For \(R = k[x_1, \ldots, x_n]\), with \(k\) algebraically closed, there is a 1-1 correspondence between the maximal ideals of \(R\) and the points in \(k^n\) given by: \(M\subseteq R\) is a maximal ideal if and only if \(M = M_{\underline{\alpha}}\), for some \(\underline{\alpha}\in k^n\).
+            </div>
+
+            <p>Maintaining the notation from the Weak Nullstellensatz, for an ideal \(I\subseteq R\), we defined the <em>algebraic variety</em> determined by \(I\) to be \(V(I) := \{\underline{\alpha}\in k^n\ |\ f(\underline{\alpha}) = 0,\ \text{for all}\ f\in I\}\) and the polynomial functions defined on \(V(I)\) to be \(\mathcal{I}(V(I)) := \{g\in R\ |\ g(\underline{\alpha}) = 0,\ \text{for all}\ \underline{\alpha}\in V(I)\}\). This enabled us to state and prove</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Hilbert's Nullstellensatz.</span> Let \(R = k[x_1, \ldots, x_n]\) with \(k\) algebraically closed and \(I\subseteq R\) an ideal. Then \(\mathcal{I}(V(I)) = \sqrt{I}\).
+                </div>
+                <p><em>Proof.</em> First note that one clearly has \(I\subseteq \mathcal{I}(V(I))\), so that if \(f\in \sqrt{I}\), then \(f^n(\underline{\alpha}) = 0\), for some \(n\), for all \(\underline{\alpha}\in V(I)\), and thus \(f(\underline{\alpha}) = 0\), for all \(\underline{\alpha}\in V(I)\), showing \(\sqrt{I}\subseteq \mathcal{I}(V(I))\).</p>
+                <p>We now note that \(M\subseteq R\) is a maximal ideal containing \(I\) if and only if \(M = M_{\underline{\alpha}}\) for some \(\underline{\alpha}\in V(I)\). For this, let \(M\) be a maximal ideal containing \(I\). By the Weak Nullstellensatz, \(M = M_{\underline{\alpha}}\) for some \(\underline{\alpha}\in k^n\), so that \(M_{\underline{\alpha}}\supseteq I\). By the comments preceding the Weak Nullstellensatz, \(\underline{\alpha}\in V(I)\). Now suppose \(\underline{\alpha}\in V(I)\). Then \(f(\underline{\alpha}) = 0\), for all \(f\in I\), so that \(I\subseteq M_{\underline{\alpha}}\). Thus, \(I\subseteq M_{\underline{\alpha}}\) if and only if \(\underline{\alpha}\in V(I)\).</p>
+                <p>To finish, suppose \(f\in \mathcal{I}(V(I))\), so that \(f(\underline{\alpha}) = 0\), for all \(\underline{\alpha}\in V(I)\). Then \(f\in M_{\underline{\alpha}}\), for all \(\underline{\alpha}\in V(I)\). In other words, \(f\in M\), for all maximal ideals containing \(I\) and since \(R\) is a Hilbert ring, \(f\in \sqrt{I}\). Thus, \(\sqrt{I} = \mathcal{I}(V(I))\), which is what we want. \(\square\)</p>
+            </div>
+
+            <p>We finished class by noting that our next major goal is to show that if \(R\) is a polynomial ring in finitely many variables over a field of characteristic zero and \(P\subseteq R\) is a prime ideal, then \(P = \bigcap_{M\in X} M\), where \(X\) is the set of maximal ideals in \(R\) containing \(P\) such that \((R/P)_M\) is a regular local ring, and by discussing the following preliminaries for the following theorem due to Jim Brewer and Bill Heinzer: \(R\) Noetherian implies \(R\langle x\rangle\) is Noetherian, where \(R\langle x\rangle\) denotes \(R[x]\) localized at the multiplicatively closed set of monic polynomials.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Preliminaries for the Brewer-Heinzer theorem.</span> Let \(R\) be a commutative ring.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Suppose that \(P'\subseteq R[x]\) is a prime ideal and set \(P := P'\cap R\). If \(P'\not= PR[x]\), then we say that \(P'\) is an <em>upper to \(P\)</em>.</li>
+                    <li style="list-style-type: none;">(ii) Suppose \(R\) is an integral domain, and \(Q\subseteq R[x]\) is a prime ideal satisfying \(Q\cap R = (0)\). Then we say that \(Q\) is an <em>upper to zero</em>.</li>
+                    <li style="list-style-type: none;">(iii) Suppose \(R\) is an integral domain with quotient field \(K\) and \(Q\subseteq R[x]\) is an upper to zero. Then \(QK[x]\) is generated by an irreducible polynomial \(f(x)\in K[x]\) and \(Q = f(x)K[x]\cap R[x]\).</li>
+                    <li style="list-style-type: none;">(iv) Let \(R, K, Q\) and \(f(x)\) be as in (iii). Then by clearing denominators, we may assume that \(f(x)\in R[x]\), in which case \(Q = \bigcup_{n\geq 1} (f(x)R[x] : a^n)\), where \(a\in R\) is the leading coefficient of \(f(x)\). Note that when \(R\) is Noetherian, then there exists \(n\gg 0\) such that \(Q = (f(x)R[x] : a^n)\).</li>
+                </ol>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
