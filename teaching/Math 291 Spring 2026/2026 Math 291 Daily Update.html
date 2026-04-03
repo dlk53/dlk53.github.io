@@ -809,6 +809,37 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, April 2</div>
+
+            <p>We began class by recalling that if \(A\in \mathrm{M}_2(\mathbb{R})\), then we have three possibilities for \(p_A(x)\): Either \(p_A(x)\) has two distinct real roots, \(p_A(x)\) has a repeated real root, or \(p_A(x)\) does not have a real root. We noted that we have seen many times that in the first case, \(A\) is diagonalizable, while in the second case, if \(A\) is not a scalar matrix, then if \(\lambda\) is the repeated root of \(p_A(x)\), then the eigenspace of \(\lambda\), namely, the nullspace of \(A-\lambda I_2\), is one dimensional, and thus \(A\) is not diagonalizable.</p>
+
+            <p>We then analyzed in depth the example \(A = \begin{pmatrix} 1 & -2\\2 & 5\end{pmatrix}\). In this case \(p_A(x) = (x-3)^2\). We confirmed \(A\) is not diagonalizable by noting that the solution space of the homogeneous system with coefficient matrix \(\begin{pmatrix} 1-3 & -2\\2 & 5-3\end{pmatrix}\) is spanned by the vector \(w := \begin{pmatrix} 1\\-1\end{pmatrix}\). We took \(v_2 = \begin{pmatrix} 1\\0\end{pmatrix}\), which is not an eigenvector. We then set \(v_1 := (A-3I_2)v_2\) to get \(v_1 = \begin{pmatrix} -2\\2\end{pmatrix}\), which is an eigenvector. Taking \(P = [v_1\ v_2] = \begin{pmatrix} -2 & 1\\2 & 0\end{pmatrix}\) we saw that \(P^{-1}AP = \begin{pmatrix} 3 & 1\\0 & 3\end{pmatrix}\). We noted that this latter matrix is the <em>Jordan canonical form of \(A\)</em>.</p>
+
+            <p>To explain why this example works, we noted that from the definition of \(v_1\), we have \(v_1 = Av_2-3v_2\), so that \(Av_2 = v_1+3v_2\). Thus,</p>
+            <div class="math-display">
+                \[\begin{aligned}
+                AP &= A\cdot [v_1\ v_2] = [Av_1\ Av_2] = [Av_1\ v_1+3v_2]\\
+                &= [3v_1\ v_1+3v_2] = [v_1\ v_2]\begin{pmatrix} 3 & 1\\0 & 3\end{pmatrix} = P\begin{pmatrix} 3 & 1\\0 & 3\end{pmatrix},
+                \end{aligned}\]
+            </div>
+            <p>which gives \(P^{-1}AP = \begin{pmatrix} 3 & 1\\0 & 3\end{pmatrix}\).</p>
+
+            <p>We then stated the following</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Process for finding a Jordan canonical form and the change of basis matrix.</span> Suppose \(A\in \mathrm{M}_2(\mathbb{R})\) satisfies \(p_A(x) = (x-\lambda)^2\) and \(A\) is not a scalar matrix. We find the Jordan canonical form of \(A\) as follows:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Find the nullspace of \((A-\lambda\cdot I_2)\), i.e., the <em>eigenspace</em> associated to \(\lambda\). This will be a one dimensional subspace of \(\mathbb{R}^2\).</li>
+                    <li style="list-style-type: none;">(ii) Choose any column vector \(v_2\in \mathbb{R}^2\) that is <strong>not</strong> an eigenvector, i.e., not in the eigenspace found in the previous step.</li>
+                    <li style="list-style-type: none;">(iii) Set \(v_1 := (A-\lambda\cdot I_2)v_2\). This vector <em>is</em> an eigenvector.</li>
+                    <li style="list-style-type: none;">(iv) Upon setting \(P = [v_1\ v_2]\) we obtain \(P^{-1}AP = \begin{pmatrix} \lambda & 1\\0 & \lambda\end{pmatrix}\), the Jordan canonical form of \(A\).</li>
+                </ol>
+            </div>
+
+            <p>We ended class by briefly discussing what we will do in the three remaining classes before the second midterm exam on April 16.</p>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
