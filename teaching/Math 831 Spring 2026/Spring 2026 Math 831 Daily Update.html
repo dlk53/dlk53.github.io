@@ -1048,6 +1048,25 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, April 2</div>
+
+            <p>Before discussing the Brewer-Heinzer theorem which states that if \(R\) is Noetherian, then \(R\langle x\rangle\) is a Hilbert ring, where \(R\langle x\rangle\) denotes the polynomial ring \(R[x]\) localized at the set of monic polynomials, we mentioned two standard facts about Noetherian rings needed for the proof. Suppose \(R\) is a Noetherian ring. Then: (i) If \(\dim(R)\geq 2\), then \(R\) has infinitely many height one primes and (ii) \(R\) is a Hilbert ring if and only if for every prime ideal \(Q\subseteq R\) satisfying \(\dim(R/Q) = 1\), \(Q\) is contained in infinitely many maximal ideals of \(R\).</p>
+
+            <p>Our discussion of the proof took the form of listing various steps that were reductions to more special cases and how the proof works in the ultimate reduction. Proofs for some of the steps were given and indications of proofs for the other steps were discussed. Roughly, here are the steps we looked at.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Steps in the proof.</span></p>
+                <p><span style="color: purple; font-style: normal; font-weight: 600;">Step 1.</span> By the second property of Noetherian rings mentioned above, we have to show that if \(Q_0\subseteq R\langle x\rangle\) satisfies \(\dim(R\langle x\rangle/Q_0) = 1\), then \(Q_0\) is contained in infinitely many maximal ideals of \(R\langle x\rangle\). We noted that it suffices to assume \(R\) is an integral domain, and show that if \(Q\subseteq R[x]\) is an upper to zero not containing a monic polynomial, then there exist infinitely many primes \(P\subseteq R[x]\), not containing a monic polynomial, such that \(Q\subsetneq P\).</p>
+                <p><span style="color: purple; font-style: normal; font-weight: 600;">Step 2.</span> We noted that if \(\dim(R) = 1\), then \(\dim(R\langle x\rangle) = 1\), thus \(R\langle x\rangle\) is a Hilbert ring if \((0)\) is an intersection of maximal ideals in \(R\langle x\rangle\), and this is seen by taking the ideals \(P_n = (t^nx-1)R\langle x\rangle\), for \(t\in R\) a non-unit.</p>
+                <p><span style="color: purple; font-style: normal; font-weight: 600;">Step 3:</span> Reduction to the case \((R, M)\) is local.</p>
+                <p><span style="color: purple; font-style: normal; font-weight: 600;">Step 4:</span> Reduction to the case \(Q\) contains a linear polynomial, so that \(Q = (ax-b):a^n\), for \(n\gg 0\), with \(a\in M\).</p>
+                <p><span style="color: purple; font-style: normal; font-weight: 600;">Step 5.</span> For the upper to zero \(C := (cx-d):d^{\infty}\), \(C\) contains a monic polynomial if and only if \(\frac{d}{c}\) is integral over \(R\). This implies that \(\frac{b}{a}\) is not integral over \(R\).</p>
+                <p><span style="color: purple; font-style: normal; font-weight: 600;">Step 6:</span> The special case \(a = vb\), where \(b\in M\) is a non-unit. Then \(ax-b = b(vx-1)\in Q\), so \(vx-1\in Q\), and thus \(Q = (vx-1)R[x]\). It follows that if \(P\subseteq R\) is one of the infinitely many height one primes in \(R\) not containing \(a\), then the uppers \(P_1 := (P, vx-1)R[x]\) to \(P\) are primes properly containing \(Q\), not containing a monic polynomial, which is what we want.</p>
+                <p><span style="color: purple; font-style: normal; font-weight: 600;">Step 7:</span> Reduction to the special case. We pass to the ring \(T := R[\frac{a}{b}]\) and note that \(T = R[y]/C\), for \(C = (a-by):b^{\infty}\). Now using Step 5, one shows that \(C\) does not contain a polynomial whose constant term is a unit. Thus, \((M, v)\) is a maximal ideal in \(T\), where \(v\) denotes the image of \(y\) in \(T\). By the previous case, we can prove the theorem with base ring \(T_{(M,v)}\), which can then be used to finish the proof of the theorem over \(R\).</p>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
