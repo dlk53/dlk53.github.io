@@ -840,6 +840,33 @@
             <p>We ended class by briefly discussing what we will do in the three remaining classes before the second midterm exam on April 16.</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Tuesday, April 7</div>
+
+            <p>Today we spent most of the class discussing properties of the complex numbers \(\mathbb{C}\) with the goal of noting that almost all of the linear algebra we have been doing can be done in exactly the same manner over \(\mathbb{C}\) as our previous efforts over \(\mathbb{R}\). We then discussed the following properties of complex numbers.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Properties of complex numbers.</span> We let \(\mathbb{C}\) denote the number system of complex numbers, i.e., all numbers of the form \(a+bi\), with \(a,b\in \mathbb{R}\) and \(i^2 = -1\). Set \(z_1 := a+bi\) and \(z_2 := c+di\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(z_1 = z_2\) if and only if \(a = c\) and \(b = d\).</li>
+                    <li style="list-style-type: none;">(ii) By definition: \(z_1+z_2 = (a+c)+(b+d)i\) and \(z_1z_2 = (ac-bd)+(bc+ad)i\).</li>
+                    <li style="list-style-type: none;">(iii) Addition and multiplication of complex numbers enjoy all of the usual properties of arithmetic, e.g., addition and multiplication are commutative, multiplication distributes over addition, etc.</li>
+                    <li style="list-style-type: none;">(iv) Non-zero complex numbers have a multiplicative inverse, e.g., if \(z_1\not= 0\), then \(z_1^{-1} = \frac{a}{a^2+b^2} - \frac{b}{a^2+b^2}i\).</li>
+                    <li style="list-style-type: none;">(v) The <em>complex conjugate</em> of \(z_1\) is the complex number \(\overline{z_1} = a-bi\). Complex conjugation enjoys the following properties: \(\overline{z_1+z_2} = \overline{z_1}+\overline{z_2}\) and \(\overline{z_1z_2} = \overline{z_1}\cdot\overline{z_2}\).</li>
+                </ol>
+            </div>
+
+            <p>We then stated the <strong><span style="color: purple;">Very Important</span></strong></p>
+
+            <div class="definition">
+                <span class="statement-title">Fundamental Theorem of Algebra.</span> Every polynomial with real or complex coefficients has all of its roots in \(\mathbb{C}\). In particular, if \(f(x)\) is a monic polynomial of degree \(d\) with real coefficients, then there exist \(\alpha_1, \ldots, \alpha_d\in \mathbb{C}\) such that \(f(x) = (x-\alpha_1)\cdots(x-\alpha_d)\).
+            </div>
+
+            <p>We noted the importance of this fact for linear algebra: The characteristic polynomial of any square matrix over \(\mathbb{R}\) has all of its roots in \(\mathbb{C}\), i.e., any such matrix has all of its eigenvalues in \(\mathbb{C}\). We then showed that any complex number has two square roots, meaning that we are free to solve degree two polynomials with complex coefficients using the quadratic formula.</p>
+
+            <p>We ended class by noting that almost all of the linear algebra we have done thus far, e.g., solving equations using Gaussian elimination, finding eigenvalues and eigenvectors, diagonalizing matrices, finding JCF, etc., can be done in exactly the same way over \(\mathbb{C}\) as we have been doing over \(\mathbb{R}\), with a minor difference arising from orthogonal diagonalization. We noted that over \(\mathbb{C}\) we have to alter the dot product of two vectors as follows: Suppose \(v_1 = \begin{pmatrix} \alpha\\\beta\end{pmatrix}\) and \(v_2 = \begin{pmatrix} \gamma\\\delta\end{pmatrix}\) with \(\alpha, \beta, \gamma, \delta\in \mathbb{C}\), then \(v_1\cdot v_2 := \alpha\overline{\gamma}+\beta\overline{\delta}\). This definition ensures that over \(\mathbb{C}\) the dot product of a non-zero vector with itself is non-zero.</p>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>

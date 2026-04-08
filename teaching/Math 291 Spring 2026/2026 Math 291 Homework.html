@@ -856,6 +856,40 @@
                 <li style="list-style-type: none;">(iv) Calculate \(Q^tQ\). You should get \(I_3\), which illustrates the property \(Q^t = Q^{-1}\) enjoyed by orthogonal matrices.</li>
             </ol>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span></p>
+                <p>(i) To find the eigenvalues, we compute the characteristic polynomial by expanding along the first row:</p>
+                \[\begin{aligned}
+                p_A(x) &= \det(A - xI_3) = \det\begin{pmatrix} 1-x & 0 & 1\\0 & 1-x & -1\\1 & -1 & 2-x\end{pmatrix}\\
+                &= (1-x)\det\begin{pmatrix} 1-x & -1\\-1 & 2-x\end{pmatrix} + 1\cdot\det\begin{pmatrix} 0 & 1-x\\1 & -1\end{pmatrix}\\
+                &= (1-x)\bigl[(1-x)(2-x)-1\bigr] - (1-x)\\
+                &= (1-x)\bigl[(1-x)(2-x) - 2\bigr]\\
+                &= (1-x)(x^2 - 3x)\\
+                &= -x(x-1)(x-3).
+                \end{aligned}\]
+                <p>The three distinct eigenvalues are \(\lambda_1 = 0\), \(\lambda_2 = 1\), \(\lambda_3 = 3\). Since \(A\) is a \(3\times 3\) matrix with three distinct eigenvalues, it is diagonalizable.</p>
+                <p>(ii) For \(\lambda_1 = 0\): Row-reducing \(A\):</p>
+                \[\begin{pmatrix} 1 & 0 & 1\\0 & 1 & -1\\1 & -1 & 2\end{pmatrix} \xrightarrow{R_3 \leftarrow R_3 - R_1} \begin{pmatrix} 1 & 0 & 1\\0 & 1 & -1\\0 & -1 & 1\end{pmatrix} \xrightarrow{R_3 \leftarrow R_3 + R_2} \begin{pmatrix} 1 & 0 & 1\\0 & 1 & -1\\0 & 0 & 0\end{pmatrix},\]
+                <p>giving eigenvector \(v_1 = \begin{pmatrix} -1\\1\\1\end{pmatrix}\).</p>
+                <p>For \(\lambda_2 = 1\): Row-reducing \(A - I_3\):</p>
+                \[\begin{pmatrix} 0 & 0 & 1\\0 & 0 & -1\\1 & -1 & 1\end{pmatrix} \xrightarrow{} \begin{pmatrix} 1 & -1 & 1\\0 & 0 & 1\\0 & 0 & 0\end{pmatrix} \xrightarrow{R_1 \leftarrow R_1 - R_2} \begin{pmatrix} 1 & -1 & 0\\0 & 0 & 1\\0 & 0 & 0\end{pmatrix},\]
+                <p>giving eigenvector \(v_2 = \begin{pmatrix} 1\\1\\0\end{pmatrix}\).</p>
+                <p>For \(\lambda_3 = 3\): Row-reducing \(A - 3I_3\):</p>
+                \[\begin{pmatrix} -2 & 0 & 1\\0 & -2 & -1\\1 & -1 & -1\end{pmatrix} \xrightarrow{R_1 \leftrightarrow R_3} \begin{pmatrix} 1 & -1 & -1\\0 & -2 & -1\\-2 & 0 & 1\end{pmatrix} \xrightarrow{R_3 \leftarrow R_3 + 2R_1} \begin{pmatrix} 1 & -1 & -1\\0 & -2 & -1\\0 & -2 & -1\end{pmatrix}\]
+                \[\xrightarrow{R_3 \leftarrow R_3 - R_2} \begin{pmatrix} 1 & -1 & -1\\0 & -2 & -1\\0 & 0 & 0\end{pmatrix},\]
+                <p>giving (with \(x_3 = 2\)) eigenvector \(v_3 = \begin{pmatrix} 1\\-1\\2\end{pmatrix}\).</p>
+                <p>We verify mutual orthogonality:</p>
+                \[\begin{aligned}v_1\cdot v_2 &= (-1)(1)+(1)(1)+(1)(0) = 0,\\v_1\cdot v_3 &= (-1)(1)+(1)(-1)+(1)(2) = 0,\\v_2\cdot v_3 &= (1)(1)+(1)(-1)+(0)(2) = 0.\end{aligned}\]
+                <p>(iii) We normalize:</p>
+                \[\|v_1\| = \sqrt{3},\quad \|v_2\| = \sqrt{2},\quad \|v_3\| = \sqrt{6},\]
+                <p>so</p>
+                \[u_1 = \frac{1}{\sqrt{3}}\begin{pmatrix} -1\\1\\1\end{pmatrix},\quad u_2 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1\\1\\0\end{pmatrix},\quad u_3 = \frac{1}{\sqrt{6}}\begin{pmatrix} 1\\-1\\2\end{pmatrix},\]
+                <p>and we set</p>
+                \[Q = \begin{pmatrix} -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}}\\[4pt] \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}}\\[4pt] \frac{1}{\sqrt{3}} & 0 & \frac{2}{\sqrt{6}}\end{pmatrix}.\]
+                <p>Since the columns are orthonormal eigenvectors for eigenvalues \(0, 1, 3\), we have \(Q^{-1}AQ = \begin{pmatrix} 0 & 0 & 0\\0 & 1 & 0\\0 & 0 & 3\end{pmatrix}\).</p>
+                <p>(iv) The \((i,j)\) entry of \(Q^tQ\) is \(u_i\cdot u_j\). Since the columns are orthonormal, \(u_i\cdot u_j = \delta_{ij}\), so \(Q^tQ = I_3\).</p>
+            </div>
+
             <p>2. Follow the steps below for the matrix \(B = \begin{pmatrix} 3 & -1\\1 & 1\end{pmatrix}\).</p>
             <ol style="list-style-type: none; padding-left: 20px;">
                 <li style="list-style-type: none;">(i) Find the single eigenvalue \(\lambda\) for \(B\) and the solution space to the homogeneous system of equations with coefficient matrix \(-\lambda I_2+B\). These are all of the eigenvectors associated to \(\lambda\).</li>
@@ -863,6 +897,21 @@
                 <li style="list-style-type: none;">(iii) Verify that \(v_1\) is an eigenvector of \(B\).</li>
                 <li style="list-style-type: none;">(iv) Let \(P\) denote the \(2\times 2\) matrix with columns \(v_1, v_2\). Calculate \(P^{-1}BP\). If done correctly you should get \(\begin{pmatrix} \lambda & 1\\0 & \lambda\end{pmatrix}\), the <em>Jordan canonical form of \(B\)</em>.</li>
             </ol>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span></p>
+                <p>(i) The characteristic polynomial is</p>
+                \[p_B(x) = (3-x)(1-x)+1 = x^2-4x+4 = (x-2)^2,\]
+                <p>so \(B\) has the single repeated eigenvalue \(\lambda = 2\). Row-reducing \(B-2I_2\):</p>
+                \[\begin{pmatrix} 1 & -1\\1 & -1\end{pmatrix} \xrightarrow{R_2 \leftarrow R_2 - R_1} \begin{pmatrix} 1 & -1\\0 & 0\end{pmatrix}.\]
+                <p>The eigenspace is spanned by \(\begin{pmatrix} 1\\1\end{pmatrix}\); every eigenvector for \(\lambda = 2\) is a scalar multiple of this vector.</p>
+                <p>(ii) Choose \(v_2 = \begin{pmatrix} 1\\0\end{pmatrix}\), which is not a multiple of \(\begin{pmatrix} 1\\1\end{pmatrix}\) and hence not an eigenvector. Set</p>
+                \[\begin{aligned}v_1 &= (B-2I_2)\,v_2 = \begin{pmatrix} 1 & -1\\1 & -1\end{pmatrix}\begin{pmatrix} 1\\0\end{pmatrix}\\&= \begin{pmatrix} 1\\1\end{pmatrix}.\end{aligned}\]
+                <p>(iii) Verifying \(v_1\) is an eigenvector:</p>
+                \[Bv_1 = \begin{pmatrix} 3 & -1\\1 & 1\end{pmatrix}\begin{pmatrix} 1\\1\end{pmatrix} = \begin{pmatrix} 2\\2\end{pmatrix} = 2\begin{pmatrix} 1\\1\end{pmatrix} = 2v_1.\]
+                <p>(iv) Let \(P = \begin{pmatrix} 1 & 1\\1 & 0\end{pmatrix}\), so \(\det P = -1\) and \(P^{-1} = \begin{pmatrix} 0 & 1\\1 & -1\end{pmatrix}\). Then</p>
+                \[\begin{aligned}P^{-1}BP &= \begin{pmatrix} 0 & 1\\1 & -1\end{pmatrix}\begin{pmatrix} 3 & -1\\1 & 1\end{pmatrix}\begin{pmatrix} 1 & 1\\1 & 0\end{pmatrix}\\&= \begin{pmatrix} 0 & 1\\1 & -1\end{pmatrix}\begin{pmatrix} 2 & 3\\2 & 1\end{pmatrix} = \begin{pmatrix} 2 & 1\\0 & 2\end{pmatrix}.\end{aligned}\]
+            </div>
         </div>
 
         <div class="problem">
@@ -870,15 +919,81 @@
 
             <p>1. Given \(A = \begin{pmatrix} 3 & 1\\-1 & 5\end{pmatrix}\): Explain why \(A\) is not diagonalizable, and then find \(P\in \mathrm{M}_2(\mathbb{R})\) such that \(P^{-1}AP = J\), where \(J\) is in Jordan canonical form. Be sure to verify that \(P^{-1}AP = J\). Follow the steps outlined in class and in the Daily Update.</p>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> The characteristic polynomial is</p>
+                \[p_A(x) = (3-x)(5-x)+1 = x^2-8x+16 = (x-4)^2,\]
+                <p>so \(\lambda = 4\) is the only eigenvalue. Row-reducing \(A-4I_2\):</p>
+                \[\begin{pmatrix} -1 & 1\\-1 & 1\end{pmatrix} \xrightarrow{R_2 \leftarrow R_2 - R_1} \begin{pmatrix} -1 & 1\\0 & 0\end{pmatrix} \xrightarrow{R_1 \leftarrow -R_1} \begin{pmatrix} 1 & -1\\0 & 0\end{pmatrix}.\]
+                <p>The eigenspace is one-dimensional, spanned by \(\begin{pmatrix} 1\\1\end{pmatrix}\). Since the eigenspace has dimension \(1 < 2\), \(A\) is <strong>not diagonalizable</strong>.</p>
+                <p>To find the Jordan form, choose \(v_2 = \begin{pmatrix} 1\\0\end{pmatrix}\in \mathbb{R}^2\), which is not a multiple of \(\begin{pmatrix} 1\\1\end{pmatrix}\) and hence not an eigenvector. Set</p>
+                \[v_1 = (A-4I_2)\,v_2 = \begin{pmatrix} -1 & 1\\-1 & 1\end{pmatrix}\begin{pmatrix} 1\\0\end{pmatrix} = \begin{pmatrix} -1\\-1\end{pmatrix}.\]
+                <p>We verify \(v_1\) is an eigenvector: \(Av_1 = \begin{pmatrix} 3 & 1\\-1 & 5\end{pmatrix}\begin{pmatrix} -1\\-1\end{pmatrix} = \begin{pmatrix} -4\\-4\end{pmatrix} = 4v_1\).</p>
+                <p>Let \(P = \begin{pmatrix} -1 & 1\\-1 & 0\end{pmatrix}\), so \(\det P = 0-(-1) = 1\) and \(P^{-1} = \begin{pmatrix} 0 & -1\\1 & -1\end{pmatrix}\). We compute:</p>
+                \[\begin{aligned}
+                AP &= \begin{pmatrix} 3 & 1\\-1 & 5\end{pmatrix}\begin{pmatrix} -1 & 1\\-1 & 0\end{pmatrix} = \begin{pmatrix} -4 & 3\\-4 & -1\end{pmatrix},\\
+                P^{-1}AP &= \begin{pmatrix} 0 & -1\\1 & -1\end{pmatrix}\begin{pmatrix} -4 & 3\\-4 & -1\end{pmatrix} = \begin{pmatrix} 4 & 1\\0 & 4\end{pmatrix} = J.
+                \end{aligned}\]
+                <p>Thus \(P^{-1}AP = \begin{pmatrix} 4 & 1\\0 & 4\end{pmatrix}\) is the Jordan canonical form of \(A\).</p>
+            </div>
+
             <p>2. As mentioned in class, we can do all of our previous matrix calculations over \(\mathbb{C}\), the complex numbers. For the matrix \(B = \begin{pmatrix} 0 & 1\\-1 & 0\end{pmatrix}\), find two distinct eigenvalues in \(\mathbb{C}\) and a diagonalizing matrix \(P\in \mathrm{M}_2(\mathbb{C})\) such that \(P^{-1}BP = D\), a diagonal matrix. The process for diagonalizing \(B\) over \(\mathbb{C}\) is exactly the same as we have done working over \(\mathbb{R}\), it's only the number system we are using that has changed. And: If you think about it, almost all of our calculations have been done with integers and rational numbers, so very often we have not used real numbers that are not rational numbers. Thus, almost all of our previous calculations have taken place in the number system \(\mathbb{Q}\). This has been purely to keep calculations by hand manageable.</p>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> The characteristic polynomial is</p>
+                \[p_B(x) = (0-x)(0-x)+1 = x^2+1 = (x-i)(x+i),\]
+                <p>so the two distinct eigenvalues in \(\mathbb{C}\) are \(\lambda_1 = i\) and \(\lambda_2 = -i\).</p>
+                <p>For \(\lambda_1 = i\): Row-reducing \(B-iI_2 = \begin{pmatrix} -i & 1\\-1 & -i\end{pmatrix}\). Note that \(R_2 = i\cdot R_1\) (since \(-1 = i\cdot(-i)\)), so this row-reduces to \(\begin{pmatrix} 1 & i\\0 & 0\end{pmatrix}\), giving eigenvector \(v_1 = \begin{pmatrix} 1\\i\end{pmatrix}\). Check: \(Bv_1 = \begin{pmatrix} 0 & 1\\-1 & 0\end{pmatrix}\begin{pmatrix} 1\\i\end{pmatrix} = \begin{pmatrix} i\\-1\end{pmatrix} = i\begin{pmatrix} 1\\i\end{pmatrix} = iv_1\).</p>
+                <p>For \(\lambda_2 = -i\): A similar calculation gives \(v_2 = \begin{pmatrix} 1\\-i\end{pmatrix}\). To see this:</p>
+                \[Bv_2 = \begin{pmatrix} 0 & 1\\-1 & 0\end{pmatrix}\begin{pmatrix} 1\\-i\end{pmatrix} = \begin{pmatrix} -i\\-1\end{pmatrix} = -i\begin{pmatrix} 1\\-i\end{pmatrix} = -iv_2.\]
+                <p>Let \(P = \begin{pmatrix} 1 & 1\\i & -i\end{pmatrix}\in \mathrm{M}_2(\mathbb{C})\). Then \(\det P = -i-i = -2i\), so</p>
+                \[P^{-1} = \frac{1}{-2i}\begin{pmatrix} -i & -1\\-i & 1\end{pmatrix} = \begin{pmatrix} \frac{1}{2} & \frac{1}{2i}\\ \frac{1}{2} & -\frac{1}{2i}\end{pmatrix} = \begin{pmatrix} \frac{1}{2} & -\frac{i}{2}\\ \frac{1}{2} & \frac{i}{2}\end{pmatrix}.\]
+                <p>We verify:</p>
+                \[\begin{aligned}
+                BP &= \begin{pmatrix} 0 & 1\\-1 & 0\end{pmatrix}\begin{pmatrix} 1 & 1\\i & -i\end{pmatrix} = \begin{pmatrix} i & -i\\-1 & -1\end{pmatrix},\\
+                P^{-1}BP &= \begin{pmatrix} \frac{1}{2} & -\frac{i}{2}\\ \frac{1}{2} & \frac{i}{2}\end{pmatrix}\begin{pmatrix} i & -i\\-1 & -1\end{pmatrix} = \begin{pmatrix} \frac{i}{2}+\frac{i}{2} & -\frac{i}{2}+\frac{i}{2}\\ \frac{i}{2}-\frac{i}{2} & -\frac{i}{2}-\frac{i}{2}\end{pmatrix} = \begin{pmatrix} i & 0\\0 & -i\end{pmatrix} = D.
+                \end{aligned}\]
+            </div>
+
             <p><strong>Bonus Problem 9.</strong> Let \(A\) be a real \(2\times 2\) matrix and assume that \(p_A(x)\) has a repeated real root \(\lambda\). Prove that \((A-\lambda\cdot I_2)^2 = 0_{2\times 2}\). Conclude that if \(v_2\) is not an eigenvector for \(A\), then \(v_1 = (A-\lambda\cdot I_2)v_2\) is an eigenvector for \(A\). With this, one can show that the same calculation done in class gives \(P^{-1}AP = \begin{pmatrix} \lambda & 1\\0 & \lambda\end{pmatrix}\), for \(P = [v_1\ v_2]\). Due Tuesday, April 7. (5 points)</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Write \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\). The characteristic polynomial is</p>
+                \[p_A(x) = \det(A-xI_2) = (a-x)(d-x)-bc = x^2-(a+d)x+(ad-bc).\]
+                <p>Since \(\lambda\) is a repeated root, \(p_A(x) = (x-\lambda)^2 = x^2-2\lambda x+\lambda^2\). Comparing coefficients gives</p>
+                \[\begin{aligned}
+                a+d &= 2\lambda \quad\quad\quad\quad \text{(T)}\\
+                ad-bc &= \lambda^2. \quad\quad\quad\quad \text{(D)}
+                \end{aligned}\]
+                <p>Now we compute \((A-\lambda I_2)^2\) directly. We have \(A-\lambda I_2 = \begin{pmatrix} a-\lambda & b\\c & d-\lambda\end{pmatrix}\), so</p>
+                \[(A-\lambda I_2)^2 = \begin{pmatrix} (a-\lambda)^2+bc & b(a-\lambda)+b(d-\lambda)\\c(a-\lambda)+c(d-\lambda) & bc+(d-\lambda)^2\end{pmatrix}.\]
+                <p>We check each entry using (T) and (D):</p>
+                <p>The (1,2) entry: \(b(a-\lambda)+b(d-\lambda) = b\bigl[(a-\lambda)+(d-\lambda)\bigr] = b(a+d-2\lambda) = b\cdot 0 = 0\), by (T).</p>
+                <p>The (2,1) entry: \(c(a-\lambda)+c(d-\lambda) = c(a+d-2\lambda) = c\cdot 0 = 0\), by (T).</p>
+                <p>The (1,1) entry: \((a-\lambda)^2+bc\). From (T), \(d = 2\lambda-a\), so \(d-\lambda = \lambda-a\) and thus \(a-\lambda = -(d-\lambda)\). From (D), \(bc = \lambda^2-ad = \lambda^2-a(2\lambda-a) = (a-\lambda)^2\). Therefore \((a-\lambda)^2+bc = (a-\lambda)^2-(a-\lambda)^2 = 0\).</p>
+                <p>The (2,2) entry: \(bc+(d-\lambda)^2\). By the same reasoning (swapping the roles of \(a\) and \(d\)), \(bc = (d-\lambda)^2\), so \(bc+(d-\lambda)^2 = 0\).</p>
+                <p>Therefore \((A-\lambda I_2)^2 = 0_{2\times 2}\). \(\square\)</p>
+                <p>Now suppose \(v_2\in \mathbb{R}^2\) is not an eigenvector of \(A\) for \(\lambda\), and set \(v_1 = (A-\lambda I_2)v_2\). Since \(v_2\) is not an eigenvector, \(v_1\neq \mathbf{0}\). Then:</p>
+                \[(A-\lambda I_2)v_1 = (A-\lambda I_2)(A-\lambda I_2)v_2 = (A-\lambda I_2)^2 v_2 = 0_{2\times 2}\cdot v_2 = \mathbf{0}.\]
+                <p>This means \(Av_1 = \lambda v_1\), so \(v_1\) is an eigenvector of \(A\) for \(\lambda\). \(\square\)</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, April 7</div>
+
+            <p>1. Let \(z_1 = a+bi\) and \(z_2 = c+di\). Prove the formulas \(\overline{z_1+z_2} = \overline{z_1}+\overline{z_2}\) and \(\overline{z_1z_2} = \overline{z_1}\cdot\overline{z_2}\).</p>
+
+            <p>2. Find two square roots of \(i\).</p>
+
+            <p>3. Solve the following system of linear equations over \(\mathbb{C}\):</p>
+            <div class="math-display">
+                \[\begin{align*}
+                2ix+3y-4z &= 4\\
+                6x-4iy-z &= 8i.
+                \end{align*}\]
+            </div>
+        </div>
+
         </div>
 
     </main>
-
-    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
-        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX course daily homework. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
-    </footer>
-</body>
-</html>
