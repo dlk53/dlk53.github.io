@@ -1097,6 +1097,47 @@
             <p>A key component in the proof (where the characteristic zero assumption was used) was the following fact: If \(f(x)\in K[x]\) is irreducible, then \(f(x)\) has distinct roots in its splitting field, or equivalently, in \(\overline{K}\), the algebraic closure of \(K\).</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, April 9</div>
+
+            <p>Today's lecture was mostly devoted to a proof of the theorem below, which is a key step to showing that if \(R\) is a polynomial ring in finitely many variables over a field of characteristic zero and \(P\subseteq R\) is a prime ideal, then \(P = \bigcap_{M\in X} M\), where \(X\) is the set of maximal ideals in \(R\) containing \(P\) such that \((R/P)_M\) is a regular local ring. We began with the following two propositions.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Proposition A.</span> Let \(R\) be a Noetherian ring and \(\mathcal{P}(R)\) denote the set of primes \(P\subseteq R\) such that \(P\in \mathrm{Ass}(R/aR)\) for some non-zerodivisor \(a\in R\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) If \(P\) is a prime minimal over \((aR:b)\), for some non-zerodivisor \(a\in R\), then \(P\in \mathrm{Ass}(R/aR)\), i.e., \(P\in \mathcal{P}(R)\).</li>
+                    <li style="list-style-type: none;">(ii) For a prime \(P\subseteq R\), let \(R_{[P]}\) denote \(R\) localized at the set of non-zerodivisors not in \(P\), so that \(R\subseteq R_{[P]}\subseteq Q(R)\), the total quotient ring of \(R\). Then \(R = \bigcap_{P\in \mathcal{P}(R)} R_{[P]}\).</li>
+                </ol>
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">Proposition B.</span> Let \(B\) be a locally regular integral domain. Then \(B\) is integrally closed.
+            </div>
+
+            <p>In class we needed the following:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Observation.</span> Suppose \(B\subseteq A\) is a finite extension of integral domains with quotient fields \(K\subseteq L\). Then every element in \(L\) can be written as \(\frac{a}{b}\), with \(a\in A\) and \(b\in B\). In particular, if \(L\) has a primitive element, then that primitive element can be taken to be in \(A\).</p>
+                <p><em>Proof.</em> Suppose \(\gamma\) is in the quotient field of \(A\), and write \(\gamma = \frac{c}{d}\), with \(c, d\in A\). Since \(A\) is a finite \(B\)-module, it is integral over \(B\), so we have an equation \(d^n+b_1d^{n-1}+\cdots+b_n = 0\), with each \(b_i\in B\). By taking a shortest such equation, we may assume \(b_n\not= 0\). Then \(d(d^{n-1}+b_1d^{n-2}+\cdots+b_{n-1}) = -b_n\). Thus, \(\frac{1}{d} = \frac{-a'}{b_n}\), where \(a' = d^{n-1}+b_1d^{n-2}+\cdots+b_{n-1}\in A\). Thus, \(\gamma = \frac{a}{b}\), where \(a = c(-a')\in A\) and \(b = b_n\in B\).</p>
+                <p>If \(\gamma\) is a primitive element, then \(L = K(\gamma) = K(\frac{a}{b}) = K(a)\), since \(b\in K\), so \(a\in A\) is a primitive element for the extension.</p>
+            </div>
+
+            <p>We then stated and proved the following theorem, and discussed its geometric interpretation, namely in an irreducible algebraic variety over a field of characteristic zero, the non-singular points contain a Zariski open set.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Theorem.</span> Let \(A\) be an integral domain that is a finitely generated \(k\)-algebra, where \(k\) is a field of characteristic zero. Then there exists \(0\not= \delta\) such that \(A_{\delta}\) is locally regular.
+                </div>
+                <p><em>Proof.</em> By the Noether normalization lemma, there exists \(B\subseteq A\) such that \(A\) is a finite \(B\)-module and \(B\) is a polynomial ring in finitely many variables over \(k\). Thus, \(B\) is locally regular and thus, by Proposition B, \(B\) is also integrally closed. If we let \(K\) denote the quotient field of \(B\) and \(L\) the quotient field of \(A\), then the characteristic zero assumption means there is a primitive element \(w\) for \(L\) over \(K\) and by the observation above, we may assume \(w\in A\). Thus, we have \(B\subseteq B[w]\subseteq A\), and \(B[w]\) and \(A\) have the same quotient field.</p>
+                <p>By the proposition at the end of the update from March 24, \(B[w] = B[W]/\langle f(W)\rangle\), where \(f(W)\) is the minimal polynomial for \(w\) over \(K\) and \(f(W)\in B[W]\). Note, since \(f(W)\) is irreducible, it has distinct roots in \(\overline{K}\), so that \(f'(w)\not= 0\). We will show that for \(\delta := f'(w)\), \(A_{\delta}\) is locally regular. Suppose we could show that \(B[w]_{\delta}\) is locally regular. Then since \(B[w]_{\delta}\subseteq A_{\delta}\) is an integral extension of rings with the same quotient field, and \(B[w]_{\delta}\) is integrally closed, it follows that \(B[w]_{\delta} = A_{\delta}\), so that \(A_{\delta}\) is locally regular.</p>
+                <p>Thus, we must show that \(B[w]_{\delta}\) is locally regular for \(\delta = f'(w)\). For this it is clearly sufficient to prove that if \(Q\subseteq B[w]\) is a prime ideal not containing \(f'(w)\), then \(B[w]_Q\) is a regular local ring (since \((B[w]_{\delta})_{Q_{\delta}} = B[w]_Q\), for \(Q_{\delta}\) a prime in \(B[w]_{\delta}\)).</p>
+                <p>Let \(Q\subseteq B[w]\) be a prime ideal not containing \(f'(w)\). Since \(B[w] = B[W]/\langle f(W)\rangle\), \(Q\) lifts to a prime \(\tilde{Q}\subseteq B[W]\) containing \(f(W)\). Our goal is to show that \((B[W]/\langle f(W)\rangle)_{\tilde{Q}}\) is a regular local ring. Since we will be localizing at \(\tilde{Q}\), we are free to first localize \(B\) at \(P := \tilde{Q}\cap B\). In other words, we may assume that \((B, P)\) is a regular local ring, say of dimension \(d\). Now, since \(f(W)\in \tilde{Q}\), \(\tilde{Q}\) contains a monic polynomial, and thus \(\tilde{Q}\not= P[W]\), so that \(\mathrm{height}(\tilde{Q}) = d+1\). Thus, \(\mathrm{height}(Q) = \mathrm{height}(\tilde{Q}/\langle f(W)\rangle) = (d+1)-1 = d\), so \(\dim(B[w]_Q) = d\). If we show \(QB[w]_Q\) is generated by \(d\) elements, then \(B[w]_Q\) is a regular local ring.</p>
+                <p>Since \(\tilde{Q}\not= P[W]\), we can write \(\tilde{Q} = \langle P, g(W)\rangle\), where \(g(W)\in B[W]\) is monic and irreducible mod \(P\). Moreover, since \(f(W)\in \tilde{Q}\backslash P[W]\), \(g(W)\) is an irreducible factor of \(f(W)\) modulo \(P\). Thus, we can write \(f(W)\equiv g(W)^r h(W)\) mod \(P\), where \(g(W)\) does not divide \(h(W)\) mod \(P\). Note that in \(B[W]\), \(h(W)\not\in \tilde{Q}\), otherwise mod \(P\), \(g(W)\) would divide \(h(W)\). We now claim that \(r = 1\).</p>
+                <p>Suppose \(r > 1\). Then \(f(W)\equiv g(W)^rh(W)\) mod \(P\) gives \(f'(W)\equiv rg(W)^{r-1}g'(W)h(W)+g(W)^rh'(W)\) mod \(P\), which, if \(r > 1\), shows that \(f'(W)\in \tilde{Q}\). Passing to \(B[w]\) shows \(f'(w)\in Q\), which is a contradiction. Therefore we have \(r = 1\).</p>
+                <p>Thus, in \(B[W]\) we may write \(f(W) = g(W)h(W)+p(W)\), where \(h(W)\not\in \tilde{Q}\) and \(p(W)\in P[W]\). Therefore, in \(B[W]_{\tilde{Q}}\) we have \(h(W)^{-1}f(W) = g(W)+h(W)^{-1}p(W)\). Therefore in \(B[W]_{\tilde{Q}}/\langle f(W)\rangle_{\tilde{Q}} = B[w]_Q\), we have \(g(w)\in PB[w]_Q\). Since \(Q = \langle P, g(w)\rangle\) in \(B[w]\), it follows that \(QB[w]_Q = PB[w]_Q\). However, \(P\) is \(d\)-generated, so \(QB[w]_Q\) is \(d\)-generated and \(B[w]_Q\) has dimension \(d\), which shows that \(B[w]_Q\) is a regular local ring, completing the proof. \(\square\)</p>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
