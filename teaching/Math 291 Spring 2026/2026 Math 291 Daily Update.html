@@ -867,6 +867,28 @@
             <p>We ended class by noting that almost all of the linear algebra we have done thus far, e.g., solving equations using Gaussian elimination, finding eigenvalues and eigenvectors, diagonalizing matrices, finding JCF, etc., can be done in exactly the same way over \(\mathbb{C}\) as we have been doing over \(\mathbb{R}\), with a minor difference arising from orthogonal diagonalization. We noted that over \(\mathbb{C}\) we have to alter the dot product of two vectors as follows: Suppose \(v_1 = \begin{pmatrix} \alpha\\\beta\end{pmatrix}\) and \(v_2 = \begin{pmatrix} \gamma\\\delta\end{pmatrix}\) with \(\alpha, \beta, \gamma, \delta\in \mathbb{C}\), then \(v_1\cdot v_2 := \alpha\overline{\gamma}+\beta\overline{\delta}\). This definition ensures that over \(\mathbb{C}\) the dot product of a non-zero vector with itself is non-zero.</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, April 9</div>
+
+            <p>We began class by pointing out that virtually everything we have done this semester works in exactly the same way over \(\mathbb{C}\) as over \(\mathbb{R}\), except for issues related to orthogonality, since the dot product over \(\mathbb{C}\) involves complex conjugation. We illustrated this principle by working through the following examples.</p>
+
+            <div class="definition">
+                <span class="statement-title">Example 1.</span> \(A = \begin{pmatrix} 0 & 1\\-1 & 0\end{pmatrix}\). We noted \(A\) has distinct eigenvalues \(i, -i\) and is therefore diagonalizable. We worked out the details in the usual way, the only difference being that the calculations took place in \(\mathbb{C}\).
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">Example 2.</span> \(B = \begin{pmatrix} 0 & 4\\1 & 4i\end{pmatrix}\). This matrix has a repeated eigenvalue of \(2i\), and we worked through the usual process of finding \(P\) such that \(P^{-1}BP = \begin{pmatrix} 2i & 1\\0 & 2i\end{pmatrix}\), the Jordan canonical form of \(B\).
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">Example 3.</span> \(A = \begin{pmatrix} 0 & i\\i & 1\end{pmatrix}\), so that \(A\) is a symmetric matrix. We saw that \(A\) is diagonalizable, since it has distinct eigenvalues. On the other hand, the eigenvectors are not orthogonal, so that \(A\) is not orthogonally diagonalizable, even though it is a symmetric matrix over \(\mathbb{C}\).
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">Example 4.</span> \(B = \begin{pmatrix} 0 & -i\\i & 1\end{pmatrix}\). We saw that \(B = \overline{B}^t\), i.e., \(B\) equals its <em>conjugate transpose</em>. We then worked through the details showing that \(B\) is orthogonally diagonalizable over \(\mathbb{C}\), i.e., there is a diagonalizing matrix with orthogonal columns having length one. This followed since the eigenvectors for different eigenvalues in this case are orthogonal vectors in \(\mathbb{C}^2\).
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
