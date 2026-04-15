@@ -1138,6 +1138,70 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Tuesday, April 14</div>
+
+            <p>We began class with a proof of the following long awaited theorem.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Theorem.</span> Let \(R\) be a polynomial ring in finitely many variables over a field of characteristic zero and \(P\subseteq R\) a prime ideal. Then \(P = \bigcap_{M\in \mathfrak{A}} M\), where \(\mathfrak{A}\) is the set of maximal ideals in \(R\) containing \(P\) such that \((R/P)_M\) is a regular local ring.
+                </div>
+                <p><em>Proof.</em> We may mod out \(P\) and assume we have an integral domain \(A\) that is a finitely generated algebra over a field of characteristic zero and show \((0) = \bigcap_{M\in \mathfrak{A}} M\), where \(\mathfrak{A}\) is the set of maximal ideals in \(A\) such that \(A_M\) is a regular local ring.</p>
+                <p>By the theorem from the lecture of April 9, there exists \(0\not= \delta\in A\) such that \(A_{\delta}\) is locally regular, i.e., \(A_M\) is a regular local ring for all maximal ideals \(M\subseteq A\) not containing \(\delta\). On the other hand, \(A\) and hence \(A_{\delta}\), is a Hilbert ring, so that if \(N\subseteq A_{\delta}\) is a maximal ideal, \(N = M_{\delta}\) for a maximal ideal \(M\subseteq A\) not containing \(\delta\). Thus, letting \(X\) denote the maximal ideals of \(A\) not containing \(\delta\), we have</p>
+                <div class="math-display">
+                    \[(0)\subseteq \bigcap_{M\in \mathfrak{A}} M \subseteq \bigcap_{M\in X} M \subseteq \bigcap \{M_\delta\ |\ M_{\delta}\subseteq A_{\delta}\ \text{is maximal}\} = (0),\]
+                </div>
+                <p>since \(A_{\delta}\) is a Hilbert ring, which gives what we want. \(\square\)</p>
+            </div>
+
+            <p>After recalling the definition of the \(n\)th symbolic power of a prime \(P\) in a Noetherian ring \(R\), we noted the following important points showing the importance of symbolic powers.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Important Points.</span> Let \(R\) be a Noetherian ring and \(P\subseteq R\) a prime ideal.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(P^{(n)}\) is the \(P\)-primary component in any primary decomposition of \(P^n\).</li>
+                    <li style="list-style-type: none;">(ii) It is of interest to know when the \(P\)-adic topology \(\{P^n\}_{n\geq 1}\) is equivalent to the \(P\)-symbolic topology \(\{P^{(n)}\}_{n\geq 1}\).</li>
+                    <li style="list-style-type: none;">(iii) I. Swanson has shown that if the \(P\)-adic and \(P\)-symbolic topologies are equivalent, then there exists \(c > 0\) such that \(P^{(cn)}\subseteq P^n\), for all \(n\geq 1\).</li>
+                    <li style="list-style-type: none;">(iv) Ein-Lazarsfeld-Smith and Hochster-Huneke showed that if \(R\) is a regular local ring of dimension \(d\) containing a field, then \(P^{(nd)}\subseteq P^n\), for all \(n\geq 1\) and for all \(P\).</li>
+                    <li style="list-style-type: none;">(v) Nagata showed that if \((R, \mathfrak{m})\) is a regular local ring, then \(P^{(n)}\subseteq \mathfrak{m}^n\), for all \(n\geq 1\) and all primes \(P\subseteq R\).</li>
+                    <li style="list-style-type: none;">(vi) Huneke-Katz-Validashti showed that if \(R\) is a complete local domain, then there exists \(c > 1\) such that \(P^{(cn)}\subseteq \mathfrak{m}^n\), for all primes \(P\subseteq R\) and \(n\geq 1\).</li>
+                </ol>
+            </div>
+
+            <p>This set the stage for our next goal, namely, the <em>Zariski-Nagata Theorem</em>: Suppose \(R\) is a polynomial ring in finitely many variables over an algebraically closed field of characteristic zero. Then \(f\in R\) belongs to \(P^{(n)}\) if and only if all mixed partials of \(f\) of order less than \(n\) belong to \(P\).</p>
+
+            <p>We then had a brief discussion regarding <em>regular sequences</em>.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Let \(R\) be a Noetherian ring, \(\underline{x} = x_1, \ldots, x_n\) a sequence of elements in \(R\) and \(M\) a finitely generated \(R\)-module. Then \(\underline{x}\) is a <em>regular sequence on \(M\)</em> if:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \((\underline{x})M\not= M\) and</li>
+                    <li style="list-style-type: none;">(ii) \(x_1\) is a non-zerodivisor on \(M\), \(x_2\) is a non-zerodivisor on \(M/x_1M\), \(\ldots\), \(x_n\) is a non-zerodivisor on \(M/\langle x_1, \ldots, x_{n-1}\rangle M\).</li>
+                </ol>
+            </div>
+
+            <p>We noted that if \(R = k[x_1, \ldots, x_d]\) is a polynomial ring with coefficients in the field \(k\), then \(x_1, \ldots, x_d\) is a regular sequence on \(R\) and similarly, if \((R, \mathfrak{m})\) is a regular local ring and \(\mathfrak{m}\) has a minimal generating set \(x_1, \ldots, x_d\), then \(x_1, \ldots, x_d\) is a regular sequence on \(R\).</p>
+
+            <p>This was followed by stating and proving the following</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Proposition.</span> Suppose \(\underline{x} = x_1, \ldots, x_n\) is a regular sequence on \(R\) and \(a_1x_1+\cdots+a_nx_n = 0\), with each \(a_i\in R\). Then as a column vector in \(R^n\), \(\begin{pmatrix} a_1\\\vdots\\a_n\end{pmatrix}\) belongs to the submodule of \(R^n\) generated by</p>
+                <div class="math-display">
+                    \[\begin{aligned}&C_1 := \begin{pmatrix} -x_2\\x_1\\0\\\vdots\\0\\0\end{pmatrix},\ C_2 := \begin{pmatrix} -x_3\\0\\x_3\\\vdots\\0\\0\end{pmatrix},\ \ldots,\ C_{n-1} := \begin{pmatrix} -x_n\\0\\0\\\vdots\\0\\x_1\end{pmatrix},\\[10pt] &C_n := \begin{pmatrix} 0\\-x_3\\x_2\\\vdots\\0\\0\end{pmatrix},\ \ldots,\ C_{2n-3} := \begin{pmatrix} 0\\-x_n\\0\\\vdots\\0\\x_2\end{pmatrix},\ \ldots,\ C_N := \begin{pmatrix} 0\\0\\0\\\vdots\\-x_n\\x_{n-1}\end{pmatrix},\end{aligned}\]
+                </div>
+                <p>where \(N := \binom{n}{2}\).</p>
+            </div>
+
+            <p>We noted that for any sequence \(\underline{x} = x_1, \ldots, x_n\), the column vectors \(C_1, \ldots, C_N\) are the <em>Koszul relations</em> on \(\underline{x}\). We also stated a version of the proposition if \(\underline{x}\) forms a regular sequence on the finitely generated module \(M\).</p>
+
+            <p>We ended class with the following</p>
+
+            <div class="definition">
+                <span class="statement-title">Observation.</span> Let \(R = k[x_1, \ldots, x_d]\) be a polynomial ring over the field \(k\) of characteristic zero. For a prime \(P\subseteq R\) and \(n\geq 1\) let \(P^{\langle n\rangle}\) denote the set of \(f\in R\) such that all mixed partial derivatives of \(f\) of order less than \(n\) belong to \(P\). Then \(P^{(n)}\subseteq P^{\langle n\rangle}\).
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
