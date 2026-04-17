@@ -1202,6 +1202,84 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, April 16</div>
+
+            <p>We continued with results leading to the Zariski-Nagata theorem, beginning with the following proposition.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Suppose \(R = k[x_1, \ldots, x_d]\) is a polynomial ring over an algebraically closed field of characteristic zero and \(P\subseteq R\) is a prime ideal. Then for all \(n\geq 1\), \(P^{\langle n\rangle} = \bigcap_{P\subseteq M}M^n\), where the intersection is taken over the maximal ideals of \(R\) containing \(P\). Equivalently, letting \(X = V(P)\), \(P^{\langle n\rangle} = \bigcap_{\underline{\alpha}\in X} M^n_{\underline{\alpha}}\), where \(M_{\underline{\alpha}}\) is the maximal ideal in \(R\) corresponding to \(\underline{\alpha}\in X\).
+            </div>
+
+            <p>We then stated the following key theorem due to Eisenbud and Hochster.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <p><span class="statement-title">Theorem (Eisenbud-Hochster).</span> Let \(R\) be a Noetherian ring, \(P\subseteq R\) a prime ideal and \(A\) a finitely generated \(R\)-module. Assume:</p>
+                    <ol style="list-style-type: none; padding-left: 20px;">
+                        <li style="list-style-type: none;">(i) \(P = \bigcap_{M\in \mathfrak{A}} M\), where \(\mathfrak{A}\) is a collection of maximal ideals \(M\) satisfying \((R/P)_M\) is a regular local ring.</li>
+                        <li style="list-style-type: none;">(ii) \(\mathrm{Ass}(A) = P\).</li>
+                        <li style="list-style-type: none;">(iii) \(P^n A = 0\).</li>
+                    </ol>
+                    <p>Then \(\bigcap_{M\in \mathfrak{A}} M^nA = 0\). In particular, taking \(A = R/P^{(n)}\), it follows that \(\bigcap_{M\in \mathfrak{A}} M^n\subseteq P^{(n)}\).</p>
+                </div>
+            </div>
+
+            <p>The theorem above appears in the paper of Eisenbud-Hochster titled <em>A Nullstellensatz with nilpotents and Zariski's Main Lemma on holomorphic functions</em>. The point is this: we have seen in the main theorem from Tuesday April 14, that for \(R = k[x_1, \ldots, x_d]\) a polynomial ring over the field \(k\) of characteristic zero, and \(P\subseteq R\), \(P = \bigcap_{M\in \mathfrak{A}} M\), or equivalently, in \(R/P\), \((0) = \bigcap_{N\in \mathfrak{A}'} N\), where \(\mathfrak{A}'\) are the maximal ideals \(N = M/P\) for \(M\in \mathfrak{A}\). The ring \(R/P^{(n)}\) has nilpotent elements, and the theorem above states that \(\bigcap_{N\in \mathfrak{A}'} N^n(R/P^{(n)}) = 0\).</p>
+
+            <p>With the theorem of Eisenbud-Hochster in hand, we were able to prove the Zariski-Nagata theorem.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Zariski-Nagata Theorem.</span> Let \(R\) be a polynomial ring in finitely many variables over an algebraically closed field of characteristic zero, and \(P\subseteq R\) a prime ideal. Then for all \(n\geq 1\), \(P^{(n)} = P^{\langle n\rangle}\). In particular, \(P^{(n)} = \bigcap_{P\subseteq M}M^n\), where the intersection is taken over the maximal ideals containing \(P\).
+                </div>
+                <p><em>Proof.</em> Let \(\mathfrak{A}\) denote the maximal ideals containing \(P\) such that \((R/P)_M\) is a regular local ring. Then we have \(P = \bigcap_{M\in \mathfrak{A}} M\), so that the Eisenbud-Hochster theorem applies to \(R/P^{(n)}\). Thus,</p>
+                <div class="math-display">
+                    \[P^{(n)}\subseteq P^{\langle n\rangle} = \bigcap_{M\in X}M^n \subseteq \bigcap_{M\in \mathfrak{A}}M^n\subseteq P^{(n)},\]
+                </div>
+                <p>where \(X\) is the set of maximal ideals in \(R\) containing \(P\). \(\square\)</p>
+            </div>
+
+            <p>In order to prove the theorem of Eisenbud-Hochster, we needed a couple of preliminary results, beginning with the following lemma.</p>
+
+            <div class="definition">
+                <span class="statement-title">Lemma (<em>Locally free implies generically free</em>).</span> Let \(R\) be a Noetherian ring, \(P\subseteq R\) a prime ideal and \(A\) a finitely generated \(R\)-module. If \(A_P\) is a free \(R_P\)-module, then there exists \(f\not\in P\) such that \(A_f\) is a free \(R_f\)-module.
+            </div>
+
+            <p>The rest of the class was spent proving the following proposition.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Suppose \(R\) is a Noetherian ring, \(M\) a finitely generated \(R\)-module, \(\underline{x} = x_1, \ldots, x_t\) elements of \(R\) and \(M_r\subseteq M_{r-1}\subseteq \cdots \subseteq M_0 = M\) a chain of submodules satisfying \(\underline{x}\) is a regular sequence on \(M_i/M_{i+1}\), for all \(i\). Then \(\underline{x}\) is a regular sequence on \(M/M_r\) and \(\underline{x}M\cap M_r = \underline{x}M_r\).
+            </div>
+
+            <p><strong>Clarifying Remark.</strong> The proof of the proposition requires the following Claim*: Suppose we have a short exact sequence \(0\to A\to B\to C\to 0\) of finite \(R\)-modules and \(\underline{x} = x_1, \ldots, x_t\) is a sequence of elements in \(R\). Then (viewing \(A\) as a submodule of \(B\)):</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) If \(\underline{x}\) is a regular sequence on \(A\) and \(C\), then \(\underline{x}\) is a regular sequence on \(B\).</li>
+                <li style="list-style-type: none;">(ii) If \(\underline{x}\) is a regular sequence on \(C = B/A\), then \(\underline{x}B\cap A = \underline{x}A\).</li>
+            </ol>
+            <p>In class, we stated a slightly stronger result, namely, the Claim: Given the exact sequence and the elements \(\underline{x}\), if \(\underline{x}\) is a regular sequence on \(A\) and \(C\), then \(\underline{x}\) is regular on \(B\) and \(\underline{x}B\cap A = \underline{x}B\). The proof we gave in class of this statement was correct, and the proof that \(\underline{x}B\cap A = \underline{x}B\) only used that \(\underline{x}\) is a regular sequence on \(B/A\), so Claim* holds. However, the Claim does not give the second statement in the proposition. Here's why: To prove the proposition, we consider the exact sequence</p>
+            <div class="math-display">
+                \[0\to M_1/M_2\to M/M_2\to M/M_1\to 0.\]
+            </div>
+            <p>By hypothesis, \(\underline{x}\) is regular on \(M_1/M_2\) and \(M/M_1\), so by Claim* or Claim above, \(\underline{x}\) is regular on \(M/M_2\). To get that \(\underline{x}M\cap M_2 = \underline{x}M_2\), we noted that the stronger Claim does not apply to the exact sequence</p>
+            <div class="math-display">
+                \[0\to M_2\to M\to M/M_1\to 0\]
+            </div>
+            <p>because \(\underline{x}\) is not regular on \(M_2\). However, the weaker Claim* above does apply, since we only need \(\underline{x}\) to be regular on \(M/M_2\) to infer that \(\underline{x}M\cap M_2 = \underline{x}M_2\). So using Claim*, we can give a proof of the proposition.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <p><em>Proof of the Proposition.</em> First note that we have \(\underline{x}M\cap M_1 = \underline{x}M_1\), by applying the second part of Claim* to \(M/M_1\). Now, from the exact sequence</p>
+                <div class="math-display">
+                    \[0\to M_1/M_2\to M/M_2\to M/M_1\to 0,\]
+                </div>
+                <p>the Claim* and the hypotheses of the proposition, we have that \(\underline{x}\) is a regular sequence on \(M/M_2\) and thus, by the second part of the proposition, \(\underline{x}M\cap M_2 = \underline{x}M_2\). Applying this, and the hypotheses of the proposition to the exact sequence</p>
+                <div class="math-display">
+                    \[0\to M_2/M_3\to M/M_3\to M/M_2\to 0\]
+                </div>
+                <p>gives that \(\underline{x}\) is regular on \(M/M_3\) and \(\underline{x}M\cap M_3 = \underline{x}M_3\). Continuing inductively finishes the proof. \(\square\)</p>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
