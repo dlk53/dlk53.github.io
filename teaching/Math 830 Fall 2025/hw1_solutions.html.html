@@ -58,18 +58,19 @@
         .problem-number {
             font-weight: bold;
             font-size: 1.1em;
-            color: #4a90e2;
+            color: #2563eb;
             margin-bottom: 10px;
         }
         .solution {
             margin-top: 15px;
             padding: 20px;
-            background-color: #f0f8ff;
-            border-left: 4px solid #5cb85c;
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            overflow-x: auto;
         }
         .solution-label {
             font-weight: bold;
-            color: #5cb85c;
+            color: #276727;
             margin-bottom: 10px;
         }
         .qed {
@@ -80,6 +81,8 @@
         .math-display {
             margin: 30px 0;
             text-align: center;
+            overflow-x: auto;
+            overflow-y: visible;
         }
         p {
             margin: 20px 0;
@@ -100,11 +103,60 @@
             border-left: 3px solid #6c757d;
         }
         mjx-container {
-            margin: 0 2px;
+            overflow-x: auto;
+            overflow-y: visible;
+            max-width: 100%;
+        }
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        a:focus {
+            outline: 2px solid #2563eb;
+            outline-offset: 2px;
         }
     </style>
+
+    <!-- ============================================================
+         Content Protection Script
+         ============================================================ -->
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault(); alert(msg);
+            });
+            var style = document.createElement('style');
+            style.innerHTML = 'body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+                if ((e.ctrlKey || e.metaKey) && ['s','u','a','c','p'].includes(key)) {
+                    e.preventDefault();
+                    if (key !== 'a') alert(msg);
+                    return false;
+                }
+                if (e.key === 'F12') { e.preventDefault(); return false; }
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j'].includes(key)) {
+                    e.preventDefault(); return false;
+                }
+            });
+            document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+        })();
+    </script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
     <h1>Math 830 Fall 2025: Homework 1 Solutions</h1>
     
     <div class="instructions">
@@ -344,7 +396,9 @@
         <p>has a solution in \(\mathbb{Z}\), and any two solutions are congruent modulo \(n := n_1\cdots n_k\). Indeed, since the map from \(\mathbb{Z}_n \to \mathbb{Z}_{n_1} \times \cdots \times \mathbb{Z}_{n_k}\) taking \(r \in \mathbb{Z}\) to \((r+n_1\mathbb{Z}, \ldots, r+n_k\mathbb{Z})\) is surjective, a solution to the system of congruences is any element \(t \in \mathbb{Z}\) that maps to \((a_1+n_1\mathbb{Z}, \ldots, a_k+n_k\mathbb{Z})\), while uniqueness of solutions up to congruence modulo \(n\) follows because the map is injective.</p>
     </div>
 
-    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #595959;">
         <p><em>This is an accessible HTML conversion of the LaTeX homework solutions. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
         <p style="font-size: 0.9em; margin-top: 10px;"><sup>1</sup>This theorem is also true for non-commutative rings. Hopkins' Theorem states that a left (or right) Artinian ring is left (or right) Noetherian.</p>
     </footer>
