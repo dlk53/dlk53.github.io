@@ -80,6 +80,8 @@
         .math-display {
             margin: 30px 0;
             text-align: center;
+            overflow-x: auto;
+            overflow-y: visible;
         }
         p {
             margin: 20px 0;
@@ -100,7 +102,9 @@
             border-left: 3px solid #6c757d;
         }
         mjx-container {
-            margin: 0 2px;
+            overflow-x: auto;
+            overflow-y: visible;
+            max-width: 100%;
         }
         .skip-link {
             position: absolute;
@@ -210,7 +214,11 @@
             <div class="solution-label">Solution:</div>
             <p>For (i), we first check that addition is well defined. Suppose \(m+N = m'+N\) and \(n+N = n'+N\). Then \(m-m'\in N\) and \(n-n'\in N\). Thus, \((m+n)-(m'+n') = (m-m')+(n-n')\in N\), so that \((m+n)+N = (m'+n')+N\), and therefore addition is well defined. The zero element is \(0+N = N\) and the additive inverse of \(m+N\) is \(-m+N\). Associativity and commutativity follow from the corresponding properties in \(M\).</p>
             
-            <p>For (ii), we first check that scalar multiplication is well defined. Suppose \(m+N = m'+N\). Then \(m-m'\in N\). Thus, \(r(m-m')\in N\), so that \(rm-rm'\in N\), and therefore \(rm+N = rm'+N\). The \(R\)-module axioms follow from the corresponding axioms in \(M\). For instance, \(r\cdot\{(m+N)+(m'+N)\} = r\cdot\{(m+m')+N\} = r(m+m')+N = (rm+rm')+N = (rm+N)+(rm'+N) = r\cdot(m+N)+r\cdot(m'+N)\).</p>
+            <p>For (ii), we first check that scalar multiplication is well defined. Suppose \(m+N = m'+N\). Then \(m-m'\in N\). Thus, \(r(m-m')\in N\), so that \(rm-rm'\in N\), and therefore \(rm+N = rm'+N\). The \(R\)-module axioms follow from the corresponding axioms in \(M\). For instance,</p>
+            <div class="math-display">
+                \[\begin{aligned}r\cdot\{(m+N)+(m'+N)\} &= r\cdot\{(m+m')+N\} = r(m+m')+N \\ &= (rm+rm')+N \\ &= (rm+N)+(rm'+N) = r\cdot(m+N)+r\cdot(m'+N)\end{aligned}\]
+            </div>
+            <p></p>
         </div>
     </div>
 
@@ -227,7 +235,17 @@
             <div class="solution-label">Solution:</div>
             <p>For (i), clearly \(\pi\) is surjective. We check that \(\pi\) is an \(R\)-module homomorphism. We have \(\pi(m+m') = (m+m')+N = (m+N)+(m'+N) = \pi(m)+\pi(m')\), and \(\pi(rm) = rm+N = r(m+N) = r\pi(m)\). Thus, \(\pi\) is an \(R\)-module homomorphism. Moreover, \(\ker(\pi) = \{m\in M\ |\ m+N = N\} = \{m\in M\ |\ m\in N\} = N\).</p>
             
-            <p>For (ii), define \(\overline{\phi}: M/N\to L\) by \(\overline{\phi}(m+N) = \phi(m)\). We first check that \(\overline{\phi}\) is well defined. Suppose \(m+N = m'+N\). Then \(m-m'\in N\subseteq \ker(\phi)\), so that \(\phi(m-m') = 0\). Thus, \(\phi(m) = \phi(m')\), showing that \(\overline{\phi}\) is well defined. We have \(\overline{\phi}((m+N)+(m'+N)) = \overline{\phi}((m+m')+N) = \phi(m+m') = \phi(m)+\phi(m') = \overline{\phi}(m+N)+\overline{\phi}(m'+N)\), and \(\overline{\phi}(r(m+N)) = \overline{\phi}(rm+N) = \phi(rm) = r\phi(m) = r\overline{\phi}(m+N)\). Thus, \(\overline{\phi}\) is an \(R\)-module homomorphism. Moreover, \((\overline{\phi}\circ \pi)(m) = \overline{\phi}(m+N) = \phi(m)\), so that \(\phi = \overline{\phi}\circ \pi\). Uniqueness follows since if \(\psi: M/N\to L\) satisfies \(\phi = \psi\circ \pi\), then \(\psi(m+N) = \psi(\pi(m)) = \phi(m) = \overline{\phi}(m+N)\), for all \(m\in M\).</p>
+            <p>For (ii), define \(\overline{\phi}: M/N\to L\) by \(\overline{\phi}(m+N) = \phi(m)\). We first check that \(\overline{\phi}\) is well defined. Suppose \(m+N = m'+N\). Then \(m-m'\in N\subseteq \ker(\phi)\), so that \(\phi(m-m') = 0\). Thus, \(\phi(m) = \phi(m')\), showing that \(\overline{\phi}\) is well defined. We have 
+            </p>
+            <div class="math-display">
+                \[\begin{aligned}\overline{\phi}((m+N)+(m'+N)) &= \overline{\phi}((m+m')+N) = \phi(m+m') \\ &= \phi(m)+\phi(m') = \overline{\phi}(m+N)+\overline{\phi}(m'+N)\end{aligned}\]
+            </div>
+            <p>, and 
+            </p>
+            <div class="math-display">
+                \[\begin{aligned}\overline{\phi}(r(m+N)) &= \overline{\phi}(rm+N) = \phi(rm) \\ &= r\phi(m) = r\overline{\phi}(m+N)\end{aligned}\]
+            </div>
+            <p>. Thus, \(\overline{\phi}\) is an \(R\)-module homomorphism. Moreover, \((\overline{\phi}\circ \pi)(m) = \overline{\phi}(m+N) = \phi(m)\), so that \(\phi = \overline{\phi}\circ \pi\). Uniqueness follows since if \(\psi: M/N\to L\) satisfies \(\phi = \psi\circ \pi\), then \(\psi(m+N) = \psi(\pi(m)) = \phi(m) = \overline{\phi}(m+N)\), for all \(m\in M\).</p>
         </div>
     </div>
 
@@ -334,7 +352,12 @@
 
     <div class="problem">
         <div class="problem-number">Problem 10</div>
-        <p>Follow the steps below to prove Hilbert's Basis Theorem: If \(R\) is a Noetherian ring, then the polynomial ring \(R[x]\) is a Noetherian ring. To begin, let \(J\subseteq R[x]\) be an ideal and \(I := \{ a \in R\ |\ a\ \textrm{is the leading coefficient of some element of}\ J\}\).</p>
+        <p>Follow the steps below to prove Hilbert's Basis Theorem: If \(R\) is a Noetherian ring, then the polynomial ring \(R[x]\) is a Noetherian ring. To begin, let \(J\subseteq R[x]\) be an ideal and 
+            </p>
+            <div class="math-display">
+                \[I := \{ a \in R\ |\ a\ \textrm{is the leading coefficient of some element of}\ J\}\]
+            </div>
+            <p>.</p>
         
         <ol type="i">
             <li>Show that \(I\) is an ideal of \(R\).</li>
@@ -385,7 +408,7 @@
         <p><strong>(vi)</strong> The classical form of the Chinese remainder theorem states the following: Suppose \(n_1, \ldots, n_k\) are pairwise relatively prime positive integers. Then, given \(a_1, \ldots, a_k \in \mathbb{Z}\), the system of congruences</p>
         
         <div class="math-display">
-            \[x \equiv a_1 \ (\textrm{mod}\ n_1\mathbb{Z}), \ldots, x\equiv a_k \ (\textrm{mod} \ n_k\mathbb{Z})\]
+            \[\begin{aligned}x &\equiv a_1 \ (\textrm{mod}\ n_1\mathbb{Z}), \\ &\quad\ldots, \\ x &\equiv a_k \ (\textrm{mod}\ n_k\mathbb{Z})\end{aligned}\]
         </div>
         
         <p>has a solution in \(\mathbb{Z}\), and any two solutions are congruent modulo \(n := n_1\cdots n_k\). Indeed, since the map from \(\mathbb{Z}_n \to \mathbb{Z}_{n_1} \times \cdots \times \mathbb{Z}_{n_k}\) taking \(r \in \mathbb{Z}\) to \((r+n_1\mathbb{Z}, \ldots, r+n_k\mathbb{Z})\) is surjective, a solution to the system of congruences is any element \(t \in \mathbb{Z}\) that maps to \((a_1+n_1\mathbb{Z}, \ldots, a_k+n_k\mathbb{Z})\), while uniqueness of solutions up to congruence modulo \(n\) follows because the map is injective.</p>
