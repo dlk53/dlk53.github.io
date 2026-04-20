@@ -66,7 +66,6 @@
             padding: 20px;
             background-color: #fff3cd;
             border-left: 4px solid #ffc107;
-            overflow-x: auto;
         }
         .solution-label {
             font-weight: bold;
@@ -81,8 +80,6 @@
         .math-display {
             margin: 30px 0;
             text-align: center;
-            overflow-x: auto;
-            overflow-y: visible;
         }
         p {
             margin: 20px 0;
@@ -103,9 +100,7 @@
             border-left: 3px solid #6c757d;
         }
         mjx-container {
-            overflow-x: auto;
-            overflow-y: visible;
-            max-width: 100%;
+            margin: 0 2px;
         }
         .skip-link {
             position: absolute;
@@ -214,7 +209,7 @@
             <p>Define a map \(\phi: \text{Hom}_R(M,N)\to \prod_{i\in I}N\) by \(\phi(f) = (f(x_i))_{i\in I}\). We check that \(\phi\) is an \(R\)-module isomorphism. First, \(\phi\) is an \(R\)-module homomorphism, since for \(f, g\in \text{Hom}_R(M,N)\) and \(r\in R\), we have</p>
             
             <div class="math-display">
-                \[\phi(f+g) = ((f+g)(x_i))_{i\in I} = (f(x_i)+g(x_i))_{i\in I} = (f(x_i))_{i\in I}+(g(x_i))_{i\in I} = \phi(f)+\phi(g)\]
+                \[\begin{aligned}\phi(f+g) &= ((f+g)(x_i))_{i\in I} = (f(x_i)+g(x_i))_{i\in I} \\ &= (f(x_i))_{i\in I}+(g(x_i))_{i\in I} = \phi(f)+\phi(g)\end{aligned}\]
             </div>
             
             <p>and \(\phi(rf) = ((rf)(x_i))_{i\in I} = (rf(x_i))_{i\in I} = r(f(x_i))_{i\in I} = r\phi(f)\).</p>
@@ -330,7 +325,7 @@
             <p>in \(\mathbb{Q}/\mathbb{Z}\), then each \([\frac{a_i}{p_i^{e_i}}] = 0\). To see this, set \(n_i := \prod_{j\not = i}p_j^{e_j}\) so that</p>
             
             <div class="math-display">
-                \[0 = [\frac{a_1}{p_1^{e_1}}]+\cdots + [\frac{a_r}{p_r^{e_r}}]  = [\frac{a_1n_1+\cdots + a_rn_r}{p_1^{e_1}\cdots p_r^{e_r}}]\]
+                \[\begin{aligned}0 &= \left[\frac{a_1}{p_1^{e_1}}\right]+\cdots + \left[\frac{a_r}{p_r^{e_r}}\right] \\ &= \left[\frac{a_1n_1+\cdots + a_rn_r}{p_1^{e_1}\cdots p_r^{e_r}}\right]\end{aligned}\]
             </div>
             
             <p>in \(\mathbb{Q}/\mathbb{Z}\). Thus, there exists \(t\in \mathbb{Z}\) such that \(a_1n_1+\cdots +a_rn_r = tp_1^{e_1}\cdots p_r^{e_r}\) in \(\mathbb{Z}\). Thus, \(p_1^{e_1}\) divides the left side of this last equation, and hence divides \(a_1n_1\). This forces \(p_1^{e_1}\mid a_1\). Writing \(a_1 = a_1'p_1^{e_1}\), we have \([\frac{a_1}{p_1^{e_1}}] = [\frac{a_1'p_1^{e_1}}{p_1^{e_1}}] = [\frac{a_1'}{1}] = 0\) in \(\mathbb{Q}/\mathbb{Z}\). A similar argument shows that \([\frac{a_i}{p_i^{e_i}}] = 0\), for \(2\leq i\leq r\), which gives what we want, and completes the proof. <span class="qed">∎</span></p>
