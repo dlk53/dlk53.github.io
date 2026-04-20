@@ -135,6 +135,63 @@
             top: 0;
         }
     </style>
+
+    <!-- ============================================================
+         Content Protection Script
+         Prevents casual downloading, copying, and saving.
+         Screen readers are unaffected (they operate at browser level).
+         ============================================================ -->
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+
+            // Disable right-click context menu
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert(msg);
+            });
+
+            // Disable text selection
+            var style = document.createElement('style');
+            style.innerHTML =
+                'body { -webkit-user-select: none; -moz-user-select: none;' +
+                ' -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+
+            // Block common keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+
+                // Ctrl/Cmd + S (Save), U (View Source), A (Select All),
+                // C (Copy), P (Print)
+                if ((e.ctrlKey || e.metaKey) &&
+                    ['s', 'u', 'a', 'c', 'p'].includes(key)) {
+                    e.preventDefault();
+                    if (key !== 'a') alert(msg);
+                    return false;
+                }
+
+                // F12 (DevTools)
+                if (e.key === 'F12') {
+                    e.preventDefault();
+                    return false;
+                }
+
+                // Ctrl+Shift+I or Ctrl+Shift+J (DevTools)
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey &&
+                    ['i', 'j'].includes(key)) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // Block drag-to-copy
+            document.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+            });
+
+        })();
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
