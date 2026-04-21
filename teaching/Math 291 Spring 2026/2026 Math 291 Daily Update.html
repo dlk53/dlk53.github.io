@@ -958,6 +958,34 @@
             <p>Exam 2.</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Tuesday, April 21</div>
+
+            <p>We began a review of topics already covered, but in a general setting. Thus, we discussed the operations of sum and scalar multiplication for \(m\times n\) matrices and the usual properties that hold regarding these operations; the product of an \(m\times n\) matrix with an \(n\times p\) matrix and the usual arithmetic properties that hold; invertibility of \(n\times n\) matrices; and determinants of \(n\times n\) matrices. Regarding determinants, we first showed how to calculate the determinant of a \(3\times 3\) matrix by expanding along the first row or second column. Then we gave the following formulas:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Laplace Expansion Formulas.</span> Let \(A = (a_{ij})\) be an \(n\times n\) matrix with entries in \(\mathbb{R}\) or \(\mathbb{C}\). Write \(A_{ij}\) for the \((n-1)\times(n-1)\) matrix obtained by removing the \(i\)th row and \(j\)th column of \(A\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Expansion along the \(i\)th row: \(|A| = \sum_{j=1}^n (-1)^{i+j} a_{ij}|A_{ij}|\).</li>
+                    <li style="list-style-type: none;">(ii) Expansion along the \(j\)th column: \(|A| = \sum_{i=1}^n (-1)^{i+j} a_{ij}|A_{ij}|\).</li>
+                </ol>
+            </div>
+
+            <p>We ended class by discussing the following properties — previously discussed for \(2\times 2\) matrices — noting that these can be used to simplify determinant calculations.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Properties of determinants.</span> Let \(A\) be an \(n\times n\) matrix over \(\mathbb{R}\) or \(\mathbb{C}\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) If \(A'\) is obtained from \(A\) by multiplying a row or column of \(A\) by \(\lambda\in \mathbb{R}\) (or \(\mathbb{C}\)), then \(|A'| = \lambda\cdot |A|\).</li>
+                    <li style="list-style-type: none;">(ii) If \(A'\) is obtained from \(A\) by multiplying one row or column of \(A\) and adding it to another row or column of \(A\), then \(|A'| = |A|\).</li>
+                    <li style="list-style-type: none;">(iii) If \(A\) has a row or column consisting of zeroes, or two equal rows, or two equal columns, then \(|A| = 0\).</li>
+                    <li style="list-style-type: none;">(iv) If \(A\) is upper or lower triangular, then \(|A| = a_{11}\cdot a_{22}\cdots a_{nn}\).</li>
+                    <li style="list-style-type: none;">(v) If \(B\) is an \(n\times n\) matrix over \(\mathbb{R}\) or \(\mathbb{C}\), then \(|AB| = |A|\cdot |B|\).</li>
+                    <li style="list-style-type: none;">(vi) \(A\) is invertible if and only if \(|A| \not= 0\).</li>
+                </ol>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>

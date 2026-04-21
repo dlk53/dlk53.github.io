@@ -1040,7 +1040,28 @@
 
             <p>1. Let \(z_1 = a+bi\) and \(z_2 = c+di\). Prove the formulas \(\overline{z_1+z_2} = \overline{z_1}+\overline{z_2}\) and \(\overline{z_1z_2} = \overline{z_1}\cdot\overline{z_2}\).</p>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution to 1.</span> Let \(z_1 = a+bi\) and \(z_2 = c+di\), so \(\overline{z_1} = a-bi\) and \(\overline{z_2} = c-di\).</p>
+                <p>For the sum: \(z_1+z_2 = (a+c)+(b+d)i\), so</p>
+                <div class="math-display">
+                    \[\overline{z_1+z_2} = (a+c)-(b+d)i = (a-bi)+(c-di) = \overline{z_1}+\overline{z_2}.\]
+                </div>
+                <p>For the product: \(z_1z_2 = (ac-bd)+(ad+bc)i\), so \(\overline{z_1z_2} = (ac-bd)-(ad+bc)i\). On the other hand,</p>
+                <div class="math-display">
+                    \[\overline{z_1}\cdot\overline{z_2} = (a-bi)(c-di) = (ac-bd)+(-ad-bc)i = (ac-bd)-(ad+bc)i.\]
+                </div>
+                <p>These are equal, so \(\overline{z_1z_2} = \overline{z_1}\cdot\overline{z_2}\). \(\square\)</p>
+            </div>
+
             <p>2. Find two square roots of \(i\).</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution to 2.</span> We seek \(z = a+bi\) with \(z^2 = i\). Expanding: \((a^2-b^2)+2abi = 0+i\). Comparing real and imaginary parts gives \(a^2-b^2 = 0\) and \(2ab = 1\). From the first equation \(a = \pm b\). Since \(2ab = 1 > 0\) we need \(a\) and \(b\) to have the same sign, so \(a = b\). Substituting into \(2ab = 1\) gives \(2a^2 = 1\), hence \(a = \pm\tfrac{1}{\sqrt{2}}\). The two square roots of \(i\) are</p>
+                <div class="math-display">
+                    \[\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}i \qquad \text{and} \qquad -\frac{1}{\sqrt{2}}-\frac{1}{\sqrt{2}}i.\]
+                </div>
+                <p>One can verify: \(\left(\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}i\right)^2 = \frac{1}{2}-\frac{1}{2}+\frac{2}{2}i = i\). \(\checkmark\)</p>
+            </div>
 
             <p>3. Solve the following system of linear equations over \(\mathbb{C}\):</p>
             <div class="math-display">
@@ -1048,6 +1069,21 @@
                 2ix+3y-4z &= 4\\
                 6x-4iy-z &= 8i.
                 \end{align*}\]
+            </div>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution to 3.</span> We row-reduce the augmented matrix over \(\mathbb{C}\):</p>
+                <div class="math-display">
+                    \[\left[\begin{array}{ccc|c} 2i & 3 & -4 & 4\\ 6 & -4i & -1 & 8i\end{array}\right] \xrightarrow{\frac{1}{2i}R_1} \left[\begin{array}{ccc|c} 1 & -\tfrac{3i}{2} & 2i & -2i\\ 6 & -4i & -1 & 8i\end{array}\right] \xrightarrow{R_2\leftarrow R_2-6R_1} \left[\begin{array}{ccc|c} 1 & -\tfrac{3i}{2} & 2i & -2i\\ 0 & 5i & -1-12i & 20i\end{array}\right].\]
+                </div>
+                <p>Dividing \(R_2\) by \(5i\) (i.e., multiplying by \(\frac{-i}{5}\)):</p>
+                <div class="math-display">
+                    \[\xrightarrow{\frac{1}{5i}R_2} \left[\begin{array}{ccc|c} 1 & -\tfrac{3i}{2} & 2i & -2i\\ 0 & 1 & \tfrac{-12+i}{5} & 4\end{array}\right] \xrightarrow{R_1\leftarrow R_1+\frac{3i}{2}R_2} \left[\begin{array}{ccc|c} 1 & 0 & \tfrac{3+16i}{10} & 4i\\ 0 & 1 & \tfrac{-12+i}{5} & 4\end{array}\right].\]
+                </div>
+                <p>Setting \(z = t\in\mathbb{C}\) as a free parameter, the solution set is</p>
+                <div class="math-display">
+                    \[\left\{\begin{pmatrix} x\\y\\z\end{pmatrix} = \begin{pmatrix} 4i\\4\\0\end{pmatrix} + t\begin{pmatrix} -\dfrac{3+16i}{10}\\[6pt]\dfrac{12-i}{5}\\[4pt]1\end{pmatrix}\ \bigg|\ t\in\mathbb{C}\right\}.\]
+                </div>
             </div>
         </div>
 
@@ -1058,9 +1094,93 @@
 
             <p>1. Find the Jordan canonical form \(J\) for \(A = \begin{pmatrix} 0 & 25\\1 & 10i\end{pmatrix}\) and the matrix \(P\) satisfying \(P^{-1}AP = J\). Be sure to check this relation by direct calculation.</p>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution to 1.</span> The characteristic polynomial is</p>
+                <div class="math-display">
+                    \[p_A(x) = \det(A-xI_2) = (0-x)(10i-x)-25 = x^2-10ix-25 = (x-5i)^2,\]
+                </div>
+                <p>so \(A\) has the single repeated eigenvalue \(\lambda = 5i\). Row-reducing \(A-5iI_2\):</p>
+                <div class="math-display">
+                    \[\begin{pmatrix} -5i & 25\\1 & 5i\end{pmatrix} \xrightarrow{R_1\leftarrow\frac{-1}{5i}R_1} \begin{pmatrix} 1 & 5i\\1 & 5i\end{pmatrix} \xrightarrow{R_2\leftarrow R_2-R_1} \begin{pmatrix} 1 & 5i\\0 & 0\end{pmatrix}.\]
+                </div>
+                <p>The eigenspace is spanned by \(v_1 = \begin{pmatrix} -5i\\1\end{pmatrix}\). Since it is one-dimensional, \(A\) is <strong>not diagonalizable over \(\mathbb{C}\)</strong>.</p>
+                <p>Choose \(v_2 = \begin{pmatrix} 1\\0\end{pmatrix}\), which is not a multiple of \(v_1\) and hence not an eigenvector. Set</p>
+                <div class="math-display">
+                    \[v_1 = (A-5iI_2)v_2 = \begin{pmatrix} -5i & 25\\1 & 5i\end{pmatrix}\begin{pmatrix} 1\\0\end{pmatrix} = \begin{pmatrix} -5i\\1\end{pmatrix}. \checkmark\]
+                </div>
+                <p>Let \(P = \begin{pmatrix} -5i & 1\\1 & 0\end{pmatrix}\). Then \(\det P = 0-1 = -1\), so \(P^{-1} = \frac{1}{-1}\begin{pmatrix} 0 & -1\\-1 & -5i\end{pmatrix} = \begin{pmatrix} 0 & 1\\1 & 5i\end{pmatrix}\). We verify:</p>
+                <div class="math-display">
+                    \[\begin{aligned} AP &= \begin{pmatrix} 0 & 25\\1 & 10i\end{pmatrix}\begin{pmatrix} -5i & 1\\1 & 0\end{pmatrix} = \begin{pmatrix} 25 & 0\\-5i+10i & 1\end{pmatrix} = \begin{pmatrix} 25 & 0\\5i & 1\end{pmatrix},\\[4pt] P^{-1}AP &= \begin{pmatrix} 0 & 1\\1 & 5i\end{pmatrix}\begin{pmatrix} 25 & 0\\5i & 1\end{pmatrix} = \begin{pmatrix} 5i & 1\\0 & 5i\end{pmatrix} = J.\end{aligned}\]
+                </div>
+                <p>Thus \(J = \begin{pmatrix} 5i & 1\\0 & 5i\end{pmatrix}\) is the Jordan canonical form of \(A\).</p>
+            </div>
+
             <p>2. Given \(B = \begin{pmatrix} 1 & 2i\\2i & 2\end{pmatrix}\), note that \(B\) is symmetric. Show that \(B\) is diagonalizable, but not orthogonally diagonalizable over \(\mathbb{C}\).</p>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution to 2.</span> The characteristic polynomial is</p>
+                <div class="math-display">
+                    \[p_B(x) = (1-x)(2-x)-(2i)^2 = x^2-3x+2+4 = x^2-3x+6.\]
+                </div>
+                <p>The discriminant is \(9-24 = -15 < 0\), so the two eigenvalues are the distinct complex numbers</p>
+                <div class="math-display">
+                    \[\lambda_1 = \frac{3+i\sqrt{15}}{2}, \qquad \lambda_2 = \frac{3-i\sqrt{15}}{2}.\]
+                </div>
+                <p>Since \(B\) has two distinct eigenvalues, it is <strong>diagonalizable</strong> over \(\mathbb{C}\).</p>
+                <p>To find eigenvectors, we use row 2 of \(B-\lambda_k I_2\), i.e., \(2i\cdot v_1+(2-\lambda_k)v_2 = 0\).</p>
+                <p>For \(\lambda_1\): \(2iv_1+\frac{1-i\sqrt{15}}{2}\,v_2 = 0\), giving eigenvector \(w_1 = \begin{pmatrix} \sqrt{15}+i\\4\end{pmatrix}\).</p>
+                <p>For \(\lambda_2\): similarly, \(w_2 = \begin{pmatrix} -\sqrt{15}+i\\4\end{pmatrix}\).</p>
+                <p>To show \(B\) is <strong>not orthogonally diagonalizable</strong>, we compute the Hermitian inner product of \(w_1\) and \(w_2\):</p>
+                <div class="math-display">
+                    \[\langle w_1, w_2\rangle = \overline{(\sqrt{15}+i)}(-\sqrt{15}+i)+\overline{4}\cdot 4 = (\sqrt{15}-i)(-\sqrt{15}+i)+16.\]
+                </div>
+                <p>Expanding: \((\sqrt{15}-i)(-\sqrt{15}+i) = -15+i\sqrt{15}+i\sqrt{15}-i^2 = -15+2i\sqrt{15}+1 = -14+2i\sqrt{15}\). Therefore</p>
+                <div class="math-display">
+                    \[\langle w_1, w_2\rangle = -14+2i\sqrt{15}+16 = 2+2i\sqrt{15} \neq 0.\]
+                </div>
+                <p>Since the eigenvectors for distinct eigenvalues are not orthogonal with respect to the standard Hermitian inner product, \(B\) cannot be orthogonally diagonalized over \(\mathbb{C}\). \(\square\)</p>
+            </div>
+
             <p>3. Given \(C = \begin{pmatrix} 1 & -2i\\2i & 2\end{pmatrix}\), note that \(C = \overline{C}^t\). Show that \(C\) is orthogonally diagonalizable over \(\mathbb{C}\), i.e., there exists \(Q\in \mathrm{M}_2(\mathbb{C})\) with \(Q^{-1}CQ\) a diagonal matrix, and the columns of \(Q\) are orthogonal and have length one.</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution to 3.</span> We first verify that \(C = \overline{C}^t\): \(\overline{C}^t = \overline{\begin{pmatrix} 1 & -2i\\2i & 2\end{pmatrix}}^t = \begin{pmatrix} 1 & 2i\\-2i & 2\end{pmatrix}^t = \begin{pmatrix} 1 & -2i\\2i & 2\end{pmatrix} = C\). \(\checkmark\)</p>
+                <p>The characteristic polynomial is</p>
+                <div class="math-display">
+                    \[p_C(x) = (1-x)(2-x)-(-2i)(2i) = x^2-3x+2-4 = x^2-3x-2.\]
+                </div>
+                <p>The discriminant is \(9+8 = 17\), giving two distinct real eigenvalues</p>
+                <div class="math-display">
+                    \[\lambda_1 = \frac{3+\sqrt{17}}{2}, \qquad \lambda_2 = \frac{3-\sqrt{17}}{2}.\]
+                </div>
+                <p>For each \(\lambda\), row 2 of \(C-\lambda I_2\) gives \(2iv_1+(2-\lambda)v_2 = 0\), so \(v_1 = \frac{(\lambda-2)}{2i}v_2\).</p>
+                <p>For \(\lambda_1\): \(\frac{\lambda_1-2}{2i} = \frac{(\sqrt{17}-1)/2}{2i} = \frac{(\sqrt{17}-1)i}{-4}\), giving eigenvector \(u_1 = \begin{pmatrix} -(\sqrt{17}-1)i\\4\end{pmatrix}\).</p>
+                <p>For \(\lambda_2\): \(\frac{\lambda_2-2}{2i} = \frac{(-1-\sqrt{17})/2}{2i} = \frac{(1+\sqrt{17})i}{4}\), giving eigenvector \(u_2 = \begin{pmatrix} (1+\sqrt{17})i\\4\end{pmatrix}\).</p>
+                <p><strong>Orthogonality.</strong> We compute:</p>
+                <div class="math-display">
+                    \[\langle u_1,u_2\rangle = \overline{-(\sqrt{17}-1)i}\cdot(1+\sqrt{17})i+\bar{4}\cdot 4 = (\sqrt{17}-1)i\cdot(1+\sqrt{17})i+16.\]
+                </div>
+                <p>Now \((\sqrt{17}-1)(1+\sqrt{17}) = 17-1 = 16\), so \((\sqrt{17}-1)i\cdot(1+\sqrt{17})i = 16i^2 = -16\). Therefore \(\langle u_1,u_2\rangle = -16+16 = 0\). \(\checkmark\)</p>
+                <p><strong>Norms.</strong></p>
+                <div class="math-display">
+                    \[\|u_1\|^2 = (\sqrt{17}-1)^2+16 = 34-2\sqrt{17}, \qquad \|u_2\|^2 = (\sqrt{17}+1)^2+16 = 34+2\sqrt{17}.\]
+                </div>
+                <p>Setting \(q_k = u_k/\|u_k\|\), the matrix</p>
+                <div class="math-display">
+                    \[Q = \begin{pmatrix} \dfrac{-(\sqrt{17}-1)i}{\sqrt{34-2\sqrt{17}}} & \dfrac{(1+\sqrt{17})i}{\sqrt{34+2\sqrt{17}}}\\[10pt] \dfrac{4}{\sqrt{34-2\sqrt{17}}} & \dfrac{4}{\sqrt{34+2\sqrt{17}}}\end{pmatrix}\]
+                </div>
+                <p>has orthonormal columns and satisfies \(Q^{-1}CQ = \overline{Q}^t CQ = \begin{pmatrix} \lambda_1 & 0\\0 & \lambda_2\end{pmatrix}\). \(\square\)</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, April 21</div>
+
+            <p>1. Let \(A = \begin{pmatrix} a & b & c\\d & e & f\\g & h & i\end{pmatrix}\). Calculate \(|A|\) first by expanding along the second row, and then by expanding along the third column, checking that your two answers agree.</p>
+
+            <p>2. Use elementary row operations to calculate \(|B|\), for \(B = \begin{pmatrix} 1 & 1 & 1 & 1\\1 & 2 & 3 & 4\\1 & 3 & 6 & 10\\1 & 4 & 10 & 20\end{pmatrix}\).</p>
+
+            <p><strong>Bonus Problem 10.</strong> Prove that the determinant of an upper triangular \(n\times n\) matrix is the product of its diagonal entries. Due Thursday, April 23. (3 points)</p>
         </div>
 
         </div>
