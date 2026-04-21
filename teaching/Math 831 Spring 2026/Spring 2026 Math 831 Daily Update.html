@@ -139,7 +139,6 @@
             top: 0;
         }
     </style>
-
     <!-- ============================================================
          Content Protection Script
          Prevents casual downloading, copying, and saving.
@@ -1322,7 +1321,7 @@
             <div class="math-display">
                 \[0\to M_2\to M\to M/M_1\to 0\]
             </div>
-            <p>because \(\underline{x}\) is not regular on \(M_2\). However, the weaker Claim* above does apply, since we only need \(\underline{x}\) to be regular on \(M/M_2\) to infer that \(\underline{x}M\cap M_2 = \underline{x}M_2\). So using Claim*, we can give a quick proof of the proposition.</p>
+            <p>because \(\underline{x}\) is not regular on \(M_2\). However, the weaker Claim* above does apply, since we only need \(\underline{x}\) to be regular on \(M/M_2\) to infer that \(\underline{x}M\cap M_2 = \underline{x}M_2\). So using Claim*, we can give a proof of the proposition.</p>
 
             <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
                 <p><em>Proof of the Proposition.</em> First note that we have \(\underline{x}M\cap M_1 = \underline{x}M_1\), by applying the second part of Claim* to \(M/M_1\). Now, from the exact sequence</p>
@@ -1335,6 +1334,57 @@
                 </div>
                 <p>gives that \(\underline{x}\) is regular on \(M/M_3\) and \(\underline{x}M\cap M_3 = \underline{x}M_3\). Continuing inductively finishes the proof. \(\square\)</p>
             </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, April 21</div>
+
+            <p>We began class by proving the Eisenbud-Hochster theorem stated in the previous lecture. The proposition stated and proved at the end of the lecture played a key role in the proof of this theorem.</p>
+
+            <p>After first noting that our next long range goal is to prove the <em>What makes a complex exact?</em> theorem of Buchsbaum-Eisenbud, we then turned our attention to defining <em>regular sequences</em> and establishing a few of their basic properties, beginning with</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definitions.</span> Assume \(R\) is a Noetherian ring, \(M\) is a finitely generated \(R\)-module and we have a sequence \(\underline{x} = x_1, \ldots, x_n\in R\). Let \(I\subseteq R\) be an ideal.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) The sequence \(\underline{x}\) is a <em>regular sequence on \(M\)</em> if:
+                        <ol style="list-style-type: none; padding-left: 20px;">
+                            <li style="list-style-type: none;">(a) \(x_1\) is a non-zerodivisor on \(M\), \(x_2\) is a non-zerodivisor on \(M/x_1M\), \(\ldots\), \(x_n\) is a non-zerodivisor on \(M/\langle x_1,\ldots,x_{n-1}\rangle M\) and</li>
+                            <li style="list-style-type: none;">(b) \(\langle x_1,\ldots,x_n\rangle M\not= M\).</li>
+                        </ol>
+                    </li>
+                    <li style="list-style-type: none;">(ii) If \(\underline{x}\) is a regular sequence on \(M\) and \(\underline{x}\subseteq I\), we say that \(\underline{x}\) is a <em>regular sequence on \(M\) from \(I\)</em>.</li>
+                    <li style="list-style-type: none;">(iii) If \(\underline{x}\subseteq I\) is a regular sequence on \(M\) and cannot be extended to a longer regular sequence on \(M\) from \(I\), we say that \(\underline{x}\) is a <em>maximal</em> regular sequence on \(I\) from \(M\).</li>
+                </ol>
+            </div>
+
+            <p>We noted from the definitions that:</p>
+            <ul>
+                <li>\(\underline{x}\) is a regular sequence on \(M\) if and only if \(\underline{x}M\not= M\) and for all \(i\), \(x_i\not\in P\), for all \(P\in \mathrm{Ass}(M/\langle x_1,\ldots,x_{i-1}\rangle M)\).</li>
+                <li>\(\underline{x}\subseteq I\) is a maximal regular sequence on \(M\) from \(I\) if and only if \(\underline{x}\) is a regular sequence on \(M\) from \(I\) and \(I\subseteq P\), for some \(P\in \mathrm{Ass}(M/\underline{x}M)\).</li>
+                <li>If \(x, y\) is a regular sequence on \(M\), and \(y\) is a non-zerodivisor on \(M\), then \(y, x\) is a regular sequence on \(M\). Thus, if \(\underline{x}\) is a regular sequence on \(M\), and \(x_{i+1}\) is a non-zerodivisor on \(M/\langle x_1,\ldots,x_{i-1}\rangle M\), then \(x_1,\ldots,x_{i-1},x_{i+1},x_i,\ldots,x_n\) is a regular sequence on \(M\).</li>
+            </ul>
+
+            <p>We noted that our immediate goal is to prove that if \(R\) is a Noetherian ring, \(I\subseteq R\) an ideal and \(M\) a finitely generated \(R\)-module, then all maximal regular sequences on \(M\) from \(I\) have the same length. This led to the following definitions.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span></p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) The length of a maximal regular sequence on \(M\) from \(I\) is called the <em>grade of \(I\) on \(M\)</em>. When \(M = R\), this is the <em>grade of \(I\)</em>.</li>
+                    <li style="list-style-type: none;">(ii) When \((R,\mathfrak{m})\) is local, and \(I = \mathfrak{m}\), then the length of a maximal regular sequence on \(M\) from \(\mathfrak{m}\) is called the <em>depth of \(M\)</em>. In particular, when \(M = R\), this is the <em>depth of \(R\)</em>.</li>
+                </ol>
+            </div>
+
+            <p>We finished class by proving the following Lemma, needed for the proposition that follows.</p>
+
+            <div class="definition">
+                <span class="statement-title">Lemma.</span> Suppose \(R\) is a Noetherian ring, \(M\) a finitely generated \(R\)-module and \(P\subseteq R\) an ideal. If \(x, y\in P\) are non-zerodivisors on \(M\), then \(P\in \mathrm{Ass}(M/xM)\) if and only if \(P\in \mathrm{Ass}(M/yM)\).
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Let \(R\) be a Noetherian ring and \(M\) a finitely generated \(R\)-module. Suppose that \(\underline{x} = x_1,\ldots,x_t\) is a regular sequence on \(M\). If \(\underline{x}\) is contained in the Jacobson radical of \(R\), then every permutation of \(\underline{x}\) is a regular sequence on \(M\).
+            </div>
+
+            <p>Two key facts in the proof of the proposition were: (i) the group theoretic fact that any permutation of \(t\) elements is the product of permutations that interchange adjacent elements and (ii) if \(x\) is a non-zerodivisor on \(M\), then \(Q\in \mathrm{Ass}(M/xM)\) if and only if \(Q\in \mathrm{Ass}(M/x^nM)\), for all \(n\geq 1\).</p>
         </div>
 
         <!-- Additional daily updates will be added below as the semester continues -->
