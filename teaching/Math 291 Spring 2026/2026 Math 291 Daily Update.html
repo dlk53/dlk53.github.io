@@ -616,6 +616,7 @@
                     \[B = P^{-1}AP.\]
                 </div>
             </div>
+        </div>
             <!--
             <p>The rest of the class was spent illustrating the change of basis formula with the following examples.</p>
             <ol style="list-style-type: none; padding-left: 20px;">
@@ -623,7 +624,6 @@
                 <li style="list-style-type: none;">(ii) \(T(x,y) = (x+6y, 2x+5y)\), \(A = [T]_E^E\), \(B = [T]_{\beta}^{\beta}\), for \(\beta = \{(1,1), (-3, 1)\}\) and \(P = [I_2]_{\beta}^E\).</li>
             </ol>
             <p>The second example was interesting because it gave an example of a <em>diagonalizable</em> linear transformation.</p>
-        </div>
 -->
         <div class="problem">
             <div class="problem-number">Tuesday, February 24</div>
@@ -984,6 +984,65 @@
                     <li style="list-style-type: none;">(vi) \(A\) is invertible if and only if \(|A| \not= 0\).</li>
                 </ol>
             </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, April 23</div>
+
+            <p>We continued with revisiting concepts we have covered throughout the semester, but from a more general point of view, beginning with a corollary to item (vi) of the properties of determinants given in the previous lecture:</p>
+
+            <div class="definition">
+                <span class="statement-title">Corollary.</span> Suppose \(A\) is an \(n\times n\) coefficient matrix for the system of linear equations \(A\cdot \begin{pmatrix} x_1\\\vdots\\x_n\end{pmatrix} = \begin{pmatrix} b_1\\\vdots\\b_m\end{pmatrix}\). If \(|A|\not= 0\), then the system has a unique solution: \(\begin{pmatrix} x_1\\\vdots\\x_n\end{pmatrix} = A^{-1}\cdot \begin{pmatrix} b_1\\\vdots\\b_m\end{pmatrix}\).
+            </div>
+
+            <p>We then discussed the concepts of linear dependence and linear independence for column vectors in \(\mathbb{R}^n\):</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Column vectors \(C_1, \ldots, C_r\in \mathbb{R}^n\) are said to be <em>linearly dependent</em> if the following equivalent statements hold:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) We can write some \(C_i = \alpha_1 C_1+\cdots+\alpha_{i-1}C_{i-1}+\alpha_{i+1}C_{i+1}+\cdots+\alpha_r C_r\).</li>
+                    <li style="list-style-type: none;">(ii) There exists a non-trivial dependence relation \(\alpha_1 C_1+\cdots+\alpha_r C_r = 0\), with not all \(\alpha_j = 0\).</li>
+                </ol>
+                <p>The vectors \(C_1, \ldots, C_r\) are <em>linearly independent</em> if they are not linearly dependent.</p>
+            </div>
+
+            <p>We pointed out the <strong>important facts</strong> that any set of vectors spanning \(\mathbb{R}^n\) must have at least \(n\) elements and any set of linearly independent vectors can have no more than \(n\) elements. Thus, a basis for \(\mathbb{R}^n\) always has \(n\) elements, where a basis is a collection of linearly independent vectors that span \(\mathbb{R}^n\).</p>
+
+            <p>We again stated the following key observation, in our general setting.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Key Observation.</span> Let \(A\) be an \(m\times r\) matrix with columns \(C_1, \ldots, C_r\), and set \(v = \begin{pmatrix} \alpha_1\\\alpha_2\\\vdots\\\alpha_r\end{pmatrix}\). Then:</p>
+                <div class="math-display">
+                    \[Av = \alpha_1 C_1+\alpha_2 C_2+\cdots+\alpha_r C_r.\]
+                </div>
+            </div>
+
+            <p>As an immediate corollary we have the following fundamental theorem.</p>
+
+            <div class="definition">
+                <span class="statement-title">Theorem.</span> Let \(A\) be as in the Key Observation. Then the homogeneous system of equations \(A\cdot \begin{pmatrix} x_1\\\vdots\\x_r\end{pmatrix} = \begin{pmatrix} 0\\\vdots\\0\end{pmatrix}\) has a nontrivial solution if and only if \(C_1, \ldots, C_r\) are linearly dependent. Equivalently, the system has a unique solution (necessarily the zero solution) if and only if \(C_1, \ldots, C_r\) are linearly independent.
+            </div>
+
+            <p>We then discussed how the process of solving a system of \(m\) equations in \(n\) unknowns is exactly the same as for solving smaller systems of equations: one applies elementary row operations to the corresponding augmented matrix until the left hand side is in reduced row echelon form, where one can just read off the solutions. We ended class by writing down the solution set to a system of equations whose augmented matrix in reduced row echelon form was:</p>
+            <div class="math-display">
+                \[\begin{bmatrix} 1 & 0 & 5 & 0 & 2 & 0 & 7\\0 & 1 & 4 & 0 & -1 & 0 & 6\\0 & 0 & 0 & 1 & 5 & 0 & 7\\0 & 0 & 0 & 0 & 0 & 1 & 7\end{bmatrix}.\]
+            </div>
+            <p>Using the variables \(x_1, \ldots, x_6\), this augmented matrix gives</p>
+            <div class="math-display">
+                \[\begin{align*}
+                x_1 &= 7-5x_3-2x_5\\
+                x_2 &= 6-4x_3+x_5\\
+                x_3 &= x_3\\
+                x_4 &= 7-5x_5\\
+                x_5 &= x_5\\
+                x_6 &= 7.
+                \end{align*}\]
+            </div>
+            <p>Using the independent parameters \(t_1, t_2\), we saw that the solution set was given by</p>
+            <div class="math-display">
+                \[\left\{\begin{pmatrix} 7\\6\\0\\7\\0\\7\end{pmatrix} + t_1\cdot \begin{pmatrix} -5\\-4\\1\\0\\0\\0\end{pmatrix} + t_2\cdot \begin{pmatrix} -2\\1\\0\\-5\\1\\0\end{pmatrix}\ \bigg|\ t_1, t_2\in \mathbb{R}\right\}.\]
+            </div>
+            <p>We finished by observing that if the same coefficient matrix was used for a homogeneous system of equations, then the vectors \(\begin{pmatrix} -5\\-4\\1\\0\\0\\0\end{pmatrix}\), \(\begin{pmatrix} -2\\1\\0\\-5\\1\\0\end{pmatrix}\) form a basis for the solution space.</p>
         </div>
 
         <!-- Additional daily updates will be added below as the semester continues -->
