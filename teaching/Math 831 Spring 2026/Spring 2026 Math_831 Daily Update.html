@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring 2026: Math 831 Daily Update</title>
+    <script>
+        MathJax = {
+            loader: {load: ['[tex]/amscd']},
+            tex: {
+                packages: {'[+]': ['amscd']},
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.02
+            },
+            chtml: {
+                scale: 1.02,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #357abd;
+        }
+        .back-link:focus {
+            outline: 2px solid #357abd;
+            outline-offset: 2px;
+        }
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        /* Ensure sufficient color contrast */
+        .problem-number {
+            color: #2563eb;
+        }
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+    <!-- ============================================================
+         Content Protection Script
+         Prevents casual downloading, copying, and saving.
+         Screen readers are unaffected (they operate at browser level).
+         ============================================================ -->
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+
+            // Disable right-click context menu
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert(msg);
+            });
+
+            // Disable text selection
+            var style = document.createElement('style');
+            style.innerHTML =
+                'body { -webkit-user-select: none; -moz-user-select: none;' +
+                ' -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+
+            // Block common keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+
+                // Ctrl/Cmd + S (Save), U (View Source), A (Select All),
+                // C (Copy), P (Print)
+                if ((e.ctrlKey || e.metaKey) &&
+                    ['s', 'u', 'a', 'c', 'p'].includes(key)) {
+                    e.preventDefault();
+                    if (key !== 'a') alert(msg);
+                    return false;
+                }
+
+                // F12 (DevTools)
+                if (e.key === 'F12') {
+                    e.preventDefault();
+                    return false;
+                }
+
+                // Ctrl+Shift+I or Ctrl+Shift+J (DevTools)
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey &&
+                    ['i', 'j'].includes(key)) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // Block drag-to-copy
+            document.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+            });
+
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <h1>Spring 2026: Math 831 Daily Update</h1>
+    </header>
+
+    <main id="main-content">
+        <div class="instructions">
+            <p>Throughout, \(R\) will denote a commutative ring.</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, January 20</div>
+            <p>We began the semester with some basic terminology, giving proofs and examples where appropriate.</p>
+            
+            <p><strong>Terminology.</strong></p>
+            
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(I\subseteq R\) is an <em>ideal</em> if \(a, b\in I\) implies \(a+b\in I\) and \(r\in R\) implies \(ra\in I\).</li>
+                
+                <li style="list-style-type: none;">(ii) \(P\subseteq R\) is a <em>prime</em> ideal if \(P\) is an ideal and \(ab\in I\) implies \(a\in I\) or \(b\in I\). We showed that if \(R := \mathbb{Q}[x,y]\), then \(P := \{fx\ |\ f\in R\}\) is a prime ideal.</li>
+                
+                <li style="list-style-type: none;">(iii) \(M\subseteq R\) is a <em>maximal</em> ideal if \(M\) is a proper ideal not contained in any other proper ideal. We showed that for \(R\) as in (ii), the set of polynomials with zero constant term is a maximal ideal. Using Zorn's lemma, we proved
+                
+                <div class="definition">
+                    <span class="statement-title">Proposition.</span> Maximal ideals exist in \(R\). In particular, every proper ideal of \(R\) is contained in a maximal ideal.
+                </div>
+                </li>
+                
+                <li style="list-style-type: none;">(iv) \(0 \not = a\) is a <em>zerodivisor</em> if there exists \(0\not = b\) such that \(ab = 0\). Otherwise \(a\) is a <em>non-zerodivisor</em>.</li>
+                
+                <li style="list-style-type: none;">(v) \(R\) is an <em>integral domain</em> if every non-zero element in \(R\) is a non-zerodivisor.</li>
+                
+                <li style="list-style-type: none;">(vi) \(u\in R\) is a <em>unit</em> if there exists \(v\in R\) such that \(uv = 1\).</li>
+                
+                <li style="list-style-type: none;">(vii) \(R\) is a <em>field</em> if every non-zero element of \(R\) is a unit.</li>
+                
+                <li style="list-style-type: none;">(viii) The sum of ideals \(I, J\) is the ideal \(I+J := \{i+j\ | \ i\in I\ \text{and}\ j\in J\}\).</li>
+                
+                <li style="list-style-type: none;">(ix) For the subset \(X\subseteq R\), \(\langle X\rangle\), the <em>ideal generated by</em> \(X\) consists of all finite \(R\)-linear combinations of the elements of \(X\). This was observed to the same as the intersection of all ideals containing \(X\). Special cases were \(\langle a\rangle\), a <em>principal</em> ideal, and \(X = \{x_1,\ldots, x_n\}\) so that \(\langle X\rangle := \{r_1x_1+\cdots + r_nx_n\ |\ r_i\in R\}\).</li>
+                
+                <li style="list-style-type: none;">(x) Given ideals \(I, J\subseteq R\), the <em>product</em> of \(I\) and \(J\) is the ideal \(IJ := \langle \{ij\ |\ i\in I\ \text{and}\ j \in J\}\rangle\).</li>
+                
+                <li style="list-style-type: none;">(xi) For \(n\geq 1\), we have \(I^n\), the \(n\)th power \(I\), which is the ideal consisting of all finite sums of \(n\)-fold products of elements from \(I\).</li>
+                
+                <li style="list-style-type: none;">(xii) A map \(\phi :R\to S\) between rings is a <em>ring homomorphism</em> if \(\phi (a+b) = \phi (a)+\phi (b)\) and \(\phi (ab) = \phi (a)\phi(b)\), for all \(a, b\in R\).</li>
+                
+                <li style="list-style-type: none;">(xiii) Given an ideal \(I\subseteq R\), the <em>factor</em> ring \(R/I\) consists of all cosets of the form \(a+I\), with \(a\in R\), subject to:
+                    <ul style="list-style-type: none; padding-left: 20px;">
+                        <li>\(a+I = b+I\) if and only if \(a-b\in I\).</li>
+                        <li>\((a+I)+(b+I) := (a+b)+I\).</li>
+                        <li>\((a+I)\cdot (b+I) := ab+I\).</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <p>We then proved that every maximal ideal in \(R\) is a prime ideal and gave an example where the converse fails, namely \(P = \langle x\rangle \subseteq \mathbb{Q}[x,y]\). From this we initiated our discussion of the process of <em>localization</em>, by giving the following definition.</p>
+            
+            <div class="definition">
+                <span class="statement-title">Definition.</span> A subset \(S\subseteq R\) is said to be <em>multiplicatively closed</em> (henceforth abbreviated as mc) if: \(0\not \in S\), \(1\in S\) and \(s_1, s_2\in S\) implies \(s_1s_2\in S\).
+            </div>
+            
+            <p><strong>Examples.</strong> \(S\) is a multiplicatively closed set in each of the following cases:</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(S := \{1, f, f^2, f^3, \ldots \}\), for any \(f\in R\) such that \(f^n\not = 0\), for all \(n\geq 0\).</li>
+                <li style="list-style-type: none;">(ii) \(S\) is the set of non-zerodivisors in \(R\).</li>
+                <li style="list-style-type: none;">(iii) \(S := R\backslash P\), for \(P\) a prime ideal of \(R\).</li>
+            </ol>
+            
+            <p>We ended class with the following:</p>
+            
+            <div class="definition">
+                <span class="statement-title">Krull's Lemma.</span> Let \(I\subseteq R\) be an ideal and \(S\subseteq R\) a multiplicatively closed set such that \(I\cap S = \emptyset\). Then there exists an ideal \(P\) containing \(I\) that is maximal with respect to the property \(P\cap S = \emptyset\). Moreover, \(P\) is a prime ideal.
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, January 22</div>
+            
+            <p>We began class by defining the <em>nilradical</em> \(\sqrt{I}\) of an ideal \(I\subseteq R\) as the set of elements \(r\in R\) such that \(r^n\in I\), for some \(n\geq 1\). We also noted that \(\sqrt{(0)}\) is called the nilradical of \(R\) and consists of the nilpotent elements in \(R\). We then gave a proof of the following corollary to Krull's Lemma,</p>
+            
+            <div class="definition">
+                <span class="statement-title">Corollary.</span> Let \(I\subseteq R\) be an ideal. Then \(\sqrt{I} = \bigcap \{P\ |\ P\ \text{is a prime ideal containing}\ I\}\).
+            </div>
+            
+            <p>For a multiplicatively closed set \(S\subseteq R\) we then defined an equivalence relation on \(R\times S\) as follows: \((r_1,s_1)\sim (r_2,s_2)\) if and only if there exists \(s_3\in S\) such that \(s_3(r_1s_2-r_2s_1) = 0\). After showing that \(\sim\) is an equivalence relation, we wrote the class of \((r,s)\) as a fraction \(\frac{r}{s}\) and showed that the expected operations</p>
+            
+            <div class="math-display">
+                \[\frac{r_1}{s_1}+\frac{r_2}{s_2} := \frac{r_1s_2+r_2s_1}{s_1s_2} \quad\quad \text{and}\quad\quad \frac{r_1}{s_1}\cdot \frac{r_2}{s_2} := \frac{r_1r_2}{s_1s_2}\]
+            </div>
+            
+            <p>are well defined and make \(R_S\) into a commutative ring whose zero element is \(\frac{0}{1} = \frac{0}{s}\), for any \(s\in S\) and whose multiplicative identity is \(\frac{1}{1} = \frac{s}{s}\), for all \(s\in S\).</p>
+            
+            <p>We then noted the following:</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) The natural map \(\phi: R\to R_S\) taking \(r\) to \(\frac{r}{1}\) is a ring homomorphism.</li>
+                <li style="list-style-type: none;">(ii) \(\frac{r}{s} = \frac{0}{1}\) in \(R_S\) if and only if \(s'r = 0\) in \(R\) for some \(s'\in S\). In particular, the kernel of \(\phi\) is the set \(\{r\in R\ |\ sr = 0, \text{for some}\ s\in S\}\).</li>
+                <li style="list-style-type: none;">(iii) \(\frac{s}{1}\) is a unit in \(R_S\) for all \(s\in S\).</li>
+            </ol>
+            
+            <p>We then discussed the correspondence between the ideals of \(R\) and those of \(R_S\). For an ideal \(I\subseteq R,\) we noted \(I_S := \{\frac{i}{s}\ |\ i\in I\ \text{and}\ s\in S\}\) is an ideal of \(R_S\). Similarly, we noted that \(\phi^{-1}(J)\) is an ideal of \(R\) for every ideal \(J\subseteq R_S\). Later in the lecture we further noted that \(\phi^{-1}(J)\) has the property that \(sr\in \phi^{-1}(J)\), for some \(s\in S\) implies \(r\in \phi^{-1}(J)\).</p>
+            
+            <p>We then showed that this correspondence was not quite a perfect one-to-one correspondence between the ideals of \(R\) disjoint from \(S\) and the ideals in \(R_S\). On the one hand we do have \(J = \phi^{-1}(J)_S\), for all ideals \(J\subseteq R_S\), which shows that any ideal \(J\subseteq R_S\) is \(I_S\), for some ideal \(I\subseteq R\). On the other hand, it is not the case that \(\phi^{-1}(I_S) = I\). In fact, we saw that \(\phi^{-1}(I_S) = \{r\in R\ |\ sr\in I, \ \text{for some}\ s\in S\}\), which often strictly contains \(I\). For example, if \(R = \mathbb{Z}\), \(I = \langle 6\rangle\), and \(S = \{1,2,2^2,2^3,2^4,\ldots\}\), then \(\phi^{-1}(I_S) = \langle 3\rangle\) which is strictly larger than \(I\). We ended class by proving the following theorem which shows the correspondence in question is one-to-one for prime ideals.</p>
+            
+            <div class="definition">
+                <span class="statement-title">Theorem.</span> Let \(R\) be a commutative ring and \(S\subseteq R\) a multiplicatively closed subset. Then there is a one-to-one correspondence between the prime ideals of \(R\) disjoint from \(S\) and the prime ideals of \(R_S\) given by \(P \leftrightarrow P_S\).
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, January 27</div>
+            
+            <p>We began class by proving the following <em>local-global</em> principle:</p>
+            
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Let \(I, J\subseteq R\) be ideals. The following are equivalent:
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(I = J\).</li>
+                    <li style="list-style-type: none;">(ii) \(I_P = J_P\), for all prime ideals \(P\subseteq R\).</li>
+                    <li style="list-style-type: none;">(iii) \(I_{\mathfrak{m}} = J_{\mathfrak{m}}\), for all maximal ideals \(\mathfrak{m} \subseteq R\).</li>
+                </ol>
+            </div>
+            
+            <p>We then began our study of <em>unique factorization domains</em>, UFDs. We discussed with details, the following</p>
+            
+            <p><strong>Preliminaries.</strong> Let \(R\) be an integral domain with quotient field \(K\).</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) Cancellation holds in \(R\), i.e., if \(a\not = 0\) and \(ab = ac\), then \(b = c\).</li>
+                <li style="list-style-type: none;">(ii) \(u\in R\) is a <em>unit</em> if there exists \(v\in R\) such that \(uv = 1\).</li>
+                <li style="list-style-type: none;">(iii) If \(a\not = 0\), we say <em>a divides b</em>, written \(a\mid b\), if there exists \(r\in R\) such that \(b = ra\). This happens if and only if \(\langle b\rangle \subseteq \langle a\rangle\).</li>
+                <li style="list-style-type: none;">(iv) \(a\mid b\) and \(b\mid a\) if and only if \(\langle a\rangle = \langle b\rangle\) if and only if \(b= ua\), for some unit \(u\in R\). In this case we say that \(a\) and \(b\) are <em>associates</em>.</li>
+                <li style="list-style-type: none;">(v) The non-zero, non-unit \(q\in R\) is said to be <em>irreducible</em> if whenever \(q = ab\), for \(a,b\in R\), then either \(a\) or \(b\) is a unit.</li>
+                <li style="list-style-type: none;">(vi) The non-zero, non-unit \(p\in R\) is said to be <em>prime</em> if whenever \(p\mid ab\), then \(p\mid a\) or \(p\mid b\). By induction, if \(p\) is prime and \(p\) divides \(a_1\cdots a_n\), then \(p\) divides \(a_i\), for some \(i\).</li>
+                <li style="list-style-type: none;">(vii) For \(p, q, u\in R\) with \(u\) a unit, \(q\) is irreducible if and only if \(qu\) is irreducible and \(p\) is prime if and only if \(pu\) is prime.</li>
+                <li style="list-style-type: none;">(viii) For \(p, q\in R\), \(q\) is irreducible if and only if \(\langle q\rangle\) is maximal among principal ideals and \(p\) is prime if and only if \(\langle p\rangle\) is a prime ideal.</li>
+                <li style="list-style-type: none;">(ix) Every prime element is irreducible, but not conversely.</li>
+                <li style="list-style-type: none;">(x) In the ring \(R = \mathbb{Q}[t^2, t^3]\), with \(t\) an indeterminate, the element \(t^2\) is irreducible, but not prime. Another <strong>classic</strong> example: In the ring \(\mathbb{Z}[\sqrt{-5}]\), \(3, 2\pm \sqrt{-5}\) are irreducible elements that are not prime.</li>
+            </ol>
+            
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Let \(R\) be an integral domain and suppose \(p_1\cdots p_r = q_1\cdots q_s\), with each \(p_i, q_j\) prime. Then \(r = s\) and after re-indexing \(q_i = u_ip_i\), with \(u_i\) a unit in \(R\).
+            </div>
+            
+            <p>We noted that for the classical example from algebraic number theory, with \(R = \mathbb{Z}[\sqrt{-5}]\) can be shown that \(3\cdot 3 = 9 = (2+\sqrt{-5})\cdot (2-\sqrt{-5})\) gives two distinct factorizations into irreducible elements in the ring \(\mathbb{Z}[\sqrt{-5}]\), showing that the proposition fails for irreducible elements. It is precisely this failure that prevents most of the rings in commutative algebra, algebraic geometry and algebraic number theory from being unique factorization domains. This led to the following</p>
+            
+            <div class="definition">
+                <span class="statement-title">Theorem.</span> Let \(R\) be an integral domain. The following are equivalent:
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Every non-zero, non-unit can be written uniquely (up to order and unit multiple) as a product of irreducible elements, i.e., if \(a\in R\) is a non-zero, non-unit element and \(a = q_1\cdots q_r = q'_1\cdots q'_s\) with each \(q_i, q'_i\) irreducible, then \(r = s\) and after re-indexing, for all \(i\) we have \(q'_i = u_iq_i\), for units \(u_i\in R\).</li>
+                    <li style="list-style-type: none;">(ii) Every non-zero, non-unit \(a\in R\) can be written as a product of primes.</li>
+                </ol>
+            </div>
+            
+            <p>A crucial component in the proof of the theorem was that if \(R\) is a UFD then <em>every irreducible element is a prime element</em>. Thus, for a UFD, an element is prime if and only if it is irreducible.</p>
+            
+            <p>We ended class by presenting, but not verifying, the following examples to illustrate how subtle the UFD property can be.</p>
+            
+            <p><strong>Examples.</strong> 1. If \(R\) is a UFD, then \(R[x]\) is a UFD. Thus, the polynomial rings \(\mathbb{Z}[x_1, \ldots, x_n]\) and \(K[x_1, \ldots, x_n]\) are UFDs, for \(K\) any field.</p>
+            
+            <p>2. \(\mathbb{C}[x,y]/\langle x^2+y^2-1\rangle\) is a UFD, but \(\mathbb{R}[x,y]/\langle x^2+y^2-1\rangle\) is not a UFD.</p>
+            
+            <p>3. \(\mathbb{C}[x,y,z]/\langle x^2+y^2+z^2-1\rangle\) is not a UFD, but \(\mathbb{R}[x,y,z]/\langle x^2+y^2+z^2-1\rangle\) is a UFD.</p>
+            
+            <p>4. \(\mathbb{C}[x,y,z]/\langle x^2+y^3+z^5\rangle\) is a UFD, but \(\mathbb{C}[x,y,z]/\langle x^2+y^3+z^4\rangle\) is not a UFD.</p>
+        </div>
+
+
+        <div class="problem">
+            <div class="problem-number">Thursday, January 29</div>
+            
+            <p>We continued our discussion of UFDs with the following sequence of results.</p>
+            
+            <div class="definition">
+                <span class="statement-title">Definition+Proposition.</span> Let \(R\) be an integral domain. \(R\) is said to satisfy <em>ACC on principal ideals</em> (ACC for ascending chain condition) if given a chain of principal ideals \(\langle a_1\rangle\subseteq \langle a_2\rangle \subseteq \cdots\), there exists \(n\geq 1\) such that \(\langle a_n\rangle = \langle a_{n+1}\rangle = \cdots\). The following statements are equivalent:
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(R\) satisfies ACC on principal ideals.</li>
+                    <li style="list-style-type: none;">(ii) Every non-empty collection of principal ideals has a maximal element.</li>
+                </ol>
+            </div>
+            
+            <p>With this Definition+Proposition in hand, we were able to prove the following important characterization of UFDs.</p>
+            
+            <div class="definition">
+                <span class="statement-title">Theorem A.</span> Let \(R\) be an integral domain. The following are equivalent:
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(R\) is a UFD.</li>
+                    <li style="list-style-type: none;">(ii) \(R\) satisfies ACC on principal ideals and irreducible elements are prime.</li>
+                    <li style="list-style-type: none;">(iii) Every non-zero prime ideal contains a prime element.</li>
+                </ol>
+            </div>
+            
+            <p>An immediate and easy corollary was that any PID is a UFD: After all, any prime ideal is principal, necessarily generated by a prime element.</p>
+            
+            <p>We then turned to the following proposition, the second part of which is known as <em>Nagata's Lemma</em>.</p>
+            
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Let \(R\) be an integral domain and \(S\subseteq R\) a multiplicatively closed set in which each element is a product of prime elements. Write \(\mathcal{P}\) for the set of prime factors of the elements of \(S\). Then:
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) If \(R\) is a UFD, then \(R_S\) is a UFD.</li>
+                    <li style="list-style-type: none;">(ii) If every element of \(R\) is divisible by at most finitely many primes in \(\mathcal{P}\) and \(R_S\) is a UFD, then \(R\) is a UFD.</li>
+                </ol>
+            </div>
+            
+            <p>The surprising condition (iii) in Theorem A played a key role in the proof of this proposition. We then stated and proved the following major theorem.</p>
+            
+            <div class="definition">
+                <span class="statement-title">Theorem B.</span> Suppose \(R\) is a UFD. Then the polynomial ring \(R[x]\) is a UFD.
+            </div>
+            
+            <p>The proof of the theorem relied on Nagata's Lemma and the following facts which we did not prove: (i) For \(a\in R\), \(a\mid f(x)\) in \(R[x]\) if and only if, in \(R\), \(a\) divides every coefficient of \(f(x)\) and (ii) If \(p\in R\) is a prime element, then \(p\) is still a prime element in \(R[x]\). The proof of the theorem then followed using Nagata's Lemma: Let \(S\) be the non-zero elements of \(R\). Thus every element of \(S\) is a product of prime elements. By the facts just stated, every element of \(S\) is a product of prime elements in \(R[x]\), thus \(R[x]\) is a UFD, if \(R[x]_S = R_S[x]\) is a UFD. But \(R_S = K\), the quotient field of \(R\) and \(R_S[x] = K[x]\) is a PID, and hence a UFD.</p>
+            
+            <p>As corollaries we noted that the polynomial rings \(\mathbb{Z}[x_1, \ldots, x_n]\) and \(K[x_1, \ldots, x_n]\) are UFDs, for \(K\) any field.</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, February 3</div>
+            
+            <p>We spent most of the class working through the following examples.</p>
+            
+            <div class="definition">
+                <span class="statement-title">Example A.</span> The complex coordinate ring of the unit circle \(S := \mathbb{C}[x,y]/\langle x^2+y^2-1\rangle\) is a UFD.
+            </div>
+            
+            <p>We did this by first showing that \(S \cong \mathbb{C}[u, v]/\langle uv-1\rangle\), where \(u,v\) are a new set of indeterminates. We then showed that \(\mathbb{C}[u,v]/\langle uv-1\rangle \cong \mathbb{C}[u, u^{-1}]\). Since the latter ring is the localization of a UFD, namely \(\mathbb{C}[u]\), at a multiplicatively closed set whose elements are products of primes, \(\mathbb{C}[u, u^{-1}]\), and hence \(S\) is a UFD.</p>
+            
+            <div class="definition">
+                <span class="statement-title">Example B.</span> The real coordinate ring of the unit circle \(R := \mathbb{R}[x, y]/\langle x^2+y^2-1\rangle\), is <em>not</em> a UFD.
+            </div>
+            
+            <p>This fact follows because the image of \(x\) in \(R\) is an irreducible element that is not a prime element. Crucial steps in the proof required showing:</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(R\) is an integral domain.</li>
+                <li style="list-style-type: none;">(ii) \(\overline{x}\), the image of \(x\) in \(R\), is not a prime element. This followed since \(R/\langle \overline{x}\rangle \cong \mathbb{R}[y]/\langle y^2-1\rangle\), which is not an integral domain.</li>
+                <li style="list-style-type: none;">(iii) Every polynomial in \(f\in \mathbb{R}[x, y]\) can be written uniquely as \(f = f_0+f_1+\cdots + f_n\), where each \(f_j\in \mathbb{R}[x,y]\) is homogeneous of degree \(j\).</li>
+                <li style="list-style-type: none;">(iv) \(x^2+y^2\) is an irreducible polynomial in \(\mathbb{R}[x,y]\).</li>
+                <li style="list-style-type: none;">(v) \(\overline{x}\in R\) is an irreducible element.</li>
+            </ol>
+            
+            <p>We then addressed the question: Why doesn't this same approach show that \(S := \mathbb{C}[x,y]/\langle x^2+y^2-1\rangle\) is not a UFD? The answer is that while the image of \(x\) in \(S\) is still not prime, the image of \(x\) in \(S\) is no longer irreducible. In fact, in \(S\) we have</p>
+            <div class="math-display">
+                \[x\equiv \frac{1}{2}(x-iy)\cdot \{(x+iy+i)(x+iy-i)\},\]
+            </div>
+            <p>where \(x-iy\) is a unit in \(S\), but neither \(x+iy+i\) nor \(x+iy-i\) are units in \(S\).</p>
+            
+            <p>We then recorded the following result, which appears in the celebrated paper of R. Swan, <em>Vector bundles and projective modules</em>. A write up of this theorem appears in the Supplementary Materials folder on our Canvas page and our course webpage.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Theorem (Swan).</span> Let \(F\) denote either the real numbers or the complex numbers and set</p>
+                <div class="math-display">
+                    \[R := F[x_1, \ldots, x_n]/\langle x_1^2+\cdots + x_n^2-1\rangle.\]
+                </div>
+                <p>If \(F = \mathbb{R}\), then \(R\) is a UFD for \(n\geq 3\) and if \(F = \mathbb{C}\), then \(R\) is a UFD for \(n\geq 4\).</p>
+            </div>
+            
+            <p>We ended class with the following definition and comments.</p>
+            
+            <div class="definition">
+                <span class="statement-title">Definition.</span> Let \(R\) be an integral domain. Given non-zero, non-unit elements \(a, b\in R\), we say that the non-zero, non-unit element \(d\) in \(R\) is a <em>greatest common divisor of a and b</em> if: (i) \(d\mid a\) and \(d\mid b\) and (ii) If \(e\mid a\) and \(e\mid b\), then \(e\mid d\). In this case we will write \(d = \textrm{GCD}(a,b)\). \(R\) is a GCD domain if every pair of non-zero, non-unit elements has a GCD.
+            </div>
+            
+            <p><strong>Comments.</strong> Let \(R\) be an integral domain.</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) Using Bezout's principal, it is easy to see that concept of GCD in \(\mathbb{Z}\) is the same as GCD above.</li>
+                <li style="list-style-type: none;">(ii) GCDs are unique up to unit multiple.</li>
+                <li style="list-style-type: none;">(iii) If GCDs exist, then LCMs (least common multiples) exist and one has \(\textrm{GCD}(a,b)\cdot \textrm{LCM}(a,b) = ab\).</li>
+                <li style="list-style-type: none;">(iv) UFDs are GCD domains. In particular, if \(a, b\) have prime factorizations \(a = p_1^{e_1}\cdots p_n^{e_n}\), \(b = p_1^{f_1}\cdots p_n^{f_n}\), with each \(e_i, f_j\geq 0\), then</li>
+            </ol>
+            <div class="math-display">
+                \[\textrm{GCD}(a,b) = p_1^{\textrm{min}(e_1,f_1)} \cdots p_n^{\textrm{min}(e_n,f_n)}\quad\quad \textrm{and}\quad\quad \textrm{LCM}(a,b) = p_1^{\textrm{max}(e_1,f_1)} \cdots p_n^{\textrm{max}(e_n,f_n)}.\]
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, February 5</div>
+            
+            <p>We began class with the following observation showing the connection of the GCD property with homological considerations.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Homological Connection.</span> Let \(R\) be an integral domain and take \(a, b\) non-zero, non-units in \(R\). Consider the surjective \(R\)-module map</p>
+                <div class="math-display">
+                    \[R^2\overset{\phi}\to \langle a,b\rangle\]
+                </div>
+                <p>given by \(\phi \begin{pmatrix} r\\s\end{pmatrix} = ra+sb\). Write \(K\) for the kernel of \(\phi\). If \(K\) is a cyclic module, then \(\textrm{GCD}(a,b)\) exists. In this case if \(K = \left\langle \begin{pmatrix} c\\e\end{pmatrix}\right\rangle\) and \(\begin{pmatrix} -b\\a\end{pmatrix} = d\cdot \begin{pmatrix} c\\e\end{pmatrix}\), then \(d = \textrm{GCD}(a,b)\).</p>
+            </div>
+            
+            <p>We then presented the following theorem which shows the relationship between the UFD property and the homological connection above.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Theorem A.</span> Let \(R\) be an integral domain satisfying ACC on principal ideals. The following are equivalent.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(R\) is a UFD.</li>
+                    <li style="list-style-type: none;">(ii) \(R\) is a GCD domain.</li>
+                    <li style="list-style-type: none;">(iii) In the notation above, \(K\) is a cyclic module, for all non-zero, non-unit \(a, b\in R\).</li>
+                </ol>
+            </div>
+            
+            <p>After defining what it means for an ideal to have a <em>finite free resolution</em>, we then mentioned, but did not yet prove, the following major theorem that plays a key role in our quest to show that regular local rings are UFDs.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Theorem B.</span> Let \(R\) be an integral domain and \(I\subseteq R\) a locally principal ideal. If \(I\) has a finite free resolution, then \(I\) is principal.</p>
+            </div>
+            
+            <p>We then noted how these components are relevant for our goal of showing that regular local rings are UFDs, and the course we need to take to achieve this result. We will show that a regular local ring \((R, \mathfrak{m})\) has the property that every ideal has a finite free resolution. By induction on the dimension of the ring, condition (iii) holds locally in the ring \(R_S\), for \(S = \{1, x, x^2, \ldots \}\) with \(x \in \mathfrak{m}\backslash \mathfrak{m}^2\). Such an \(x\) is a prime element. But any \(K\) in \(R_S^2\) in part (iii) is isomorphic to the ideal \((aR_S:b)\), which is then locally principal. Applying Theorem B shows \((aR_S:b)\) is principal, and hence \(K\) is cyclic. By Theorem A, \(R_S\) is a UFD and by Nagata's lemma, \(R\) is a UFD.</p>
+            
+            <p>We finished class by recalling various facts and terminology concerning modules over a commutative ring, including:</p>
+            
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) The definition of a module, noting the axioms for a module over a ring are the same as those for a vector space over a field.</li>
+                <li style="list-style-type: none;">(ii) The notions of submodule, homomorphism between modules, factor modules, submodules generated by a subset, and direct sums are all completely analogous to the same for vector spaces over a field.</li>
+                <li style="list-style-type: none;">(iii) We also defined exact sequences, short exacts sequences and split exact sequences, showing that if \(0 \to A\overset{f}\to B\overset{g}\to C\to 0\) is a split exact sequence with splitting map \(j: C\to B\), then \(B = f(A)\oplus j(C)\).</li>
+                <li style="list-style-type: none;">(iv) We defined an \(R\)-module to be <em>projective</em>, if it satisfies any of the following three equivalent conditions:
+                    <ol style="list-style-type: none; padding-left: 20px;">
+                        <li style="list-style-type: none;">(a) Given a diagram of \(R\)-modules and \(R\)-module homomorphisms \(f, g\)
+                            <div class="math-display" style="text-align: center; margin: 30px 0;">
+                                <svg width="200" height="120" xmlns="http://www.w3.org/2000/svg" style="display: inline-block;">
+                                    <!-- P at top center -->
+                                    <text x="100" y="20" font-size="18" text-anchor="middle" font-style="italic">P</text>
+                                    
+                                    <!-- Arrow f: P to N (downward) -->
+                                    <line x1="100" y1="25" x2="100" y2="75" stroke="black" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                                    <text x="110" y="55" font-size="14" font-style="italic">f</text>
+                                    
+                                    <!-- Arrow h: P to M (diagonal down-left, dotted) -->
+                                    <line x1="95" y1="25" x2="25" y2="75" stroke="black" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+                                    <text x="50" y="45" font-size="14" font-style="italic">h</text>
+                                    
+                                    <!-- M at bottom left -->
+                                    <text x="20" y="95" font-size="18" text-anchor="middle" font-style="italic">M</text>
+                                    
+                                    <!-- Arrow g: M to N (horizontal) -->
+                                    <line x1="30" y1="85" x2="85" y2="85" stroke="black" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                                    <text x="57" y="78" font-size="14" font-style="italic">g</text>
+                                    
+                                    <!-- N at bottom center -->
+                                    <text x="100" y="95" font-size="18" text-anchor="middle" font-style="italic">N</text>
+                                    
+                                    <!-- Arrow to 0 -->
+                                    <line x1="110" y1="85" x2="160" y2="85" stroke="black" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                                    <text x="175" y="95" font-size="18" text-anchor="middle">0</text>
+                                    
+                                    <!-- Arrowhead marker definition (smaller) -->
+                                    <defs>
+                                        <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="2" orient="auto">
+                                            <polygon points="0 0, 6 2, 0 4" fill="black"/>
+                                        </marker>
+                                    </defs>
+                                </svg>
+                            </div>
+                            there exists \(h\) as above so that the diagram commutes.</li>
+                        <li style="list-style-type: none;">(b) \(P\) is a direct summand of a free \(R\)-module \(F\), i.e., there exists a free \(R\)-module \(F\) such that (up to isomorphism) \(F = P\oplus K\), for some \(K\).</li>
+                        <li style="list-style-type: none;">(c) Every short exact sequence \(0\to A\overset{f}\to B\overset{g}\to P \to 0\) splits, i.e., there exists \(j: P\to B\) such that \(gj = 1_P\).</li>
+                    </ol>
+                </li>
+                <li style="list-style-type: none;">(v) We finished class by defining what it means for a module to be Noetherian or Artinian, noting that \(R\) is a Noetherian ring or Artinian ring if it is Noetherian or Artinian as a module over itself.</li>
+            </ol>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, February 10</div>
+            
+            <p>We began class by finishing our list of facts concerning modules over the commutative ring \(R\).</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(vi) Given a short exact sequence of \(R\)-modules \(0\to A\overset{f}\to B\overset{g}\to C\to 0\), \(B\) is Noetherian (resp., Artinian) if and only if \(A\) and \(C\) are Noetherian (resp., Artinian).</li>
+                <li style="list-style-type: none;">(vii) If \(R\) is a Noetherian (resp., Artinian) ring and \(M\) is a finitely generated \(R\)-module, then \(M\) is a Noetherian (resp., Artinian) \(R\)-module.</li>
+                <li style="list-style-type: none;">(ix) If \(S\subseteq R\) is a multiplicatively closed subset and \(M\) is an \(R\)-module, then we may extend localization to \(M\) to obtain an \(R_S\)-module \(M_S\). The construction of \(M_S\) is essentially the same as the construction of \(R_S\) given in the lecture of January 22.</li>
+            </ol>
+            
+            <p>We then began a sequence of lemmas leading to a proof of Theorem B stated in the previous lecture. We first noted the following: Suppose \(R\) is an integral domain with quotient field \(K\), and \(I\subseteq R\) is a non-zero ideal. We set \(I^{-1} := \{\alpha \in K\ |\ I\alpha\subseteq R\}\). \(I^{-1}\) is called a <em>fractional ideal</em>. When \(R\) is Noetherian, \(I^{-1}\) is a finitely generated submodule of \(K\). Moreover, \(II^{-1}\) is an ideal of \(R\) containing \(I\) and \(I\) is said to be <em>invertible</em> if \(II^{-1} = R\).</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Lemma A.</span> Suppose \(R\) is an integral domain and \(I\subseteq R\) is an invertible ideal. Then \(I\) is a projective \(R\)-module.</p>
+            </div>
+            
+            <p>The proof of Lemma A required showing that \(I\) is a finitely generated ideal and there is a surjective map \(R^n\to I\) that splits.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Lemma B.</span> Suppose \(P\) is a projective \(R\)-module admitting a finite free resolution. Then there exist free \(R\)-modules \(F\), \(G\) such that \(F = P\oplus G\).</p>
+            </div>
+            
+            <p>We noted that a projective \(R\)-module as in Lemma B is called a <em>stably free</em> module and that the non-free projective module defined as the kernel of the surjective map \(R^3\xrightarrow{\begin{pmatrix} x & y & z\end{pmatrix}} R\), with \(R\) the coordinate ring of the real two-sphere, is stably free.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Lemma C.</span> Let \(I\subseteq R\) be an ideal that is stably free as an \(R\)-module. Then \(I\) is principal.</p>
+            </div>
+            
+            <p>The key idea behind the proof of Lemma C is the following. Suppose \(R^n = G\oplus K\), where \(G\) is a free summand of \(R^n\) of rank \(n-1\). If we let \(A\) denote the \(n\times (n-1)\) matrix whose columns are a basis for \(G\), then we may extend \(A\) to an invertible matrix by adding a column that consists of the signed minors of \(A\).</p>
+            
+            <p>The following major theorem now easily follows.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> Let \(R\) be an integral domain and \(I\subseteq R\) a locally principal ideal. If \(I\) has a finite free resolution, then \(I\) is a principal ideal.</p>
+                
+                <p><em>Proof.</em> By Lemma A, \(I\) is a projective module. By Lemma B, \(I\) is stably free of rank one, so by Lemma C, \(I\) is a principal ideal.</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, February 12</div>
+            
+            <p>In this lecture we began an initial discussion of <em>dimension theory</em> in Noetherian rings, beginning with the following lemma:</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Chinese Remainder Theorem.</span> Let \(I, J\subseteq R\) be <em>comaximal</em> ideals, i.e., \(I+J = R\). Then \(I\cap J = IJ\) and \(R/IJ\cong R/I\oplus R/J\).</p>
+            </div>
+            
+            <p>We then proved the following first step in the dimension theory of Noetherian rings.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> The commutative ring \(R\) is Artinian if and only if \(R\) is Noetherian and every prime ideal is a maximal ideal.</p>
+            </div>
+            
+            <p>The proof was broken down into the following steps. We wrote \(J\) for the <em>Jacobson radical</em> of \(R\), i.e., the intersection of all maximal ideals of \(R\). We noted that \(x\in J\) if and only if \(1+rx\) is a unit for all \(r\in R\).</p>
+            <div style="background-color: #fff3cd; padding: 20px; margin: 15px 0; border-radius: 4px; border-left: 3px solid #ffc107;">
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li style="list-style-type: none; margin: 10px 0;"><strong>Step 1:</strong> If \(R\) is Artinian, then \(R\) has finitely many maximal ideals.</li>
+                    <li style="list-style-type: none; margin: 10px 0;"><strong>Step 2:</strong> If \(R\) is Artinian there exists \(n\geq 1\) such that \(J^n = 0\), i.e., \(J\) is a nilpotent ideal.</li>
+                    <li style="list-style-type: none; margin: 10px 0;"><strong>Step 3:</strong> If \(R\) is Artinian, with maximal ideals \(\mathfrak{m}_1, \ldots, \mathfrak{m}_t\) and \(J^n = 0\), then \(R\cong R/\mathfrak{m}_1^n \oplus \cdots\oplus R/\mathfrak{m}_t^n\).</li>
+                    <li style="list-style-type: none; margin: 10px 0;"><strong>Step 4:</strong> If \(R\) is Noetherian and every prime ideal is maximal, then \(R\) has finitely many prime ideals.</li>
+                    <li style="list-style-type: none; margin: 10px 0;"><strong>Step 5:</strong> If \(R\) is as in Step 4 with maximal ideals \(\mathfrak{m}_1, \ldots, \mathfrak{m}_t\), then \(J^n = 0\) for some \(n\), and \(R\cong R/\mathfrak{m}_1^n \oplus \cdots\oplus R/\mathfrak{m}_t^n\).</li>
+                    <li style="list-style-type: none; margin: 10px 0;"><strong>Step 6:</strong> If \((R,\mathfrak{m})\) is quasi-local and \(\mathfrak{m}^n = 0\), then \(R\) is Artinian if and only if \(R\) is Noetherian.</li>
+                    <li style="list-style-type: none; margin: 10px 0;"><strong>Step 7:</strong> In an Artinian ring, every prime ideal is a maximal ideal.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, February 17</div>
+            
+            <p>In today's lecture we presented two fundamental results concerning Noetherian rings. We began class with the celebrated:</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Hilbert's Basis Theorem.</span> If \(R\) is Noetherian, then the polynomial ring \(R[x]\) is Noetherian.</p>
+            </div>
+            
+            <p>We noted that Hilbert's basis theorem has as immediate corollaries that finitely generated algebras over a Noetherian ring are Noetherian, and in particular, the coordinate ring of an algebraic variety is a Noetherian ring.</p>
+            
+            <p>We then presented the</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Artin-Rees Lemma.</span> Let \(R\) be a Noetherian ring, \(I\subseteq R\) an ideal, \(M\) a finitely generated \(R\)-module and \(N\subseteq M\) a submodule. Then there exists \(k\geq 1\) such that \(I^nM\cap N = I^{n-1}(I^kM\cap N)\), for all \(n\geq k\).</p>
+            </div>
+            
+            <p>The proof we gave is modeled after the one given by Artin: If \(I = \langle a_1, \ldots,a_t\rangle\), one considers the \(S\)-module \(\mathcal{M} := M[x_1, \ldots, x_t]\), where \(S := R[x_1, \ldots, x_t]\) is the polynomial ring in \(t\) variables over \(R\). The submodule \(\mathcal{N}\) of \(\mathcal{M}\) generated by all homogeneous \(f(x_1, \ldots, x_t)\in \mathcal{M}\) such that \(f(a_1, \ldots, a_t) \in N\) is a finitely generated \(S\)-module. Taking \(k\) to be the maximum of the degrees of the generators of \(\mathcal{N}\) works.</p>
+            
+            <p>We then discussed and presented a proof of the following linear algebra-like statement.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Key Fact.</span> Suppose \(R\) is a commutative ring, \(M\) is an \(R\)-module with \(x_1, \ldots, x_n\in M\). If we have a system of equations in \(M\):</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    a_{11}x_1+\cdots +a_{1n}x_n &= 0\\
+                    \vdots\quad\quad\quad\quad  &= \vdots\\
+                    a_{n1}x_1+\cdots + a_{nn}x_n &= 0,
+                    \end{align*}\]
+                </div>
+                <p>with \(a_{ij}\in R\). Let \(A\) denote the coefficient matrix. Then \((\det A)\cdot x_i = 0\), for \(1\leq i\leq t\).</p>
+            </div>
+            
+            <p>We ended class with the following immediate consequence of the Key Fact.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Nakayama's Lemma, first version.</span> Let \(I\subseteq R\) be an ideal contained in the Jacobson radical. If \(IM = M\), then \(M = 0\).</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, February 19</div>
+            
+            <p>We began class with</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Nakayama's Lemma, second version.</span> Let \(M\) be a finitely generated \(R\)-module, \(N\subseteq M\) a submodule and \(I\subseteq R\) an ideal contained in the Jacobson radical. If \(M = N+IM\), then \(M = N\).</p>
+            </div>
+            
+            <p>We noted that one can interpret this latter statement as saying that if a set of elements in \(M\) generate \(M\) modulo an ideal contained in the Jacobson radical, then these elements generate \(M\). This comment immediately gave rise to:</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Consequences of Nakayama's Lemma.</span> Let \((R, \mathfrak{m}, k)\) be a (Noetherian) local ring and \(M\) a finitely generated \(R\)-module.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Suppose \(M = \langle x_1, \ldots, x_n\rangle\). Then \(x_1, \ldots, x_n\) is a <em>minimal</em> generating set for \(M\) if and only if the images of \(x_1, \ldots, x_n\) in \(M/\mathfrak{m} M\) form a basis for \(M/\mathfrak{m} M\) as a vector space over \(k\).</li>
+                    <li style="list-style-type: none;">(ii) Suppose \(M = \langle x_1, \ldots, x_n\rangle\) and \(\pi : R^n\to M\to 0\) is the natural surjection taking the column vector \(\begin{pmatrix} r_1\\\vdots\\r_n\end{pmatrix}\) to \(r_1x_1+\cdots + r_nx_n\). Then \(x_1, \ldots, x_n\) is a minimal generating set for \(M\) if and only if for every column vector \(v\in K\), \(v\) has all of its entries in \(\mathfrak{m}\).</li>
+                    <li style="list-style-type: none;">(iii) Suppose \(K\) is minimally generated by \(v_1,\ldots, v_t\). Then we have an exact sequence of finitely generated \(R\)-modules \(R^t\overset{f_1}\to R^n\overset{\pi}\to M\to 0\), in which we may think of \(f_1\) as an \(n\times t\) matrix with entries in \(\mathfrak{m}\).</li>
+                    <li style="list-style-type: none;">(iv) It follows that \(M\) has a <em>minimal free resolution</em> of the form
+                    <div class="math-display">
+                        \[\cdots \longrightarrow F_2 \overset{f_2}\longrightarrow F_1\overset{f_1}\longrightarrow F_0\overset{\pi}\to M\to 0,\]
+                    </div>
+                    in which each \(F_i\) is a finitely generated free \(R\)-module and each \(f_i\) is a matrix with entries in \(\mathfrak{m}\).</li>
+                </ol>
+            </div>
+            
+            <p>This was followed by</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Krull's Intersection Theorem.</span> Let \(R\) be a Noetherian ring, \(I\subseteq R\) an ideal and \(M\) a finitely generated \(R\)-module. Set \(N := \bigcap_{n\geq 1}I^nM\). Then there exists \(a\in I\) such that \((1+a)\cdot N = 0\). In particular,</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) If \(I\) is contained in the Jacobson radical of \(R\), then \(\bigcap_{n\geq 1}I^nM = (0)\).</li>
+                    <li style="list-style-type: none;">(ii) If \(R\) is an integral domain, then \(\bigcap_{n\geq 1}I^n = (0)\).</li>
+                </ol>
+            </div>
+            
+            <p>We then presented one of the most important theorems in Noetherian ring theory. But first we defined the <em>height</em> of a prime ideal: The height of the prime ideal \(P\) is \(n\) if there exists a chain of prime ideals \(P_0\subsetneq \cdots \subsetneq P_n = P\), and no longer such chain exists. Here we allow for the height of a prime ideal to be infinite, but this cannot happen in a Noetherian ring. The <em>dimension</em> of \(R\) is defined to be the maximum height of any prime ideal in the ring. There are Noetherian rings that have infinite dimension.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Krull's Principal Ideal Theorem.</span> Let \(R\) be a Noetherian ring, \(\langle a\rangle \subseteq R\) a principal ideal and \(P\) a prime ideal minimal over \(\langle a\rangle\). Then \(\textrm{height}(P) \leq 1\).</p>
+            </div>
+            
+            <p>A key component of the proof of this theorem was the main theorem from the lecture of February 12: A commutative ring is Artinian if and only if it is Noetherian and every prime ideal is a maximal ideal.</p>
+            
+            <p>We finished class by mentioning a consequence of Krull's principal ideal theorem, often called <em>Krull's height theorem</em>.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Krull's Generalized Principal Ideal Theorem.</span> Let \(R\) be a Noetherian ring, \(I = \langle a_1, \ldots, a_n\rangle\) an ideal of \(R\) and \(P\) a prime ideal minimal over \(I\). Then \(\textrm{height}(P)\leq n\).</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, February 24</div>
+            
+            <p>We began class by proving the generalized version of Krull's principal ideal theorem mentioned at the end of the previous lecture. We then mentioned the consequence that the defining ideal of a codimension \(c\) affine variety in \(\mathcal{A}^n_K\) needs at least \(c\) generating polynomials. However, such a variety could be defined set-theoretically by \(c\) equations. We also mentioned that in characteristic zero, it is not known if every algebraic curve is the set-theoretic intersection of two algebraic surfaces. Algebraically: If \(P\subseteq K[x,y,z]\) is a height two prime ideal, are there \(f, g\in K[x,y,z]\) such that \(P\) is the nilradical of \(\langle f, g\rangle\)?</p>
+            
+            <p>We then stated the following corollary of Krull's height theorem.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Corollary.</span> Let \(R\) be a Noetherian ring and \(P\) a prime ideal of height \(d\). Then there exist \(a_1, \ldots, a_d\in P\) such that \(P\) is minimal prime of the ideal \(I := \langle a_1, \ldots, a_d\rangle\). Moreover, if \(Q\) is any minimal prime of \(I\), \(Q\) also has height \(d\).</p>
+            </div>
+            
+            <p>The proof of the corollary required the following lemma, whose proof was deferred to a future lecture.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Prime Avoidance Lemma.</span> Let \(J, I_1, I_2, P_1, \ldots, P_n\subseteq R\) be ideals with \(P_1, \ldots, P_n\) prime. If</p>
+                <div class="math-display">
+                    \[J\subseteq I_1\cup I_2\cup P_1\cup \cdots \cup P_n,\]
+                </div>
+                <p>then \(J\subseteq I_1\) or \(J\subseteq I_2\) or \(J\subseteq P_j\), for some \(1\leq j\leq n\).</p>
+            </div>
+            
+            <p>This led to the important definition of a <em>system of parameters</em> in case \((R, \mathfrak{m})\) is local and \(d\)-dimensional, namely elements \(a_1, \ldots, a_d\in \mathfrak{m}\) form a system of parameters if \(\mathfrak{m}\) is the only prime ideal containing \(\langle a_1, \ldots, a_d\rangle\), i.e., \(R/\langle a_1, \ldots, a_d\rangle\) is zero-dimensional (and hence Artinian). We also noted the</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Important Observation.</span> Suppose \((R, \mathfrak{m})\) is a local ring and \(a_1, \ldots, a_d\) is a system of parameters. Then for every \(1\leq i\leq d\), \(\dim (R/\langle a_1, \ldots, a_i\rangle) = d-i\).</p>
+            </div>
+            
+            <p>We then gave the following key definition for this portion of the course.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Let \((R, \mathfrak{m})\) be a local ring having dimension \(d\). Then \(R\) is a <em>regular local ring</em> if \(\mathfrak{m}\) can be generated by \(d\) elements. Any \(d\)-generating set for \(\mathfrak{m}\) is called a <em>regular system of parameters</em>.</p>
+            </div>
+            
+            <p>We ended class with the following comments and proofs of parts (i), (ii).</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Comments.</span> Suppose \((R,\mathfrak{m})\) is a regular local ring with regular system of parameters \(a_1, \ldots, a_d\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Each \(a_i \in \mathfrak{m}\backslash \mathfrak{m}^2\).</li>
+                    <li style="list-style-type: none;">(ii) For each \(1\leq i\leq d\), \(R/\langle a_1, \ldots, a_i\rangle\) is a regular local ring.</li>
+                    <li style="list-style-type: none;">(iii) \(R\) is an integral domain.</li>
+                    <li style="list-style-type: none;">(iv) For \(0\neq x\in \mathfrak{m}\), \(R/\langle x\rangle\) is a regular local ring if and only if \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\).</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, February 26</div>
+            
+            <p>We began class by reviewing the definition of regular local ring, and re-stated Comments (i)-(iv) from the previous lecture. We also provided proof of items (ii) and (iv). We then gave a proof of the Prime Avoidance Lemma, as stated in the previous lecture. We also mentioned that there are a number of variations on the PAL, including the lovely result due to S. McAdam stating that the lemma is true without any of the ideals in the union being prime, if the ring \(R\) contains an infinite field.</p>
+            
+            <p>We then stated that our next immediate goal is to prove the following</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> Let \((R, \mathfrak{m}, k)\) be a local ring. Then \(R\) is a regular local ring if and only if \(k\) admits a minimal finite free resolution, in which case the length of the resolution equals \(\dim (R)\).</p>
+            </div>
+            
+            <p>We then gave three examples of minimal finite free resolutions of \(k\), for low dimensional regular local rings.</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Examples.</span> The following are minimal finite free resolutions. In fact, each case is an example of a <em>Koszul complex</em>. \((R,\mathfrak{m},k)\) is a regular local ring.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(\mathfrak{m} = \langle x\rangle\), yields: \(0\to R\overset{\cdot x}\longrightarrow R\to k\to 0\).</li>
+                    <li style="list-style-type: none;">(ii) \(\mathfrak{m} = \langle x,y\rangle\), yields: \(0\to R\overset{\begin{pmatrix} -y\\x\end{pmatrix}}\longrightarrow R^2\overset{\begin{pmatrix} x & y\end{pmatrix}}\longrightarrow R \to k\to 0\).</li>
+                    <li style="list-style-type: none;">(iii) \(\mathfrak{m} = \langle x, y, z\rangle\), yields: \(0 \rightarrow R \xrightarrow{\begin{pmatrix} z\\-y\\x\end{pmatrix}} R^3 \xrightarrow{\begin{pmatrix}-y & - z & 0\\x & 0 & -z\\0 & x & y\end{pmatrix}} R^3 \xrightarrow{\begin{pmatrix} x & y & z\end{pmatrix}} R \overset{\pi} \longrightarrow R/\mathfrak{m}\rightarrow 0.\)</li>
+                </ol>
+                <p>We proved (i), (ii) and left (iii) as an exercise.</p>
+            </div>
+            
+            <p>We then looked at the following</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Let \(R\) be a commutative ring and \(x := x_1, \ldots, x_n \in R\). Write \(K(x_1, \ldots, x_n)\) or \(K(\underline{x})\) to denote the Koszul complex on \(x_1, \ldots, x_n\). \(K(x)\) is the complex whose \(r\)th module is \(K_r := R^{\binom{n}{r}}\), for \(0 \leq r \leq n\) and is zero otherwise. For each \(1 \leq i_1 < \cdots < i_r \leq n\), let \(e_{i_1} \wedge \cdots \wedge e_{i_r}\) denote the standard basis element so that these basis elements are written in their standard order (and hence indexed 'lexicographically' by the multi-index). For each \(r\), the boundary map \(\partial : K_r\to K_{r-1}\) is defined by the equation</p>
+                <div class="math-display">
+                    \[\partial(e_{i_1} \wedge \cdots \wedge e_{i_r}) = x_1 e_{i_2} \wedge \cdots \wedge e_{i_r} + \cdots + (-1)^{r+1} x_r e_{i_1} \wedge \cdots \wedge e_{i_{r-1}}.\]
+                </div>
+            </div>
+            
+            <p>We noted that it is easy to check that \(\partial^2 = 0\), so we do have a complex (of finitely generated, free \(R\)-modules). We also noted (but did not prove) that \(x_j\cdot \textrm{H}_i(K(\underline{x}))= 0\), for all \(i, j\).</p>
+            
+            <p>We ended class with a discussion and proof of the following</p>
+            
+            <div class="definition">
+                <p><span class="statement-title">Proposition.</span> Let \((R, \mathfrak{m}, k)\) be a local ring and \(M\) a finitely generated \(R\)-module. Consider the start of two minimal free resolutions of \(M\)</p>
+                <div class="math-display" style="overflow-x: auto;">
+                    \[\begin{CD}
+                    F_1 @>{\phi_1}>> F_0 @>{\pi}>> M @>>> 0\\
+                    @. @. @VV{\alpha}V @.\\
+                    G_1 @>{\phi_1'}>> G_0 @>{\pi'}>> M @>>> 0,
+                    \end{CD}\]
+                </div>
+                <p>where \(\alpha\) is an isomorphism. Taking \(K := \textrm{ker} (\pi)\) and \(L := \textrm{ker}(\pi')\), we have \(K\cong L\).</p>
+            </div>
+        </div>
+
+        
+        <div class="problem">
+            <div class="problem-number">Tuesday, March 3</div>
+
+            <p>After recalling the proposition presented at the end of the previous lecture, we presented the following corollary to the proposition.</p>
+
+            <div class="definition">
+                <span class="statement-title">Corollary.</span> Let \((R, \mathfrak{m}, k)\) be a local ring and \(M\) a finitely generated \(R\)-module. If \(M\) has a minimal FFR of length \(n\), then every minimal free resolution of \(M\) has length \(n\).
+            </div>
+
+            <p>The proof of the Corollary was by induction on \(n\). The base case \(n = 0\) followed from the observation that if some kernel in a minimal free resolution is zero, then all subsequent modules in the resolution are zero. The corollary enabled us to make the following definition in the special case that \((R, \mathfrak{m}, k)\) is a local ring.</p>
+
+            <div class="definition">
+                <span class="statement-title">Definition.</span> Suppose \((R, \mathfrak{m}, k)\) is a local ring and \(M\) is a finitely generated \(R\)-module. Then \(M\) has <em>projective dimension \(n\)</em> if \(M\) has a minimal FFR of length \(n\). Here we allow \(n\) to be infinite. We will write \(\mathrm{pd}(M)\) to denote the projective dimension of \(M\) over \(R\).
+            </div>
+
+            <p>We briefly, and informally, discussed the general concept of projective dimension, and noted that our definition above is consistent with the general definition, since finitely generated projective modules over a local ring are free. In fact, we showed how this followed from Nakayama's Lemma. We then presented the following proposition.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition A.</span> Let \((R, \mathfrak{m}, k)\) be a local ring and \(M\) a finitely generated \(R\)-module. Suppose \(x\in R\) is a non-zerodivisor on both \(M\) and \(R\). Set \(R_1 := R/\langle x\rangle\). Then \(\mathrm{pd}(M) = \mathrm{pd}_{R_1}(M/xM)\).
+            </div>
+
+            <p>The proof followed from a slightly stronger result, namely if \(\cdots \longrightarrow F_1\overset{\phi_1}\longrightarrow F_0\overset{\pi}\longrightarrow M\to 0\) is a minimal free resolution of \(M\), then \(\cdots \longrightarrow F_1/xF_1\overset{\phi_1'}\longrightarrow F_0/xF_0\overset{\pi'}\longrightarrow M/xM\to 0\) is a minimal free resolution of \(M/xM\) over \(R_1\), where the primed maps are just those maps from the original resolution reduced mod \(xR\).</p>
+
+            <p>We ended the class by discussing the following proposition, and proving the base case \(\mathrm{pd}(M) = 1\). We also noted how this proposition will play a key role in the homological characterization of regular local rings — namely the implication that if \(R\) is a regular local ring of dimension \(d\), then \(\mathrm{pd}(k) = d\).</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition B.</span> Let \((R,\mathfrak{m}, k)\) be a local ring and \(M\) a finitely generated \(R\)-module with finite projective dimension. Suppose \(x\in R\) satisfies the following conditions: \(x\) is a non-zerodivisor in \(R\), \(xM = 0\), and \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\). Then \(\mathrm{pd}_{R_1}(M) = \mathrm{pd}(M) -1\), for \(R_1 := R/\langle x\rangle\).
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, March 5</div>
+            <p>We began class by finishing the proof of Proposition B from the previous lecture. Two key points in the case \(\mathrm{pd}(M) > 1\) were the following: Assuming that \(0\to K\to F_0 \to M\to 0\) is the start of a minimal FFR of \(M\) and \(F_0 = R^n\), the first point was that just as in the proof of the base case, \(xe_1, \ldots, xe_n\) are part of a minimal generating set for \(K\). This is where the \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\) hypothesis is used. The second point was that we had to show \(\mathrm{pd}(K/xF_0) = \mathrm{pd}(K)\). This was obtained by modifying the maps in the minimal FFR of \(K\) (derived from the minimal FFR of \(M\)) as follows: Given the minimal FFR, with \(F_1 = R^{s+n}\),</p>
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="math-display">
+                    \[0\to F_n\overset{\phi_n}\longrightarrow F_{n-1} \overset{\phi_{n-1}}\longrightarrow \cdots \longrightarrow F_3\overset{\phi_3}\longrightarrow F_2\overset{\phi_2} \longrightarrow F_1 \overset{\phi_1}\longrightarrow K\to 0,\]
+                </div>
+                then
+                <div class="math-display">
+                    \[0\to F_n\overset{\phi_n}\longrightarrow F_{n-1} \overset{\phi_{n-1}}\longrightarrow \cdots \longrightarrow F_3\overset{\phi_3}\longrightarrow F_2\overset{\phi_2'} \longrightarrow F_1' \overset{\phi_1'}\longrightarrow K/xF_0\to 0,\]
+                </div>
+            </div>
+            <p>is a minimal free resolution of \(K/xF_0\), where \(F_1' = R^s\), \(\phi_1'\) takes the standard basis of \(R^s\) to the images in \(K/xF_0\) of the first \(s\) generators of \(K\) and \(\phi_2'\) is the matrix \(\phi_2\) with its last \(n\) rows removed.</p>
+
+            <p>After finishing the proof of the proposition, as a final bit of preparation for the homological characterization of regular local rings, we presented the following special case of the <em>Auslander-Buchsbaum formula</em>.</p>
+
+            <div class="definition">
+                <span class="statement-title">Lemma.</span> Let \((R, \mathfrak{m})\) be a local ring and suppose there exists \(0\neq a\in R\) such that \(a\cdot \mathfrak{m} = 0\). Then the only \(R\)-modules with a minimal FFR are free \(R\)-modules.
+            </div>
+
+            <p>At last, the homological characterization of regular local rings:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> Let \((R, \mathfrak{m}, k)\) be a local ring with Krull dimension \(d\). The following are equivalent.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(R\) is a regular local ring.</li>
+                    <li style="list-style-type: none;">(ii) Every finitely generated \(R\)-module has finite projective dimension.</li>
+                    <li style="list-style-type: none;">(iii) \(k\) has finite projective dimension.</li>
+                    <li style="list-style-type: none;">(iv) \(\mathrm{pd}(k) = d\).</li>
+                </ol>
+                <p><em>Sketch of proof.</em> The proof was by induction on \(d\), with the base case easily handled by the previous lemma. For the inductive step, assuming (i), one applies Proposition A from the previous lecture taking the module to be \(K\), the kernel of a minimal presentation of \(M\) and \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\). (ii) clearly implies (iii). That (iii) implies (iv) follows by induction from Proposition B in the previous lecture taking the module to be \(k\) and \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\). The proof of (iv) implies (i) is similar: taking the module to be \(k\) in Proposition B, and \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\), by induction \(R/\langle x \rangle\) is a regular local ring, so \(R\) is a regular local ring.</p>
+            </div>
+
+            <p>In preparation for arriving at a proof that regular local rings are UFDs, we finished class with the following lemma, which used Krull's principal ideal theorem.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Suppose \(R\) is a Noetherian domain. Then \(R\) is a UFD if and only if every height one prime is principal.
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, March 10</div>
+
+            <p>We began class by stating the following proposition which is key for the theorem that follows it. The proof of the proposition was delayed until later in the lecture.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Let \((R, \mathfrak{m})\) be a local ring and \(M\) a finitely generated \(R\)-module. If \(M\) admits a FFR, then \(M\) admits a minimal FFR.
+            </div>
+
+            <p>We then stated and proved the following important property of regular local rings.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Theorem.</span> Let \((R, \mathfrak{m}, k)\) be a regular local ring and \(P\subseteq R\) be a prime ideal. Then \(R_P\) is a regular local ring.
+                </div>
+                <p><em>Proof.</em> Since \(R\) is a regular local ring, the \(R\)-module \(R/P\) admits a (minimal) FFR. Thus, the \(R_P\)-module \((R/P)_P\) admits a FFR. Note that even if the FFR of \(R/P\) over \(R\) is minimal, the resolution localized at \(P\) need no longer be minimal. By the Proposition, \((R/P)_P\) admits a minimal free resolution. Since \((R/P)_P\) is the residue field of \(R_P\), it follows from the homological characterization of regular local rings that \(R_P\) is a regular local ring. \(\square\)</p>
+            </div>
+
+            <p>We then noted the following</p>
+
+            <div class="definition">
+                <span class="statement-title">Remark.</span> After the concept of regular local ring was defined in purely algebraic terms, it was assumed that if \(R\) is a regular local ring, then \(R_P\) would also be a regular local ring, based upon the validity of this statement in geometric contexts. It wasn't until regular local rings were characterized in homological terms that a proof of this fact was given. Regarding the need for the Proposition, we noted that the proof of the special case of the Auslander-Buchsbaum formula given prior to the theorem characterizing regular local rings required the existence of a minimal FFR.
+            </div>
+
+            <p>We were then able to formally state and prove the main theorem of the first half of this course.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Major Theorem.</span> Let \((R, \mathfrak{m})\) be a regular local ring. Then \(R\) is a UFD.
+                </div>
+                <p><em>Proof.</em> By induction on \(d = \dim R\). If \(\dim R = 0\), \(R\) is a field, and there is nothing to prove. Suppose \(d > 0\). Take \(x\in \mathfrak{m}\backslash \mathfrak{m}^2\) and set \(S := \{1, x, x^2, \ldots\}\). Since \(x\) is a prime element, it suffices to show that \(R_S\) is a UFD, by Nagata's Lemma. By the proposition from the end of the previous lecture, it suffices to show that any height one prime in \(R_S\) is principal. Such a prime is of the form \(P_S\), for \(P\subseteq R\) a height one prime not containing \(x\). Now, let \(Q\subseteq R_S\) be a maximal ideal, so that \(Q = Q'_S\), for \(Q'\subseteq R\) a prime ideal disjoint from \(S\). Note that \((R_S)_Q = R_{Q'}\), so \((R_S)_Q\) is a regular local ring of dimension less than \(d\). Thus \((R_S)_Q\) is a UFD, so \(P_Q\) is principal. Thus \(P\) is a locally principal ideal of \(R_S\). On the other hand, \(P = P'_S\), for \(P'\subseteq R\) a prime ideal. \(P'\) has a FFR as an \(R\)-module, and upon localizing at \(S\), we see that \(P\) has a FFR as an \(R_S\)-module. Thus, \(P\) is a locally principal ideal admitting a FFR, therefore \(P\) is principal by the main theorem from the lecture of February 10. Thus, every height one prime of \(R_S\) is principal, so \(R_S\) is a UFD, and therefore \(R\) is a UFD. \(\square\)</p>
+            </div>
+
+            <p>We followed this by giving a proof of the Proposition above. The proof was by induction on the length of the FFR of \(M\) and relied upon the following lemma.</p>
+
+            <div class="definition">
+                <span class="statement-title">Lemma.</span> Suppose the module \(K\oplus L\) has a FFR, where \(L\) is a finite free \(R\)-module. Then \(K\) has a FFR.
+            </div>
+
+            <p>We ended with a brief discussion of some of the topics we'll cover next. These included: (i) The two forms of Hilbert's Nullstellensatz; (ii) A refinement of (i) stating that if \(P\) is a prime ideal in the polynomial ring \(R\) in finitely many variables over an algebraically closed field of characteristic zero, then \(P\) is the intersection of the maximal ideals \(M\subseteq R\) such that \((R/P)_M\) is a regular local ring; (iii) The Zariski-Nagata theorem, which states that if \(P\subseteq R\) are as in (ii), then the \(n\)th symbolic power of \(P\) is the set of polynomials whose partial derivatives of order less than \(n\) vanish on the algebraic variety defined by \(P\).</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, March 12</div>
+
+            <p>Today's lecture was a brief interlude devoted to a discussion of associated primes and primary decomposition. Throughout \(R\) will denote a Noetherian ring and \(M\) a non-zero \(R\)-module. For a non-zero element \(x\in M\), we write \((0:x)\) or \((0:_R x)\) to denote the <em>annihilator</em> of \(x\), i.e., \((0:x) = \{r\in R\ |\ rx = 0\}\). We began with</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Basic Definitions and Properties.</span></p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">1. A prime ideal \(P\subseteq R\) is an <em>associated prime</em> of \(M\) if \(P = (0:x)\), for some (non-zero) \(x\in M\). We write \(\mathrm{Ass}(M)\) or \(\mathrm{Ass}_R(M)\) to denote the associated primes of \(M\).</li>
+                    <li style="list-style-type: none;">2. Suppose \(P\) is an ideal maximal among ideals of the form \((0:x)\), for \(0\not= x\in M\). Then \(P\in \mathrm{Ass}(M)\).</li>
+                    <li style="list-style-type: none;">3. \(\mathrm{Ass}(M)\) is non-empty (since \(R\) is Noetherian and \(M\not= 0\)).</li>
+                    <li style="list-style-type: none;">4. \(r\in R\) is a zero-divisor on \(M\) if and only if \(r\in P\), for some \(P\in \mathrm{Ass}(M)\). Thus the set of zero-divisors on \(M\) equals the union of the associated primes of \(M\).</li>
+                    <li style="list-style-type: none;">5. Let \(S\subseteq R\) be multiplicatively closed and \(P\subseteq R\) a prime ideal disjoint from \(S\). Then \(P_S\in \mathrm{Ass}_{R_S}(M_S)\) if and only if \(P\in \mathrm{Ass}(M)\).</li>
+                    <li style="list-style-type: none;">6. Suppose the prime ideal \(P\subseteq R\) is minimal over \((0:x)\), for \(x\in M\). Then \(P\in \mathrm{Ass}(M)\). Moreover, if \(P\) is minimal over the \(\mathrm{ann}(M)\), then \(P\in \mathrm{Ass}(M)\). In particular, if \(P\) is minimal over the ideal \(I\), \(P\in \mathrm{Ass}(R/I)\).</li>
+                </ol>
+            </div>
+
+            <p>We then proceeded to prove the following propositions.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition A.</span> Suppose \(0\to L\to M\to N\to 0\) is a short exact sequence of \(R\)-modules. Then \(\mathrm{Ass}(M)\subseteq \mathrm{Ass}(L)\bigcup \mathrm{Ass}(N)\).
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">Proposition B.</span> If \(R\) is a Noetherian ring and \(M\) a finitely generated \(R\)-module, then \(\mathrm{Ass}(M)\) is finite.
+            </div>
+
+            <p>The proof of Proposition B was by induction on the number of generators of \(M\), which easily reduced the statement to the case \(M\) is cyclic (by using Proposition A). Thus, it sufficed to show that \(R/I\) has finitely many associated primes. For this, we noted that an ideal \(I\) maximal with respect to the property that \(\mathrm{Ass}(R/I)\) is infinite must be irreducible, i.e., \(I\) is not the intersection of two proper ideals. One then invokes the following key theorem (with proof), which provides the necessary contradiction.</p>
+
+            <div class="definition">
+                <span class="statement-title">Theorem.</span> Let \(R\) be a Noetherian ring and \(I\subseteq R\) an irreducible ideal. Then \(\mathrm{Ass}(R/I) = \{P\}\) for some prime ideal \(P\subseteq R\). Moreover, whenever \(ab\in I\), then \(a\in I\) or \(b\in \sqrt{I}\).
+            </div>
+
+            <p>This led to the following important definitions.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Let \(I\subseteq R\) be an ideal.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) The ideal \(Q\subseteq R\) is said to be a <em>primary</em> ideal if \(ab\in Q\) implies \(a\in Q\) or \(b\in \sqrt{Q}\). Thus, by the theorem above and its proof, if \(Q\subseteq R\) is a primary ideal, \(\mathrm{Ass}(R/Q) = \{P\}\), for some prime ideal \(P\subseteq R\), and \(P = \sqrt{Q}\). In this case we say \(Q\) is a \(P\)-primary ideal.</li>
+                    <li style="list-style-type: none;">(ii) A <em>primary decomposition</em> of \(I\) is an intersection \(I = Q_1\cap \cdots \cap Q_r\), where each \(Q_i\) is \(P_i\)-primary for \(P_i = \mathrm{Ass}(R/Q_i)\).</li>
+                    <li style="list-style-type: none;">(iii) The primary decomposition in (ii) is said to be <em>reduced</em> or <em>irredundant</em> if \(I\) is not the intersection of a proper subset of \(Q_1, \ldots, Q_n\) and the primes \(P_1, \ldots, P_n\) are distinct.</li>
+                </ol>
+                <p>We then quickly observed that if an ideal has a primary decomposition, it has an irredundant primary decomposition.</p>
+            </div>
+
+            <p>This then led to the following important</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Primary Decomposition Theorem.</span> Let \(R\) be a Noetherian ring and \(I\subseteq R\) an ideal. Then \(I\) has an irredundant primary decomposition, \(I = Q_1\cap \cdots \cap Q_n\). Moreover, if \(\sqrt{Q_i} = P_i\), for \(1\leq i\leq n\), then \(\mathrm{Ass}(R/I) = \{P_1, \ldots, P_n\}\).
+                </div>
+                <p><em>Proof.</em> By the theorem above, it suffices to show that \(I\) can be written as a finite intersection of irreducible ideals. The proof of this is the following classic argument due to E. Noether: If this were false, one could choose \(I\) maximal with respect to the property that it cannot be written as a finite intersection of irreducible ideals. Then \(I\) is not an irreducible ideal, so \(I = K\cap L\) for ideals properly containing \(I\). But then \(K, L\) are intersections of finitely many irreducible ideals, which immediately shows that \(I\) is a finite intersection of irreducible ideals, which is a contradiction. Thus, every ideal in a Noetherian ring is a finite intersection of irreducible ideals and hence has an irredundant primary decomposition.</p>
+                <p>For the second statement, first suppose \(P_1 = \sqrt{Q_1}\). We may localize at \(P_1\). Find \(z\in Q_2\cap \cdots \cap Q_n\backslash Q_1\), which we can do because the decomposition is irredundant. Now, \(P_1^h\subseteq Q_1\) for some \(h\geq 1\), thus \(P_1^hz\subseteq I\). Choose \(h\) least with this property. Then \(tz\not\in I\), for some \(t\in P_1^{h-1}\). But then \(P_1(zt)\subseteq I\), so \(P_1\) consists of zero-divisors modulo \(I\), i.e., \(P_1\subseteq Q\), for some \(Q\in \mathrm{Ass}(R/I)\). Since \(P_1\) is prime, \(P_1 = Q\), so \(P_1\in \mathrm{Ass}(R/I)\). We may repeat the argument for \(P_2, \ldots, P_n\), so \(\{P_1, \ldots, P_n\}\subseteq \mathrm{Ass}(R/I)\).</p>
+                <p>Now take \(P\in \mathrm{Ass}(R/I)\). Then we can write \(P = (I:x)\), for some \(x\not\in I\). We then have</p>
+                <div class="math-display">
+                    \[P = (I:x) = (Q_1\cap \cdots \cap Q_n : x) = (Q_1:x)\cap \cdots \cap (Q_n:x),\]
+                </div>
+                <p>so \(P = (Q_i:x)\), for some \(1\leq i\leq n\). This shows \(P\in \mathrm{Ass}(R/Q_i) = \{P_i\}\), so \(P = P_i\), since \(P_i\) is minimal over \(Q_i\). Thus, \(\mathrm{Ass}(R/I)\subseteq \{P_1, \ldots, P_n\}\), and the proof is complete. \(\square\)</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, March 24</div>
+
+            <p>Today's lecture was devoted to a discussion of integral extensions and some of their basic properties. We began with the following definitions.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definitions.</span> Let \(R\subseteq S\) be an extension of commutative rings.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(b\in S\) is said to be <em>integral over \(R\)</em> if \(b\) is a root of a monic polynomial \(f(x)\in R[x]\).</li>
+                    <li style="list-style-type: none;">(ii) \(S\) is said to be <em>integral over \(R\)</em> if every element of \(S\) is integral over \(R\), in which case \(S\) is an <em>integral extension</em> of \(R\).</li>
+                    <li style="list-style-type: none;">(iii) The <em>integral closure of \(R\) in \(S\)</em> is the set of elements in \(S\) integral over \(R\).</li>
+                    <li style="list-style-type: none;">(iv) \(R\) is <em>integrally closed in \(S\)</em> if \(b\in S\) integral over \(R\) implies \(b\in R\).</li>
+                    <li style="list-style-type: none;">(v) If \(R\) is an integral domain with quotient field \(K\), we say \(R\) is <em>integrally closed</em> if \(R\) is integrally closed in \(K\).</li>
+                </ol>
+            </div>
+
+            <p>We then proceeded to discuss and prove the following</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Basic Properties.</span> Let \(R\subseteq S\) be an extension of commutative rings.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(b\in S\) is integral over \(R\) if and only if there exists a subring \(R\subseteq L\subseteq S\) with \(R[b]\subseteq L\) and \(L\) a finitely generated \(R\)-module.</li>
+                    <li style="list-style-type: none;">(ii) Sums and products of elements from \(S\) integral over \(R\) are integral over \(R\). Thus, the integral closure of \(R\) in \(S\) is a subring of \(S\).</li>
+                    <li style="list-style-type: none;">(iii) A UFD is integrally closed.</li>
+                    <li style="list-style-type: none;">(iv) If \(R\) and \(S\) are integral domains with \(S\) integral over \(R\), then \(R\) is a field if and only if \(S\) is a field.</li>
+                    <li style="list-style-type: none;">(v) If \(S\) is integral over \(R\) and \(P\subseteq R\), \(Q\subseteq S\) are prime ideals satisfying \(Q\cap R = P\), then \(P\) is a maximal ideal if and only if \(Q\) is a maximal ideal.</li>
+                    <li style="list-style-type: none;">(vi) The <em>lying over property</em>: If \(S\) is integral over \(R\) and \(P\subseteq R\) is a prime ideal, then there exists a prime ideal \(Q\subseteq S\) such that \(Q\cap R = P\).</li>
+                    <li style="list-style-type: none;">(vii) The <em>going up property</em>: If \(S\) is integral over \(R\) and \(P_1\subseteq P_2\subseteq R\) are prime ideals, and \(Q_1\subseteq S\) is a prime ideal with \(Q_1\cap R = P_1\), then there exists a prime ideal \(Q_2\) containing \(Q_1\) such that \(Q_2\cap R = P_2\).</li>
+                    <li style="list-style-type: none;">(viii) The <em>incomparability property</em>: If \(S\) is integral over \(R\) and \(Q_1\subsetneq Q_2\) are prime ideals in \(S\), then \(Q_1\cap R\subsetneq Q_2\cap R\).</li>
+                </ol>
+            </div>
+
+            <p>We ended class by giving a proof of the following proposition.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Let \(R\subseteq S\) be integral domains with quotient fields \(K\) and \(L\) respectively. Suppose \(w\in S\) is integral over \(R\) and let \(f(x)\in K[x]\) denote the minimal polynomial of \(w\) over \(K\). If \(R\) is integrally closed, then \(f(x)\in R[x]\) and \(R[w]\cong R[x]/\langle f(x)\rangle\).
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, March 26</div>
+
+            <p>We began our discussion of Hilbert rings with the following</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Proposition-Definition.</span> For the commutative ring \(R\), the following conditions are equivalent.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Every prime ideal of \(R\) is an intersection of maximal ideals.</li>
+                    <li style="list-style-type: none;">(ii) Whenever \(M\subseteq R[x]\) is a maximal ideal, \(M\cap R\) is a maximal ideal.</li>
+                </ol>
+                <p>If these conditions hold, then \(R\) is a <em>Hilbert ring</em>.</p>
+            </div>
+
+            <p>Before establishing the equivalence of conditions (i) and (ii), we noted how condition (ii) plays a crucial role in the proof of Hilbert's weak Nullstellensatz theorem and that if \(Q\subseteq R[x]\) is a prime ideal with \(q := Q\cap R\), then either \(Q = q[x]\) or \(Q\) properly contains \(q[x]\) and we cannot have a prime \(Q'\subseteq R[x]\) with \(q[x]\subsetneq Q\subsetneq Q'\) and \(Q'\cap R = q\).</p>
+
+            <p>We also noted that, using the Proposition-Definition, the ring \(\mathbb{Z}\) is a Hilbert ring, since \((0)\) is the intersection of all the maximal ideals in \(\mathbb{Z}\), while the ring \(\mathbb{Z}_{(p)}\) is not a Hilbert ring since \(\langle px-1\rangle\) is a maximal ideal in \(\mathbb{Z}_{(p)}[x]\) that contracts to \((0)\) in \(\mathbb{Z}_{(p)}\).</p>
+
+            <p>After proving the equivalence of (i) and (ii) above, we presented (with proofs) the following two results.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition B.</span> Suppose \(R\) is a Hilbert domain and \(0\not= a\in R\). Then \(R_a\) is a Hilbert ring and every maximal ideal in \(R_a\) is of the form \(M_a\), for \(M\subseteq R\) a maximal ideal.
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">Lemma.</span> Let \(R\subseteq S\) be an integral extension of integral domains. If the Jacobson radical of \(R\) equals zero then the Jacobson radical of \(S\) equals zero.
+            </div>
+
+            <p>We were then able to prove the following important theorem.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Theorem.</span> If \(R\) is a Hilbert ring, then the polynomial ring \(R[x]\) is a Hilbert ring.
+                </div>
+                <p><em>Proof.</em> Let \(Q\subseteq R[x]\) be a prime ideal and set \(q := Q\cap R\). Suppose \(Q = q[x]\). Then \(q = \bigcap N\), where the intersection ranges over the maximal ideals \(N\subseteq R\) containing \(q\). Thus \(Q = q[x] = \bigcap N[x]\). But since \(R[x]/N[x]\) is a polynomial ring with coefficients in the field \(R/N\), each \(N[x] = \bigcap \langle N, f(x)\rangle\), where \(f(x)\) ranges over the polynomials \(f(x)\in R[x]\) that are irreducible modulo \(N[x]\). Thus each \(N[x]\) is an intersection of maximal ideals in \(R[x]\), so \(Q = q[x]\) is an intersection of maximal ideals in \(R[x]\).</p>
+                <p>Suppose \(Q\not= q[x]\). It is easy to see that if \(Q/q[x]\subseteq R[x]/q[x]\) is an intersection of maximal ideals, then the same holds for \(Q\subseteq R[x]\). Thus, we may mod out \(q[x]\) and assume that \(R\) is a Hilbert domain and \(Q\cap R = (0)\). Take \(0\not= a\in R\) a leading coefficient of a polynomial in \(Q\). Note, since \(Q\cap R = (0)\), \(a\not\in Q\). Then, \(R_a\) is a Hilbert ring by Proposition B and \(R_a\subseteq R_a[x]/Q_a\) is an integral extension. Since \(\mathrm{Jac}(R_a) = 0\), by the Lemma, \(\mathrm{Jac}(R_a[x]/Q_a) = 0\), so that in the ring \(R_a[x]\), \(Q_a\) is an intersection of the maximal ideals containing \(Q_a\). If we let \(A\) denote the set of ideals \(M\subseteq R[x]\) such that \(Q\subseteq M\), \(a\not\in M\), and \(M_a\subseteq R_a[x]\) is a maximal ideal, then \(Q = \bigcap \{M\ |\ M\in A\}\). Now we note that \(M\in A\) implies \(N := M\cap R\) is a maximal ideal of \(R\). First note that \(M_a\cap R = N\), since localization at a multiplicatively closed set in \(R\) commutes with formation of the polynomial ring. Now, \(R_a\) is a Hilbert ring, so \(M_a\cap R_a\) is a maximal ideal of \(R_a\). By the second statement of Proposition B, \(M_a\cap R_a\) is \(N_a\), for \(N\subseteq R\) a maximal ideal. Thus, \(M\cap R\) is a maximal ideal of \(R\) for every \(M\in A\). Now, suppose \(M\in A\), but \(M\) is not a maximal ideal in \(R[x]\). Since \(N := M\cap R\) is maximal, we must have \(M = N[x]\), so that as before, \(N[x]\) is an intersection of maximal ideals. In other words, each \(M\) in \(A\) that is not a maximal ideal in \(R[x]\) is an intersection of maximal ideals. Since \(Q = \bigcap \{M\ |\ M\in A\}\), it follows that \(Q\) is an intersection of maximal ideals, which completes the proof. \(\square\)</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, March 31</div>
+
+            <p>We began class with the following corollary to the theorem which asserted that \(R[x]\) is a Hilbert ring if \(R\) is a Hilbert ring.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Corollary.</span> Let \(R = k[x_1, \ldots, x_n]\) denote the polynomial ring in \(n\) variables over the field \(k\). Then:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(R\) is a Hilbert ring.</li>
+                    <li style="list-style-type: none; font-size: 0.9em;">(ii) If \(M\subseteq R\) is a maximal ideal, then \(M = \langle f_1(x_1), f_2(x_1, x_2), \ldots, f_n(x_1, \ldots, x_n)\rangle\) for \(f_1(x_1), \ldots, f_n(x_1, \ldots, x_n)\in R\).</li>
+                    <li style="list-style-type: none;">(iii) If \(M\subseteq R\) is a maximal ideal, then \(k\subseteq R/M\) is an algebraic extension of fields.</li>
+                </ol>
+            </div>
+
+            <p>We then noted that for \(R = k[x_1, \ldots, x_n]\), \(\underline{\alpha} = (\alpha_1, \ldots, \alpha_n)\) and \(M_{\underline{\alpha}} := \langle x_1-\alpha_1, \ldots, x_n-\alpha_n\rangle\), \(g\in R\) satisfies: \(g\in M_{\underline{\alpha}}\) if and only if \(g(\underline{\alpha}) = 0\). Maintaining this notation, we then stated and proved:</p>
+
+            <div class="definition">
+                <span class="statement-title">Hilbert's Weak Nullstellensatz.</span> For \(R = k[x_1, \ldots, x_n]\), with \(k\) algebraically closed, there is a 1-1 correspondence between the maximal ideals of \(R\) and the points in \(k^n\) given by: \(M\subseteq R\) is a maximal ideal if and only if \(M = M_{\underline{\alpha}}\), for some \(\underline{\alpha}\in k^n\).
+            </div>
+
+            <p>Maintaining the notation from the Weak Nullstellensatz, for an ideal \(I\subseteq R\), we defined the <em>algebraic variety</em> determined by \(I\) to be \(V(I) := \{\underline{\alpha}\in k^n\ |\ f(\underline{\alpha}) = 0,\ \text{for all}\ f\in I\}\) and the polynomial functions defined on \(V(I)\) to be \(\mathcal{I}(V(I)) := \{g\in R\ |\ g(\underline{\alpha}) = 0,\ \text{for all}\ \underline{\alpha}\in V(I)\}\). This enabled us to state and prove</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Hilbert's Nullstellensatz.</span> Let \(R = k[x_1, \ldots, x_n]\) with \(k\) algebraically closed and \(I\subseteq R\) an ideal. Then \(\mathcal{I}(V(I)) = \sqrt{I}\).
+                </div>
+                <p><em>Proof.</em> First note that one clearly has \(I\subseteq \mathcal{I}(V(I))\), so that if \(f\in \sqrt{I}\), then \(f^n(\underline{\alpha}) = 0\), for some \(n\), for all \(\underline{\alpha}\in V(I)\), and thus \(f(\underline{\alpha}) = 0\), for all \(\underline{\alpha}\in V(I)\), showing \(\sqrt{I}\subseteq \mathcal{I}(V(I))\).</p>
+                <p>We now note that \(M\subseteq R\) is a maximal ideal containing \(I\) if and only if \(M = M_{\underline{\alpha}}\) for some \(\underline{\alpha}\in V(I)\). For this, let \(M\) be a maximal ideal containing \(I\). By the Weak Nullstellensatz, \(M = M_{\underline{\alpha}}\) for some \(\underline{\alpha}\in k^n\), so that \(M_{\underline{\alpha}}\supseteq I\). By the comments preceding the Weak Nullstellensatz, \(\underline{\alpha}\in V(I)\). Now suppose \(\underline{\alpha}\in V(I)\). Then \(f(\underline{\alpha}) = 0\), for all \(f\in I\), so that \(I\subseteq M_{\underline{\alpha}}\). Thus, \(I\subseteq M_{\underline{\alpha}}\) if and only if \(\underline{\alpha}\in V(I)\).</p>
+                <p>To finish, suppose \(f\in \mathcal{I}(V(I))\), so that \(f(\underline{\alpha}) = 0\), for all \(\underline{\alpha}\in V(I)\). Then \(f\in M_{\underline{\alpha}}\), for all \(\underline{\alpha}\in V(I)\). In other words, \(f\in M\), for all maximal ideals containing \(I\) and since \(R\) is a Hilbert ring, \(f\in \sqrt{I}\). Thus, \(\sqrt{I} = \mathcal{I}(V(I))\), which is what we want. \(\square\)</p>
+            </div>
+
+            <p>We finished class by noting that our next major goal is to show that if \(R\) is a polynomial ring in finitely many variables over a field of characteristic zero and \(P\subseteq R\) is a prime ideal, then \(P = \bigcap_{M\in X} M\), where \(X\) is the set of maximal ideals in \(R\) containing \(P\) such that \((R/P)_M\) is a regular local ring, and by discussing the following preliminaries for the following theorem due to Jim Brewer and Bill Heinzer: \(R\) Noetherian implies \(R\langle x\rangle\) is a Hilbert ring, where \(R\langle x\rangle\) denotes \(R[x]\) localized at the multiplicatively closed set of monic polynomials.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Preliminaries for the Brewer-Heinzer theorem.</span> Let \(R\) be a commutative ring.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Suppose that \(P'\subseteq R[x]\) is a prime ideal and set \(P := P'\cap R\). If \(P'\not= PR[x]\), then we say that \(P'\) is an <em>upper to \(P\)</em>.</li>
+                    <li style="list-style-type: none;">(ii) Suppose \(R\) is an integral domain, and \(Q\subseteq R[x]\) is a prime ideal satisfying \(Q\cap R = (0)\). Then we say that \(Q\) is an <em>upper to zero</em>.</li>
+                    <li style="list-style-type: none;">(iii) Suppose \(R\) is an integral domain with quotient field \(K\) and \(Q\subseteq R[x]\) is an upper to zero. Then \(QK[x]\) is generated by an irreducible polynomial \(f(x)\in K[x]\) and \(Q = f(x)K[x]\cap R[x]\).</li>
+                    <li style="list-style-type: none;">(iv) Let \(R, K, Q\) and \(f(x)\) be as in (iii). Then by clearing denominators, we may assume that \(f(x)\in R[x]\), in which case \(Q = \bigcup_{n\geq 1} (f(x)R[x] : a^n)\), where \(a\in R\) is the leading coefficient of \(f(x)\). Note that when \(R\) is Noetherian, then there exists \(n\gg 0\) such that \(Q = (f(x)R[x] : a^n)\).</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, April 2</div>
+
+            <p>Before discussing the Brewer-Heinzer theorem which states that if \(R\) is Noetherian, then \(R\langle x\rangle\) is a Hilbert ring, where \(R\langle x\rangle\) denotes the polynomial ring \(R[x]\) localized at the set of monic polynomials, we mentioned two standard facts about Noetherian rings needed for the proof. Suppose \(R\) is a Noetherian ring. Then: (i) If \(\dim(R)\geq 2\), then \(R\) has infinitely many height one primes and (ii) \(R\) is a Hilbert ring if and only if for every prime ideal \(Q\subseteq R\) satisfying \(\dim(R/Q) = 1\), \(Q\) is contained in infinitely many maximal ideals of \(R\).</p>
+
+            <p>Our discussion of the proof took the form of listing various steps that were reductions to more special cases and how the proof works in the ultimate reduction. Proofs for some of the steps were given and indications of proofs for the other steps were discussed. Roughly, here are the steps we looked at.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Steps in the proof.</span></p>
+                <p><span style="color: purple; font-style: normal; font-weight: 600;">Step 1.</span> By the second property of Noetherian rings mentioned above, we have to show that if \(Q_0\subseteq R\langle x\rangle\) satisfies \(\dim(R\langle x\rangle/Q_0) = 1\), then \(Q_0\) is contained in infinitely many maximal ideals of \(R\langle x\rangle\). We noted that it suffices to assume \(R\) is an integral domain, and show that if \(Q\subseteq R[x]\) is an upper to zero not containing a monic polynomial, then there exist infinitely many primes \(P\subseteq R[x]\), not containing a monic polynomial, such that \(Q\subsetneq P\).</p>
+                <p><span style="color: purple; font-style: normal; font-weight: 600;">Step 2.</span> We noted that if \(\dim(R) = 1\), then \(\dim(R\langle x\rangle) = 1\), thus \(R\langle x\rangle\) is a Hilbert ring if \((0)\) is an intersection of maximal ideals in \(R\langle x\rangle\), and this is seen by taking the ideals \(P_n = (t^nx-1)R\langle x\rangle\), for \(t\in R\) a non-unit.</p>
+                <p><span style="color: purple; font-style: normal; font-weight: 600;">Step 3:</span> Reduction to the case \((R, M)\) is local. Here one lets \(I\) denote the ideal of \(R\) generated by the leading coefficients of the polynomials in \(P\), for \(P\) as in Step 1. One then localizes \(R\) at a prime containing \(I\).  </p>
+                <p><span style="color: purple; font-style: normal; font-weight: 600;">Step 4:</span> Reduction to the case \(Q\) contains a linear polynomial, so that \(Q = (ax-b):a^n\), for \(n\gg 0\), with \(a\in M\).</p>
+                <p><span style="color: purple; font-style: normal; font-weight: 600;">Step 5.</span> For the upper to zero \(C := (cx-d):d^{\infty}\), \(C\) contains a monic polynomial if and only if \(\frac{d}{c}\) is integral over \(R\). This implies that \(\frac{b}{a}\) is not integral over \(R\).</p>
+                <p><span style="color: purple; font-style: normal; font-weight: 600;">Step 6:</span> The special case \(a = vb\), where \(b\in M\) is a non-unit. Then \(ax-b = b(vx-1)\in Q\), so \(vx-1\in Q\), and thus \(Q = (vx-1)R[x]\). It follows that if \(P\subseteq R\) is one of the infinitely many height one primes in \(R\) not containing \(a\), then the uppers \(P_1 := (P, vx-1)R[x]\) to \(P\) are primes properly containing \(Q\), not containing a monic polynomial, which is what we want.</p>
+                <p><span style="color: purple; font-style: normal; font-weight: 600;">Step 7:</span> Reduction to the special case. We pass to the ring \(T := R[\frac{a}{b}]\) and note that \(T = R[y]/C\), for \(C = (a-by):b^{\infty}\). Now using Step 5, one shows that \(C\) does not contain a polynomial whose constant term is a unit. Thus, \((M, v)\) is a maximal ideal in \(T\), where \(v\) denotes the image of \(y\) in \(T\). By the previous case, we can prove the theorem with base ring \(T_{(M,v)}\), which can then be used to finish the proof of the theorem over \(R\).</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, April 7</div>
+
+            <p>Today's lecture was devoted to results we will need to prove that if \(R\) is a polynomial ring in finitely many variables over a field of characteristic zero and \(P\subseteq R\) is a prime ideal, then \(P = \bigcap_{M\in X} M\), where \(X\) is the set of maximal ideals in \(R\) containing \(P\) such that \((R/P)_M\) is a regular local ring.</p>
+
+            <p>We began with the following proposition as a prelude to Noether's Normalization Lemma.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Proposition.</span> Let \(R = k[x_1, \ldots, x_n]\) denote the polynomial ring in \(n\) variables over an infinite field and take \(f(x_1, \ldots, x_n)\in R\). Then:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) There exists \((\alpha_1, \ldots, \alpha_n)\in k^n\) such that \(f(\alpha_1, \ldots, \alpha_n)\not= 0\).</li>
+                    <li style="list-style-type: none;">(ii) There exists a new set of variables \(y_1, \ldots, y_n\in R\) such that \(R = k[y_1, \ldots, y_n]\) and \(f(y_1, \ldots, y_n)\) is a monic polynomial in \(y_n\) with coefficients in \(k[y_1, \ldots, y_{n-1}]\). Here, by monic we mean the leading coefficient of \(f\) written as a polynomial in \(y_n\) is a non-zero element of \(k\).</li>
+                </ol>
+            </div>
+
+            <p>With this proposition in hand, we were able to prove the following:</p>
+
+            <div class="definition">
+                <span class="statement-title">Noether Normalization Lemma.</span> Let \(A\) be a finitely generated algebra over the infinite field \(k\). Suppose \(\dim(A) = d\). Then there exist \(x_1, \ldots, x_d\in A\), algebraically independent over \(k\), such that if we write \(B := k[x_1, \ldots, x_d]\), then \(B\subseteq A\) is a finite extension of rings.
+            </div>
+
+            <p>We finished class with the:</p>
+
+            <div class="definition">
+                <span class="statement-title">Primitive Element Theorem.</span> Let \(K\subseteq L\) be a finite extension of fields, with \(K\) (and hence \(L\)) a field of characteristic zero. Then there exists \(\gamma\in L\) such that \(L = K(\gamma)\). In this case \(\gamma\) is called a <em>primitive element</em> for the extension \(K\subseteq L\).
+            </div>
+
+            <p>A key component in the proof (where the characteristic zero assumption was used) was the following fact: If \(f(x)\in K[x]\) is irreducible, then \(f(x)\) has distinct roots in its splitting field, or equivalently, in \(\overline{K}\), the algebraic closure of \(K\).</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, April 9</div>
+
+            <p>Today's lecture was mostly devoted to a proof of the theorem below, which is a key step to showing that if \(R\) is a polynomial ring in finitely many variables over a field of characteristic zero and \(P\subseteq R\) is a prime ideal, then \(P = \bigcap_{M\in X} M\), where \(X\) is the set of maximal ideals in \(R\) containing \(P\) such that \((R/P)_M\) is a regular local ring. We began with the following two propositions.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Proposition A.</span> Let \(R\) be a Noetherian ring and \(\mathcal{P}(R)\) denote the set of primes \(P\subseteq R\) such that \(P\in \mathrm{Ass}(R/aR)\) for some non-zerodivisor \(a\in R\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) If \(P\) is a prime minimal over \((aR:b)\), for some non-zerodivisor \(a\in R\), then \(P\in \mathrm{Ass}(R/aR)\), i.e., \(P\in \mathcal{P}(R)\).</li>
+                    <li style="list-style-type: none;">(ii) For a prime \(P\subseteq R\), let \(R_{[P]}\) denote \(R\) localized at the set of non-zerodivisors not in \(P\), so that \(R\subseteq R_{[P]}\subseteq Q(R)\), the total quotient ring of \(R\). Then \(R = \bigcap_{P\in \mathcal{P}(R)} R_{[P]}\).</li>
+                </ol>
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">Proposition B.</span> Let \(B\) be a locally regular integral domain. Then \(B\) is integrally closed.
+            </div>
+
+            <p>In class we needed the following:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Observation.</span> Suppose \(B\subseteq A\) is a finite extension of integral domains with quotient fields \(K\subseteq L\). Then every element in \(L\) can be written as \(\frac{a}{b}\), with \(a\in A\) and \(b\in B\). In particular, if \(L\) has a primitive element, then that primitive element can be taken to be in \(A\).</p>
+                <p><em>Proof.</em> Suppose \(\gamma\) is in the quotient field of \(A\), and write \(\gamma = \frac{c}{d}\), with \(c, d\in A\). Since \(A\) is a finite \(B\)-module, it is integral over \(B\), so we have an equation \(d^n+b_1d^{n-1}+\cdots+b_n = 0\), with each \(b_i\in B\). By taking a shortest such equation, we may assume \(b_n\not= 0\). Then \(d(d^{n-1}+b_1d^{n-2}+\cdots+b_{n-1}) = -b_n\). Thus, \(\frac{1}{d} = \frac{-a'}{b_n}\), where \(a' = d^{n-1}+b_1d^{n-2}+\cdots+b_{n-1}\in A\). Thus, \(\gamma = \frac{a}{b}\), where \(a = c(-a')\in A\) and \(b = b_n\in B\).</p>
+                <p>If \(\gamma\) is a primitive element, then \(L = K(\gamma) = K(\frac{a}{b}) = K(a)\), since \(b\in K\), so \(a\in A\) is a primitive element for the extension.</p>
+            </div>
+
+            <p>We then stated and proved the following theorem, and discussed its geometric interpretation, namely in an irreducible algebraic variety over a field of characteristic zero, the non-singular points contain a Zariski open set.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Theorem.</span> Let \(A\) be an integral domain that is a finitely generated \(k\)-algebra, where \(k\) is a field of characteristic zero. Then there exists \(0\not= \delta\) such that \(A_{\delta}\) is locally regular.
+                </div>
+                <p><em>Proof.</em> By the Noether normalization lemma, there exists \(B\subseteq A\) such that \(A\) is a finite \(B\)-module and \(B\) is a polynomial ring in finitely many variables over \(k\). Thus, \(B\) is locally regular and thus, by Proposition B, \(B\) is also integrally closed. If we let \(K\) denote the quotient field of \(B\) and \(L\) the quotient field of \(A\), then the characteristic zero assumption means there is a primitive element \(w\) for \(L\) over \(K\) and by the observation above, we may assume \(w\in A\). Thus, we have \(B\subseteq B[w]\subseteq A\), and \(B[w]\) and \(A\) have the same quotient field.</p>
+                <p>By the proposition at the end of the update from March 24, \(B[w] = B[W]/\langle f(W)\rangle\), where \(f(W)\) is the minimal polynomial for \(w\) over \(K\) and \(f(W)\in B[W]\). Note, since \(f(W)\) is irreducible, it has distinct roots in \(\overline{K}\), so that \(f'(w)\not= 0\). We will show that for \(\delta := f'(w)\), \(A_{\delta}\) is locally regular. Suppose we could show that \(B[w]_{\delta}\) is locally regular. Then since \(B[w]_{\delta}\subseteq A_{\delta}\) is an integral extension of rings with the same quotient field, and \(B[w]_{\delta}\) is integrally closed, it follows that \(B[w]_{\delta} = A_{\delta}\), so that \(A_{\delta}\) is locally regular.</p>
+                <p>Thus, we must show that \(B[w]_{\delta}\) is locally regular for \(\delta = f'(w)\). For this it is clearly sufficient to prove that if \(Q\subseteq B[w]\) is a prime ideal not containing \(f'(w)\), then \(B[w]_Q\) is a regular local ring (since \((B[w]_{\delta})_{Q_{\delta}} = B[w]_Q\), for \(Q_{\delta}\) a prime in \(B[w]_{\delta}\)).</p>
+                <p>Let \(Q\subseteq B[w]\) be a prime ideal not containing \(f'(w)\). Since \(B[w] = B[W]/\langle f(W)\rangle\), \(Q\) lifts to a prime \(\tilde{Q}\subseteq B[W]\) containing \(f(W)\). Our goal is to show that \((B[W]/\langle f(W)\rangle)_{\tilde{Q}}\) is a regular local ring. Since we will be localizing at \(\tilde{Q}\), we are free to first localize \(B\) at \(P := \tilde{Q}\cap B\). In other words, we may assume that \((B, P)\) is a regular local ring, say of dimension \(d\). Now, since \(f(W)\in \tilde{Q}\), \(\tilde{Q}\) contains a monic polynomial, and thus \(\tilde{Q}\not= P[W]\), so that \(\mathrm{height}(\tilde{Q}) = d+1\). Thus, \(\mathrm{height}(Q) = \mathrm{height}(\tilde{Q}/\langle f(W)\rangle) = (d+1)-1 = d\), so \(\dim(B[w]_Q) = d\). If we show \(QB[w]_Q\) is generated by \(d\) elements, then \(B[w]_Q\) is a regular local ring.</p>
+                <p>Since \(\tilde{Q}\not= P[W]\), we can write \(\tilde{Q} = \langle P, g(W)\rangle\), where \(g(W)\in B[W]\) is monic and irreducible mod \(P\). Moreover, since \(f(W)\in \tilde{Q}\backslash P[W]\), \(g(W)\) is an irreducible factor of \(f(W)\) modulo \(P\). Thus, we can write \(f(W)\equiv g(W)^r h(W)\) mod \(P\), where \(g(W)\) does not divide \(h(W)\) mod \(P\). Note that in \(B[W]\), \(h(W)\not\in \tilde{Q}\), otherwise mod \(P\), \(g(W)\) would divide \(h(W)\). We now claim that \(r = 1\).</p>
+                <p>Suppose \(r > 1\). Then \(f(W)\equiv g(W)^rh(W)\) mod \(P\) gives \(f'(W)\equiv rg(W)^{r-1}g'(W)h(W)+g(W)^rh'(W)\) mod \(P\), which, if \(r > 1\), shows that \(f'(W)\in \tilde{Q}\). Passing to \(B[w]\) shows \(f'(w)\in Q\), which is a contradiction. Therefore we have \(r = 1\).</p>
+                <p>Thus, in \(B[W]\) we may write \(f(W) = g(W)h(W)+p(W)\), where \(h(W)\not\in \tilde{Q}\) and \(p(W)\in P[W]\). Therefore, in \(B[W]_{\tilde{Q}}\) we have \(h(W)^{-1}f(W) = g(W)+h(W)^{-1}p(W)\). Therefore in \(B[W]_{\tilde{Q}}/\langle f(W)\rangle_{\tilde{Q}} = B[w]_Q\), we have \(g(w)\in PB[w]_Q\). Since \(Q = \langle P, g(w)\rangle\) in \(B[w]\), it follows that \(QB[w]_Q = PB[w]_Q\). However, \(P\) is \(d\)-generated, so \(QB[w]_Q\) is \(d\)-generated and \(B[w]_Q\) has dimension \(d\), which shows that \(B[w]_Q\) is a regular local ring, completing the proof. \(\square\)</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, April 14</div>
+
+            <p>We began class with a proof of the following long awaited theorem.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Theorem.</span> Let \(R\) be a polynomial ring in finitely many variables over a field of characteristic zero and \(P\subseteq R\) a prime ideal. Then \(P = \bigcap_{M\in \mathfrak{A}} M\), where \(\mathfrak{A}\) is the set of maximal ideals in \(R\) containing \(P\) such that \((R/P)_M\) is a regular local ring.
+                </div>
+                <p><em>Proof.</em> We may mod out \(P\) and assume we have an integral domain \(A\) that is a finitely generated algebra over a field of characteristic zero and show \((0) = \bigcap_{M\in \mathfrak{A}} M\), where \(\mathfrak{A}\) is the set of maximal ideals in \(A\) such that \(A_M\) is a regular local ring.</p>
+                <p>By the theorem from the lecture of April 9, there exists \(0\not= \delta\in A\) such that \(A_{\delta}\) is locally regular, i.e., \(A_M\) is a regular local ring for all maximal ideals \(M\subseteq A\) not containing \(\delta\). On the other hand, \(A\) and hence \(A_{\delta}\), is a Hilbert ring, so that if \(N\subseteq A_{\delta}\) is a maximal ideal, \(N = M_{\delta}\) for a maximal ideal \(M\subseteq A\) not containing \(\delta\). Thus, letting \(X\) denote the maximal ideals of \(A\) not containing \(\delta\), we have</p>
+                <div class="math-display">
+                    \[(0)\subseteq \bigcap_{M\in \mathfrak{A}} M \subseteq \bigcap_{M\in X} M \subseteq \bigcap \{M_\delta\ |\ M_{\delta}\subseteq A_{\delta}\ \text{is maximal}\} = (0),\]
+                </div>
+                <p>since \(A_{\delta}\) is a Hilbert ring, which gives what we want. \(\square\)</p>
+            </div>
+
+            <p>After recalling the definition of the \(n\)th symbolic power of a prime \(P\) in a Noetherian ring \(R\), we noted the following important points showing the importance of symbolic powers.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Important Points.</span> Let \(R\) be a Noetherian ring and \(P\subseteq R\) a prime ideal.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(P^{(n)}\) is the \(P\)-primary component in any primary decomposition of \(P^n\).</li>
+                    <li style="list-style-type: none;">(ii) It is of interest to know when the \(P\)-adic topology \(\{P^n\}_{n\geq 1}\) is equivalent to the \(P\)-symbolic topology \(\{P^{(n)}\}_{n\geq 1}\).</li>
+                    <li style="list-style-type: none;">(iii) I. Swanson has shown that if the \(P\)-adic and \(P\)-symbolic topologies are equivalent, then there exists \(c > 0\) such that \(P^{(cn)}\subseteq P^n\), for all \(n\geq 1\).</li>
+                    <li style="list-style-type: none;">(iv) Ein-Lazarsfeld-Smith and Hochster-Huneke showed that if \(R\) is a regular local ring of dimension \(d\) containing a field, then \(P^{(nd)}\subseteq P^n\), for all \(n\geq 1\) and for all \(P\).</li>
+                    <li style="list-style-type: none;">(v) Nagata showed that if \((R, \mathfrak{m})\) is a regular local ring, then \(P^{(n)}\subseteq \mathfrak{m}^n\), for all \(n\geq 1\) and all primes \(P\subseteq R\).</li>
+                    <li style="list-style-type: none;">(vi) Huneke-Katz-Validashti showed that if \(R\) is a complete local domain, then there exists \(c > 1\) such that \(P^{(cn)}\subseteq \mathfrak{m}^n\), for all primes \(P\subseteq R\) and \(n\geq 1\).</li>
+                </ol>
+            </div>
+
+            <p>This set the stage for our next goal, namely, the <em>Zariski-Nagata Theorem</em>: Suppose \(R\) is a polynomial ring in finitely many variables over an algebraically closed field of characteristic zero. Then \(f\in R\) belongs to \(P^{(n)}\) if and only if all mixed partials of \(f\) of order less than \(n\) belong to \(P\).</p>
+
+            <p>We then had a brief discussion regarding <em>regular sequences</em>.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Let \(R\) be a Noetherian ring, \(\underline{x} = x_1, \ldots, x_n\) a sequence of elements in \(R\) and \(M\) a finitely generated \(R\)-module. Then \(\underline{x}\) is a <em>regular sequence on \(M\)</em> if:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \((\underline{x})M\not= M\) and</li>
+                    <li style="list-style-type: none;">(ii) \(x_1\) is a non-zerodivisor on \(M\), \(x_2\) is a non-zerodivisor on \(M/x_1M\), \(\ldots\), \(x_n\) is a non-zerodivisor on \(M/\langle x_1, \ldots, x_{n-1}\rangle M\).</li>
+                </ol>
+            </div>
+
+            <p>We noted that if \(R = k[x_1, \ldots, x_d]\) is a polynomial ring with coefficients in the field \(k\), then \(x_1, \ldots, x_d\) is a regular sequence on \(R\) and similarly, if \((R, \mathfrak{m})\) is a regular local ring and \(\mathfrak{m}\) has a minimal generating set \(x_1, \ldots, x_d\), then \(x_1, \ldots, x_d\) is a regular sequence on \(R\).</p>
+
+            <p>This was followed by stating and proving the following</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Proposition.</span> Suppose \(\underline{x} = x_1, \ldots, x_n\) is a regular sequence on \(R\) and \(a_1x_1+\cdots+a_nx_n = 0\), with each \(a_i\in R\). Then as a column vector in \(R^n\), \(\begin{pmatrix} a_1\\\vdots\\a_n\end{pmatrix}\) belongs to the submodule of \(R^n\) generated by</p>
+                <div class="math-display">
+                    \[\begin{aligned}&C_1 := \begin{pmatrix} -x_2\\x_1\\0\\\vdots\\0\\0\end{pmatrix},\ C_2 := \begin{pmatrix} -x_3\\0\\x_3\\\vdots\\0\\0\end{pmatrix},\ \ldots,\ C_{n-1} := \begin{pmatrix} -x_n\\0\\0\\\vdots\\0\\x_1\end{pmatrix},\\[10pt] &C_n := \begin{pmatrix} 0\\-x_3\\x_2\\\vdots\\0\\0\end{pmatrix},\ \ldots,\ C_{2n-3} := \begin{pmatrix} 0\\-x_n\\0\\\vdots\\0\\x_2\end{pmatrix},\ \ldots,\ C_N := \begin{pmatrix} 0\\0\\0\\\vdots\\-x_n\\x_{n-1}\end{pmatrix},\end{aligned}\]
+                </div>
+                <p>where \(N := \binom{n}{2}\).</p>
+            </div>
+
+            <p>We noted that for any sequence \(\underline{x} = x_1, \ldots, x_n\), the column vectors \(C_1, \ldots, C_N\) are the <em>Koszul relations</em> on \(\underline{x}\). We also stated a version of the proposition if \(\underline{x}\) forms a regular sequence on the finitely generated module \(M\).</p>
+
+            <p>We ended class with the following</p>
+
+            <div class="definition">
+                <span class="statement-title">Observation.</span> Let \(R = k[x_1, \ldots, x_d]\) be a polynomial ring over the field \(k\) of characteristic zero. For a prime \(P\subseteq R\) and \(n\geq 1\) let \(P^{\langle n\rangle}\) denote the set of \(f\in R\) such that all mixed partial derivatives of \(f\) of order less than \(n\) belong to \(P\). Then \(P^{(n)}\subseteq P^{\langle n\rangle}\).
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, April 16</div>
+
+            <p>We continued with results leading to the Zariski-Nagata theorem, beginning with the following proposition.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Suppose \(R = k[x_1, \ldots, x_d]\) is a polynomial ring over an algebraically closed field of characteristic zero and \(P\subseteq R\) is a prime ideal. Then for all \(n\geq 1\), \(P^{\langle n\rangle} = \bigcap_{P\subseteq M}M^n\), where the intersection is taken over the maximal ideals of \(R\) containing \(P\). Equivalently, letting \(X = V(P)\), \(P^{\langle n\rangle} = \bigcap_{\underline{\alpha}\in X} M^n_{\underline{\alpha}}\), where \(M_{\underline{\alpha}}\) is the maximal ideal in \(R\) corresponding to \(\underline{\alpha}\in X\).
+            </div>
+
+            <p>We then stated the following key theorem due to Eisenbud and Hochster.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <p><span class="statement-title">Theorem (Eisenbud-Hochster).</span> Let \(R\) be a Noetherian ring, \(P\subseteq R\) a prime ideal and \(A\) a finitely generated \(R\)-module. Assume:</p>
+                    <ol style="list-style-type: none; padding-left: 20px;">
+                        <li style="list-style-type: none;">(i) \(P = \bigcap_{M\in \mathfrak{A}} M\), where \(\mathfrak{A}\) is a collection of maximal ideals \(M\) satisfying \((R/P)_M\) is a regular local ring.</li>
+                        <li style="list-style-type: none;">(ii) \(\mathrm{Ass}(A) = P\).</li>
+                        <li style="list-style-type: none;">(iii) \(P^n A = 0\).</li>
+                    </ol>
+                    <p>Then \(\bigcap_{M\in \mathfrak{A}} M^nA = 0\). In particular, taking \(A = R/P^{(n)}\), it follows that \(\bigcap_{M\in \mathfrak{A}} M^n\subseteq P^{(n)}\).</p>
+                </div>
+            </div>
+
+            <p>The theorem above appears in the paper of Eisenbud-Hochster titled <em>A Nullstellensatz with nilpotents and Zariski's Main Lemma on holomorphic functions</em>. The point is this: we have seen in the main theorem from Tuesday April 14, that for \(R = k[x_1, \ldots, x_d]\) a polynomial ring over the field \(k\) of characteristic zero, and \(P\subseteq R\), \(P = \bigcap_{M\in \mathfrak{A}} M\), or equivalently, in \(R/P\), \((0) = \bigcap_{N\in \mathfrak{A}'} N\), where \(\mathfrak{A}'\) are the maximal ideals \(N = M/P\) for \(M\in \mathfrak{A}\). The ring \(R/P^{(n)}\) has nilpotent elements, and the theorem above states that \(\bigcap_{N\in \mathfrak{A}'} N^n(R/P^{(n)}) = 0\).</p>
+
+            <p>With the theorem of Eisenbud-Hochster in hand, we were able to prove the Zariski-Nagata theorem.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <div class="definition">
+                    <span class="statement-title">Zariski-Nagata Theorem.</span> Let \(R\) be a polynomial ring in finitely many variables over an algebraically closed field of characteristic zero, and \(P\subseteq R\) a prime ideal. Then for all \(n\geq 1\), \(P^{(n)} = P^{\langle n\rangle}\). In particular, \(P^{(n)} = \bigcap_{P\subseteq M}M^n\), where the intersection is taken over the maximal ideals containing \(P\).
+                </div>
+                <p><em>Proof.</em> Let \(\mathfrak{A}\) denote the maximal ideals containing \(P\) such that \((R/P)_M\) is a regular local ring. Then we have \(P = \bigcap_{M\in \mathfrak{A}} M\), so that the Eisenbud-Hochster theorem applies to \(R/P^{(n)}\). Thus,</p>
+                <div class="math-display">
+                    \[P^{(n)}\subseteq P^{\langle n\rangle} = \bigcap_{M\in X}M^n \subseteq \bigcap_{M\in \mathfrak{A}}M^n\subseteq P^{(n)},\]
+                </div>
+                <p>where \(X\) is the set of maximal ideals in \(R\) containing \(P\). \(\square\)</p>
+            </div>
+
+            <p>In order to prove the theorem of Eisenbud-Hochster, we needed a couple of preliminary results, beginning with the following lemma.</p>
+
+            <div class="definition">
+                <span class="statement-title">Lemma (<em>Locally free implies generically free</em>).</span> Let \(R\) be a Noetherian ring, \(P\subseteq R\) a prime ideal and \(A\) a finitely generated \(R\)-module. If \(A_P\) is a free \(R_P\)-module, then there exists \(f\not\in P\) such that \(A_f\) is a free \(R_f\)-module.
+            </div>
+
+            <p>The rest of the class was spent proving the following proposition.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Suppose \(R\) is a Noetherian ring, \(M\) a finitely generated \(R\)-module, \(\underline{x} = x_1, \ldots, x_t\) elements of \(R\) and \(M_r\subseteq M_{r-1}\subseteq \cdots \subseteq M_0 = M\) a chain of submodules satisfying \(\underline{x}\) is a regular sequence on \(M_i/M_{i+1}\), for all \(i\). Then \(\underline{x}\) is a regular sequence on \(M/M_r\) and \(\underline{x}M\cap M_r = \underline{x}M_r\).
+            </div>
+
+            <p><strong>Clarifying Remark.</strong> The proof of the proposition requires the following Claim*: Suppose we have a short exact sequence \(0\to A\to B\to C\to 0\) of finite \(R\)-modules and \(\underline{x} = x_1, \ldots, x_t\) is a sequence of elements in \(R\). Then (viewing \(A\) as a submodule of \(B\)):</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) If \(\underline{x}\) is a regular sequence on \(A\) and \(C\), then \(\underline{x}\) is a regular sequence on \(B\).</li>
+                <li style="list-style-type: none;">(ii) If \(\underline{x}\) is a regular sequence on \(C = B/A\), then \(\underline{x}B\cap A = \underline{x}A\).</li>
+            </ol>
+            <p>In class, we stated a slightly stronger result, namely, the Claim: Given the exact sequence and the elements \(\underline{x}\), if \(\underline{x}\) is a regular sequence on \(A\) and \(C\), then \(\underline{x}\) is regular on \(B\) and \(\underline{x}B\cap A = \underline{x}B\). The proof we gave in class of this statement was correct, and the proof that \(\underline{x}B\cap A = \underline{x}B\) only used that \(\underline{x}\) is a regular sequence on \(B/A\), so Claim* holds. However, the Claim does not give the second statement in the proposition. Here's why: To prove the proposition, we consider the exact sequence</p>
+            <div class="math-display">
+                \[0\to M_1/M_2\to M/M_2\to M/M_1\to 0.\]
+            </div>
+            <p>By hypothesis, \(\underline{x}\) is regular on \(M_1/M_2\) and \(M/M_1\), so by Claim* or Claim above, \(\underline{x}\) is regular on \(M/M_2\). To get that \(\underline{x}M\cap M_2 = \underline{x}M_2\), we noted that the stronger Claim does not apply to the exact sequence</p>
+            <div class="math-display">
+                \[0\to M_2\to M\to M/M_1\to 0\]
+            </div>
+            <p>because \(\underline{x}\) is not regular on \(M_2\). However, the weaker Claim* above does apply, since we only need \(\underline{x}\) to be regular on \(M/M_2\) to infer that \(\underline{x}M\cap M_2 = \underline{x}M_2\). So using Claim*, we can give a proof of the proposition.</p>
+
+            <div style="background-color: #fff3cd; padding: 12px 16px; margin: 10px 0; border-radius: 4px;">
+                <p><em>Proof of the Proposition.</em> First note that we have \(\underline{x}M\cap M_1 = \underline{x}M_1\), by applying the second part of Claim* to \(M/M_1\). Now, from the exact sequence</p>
+                <div class="math-display">
+                    \[0\to M_1/M_2\to M/M_2\to M/M_1\to 0,\]
+                </div>
+                <p>the Claim* and the hypotheses of the proposition, we have that \(\underline{x}\) is a regular sequence on \(M/M_2\) and thus, by the second part of the proposition, \(\underline{x}M\cap M_2 = \underline{x}M_2\). Applying this, and the hypotheses of the proposition to the exact sequence</p>
+                <div class="math-display">
+                    \[0\to M_2/M_3\to M/M_3\to M/M_2\to 0\]
+                </div>
+                <p>gives that \(\underline{x}\) is regular on \(M/M_3\) and \(\underline{x}M\cap M_3 = \underline{x}M_3\). Continuing inductively finishes the proof. \(\square\)</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, April 21</div>
+
+            <p>We began class by proving the Eisenbud-Hochster theorem stated in the previous lecture. The proposition stated and proved at the end of the lecture played a key role in the proof of this theorem.</p>
+
+            <p>After first noting that our next long range goal is to prove the <em>What makes a complex exact?</em> theorem of Buchsbaum-Eisenbud, we then turned our attention to defining <em>regular sequences</em> and establishing a few of their basic properties, beginning with</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definitions.</span> Assume \(R\) is a Noetherian ring, \(M\) is a finitely generated \(R\)-module and we have a sequence \(\underline{x} = x_1, \ldots, x_n\in R\). Let \(I\subseteq R\) be an ideal.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) The sequence \(\underline{x}\) is a <em>regular sequence on \(M\)</em> if:
+                        <ol style="list-style-type: none; padding-left: 20px;">
+                            <li style="list-style-type: none;">(a) \(x_1\) is a non-zerodivisor on \(M\), \(x_2\) is a non-zerodivisor on \(M/x_1M\), \(\ldots\), \(x_n\) is a non-zerodivisor on \(M/\langle x_1,\ldots,x_{n-1}\rangle M\) and</li>
+                            <li style="list-style-type: none;">(b) \(\langle x_1,\ldots,x_n\rangle M\not= M\).</li>
+                        </ol>
+                    </li>
+                    <li style="list-style-type: none;">(ii) If \(\underline{x}\) is a regular sequence on \(M\) and \(\underline{x}\subseteq I\), we say that \(\underline{x}\) is a <em>regular sequence on \(M\) from \(I\)</em>.</li>
+                    <li style="list-style-type: none;">(iii) If \(\underline{x}\subseteq I\) is a regular sequence on \(M\) and cannot be extended to a longer regular sequence on \(M\) from \(I\), we say that \(\underline{x}\) is a <em>maximal</em> regular sequence on \(I\) from \(M\).</li>
+                </ol>
+            </div>
+
+            <p>We noted from the definitions that:</p>
+            <ul>
+                <li>\(\underline{x}\) is a regular sequence on \(M\) if and only if \(\underline{x}M\not= M\) and for all \(i\), \(x_i\not\in P\), for all \(P\in \mathrm{Ass}(M/\langle x_1,\ldots,x_{i-1}\rangle M)\).</li>
+                <li>\(\underline{x}\subseteq I\) is a maximal regular sequence on \(M\) from \(I\) if and only if \(\underline{x}\) is a regular sequence on \(M\) from \(I\) and \(I\subseteq P\), for some \(P\in \mathrm{Ass}(M/\underline{x}M)\).</li>
+                <li>If \(x, y\) is a regular sequence on \(M\), and \(y\) is a non-zerodivisor on \(M\), then \(y, x\) is a regular sequence on \(M\). Thus, if \(\underline{x}\) is a regular sequence on \(M\), and \(x_{i+1}\) is a non-zerodivisor on \(M/\langle x_1,\ldots,x_{i-1}\rangle M\), then \(x_1,\ldots,x_{i-1},x_{i+1},x_i,\ldots,x_n\) is a regular sequence on \(M\).</li>
+            </ul>
+
+            <p>We noted that our immediate goal is to prove that if \(R\) is a Noetherian ring, \(I\subseteq R\) an ideal and \(M\) a finitely generated \(R\)-module, then all maximal regular sequences on \(M\) from \(I\) have the same length. This led to the following definitions.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span></p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) The length of a maximal regular sequence on \(M\) from \(I\) is called the <em>grade of \(I\) on \(M\)</em>. When \(M = R\), this is the <em>grade of \(I\)</em>.</li>
+                    <li style="list-style-type: none;">(ii) When \((R,\mathfrak{m})\) is local, and \(I = \mathfrak{m}\), then the length of a maximal regular sequence on \(M\) from \(\mathfrak{m}\) is called the <em>depth of \(M\)</em>. In particular, when \(M = R\), this is the <em>depth of \(R\)</em>.</li>
+                </ol>
+            </div>
+
+            <p>We finished class by proving the following Lemma, needed for the proposition that follows.</p>
+
+            <div class="definition">
+                <span class="statement-title">Lemma.</span> Suppose \(R\) is a Noetherian ring, \(M\) a finitely generated \(R\)-module and \(P\subseteq R\) an ideal. If \(x, y\in P\) are non-zerodivisors on \(M\), then \(P\in \mathrm{Ass}(M/xM)\) if and only if \(P\in \mathrm{Ass}(M/yM)\).
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Let \(R\) be a Noetherian ring and \(M\) a finitely generated \(R\)-module. Suppose that \(\underline{x} = x_1,\ldots,x_t\) is a regular sequence on \(M\). If \(\underline{x}\) is contained in the Jacobson radical of \(R\), then every permutation of \(\underline{x}\) is a regular sequence on \(M\).
+            </div>
+
+            <p>Two key facts in the proof of the proposition were: (i) the group theoretic fact that any permutation of \(t\) elements is the product of permutations that interchange adjacent elements and (ii) if \(x\) is a non-zerodivisor on \(M\), then \(Q\in \mathrm{Ass}(M/xM)\) if and only if \(Q\in \mathrm{Ass}(M/x^nM)\), for all \(n\geq 1\).</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Thursday, April 23</div>
+
+            <p>We began class by proving the following theorem.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> Let \(R\) be a Noetherian ring, \(I\subseteq R\) an ideal and \(M\) a finitely generated \(R\)-module. Then any two maximal regular sequences from \(I\) on \(M\) have the same number of elements. In other words, the grade of \(I\) on \(M\) is well defined.</p>
+                <p><em>Proof.</em> Let \(x_1,\ldots,x_t\in I\) and \(y_1,\ldots,y_s\in I\) be maximal regular sequences from \(I\) on \(M\). We assume \(t\leq s\) and the goal is to show \(t = s\). For this, it suffices to prove the following statement:</p>
+                <p>If \(\underline{x} = x_1,\ldots,x_t\) and \(\underline{y} = y_1,\ldots,y_t\) are regular sequences on \(M\) and \(P\in \mathrm{Ass}(M/\underline{x}M)\), then \(P\in \mathrm{Ass}(M/\underline{y}M)\).</p>
+                <p>Note, by definition, there exists \(P\in \mathrm{Ass}(M/\underline{x}M)\) with \(I\subseteq P\), so if the statement holds, \(I\) consists of zero divisors on \(M/\underline{y}M\), prohibiting the ability to extend \(\underline{y}\) with an element from \(I\).</p>
+                <p>To prove the statement, we may localize at \(P\) and assume that \((R,P)\) is local. We now induct on \(t\), and note that the case \(t = 1\) is just the lemma presented at the end of the previous Daily Update. Suppose \(t > 1\) and set \(\underline{x}' = x_1,\ldots,x_{t-1}\) and \(\underline{y}' = y_1,\ldots,y_{t-1}\). Then, by definition, \(I\) is not contained in any prime associated to \(M/\underline{x}'M\) or \(M/\underline{y}'M\), so we may find \(z\in I\) such that \(\underline{x}', z\) and \(\underline{y}', z\) form regular sequences on \(M\) from \(I\) with \(P\in \mathrm{Ass}(M/(\underline{x}', z)M)\), by the lemma from the previous lecture applied to \(M/\underline{x}'M\). Since \(R\) is local, \(z, \underline{x}'\) and \(z, \underline{y}'\) are regular sequences, with \(P\in \mathrm{Ass}(M/(z, \underline{x}')M)\). Now, for \(M' := M/zM\), \(\underline{x}'\) and \(\underline{y}'\) are regular sequences on \(M'\) and \(P\in \mathrm{Ass}(M'/\underline{x}'M')\). Thus, by induction, \(P\in \mathrm{Ass}(M'/\underline{y}'M')\), i.e., \(P\in \mathrm{Ass}(M/(z,\underline{y}')M) = \mathrm{Ass}(M/(\underline{y}',z)M) = \mathrm{Ass}(M_0/zM_0)\), for \(M_0 := M/\underline{y}'M\). But \(z\) and \(y_t\) are non-zerodivisors on \(M_0\), so by the lemma from the previous lecture, \(P\in \mathrm{Ass}(M_0/y_tM_0) = \mathrm{Ass}(M/\underline{y}M)\), which gives what we want. \(\square\)</p>
+            </div>
+
+            <p>For those in Math 830 last semester, or those familiar with homological algebra, the theorem follows from the following fact: Suppose \(\underline{x} = x_1,\ldots,x_t\in I\) and \(M\) is a finitely generated \(R\)-module. Then \(\underline{x}\) is a maximal regular sequence from \(I\) on \(M\) if and only if \(\mathrm{Ext}_R^i(R/I,M) = 0\), for \(i < t\) and \(\mathrm{Ext}_R^t(R/I,M)\not= 0\). Since the Ext modules only depend upon \(I\) and \(M\), this shows that every maximal regular sequence from \(I\) on \(M\) has length \(t\).</p>
+
+            <p>We followed the proof of the theorem by proving the very important:</p>
+
+            <div class="definition">
+                <span class="statement-title">Auslander-Buchsbaum Formula.</span> Let \((R,\mathfrak{m})\) be a local ring and \(M\) a finitely generated \(R\)-module with finite projective dimension. Then: \(\mathrm{depth}(R) = \mathrm{depth}(M) + \mathrm{proj.dim.}(M)\).
+            </div>
+
+            <p>We then began a discussion of the next major result we seek to present, namely the exactness criteria for complexes of finitely generated free modules over a Noetherian ring. In other words, given a complex of finitely generated free \(R\)-modules</p>
+            <div class="math-display">
+                \[\mathcal{F}:\quad 0\to F_n\overset{\phi_n}{\longrightarrow} F_{n-1}\overset{\phi_{n-1}}{\longrightarrow} F_{n-2}\longrightarrow\cdots\longrightarrow F_2\overset{\phi_1}{\longrightarrow} F_0,\]
+            </div>
+            <p>we ask, in the words of Buchsbaum-Eisenbud, <em>What makes the complex exact?</em></p>
+
+            <p>We then began a discussion that (we hope) will ultimately illuminate the proof of the B-E exactness theorem, which we will present as a generalization of McCoy's theorem. We started with the following observations.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Observations.</span> In the notation above, we think of each \(\phi_j\) as a matrix.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) If \(R\) is a field, \(\mathcal{F}\) is exact if and only if \(\mathrm{rank}(F_j) = \mathrm{rank}(\phi_{j+1}) + \mathrm{rank}(\phi_j)\), which follows from the rank plus nullity theorem from linear algebra.</li>
+                    <li style="list-style-type: none;">(ii) Suppose \(R\) is an integral domain with quotient field \(K = R_S\), for \(S\) the non-zero elements of \(R\). If \(\mathcal{F}\) is exact, then \(\mathrm{rank}(F_j) = \mathrm{rank}(\phi_{j+1}) + \mathrm{rank}(\phi_j)\), where the rank of \(\phi_j\) equals \(r\) if some \(r\times r\) minor of \(\phi_j\) is non-zero and every \((r+1)\times(r+1)\) minor of \(\phi_j\) equals zero.</li>
+                    <li style="list-style-type: none;">(iii) If \(n = 1\), so \(\mathcal{F}: R^m\overset{\phi_1}{\longrightarrow} F_0\), then \(\mathcal{F}\) is exact if and only if \(I_m(\phi)\) contains a non-zerodivisor, where \(I_m(\phi)\) denotes the ideal of \(R\) generated by the \(m\times m\) minors of \(\phi\). This was a consequence of applying McCoy's theorem to a Noetherian ring.</li>
+                </ol>
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">McCoy's Theorem.</span> Let \(A\) be a \(n\times m\) matrix with entries in the commutative ring \(R\). Then the homogeneous system of linear equations with coefficient matrix \(A\) has a non-trivial solution if and only if there exists \(0\not= r\in R\) such that \(r\cdot\delta = 0\), for all \(m\times m\) minors \(\delta\) of \(A\).
+            </div>
+        </div>
+
+        <!-- Additional daily updates will be added below as the semester continues -->
+
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX course daily update. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
