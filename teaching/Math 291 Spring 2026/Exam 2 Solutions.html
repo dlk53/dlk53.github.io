@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 291 Spring 2026: Exam 2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        h2 {
+            color: #8b2e3f;
+            margin: 30px 0 10px 0;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .solution {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #357abd;
+        }
+        .back-link:focus {
+            outline: 2px solid #357abd;
+            outline-offset: 2px;
+        }
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        /* Ensure sufficient color contrast */
+        .problem-number {
+            color: #2563eb;
+        }
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        .section-header {
+            text-align: center;
+            color: #8b2e3f;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin: 35px 0 5px 0;
+        }
+        .footnote {
+            font-size: 0.85em;
+            color: #555;
+            border-top: 1px solid #ccc;
+            margin-top: 20px;
+            padding-top: 10px;
+            font-style: italic;
+        }
+    </style>
+
+    <!-- ============================================================
+         Content Protection Script
+         Prevents casual downloading, copying, and saving.
+         Screen readers are unaffected (they operate at browser level).
+         ============================================================ -->
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+
+            // Disable right-click context menu
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert(msg);
+            });
+
+            // Disable text selection
+            var style = document.createElement('style');
+            style.innerHTML =
+                'body { -webkit-user-select: none; -moz-user-select: none;' +
+                ' -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+
+            // Block common keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+
+                // Ctrl/Cmd + S (Save), U (View Source), A (Select All),
+                // C (Copy), P (Print)
+                if ((e.ctrlKey || e.metaKey) &&
+                    ['s', 'u', 'a', 'c', 'p'].includes(key)) {
+                    e.preventDefault();
+                    if (key !== 'a') alert(msg);
+                    return false;
+                }
+
+                // F12 (DevTools)
+                if (e.key === 'F12') {
+                    e.preventDefault();
+                    return false;
+                }
+
+                // Ctrl+Shift+I or Ctrl+Shift+J (DevTools)
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey &&
+                    ['i', 'j'].includes(key)) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // Block drag-to-copy
+            document.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+            });
+
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Math 291 Spring 2026: Exam 2</h1>
+    </header>
+
+    <main id="main-content">
+
+        <div class="instructions">
+            <p>Instructions: Be sure to put your name on each page of your exam. When in doubt, it is always better to provide more detail than less. And: No calculators or other computational aids allowed.</p>
+        </div>
+
+        <p class="section-header">True-False and Short Answer. Each question is worth 6 points.</p>
+
+        <div class="problem">
+            <div class="problem-number">1.</div>
+            <p>True or False: Suppose \(\lambda\) is an eigenvalue for the \(2\times 2\) matrix \(A\). Then the set of eigenvectors associated to \(\lambda\) form a subspace of \(\mathbb{R}^2\).</p>
+            <div class="solution">
+                <span class="statement-title">Solution.</span> False. Eigenvectors are non-zero, and any subspace must contain the zero vector.
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">2.</div>
+            <p>True or False: Every \(2\times 2\) symmetric matrix over \(\mathbb{C}\) is diagonalizable.</p>
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> The correct answer is false, but a statement made in class may have been misleading, so no one lost any points on this problem. Symmetry means \(A = A^t\) and such matrices need not be diagonalizable over \(\mathbb{C}\). For example,</p>
+                <div class="math-display">
+                    \[A = \begin{pmatrix} 1 & i \\ i & -1 \end{pmatrix}.\]
+                </div>
+                <p>This satisfies \(A^t = A\). Its characteristic polynomial is \(p_A(x) = (1-x)(-1-x) - i^2 = -(1-x^2) + 1 = x^2\). So \(\lambda = 0\) is the only eigenvalue (with multiplicity 2). The eigenspace is \(\ker(A) = \ker\begin{pmatrix} 1 & i\\i & -1\end{pmatrix}\). Row-reducing gives \(\begin{pmatrix} 1 & i\\0 & 0\end{pmatrix}\), so the eigenspace is one-dimensional (spanned by \(\begin{pmatrix} i\\-1\end{pmatrix}\)) so \(A\) is <em>not</em> diagonalizable.</p>
+                <p>Note: However, over \(\mathbb{C}\) if \(A\) has two distinct eigenvalues, \(A\) will be diagonalizable.</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">3.</div>
+            <p>True or False: Suppose \(A = \begin{pmatrix} 2 & 3\\0 & 4\end{pmatrix}\). Then \(e^A = \begin{pmatrix} e^2 & e^3\\1 & e^4\end{pmatrix}\).</p>
+            <div class="solution">
+                <span class="statement-title">Solution.</span> False. The matrix exponential is <em>not</em> computed by exponentiating each entry.
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">4.</div>
+            <p>Consider the coupled system of linear differential equations given by \(X'(t) = A\cdot X(t)\), with initial conditions \(X(0) = \begin{pmatrix} 5\\5\end{pmatrix}\), where \(A\) is a \(2\times 2\) real matrix and \(X(t) = \begin{pmatrix} x_1(t)\\x_2(t)\end{pmatrix}\). Suppose \(A\) has eigenvalues \(-2, 7\) with eigenvectors \(v_1 = \begin{pmatrix} 2\\3\end{pmatrix}\), \(v_2 = \begin{pmatrix} 3\\2\end{pmatrix}\), respectively. Write out the solution to the given system of differential equations. <strong>You do not have to derive the solution.</strong></p>
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> The general solution to \(X'(t) = AX(t)\) is</p>
+                <div class="math-display">
+                    \[X(t) = c_1 e^{-2t}\begin{pmatrix} 2\\3\end{pmatrix} + c_2 e^{7t}\begin{pmatrix} 3\\2\end{pmatrix}.\]
+                </div>
+                <p>Applying the initial condition \(X(0) = \begin{pmatrix} 5\\5\end{pmatrix}\):</p>
+                <div class="math-display">
+                    \[c_1\begin{pmatrix} 2\\3\end{pmatrix} + c_2\begin{pmatrix} 3\\2\end{pmatrix} = \begin{pmatrix} 5\\5\end{pmatrix}.\]
+                </div>
+                <p>This gives the system \(2c_1 + 3c_2 = 5\) and \(3c_1 + 2c_2 = 5\). Subtracting the first equation from the second: \(c_1 - c_2 = 0\), so \(c_1 = c_2\). Substituting back: \(5c_1 = 5\), giving \(c_1 = c_2 = 1\). Therefore the solution is</p>
+                <div class="math-display">
+                    \[X(t) = e^{-2t}\begin{pmatrix} 2\\3\end{pmatrix} + e^{7t}\begin{pmatrix} 3\\2\end{pmatrix},\]
+                </div>
+                <p>i.e., \(x_1(t) = 2e^{-2t} + 3e^{7t}\) and \(x_2(t) = 3e^{-2t} + 2e^{7t}\).</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">5.</div>
+            <p>State the Spectral Theorem for \(2\times 2\) real matrices. Be sure to define all of the terms used in the statement of the theorem.</p>
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We first define the relevant terms.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) A matrix \(A \in M_2(\mathbb{R})\) is <em>symmetric</em> if \(A^t = A\).</li>
+                    <li style="list-style-type: none;">(ii) A matrix \(Q \in M_2(\mathbb{R})\) is <em>orthogonal</em> if the columns of \(Q\) form an orthonormal basis for \(\mathbb{R}^2\).</li>
+                    <li style="list-style-type: none;">(iii) \(A\) is <em>orthogonally diagonalizable</em> if there exists an orthogonal matrix \(Q\) and a diagonal matrix \(D\) such that \(Q^{-1}AQ = D\).</li>
+                </ol>
+                <p><strong>Spectral Theorem (for \(2\times 2\) real matrices).</strong> A real \(2\times 2\) symmetric matrix is orthogonally diagonalizable.</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">6.</div>
+            <p>Suppose \(P^{-1}AP = \begin{pmatrix} a & 0\\0 & b\end{pmatrix}\). Write a formula for \(A^{1729}\).</p>
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Since \(P^{-1}AP = D\) where \(D = \begin{pmatrix} a&0\\0&b\end{pmatrix}\), we have \(A = PDP^{-1}\). Then</p>
+                <div class="math-display">
+                    \[A^{1729} = (PDP^{-1})^{1729} = PD^{1729}P^{-1}.\]
+                </div>
+                <p>Since \(D\) is diagonal, \(D^{1729} = \begin{pmatrix} a^{1729} & 0\\0 & b^{1729}\end{pmatrix}\). Therefore</p>
+                <div class="math-display">
+                    \[A^{1729} = P\begin{pmatrix} a^{1729} & 0\\0 & b^{1729}\end{pmatrix} P^{-1}.\]
+                </div>
+            </div>
+            <div class="footnote">
+                <p>Regarding the number 1729: Upon visiting his colleague Ramanujan in the hospital, the English mathematician G.H. Hardy remarked that the number of the taxi cab he arrived in, 1729, was a rather dull number. "No," Ramanujan replied, "it is a very interesting number; it is the smallest number expressible as the sum of two positive cubes in two different ways." If you are not familiar with the story of the Indian mathematician Ramanujan, then you might enjoy either seeing the movie, or reading the book, titled <em>The Man Who Knew Infinity</em>.</p>
+            </div>
+        </div>
+
+        <p class="section-header">Calculation Problems. Each question is worth 20 points.</p>
+
+        <div class="problem">
+            <div class="problem-number">1.</div>
+            <p>Consider the matrix \(A = \begin{pmatrix} 2 & i\\i & 1\end{pmatrix}\). Find the eigenvalues of \(A\) and find a matrix over \(\mathbb{C}\) diagonalizing \(A\) and verify the diagonalization. Then show that \(A\) is not orthogonally diagonalizable as a complex matrix.</p>
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> My apologies. The exam question stated diagonalizing over \(\mathbb{R}\), which was a typo.</p>
+
+                <p>Step 1: We compute the characteristic polynomial:</p>
+                <div class="math-display">
+                    \[\begin{aligned} p_A(x) &= \det(A - xI) = \det\begin{pmatrix} 2-x & i\\i & 1-x\end{pmatrix} \\ &= (2-x)(1-x) - i^2 = (2-x)(1-x)+1 = x^2 - 3x + 3. \end{aligned}\]
+                </div>
+                <p>By the quadratic formula:</p>
+                <div class="math-display">
+                    \[x = \frac{3 \pm \sqrt{9 - 12}}{2} = \frac{3 \pm \sqrt{-3}}{2} = \frac{3 \pm i\sqrt{3}}{2}.\]
+                </div>
+                <p>So the eigenvalues are \(\lambda_1 = \dfrac{3 + i\sqrt{3}}{2}\) and \(\lambda_2 = \dfrac{3 - i\sqrt{3}}{2}\).</p>
+
+                <p>Step 2: We find eigenvectors for each eigenvalue.</p>
+
+                <p><em>Eigenvector for \(\lambda_1 = \frac{3}{2}+\frac{i\sqrt{3}}{2}\):</em> We consider \(A-\lambda_1 I = \begin{pmatrix} 2-\lambda_1 & i\\i & 1-\lambda_1\end{pmatrix}\). This matrix has rank one, so to solve \((A - \lambda_1 I)\begin{pmatrix} x\\y\end{pmatrix} = 0\), we may use the second row: \(ix + (1-\lambda_1)y = 0\). Set \(y = 1\):</p>
+                <div class="math-display">
+                    \[x = \frac{\lambda_1-1}{i} = \frac{\lambda_1 -1}{i}\cdot\frac{-i}{-i} = \frac{\frac{1}{2}+\frac{i\sqrt{3}}{2}}{i}\cdot \frac{-i}{-i} = \frac{-\frac{i}{2}+\frac{\sqrt{3}}{2}}{1} = \frac{\sqrt{3}}{2} - \frac{i}{2}.\]
+                </div>
+                <p>So \(v_1 = \begin{pmatrix} \frac{\sqrt{3}}{2} - \frac{i}{2}\\1\end{pmatrix}\).</p>
+
+                <p><em>Eigenvector for \(\lambda_2 = \frac{3}{2}-\frac{i\sqrt{3}}{2}\):</em> Solve \((A - \lambda_2 I)\begin{pmatrix} x\\y\end{pmatrix} = 0\). Using the first row: \(\left(\frac{1}{2}+\frac{i\sqrt{3}}{2}\right)x + i\,y = 0\). Set \(x = 1\):</p>
+                <div class="math-display">
+                    \[y = -\frac{\frac{1}{2}+\frac{i\sqrt{3}}{2}}{i} = -\left(\frac{1}{2}+\frac{i\sqrt{3}}{2}\right)(-i) = -\frac{\sqrt{3}}{2} + \frac{i}{2}.\]
+                </div>
+                <p>So \(v_2 = \begin{pmatrix} 1\\-\frac{\sqrt{3}}{2}+\frac{i}{2}\end{pmatrix}\).</p>
+
+                <p>The diagonalizing matrix is \(P = \begin{pmatrix} \frac{\sqrt{3}}{2}-\frac{i}{2} & 1\\ 1 & -\frac{\sqrt{3}}{2}+\frac{i}{2}\end{pmatrix}\).</p>
+
+                <p>What I had in mind for the verification was checking that \(AP = PD\), for \(D = \begin{pmatrix} \dfrac{3 + i\sqrt{3}}{2} & 0\\[6pt]0 & \dfrac{3 - i\sqrt{3}}{2}\end{pmatrix}\), so that one does not have to compute \(P^{-1}\). But even this calculation is more involved than expected, though it is straightforward. Consequently, no points were taken off for omitting or miscalculating this verification. See the Appendix for the details of the calculation.</p>
+
+                <p>Step 3: To see that \(A\) is not orthogonally diagonalizable over \(\mathbb{C}\), we check that the eigenvectors are not orthogonal with respect to the complex inner product:</p>
+                <div class="math-display">
+                    \[v_1\cdot v_2 = \left(\frac{\sqrt{3}-i}{2}\right)\cdot \overline{1} + 1\cdot\overline{\left(\frac{-\sqrt{3}+i}{2}\right)} = \left(\frac{\sqrt{3}-i}{2}\right) + \left(\frac{-\sqrt{3}-i}{2}\right) = -i\not= 0,\]
+                </div>
+                <p>so \(v_1, v_2\) are not orthogonal.</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">2.</div>
+            <p>Given the matrix \(B = \begin{pmatrix} 0 & -1\\1 & 2\end{pmatrix}\), find the Jordan canonical form for \(B\) and the corresponding change of basis matrix \(P\). Then use this to derive a formula for \(B^n\).</p>
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We first compute the characteristic polynomial:</p>
+                <div class="math-display">
+                    \[p_B(x) = \det(B - xI_2) = \det\begin{pmatrix} -x & -1\\1 & 2-x\end{pmatrix} = -x(2-x)+1 = x^2-2x+1 = (x-1)^2.\]
+                </div>
+                <p>So \(\lambda = 1\) is the only eigenvalue, with multiplicity 2. We next find the eigenspace of 1:</p>
+                <div class="math-display">
+                    \[B - I_2 = \begin{pmatrix} -1 & -1\\1 & 1\end{pmatrix}.\]
+                </div>
+                <p>Row reducing we get \(\begin{pmatrix} 1 & 1\\0 & 0\end{pmatrix}\), so the eigenspace is \(\left\{t\cdot \begin{pmatrix} -1\\1\end{pmatrix}\ \middle|\ t\in \mathbb{R}\right\}\), which is one-dimensional, so \(B\) is <strong>not</strong> diagonalizable since we do not have two linearly independent eigenvectors. The Jordan canonical form is:</p>
+                <div class="math-display">
+                    \[J = \begin{pmatrix} 1 & 1\\0 & 1\end{pmatrix}.\]
+                </div>
+
+                <p>For the change of basis matrix, we have \(P = [v_1\ v_2]\) where \(v_2\) is not an eigenvector and \(v_1 = (B-I_2)v_2\). We can take \(v_2 = \begin{pmatrix} 1\\0\end{pmatrix}\). Then \(v_1 = (B-I_2)v_2 = \begin{pmatrix} -1 & -1\\1 & 1\end{pmatrix}\begin{pmatrix} 1\\0\end{pmatrix} = \begin{pmatrix} -1\\1\end{pmatrix}\). Therefore \(P = \begin{pmatrix} -1 & 1\\1 & 0\end{pmatrix}\). We have \(\det(P) = 0 - 1 = -1\), so \(P^{-1} = \begin{pmatrix} 0 & 1\\1 & 1\end{pmatrix}\) and \(P^{-1}BP = J\).</p>
+
+                <p>To find \(B^n\), since \(B = PJP^{-1}\), we have \(B^n = PJ^nP^{-1}\). Now \(J^2 = \begin{pmatrix} 1 & 2\\0 & 1\end{pmatrix}\), \(J^3 = \begin{pmatrix} 1 & 3\\0 & 1\end{pmatrix}\), \(J^4 = \begin{pmatrix} 1 & 4\\0 & 1\end{pmatrix}\), and continuing we see \(J^n = \begin{pmatrix} 1 & n\\0 & 1\end{pmatrix}\), which can be proven using mathematical induction, though this was not required.</p>
+
+                <p>Therefore:</p>
+                <div class="math-display">
+                    \[B^n = PJ^nP^{-1} = \begin{pmatrix} -1 & 1\\1 & 0\end{pmatrix}\begin{pmatrix} 1 & n\\0 & 1\end{pmatrix}\begin{pmatrix} 0 & 1\\1 & 1\end{pmatrix}.\]
+                </div>
+                <p>Computing \(PJ^n\) first:</p>
+                <div class="math-display">
+                    \[\begin{pmatrix} -1 & 1\\1 & 0\end{pmatrix}\begin{pmatrix} 1 & n\\0 & 1\end{pmatrix} = \begin{pmatrix} -1 & -n+1\\1 & n\end{pmatrix},\]
+                </div>
+                <p>and then multiplying by \(P^{-1}\):</p>
+                <div class="math-display">
+                    \[B^n = \begin{pmatrix} -1 & -n+1\\1 & n\end{pmatrix}\begin{pmatrix} 0 & 1\\1 & 1\end{pmatrix} = \begin{pmatrix} 1-n & -n\\n & n+1\end{pmatrix}.\]
+                </div>
+            </div>
+        </div>
+
+        <p class="section-header">Proof Problem. 24 points.</p>
+
+        <div class="problem">
+            <div class="problem-number">Proof Problem</div>
+            <p>State and prove the first part of the Diagonalizability Theorem for \(2\times 2\) matrices, i.e., the sufficient condition for diagonalizability. <strong>You must justify all steps in the proof.</strong></p>
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Let \(A \in M_2(\mathbb{R})\). Suppose \(v_1, v_2 \in \mathbb{R}^2\) are linearly independent eigenvectors of \(A\) with corresponding eigenvalues \(\lambda_1, \lambda_2\) (not necessarily distinct), so that \(Av_1 = \lambda_1 v_1\) and \(Av_2 = \lambda_2 v_2\). Then \(A\) is diagonalizable. In particular, if \(P = [v_1\ v_2]\) is the matrix with columns \(v_1\) and \(v_2\), then</p>
+                <div class="math-display">
+                    \[P^{-1}AP = \begin{pmatrix} \lambda_1 & 0\\0 & \lambda_2\end{pmatrix}.\]
+                </div>
+                <p><em>Proof.</em> On the one hand, we have \(AP = A[v_1\ v_2] = [Av_1\ Av_2] = [\lambda_1 v_1\ \lambda_2 v_2]\). On the other hand,</p>
+                <div class="math-display">
+                    \[P \begin{pmatrix} \lambda_1 & 0\\0 & \lambda_2\end{pmatrix} = [v_1\ v_2] \begin{pmatrix} \lambda_1 & 0\\0 & \lambda_2\end{pmatrix} = [\lambda_1 v_1+0 v_2\ \ 0 v_1 + \lambda_2 v_2] = [\lambda_1 v_1\ \ \lambda_2 v_2],\]
+                </div>
+                <p>showing that \(AP = P\begin{pmatrix} \lambda_1 & 0\\0 & \lambda_2\end{pmatrix}\). Since \(v_1, v_2\) are linearly independent, they form a basis for \(\mathbb{R}^2\), and therefore \(P\) is invertible. Thus, \(P^{-1}AP = \begin{pmatrix} \lambda_1 & 0\\0 & \lambda_2\end{pmatrix}\), as required. \(\square\)</p>
+            </div>
+        </div>
+
+        <p class="section-header">Bonus Problem. 10 points.</p>
+
+        <div class="problem">
+            <div class="problem-number">Bonus Problem</div>
+            <p>Prove the converse of the real spectral theorem for \(2\times 2\) matrices, namely, if \(A\) is orthogonally diagonalizable, then \(A\) is symmetric.</p>
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> Suppose \(Q\) is an orthogonal matrix such that \(Q^{-1}AQ = D\), where \(D\) is a diagonal matrix. Let \(C_1, C_2\) denote the columns of \(Q\), so \(C_1, C_2\) have length one and are orthogonal. Therefore, \(C_1\cdot C_1 = 1 = C_2\cdot C_2\) and \(C_1\cdot C_2 = 0 = C_2\cdot C_1\). We also have \(Q^tQ = \begin{pmatrix} C_1\cdot C_1 & C_1\cdot C_2\\C_2\cdot C_1 & C_2\cdot C_2\end{pmatrix} = I_2\), showing that \(Q^{-1} = Q^t\). Thus,</p>
+                <div class="math-display">
+                    \[A^t = (QDQ^{-1})^t = (QDQ^t)^t = Q^{tt}D^tQ^t = QDQ^t = QDQ^{-1} = A,\]
+                </div>
+                <p>since \(D^t = D\). Therefore \(A = A^t\), showing that \(A\) is symmetric. \(\square\)</p>
+            </div>
+        </div>
+
+        <p class="section-header">Appendix</p>
+
+        <div class="problem">
+            <div class="problem-number">Verification that \(AP = PD\) for Calculation Problem 1</div>
+            <p>We have</p>
+            <div class="math-display">
+                \[A = \begin{pmatrix} 2 & i \\ i & 1 \end{pmatrix}, \quad P = \begin{pmatrix} \dfrac{\sqrt{3}}{2}-\dfrac{i}{2} & 1 \\[8pt] 1 & -\dfrac{\sqrt{3}}{2}+\dfrac{i}{2} \end{pmatrix}, \quad D = \begin{pmatrix} \dfrac{3+i\sqrt{3}}{2} & 0 \\[8pt] 0 & \dfrac{3-i\sqrt{3}}{2} \end{pmatrix}.\]
+            </div>
+
+            <p><strong>Step 1: Compute \(AP\).</strong></p>
+            <div class="math-display">
+                \[AP = \begin{pmatrix} 2 & i \\ i & 1 \end{pmatrix} \begin{pmatrix} \dfrac{\sqrt{3}}{2}-\dfrac{i}{2} & 1 \\[8pt] 1 & -\dfrac{\sqrt{3}}{2}+\dfrac{i}{2} \end{pmatrix}.\]
+            </div>
+
+            <p><em>Entry \((AP)_{11}\):</em></p>
+            <div class="math-display">
+                \[2\!\left(\tfrac{\sqrt{3}}{2}-\tfrac{i}{2}\right) + i\cdot 1 = \sqrt{3} - i + i = \sqrt{3}.\]
+            </div>
+
+            <p><em>Entry \((AP)_{12}\):</em></p>
+            <div class="math-display">
+                \[2\cdot 1 + i\!\left(-\tfrac{\sqrt{3}}{2}+\tfrac{i}{2}\right) = 2 - \tfrac{i\sqrt{3}}{2} + \tfrac{i^2}{2} = 2 - \tfrac{1}{2} - \tfrac{i\sqrt{3}}{2} = \frac{3 - i\sqrt{3}}{2}.\]
+            </div>
+
+            <p><em>Entry \((AP)_{21}\):</em></p>
+            <div class="math-display">
+                \[i\!\left(\tfrac{\sqrt{3}}{2}-\tfrac{i}{2}\right) + 1\cdot 1 = \tfrac{i\sqrt{3}}{2} - \tfrac{i^2}{2} + 1 = \tfrac{i\sqrt{3}}{2} + \tfrac{1}{2} + 1 = \frac{3 + i\sqrt{3}}{2}.\]
+            </div>
+
+            <p><em>Entry \((AP)_{22}\):</em></p>
+            <div class="math-display">
+                \[i\cdot 1 + 1\cdot\!\left(-\tfrac{\sqrt{3}}{2}+\tfrac{i}{2}\right) = i - \tfrac{\sqrt{3}}{2} + \tfrac{i}{2} = -\frac{\sqrt{3}}{2} + \frac{3i}{2}.\]
+            </div>
+
+            <p>Therefore:</p>
+            <div class="math-display">
+                \[AP = \begin{pmatrix} \sqrt{3} & \dfrac{3-i\sqrt{3}}{2} \\[10pt] \dfrac{3+i\sqrt{3}}{2} & -\dfrac{\sqrt{3}}{2}+\dfrac{3i}{2} \end{pmatrix}.\]
+            </div>
+
+            <p><strong>Step 2: Compute \(PD\).</strong></p>
+            <div class="math-display">
+                \[PD = \begin{pmatrix} \dfrac{\sqrt{3}}{2}-\dfrac{i}{2} & 1 \\[8pt] 1 & -\dfrac{\sqrt{3}}{2}+\dfrac{i}{2} \end{pmatrix} \begin{pmatrix} \lambda_1 & 0 \\ 0 & \lambda_2 \end{pmatrix} = \begin{pmatrix} \lambda_1\!\left(\dfrac{\sqrt{3}}{2}-\dfrac{i}{2}\right) & \lambda_2 \\[10pt] \lambda_1 & \lambda_2\!\left(-\dfrac{\sqrt{3}}{2}+\dfrac{i}{2}\right) \end{pmatrix}.\]
+            </div>
+            <p>Since \(\lambda_1 = \dfrac{3+i\sqrt{3}}{2}\) and \(\lambda_2 = \dfrac{3-i\sqrt{3}}{2}\):</p>
+
+            <p><em>Entry \((PD)_{11}\):</em></p>
+            <div class="math-display">
+                \[\frac{3+i\sqrt{3}}{2}\cdot\frac{\sqrt{3}-i}{2} = \frac{(3+i\sqrt{3})(\sqrt{3}-i)}{4}.\]
+            </div>
+            <p>Expanding the numerator: \((3+i\sqrt{3})(\sqrt{3}-i) = 3\sqrt{3} - 3i + 3i - i^2\sqrt{3} = 3\sqrt{3} + \sqrt{3} = 4\sqrt{3}\). Hence \((PD)_{11} = \sqrt{3}\).</p>
+
+            <p><em>Entry \((PD)_{12}\):</em> \((PD)_{12} = \lambda_2 = \dfrac{3-i\sqrt{3}}{2}\).</p>
+
+            <p><em>Entry \((PD)_{21}\):</em> \((PD)_{21} = \lambda_1 = \dfrac{3+i\sqrt{3}}{2}\).</p>
+
+            <p><em>Entry \((PD)_{22}\):</em></p>
+            <div class="math-display">
+                \[\frac{3-i\sqrt{3}}{2}\cdot\frac{-\sqrt{3}+i}{2} = \frac{(3-i\sqrt{3})(-\sqrt{3}+i)}{4}.\]
+            </div>
+            <p>Expanding the numerator: \((3-i\sqrt{3})(-\sqrt{3}+i) = -3\sqrt{3} + 3i + 3i - i^2\sqrt{3} = -3\sqrt{3} + 6i + \sqrt{3} = -2\sqrt{3} + 6i\). Hence \((PD)_{22} = -\dfrac{\sqrt{3}}{2}+\dfrac{3i}{2}\).</p>
+
+            <p>Therefore:</p>
+            <div class="math-display">
+                \[PD = \begin{pmatrix} \sqrt{3} & \dfrac{3-i\sqrt{3}}{2} \\[10pt] \dfrac{3+i\sqrt{3}}{2} & -\dfrac{\sqrt{3}}{2}+\dfrac{3i}{2} \end{pmatrix},\]
+            </div>
+            <p>showing \(AP = PD\). \(\square\)</p>
+        </div>
+
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX course document. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>

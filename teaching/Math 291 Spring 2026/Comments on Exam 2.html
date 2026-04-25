@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 291: Guidelines and Practice Problems for Exam 2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .solution {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #357abd;
+        }
+        .back-link:focus {
+            outline: 2px solid #357abd;
+            outline-offset: 2px;
+        }
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        /* Ensure sufficient color contrast */
+        .problem-number {
+            color: #2563eb;
+        }
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+
+    <!-- ============================================================
+         Content Protection Script
+         Prevents casual downloading, copying, and saving.
+         Screen readers are unaffected (they operate at browser level).
+         ============================================================ -->
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+
+            // Disable right-click context menu
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert(msg);
+            });
+
+            // Disable text selection
+            var style = document.createElement('style');
+            style.innerHTML =
+                'body { -webkit-user-select: none; -moz-user-select: none;' +
+                ' -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+
+            // Block common keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+
+                // Ctrl/Cmd + S (Save), U (View Source), A (Select All),
+                // C (Copy), P (Print)
+                if ((e.ctrlKey || e.metaKey) &&
+                    ['s', 'u', 'a', 'c', 'p'].includes(key)) {
+                    e.preventDefault();
+                    if (key !== 'a') alert(msg);
+                    return false;
+                }
+
+                // F12 (DevTools)
+                if (e.key === 'F12') {
+                    e.preventDefault();
+                    return false;
+                }
+
+                // Ctrl+Shift+I or Ctrl+Shift+J (DevTools)
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey &&
+                    ['i', 'j'].includes(key)) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // Block drag-to-copy
+            document.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+            });
+
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Math 291: Guidelines and Practice Problems for Exam 2</h1>
+    </header>
+
+    <main id="main-content">
+
+        <div class="instructions">
+            <p>Exam 2 will cover all material we have seen since the first exam. The format of Exam 2 is the same as that for Exam 1, namely, questions on the exam will be of the following types: Stating definitions, propositions or theorems; short answer; true-false; and presentation of a proof of a theorem. I will try to keep time-consuming calculations to a minimum, but you should know how to do all calculations related to finding eigenvalues and eigenvectors, diagonalization (including orthogonal diagonalization), finding powers and exponentials of matrices, solving a coupled system of first order linear differential equations, finding general terms in sequences, finding the Jordan canonical form of \(2\times 2\) matrices, and all of the above, but orthogonalization over the complex numbers.</p>
+
+            <p>Most of definitions, propositions theorems, corollaries that you need to know how to state appear in the Daily Update, but it is best to check your notes for all of these as well. You will need to be able to answer brief questions about these results as well as true-false statements about these results.</p>
+
+            <p><strong>You will also be responsible for working any type of problem that was previously assigned as homework.</strong></p>
+
+            <p>On the Exam you will be required to state and provide a proof of one of the following Theorems.</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) State and prove the first part of the Diagonalizability Theorem for \(2\times 2\) matrices, namely: Suppose \(A\) has two linearly independent eigenvectors \(v_1, v_2\), so that \(v_1, v_2\) form a basis for \(\mathbb{R}^2\). Then \(A\) is diagonalizable. More explicitly, if \(Av_1 = \alpha v_1\) and \(Av_2 = \beta v_2\), then \(P^{-1}AP = \begin{pmatrix} \alpha & 0\\0 & \beta\end{pmatrix}\), where \(P\) is the \(2\times 2\) matrix whose columns are \(v_1\) and \(v_2\).</li>
+                <li style="list-style-type: none;">(ii) Suppose that \(A\) is a \(2\times 2\) symmetric matrix over \(\mathbb{R}\) with distinct eigenvalues \(\lambda_1\) and \(\lambda_2\), with eigenvectors \(v_1, v_2\) respectively. Then \(v_1\) and \(v_2\) are orthogonal.</li>
+            </ol>
+        </div>
+
+        <h2 style="text-align: center; color: #8b2e3f; margin: 30px 0 10px 0;">Practice Problems</h2>
+
+        <div class="problem">
+            <div class="problem-number">Problem 1</div>
+
+            <p>Consider the matrix \(A = \begin{pmatrix} 5 & 1 & -1\\1 & 5 & 1\\-1 & 1 & 5\end{pmatrix}\). This is an example of a non-scalar, diagonalizable matrix with a repeated eigenvalue.</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) Find the eigenvalues of \(A\). There should be three eigenvalues, one of which is repeated.</li>
+                <li style="list-style-type: none;">(ii) Proceed as usual for the non-repeated eigenvalue to find its eigenspace.</li>
+                <li style="list-style-type: none;">(iii) Proceed as usual for the repeated eigenvalue — call it \(\lambda\) for now. Note that in this case, the eigenspace, i.e., the solution space of the homogeneous system of equations whose coefficient matrix is \(A-\lambda I_3\), is spanned by two linearly independent vectors.</li>
+                <li style="list-style-type: none;">(iv) For \(P\) one takes the vector you found in step (ii) and the two from step (iii) for the columns of \(P\). Find \(P^{-1}\) and check \(P^{-1}AP\) is diagonal.</li>
+            </ol>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span></p>
+                <p>(i) We compute the characteristic polynomial \(\chi_A(x) = \det(A - xI_3)\):</p>
+                <div class="math-display">
+                    \[\det(A-xI) = (5-x)\bigl[(5-x)^2-1\bigr] - (6-x) - (6-x).\]
+                </div>
+                <p>Setting \(u = 5-x\), this simplifies to \(u^3 - 3u - 2 = (u+1)^2(u-2)\). Substituting back:</p>
+                <div class="math-display">
+                    \[(6-x)^2(3-x) = 0.\]
+                </div>
+                <p>Thus the eigenvalues are \(\lambda_1 = 3\) (simple) and \(\lambda_2 = 6\) (repeated, multiplicity 2).</p>
+
+                <p>(ii) For \(\lambda_1 = 3\), row-reducing \(A - 3I\):</p>
+                <div class="math-display">
+                    \[A - 3I = \begin{pmatrix} 2 & 1 & -1\\1 & 2 & 1\\-1 & 1 & 2\end{pmatrix} \xrightarrow{\text{RREF}} \begin{pmatrix} 1 & 0 & -1\\0 & 1 & 1\\0 & 0 & 0\end{pmatrix}.\]
+                </div>
+                <p>So \(x_1 = x_3\), \(x_2 = -x_3\), giving \(E_3 = \operatorname{Span}\{v_1\}\) with \(v_1 = \begin{pmatrix} 1\\-1\\1\end{pmatrix}\).</p>
+
+                <p>(iii) For \(\lambda_2 = 6\), row-reducing \(A - 6I\):</p>
+                <div class="math-display">
+                    \[A - 6I = \begin{pmatrix} -1 & 1 & -1\\1 & -1 & 1\\-1 & 1 & -1\end{pmatrix} \xrightarrow{\text{RREF}} \begin{pmatrix} 1 & -1 & 1\\0 & 0 & 0\\0 & 0 & 0\end{pmatrix}.\]
+                </div>
+                <p>So \(x_1 = x_2 - x_3\) with \(x_2, x_3\) free, giving \(E_6 = \operatorname{Span}\{v_2, v_3\}\) with \(v_2 = \begin{pmatrix} 1\\1\\0\end{pmatrix}\) and \(v_3 = \begin{pmatrix} -1\\0\\1\end{pmatrix}\). The eigenspace has dimension 2, equal to the algebraic multiplicity, confirming diagonalizability.</p>
+
+                <p>(iv) Form \(P = [v_1 \mid v_2 \mid v_3]\):</p>
+                <div class="math-display">
+                    \[P = \begin{pmatrix} 1 & 1 & -1\\-1 & 1 & 0\\1 & 0 & 1\end{pmatrix}, \qquad P^{-1} = \frac{1}{3}\begin{pmatrix} 1 & -1 & 1\\1 & 2 & 1\\-1 & 1 & 2\end{pmatrix}.\]
+                </div>
+                <p>One verifies</p>
+                <div class="math-display">
+                    \[P^{-1}AP = \begin{pmatrix} 3 & 0 & 0\\0 & 6 & 0\\0 & 0 & 6\end{pmatrix}.\]
+                </div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 2</div>
+
+            <p>Solve the recurrence relations \(x_0 = 1\), \(x_1 = 3\) and \(x_{n+2} = 6x_{n+1}-8x_n\), for all \(n\).</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> We rewrite the recurrence as a matrix equation. Setting \(\mathbf{x}_n = \begin{pmatrix} x_{n+1}\\x_n\end{pmatrix}\), the relation \(x_{n+2} = 6x_{n+1} - 8x_n\) gives</p>
+                <div class="math-display">
+                    \[\mathbf{x}_{n+1} = \begin{pmatrix} x_{n+2}\\x_{n+1}\end{pmatrix} = \begin{pmatrix} 6 & -8\\1 & 0\end{pmatrix}\begin{pmatrix} x_{n+1}\\x_n\end{pmatrix} = A\,\mathbf{x}_n, \quad A = \begin{pmatrix} 6 & -8\\1 & 0\end{pmatrix}.\]
+                </div>
+                <p>Thus \(\mathbf{x}_n = A^n \mathbf{x}_0\) with \(\mathbf{x}_0 = \begin{pmatrix} x_1\\x_0\end{pmatrix} = \begin{pmatrix} 3\\1\end{pmatrix}\).</p>
+
+                <p><em>Diagonalizing \(A\):</em> The characteristic polynomial is</p>
+                <div class="math-display">
+                    \[\chi_A(x) = (6-x)(-x)+8 = x^2 - 6x + 8 = (x-4)(x-2),\]
+                </div>
+                <p>giving eigenvalues \(\lambda_1 = 4\) and \(\lambda_2 = 2\).</p>
+
+                <p>For \(\lambda_1 = 4\): \(A - 4I = \begin{pmatrix} 2&-8\\1&-4\end{pmatrix} \to x_1 = 4x_2\), so \(v_1 = \begin{pmatrix} 4\\1\end{pmatrix}\).</p>
+
+                <p>For \(\lambda_2 = 2\): \(A - 2I = \begin{pmatrix} 4&-8\\1&-2\end{pmatrix} \to x_1 = 2x_2\), so \(v_2 = \begin{pmatrix} 2\\1\end{pmatrix}\).</p>
+
+                <p>Set \(P = \begin{pmatrix} 4&2\\1&1\end{pmatrix}\). Then \(\det P = 2\) and \(P^{-1} = \frac{1}{2}\begin{pmatrix} 1&-2\\-1&4\end{pmatrix}\), and \(P^{-1}AP = D = \begin{pmatrix} 4&0\\0&2\end{pmatrix}\).</p>
+
+                <p><em>Computing \(A^n\):</em> Since \(A = PDP^{-1}\), we have \(A^n = PD^nP^{-1}\):</p>
+                <div class="math-display">
+                    \[A^n = \begin{pmatrix} 4&2\\1&1\end{pmatrix}\begin{pmatrix} 4^n&0\\0&2^n\end{pmatrix}\frac{1}{2}\begin{pmatrix} 1&-2\\-1&4\end{pmatrix} = \frac{1}{2}\begin{pmatrix} 4^{n+1}-2^{n+1} & -2\cdot4^{n+1}+2^{n+2}\\4^n - 2^n & -2\cdot 4^n + 4\cdot 2^n\end{pmatrix}.\]
+                </div>
+
+                <p><em>Finding \(x_n\):</em> The sequence value \(x_n\) is the second component of \(\mathbf{x}_n = A^n\mathbf{x}_0\):</p>
+                <div class="math-display">
+                    \[\begin{pmatrix} x_{n+1}\\x_n\end{pmatrix} = A^n\begin{pmatrix} 3\\1\end{pmatrix} = \frac{1}{2}\begin{pmatrix} 4^{n+1}-2^{n+1} & -2\cdot4^{n+1}+2^{n+2}\\4^n - 2^n & -2\cdot 4^n + 4\cdot 2^n\end{pmatrix}\begin{pmatrix} 3\\1\end{pmatrix}.\]
+                </div>
+                <p>Taking the second row:</p>
+                <div class="math-display">
+                    \[x_n = \frac{1}{2}\bigl(3(4^n - 2^n) + (-2\cdot 4^n + 4\cdot 2^n)\bigr) = \frac{1}{2}\bigl(4^n + 2^n\bigr),\]
+                </div>
+                <p>so</p>
+                <div class="math-display">
+                    \[x_n = \frac{4^n + 2^n}{2}.\]
+                </div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 3</div>
+
+            <p>For the matrix \(A = \begin{pmatrix} 4 & 3\\1 & 2\end{pmatrix}\):</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) Find \(A^{2016}\).</li>
+                <li style="list-style-type: none;">(ii) Solve the system of differential equations with initial conditions \(x_1(0) = -1\) and \(x_2(0) = 4\).</li>
+            </ol>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> The characteristic polynomial is \((4-x)(2-x)-3 = x^2-6x+5 = (x-1)(x-5)\), giving eigenvalues \(\lambda_1 = 1\) and \(\lambda_2 = 5\).</p>
+
+                <p>For \(\lambda_1=1\): \(A-I = \begin{pmatrix} 3&3\\1&1\end{pmatrix} \to x_1+x_2=0\), so \(v_1 = \begin{pmatrix} -1\\1\end{pmatrix}\).</p>
+
+                <p>For \(\lambda_2=5\): \(A-5I = \begin{pmatrix} -1&3\\1&-3\end{pmatrix} \to x_1=3x_2\), so \(v_2 = \begin{pmatrix} 3\\1\end{pmatrix}\).</p>
+
+                <p>Set \(P = \begin{pmatrix} -1&3\\1&1\end{pmatrix}\), so \(P^{-1} = \begin{pmatrix} -\frac{1}{4}&\frac{3}{4}\\\frac{1}{4}&\frac{1}{4}\end{pmatrix}\) and \(P^{-1}AP = \begin{pmatrix} 1&0\\0&5\end{pmatrix}\).</p>
+
+                <p>(i) Since \(A = PDP^{-1}\), we have \(A^{2016} = PD^{2016}P^{-1}\) with \(D^{2016} = \begin{pmatrix} 1&0\\0&5^{2016}\end{pmatrix}\):</p>
+                <div class="math-display">
+                    \[A^{2016} = \frac{1}{4}\begin{pmatrix} 1+3\cdot5^{2016} & 3-3\cdot5^{2016}\\-1+5^{2016} & 3+5^{2016}\end{pmatrix}.\]
+                </div>
+
+                <p>(ii) First compute \(P^{-1}\mathbf{x}(0) = \begin{pmatrix} -\frac{1}{4}&\frac{3}{4}\\\frac{1}{4}&\frac{1}{4}\end{pmatrix}\begin{pmatrix}-1\\4\end{pmatrix} = \begin{pmatrix} \frac{13}{4}\\\frac{3}{4}\end{pmatrix}\). Then</p>
+                <div class="math-display">
+                    \[\mathbf{x}(t) = Pe^{Dt}P^{-1}\mathbf{x}(0) = \begin{pmatrix} -1&3\\1&1\end{pmatrix}\begin{pmatrix} \frac{13}{4}e^t\\\frac{3}{4}e^{5t}\end{pmatrix},\]
+                </div>
+                <p>so</p>
+                <div class="math-display">
+                    \[x_1(t) = \tfrac{1}{4}\!\left(-13e^t + 9e^{5t}\right), \qquad x_2(t) = \tfrac{1}{4}\!\left(13e^t + 3e^{5t}\right).\]
+                </div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 4</div>
+
+            <p>For the real numbers \(a, c\), find an orthogonal matrix that diagonalizes \(A = \begin{pmatrix} a & c\\c & a\end{pmatrix}\).</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> The characteristic polynomial is \((a-x)^2-c^2=0\), giving eigenvalues \(\lambda_1 = a-c\) and \(\lambda_2 = a+c\).</p>
+
+                <p>For \(\lambda_1 = a-c\): \(A-\lambda_1 I=\begin{pmatrix} c&c\\c&c\end{pmatrix}\); the eigenspace is spanned by \(\begin{pmatrix} 1\\-1\end{pmatrix}\), normalized to \(u_1 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1\\-1\end{pmatrix}\).</p>
+
+                <p>For \(\lambda_2 = a+c\): \(A-\lambda_2 I=\begin{pmatrix} -c&c\\c&-c\end{pmatrix}\); the eigenspace is spanned by \(\begin{pmatrix} 1\\1\end{pmatrix}\), normalized to \(u_2 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1\\1\end{pmatrix}\).</p>
+
+                <p>The orthogonal diagonalizing matrix is</p>
+                <div class="math-display">
+                    \[Q = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1\\-1 & 1\end{pmatrix}, \qquad Q^T A Q = \begin{pmatrix} a-c & 0\\0 & a+c\end{pmatrix}.\]
+                </div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 5</div>
+
+            <p>For the matrix \(A = \begin{pmatrix} 2i & 0\\4i & -2i\end{pmatrix}\), find \(A^{99}\) and \(e^A\).</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span> The matrix is lower-triangular, so its eigenvalues are the diagonal entries: \(\lambda_1 = 2i\) and \(\lambda_2 = -2i\).</p>
+
+                <p>For \(\lambda_1=2i\): \((A-2iI)v=0\) gives \(4ix_1-4ix_2=0\), so \(v_1=\begin{pmatrix} 1\\1\end{pmatrix}\).</p>
+
+                <p>For \(\lambda_2=-2i\): \((A+2iI)v=0\) gives \(4ix_1=0\), so \(v_2=\begin{pmatrix} 0\\1\end{pmatrix}\).</p>
+
+                <p>Set \(P=\begin{pmatrix} 1&0\\1&1\end{pmatrix}\), \(P^{-1}=\begin{pmatrix} 1&0\\-1&1\end{pmatrix}\), and \(D = \begin{pmatrix} 2i&0\\0&-2i\end{pmatrix}\).</p>
+
+                <p><em>Finding \(A^{99}\):</em> Note \((2i)^{99} = 2^{99}i^{99} = 2^{99}(-i) = -2^{99}i\) and \((-2i)^{99} = 2^{99}i\). Then \(A^{99} = PD^{99}P^{-1}\):</p>
+                <div class="math-display">
+                    \[A^{99} = \begin{pmatrix} -2^{99}i & 0\\-2^{100}i & 2^{99}i\end{pmatrix}.\]
+                </div>
+
+                <p><em>Finding \(e^A\):</em> With \(e^D = \begin{pmatrix} e^{2i}&0\\0&e^{-2i}\end{pmatrix}\), we compute \(e^A = Pe^DP^{-1}\):</p>
+                <div class="math-display">
+                    \[e^A = \begin{pmatrix} e^{2i} & 0\\e^{2i}-e^{-2i} & e^{-2i}\end{pmatrix} = \begin{pmatrix} \cos 2 + i\sin 2 & 0\\2i\sin 2 & \cos 2 - i\sin 2\end{pmatrix}.\]
+                </div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 6</div>
+
+            <p>For the matrices \(A = \begin{pmatrix} 0 & 9\\1 & 6i\end{pmatrix}\) and \(B = \begin{pmatrix} 0 & -2\\1 & -1\end{pmatrix}\), first find their eigenvalues, using complex numbers if necessary. Then determine which is diagonalizable and which can be put into Jordan Canonical Form over \(\mathbb{C}\). Then find the change of basis matrices \(P\) and \(Q\) and verify that \(P^{-1}AP\) and \(Q^{-1}BQ\) have the required form.</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution.</span></p>
+
+                <p><em>Matrix \(A\):</em> \(\chi_A(x) = x(6i-x)-9 = x^2 - 6ix - 9 = (x-3i)^2\), so \(A\) has a repeated eigenvalue \(\lambda = 3i\).</p>
+
+                <p>Checking diagonalizability: \(A - 3iI = \begin{pmatrix} -3i&9\\1&3i\end{pmatrix}\) has rank 1, so the eigenspace is 1-dimensional. Since the geometric multiplicity is less than the algebraic multiplicity, \(A\) is <strong>not diagonalizable</strong>. It can be put into Jordan Canonical Form over \(\mathbb{C}\):</p>
+                <div class="math-display">
+                    \[J_A = \begin{pmatrix} 3i & 1\\0 & 3i\end{pmatrix}.\]
+                </div>
+                <p>To find the Jordan basis, take \(w = \begin{pmatrix} 1\\0\end{pmatrix}\) and compute \((A-3iI)w = \begin{pmatrix} -3i\\1\end{pmatrix} =: v\). One checks \((A-3iI)v = 0\), confirming \(v\) is an eigenvector. Set \(P = [v \mid w] = \begin{pmatrix} -3i & 1\\1 & 0\end{pmatrix}\). One verifies</p>
+                <div class="math-display">
+                    \[P^{-1}AP = \begin{pmatrix} 3i & 1\\0 & 3i\end{pmatrix}.\]
+                </div>
+
+                <p><em>Matrix \(B\):</em> \(\chi_B(x) = x(-1-x)+2 = x^2+x+2 = 0\), giving</p>
+                <div class="math-display">
+                    \[\mu_{1,2} = \frac{-1\pm\sqrt{1-8}}{2} = \frac{-1 \pm i\sqrt{7}}{2}.\]
+                </div>
+                <p>Since \(B\) has two <em>distinct</em> eigenvalues over \(\mathbb{C}\), it is <strong>diagonalizable</strong>. Let \(\mu = \frac{-1+i\sqrt{7}}{2}\) and \(\bar\mu = \frac{-1-i\sqrt{7}}{2}\).</p>
+
+                <p>For \(\mu_1 = \mu\): from the first row of \(B-\mu I\), \(-\mu x_1 - 2x_2 = 0\). Taking \(x_2=\mu\) gives \(u_1 = \begin{pmatrix} -2\\\mu\end{pmatrix}\).</p>
+
+                <p>For \(\mu_2 = \bar\mu\): similarly \(u_2 = \begin{pmatrix} -2\\\bar\mu\end{pmatrix}\).</p>
+
+                <p>Set \(Q = [u_1\mid u_2] = \begin{pmatrix} -2 & -2\\\mu & \bar\mu\end{pmatrix}\). Then \(\det Q = 2(\mu-\bar\mu) = 2i\sqrt{7}\), and one verifies</p>
+                <div class="math-display">
+                    \[Q^{-1}BQ = \begin{pmatrix} \mu & 0\\0 & \bar\mu\end{pmatrix} = \begin{pmatrix} \frac{-1+i\sqrt{7}}{2} & 0\\0 & \frac{-1-i\sqrt{7}}{2}\end{pmatrix}.\]
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX course document. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
