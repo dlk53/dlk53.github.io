@@ -1045,6 +1045,43 @@
             <p>We finished by observing that if the same coefficient matrix was used for a homogeneous system of equations, then the vectors \(\begin{pmatrix} -5\\-4\\1\\0\\0\\0\end{pmatrix}\), \(\begin{pmatrix} -2\\1\\0\\-5\\1\\0\end{pmatrix}\) form a basis for the solution space.</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Tuesday, April 28</div>
+
+            <p>We continued with revisiting concepts we have covered throughout the semester, but from a more general point of view, beginning with discussing the following:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Exchange Theorem.</span> Let \(v_1, \ldots, v_r\) be linearly independent vectors in \(\mathbb{R}^n\) and suppose \(u_1, \ldots, u_m\) span \(\mathbb{R}^n\). Then \(r\leq m\) and after re-indexing the \(u_j\) if necessary, \(v_1, \ldots, v_r, u_{r+1}, \ldots, u_m\) span \(\mathbb{R}^n\). The same holds for vectors in \(\mathbb{C}^n\).</p>
+            </div>
+
+            <p>We then recalled that a collection of vectors in \(\mathbb{R}^n\) (or \(\mathbb{C}^n\)) is a <em>basis</em> if the vectors are both linearly independent and span \(\mathbb{R}^n\). We noted that the Exchange Theorem implies that all bases for \(\mathbb{R}^n\) (or \(\mathbb{C}^n\)) have \(n\) elements. We then stated the following general version of a theorem we have used throughout the semester for vectors in \(\mathbb{R}^2\) or \(\mathbb{R}^3\).</p>
+
+            <div class="definition">
+                <span class="statement-title">Theorem.</span> Let \(v_1, \ldots, v_n\) be column vectors in \(\mathbb{R}^n\) or \(\mathbb{C}^n\), and let \(A\) denote the \(n\times n\) matrix whose columns are \(v_1, \ldots, v_n\). Then \(\{v_1, \ldots, v_n\}\) is a basis for \(\mathbb{R}^n\) or \(\mathbb{C}^n\) if and only if \(\det(A) \not= 0\).
+            </div>
+
+            <p>We then began a discussion of eigenvalues and diagonalizability. Working over \(\mathbb{R}\) or \(\mathbb{C}\) we considered an \(n\times n\) matrix \(A\) with eigenvalue \(\lambda\). Writing \(p_A(x) = (x-\lambda)^e g(x)\), with \(g(\lambda) \not= 0\), we defined \(e\) to be the <em>algebraic multiplicity</em> of \(\lambda\). We defined \(E_\lambda\), the <em>eigenspace of</em> \(\lambda\), to be the solution space of the homogeneous system of equations with \(A-\lambda I_n\) as its coefficient matrix. Only the eigenspace terminology is new, as we have been studying this solution space for several weeks. Then we defined the <em>geometric multiplicity</em> of \(\lambda\) to be the number of independent parameters needed to describe the solutions in the eigenspace \(E_\lambda\).</p>
+
+            <p>We then stated the following important theorem.</p>
+
+            <div class="definition">
+                <span class="statement-title">Theorem.</span> Let \(A\) be an \(n\times n\) matrix over \(\mathbb{R}\) or \(\mathbb{C}\), and \(\lambda\) an eigenvalue. Then the geometric multiplicity of \(\lambda\) is less than or equal to the algebraic multiplicity of \(\lambda\).
+            </div>
+
+            <p>We gave a proof of this theorem in the special case that \(A\) is a \(3\times 3\) matrix over \(\mathbb{R}\) with eigenvalue \(\lambda\) such that \(\lambda\) has geometric multiplicity equal to 2.</p>
+
+            <p>We ended class by stating <strong>one of the most important theorems</strong> for our course, which has been illustrated by various examples we have looked at during all of our recent discussions involving diagonalizability and non-diagonalizability.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Diagonalizability Theorem.</span> Let \(A\) be an \(n\times n\) matrix over \(\mathbb{R}\) or \(\mathbb{C}\). The following are equivalent.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(A\) is diagonalizable.</li>
+                    <li style="list-style-type: none;">(ii) \(\mathbb{R}^n\) (respectively, \(\mathbb{C}^n\)) has a basis consisting of eigenvectors for \(A\).</li>
+                    <li style="list-style-type: none;">(iii) \(p_A(x) = (x-\lambda_1)^{e_1}\cdots(x-\lambda_r)^{e_r}\) and for each \(\lambda_i\), the geometric multiplicity of \(\lambda_i\) equals the algebraic multiplicity of \(\lambda_i\).</li>
+                </ol>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
