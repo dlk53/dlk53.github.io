@@ -1082,6 +1082,76 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, April 30</div>
+
+            <p>We began class by re-stating and discussing the Diagonalizability Theorem presented at the end of the previous lecture. We noted that the proof of the theorem (which we did not give) depends on the following</p>
+
+            <div class="definition">
+                <span class="statement-title">Important Fact.</span> Let \(A\) be an \(n\times n\) matrix over \(\mathbb{R}\) or \(\mathbb{C}\). If \(\lambda_1, \ldots, \lambda_r\) are distinct eigenvalues with corresponding eigenvectors \(v_1, \ldots, v_r\), then \(v_1, \ldots, v_r\) are linearly independent.
+            </div>
+
+            <p>Using the theorem we were able to derive</p>
+
+            <div class="definition">
+                <span class="statement-title">Corollary.</span> If \(A\) is an \(n\times n\) matrix over \(\mathbb{R}\) or \(\mathbb{C}\) and \(A\) has \(n\) distinct eigenvalues (in \(\mathbb{R}\) or \(\mathbb{C}\), respectively), then \(A\) is diagonalizable.
+            </div>
+
+            <p>We then presented the following special case of the crucial (iii) implies (i) in the Diagonalizability Theorem.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Special Case.</span> Suppose \(A\) is a \(3\times 3\) matrix over \(\mathbb{R}\) or \(\mathbb{C}\) such that \(p_A(x) = (x-\lambda_1)^2(x-\lambda_2)\), with \(\lambda_1\not= \lambda_2\). If the algebraic multiplicities of \(\lambda_1\) and \(\lambda_2\) equal their geometric multiplicities, then \(A\) is diagonalizable.</p>
+                <p><em>Proof.</em> Suppose \(v_1, v_2\in E_{\lambda_1}\) are linearly independent eigenvectors for \(\lambda_1\) and \(w\in E_{\lambda_2}\) is an eigenvector for \(\lambda_2\). We first note that \(v_1, v_2, w\) are linearly independent. To see this, suppose \(av_1+bv_2+cw = 0\). We need to see that \(a = b = c = 0\). Suppose \(c\not= 0\), then we can write</p>
+                <div class="math-display">
+                    \[w = -\frac{a}{c}\cdot v_1-\frac{b}{c}\cdot v_2,\]
+                </div>
+                <p>showing that \(w\in E_{\lambda_1}\). But \(w\) is an eigenvector for \(\lambda_2\), which is a contradiction, since \(\lambda_1\not= \lambda_2\). Thus \(c = 0\). Since \(v_1, v_2\) are linearly independent by assumption, \(a = 0 = b\), showing that \(v_1, v_2, w\) are linearly independent. Since we have three linearly independent vectors in \(\mathbb{R}^3\), they form a basis for \(\mathbb{R}^3\) and thus \(P = [v_1\ v_2\ w]\) is invertible. Thus, we have</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    AP &= A[v_1\ v_2\ w] = [Av_1\ Av_2\ Aw] = [\lambda_1 v_1\ \lambda_1 v_2\ \lambda_2 w]\\
+                       &= [v_1\ v_2\ w]\cdot\begin{pmatrix}\lambda_1 & 0 & 0\\0 & \lambda_1 & 0\\0 & 0 & \lambda_2\end{pmatrix} = P\cdot\begin{pmatrix}\lambda_1 & 0 & 0\\0 & \lambda_1 & 0\\0 & 0 & \lambda_2\end{pmatrix}.
+                    \end{align*}\]
+                </div>
+                <p>and thus \(P^{-1}AP = \begin{pmatrix}\lambda_1 & 0 & 0\\0 & \lambda_1 & 0\\0 & 0 & \lambda_2\end{pmatrix}\), showing that \(A\) is diagonalizable. \(\square\)</p>
+            </div>
+
+            <p>We noted that the key to the proof was that the existence of two independent vectors in \(E_{\lambda_1}\) enabled us to create the invertible matrix \(P\). If \(E_{\lambda_1}\) had only one independent eigenvector, we could not have created a \(3\times 3\) matrix of eigenvectors with linearly independent columns.</p>
+
+            <p>We then ended the discussion of general statements of topics covered this semester by stating</p>
+
+            <div class="definition">
+                <span class="statement-title">Spectral Theorem for Real Matrices.</span> Let \(A\) be an \(n\times n\) matrix with entries in \(\mathbb{R}\). Then \(A\) is symmetric if and only if \(A\) is orthogonally diagonalizable, i.e., there exists \(Q\in \mathrm{M}_n(\mathbb{R})\) such that \(Q^{-1}AQ\) is diagonal and \(Q\) is an orthogonal matrix, i.e., if \(C_1, \ldots, C_n\) are the columns of \(Q\), then \(C_i\cdot C_j = 0\), for \(i\not= j\) and \(\|C_j\| = 1\), for all \(1\leq j\leq n\).
+            </div>
+
+            <p>We then began a discussion of vector spaces in the abstract, starting with the definition below. We agreed to write \(F\) to indicate either \(\mathbb{R}\) or \(\mathbb{C}\).</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> A <span style="color: purple;"><em>vector space</em></span> over \(F\) is a set \(V\) together with addition and scalar multiplication satisfying the following axioms:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) An additive identity exists: There exists \(\vec{0}\in V\) such that \(v+\vec{0} = v = \vec{0}+v\), for all \(v\in V\).</li>
+                    <li style="list-style-type: none;">(ii) Additive inverses exist: Given \(v\in V\), there exists \(-v\in V\) such that \((-v)+v = \vec{0} = v+(-v)\).</li>
+                    <li style="list-style-type: none;">(iii) Addition is commutative: \(v_1+v_2 = v_2+v_1\), for all \(v_i\in V\).</li>
+                    <li style="list-style-type: none;">(iv) Addition is associative: \(v+(u+w) = (v+u)+w\), for all \(u,v,w\in V\).</li>
+                    <li style="list-style-type: none;">(v) Scalar multiplication distributes over addition: \(\lambda\cdot(v+w) = \lambda v+\lambda w\), for all \(\lambda\in F\) and \(v,w\in V\).</li>
+                    <li style="list-style-type: none;">(vi) Scalar addition is distributive: \((\lambda_1+\lambda_2)\cdot v = \lambda_1\cdot v+\lambda_2\cdot v\), for \(\lambda_1,\lambda_2\in F\) and \(v\in V\).</li>
+                    <li style="list-style-type: none;">(vii) Scalar multiplication is associative: \((\lambda_1\lambda_2)\cdot v = \lambda_1\cdot(\lambda_2\cdot v)\), for all \(\lambda_1,\lambda_2\in F\) and \(v\in V\).</li>
+                    <li style="list-style-type: none;">(viii) \(1\cdot v = v\) and \(0\cdot v = \vec{0}\), for all \(v\in V\).</li>
+                </ol>
+            </div>
+
+            <p>We ended class by giving the following examples and discussing how they are all similar, in terms of their underlying vector space structure.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Examples of vector spaces.</span> The following are vector spaces over the indicated number system.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Column vectors in \(\mathbb{R}^2\), \(\mathbb{R}^3\), \(\mathbb{R}^n\), or \(\mathbb{C}^n\).</li>
+                    <li style="list-style-type: none;">(ii) \(P_n(F)\), polynomials of degree less than or equal to \(n\) over \(F\).</li>
+                    <li style="list-style-type: none;">(iii) \(\mathrm{M}_n(F)\), \(n\times n\) matrices over \(F\).</li>
+                    <li style="list-style-type: none;">(iv) The set of continuous functions from \([a,b]\) to \(\mathbb{R}\).</li>
+                </ol>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
