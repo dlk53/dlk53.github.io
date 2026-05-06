@@ -1152,6 +1152,61 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Tuesday, May 5</div>
+
+            <p>We continued our discussion of vector spaces \(V\) over \(F\), where \(F\) is either \(\mathbb{R}\) or \(\mathbb{C}\), noting that the definitions we gave were not new, only the context in which they were given was new. In particular, we defined the concepts of subspaces, linear dependence, spanning sets, linear independence, and bases for vectors in a vector space. A key point was that any two bases for a vector space have the same number of elements. A key fact was the exchange theorem in the general setting, which is essentially the same as that given on April 28.</p>
+
+            <div class="definition">
+                <span class="statement-title">Exchange Theorem.</span> Let \(V\) be a vector space over \(F\). Let \(v_1,\ldots,v_r\) be linearly independent vectors in \(V\) and suppose \(u_1,\ldots,u_m\) span \(V\). Then \(r\leq m\) and after re-indexing the \(u_j\) if necessary, \(v_1,\ldots,v_r,u_{r+1},\ldots,u_m\) span \(V\).
+            </div>
+
+            <p>We then discussed the concept of linear transformation and the representation of a linear transformation by a matrix, noting that these concepts were discussed earlier in the semester, especially during the week of February 17.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Given vector spaces \(V\), \(W\) over \(F\), a function \(T: V\to W\) is a <em>linear transformation</em> if:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(T(v_1+v_2) = T(v_1)+T(v_2)\), for all \(v_1, v_2\in V\)</li>
+                    <li style="list-style-type: none;">(ii) \(T(\lambda v) = \lambda T(v)\), for all \(\lambda\in F\) and \(v\in V\).</li>
+                </ol>
+            </div>
+
+            <p>After noting that a rotation of \(\mathbb{R}^2\) is a linear transformation and the derivative, as a function from \(P_2(\mathbb{R})\) to itself, is also a linear transformation, we gave the following general form of the definition from April 17.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Let \(T: V\to W\) be a linear transformation, \(\alpha := \{v_1,\ldots,v_n\}\) and \(\beta := \{w_1,\ldots,w_m\}\) be bases for \(V\) and \(W\), respectively. Then the <em>matrix of \(T\) with respect to</em> \(\alpha\) and \(\beta\) is the \(m\times n\) matrix \([T]_{\alpha}^{\beta}\) whose columns are</p>
+                <div class="math-display">
+                    \[\begin{pmatrix}\lambda_{11}\\\lambda_{21}\\\vdots\\\lambda_{m1}\end{pmatrix},\ \begin{pmatrix}\lambda_{12}\\\lambda_{22}\\\vdots\\\lambda_{m2}\end{pmatrix},\ \ldots,\ \begin{pmatrix}\lambda_{1n}\\\lambda_{2n}\\\vdots\\\lambda_{mn}\end{pmatrix},\]
+                </div>
+                <p>where for each \(1\leq j\leq n\),</p>
+                <div class="math-display">
+                    \[T(v_j) = \lambda_{1j}w_1+\lambda_{2j}w_2+\cdots+\lambda_{mj}w_m.\]
+                </div>
+            </div>
+
+            <p>We then noted the same <strong>Very Important Formula</strong>, as given on February 19.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Very Important Formula.</span> Suppose \(V, W, U\) are vector spaces over \(F\), and \(T: V\to W\) and \(S: W\to U\) are linear transformations. Assume \(\alpha, \beta, \gamma\) are bases for \(V, W, U\), respectively. Then \(ST: V\to U\) is a linear transformation and</p>
+                <div class="math-display">
+                    \[[ST]_{\alpha}^{\gamma} = [S]_{\beta}^{\gamma}\cdot [T]_{\alpha}^{\beta}.\]
+                </div>
+            </div>
+
+            <p>We then noted that in the same way as before, this leads to the change of basis formula, which follows from the Very Important Formula.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Change of Basis Formula.</span> Suppose \(T: V\to V\) is a linear transformation and \(\alpha, \beta\) are bases for \(V\). Then, letting \(I: V\to V\) denote the identity transformation,</p>
+                <div class="math-display">
+                    \[[T]_{\beta}^{\beta} = [I]_{\alpha}^{\beta}\cdot [T]_{\alpha}^{\alpha}\cdot [I]_{\beta}^{\alpha}.\]
+                </div>
+                <p>In particular, if we set \(A := [T]_{\alpha}^{\alpha}\), \(B := [T]_{\beta}^{\beta}\) and \(P := [I]_{\beta}^{\alpha}\), and recalling \(P^{-1} = [I]_{\alpha}^{\beta}\), we obtain the classic expression</p>
+                <div class="math-display">
+                    \[B = P^{-1}AP.\]
+                </div>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>

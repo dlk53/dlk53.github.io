@@ -1286,9 +1286,76 @@
 
             <p>1. Show that the vectors \(v_1 = \begin{pmatrix} 1\\1\\0\end{pmatrix}\), \(v_2 = \begin{pmatrix} 1\\0\\1\end{pmatrix}\), \(v_3 = \begin{pmatrix} 0\\1\\1\end{pmatrix}\) form a basis for \(\mathbb{R}^3\) in two ways: (i) First show that the determinant of the matrix whose columns are \(v_1, v_2, v_3\) is non-zero and (ii) Second, show directly that \(v_1, v_2, v_3\) are linearly independent and span \(\mathbb{R}^3\). For spanning, show that the vector \(\begin{pmatrix} a\\b\\c\end{pmatrix}\) is a linear combination of \(v_1, v_2, v_3\).</p>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution to 1.</span> Let \(v_1 = \begin{pmatrix} 1\\1\\0\end{pmatrix}\), \(v_2 = \begin{pmatrix} 1\\0\\1\end{pmatrix}\), \(v_3 = \begin{pmatrix} 0\\1\\1\end{pmatrix}\) and set \(P = [v_1\ v_2\ v_3] = \begin{pmatrix} 1 & 1 & 0\\1 & 0 & 1\\0 & 1 & 1\end{pmatrix}\).</p>
+                <p><strong>(i) Determinant method.</strong> Expanding along the first row:</p>
+                <div class="math-display">
+                    \[\det P = 1\cdot\begin{vmatrix}0&1\\1&1\end{vmatrix} - 1\cdot\begin{vmatrix}1&1\\0&1\end{vmatrix} + 0 = 1\cdot(0-1) - 1\cdot(1-0) = -1-1 = -2 \neq 0.\]
+                </div>
+                <p>Since \(\det P \neq 0\), the columns \(v_1, v_2, v_3\) are linearly independent and hence form a basis for \(\mathbb{R}^3\).</p>
+                <p><strong>(ii) Direct method.</strong> Both linear independence and spanning are handled simultaneously by forming the augmented matrix \([P \mid w]\) with \(w = \begin{pmatrix} a\\b\\c\end{pmatrix}\) and row-reducing. Linear independence corresponds to \(w = 0\), and spanning says a solution exists for every \(w\).</p>
+                <p>We row-reduce \([P \mid w]\):</p>
+                <div class="math-display">
+                    \[\begin{pmatrix} 1 & 1 & 0 & a\\1 & 0 & 1 & b\\0 & 1 & 1 & c\end{pmatrix}
+                    \xrightarrow{R_2 \leftarrow R_2 - R_1}
+                    \begin{pmatrix} 1 & 1 & 0 & a\\0 & -1 & 1 & b-a\\0 & 1 & 1 & c\end{pmatrix}
+                    \xrightarrow{R_3 \leftarrow R_3 + R_2}
+                    \begin{pmatrix} 1 & 1 & 0 & a\\0 & -1 & 1 & b-a\\0 & 0 & 2 & b-a+c\end{pmatrix}.\]
+                </div>
+                <p>Continuing to RREF:</p>
+                <div class="math-display">
+                    \[\xrightarrow{-R_2,\ \frac{1}{2}R_3}
+                    \begin{pmatrix} 1 & 1 & 0 & a\\0 & 1 & -1 & a-b\\0 & 0 & 1 & \frac{b-a+c}{2}\end{pmatrix}
+                    \xrightarrow{R_2 \leftarrow R_2 + R_3}
+                    \begin{pmatrix} 1 & 1 & 0 & a\\0 & 1 & 0 & \frac{a-b+c}{2}\\0 & 0 & 1 & \frac{-a+b+c}{2}\end{pmatrix}
+                    \xrightarrow{R_1 \leftarrow R_1 - R_2}
+                    \begin{pmatrix} 1 & 0 & 0 & \frac{a+b-c}{2}\\0 & 1 & 0 & \frac{a-b+c}{2}\\0 & 0 & 1 & \frac{-a+b+c}{2}\end{pmatrix}.\]
+                </div>
+                <p>The system has a unique solution for every \(\begin{pmatrix} a\\b\\c\end{pmatrix}\in\mathbb{R}^3\), namely \(\alpha = \frac{a+b-c}{2}\), \(\beta = \frac{a-b+c}{2}\), \(\gamma = \frac{-a+b+c}{2}\). <em>Spanning</em> follows because a solution exists for every choice of \(a, b, c\). <em>Linear independence</em> follows because the unique solution when \(a = b = c = 0\) is \(\alpha = \beta = \gamma = 0\). Hence \(v_1, v_2, v_3\) form a basis for \(\mathbb{R}^3\). \(\square\)</p>
+            </div>
+
             <p>2. For the matrices \(A_2 = \begin{pmatrix} 1 & 1\\1 & 1\end{pmatrix}\) and \(A_3 = \begin{pmatrix} 1 & 1 & 1\\1 & 1 & 1\\1 & 1 & 1\end{pmatrix}\), find the characteristic polynomials and verify that the matrices are diagonalizable. Find a diagonalizing matrix in each case. Can you guess the characteristic polynomial for \(A_4 = \begin{pmatrix} 1 & 1 & 1 & 1\\1 & 1 & 1 & 1\\1 & 1 & 1 & 1\\1 & 1 & 1 & 1\end{pmatrix}\)? What about \(A_n\), the \(n\times n\) matrix all of whose entries equal 1?</p>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution to 2.</span> <strong>The matrix \(A_2\).</strong> We compute \(p_{A_2}(x) = \det(A_2 - xI_2) = \det\begin{pmatrix} 1-x & 1\\1 & 1-x\end{pmatrix} = (1-x)^2 - 1 = x^2 - 2x = x(x-2)\). The eigenvalues are \(\lambda = 0\) and \(\lambda = 2\).</p>
+                <p><em>Eigenspace for \(\lambda=0\):</em> \(A_2 - 0\cdot I_2 = \begin{pmatrix} 1&1\\1&1\end{pmatrix} \to \begin{pmatrix} 1&1\\0&0\end{pmatrix}\). Eigenvectors: \(t\begin{pmatrix} -1\\1\end{pmatrix}\), so \(u_1 = \begin{pmatrix} -1\\1\end{pmatrix}\).</p>
+                <p><em>Eigenspace for \(\lambda=2\):</em> \(A_2 - 2I_2 = \begin{pmatrix} -1&1\\1&-1\end{pmatrix} \to \begin{pmatrix} 1&-1\\0&0\end{pmatrix}\). Eigenvectors: \(t\begin{pmatrix} 1\\1\end{pmatrix}\), so \(u_2 = \begin{pmatrix} 1\\1\end{pmatrix}\).</p>
+                <p>Setting \(P_2 = [u_1\ u_2] = \begin{pmatrix} -1&1\\1&1\end{pmatrix}\), we have \(P_2^{-1}A_2 P_2 = \begin{pmatrix} 0 & 0\\0 & 2\end{pmatrix}\).</p>
+                <p><strong>The matrix \(A_3\).</strong> We compute \(p_{A_3}(x) = \det(A_3 - xI_3)\) by expanding along the first row:</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    \det(A_3-xI_3) &= (1-x)\begin{vmatrix}1-x&1\\1&1-x\end{vmatrix} - 1\begin{vmatrix}1&1\\1&1-x\end{vmatrix} + 1\begin{vmatrix}1&1-x\\1&1\end{vmatrix}\\
+                    &= (1-x)\bigl[(1-x)^2-1\bigr] - \bigl[(1-x)-1\bigr] + \bigl[1-(1-x)\bigr]\\
+                    &= (1-x)\bigl[(1-x)^2-1\bigr] + x + x\\
+                    &= x\bigl[-(1-x)(2-x)+2\bigr] = x(3x-x^2) = x^2(3-x).
+                    \end{align*}\]
+                </div>
+                <p>Hence \(p_{A_3}(x) = -x^2(x-3)\), so the eigenvalues are \(\lambda = 0\) (multiplicity 2) and \(\lambda = 3\).</p>
+                <p><em>Eigenspace for \(\lambda=0\):</em> \(A_3 \to \begin{pmatrix} 1&1&1\\0&0&0\\0&0&0\end{pmatrix}\). The eigenspace is \(\left\{\begin{pmatrix} a\\b\\c\end{pmatrix} \mid a+b+c=0\right\}\), spanned by \(w_1 = \begin{pmatrix} -1\\1\\0\end{pmatrix}\) and \(w_2 = \begin{pmatrix} -1\\0\\1\end{pmatrix}\).</p>
+                <p><em>Eigenspace for \(\lambda=3\):</em> \(A_3 - 3I_3 \to \begin{pmatrix} 1&0&-1\\0&1&-1\\0&0&0\end{pmatrix}\). Eigenvectors: \(t\begin{pmatrix} 1\\1\\1\end{pmatrix}\), so \(w_3 = \begin{pmatrix} 1\\1\\1\end{pmatrix}\).</p>
+                <p>Setting \(P_3 = [w_1\ w_2\ w_3] = \begin{pmatrix} -1&-1&1\\1&0&1\\0&1&1\end{pmatrix}\), we have \(P_3^{-1}A_3P_3 = \begin{pmatrix} 0&0&0\\0&0&0\\0&0&3\end{pmatrix}\).</p>
+                <p><strong>The general pattern.</strong> Observing the pattern, we conjecture \(p_{A_4}(x) = x^3(x-4)\) and \(p_{A_n}(x) = x^{n-1}(x-n)\). This holds because \(A_n\) has rank 1 (all rows are identical), so \(A_n v = 0\) for every vector \(v\) with coordinate sum zero; such vectors span an \((n-1)\)-dimensional eigenspace for \(\lambda = 0\). The remaining eigenvalue follows from \(A_n\begin{pmatrix} 1\\1\\\vdots\\1\end{pmatrix} = n\begin{pmatrix} 1\\1\\\vdots\\1\end{pmatrix}\), giving \(p_{A_n}(x) = x^{n-1}(x-n)\). \(\square\)</p>
+            </div>
+
             <p><strong>Bonus Problem 11.</strong> Let \(A\) be an \(n\times n\) matrix over \(\mathbb{R}\) (or \(\mathbb{C}\)), and suppose \(\lambda_1, \ldots, \lambda_r\) are distinct eigenvalues of \(A\). Let \(v_1, \ldots, v_r\) be any eigenvectors of \(A\) corresponding to \(\lambda_1, \ldots, \lambda_r\), respectively. Prove by induction on \(r\) that \(v_1, \ldots, v_r\) are linearly independent. Due Tuesday, May 5. (3 points)</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution to Bonus Problem 11.</span> We prove by induction on \(r\) that \(v_1,\ldots,v_r\) are linearly independent.</p>
+                <p><em>Base case</em> (\(r=1\)): A single eigenvector \(v_1\) is nonzero by definition and hence linearly independent.</p>
+                <p><em>Inductive step</em>: Assume that any \(r-1\) eigenvectors corresponding to distinct eigenvalues are linearly independent. Suppose</p>
+                <div class="math-display">
+                    \[\alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_r v_r = 0. \tag{\(*\)}\]
+                </div>
+                <p>Apply \(A\) to both sides:</p>
+                <div class="math-display">
+                    \[\alpha_1 \lambda_1 v_1 + \alpha_2 \lambda_2 v_2 + \cdots + \alpha_r \lambda_r v_r = 0. \tag{\(**\)}\]
+                </div>
+                <p>Subtract \(\lambda_r\) times \((*)\) from \((**)\):</p>
+                <div class="math-display">
+                    \[\alpha_1(\lambda_1 - \lambda_r)v_1 + \alpha_2(\lambda_2 - \lambda_r)v_2 + \cdots + \alpha_{r-1}(\lambda_{r-1}-\lambda_r)v_{r-1} = 0.\]
+                </div>
+                <p>By the inductive hypothesis, \(v_1,\ldots,v_{r-1}\) are linearly independent, so \(\alpha_i(\lambda_i - \lambda_r) = 0\) for \(i = 1,\ldots,r-1\). Since the eigenvalues are distinct, \(\lambda_i - \lambda_r \neq 0\) for \(i < r\), hence \(\alpha_i = 0\) for \(i = 1,\ldots,r-1\). Substituting back into \((*)\) gives \(\alpha_r v_r = 0\). Since \(v_r \neq 0\), we conclude \(\alpha_r = 0\). Therefore all \(\alpha_i = 0\), proving \(v_1,\ldots,v_r\) are linearly independent. \(\square\)</p>
+            </div>
         </div>
 
         <div class="problem">
@@ -1296,7 +1363,51 @@
 
             <p>1. Verify the vector space axioms for \(P_3(\mathbb{R})\), the set of real polynomials of degree less than or equal to three.</p>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution to 1.</span> Let \(f = a_0+a_1x+a_2x^2+a_3x^3\), \(g = b_0+b_1x+b_2x^2+b_3x^3\), \(h = c_0+c_1x+c_2x^2+c_3x^3\in P_3(\mathbb{R})\) and \(\lambda,\mu\in\mathbb{R}\). Addition is defined as \((f+g)(x) = (a_0+b_0)+(a_1+b_1)x+(a_2+b_2)x^2+(a_3+b_3)x^3\) and scalar multiplication as \((\lambda f)(x) = \lambda a_0+\lambda a_1 x+\lambda a_2 x^2+\lambda a_3 x^3\). Both operations remain in \(P_3(\mathbb{R})\). We verify the axioms:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(1) <strong>Commutativity of addition.</strong> \(f+g = g+f\) since addition of real numbers is commutative: \(a_i+b_i = b_i+a_i\) for each \(i\).</li>
+                    <li style="list-style-type: none;">(2) <strong>Associativity of addition.</strong> \((f+g)+h = f+(g+h)\) since \((a_i+b_i)+c_i = a_i+(b_i+c_i)\) for each \(i\).</li>
+                    <li style="list-style-type: none;">(3) <strong>Additive identity.</strong> The zero polynomial \(\mathbf{0} = 0+0x+0x^2+0x^3\) satisfies \(f+\mathbf{0} = f\) since \(a_i+0 = a_i\).</li>
+                    <li style="list-style-type: none;">(4) <strong>Additive inverse.</strong> For \(f\), define \(-f = -a_0-a_1x-a_2x^2-a_3x^3\in P_3(\mathbb{R})\). Then \(f+(-f) = \mathbf{0}\) since \(a_i+(-a_i) = 0\).</li>
+                    <li style="list-style-type: none;">(5) <strong>Compatibility.</strong> \((\lambda\mu)f = \lambda(\mu f)\) since \((\lambda\mu)a_i = \lambda(\mu a_i)\) for each \(i\).</li>
+                    <li style="list-style-type: none;">(6) <strong>Identity scalar.</strong> \(1\cdot f = f\) since \(1\cdot a_i = a_i\).</li>
+                    <li style="list-style-type: none;">(7) <strong>Distributivity over vector addition.</strong> \(\lambda(f+g) = \lambda f+\lambda g\) since \(\lambda(a_i+b_i) = \lambda a_i+\lambda b_i\).</li>
+                    <li style="list-style-type: none;">(8) <strong>Distributivity over scalar addition.</strong> \((\lambda+\mu)f = \lambda f+\mu f\) since \((\lambda+\mu)a_i = \lambda a_i+\mu a_i\).</li>
+                </ol>
+                <p>All eight axioms hold, so \(P_3(\mathbb{R})\) is a vector space. \(\square\)</p>
+            </div>
+
             <p>2. Verify the vector space axioms for \(\mathrm{M}_2(\mathbb{R})\), the set of \(2\times 2\) real matrices. No doubt you'll observe that your calculations for this problem are almost identical to those in problem 1.</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution to 2.</span> Let \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), \(B = \begin{pmatrix} e & f\\g & h\end{pmatrix}\), \(C = \begin{pmatrix} p & q\\r & s\end{pmatrix}\in\mathrm{M}_2(\mathbb{R})\) and \(\lambda,\mu\in\mathbb{R}\). Addition is entry-wise and scalar multiplication multiplies each entry by the scalar. Both operations remain in \(\mathrm{M}_2(\mathbb{R})\). The eight axioms follow by exactly the same argument as in Problem 1, with each coefficient \(a_i\) replaced by the corresponding matrix entry. For instance:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(1) \(A+B = B+A\) since \(a_{ij}+b_{ij} = b_{ij}+a_{ij}\) for each entry.</li>
+                    <li style="list-style-type: none;">(3) The zero matrix \(\mathbf{0} = \begin{pmatrix} 0&0\\0&0\end{pmatrix}\) is the additive identity.</li>
+                    <li style="list-style-type: none;">(4) \(-A = \begin{pmatrix} -a & -b\\-c & -d\end{pmatrix}\) is the additive inverse of \(A\).</li>
+                </ol>
+                <p>Axioms (2), (5)–(8) follow identically. Thus \(\mathrm{M}_2(\mathbb{R})\) is a vector space. \(\square\)</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Tuesday, May 5</div>
+
+            <p>1. Let \(V = P_3(\mathbb{R})\), the vector space of real polynomials having degree three or less. Let \(\alpha = \{1, x, x^2, x^3\}\) and \(\beta = \{1, 1+x, 1+x+x^2, 1+x+x^2+x^3\}\). Let \(T: V\to V\) be defined by \(T(p(x)) = p'(x)\).</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) Show that \(\beta\) is a basis for \(V\).</li>
+                <li style="list-style-type: none;">(ii) Find \([T]_{\beta}^{\alpha}\), \([T]_{\alpha}^{\alpha}\), \([T]_{\beta}^{\beta}\), \([I]_{\alpha}^{\beta}\), and \([I]_{\beta}^{\alpha}\).</li>
+                <li style="list-style-type: none;">(iii) Verify the change of basis formula relating \([T]_{\beta}^{\beta}\) to \([T]_{\alpha}^{\alpha}\).</li>
+            </ol>
+
+            <p>2. Let \(V\) be a two dimensional vector space over \(\mathbb{C}\), with basis \(\{v_1, v_2\}\).</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) Show that \(V\) is also a vector space over \(\mathbb{R}\).</li>
+                <li style="list-style-type: none;">(ii) Find the dimension of \(V\) as a vector space over \(\mathbb{R}\). Hint: Use the given basis to construct a basis for \(V\) as a vector space over \(\mathbb{R}\).</li>
+            </ol>
+
+            <p><strong>Bonus Problem 12.</strong> Let \(V\) and \(W\) be real vector spaces and \(T: V\to W\) a linear transformation. Suppose \(\alpha := \{v_1,\ldots,v_n\}\) and \(\beta := \{w_1,\ldots,w_m\}\) are bases for \(V\) and \(W\), respectively. For \(v\in V\), let \([v]_{\alpha}\) denote the column vector \(\begin{pmatrix} a_1\\\vdots\\a_n\end{pmatrix}\in\mathbb{R}^n\), where \(v = a_1v_1+\cdots+a_nv_n\), and for \(w\in W\), let \([w]_{\beta}\) denote the column vector \(\begin{pmatrix} b_1\\\vdots\\b_m\end{pmatrix}\in\mathbb{R}^m\), where \(w = b_1w_1+\cdots+b_mw_m\). Show that \([T(v)]_{\beta} = [T]_{\alpha}^{\beta}\cdot [v]_{\alpha}\). Due Tuesday, May 12. (3 points)</p>
         </div>
 
         </div>
