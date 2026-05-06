@@ -1489,6 +1489,87 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Tuesday, May 5</div>
+
+            <p>We began an overview discussion about completions. We started with a Noetherian ring \(R\) and an ideal \(I\subseteq R\) satisfying \(\bigcap_{n\geq 1} I^n = 0\). We then proceeded with the following comments, discussing some in greater details than others.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Comments on completions.</span></p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) A sequence of elements \((a_h)_{h\geq 1}\) from \(R\) is a <em>Cauchy</em> sequence if for all \(n\geq 1\) there exists \(N\) such that \(r, s\geq N\) implies \(a_r-a_s\in I^n\).</li>
+                    <li style="list-style-type: none;">(ii) The set \(\mathcal{C}\) consisting of all Cauchy sequences forms a ring under term-wise addition and multiplication.</li>
+                    <li style="list-style-type: none;">(iii) The sequence \((a_h)_{h\geq 1}\) converges to \(x_0\in R\) if for all \(n\geq 1\), there exists \(N\geq 1\) such that \(r\geq N\) implies \(x_0-a_r\in I^n\).</li>
+                    <li style="list-style-type: none;">(iv) The set \(J\subseteq \mathcal{C}\) of sequences converging to 0 is an ideal of \(\mathcal{C}\).</li>
+                    <li style="list-style-type: none;">(v) The ring \(\widehat{R}_I := \mathcal{C}/J\) is called the <em>\(I\)-adic completion</em> of \(R\).</li>
+                    <li style="list-style-type: none;">(vi) There is a natural embedding of \(R\) into \(\widehat{R}_I\), since \(\bigcap_{n\geq 1} I^n = 0\).</li>
+                    <li style="list-style-type: none;">(vii) The image of any Cauchy sequence in \(\widehat{R}_I\) is equivalent to a Cauchy sequence in <em>standard form</em>, i.e., a sequence \((b_h)_{h\geq 1}\) satisfying the following property: For all \(n\geq 1\), there exists \(N\geq 1\) such that \(r\geq N\) implies \(b_{r+1}-b_r\in I^n\).</li>
+                    <li style="list-style-type: none;">(ix) Every Cauchy sequence in \(\widehat{R}_I\) converges to an element in \(\widehat{R}_I\). Thus, \(\widehat{R}_I\) is <em>complete</em> in the \(I\widehat{R}_I\)-adic topology.</li>
+                    <li style="list-style-type: none;">(x) Every element in \(\widehat{R}_I\) is the limit of a Cauchy sequence of elements from \(R\).</li>
+                    <li style="list-style-type: none;">(xi) Every element \(x\in \widehat{R}_I\) is the limit of partial sums of the form \(s_n := \sum_{j=0}^n u_j\), where \(u_j\in I^i\). Thus, if \(I = \langle x_1,\ldots,x_t\rangle\), every element in \(\widehat{R}_I\) may be regarded as a power series expression in \(x_1,\ldots,x_t\) with coefficients in \(R\).</li>
+                </ol>
+            </div>
+
+            <p>We then noted that the 7-adic integers is the 7-adic completion of \(\mathbb{Z}\), and that its elements have the form \(\sum_{k\geq 0}^{\infty} n_k7^k\), with \(n_k\in \mathbb{Z}\), and that in fact, one can assume \(0\leq n_k\leq 6\), for all \(k\). We also noted that if \(R = A[x_1,\ldots,x_d]\) is the polynomial ring in \(d\)-variables over \(A\), then the \((x_1,\ldots,x_d)\)-adic completion of \(R\) is the formal power series ring \(A[[x_1,\ldots,x_d]]\).</p>
+
+            <p>We then proceeded to show that \(\widehat{R}_I\) is a Noetherian ring. For this we needed two preliminary results, including the following beautiful theorem of I.S. Cohen.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Cohen's Theorem.</span> Let \(R\) be a commutative ring. If every prime ideal of \(R\) is finitely generated, then \(R\) is Noetherian.</p>
+            </div>
+
+            <p>The idea behind the proof of Cohen's theorem is that if the theorem were false, then Zorn's lemma grants an ideal \(P\subseteq R\) that is maximal with respect to not being finitely generated. One then shows that \(P\) is prime.</p>
+
+            <p>The next component in showing that \(\widehat{R}_I\) is Noetherian required the following proposition.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Proposition.</span> If \(R\) is Noetherian, then the power series ring \(R[[x]]\) is Noetherian.</p>
+                <p><em>Proof.</em> By Cohen's Theorem, it is enough to show every prime \(P\subseteq R[[x]]\) is finitely generated. Since any power series \(f\in R[[x]]\) can be written \(f = \sum_{n\geq 0}^{\infty} b_lx^n\), with \(b_n\in R\), there is a least positive integer \(l\) such that \(b_l\not= 0\). We call \(b_lx^l\) the <em>lowest degree term</em> of \(f\) and note that we can write \(f = b_lx^l+x^{l+1}g\), for some \(g\in R[[x]]\).</p>
+                <p>We consider two cases. First suppose \(x\in P\). Then \(P\cap R\) is a finitely generated ideal, say with generators \(a_1,\ldots,a_t\). Take \(f\in P\). If \(f\) has zero constant term, then \(f\) is a multiple of \(x\) and hence belongs to \((a_1,\ldots,a_t,x)R[[x]]\). On the other hand, suppose \(f = b+xg\), with \(b\not= 0\). Then, since \(x\in P\), \(f-xg = b\in P\), so \(b\in P\cap R\), so \(b\in (a_1,\ldots,a_t)R\). Thus, \(f\in (a_1,\ldots,a_t,x)R[[x]]\). Therefore, \(P = (a_1,\ldots,a_t,x)R[[x]]\), since this latter ideal is contained in \(P\).</p>
+                <p>Suppose \(x\not\in P\) and let \(J\subseteq R\) be the ideal of \(R\) consisting of 0, together with all \(b\) such that \(bx^l\) is the lowest degree term of an element of \(P\). Then \(J = \langle a_1,\ldots,a_t\rangle\), for \(a_i\in R\) and such that there exist \(f_1,\ldots,f_t\in P\) with lowest degree term \(a_ix^{d_i}\), for some \(d_i\). Suppose \(d_i > 0\). Then \(f_i = x^{d_1}\cdot(a_i+xg_i)\), and since \(x\not\in P\), \(a_i+xg_i\in P\). Thus, we may change notation and assume each \(f_i = a_i+xg_i\), with \(a_i\not= 0\) and for some \(g_i\in R\). We wish to show \(P = J := \langle f_1,\ldots,f_t\rangle\).</p>
+                <p>Take \(f\in P\), and write \(f = bx^l+x^{l+1}g\), where \(bx^l\) is the lowest degree term of \(f\). Since \(x^l\not\in P\), \(b+xg\in P\), so that if \(b+xg\in J\), so is \(f\). Thus, we begin again, assuming \(f = b+xg\). If we write \(b = r_1a_1+\cdots+r_ta_t\), then we have</p>
+                <div class="math-display">
+                    \[f = r_1f_1+\cdots+r_tf_t+x^{l_1}g_1,\]
+                </div>
+                <p>where \(g_1\) has non-zero constant term and \(l_1\geq 1\). Note that since \(x\not\in P\), \(g_1\in P\). Repeating this for \(g_1\), we have</p>
+                <div class="math-display">
+                    \[g_1 = r_{11}f_1+\cdots+r_{t1}f_t+x^{l_2'}g_2,\]
+                </div>
+                <p>where \(g_2\) has non-zero constant term and \(l_2'\geq 1\). Thus,</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    f &= r_1f_1+\cdots+r_tf_t+x^{l_1}\cdot(r_{11}f_1+\cdots+r_{t1}f_t+x^{l_2'}g_2)\\
+                      &= (r_1+r_{11})x^{l_1}f_1+\cdots+(r_t+r_{t1}x^{l_1})f_t+x^{l_2}g_2,
+                    \end{align*}\]
+                </div>
+                <p>for some \(l_2 > l_1\) and \(g_2\in P\). Continuing inductively, we construct \(h_j(n)\), \(p(n)\) and \(l_n\) so that</p>
+                <div class="math-display">
+                    \[f = h_1(n)f_1+\cdots+h_t(n)f_t+p(n),\]
+                </div>
+                <p>where each \(h_j(n) = r_j+r_{j11}x^{l_1}+\cdots+r_{jn}x^{l_n}\), \(p(n)\in x^{l_{n+1}}R[[x]]\) and \(l_1 < l_2 < \cdots < l_{n+1}\). Noting that for each \(1\leq j\leq t\), \(\{h_j(n)\}_n\) is a Cauchy sequence in \(R[[x]]\) in the \((x)\)-adic topology, we set \(h_j := \lim_{n\to\infty} h_j(n)\). Since \(f-(h_1(n)f_1+\cdots+h_t(n)f_t)\in x^{l_{n+1}}R[[x]]\), we have on the one hand,</p>
+                <div class="math-display">
+                    \[\lim_{n\to\infty}\{f-(h_1(n)f_1+\cdots+h_t(n)f_t)\} = 0.\]
+                </div>
+                <p>On the other hand,</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    0 &= \lim_{n\to\infty}\{f-(h_1(n)f_1+\cdots+h_t(n)f_t)\}\\
+                      &= f-\{\lim_{n\to\infty}(h_1(n)f_1+\cdots+h_t(n)f_t)\}\\
+                      &= f-\{(\lim_{n\to\infty}h_1(n))f_1+\cdots+(\lim_{n\to\infty}h_t(n))f_t\}\\
+                      &= f-\{h_1f_1+\cdots+h_tf_t\},
+                    \end{align*}\]
+                </div>
+                <p>so that \(f = h_1f_1+\cdots+h_tf_t\in J\). Thus, \(P\subseteq J\), so \(P = J\) is finitely generated. \(\square\)</p>
+            </div>
+
+            <p>With the two previous results in hand, we were able to prove</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> The \(I\)-adic completion \(\widehat{R}_I\) of \(R\) is a Noetherian ring.</p>
+                <p><em>Proof.</em> One first notes that if \(\phi: A\to B\to 0\) is a surjective ring homomorphism and \(C\subseteq A\) is an ideal, with \(D := \phi(C)\), then \(\phi\) extends to a surjective ring homomorphism \(\hat{\phi}: \widehat{A}_C\to \widehat{B}_D\to 0\). Thus, if \(I\subseteq R\) is generated by \(a_1,\ldots,a_t\), we have a natural surjection \(\phi: R[x_1,\ldots,x_d]\to R\to 0\), where \(\phi(x_i) = a_i\), for all \(i\). Since this map extends to the completions, there is a surjective map \(\hat{\phi}: R[[x_1,\ldots,x_d]]\to \widehat{R}_I\to 0\). Since \(R[[x_1,\ldots,x_d]]\) is Noetherian (by induction and the previous proposition), \(\widehat{R}_I\) is Noetherian. \(\square\)</p>
+            </div>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
