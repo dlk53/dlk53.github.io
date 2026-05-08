@@ -1207,6 +1207,50 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Thursday, May 7</div>
+
+            <p>We mainly discussed diagonalization of a linear transformation \(T: V\to V\) from a vector space to itself. This required a few definitions, which are natural extensions of the concepts of eigenvectors and eigenvalues from matrices to transformations.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definitions.</span> Let \(V\) be a vector space over \(F\) and \(T: V\to V\) be a linear transformation.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(\lambda\in F\) is an <em>eigenvalue</em> of \(T\) if there exists a non-zero vector \(v\in V\) such that \(T(v) = \lambda v\).</li>
+                    <li style="list-style-type: none;">(ii) If \(T(v) = \lambda v\), with \(v\not= 0\), then \(v\) is an <em>eigenvector</em> of \(T\) associated to \(\lambda\).</li>
+                    <li style="list-style-type: none;">(iii) \(T\) is <em>diagonalizable</em> if there exists a basis for \(V\) consisting of eigenvectors, i.e., there exists a basis \(\alpha\subseteq V\) such that \([T]_{\alpha}^{\alpha}\) is diagonal.</li>
+                    <li style="list-style-type: none;">(iv) The characteristic polynomial \(p_T(x)\) of \(T\) is just \(p_A(x)\), for any matrix of the form \(A = [T]_{\beta}^{\beta}\) representing \(T\).</li>
+                    <li style="list-style-type: none;">(v) If \(\lambda\) is an eigenvalue of \(T\), then the corresponding <em>eigenspace</em> \(E_{\lambda}\) is the subspace of \(V\), \(\{v\in V\mid T(v) = \lambda v\}\), or equivalently, the set of vectors \(v\in V\) such that \((T-\lambda I)(v) = 0\). This is just the set of eigenvectors associated to \(\lambda\) together with the zero vector.</li>
+                </ol>
+            </div>
+
+            <p>We then discussed the following theorem.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Diagonalizability Theorem for Linear Transformations.</span> Let \(V\) be a vector space over \(F\) and \(T: V\to V\) a linear transformation. The following are equivalent.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(T\) is diagonalizable.</li>
+                    <li style="list-style-type: none;">(ii) For any basis \(\alpha\subseteq V\), the matrix \([T]_{\alpha}^{\alpha}\) is diagonalizable.</li>
+                    <li style="list-style-type: none;">(iii) \(p_T(x) = (x-\lambda_1)^{e_1}\cdots(x-\lambda_r)^{e_r}\) and the dimension of \(E_{\lambda_i}\) equals \(e_i\), for each \(1\leq i\leq r\). In other words, the geometric multiplicity of each eigenvalue equals its algebraic multiplicity.</li>
+                </ol>
+            </div>
+
+            <p>We then considered \(V = P_2(\mathbb{R})\) and the linear transformation \(T: V\to V\) given by \(T(p(x)) = p'(x)\). To determine if \(T\) is diagonalizable, we calculated \(A = [T]_E^E\), where \(E = \{1, x, x^2\}\) is the standard basis for \(P_2(\mathbb{R})\). We saw that \(p_T(x) = p_A(x) = x^3\), so 0 was the only eigenvalue, and that \(A\) was not diagonalizable. Thus, by the theorem above, \(T\) is not diagonalizable. In fact, in this case, the polynomial 1 formed a basis for \(E_0\), so that the geometric multiplicity of 0 was one, while the algebraic multiplicity was three. Thus, by the theorem above, \(T\) is not diagonalizable.</p>
+
+            <p>We ended class by recalling that if \(A\) is an \(m\times n\) matrix that is the coefficient matrix of a homogeneous system of linear equations,</p>
+            <div class="definition">
+                <div class="math-display" style="font-size: 0.82em;">
+                    \[n - (\text{the # of leading 1s in the RREF form of } A) = (\text{the # of independent parameters describing solutions}).\]
+                </div>
+            </div>
+            <p>This can then be re-written as</p>
+            <div class="definition">
+                <div class="math-display" style="font-size: 0.82em;">
+                    \[n = (\text{the # of leading 1s in the RREF form of } A) + (\text{the # of independent parameters describing solutions}).\]
+                </div>
+            </div>
+            <p>The number of leading 1s in the RREF form of \(A\) is called the <em>rank</em> of \(A\), while the number of independent parameters describing solutions is called the <em>nullity</em> of \(A\), so that the relation above is often called the <strong>Rank plus Nullity Theorem</strong>.</p>
+        </div>
+
         <!-- Additional daily updates will be added below as the semester continues -->
 
     </main>
