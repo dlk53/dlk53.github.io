@@ -1401,13 +1401,77 @@
                 <li style="list-style-type: none;">(iii) Verify the change of basis formula relating \([T]_{\beta}^{\beta}\) to \([T]_{\alpha}^{\alpha}\).</li>
             </ol>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution to 1.</span></p>
+                <p><strong>(i) \(\beta\) is a basis for \(V\).</strong> We express the elements of \(\beta\) in terms of \(\alpha\): \(b_1 = 1\), \(b_2 = 1+x\), \(b_3 = 1+x+x^2\), \(b_4 = 1+x+x^2+x^3\). The change-of-basis matrix from \(\beta\)-coordinates to \(\alpha\)-coordinates is the upper-triangular matrix</p>
+                <div class="math-display">
+                    \[[I]_{\beta}^{\alpha} = \begin{pmatrix} 1&1&1&1\\ 0&1&1&1\\ 0&0&1&1\\ 0&0&0&1 \end{pmatrix},\]
+                </div>
+                <p>which has determinant \(1 \neq 0\). Hence the four vectors are linearly independent and, since \(\dim P_3(\mathbb{R}) = 4\), they form a basis. \(\square\)</p>
+                <p><strong>(ii) Computing the five matrices.</strong></p>
+                <p><em>Matrix \([T]_{\alpha}^{\alpha}\).</em> We compute \(T\) on each \(\alpha\)-basis vector: \(T(1)=0\), \(T(x)=1\), \(T(x^2)=2x\), \(T(x^3)=3x^2\). Writing these as \(\alpha\)-coordinate columns:</p>
+                <div class="math-display">
+                    \[[T]_{\alpha}^{\alpha} = \begin{pmatrix} 0&1&0&0\\ 0&0&2&0\\ 0&0&0&3\\ 0&0&0&0 \end{pmatrix}.\]
+                </div>
+                <p><em>Matrix \([T]_{\beta}^{\alpha}\).</em> We compute \(T\) on each \(\beta\)-basis vector: \(T(b_1) = 0\), \(T(b_2) = T(1+x) = 1\), \(T(b_3) = T(1+x+x^2) = 1+2x\), \(T(b_4) = T(1+x+x^2+x^3) = 1+2x+3x^2\). Writing these in the \(\alpha\) basis:</p>
+                <div class="math-display">
+                    \[[T]_{\beta}^{\alpha} = \begin{pmatrix} 0&1&1&1\\ 0&0&2&2\\ 0&0&0&3\\ 0&0&0&0 \end{pmatrix}.\]
+                </div>
+                <p><em>Matrices \([I]_{\beta}^{\alpha}\) and \([I]_{\alpha}^{\beta}\).</em> From part (i), \([I]_{\beta}^{\alpha} = \begin{pmatrix} 1&1&1&1\\0&1&1&1\\0&0&1&1\\0&0&0&1\end{pmatrix}\). To find \([I]_{\alpha}^{\beta}\) we express each \(\alpha\)-basis vector in the \(\beta\) basis by back-substitution: \(1 = b_1\), \(x = b_2 - b_1\), \(x^2 = b_3 - b_2\), \(x^3 = b_4 - b_3\). Hence</p>
+                <div class="math-display">
+                    \[[I]_{\alpha}^{\beta} = \begin{pmatrix} 1&-1&0&0\\ 0&1&-1&0\\ 0&0&1&-1\\ 0&0&0&1 \end{pmatrix}.\]
+                </div>
+                <p><em>Matrix \([T]_{\beta}^{\beta}\).</em> Using \([T]_{\beta}^{\beta} = [I]_{\alpha}^{\beta}[T]_{\beta}^{\alpha}\):</p>
+                <div class="math-display">
+                    \[[T]_{\beta}^{\beta} = \begin{pmatrix} 1&-1&0&0\\ 0&1&-1&0\\ 0&0&1&-1\\ 0&0&0&1 \end{pmatrix} \begin{pmatrix} 0&1&1&1\\ 0&0&2&2\\ 0&0&0&3\\ 0&0&0&0 \end{pmatrix} = \begin{pmatrix} 0&1&-1&-1\\ 0&0&2&-1\\ 0&0&0&3\\ 0&0&0&0 \end{pmatrix}.\]
+                </div>
+                <p><strong>(iii) Verification of the change-of-basis formula.</strong> The formula states \([T]_{\beta}^{\beta} = [I]_{\alpha}^{\beta}\,[T]_{\alpha}^{\alpha}\,[I]_{\beta}^{\alpha}\). We compute \([T]_{\alpha}^{\alpha}[I]_{\beta}^{\alpha}\) first:</p>
+                <div class="math-display">
+                    \[\begin{pmatrix} 0&1&0&0\\0&0&2&0\\0&0&0&3\\0&0&0&0\end{pmatrix}\begin{pmatrix} 1&1&1&1\\0&1&1&1\\0&0&1&1\\0&0&0&1\end{pmatrix} = \begin{pmatrix} 0&1&1&1\\0&0&2&2\\0&0&0&3\\0&0&0&0\end{pmatrix} = [T]_{\beta}^{\alpha}.\]
+                </div>
+                <p>Then multiplying on the left by \([I]_{\alpha}^{\beta}\) recovers \([T]_{\beta}^{\beta}\) as computed above. \(\square\)</p>
+            </div>
+
             <p>2. Let \(V\) be a two dimensional vector space over \(\mathbb{C}\), with basis \(\{v_1, v_2\}\).</p>
             <ol style="list-style-type: none; padding-left: 20px;">
                 <li style="list-style-type: none;">(i) Show that \(V\) is also a vector space over \(\mathbb{R}\).</li>
                 <li style="list-style-type: none;">(ii) Find the dimension of \(V\) as a vector space over \(\mathbb{R}\). Hint: Use the given basis to construct a basis for \(V\) as a vector space over \(\mathbb{R}\).</li>
             </ol>
 
+            <div class="solution">
+                <p><span class="statement-title">Solution to 2.</span></p>
+                <p><strong>(i) \(V\) is a vector space over \(\mathbb{R}\).</strong> Since \(\mathbb{R} \subset \mathbb{C}\), the scalar multiplication \(\mathbb{C}\times V \to V\) restricts to a map \(\mathbb{R}\times V \to V\). The eight vector-space axioms for \(V\) over \(\mathbb{C}\) remain valid when scalars are restricted to \(\mathbb{R}\) (the axioms involve only ring operations that hold in \(\mathbb{R}\)), so \(V\) is a vector space over \(\mathbb{R}\). \(\square\)</p>
+                <p><strong>(ii) \(\dim_{\mathbb{R}} V = 4\).</strong> We claim \(\{v_1, iv_1, v_2, iv_2\}\) is a basis for \(V\) over \(\mathbb{R}\).</p>
+                <p><em>Spanning:</em> Let \(w \in V\). Since \(\{v_1, v_2\}\) is a \(\mathbb{C}\)-basis, we can write \(w = (a+bi)v_1 + (c+di)v_2\) with \(a,b,c,d\in\mathbb{R}\). Then</p>
+                <div class="math-display">
+                    \[w = av_1 + b(iv_1) + cv_2 + d(iv_2),\]
+                </div>
+                <p>so \(\{v_1, iv_1, v_2, iv_2\}\) spans \(V\) over \(\mathbb{R}\).</p>
+                <p><em>Linear independence:</em> Suppose \(av_1 + b(iv_1) + cv_2 + d(iv_2) = 0\) for \(a,b,c,d\in\mathbb{R}\). Regrouping,</p>
+                <div class="math-display">
+                    \[(a+bi)v_1 + (c+di)v_2 = 0.\]
+                </div>
+                <p>Since \(\{v_1, v_2\}\) is \(\mathbb{C}\)-linearly independent, \(a+bi = 0\) and \(c+di = 0\), giving \(a=b=c=d=0\).</p>
+                <p>Hence \(\{v_1, iv_1, v_2, iv_2\}\) is an \(\mathbb{R}\)-basis and \(\dim_{\mathbb{R}}V = 4\). \(\square\)</p>
+            </div>
+
             <p><strong>Bonus Problem 12.</strong> Let \(V\) and \(W\) be real vector spaces and \(T: V\to W\) a linear transformation. Suppose \(\alpha := \{v_1,\ldots,v_n\}\) and \(\beta := \{w_1,\ldots,w_m\}\) are bases for \(V\) and \(W\), respectively. For \(v\in V\), let \([v]_{\alpha}\) denote the column vector \(\begin{pmatrix} a_1\\\vdots\\a_n\end{pmatrix}\in\mathbb{R}^n\), where \(v = a_1v_1+\cdots+a_nv_n\), and for \(w\in W\), let \([w]_{\beta}\) denote the column vector \(\begin{pmatrix} b_1\\\vdots\\b_m\end{pmatrix}\in\mathbb{R}^m\), where \(w = b_1w_1+\cdots+b_mw_m\). Show that \([T(v)]_{\beta} = [T]_{\alpha}^{\beta}\cdot [v]_{\alpha}\). Due Tuesday, May 12. (3 points)</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution to Bonus Problem 12.</span> Write \(v = a_1v_1 + \cdots + a_nv_n\), so that \([v]_{\alpha} = \begin{pmatrix} a_1\\\vdots\\a_n\end{pmatrix}\). Let \([T]_{\alpha}^{\beta}\) be the \(m\times n\) matrix whose \(j\)-th column is \([T(v_j)]_{\beta}\); call this column \(c_j \in \mathbb{R}^m\).</p>
+                <p>By linearity of \(T\),</p>
+                <div class="math-display">
+                    \[T(v) = T\!\left(\sum_{j=1}^n a_j v_j\right) = \sum_{j=1}^n a_j T(v_j).\]
+                </div>
+                <p>Taking \(\beta\)-coordinates (the coordinate map \([\,\cdot\,]_{\beta}: W \to \mathbb{R}^m\) is linear),</p>
+                <div class="math-display">
+                    \[[T(v)]_{\beta} = \left[\sum_{j=1}^n a_j T(v_j)\right]_{\beta} = \sum_{j=1}^n a_j [T(v_j)]_{\beta} = \sum_{j=1}^n a_j c_j.\]
+                </div>
+                <p>The last expression is precisely the matrix-vector product \([T]_{\alpha}^{\beta}\cdot[v]_{\alpha}\), since multiplying an \(m\times n\) matrix by \(\begin{pmatrix} a_1\\\vdots\\a_n\end{pmatrix}\) yields \(\sum_{j=1}^n a_j c_j\). Hence</p>
+                <div class="math-display">
+                    \[[T(v)]_{\beta} = [T]_{\alpha}^{\beta}\cdot[v]_{\alpha}. \qquad \square\]
+                </div>
+            </div>
         </div>
 
         <div class="problem">
@@ -1419,6 +1483,39 @@
                 <li style="list-style-type: none;">(ii) Determine if \(T\) is diagonalizable, by first finding the eigenvalues of \(T\) and then finding the corresponding eigenspaces.</li>
             </ol>
             <p>This problem is easiest if you use the standard basis \(1, x, x^2, x^3\) for \(V\).</p>
+
+            <div class="solution">
+                <p><span class="statement-title">Solution to 1.</span></p>
+                <p><strong>(i) \(T\) is a linear transformation.</strong> For \(p, q \in V\) and \(\lambda \in \mathbb{R}\):</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    T(p+q) &= (x^2+3x)(p+q)'' = (x^2+3x)(p''+q'') = (x^2+3x)p'' + (x^2+3x)q'' = T(p)+T(q),\\
+                    T(\lambda p) &= (x^2+3x)(\lambda p)'' = (x^2+3x)\lambda p'' = \lambda(x^2+3x)p'' = \lambda T(p).
+                    \end{align*}\]
+                </div>
+                <p>Hence \(T\) is linear. \(\square\)</p>
+                <p><strong>(ii) Diagonalizability.</strong> We find the matrix of \(T\) with respect to the standard basis \(\alpha = \{1, x, x^2, x^3\}\). Computing \(T\) on each basis vector:</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    T(1) &= (x^2+3x)\cdot 0 = 0,\\
+                    T(x) &= (x^2+3x)\cdot 0 = 0,\\
+                    T(x^2) &= (x^2+3x)\cdot 2 = 2x^2+6x,\\
+                    T(x^3) &= (x^2+3x)\cdot 6x = 6x^3+18x^2.
+                    \end{align*}\]
+                </div>
+                <p>In \(\alpha\)-coordinates:</p>
+                <div class="math-display">
+                    \[[T]_{\alpha}^{\alpha} = \begin{pmatrix} 0&0&0&0\\ 0&0&6&0\\ 0&0&2&18\\ 0&0&0&6 \end{pmatrix}.\]
+                </div>
+                <p>This is upper-triangular, so the eigenvalues are the diagonal entries: \(\lambda = 0\) (multiplicity 2), \(\lambda = 2\) (multiplicity 1), \(\lambda = 6\) (multiplicity 1). The characteristic polynomial is \(p_T(x) = x^2(x-2)(x-6)\).</p>
+                <p><em>Eigenspace for \(\lambda = 0\).</em> Solving \([T]_{\alpha}^{\alpha}\,\mathbf{a} = \mathbf{0}\): the equations \(6c = 0\), \(2c+18d = 0\), \(6d = 0\) give \(c = d = 0\), with \(a, b\) free. The eigenspace is \(\operatorname{span}\{1,\, x\}\), dimension 2.</p>
+                <p><em>Eigenspace for \(\lambda = 2\).</em> Solving \(([T]_{\alpha}^{\alpha}-2I)\,\mathbf{a}=\mathbf{0}\): we get \(a = 0\), \(d = 0\), and \(b = 3c\). Taking \(c=1\): eigenvector \(3x+x^2\). Eigenspace \(= \operatorname{span}\{x^2+3x\}\), dimension 1.</p>
+                <p><em>Eigenspace for \(\lambda = 6\).</em> Solving \(([T]_{\alpha}^{\alpha}-6I)\,\mathbf{a}=\mathbf{0}\): we get \(a = 0\), \(b = c\), and \(4c = 18d\). Taking \(d=2\): \(c = 9\), \(b = 9\). Eigenvector: \(9x+9x^2+2x^3\). Eigenspace \(= \operatorname{span}\{2x^3+9x^2+9x\}\), dimension 1.</p>
+                <p><em>Conclusion.</em> The geometric multiplicities are \(2, 1, 1\), summing to \(4 = \dim V\). Hence \(T\) is diagonalizable, with eigenbasis \(\{1,\, x,\, x^2+3x,\, 2x^3+9x^2+9x\}\) and diagonal matrix</p>
+                <div class="math-display">
+                    \[D = \begin{pmatrix} 0&0&0&0\\ 0&0&0&0\\ 0&0&2&0\\ 0&0&0&6 \end{pmatrix}. \qquad \square\]
+                </div>
+            </div>
         </div>
 
         </div>
