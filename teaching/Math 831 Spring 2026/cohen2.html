@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Guide to Cohen's Structure Theorem for Complete Local Rings</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.15
+            },
+            chtml: {
+                scale: 1.15,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.9em;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #4a90e2;
+            font-size: 1.4em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 8px;
+        }
+        .content-section {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .theorem {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .lemma {
+            background-color: #e8f4f8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 3px solid #4a90e2;
+        }
+        .remark {
+            background-color: #f0f0f0;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 3px solid #666;
+        }
+        .example {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        .qed {
+            float: right;
+            font-size: 1.2em;
+        }
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>A Guide to Cohen's Structure Theorem for Complete Local Rings</h1>
+    </header>
+
+    <main id="main-content">
+        <div class="content-section">
+            <p style="text-align: center;"><em>D. Katz</em></p>
+        </div>
+
+        <div class="content-section">
+            <p>The purpose of this note is to provide for my algebra class a guide to the proof of Cohen's structure theorem for complete local rings as given by Cohen himself, in the original 1946 paper [C]. In spite of more modern and concise treatments by the likes of Nagata and Grothendieck, the original proof is a model of clarity and the entire paper is a commutative algebra masterpiece.</p>
+
+            <p>First, a few words on the original paper. The paper is divided into three parts. Part I deals with the general theory of completions of local rings and what Cohen calls <em>generalized local rings</em>. The former being Noetherian commutative rings with a unique maximal ideal, the latter being quasi-local rings \((R,m)\) with \(m\) finitely generated and satisfying Krull's intersection theorem, \(\cap_{n\geq 1} m^n = 0\). Generalized local rings are needed in Part II when (in modern jargon) certain faithfully flat extensions of local rings are constructed in order to pass to the case where the residue field of the new ring is perfect. Using the associated graded ring, Cohen shows in Part I that the completion of a generalized local ring is a local ring (see [C; Theorem 3]). Incidently, Cohen asks whether or not generalized local rings are always local. The answer is no, but I believe that the generalized local rings he considers <em>are</em> local rings (though I could be wrong). Part II of the paper presents the structure theorem for complete local rings. It is interesting to note that some of the easier arguments that serve as 'base cases' for his proof either appeared in or are based on earlier work in the 1930's on valuations rings by Hasse and Schmidt, Maclane, and Teichmuller. In Part III, Cohen proves fundamental results on the structure and ideal theory of regular local rings. Included in this section are the facts that a complete regular local ring containing a field is a power series ring over a field (a conjecture of Krull's) and any associated prime of an ideal of the principal class (i.e., height equals number of generators) in a regular local ring has the same height ('rank') as the ideal. This latter property was shown by Macaulay to hold in polynomial rings over a field. Of course, Noetherian rings with this property are now known as Cohen-Macaulay rings.</p>
+
+            <p>We now turn to a sketch of the proof of the structure theorem. I'll maintain notation used in class, though this will be at odds with the notation in [C], which is somewhat old fashioned. For the remainder of this note \((R,m,k)\) will denote a complete local ring. Since \(R\) is a local ring, either \(\mathrm{char}(R) = 0\), \(\mathrm{char}(R) = p\) or \(\mathrm{char}(R) = p^n\), \(p > 0\) prime, while \(\mathrm{char}(k)\) can only be zero or prime. If \(\mathrm{char}(R) = \mathrm{char}(k) = 0\), then \(R\) contains \(\mathbb{Q}\), while if \(\mathrm{char}(R) = \mathrm{char}(k) = p > 0\), \(R\) contains the field \(\mathbb{Z}_p\). In these cases, \(R\) is said to be <em>equicharacteristic</em>. Otherwise \(R\) is said to have <em>mixed characteristic</em>. Of course, if \(R\) contains a field, \(R\) is equicharacteristic.</p>
+        </div>
+
+        <h2>Definitions and Remarks</h2>
+
+        <div class="content-section">
+            <div class="theorem">
+                <p><strong>Definition.</strong> Suppose \(R\) contains a field, i.e., \(R\) is equicharacteristic. A subfield \(C\subseteq R\) is called a <em>coefficient field</em> if \(C\) maps isomorphically onto \(k\) via the natural homomorphism \(C \to R/m\), i.e., \(C+m = k\) in \(R/m\). Suppose \(R\) has mixed characteristic and \(\mathrm{char}(k) = p > 0\). A subring \(C\subseteq R\) is called a <em>coefficient ring</em> if: (i) \(C\) is a complete local ring, (ii) \(C\) maps onto \(k\) via the natural homomorphism \(C \to R/m\), i.e., \(C/(m\cap C) = k\) in \(R/m\) and (iii) \(p\cdot 1_R\) generates \(m\cap C\).</p>
+            </div>
+
+            <div class="theorem">
+                <p><strong>Remarks.</strong></p>
+                <p>(i) If \(C\subseteq R\) is a coefficient ring, then \(C\) is a local principal ideal ring. Indeed, let \(I\subseteq C\) be any ideal. Choose \(t\geq 1\) such that \(I\subseteq p^tC\) and \(I\not\subseteq p^{t+1}C\). This is possible since \(\cap_{t\geq 1} p^tC = 0\). Now take \(x\in I\), not in \(p^{t+1}C\). Then \(x = cp^t\), for some \(c\in C\). If \(c\) were not a unit, then \(c = c'p\), which would imply \(x = c'p^{t+1}\), a contradiction. Thus, \(c\) is a unit, so \(p^t \in I\). Therefore, \(I = p^tC\). Of course, if \(\mathrm{char}(R) = 0\), \(C\) is a DVR.</p>
+
+                <p>(ii) Let \(C\subseteq R\) be either a coefficient field or a coefficient ring. Let \(x_1, \ldots, x_t\) generate \(m\). Then every element of \(R\) can be expressed as a power series in the \(x_i\) with coefficients in \(C\). To see this, first note that if \(x \in m^n\), then we can write \(x = u_n+v_{n+1}\), where \(u_n\) is a homogeneous expression of degree \(n\) in \(x_1, \ldots, x_t\) having coefficients in \(C\) and \(v_{n+1} \in m^{n+1}\). Indeed, express \(x\) as a form of degree \(n\) in the \(x_i\) with coefficients in \(R\). Then, by hypothesis, we may replace each coefficient by a sum of an element in \(C\) plus an element in \(m\). Distribute and collect terms. Now, take \(x \in R\). Then \(x = u_0+v_1\) where \(u_0 \in C\) and \(v_1 \in m\). Write \(v_1 = u_1 + v_2\), where \(u_1\) is a \(C\)-linear combination of the \(x_i\) and \(v_2 \in m^2\). Thus \(x = (u_0+u_1) + v_2\). Inductively, we may write \(x = (u_0+u_1+\cdots + u_n) + v_{n+1}\), where each \(u_j\) is a \(C\)-linear combination of monomials of degree \(j\) in the \(x_i\) and \(v_{n+1} \in m^{n+1}\). Set \(a_n := (u_0+u_1+\cdots + u_n)\). Then \(\lim_n(x-a_n) = 0\) on the one hand and equals \(x-\lim_n(a_n)\) on the other hand. Since \(R\) is complete, \(\lim_n(a_n)\) exists and may be regarded as a power series in the \(x_i\) with coefficients in \(C\).</p>
+
+                <p>(iii) Let \(C\subseteq R\) be a coefficient field or ring. Then it follows from (ii) that there is a surjective ring homomorphism from the formal power series ring \(C[[X_1, \ldots, X_t]]\) onto \(R\). Thus, if \(C\) is a field, \(R\) is a homomorphic image of a regular local ring. In fact, the structure theorem states that \(C\) always exists and is either a field, a DVR, or the homomorphic image of a DVR. Since a formal power series ring over a DVR is also a regular local ring, we obtain the fact that every complete local ring is a homomorphic image of a regular local ring. Thus, in particular, complete local rings are universally catenary.</p>
+            </div>
+        </div>
+
+        <h2>The Cohen Structure Theorem</h2>
+
+        <div class="content-section">
+            <div class="theorem">
+                <p><strong>Theorem.</strong> If \(R\) is equicharacteristic, \(R\) contains a coefficient field. Otherwise, \(R\) contains a coefficient ring which is a homomorphic image of a DVR.</p>
+            </div>
+
+            <p><strong>Sketch of proof.</strong> Cohen first considers the equicharacteristic case (see [C; Theorem 9]), so suppose that \(R\) contains a field. Intuitively, one might think that a maximal subfield of \(R\) would do the trick, since any subfield of \(R\) maps isomorphically into \(k\) via the natural homomorphism from \(R\) to \(k\). When \(\mathrm{char}(R) = \mathrm{char}(k) = 0\), this is indeed correct. Let \(C\subseteq R\) be a maximal subfield. One easily obtains \(C\) via Zorn's Lemma. Write 'bar' for images in \(k\). If \(\overline{C}\) is properly contained in \(k\), take \(\alpha \in R\), \(\overline{\alpha}\) not in \(\overline{C}\). If \(\overline{\alpha}\) is transcendental over \(\overline{C}\), then \(\alpha\) remains transcendental over \(C\). In fact, we must have \(C[\alpha] \cap m = 0\), so the rational function field \(C(\alpha) \subseteq R\) (localize), a contradiction. If \(\overline{\alpha}\) is algebraic over \(\overline{C} = C\), then the minimal polynomial for \(\overline{\alpha}\) over \(\overline{C}\) factors over \(k\) as a linear polynomial times a second polynomial relatively prime to the linear one — since \(\overline{\alpha}\) is separable over \(\overline{C}\). Because \(R\) is Henselian, this factorization holds over \(R\). Thus, \(\alpha\) is a root of the same irreducible polynomial over \(C\), so \(C[\alpha]\) is a subfield of \(R\), a contradiction. It follows that if \(R\) is an equicharacteristic zero complete local ring, then any maximal subfield is a coefficient field.</p>
+
+            <p>Before moving on to the case where \(R\) contains a field of characteristic \(p > 0\), for now we simply assume that \(\mathrm{char}(k) = p > 0\) — which holds in all remaining cases of the theorem. If \(\alpha \in k\), an element \(a \in R\) satisfying \(\overline{a} = \alpha\) is called a <em>multiplicative representative</em> of \(\alpha\) if \(a \in R^{p^e}\), for all \(e\geq 0\). Here are some facts about multiplicative representatives (see [C; Lemma 7]).</p>
+
+            <div class="theorem">
+                <p><strong>Facts.</strong> \(\alpha \in k\) has a multiplicative representative if and only if \(\alpha\) is a \(p^e\)th power in \(k\) for all \(e\). The multiplicative representative of \(\alpha\) is unique. If a subfield \(k_0\) of \(k\) is perfect, every element of \(k_0\) has a multiplicative representative. If \(k_0\) is a perfect subfield of \(R\), then every element of \(k_0\) is the multiplicative representative of its residue modulo \(m\).</p>
+
+                <p><strong>Proof of Facts.</strong> We use the following property. If \(a,b \in R\) and \(a-b \in m^h\), then \(a^{p^e}-b^{p^e} \in m^{h+e}\), for all \(e\). This follows from standard properties of binomial coefficients. For a proof, see [N; Lemma 31.3]. Now, suppose \(a\) is a multiplicative representative of \(\alpha \in k\). Then clearly, \(\alpha\) is a \(p^e\)th power for all \(e\). Conversely, suppose, for all \(e\), there exists \(r_e \in R\) satisfying \(\overline{r_e^{p^e}} = \alpha\) in \(k\). Consider the sequence \(\{r_0, r_1^p, r_2^{p^2}, \ldots\}\). This is a Cauchy sequence, for if \(e\geq 0\), \(r_e - r_{e+1}^p \in m\), so \(r_e^{p^e} - r_{e+1}^{p^{e+1}} \in m^e\). (Note, if \(\mathrm{char}(R) = p\), then of course this difference lies in \(m^{p^e}\).) Since each term in the sequence reduces modulo \(m\) to \(\alpha\), its limit \(a\) reduces to \(\alpha\). Now, similarly, the sequence \(\{r_1, r_2^p, r_3^{p^2}, \ldots\}\) is Cauchy, and thus converges to \(a_1 \in R\). By design, \(a_1^p = a\). Similarly, \(\{r_2, r_3^p, \ldots\}\) converges to \(a_2 \in R\) satisfying \(a_2^{p^2} = a\). Thus, \(a\) is a multiplicative representative of \(\alpha\), with \(a_e \in R\) satisfying \(a_e^{p^e} = a\). If \(b\) is also a multiplicative representative of \(a\), then for each \(e\), there exists \(b_e \in R\) such that \(b = b_e^{p^e}\) and \(\overline{b_e^{p^e}} = \alpha\) in \(k\). It follows that \(\overline{a_e} = \overline{b_e}\) in \(k\), so \(a_e - b_e \in m\). Thus, \(a-b = a_e^{p^e}-b_e^{p^e} \in m^e\). Thus, \(a-b \in \cap_{e\geq 0} m^e = 0\), so \(a = b\). The other statements in the Facts follow from the definitions.</p>
+            </div>
+
+            <p>Two further properties of multiplicative representatives are readily seen. If \(a\) and \(b\) are multiplicative representatives of \(\alpha, \beta \in k\), then \(ab\) is a multiplicative representative of \(\alpha\beta\). Moreover, if \(\mathrm{char}(R) = p\), so \(u^p + v^p = (u+v)^p\), for all \(u,v \in R\), then \(a+b\) is a multiplicative representative of \(\alpha+\beta\).</p>
+
+            <p>We now return to the proof of the case \(R\) contains a field and assume \(\mathrm{char}(R) = \mathrm{char}(k) = p > 0\). Suppose that \(k\) is a perfect field, i.e., \(k = k^p\), where \(k^p\) denotes the set of \(p\)th powers of elements of \(k\). (An example: any finite field.) It follows that for all \(e\), every element of \(k\) is a \(p^e\)th power. Therefore, by what we have just shown, every element in \(k\) has a multiplicative representative. If we map \(k\) to \(R\) by sending each element to its multiplicative representative, then we obtain a subfield \(C\) of \(R\), isomorphic to \(k\), which maps isomorphically onto \(k\) under the natural homomorphism \(R \to k\). Thus, if \(R\) contains a field of characteristic \(p\) AND \(k\) is perfect, then \(R\) has a <em>unique</em> coefficient field. We have now completed the proof of the structure theorem in the cases that \(\mathrm{char}(k) = 0\) and \(\mathrm{char}(R) = \mathrm{char}(k) = p > 0\) with \(k\) perfect.</p>
+
+            <p>At this point, Cohen continues with the proof of the case where \(\mathrm{char}(R) = \mathrm{char}(k) = p > 0\). He constructs (see [C; Lemma 12]) a complete local ring \((\tilde{R}, \tilde{m}, \tilde{k})\) satisfying: (i) \(\tilde{m} = m\tilde{R}\), (ii) \(\widetilde{m^n} \cap R = m^n\) for all \(n\) and (iii) \(\tilde{k}\) is perfect. In fact, \(\tilde{R}\) is a faithfully flat extension of \(R\) and \(\tilde{k} = \cup_{e\geq 0} k^{1/p^e}\), the <em>perfect closure</em> of \(k\). Moreover, if \(B\subseteq R\) is such that \(\overline{B}\subseteq k\) is a \(p\)-basis, then each \(b \in B\) is the multiplicative representative in \(\tilde{R}\) of \(\overline{b} \in \tilde{k}\). We will discuss this construction below. For the time being, assume that \(\tilde{R}\) described above exists. Then the set of multiplicative representatives in \(\tilde{R}\) of the elements of \(\tilde{k}\) is the coefficient field \(\tilde{C}\). Let \(C\) denote the subfield of \(\tilde{C}\) representing the elements of \(k \subseteq \tilde{k}\). It remains to see that \(C\subseteq R\) (for then \(C\) will surely be a coefficient field). Let \(c \in C\). Then for each \(e\geq 1\), \(\overline{c} \in k = k^{p^e}(\overline{B})\), so \((\overline{c})^{1/p^e} \in k(\overline{B}^{1/p^e}) \subseteq \tilde{k}\). Thus, \((\overline{c})^{1/p^e}\) has a representative \(c_e \in R[B^{1/p^e}]\subseteq \tilde{R}\). Thus \(\overline{c_e} = (\overline{c})^{1/p^e}\) in \(\tilde{k}\), so \(c_e^{p^e} - c \in \widetilde{m^e}\). Thus, \(\{c_e^{p^e}\}\) converges to \(c\) in \(\tilde{R}\). On the other hand, each \(c_e^{p^e}\) belongs to \(R\). But \(R\) is complete, and by condition (ii) associated with \(\tilde{R}\), the \(m\)-adic topology on \(R\) is just the subspace topology induced by the \(\tilde{m}\)-adic topology on \(\tilde{R}\). Thus \(R\) is closed in \(\tilde{R}\), so the limit \(c\) must belong to \(R\). Therefore, \(C\subseteq R\).</p>
+
+            <p>Following Cohen, we now turn to the case where \(R\) has mixed characteristic \(p > 0\). The point of departure for this case is the following result originally due to Hasse and Schmidt, and refined by Maclane. Let \(k\) be any field of characteristic \(p\). Then there exists a complete DVR \(V\) such that: (i) \(\mathrm{char}(V) = 0\), (ii) \(p\cdot 1_V\) generates the maximal ideal of \(V\) and (iii) \(V/pV\) is isomorphic to \(k\). For a proof consult the original papers or see [M; Theorem 29.1]. A DVR satisfying conditions (i) and (ii) is sometimes called a <em>\(p\)-ring</em> (or <em>\(v\)-ring</em>). Fix \((V, pV, k)\) a \(p\)-ring with residue field isomorphic to \(k\). We seek a ring homomorphism \(\phi : V \to R\) which induces an isomorphism on residue fields, for then \(C := \mathrm{im}(\phi)\) will be the required coefficient ring.</p>
+
+            <p>To begin, note that we may regard \(\mathbb{Z}\) as sitting inside of \(V\) and we therefore have a canonical map from \(\mathbb{Z}\) to \(R\). Moreover, upon localizing, we may regard the DVR \(\mathbb{Z}_{(p)}\) as sitting inside of \(V\) and thus the canonical map extends to a ring homomorphism \(\phi' : \mathbb{Z}_{(p)} \to R\), which induces an inclusion of residue fields. Roughly speaking, the idea now is to use Zorn's Lemma to extend this homomorphism to all of \(V\). First, we extend \(\phi'\) to the completions of \(\mathbb{Z}_{(p)}\) and \(C' := \mathrm{im}(\phi')\). To do this, note that since \(\mathbb{Z}_{(p)}\) and \(C'\) are principal ideal rings, the subspace topology on \(\mathbb{Z}_{(p)}\) inherited from \(V\) agrees with the \(p\mathbb{Z}_{(p)}\)-adic topology, and the subspace topology on \(C'\) inherited from \(R\) agrees with the \(pC'\)-adic topology. Thus the completions of these rings are just their closures in \(V\) and \(R\) respectively. Since \(\phi'\) is continuous, it can be extended to a ring homomorphism \(\phi_0 : V_0 \to C_0 \subseteq R\), where \(V_0\) denotes the completion of \(\mathbb{Z}_{(p)}\) and \(C_0 := \mathrm{im}(\phi_0)\) is the completion of \(C'\). Note that \(V_0\) is a \(p\)-ring and \(C_0\) is a complete local ring whose maximal ideal is generated by \(p\).</p>
+
+            <p>To proceed, we now assume that the field \(k\) is a perfect field. Let \(k_0\) denote the residue field of \(V_0\) (and \(C_0\)). Let \(\overline{X} \subseteq k\) be a transcendence basis for \(k\) over \(k_0\). Because \(k\) is perfect, for each \(\overline{x} \in \overline{X}\) there is an \(x \in V\) such that \(x\) is a multiplicative representative for \(\overline{x}\). The collection \(X\subseteq V\) of these multiplicative representatives is algebraically independent over \(V_0\). After all, if we had an equation of dependence of \(X\) on \(V_0\), we could factor out a sufficiently high power of \(p\) from among the coefficients to assume that at least one coefficient was a unit. But then the resulting equation of dependence would persist over \(k_0\), a contradiction. Therefore we extend \(\phi_0\) to a homomorphism from \(V_0[X]\) to \(R\) by sending each \(x\) to the multiplicative representative \(y\) of \(\overline{x}\) in \(R\). Now, since \(pV\cap V_0[X] = pV_0[X]\), we may invert the elements outside of \(pV_0[X]\) to get a local ring contained in \(V\) which maps canonically to a subring of \(R\) (since \(pR\cap \mathrm{im}(\phi_0) = p\cdot\mathrm{im}(\phi_0)\)). As before, we may complete these rings inside of \(V\) and \(R\) respectively and extend the homomorphisms. Thus, we have a \(p\)-ring \((V_1, pV_1, k_1)\), where \(V_1\subseteq V\), \(k_1 = k_0(\overline{X})\) and a ring homomorphism \(\phi_1 : V_1 \to R\).</p>
+
+            <p>Now, because each \(x\in X\) is a multiplicative representative in \(V\) of \(\overline{x} \in k\), for each \(e\geq 1\) it has a \(p^e\)th root in \(V\) which maps to the \(p^e\)th root of \(\overline{x}\) in \(k\). Call this element \(x^{1/p^e}\) and denote the set of these elements by \(X^{1/p^e}\). Then \(\overline{X^{1/p^e}}\) is a transcendence basis for \(k\) over \(k_0\) and we may repeat the construction of the previous paragraph to obtain \(p\)-rings \((V(e), pV(e), k(e))\), contained in \(V\), such that \(k(e) = k_0(\overline{X^{1/p^e}})\) and ring homomorphisms \(\phi(e) : V(e) \to R\). By construction, \(V_1 := V(0) \subseteq V(1) \subseteq \cdots\) and the maps \(\phi(e)\) have the property that for \(i &lt; j\), \(\phi(j)\) restricted to \(V(i)\) equals \(\phi(i)\). It is not difficult to show that the union of these rings is a local ring \(\hat{V}\) contained in \(V\) with maximal ideal \(p\hat{V}\) and residue field \(\cup_{e\geq 0} k_0(\overline{X^{1/p^e}})\). The homomorphisms \(\phi(e)\) give rise to a homomorphism \(\hat{\phi} : \hat{V} \to R\). Again, we may complete inside \(V\) (and \(R\)) to obtain a \(p\)-ring \((V_2, pV_2, k_2)\) contained in \(V\) with \(k_2 = \cup_{e\geq 0} k_0(\overline{X^{1/p^e}}) \subseteq k\) and a ring homomorphism \(\phi_2 : V_2 \to R\). But \(k_2\) is a perfect field. Indeed, this follows from the construction and the fact that \(k_0 = \mathbb{Z}_p\) is also a perfect field. Because \(k\) is algebraic over \(k_2\), it has to be separable over \(k_2\). After all, any algebraic extension is a purely inseparable extension followed by a separable one — and there are no purely inseparable extensions of a perfect field.</p>
+
+            <p>To finish the proof of the case where \(k\) is perfect, let \(\mathcal{C}\) denote the collection of \(p\)-rings \((W, pW, l)\) such that \(V_2\subseteq W\subseteq V\) and there exists a ring homomorphism \(\psi : W \to R\) extending \(\phi_2\). Partially order \(\mathcal{C}\) in the usual way. By Zorn's Lemma, maximal elements of \(\mathcal{C}\) are easily seen to exist, so let \((W, pW, l)\) be a maximal element and \(\psi : W \to R\) the accompanying ring homomorphism. Then \(l = W/pW \subseteq V/pV = k\) must equal \(k\). Otherwise, an extra element in \(k\), if transcendental, can be pulled back to a transcendental element in \(V\setminus W\) or if algebraic, can be pulled back via Hensel's Lemma to an element in \(V\) integral over \(W\). In the first case we adjoin the element to \(W\) and localize at the extension of \(p\) and complete (as before), thereby getting a larger \(p\)-ring and the map \(\psi\) extends as before. In the second case, the minimal polynomial for the extra element \(\overline{v}\) pulls back to a monic irreducible \(f(X) \in W[X]\), with \(f(v) = 0\). Thus \(W[v]\) is a \(p\)-ring: it is complete and local (since \(W\) is Henselian) and \(l[\overline{v}] = W[X]/(p,f(X)) = W[v]/pW[v]\), so \(pW[v]\) must be its maximal ideal. Since \(R\) is also Henselian, \(\overline{v}\) pulls back to an element \(y \in R\) which satisfies \(\psi(f(X))\), so \(\psi\) may be extended to a homomorphism from \(W[v]\) to \(R\) by sending \(v\) to \(y\), contradicting the maximality of \(W\). Thus, \(l = k\). But in fact, \(W = V\) since \(V/pV\) is generated by \(\overline{1}\) as a \(W/pW\)-vector space, and therefore \(1\) generates \(V\) as a \(W\)-module, by the version of Nakayama's lemma for complete rings given in class. This now completes the proof in the case where \(k\) is a perfect field.</p>
+
+            <p>To finish the entire proof, Cohen reduces to the case where \(k\) is perfect as before (though with a little more work). Let \(\tilde{R}\) have the properties described above (so \(\tilde{k}\) is the perfect closure of \(k\)) and let \(\tilde{V}\) be the ring so derived from \(V\), a complete \(p\)-ring with residue field \(k\). Then by what has just been shown, there exists a ring homomorphism \(\tilde{\phi} : \tilde{V} \to \tilde{R}\) inducing an isomorphism of residue fields. Therefore, \(\tilde{C} := \mathrm{im}(\tilde{\phi})\) is a coefficient ring for \(\tilde{R}\). It remains to show \(C := \tilde{\phi}(V) \subseteq R\) and that \(\tilde{\phi}\) restricted to \(V\) induces an isomorphism of residue fields. This is done by working with the \(p\)-basis for \(k\) as in the earlier reduction. However, a bit more care must be taken this time, since expressions of the form \((u-v)^{p^e}\) in \(R\) or \(\tilde{R}\) can now only be written in the form \(u^{p^e}-v^{p^e} + p\cdot t\), for \(t\) in the appropriate ring. For details, see [C; page 81].</p>
+
+            <p>To complete our sketch of Cohen's proof, let's see the construction of \(\tilde{R}\). Take a set \(B\subseteq R\) such that \(\overline{B}\subseteq k\) is a \(p\)-basis. For each \(b\in B\), introduce an indeterminate \(X_b\) and let \(S_1\) denote the quotient of polynomial ring \(R[\{X_b \mid b\in B\}]\) by the ideal generated by \(\{X_b^p - b \mid b\in B\}\). Then \(S_1\) is a generalized local ring containing \(R\) with maximal ideal \(mS_1\) and residue field \(k(\overline{B}^{1/p})\). This is fairly easy to see if done 'one \(b\) at a time': Since \(\overline{b}\in k\) is part of a \(p\)-basis, \(X_b^p - \overline{b}\) is irreducible over \(k\). Therefore, \(k[X_b]/(X_b^p - \overline{b}) = R[X_b]/(m, X_b^p - b)\) is a field. But this then implies that for \(S := R[X_b]/(X_b^p - b)\), \(mS\) is a maximal ideal. Note that \(R\subseteq S\) is an integral extension, and since any maximal ideal of \(S\) must contain \(m\), \(S\) is a local ring whose residue field is clearly isomorphic to \(k(\overline{b}^{1/p^e})\). Arranging finite subsets of \(B\) into a direct system and taking a direct limit yields the ring \(S_1\) with the stated properties. Note that since \(\overline{B}\) is a \(p\)-basis for \(k\), \(k = k^p(\overline{B})\), so \(k^{1/p} = k(\overline{B}^{1/p})\). Let \((R_1, m_1, k_1)\) denote the completion of \(S_1\). Then \(R_1\) is a complete local ring, \(m_1 = mR_1\) and \(k_1 = k^{1/p}\). If we denote the images of the \(X_b\) in \(R_1\) by \(b^{1/p}\), then for \(B^{1/p}\), the collection of these elements, \(\overline{B^{1/p}}\) is a \(p\)-basis for \(k_1\). We may then repeat the construction on \(R_1\), to obtain a complete local ring \((R_2, m_2, k_2)\) such that \(m_2 = mR_2\) and \(k_2 = k^{1/p^{2}}\). The ring \(\tilde{R}\) is then obtained by taking the union of the \(R_i\) and completing. <span class="qed">∎</span></p>
+        </div>
+
+        <h2>Corollaries</h2>
+
+        <div class="content-section">
+            <p>Here are a few standard consequences of the Cohen Structure Theorem.</p>
+
+            <div class="theorem">
+                <p><strong>Corollary.</strong> Let \((R,m,k)\) be a complete regular local ring of dimension \(d\). If \(R\) is equicharacteristic, then there exists a field \(C\subseteq R\) such that \(R\) is isomorphic to \(C[[X_1,\ldots, X_d]]\). If \(R\) has mixed characteristic \(p > 0\) and \(R\) is unramified (i.e., \(p\not\in m^2\)), then there exists a complete DVR \(C\subseteq R\) such that \(R\) is isomorphic to \(C[[X_2, \ldots, X_d]]\).</p>
+            </div>
+
+            <p><strong>Proof.</strong> If \(R\) is equicharacteristic, then \(R\) has a coefficient field \(C\). Let \(x_1, \ldots, x_d\) be a minimal generating set for \(m\). By the Remarks above, there exists a surjective ring homomorphism from \(C[[X_1,\ldots, X_d]]\) onto \(R\). Since both rings have dimension \(d\), the homomorphism is an isomorphism. If \(R\) has mixed characteristic and is unramified, then \(p\) can be extended to a minimal generating set \(p, x_2, \ldots, x_d\) of \(m\). The coefficient ring \(C\) in this case is a complete DVR with maximal ideal \(pC\). We can then map \(C[[X_2,\ldots, X_d]]\) surjectively onto \(R\) by sending \(C\) to itself and sending each \(X_i\) to \(x_i\). As before, this map must be an isomorphism. <span class="qed">∎</span></p>
+
+            <p>If \((R,m)\) is a complete regular local ring having mixed characteristic \(p > 0\), with \(p \in m^2\), then one can show that \(R\) is an <em>Eisenstein extension</em> of a complete, unramified regular local ring. That is, there exists a complete unramified regular local ring \((S, n)\) contained in \(R\) and \(x\in R\), such that \(R = S[x]\), and \(x\) satisfies an irreducible polynomial \(f(X) = X^t+a_1X^{t-1}+\cdots+a_t\), with each \(a_i \in n\) and \(a_t \not\in n^2\). For a proof, see [C], [N] or [M].</p>
+
+            <p>It follows from our final corollary that a complete local domain is a finite module over a complete regular local ring.</p>
+
+            <div class="theorem">
+                <p><strong>Corollary.</strong> Let \((R,m,k)\) be a complete local ring of dimension \(d\). Assume that one of the following conditions holds: (i) \(R\) contains a field, or (ii) \(R\) has mixed characteristic \(p > 0\) and \(\mathrm{height}(pR) = 1\). Then there exists a complete regular local ring \((S,n)\) such that \(S\subseteq R\) and \(R\) is a finite \(S\)-module.</p>
+            </div>
+
+            <p><strong>Proof.</strong> If \(R\) contains a field, then \(R\) has a coefficient field \(C\subseteq R\). Let \(x_1, \ldots, x_d\) be a system of parameters for \(R\). Set \(S := C[[x_1, \ldots, x_d]] \subseteq R\). Then \(S\) is a complete local ring with maximal ideal \(n := (x_1, \ldots, x_d)S\) and residue field \(k\). Since \(R/nR\) has finite length, it is finitely generated as an \(S/n\)-vector space. Since \(\cap_{t\geq 1} n^tR = 0\), \(R\) is a finite \(S\)-module. Thus \(\dim(S) = \dim(R) = d\). It now follows that \(S\) is a complete regular local ring.</p>
+
+            <p>In case (ii), \(R\) has a coefficient ring \((C, pC, k)\) which is a DVR, since \(p\) is not nilpotent. Because \(\mathrm{height}(pR) > 0\), we may extend \(p\) to a system of parameters \(p, x_2, \ldots, x_d\) of \(R\). If we now set \(S := C[[x_2, \ldots, x_d]]\), then as in case (i), \(R\) is a finite \(S\)-module and \(S\) is a complete regular local ring. <span class="qed">∎</span></p>
+        </div>
+
+        <h2>References</h2>
+
+        <div class="content-section">
+            <p>[C] I.S. Cohen, "On the structure and ideal theory of complete local rings," <em>Trans. AMS</em>, vol. 59, 1946, pp. 54–106.</p>
+            <p>[M] H. Matsumura, <em>Commutative Ring Theory</em>, Cambridge University Press, 1986.</p>
+            <p>[N] M. Nagata, <em>Local Rings</em>, Interscience, 1962.</p>
+        </div>
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX document. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
