@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Publications - Daniel Katz, Mathematics Professor at University of Kansas">
+    <title>Publications - Daniel Katz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e8dcc4 0%, #d4c5a9 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #9d7e4a 0%, #b8975f 50%, #c9aa78 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: 15%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .main-content {
+            padding: 50px 40px;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #9d7e4a 0%, #b8975f 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(157, 126, 74, 0.4);
+        }
+
+        .publications-list {
+            counter-reset: publication-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .publication-item {
+            counter-increment: publication-counter;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f0e8 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #b8975f;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .publication-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(157, 126, 74, 0.15);
+        }
+
+        .publication-item::before {
+            content: counter(publication-counter) ".";
+            position: absolute;
+            left: -50px;
+            top: 25px;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #9d7e4a;
+            width: 40px;
+            text-align: right;
+        }
+
+        .publication-content {
+            margin-left: 0;
+        }
+
+        .publication-title {
+            font-style: italic;
+            color: #2c3e50;
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .publication-details {
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .publication-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #9d7e4a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .publication-link:hover {
+            color: #7a6238;
+            text-decoration: underline;
+        }
+
+        .journal-name {
+            font-weight: 600;
+        }
+
+        .volume {
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2em;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+
+            .publication-item {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .publication-item::before {
+                position: relative;
+                left: 0;
+                top: 0;
+                display: block;
+                margin-bottom: 10px;
+                text-align: left;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .publications-list {
+                margin-left: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Publications</h1>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <a href="../../professional/professional.html" class="back-button">← Back to Research Page</a>
+
+            <ol class="publications-list">
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">A note on asymptotic prime sequences</div>
+                        <div class="publication-details">Proc. AMS Vol. <span class="volume">87</span>, No. 3 (1983), 415-418.</div>
+                        <a href="https://www.ams.org/journals/proc/1983-087-03/S0002-9939-1983-0684629-1/" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">A criterion for complete intersections to be self-radical</div>
+                        <div class="publication-details">Arch. Math., Vol. <span class="volume">42</span>, 423-425 (1984). (Correction: Vol. <span class="volume">43</span>, 574-575 (1984)).</div>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">On the integrity of ideal transforms</div>
+                        <div class="publication-details">Houston Jl. Math., Vol. <span class="volume">10</span>, No. 3 (1984), 415-421.</div>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Prime divisors, asymptotic R-sequences and unmixed local rings</div>
+                        <div class="publication-details">Journal of Algebra, Vol. <span class="volume">95</span> (1985), 59-71.</div>
+                        <a href="https://www.sciencedirect.com/science/article/pii/0021869385900924?via%3Dihub" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">U-Essential prime divisors and sequences defined over an ideal (with L. J. Ratliff Jr.)</div>
+                        <div class="publication-details">Nagoya Math. Jl., Vol. <span class="volume">103</span> (1986) 39-66.</div>
+                        <a href="https://www.cambridge.org/core/journals/nagoya-mathematical-journal/article/uessential-prime-divisors-and-sequences-over-an-ideal/71A112E4846FE353E2182A94E9EBC60E" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">On the number of minimal prime ideals in the completion of a local domain</div>
+                        <div class="publication-details">Rocky Mtn. Jl. Math., Vol. <span class="volume">16</span>, No. 3 (1986) 575-578.</div>
+                        <a href="https://projecteuclid.org/journals/rocky-mountain-journal-of-mathematics/volume-16/issue-3/On-the-number-of-minimal-prime-ideals-in-the-completion/10.1216/RMJ-1986-16-3-575.full" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">On the symbolic Rees ring of a primary ideal (with L.J. Ratliff, Jr.)</div>
+                        <div class="publication-details">Communications in Algebra, Vol. <span class="volume">14</span>, No. 5 (1986), 959-970.</div>
+                        <a href="https://www.tandfonline.com/doi/abs/10.1080/00927878608823349" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Form rings and projective equivalence (with L.J. Ratliff, Jr.)</div>
+                        <div class="publication-details">Math. Proc. Camb. Phil. Soc., Vol. <span class="volume">99</span> (1986), 447-456.</div>
+                        <a href="https://www.cambridge.org/core/journals/mathematical-proceedings-of-the-cambridge-philosophical-society/article/form-rings-and-projective-equivalence/5CD64AF230B7D5F72C8B2A058FF1395B" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Two applications of asymptotic and essential sequences</div>
+                        <div class="publication-details">Houston Jl. Math, Vol. <span class="volume">13</span>, No. 1 (1987), 65-73.</div>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Pole assignability in polynomial rings, power series rings, and Prufer domains (with J. Brewer and W. Ullery)</div>
+                        <div class="publication-details">Jl. of Algebra, Vol. <span class="volume">106</span>, No. 1 (1987), 265-286.</div>
+                        <a href="https://www.sciencedirect.com/science/article/pii/0021869387900317?via%3Dihub" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">On the pole assignability property over commutative rings (with J. Brewer and W. Ullery)</div>
+                        <div class="publication-details">Jl. of Pure and Applied Algebra, Vol. <span class="volume">48</span> (1987), 1-7.</div>
+                        <a href="https://www.sciencedirect.com/science/article/pii/0022404987901034?via%3Dihub" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Note on ideal transforms, Rees rings and Krull rings (with P. Eakin, W. Heinzer, and L.J. Ratliff, Jr.)</div>
+                        <div class="publication-details">Jl. of Algebra, Vol. <span class="volume">110</span>, No. 2 (1987), 407-419.</div>
+                        <a href="https://www.sciencedirect.com/science/article/pii/0021869387900536?via%3Dihub" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Essential prime divisors and projectively equivalent ideals (with S. McAdam, J. Okon and L.J. Ratliff Jr.)</div>
+                        <div class="publication-details">Jl. of Algebra, Vol. <span class="volume">109</span>, No. 2 (1987), 468-478.</div>
+                        <a href="https://www.sciencedirect.com/science/article/pii/0021869387901517?via%3Dihub" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Two notes on ideal transforms (with L.J. Ratliff, Jr.)</div>
+                        <div class="publication-details">Math. Proc. Camb. Phil. Soc., Vol. <span class="volume">102</span> (1987), 389-397.</div>
+                        <a href="https://www.cambridge.org/core/journals/mathematical-proceedings-of-the-cambridge-philosophical-society/article/two-notes-on-idealtransforms/E6A52FB9A1B740729C763C603E8C192B" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">On the prime divisors of IJ when J is integrally closed (with L.J. Ratliff, Jr.)</div>
+                        <div class="publication-details">Arch. Math, Vol. <span class="volume">50</span> (1988), 55-57.</div>
+                        <a href="https://link.springer.com/article/10.1007/BF01261973" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Note on multiplicity</div>
+                        <div class="publication-details">Proc. AMS, Vol. <span class="volume">104</span>, No. 4 (1988), 1921-1026.</div>
+                        <a href="https://www.ams.org/journals/proc/1988-104-04/S0002-9939-1988-0929434-8/" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Two asymptotic functions (with S. McAdam)</div>
+                        <div class="publication-details">Communications in Algebra, Vol. <span class="volume">17</span>, No. 5 (1989), 1069-1091.</div>
+                        <a href="https://www.tandfonline.com/doi/abs/10.1080/00927878908823774" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Prime divisors and divisorial ideals (with S. McAdam and L.J. Ratliff, Jr.)</div>
+                        <div class="publication-details">Jl. of Pure and Applied Algebra, Vol. <span class="volume">58</span> (1989), 179-186.</div>
+                        <a href="https://www.sciencedirect.com//science/article/pii/0022404989901333?via%3Dihub" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Extended Rees algebras and mixed multiplicities (with J.K. Verma)</div>
+                        <div class="publication-details">Math. Zeitschrift, Vol. <span class="volume">202</span> (1989), 111-128.</div>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Note on Projective modules</div>
+                        <div class="publication-details">Mathematica Pannonica, Vol. <span class="volume">1</span>, No. 2 (1990), 3-5.</div>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">On the multiplicity of blow-ups associated to almost complete intersection space curves (with J.K. Verma)</div>
+                        <div class="publication-details">Comm. in Alg. Vol. <span class="volume">22</span>, No. 2 (1994), 721-734.</div>
+                        <a href="https://www.tandfonline.com/doi/abs/10.1080/00927879408824871" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Generating ideals up to projective equivalence</div>
+                        <div class="publication-details">Proc. AMS, Vol. <span class="volume">120</span>, No. 1 (1994), 79-83.</div>
+                        <a href="https://www.ams.org/journals/proc/1994-120-01/S0002-9939-1994-1176070-X/" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Torsion-free modules and syzygies</div>
+                        <div class="publication-details">Mathematica Pannonica, Vol. <span class="volume">5</span>, No. 1 (1994), 7-13.</div>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">On the relation type of large powers of an ideal (with B. Johnston)</div>
+                        <div class="publication-details">Mathematika, Vol. <span class="volume">41</span> (1994), 209-214.</div>
+                        <a href="https://londmathsoc-onlinelibrary-wiley-com.www2.lib.ku.edu/doi/abs/10.1112/S0025579300007300" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Complexes acyclic up to integral closure</div>
+                        <div class="publication-details">Math. Proc. Camb. Phil. Soc., Vol. <span class="volume">116</span> (1994), 401-414.</div>
+                        <a href="https://www.cambridge.org/core/journals/mathematical-proceedings-of-the-cambridge-philosophical-society/article/complexes-acyclic-up-to-integral-closure/129F0DD6ADAFF7FBCCF6728056D855A9" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Hilbert functions of bigraded algebras (with J. K. Verma and S. Mandal)</div>
+                        <div class="publication-details">Commutative Algebra: September 1992, Trieste, World Scientific, Singapur, edited by A. Simis, N. Trung, and G. Valla (1994), 291-303. (Paper was refereed.)</div>
+                        <a href="KMVbigraded.pdf" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Castelnuovo regularity and graded rings associated to an ideal (with B. Johnston)</div>
+                        <div class="publication-details">Proc. AMS, Vol. <span class="volume">123</span>, No. 3 (1995), 727-734.</div>
+                        <a href="https://www.ams.org/journals/proc/1995-123-03/S0002-9939-1995-1231300-1/" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Reduction criteria for modules</div>
+                        <div class="publication-details">Communications in Algebra, Vol. <span class="volume">17</span>, No. 12 (1995), 4543-4548.</div>
+                        <a href="https://www.tandfonline.com/doi/abs/10.1080/00927879508825485" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Prime ideals associated to symmetric powers of a module (with C. Naude)</div>
+                        <div class="publication-details">Communications in Algebra, Vol. <span class="volume">17</span>, No. 12 (1995), 4549-4555.</div>
+                        <a href="https://www.tandfonline.com/doi/abs/10.1080/00927879508825486" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Symmetric powers of complete modules over a two-dimensional regular local ring (with V. Kodiyalam)</div>
+                        <div class="publication-details">Trans. AMS, Vol. <span class="volume">349</span> (1997), 747-762.</div>
+                        <a href="https://www.ams.org/journals/tran/1997-349-02/S0002-9947-97-01819-9/" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Sequences and Ker(R[X<sub>1</sub>, ..., X<sub>g</sub>] --> R[tI]) (with L. J. Ratliff, Jr.)</div>
+                        <div class="publication-details">Jl. Pure and Appl. Vol. <span class="volume">122</span> (1997), 265-275.</div>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0022404997000583?via%3Dihub" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">On the existence of maximal Cohen-Macaulay modules over pth root extensions</div>
+                        <div class="publication-details">Proc. AMS, Vol. <span class="volume">127</span> (1999), No. 9, 2601-2609.</div>
+                        <a href="https://www.ams.org/journals/proc/1999-127-09/S0002-9939-99-04880-7/" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">A linear function associated to asymptotic primes (with E. West)</div>
+                        <div class="publication-details">Proc. AMS, Vol <span class="volume">132</span>, No. 6 (2004), 1589-1597.</div>
+                        <a href="https://www.jstor.org/stable/4097287" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Fitting ideals and finite projective dimension (with C. Huneke and D. Jorgensen)</div>
+                        <div class="publication-details">Math. Proc. Camb. Phil. Soc. Vol. <span class="volume">138</span> (2005), 41-54.</div>
+                        <a href="https://www.cambridge.org/core/journals/mathematical-proceedings-of-the-cambridge-philosophical-society/article/abs/fitting-ideals-and-finite-projective-dimension/A8CA4202D995BF3A74DEB527AF20607A" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Integral closure of ideals and annihilators of homology (with A. Corso, C. Huneke and W. Vasconcelos)</div>
+                        <div class="publication-details">Lecture Notes in Pure and Applied Mathematics, Vol. <span class="volume">224</span> (2006), 33-48.</div>
+                        <a href="CHKV.pdf" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">On the degree of Hilbert polynomials associated to the torsion functor (with E. Theodorescu)</div>
+                        <div class="publication-details">Proc. AMS, Vol. <span class="volume">135</span>, No. 10 (2007), 3073-3082.</div>
+                        <a href="https://www.ams.org/journals/proc/2007-135-10/S0002-9939-07-08879-X/" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Asymptotic prime divisors of torsion-free symmetric powers of modules (with G. Rice)</div>
+                        <div class="publication-details">Jl. of Algebra, Vol. <span class="volume">319</span> (2008), 2209-2234.</div>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0021869307005984?via%3Dihub" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Hilbert polynomials for the extension functor (with E. Theodorescu)</div>
+                        <div class="publication-details">Jl. of Algebra, Vol. <span class="volume">319</span> (2008), 2319-2336.</div>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0021869307006990?via%3Dihub" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">On the support of local cohomology (with C. Huneke and T. Marley)</div>
+                        <div class="publication-details">Jl. of Algebra, Vol. <span class="volume">322</span> (2009), 3194-3211.</div>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0021869308001099?via%3Dihub" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Uniform equivalence of symbolic and adic topologies (with C. Huneke and J. Validashti)</div>
+                        <div class="publication-details">Illinois Jl. Math., Vol. <span class="volume">53</span>, No. 1 (2009), 325-338.</div>
+                        <a href="https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-53/issue-1/Uniform-equivalence-of-symbolic-and-adic-topologies/10.1215/ijm/1264170853.full" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Multiplicities and Rees valuations (with J. Validashti)</div>
+                        <div class="publication-details">Collectanea Mathematica, Vol. <span class="volume">61</span>, No. 1 (2010), 1-24.</div>
+                        <a href="https://link.springer.com/article/10.1007/BF03191222" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Hilbert polynomials for the contravariant extension functor (with A. Crabbe, J. Striuli and E. Theodorescu)</div>
+                        <div class="publication-details">Nagoya Math. Jl., Vol. <span class="volume">198</span> (2010), 1-22.</div>
+                        <a href="https://www.cambridge.org/core/journals/nagoya-mathematical-journal/article/hilbertsamuel-polynomials-for-the-contravariant-extension-functor/210426BACCE4B5909E62336030AA517D" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Quasi-finite modules and asymptotic prime divisors (with T. Puthenpurakal)</div>
+                        <div class="publication-details">Jl. of Algebra, Vol. <span class="volume">380</span> (2013), 18-29.</div>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0021869313000501?via%3Dihub" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Uniform symbolic topologies and finite extensions (with C. Huneke and J. Validashti)</div>
+                        <div class="publication-details">Jl. of Pure and Applied Algebra, Vol <span class="volume">219</span> (2015), 543-550.</div>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0022404920302887?via%3Dihub" class="publication-link">View publication</a>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0022404920302887?via%3Dihub" class="publication-link">Corrigendum</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Uniform symbolic topologies in abelian extensions (with C. Huneke)</div>
+                        <div class="publication-details">Trans. AMS, Vol. <span class="volume">372</span> (2019), no. 3, 1735-1750.</div>
+                        <a href="https://www.ams.org/journals/tran/2019-372-03/S0002-9947-2019-07623-7/" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Conductors in mixed characteristic</div>
+                        <div class="publication-details">Jl. of Algebra, Vol 571 (2021), 350-375.</div>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0021869318303995?via%3Dihub" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">On the integral closure of radical towers in mixed characteristic (with P. Sridhar)</div>
+                        <div class="publication-details">Jl. of Commutative Algebra, Vol 15 (2023), No. 4, 543-558.</div>
+                        <a href="https://arxiv.org/abs/2205.15973" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Uniform symbolic topologies and hypersurfaces (with C. Huneke)</div>
+                        <div class="publication-details">Acta Mathematica Vietnamica, Vol 49 (2024), No 1, 99-113.</div>
+                        <a href="https://link.springer.com/article/10.1007/s40306-024-00526-8" class="publication-link">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">On abelian extensions in mixed characteristic and ramification in codimension one (with P. Sridhar)</div>
+                        <div class="publication-details">International Mathematics Research Notices, 2025 (11) 1-16.</div>
+                        <a href="https://academic.oup.com/imrn/article-abstract/2025/11/rnaf153/8157409?redirectedFrom=fulltext">View publication</a>
+                    </div>
+                </li>
+
+                <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">On ideals with submaximal analytic spread (with J.G. Serio)</div>
+                        <div class="publication-details">Rend. Sem. Mat. Univ. Padova (2025), published online 2025.</div>
+                        <a href="https://ems.press/journals/rsmup/articles/14299223" class="publication-link">View publication</a>
+                    </div>
+                </li>
+                
+                  <li class="publication-item">
+                    <div class="publication-content">
+                        <div class="publication-title">Joint reductions and mixed Buchsbaum-Rim multiplicities of
+modules and a joint-reduction-number-zero theorem (with V. Kodiyalam and J.K. VermA)</div>
+                        <div class="publication-details">Journal of Pure and Applied Algebra {bf 230} (2026).</div>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S002240492600160X?dgcid=coauthor" class="publication-link">View publication</a>
+                    </div>
+                </li>
+                
+                
+                
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
