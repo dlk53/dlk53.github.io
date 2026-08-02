@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 147: Solutions to Practice Problems for Exam 1</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    A: '\\alpha',
+                    B: '\\beta',
+                    C: '\\gamma',
+                    F: '\\mathbb{F}_3',
+                    Li: '\\lim_{(x,y) \\to (a,b)}',
+                    M: '\\mu_A(x)',
+                    dv: ['\\frac{d #1}{d #2}', 2],
+                    grad: '\\nabla',
+                    limz: '\\lim_{(x,y)\\to (0,0)}',
+                    pdv: ['\\frac{\\partial #1}{\\partial #2}', 2],
+                    sqxy: '\\sqrt{x^2+y^2}',
+                    sr: '\\sqrt{2}'
+                }
+            },
+            svg: { fontCache: 'global', scale: 1.15 },
+            chtml: { scale: 1.15, matchFontHeight: true }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px; margin: 0 auto; padding: 30px 20px;
+            line-height: 1.75; background-color: #fafafa; color: #2c2c2c; font-size: 18px;
+        }
+        h1 { text-align: center; color: #8b2e3f; border-bottom: 3px solid #8b2e3f;
+             padding-bottom: 15px; font-size: 1.8em; }
+        .problem { background-color: white; padding: 25px; margin: 25px 0;
+                   border-left: 4px solid #4a90e2; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .problem-number { font-weight: bold; font-size: 1.1em; color: #2563eb; margin-bottom: 10px; }
+        .solution {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution .solution-title {
+            font-style: normal;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .math-display { margin: 30px 0; text-align: center; overflow-x: auto; }
+        p { margin: 20px 0; text-align: left; }
+        ol, ul { margin: 20px 0; padding-left: 40px; }
+        li { margin: 10px 0; }
+        strong { font-weight: 600; color: #1a1a1a; }
+        em { font-style: italic; }
+        .image-placeholder { display: inline-block; background: #f0f0f0; border: 1px dashed #999;
+            color: #555; font-style: italic; font-size: 0.9em; padding: 4px 10px;
+            border-radius: 3px; margin: 4px 0; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: #000;
+            color: #fff; padding: 8px; text-decoration: none; z-index: 100; }
+        .skip-link:focus { top: 0; }
+    </style>
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); alert(msg); });
+            var style = document.createElement('style');
+            style.innerHTML = 'body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+                if ((e.ctrlKey || e.metaKey) && ['s','u','a','c','p'].includes(key)) {
+                    e.preventDefault(); if (key !== 'a') alert(msg); return false;
+                }
+                if (e.key === 'F12') { e.preventDefault(); return false; }
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j'].includes(key)) {
+                    e.preventDefault(); return false;
+                }
+            });
+            document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header><h1>Math 147: Solutions to Practice Problems for Exam 1</h1></header>
+    <main id="main-content">
+
+        <div class="problem">
+            <div class="problem-number">Problem 1</div>
+            <p><strong>1.</strong> For the function \(f(x,y) = 3x^3y^2+ 4xy-7x\): <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) Find the tangent plane to the graph of \(z = f(x,y)\) at (1,2).</li> <li style="list-style-type: none;">(ii) Verify that the gradient of \(F(x,y,z) = z-f(x,y)\) at (1,2,13) is normal to the plane in (i).</li> <li style="list-style-type: none;">(iii) Find \(D_{\vec{u}} f(1,2)\) for \(\vec{u}\) the unit vector in the direction of \(3\vec{i}+2\vec{j}\) and also in the direction of \(\nabla f\)(1,2).</li> </ol></p>
+            <div class="solution"><span class="solution-title">Solution.</span> For (i), note that the functions and all of its partial derivatives are continuous, so that the tangent plane exists at every point on the graph of the function. The equation of the tangent plane is given by \(z = f_x(1,2)(x-1)+f_y(1,2)(y-2)+f(1,2) =  37(x-1)+16(y-2)+13.\)</p>
+<p>For (ii), we have to remember where the equation of a plane comes from. In order for \(\nabla F(1, 2, 13)\) to be normal to the tangent plane in (i), we must have \(\nabla F(1, 2, 13)\cdot \vec{v} = 0\), for every vector \(\vec{v}\) in the tangent plane. Now, if \((x,y,z)\) is a typical point in that plane, then \((x-1)\vec{i}+(y-2)\vec{j}+(z-13)\vec{k}\) represents a typical vector in the plane. Thus, we want  <div class="math-display">\[ \nabla F(1,2,13)\cdot \{(x-1)\vec{i}+(y-2)\vec{j}+(z-13)\vec{k}\} = 0. \]</div> On the other hand, \(\nabla F(1,2, 13) = -37\vec{i}-16\vec{j}+\vec{k}\). Thus the required dot product is <div class="math-display">\[ \begin{align*} \nabla F(1,2,13)\cdot \{(x-1)\vec{i}+(y-2)\vec{j}+(z-13)\vec{k}\} &= (-37\vec{i}-16\vec{j}+\vec{k})\cdot \{(x-1)\vec{i}+(y-2)\vec{j}+(z-13)\vec{k}\} \\ &= -37(x-1)-16(y-2)+(z-13)\\ &= 0\\ \end{align*} \]</div> using the equation of the tangent plane in (i), which gives what we want.  Alternately, the tangent vectors in the \(x\) and \(y\) directions determine the plane, so it suffices to show that \(\nabla F(1,2,13)\) is normal to these two vectors, since once this holds, \(\nabla F(1,2,13)\) will be normal to every vector in the plane. These normal vectors are: \(\vec{i}+f_x(1,2)\vec{k} = \vec{i}+37\vec{k}\) and  \(\vec{j}+f_y(1,2)\vec{k} = \vec{j} +16\vec{k}\).  We then have <div class="math-display">\[ \nabla F(1,2,13)\cdot (\vec{i}+37\vec{k} )=  ( -37\vec{i}-16\vec{j}+\vec{k})\cdot (\vec{i}+37\vec{k})= 0. \]</div> and <div class="math-display">\[ \nabla F(1,2,13)\cdot (\vec{j}+16\vec{k} )=  ( -37\vec{i}-16\vec{j}+\vec{k})\cdot (\vec{j}+16\vec{k})= 0. \]</div></p>
+<p>For (iii), \(\nabla f(1,2) = 37\vec{i}+16\vec{j}\). Thus, for \(\vec{u} = \frac{1}{\sqrt{13}} (3\vec{i}+2\vec{j})\), <div class="math-display">\[D_{\vec{u}} f(1,2) =  (21\vec{i}+16\vec{j})\cdot \frac{1}{\sqrt{13}} (3\vec{i}+2\vec{j}) = \frac{95}{\sqrt{13}}. \]</div> For the directional derivative in the direction of \(\nabla f(1,2)\), we have  <div class="math-display">\[ D_{\nabla f(1,2)} (1,2) = (37\vec{i}+16\vec{j}) \cdot \frac{1}{\sqrt{1625}} (37\vec{i}+16\vec{j})= \frac{1625}{\sqrt{1625}}.  \]</div></p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 2</div>
+            <p><strong>2.</strong> Calculate \(\pdv{f}{u}\) and \(\pdv{f}{v}\) both by substitution and by using the chain rule for the function \(f(x, y, z) = xy^2z^3\) with \(x = u^2+v\), \(y = 3v+7\), and \(z = 3u^3\).</p>
+            <div class="solution"><span class="solution-title">Solution.</span> Originally, I meant for you to calculate the derivatives in two ways and see that the answers agree. But I did not realize the underlying arithmetic would be so unpleasant. So I will just calculate the derivatives using the chain rule. We have:  \(f_x = y^2z^3\), \(f_y = 2xyz^3\), \(f_z = 3xy^2z^2\) \(x_u = 2u\), \(x_v = 1\), \(y_u = 0\), \(y_v = 3\), \(z_u = 9u^2\), \(z_v = 0\).  <div class="math-display">\[ \begin{align*} \pdv {f}{u} &= \pdv{f}{x}\cdot \pdv{x}{u}+ \pdv{f}{y}\cdot \pdv{y}{u}+\pdv{f}{z}\cdot \pdv{z}{u} \\ &= y^2z^3\cdot 2u + 2xyz^3\cdot 0+3xy^2z^2\cdot 9u^2\\ &= (3v+7)^2(3u^3)^3\cdot 2u+ 3(u^2+v)(3v+7)^2(3u^3)^2\cdot 9u^2. \end{align*} \]</div> and <div class="math-display">\[ \begin{align*} \pdv{f}{v} &=  \pdv{f}{x}\cdot \pdv{x}{v}+ \pdv{f}{y}\cdot \pdv{y}{v}+\pdv{f}{z}\cdot \pdv{z}{v} \\ &= y^2z^3\cdot 1 + 2xyz^3\cdot 3+3xy^2z^2\cdot 0\\ &= (3v+7)^2(3u^3)^3\cdot 1+ 2(u^2+v)(3v+7)(3u^3)^3\cdot 3. \end{align*} \]</div></p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 3</div>
+            <p><strong>3.</strong> Evaluate the following limits or show they do not exist:</p>
+            <div class="math-display">\[
+\lim_{(x,y)\to (0,0)} \frac{x^4-y^4}{x^4+x^2y^2+y^4}\quad \lim_{(x,y)\to (2,1)} \frac{x^4\cos (\pi y)}{e^{x+y}}\quad
+ \lim_{(x,y)\to (0,0)}\frac{|x|}{|x|+|y|}\quad \lim_{(x,y)\to (0,0)} \frac{x^3+y^3}{x^2+y^2}
+\]</div>
+            <div class="solution"><span class="solution-title">Solution.</span> For the first limit, if we approach (0,0) along the \(x\)-axis, i.e., set \(y=0\), then we obtain \\ \(\lim_{x\to 0} \frac{x^4}{x^4} = 1\). On the other hand, we easily see the limit is -1 if we approach (0,0) along the \(y\)-axis. Thus, the limit does not exist.</p>
+<p>For the second limit, the function is continuous at (2,1), so we may evaluate the limit by substitution, i.e., the limit is: \(\frac{2^4\cos(\pi)}{e^3} = -16e^{-3}.\)</p>
+<p>For the third limit, if we approach (0,0) along the \(x\)-axis, we get a limiting value of 1, while if we approach (0,0) along the \(y\)-axis, we get 0, so the limit does not exist.</p>
+<p>For the last limit, we switch to polar coordinates. The limit then becomes <div class="math-display">\[\lim_{r\to 0} \frac{r^3\cos^3(\theta)+r^3\sin^3(\theta)}{r^2\cos^2(\theta)+r^2\sin^2(\theta)} = \lim_{r\to 0} r(\cos^3(\theta)+\sin^3(\theta)) = 0.\]</div></p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 4</div>
+            <p><strong>4.</strong> Consider the function \(f(x,y) =  \left\{ 	\begin{array}{ll} 		0  & \mbox{if } xy \not = 0 \\ 		1 & \mbox{if } xy = 0 	\end{array} \right.\). Show that \(f(x,y)\) is not continuous at (0,0), then show that <span style="color:blue">\(f(x,y)\) is not differentiable</span> even though \(\pdv{f}{x}\)(0,0) and \(\pdv{f}{y}\)(0,0) exist. Why does this not contradict the theorem which states that if \(f(x,y)\) is differentiable at \((a,b)\), then \(f(x,y)\) is continuous at \((a,b)\)?</p>
+            <div class="solution"><span class="solution-title">Solution.</span> Note that if we approach (0,0) along the \(x\)-axis, then \(xy = 0\), so that \(f(x,0) = 1\), for all \(x\), and hence this limit is 1. If we approach (0,0) along the line \(y=x\), then \(xy \not = 0\), so \(f(x,x) = 0\) for all \(x\not = 0\) and hence the limit along this path is 0. Thus, the limit at (0,0) does not exist, so \(f(x,y)\) is not continuous at (0,0). On the other hand, \(\pdv{f}{x}\) \((0,0) = \lim_{h\to 0}\frac{f(0+h,0)-f(0,0)}{h} = \lim_{h\to 0}\frac{1-1}{h} = \frac{0}{h}\) for all \(h\), so this limit exists and equals 0. Similarly, \(\pdv{f}{y}\) \((0,0)\) exists and equals 0.</p>
+<p>Recall that the existence of the partial derivatives at (0,0) does <strong>not</strong> imply \(f(x,y)\) is differentiable at (0,0). To see this, for the given function, note that the linear function we expect to approximate \(f(x,y)\) at \((0,0)\) is \(L(x,y) =  f_x(0,0)x+f_y(0,0)y+1 = 1\). Thus, \(f(x,y)\) is differentiable at (0,0) if and only if  <div class="math-display">\[ \lim_{(x,y)\to 0}\frac{f(x,y)-L(x,y)}{\sqrt{x^2+y^2}} = \lim_{(x,y)\to (0,0)} \frac{f(x,y)-1}{\sqrt{x^2+y^2}} = 0 \]</div> If we take the limit as \((x,y)\) approaches (0,0) along the line \(y=x\) we get \(\lim_{x\to 0}\frac{0-1}{\sqrt{x^2+x^2}}\), which does not exist. Thus, the full limit displayed above does not exist, so \(f(x,y)\) is not differentiable at (0,0). The relevant important theorem from class states that \(f(x,y)\) is differentiable at \((a,b)\) if both partials \(f_x(x,y)\) and \(f_y(x,y)\) exist and <em>are continuous</em> in an open disk about \((a,b)\). Thus, these conditions fail for the given function \(f(x,y)\). In fact, a similar calculation as above shows that for any \((a,0)\) on the \(x\)-axis with \(a\not = 0\), \(\pdv{f}{y}\)\((a,0)\) does not exist, so that \(\pdv{f}{y}\) cannot be continuous at (0,0), since any open disk about (0,0) will contain a point of the form \((a,0)\) with \(a\not = 0\).</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 5</div>
+            <p><strong>5.</strong> For the function \(f(x,y) = 3x^2+7y-2\), use the limit definitions: (a)  To verify that \(f(x,y)\) is differentiable at (3,2) and (b) To verify that the first order partials of \(f(x,y)\) are continuous at (3,2).</p>
+            <div class="solution"><span class="solution-title">Solution.</span> A straight forward calculation shows that the \(L(x,y) = 18x+7y-29\) is the expected linear approximation to \(f(x,y)\) at (3,2). Thus, \(f(x,y)-L(x,y) = (3x^2+7y-2)-(18x+7y-29) = 3x^2-18x+27\).  Thus, \(f(x,y)\) is differentiable at (3,2) if and only if the limit <div class="math-display">\[ \lim_{(x,y)\to (3,2)} \frac{3x^2-18x+27}{\sqrt{(x-3)^2+(y-2)^2}} \]</div> equals 0. If we set \(x = r\cos(\theta)+3\) and \(y = r\sin(\theta)+2\), then the limit above becomes the limit <div class="math-display">\[ \lim_{r\to 0}\frac{3(r\cos(\theta)+3)^2-18(r\cos(\theta)+3)+27}{\sqrt{(r\cos(\theta)+3-3)^2+ (r\sin(\theta)+2-2)^2}} =  \lim_{r\to 0} \frac{3r^2\cos(\theta)}{r}, \]</div> which is clearly 0. Thus, \(f(x,y)\) is differentiable at (3,2). The partials \(f_x(x,y) = 6x\) and \(f_y(x,y) = 7\) are certainly continuous at every point in \(\mathbb{R}^2\), and hence in particular at (3,2). The limit definitions are easy to check.</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 6</div>
+            <p><strong>6.</strong> Use the limit definition to calculate the directional derivative of of \(f(x,y) = 2x^2y-3x\) at (4,3) in the direct of the vector \(\vec{i}+\vec{j}\). Verify your answer by dotting the gradient vector with an appropriate direction vector.</p>
+            <div class="solution"><span class="solution-title">Solution.</span> The unit vector in the given direction is \(\vec{u} = \frac{1}{\sr}\vec{i}+\frac{1}{\sr}\vec{j}\). Thus, \(D_{\vec{u}}(4,3)\) can be calculated as <div class="math-display">\[ \begin{align*} \lim_{h\to 0}\frac{f(4+\frac{h}{\sr}, 3+\frac{h}{\sr}) - f(4,3)}{h} &= \lim_{h\to 0}\frac{2(4+\frac{h}{\sr})^2(3+\frac{h}{\sr})-3(4+\frac{h}{\sr})-84}{h} \\ &= \lim_{h\to 0}\frac{77\frac{h}{\sr}+22\frac{h^2}{\sr}+\frac{h^3}{\sr}}{h}\\ &=  \lim_{h\to 0} \frac{77}{\sr}+22\frac{h}{\sr}+\frac{h^2}{\sr}= \frac{77}{\sr}. \end{align*} \]</div> On the other hand, \(\nabla f (4,3) = 45\vec{i}+32\vec{j}\), so \(D_{\vec{u}} f(4,3) = (45\vec{i}+32\vec{j})\cdot (\frac{1}{\sr}\vec{i}+\frac{1}{\sr}\vec{j}) = \frac{77}{\sr}\), as required.</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 7</div>
+            <p><strong>7.</strong> For the function \(f(x,y) = \begin{cases}  \frac{x^3}{x^2+y^2}, \ \textrm{if}\ (x,y) = (0,0)\\ 0,\ \textrm{if}\ (x,y) = (0,0) \end{cases}\), show that \(D_{\vec{u}}f (0,0)\) exists for all directions \(\vec{u}\), but \(f(x,y)\) is not differentiable at \((0,0)\).  Find formulas for \(f_x(x,y), f_y(x,y), D_{\vec{u}} f(x, y)\), for \(u = \vec{i}+\vec{j}\).</p>
+            <div class="solution"><span class="solution-title">Solution.</span> Let \(\vec{u} = u_1\vec{i}+u_2\vec{j}\) be an arbitrary unit vector. Then,</p>
+<div class="math-display">\[
+\begin{align*}
+Df_{\vec{u}}(0,0) &= \lim_{h\to 0}\frac{f(0+hu_1,0+hu_2)-f(0,0)}{h}\\
+&= \lim_{h\to 0}\frac{ 
+\frac{(hu_1)^3}{(hu_1)^2+(hu_2)^2} -0}{h}\\
+&= \lim_{h\to 0} \frac{h^3u_1^3}{h^3(u_1^2+u_2^2)} \\
+&= \frac{u_1^3}{u_1^2+u_2^2} = u_1^3,
+\end{align*}
+\]</div> 
+the last equality holding since \(\vec{u}\) is a unit vector. Thus the directional derivative of \(f(x,y)\) at (0,0) exists in all directions. Since \(Df_{\vec{i}}(0,0) = f_x(0,0)\), \(f_x(0,0) = 1^3 = 1\). Similarly, \(f_y(0,0) = Df_{\vec{j}}(0,0) = 0\). It follows that \(L(x,y) = 1(x-0)+0(y-0)+0 = x\) is the expected linear approximation. However,
+<div class="math-display">\[
+\begin{align*}
+\limz \frac{f(x,y)-L(x,y)}{\sqxy} &= \limz \frac{\frac{x^3}{x^2+y^2}-x}{\sqxy}\\
+&= \limz \frac{\frac{x^3-(x^3+xy^2)}{x^2+y^2}}{\sqxy}\\
+&= \limz \frac{-xy^2}{(x^2+y^2)^{3/2}}.
+\end{align*}
+\]</div>
+In order for \(f(x,y)\) to be differentiable at (0,0), this limit must be zero. However, if we approach (0,0) along the line \(x = -y\), the limit becomes \(2^{-3/2} \not = 0\). Thus, \(f(x,y)\) is not differentiable at (0,0).
+<p>For \(f_x(x,y)\) and \((x,y) \not = (0,0)\), we calculate in the usual way. Thus, \(f_x(x,y) = \begin{cases} \frac{x^4+3x^2y^2}{(x^2+y^2)^2}, \ \textrm{if}\ (x,0) \not = (0,0)\\1\ \textrm{if}\ (x,y) = 0.\end{cases}\)</p>
+<p>Similarly for \(f_y(x,y)\) and \(D_{\vec{u}}(x,y)\), so:</p>
+<p>\(f_y(x,y) = \begin{cases} \frac{-2x^3y}{(x^2+y^2)^2}, \ \textrm{if}\ (x,y) \not = (0,0)\\ 0,\ \textrm{if}\ (x,y) = (0,0).\end{cases}\) and \  \(D_{\vec{u}}(x,y) = \begin{cases} \frac{x^4+3x^2y^2}{(x^2+y^2)^2}\cdot \frac{1}{\sqrt{2}} + \frac{-2x^3y}{(x^2+y^2)^2}\cdot \frac{1}{\sqrt{2}}, \ \textrm{if}\ (x,y)\not = (0,0)\\1\cdot \frac{1}{\sqrt{2}}+0\cdot\frac{1}{\sqrt{2}}, \ \textrm{if}\ (x,y) = (0,0).\end{cases}\)</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 8</div>
+            <p><strong>8.</strong> Find and classify the critical points for: \(f(x,y) = 2x^2 - 4xy + y^4 + 2\) and \(g(x,y) = x^3 - 12 x + y^3 + 3 y^2 - 9y\). Find the absolute maximum and minimum values of \(f(x,y)\) on the square \([-1,1]\times[-1,1]\).</p>
+            <div class="solution"><span class="solution-title">Solution.</span> For \(f(x,y)\), we have <div class="math-display">\[ f_x = 4x-4y,\ f_y = -4x+4y^3, \ f_{xx} = 4,\ f_{xy} = -4, \ f_{yy} = 12y^2. \]</div> From \(f_x = 0\), we obtain, \(x=y\). Substituting this into the equation \(f_y = 0\), yields \(-4x+4x^3\), which has solutions \(x = 0, 1, -1\). Thus, the critical points for \(f(x,y)\) are (0,0), (1,1), (-1,-1).</p>
+<p>For (0,0) we have: \(D(0,0) = 4\cdot 0-(-4)^2 < 0\), so \(f(x,y)\) has a saddle point at (0,0).</p>
+<p>For (1,1) we have: \(D(1,1) = 4\cdot 12-(-4)^2 > 0\) and \(f_{xx}(1,1) = 4 > 0\), so \(f(x,y)\) has a relative minimum at (1,1).</p>
+<p>For (-1,-1), we have: \(D(-1,-1) = 4\cdot 12-(-4)^2 > 0\) and \(f_{xx}(1,1) = 4 > 0\), so \(f(x,y)\) has a relative minimum at (1,1).</p>
+<p>Turning to \(g(x,y)\), we have: <div class="math-display">\[ g_x = 3x^2-12, \ g_y = 3y^2+6y-9, \ g_{xx} = 6x, \ g_{xy} = 0, \ g_{yy} = 6y+6. \]</div> From \(g_x = 0\), we obtain \(x = \pm 2\) and from \(g_y = 0\) we obtain \(y = -3, 1\). Since the equations \(g_x = 0\) and \(g_y = 0\) are independent, we have four critical points (2, -3), (-2,-3), (2,1), (-2,1).</p>
+<p>For (2,-3): \(D(2,-3) = 12\cdot (-12)-0 < 0\), for \(g(x,y)\) has a saddle point at (2,-3).</p>
+<p>For (-2,-3): \(D (-2,-3) = (-12)\cdot (-12)-0 > 0\) and \(g_{xx}(-2,-3)  = -12 < 0\), so \(g(x,y)\) has a relative maximum at (-2,-3).</p>
+<p>For (2,1): \(D(2,1) = 12\cdot 12 > 0\) and \(g_{xx}(2,1) = 12 > 0\), so \(g(x,y)\) has a relative minimum at (2,1).</p>
+<p>For (-2,1): \(D(-2,1) = -12\cdot 12 < 0\), so \((x,y)\) has a saddle point at \((-2,1)\).</p>
+<p>For the absolute maximum and minimum values of \(f(x,y)\) over \([-1,1]\times [-1, 1]\), it is easy to check the critical points on the boundary occur at the vertices of the square. Thus we check: \(f(0,0) = 2; f(1,1) = 1; f(-1,-1) = 9; \newline f(-1,1) = 9; f(1,-1) = 9\). Thus, 1 is the absolute minimum and 9 is the absolute maximum we seek.</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 9</div>
+            <p><strong>9.</strong> Show that the surface area of a closed rectangular box with volume 27 in\(^3\) is smallest when the box takes the shape of a  cube.</p>
+            <div class="solution"><span class="solution-title">Solution.</span> If we let \(x,y,z\) denote the lengths of the sides of the box, then the total surface area of the box is \(2xy+2xz+2yz\). On the other hand, the volume of the box must be 27 in\(^3\), which means \(xyz = 27\). If we replace \(z\) in the expression for surface area by \(\frac{27}{xy}\), we obtain the function \(f(x,y) = 2xy+ \frac{54}{y}+ \frac{54}{x}\) and we must show that \(f(x,y)\) obtains its minimum value when \(x=y=z\). Since \(xyz = 27\), we must see that \(x = y = z = 3\) gives rise to a minimum value of \(f(x,y)\). We now have \(f_x = 2y-\frac{54}{x^2}\) and \(f_y = 2x-\frac{54}{y^2}\). From \(f_x = 0\), we obtain \(y = \frac{27}{x^2}\). If we substitute this into the equation \(g_y = 0\), we obtain (after simplifying) \(27x-x^4 = 0\). From this we get \(x = 0\) and \(x = 3\). We discard \(x = 0\). Then \(x = 3\). Substituting this into \(y = \frac{27}{x^2}\), we see \(y = 3\). From \(27 = xyz\), we get \(z = 3\), as required. Note that the context guarantees that this give rise to a minimum value, since we may obtain a larger surface area by taking different values for \(x, y, z\). When \(x = y = z = 3\), the surface area is 108 in\(^2\). Now take \(x = 2, y = \frac{1}{2}, z = 27\). Then the surface area becomes \(2+108+27 =\) 137 in\(^2\). Of course, one can verify that the unique critical point is a minimum by using the second derivative test.</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 10</div>
+            <p><strong>10.</strong> Show that the sum of the squares of the distances from a point \(P =(c,d)\) to \(n\) fixed points \((a_1,b_1), \ldots, (a_n, b_n)\) is minimized when \(c\) is the average of the \(x\)-coordinates \(a_i\) and \(d\) is the average of the \(y\)-coordinates \(b_i\).</p>
+            <div class="solution"><span class="solution-title">Solution.</span> We must minimize the function \(f(c,d) = (c-a_1)^2+(d-b_1)^2+\cdots + (c-a_n)^2+(d-b_n)^2\). Taking the derivative with respect to \(c\), we must solve <div class="math-display">\[ \pdv{f}{c} = 2(c-a_1)+\cdots +2(c-a_n) = 0. \]</div> Dividing by 2 and gather the \(c\) terms, we have \(nc - (a_1+\cdots +a_n) = 0\), and thus \(c_0 = \frac{1}{n}\cdot (a_1+\cdots +a_n)\), the average of the \(x\)-coordinates of the given points.  An identical calculation shows that the solution to the equation \(\pdv{f}{d} = 0\) is \(d_0 = \frac{1}{n}\cdot (b_1+\cdots +b_n)\), the average of the \(y\)-coordinates of the given points. The critical point found must be a minimum, since there is clearly no maximum value. To check this using the second derivative test, one can see that \(D(c_0,d_0) = 4n^2 >0\) and \(f_{cc}(c_0,d_0) = 2n > 0\), which confirms that \((c_0,d_0)\) yields the required minimum.</p></div>
+        </div>
+
+    </main>
+    <footer style="margin-top:40px;padding-top:20px;border-top:1px solid #ccc;text-align:center;color:#666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX source. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>

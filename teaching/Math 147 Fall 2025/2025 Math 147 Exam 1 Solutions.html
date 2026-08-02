@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2025 Math 147: Exam 1 Solutions</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    A: '\\mathfrak{a}',
+                    Ass: '\\operatorname{Ass}',
+                    C: '\\mathbf{C}',
+                    D: '\\mathbf{D}_{\\bullet}',
+                    Dc: '\\mathbf{D}^{\\bullet}',
+                    Df: '\\mathbf{D}',
+                    Ext: '\\operatorname{Ext}',
+                    F: '\\mathbf{F}_{\\bullet}',
+                    Hom: '\\operatorname{Hom}',
+                    I: '\\mathbf{I^\\bullet}',
+                    K: '\\mathbb{K}_{\\bullet}',
+                    Kc: '\\mathbb{K}^{\\bullet}',
+                    M: '\\mathfrak{M}',
+                    Min: '\\operatorname{Min}',
+                    NN: '\\mathbb{N}',
+                    Proj: '\\operatorname{Proj}',
+                    QQ: '\\mathbb{Q}',
+                    R: '\\mathcal{R}',
+                    Spec: '\\operatorname{Spec}',
+                    Syz: '\\operatorname{Syz}',
+                    T: '\\mathbf{T}^{\\bullet}',
+                    Tor: '\\operatorname{Tor}',
+                    W: '\\mathbf{W}_{\\bullet}',
+                    X: '\\mathbf{X}',
+                    Y: '\\mathbf{Y}',
+                    Z: '\\mathbf{Z}^{\\bullet}',
+                    ZZ: '\\mathbb{Z}',
+                    aaa: '\\frac{1}{2}',
+                    ann: '\\operatorname{ann}',
+                    bY: '\\mathbf{Y}',
+                    ba: '\\frac{3}{2}',
+                    balpha: '\\mathbf{\\alpha}',
+                    bb: '\\frac{1}{3}',
+                    bk: '\\mathbf{k}',
+                    bn: '\\mathbf{n}',
+                    bu: '\\mathbf{u}',
+                    bx: '\\mathbf{x}',
+                    by: '\\mathbf{y}',
+                    ca: '\\frac{5}{2}',
+                    cb: '\\frac{5}{3}',
+                    depth: '\\operatorname{depth}',
+                    dv: ['\\frac{d #1}{d #2}', 2],
+                    eF: '\\EuScript{F}',
+                    eG: '\\EuScript{G}',
+                    eR: '\\EuScript{R}',
+                    fP: '\\mathfrak{P}',
+                    fp: '\\mathfrak{p}',
+                    gr: '\\operatorname{gr}',
+                    grad: '\\nabla',
+                    grade: '\\operatorname{grade}',
+                    height: '\\operatorname{height}',
+                    image: '\\operatorname{image}',
+                    lmz: '\\lim_{(x,y)\\to (0,0)}',
+                    m: '\\mathfrak{m}',
+                    n: '\\mathfrak{n}',
+                    ov: '\\overline',
+                    p: '\\mathfrak{p}',
+                    pdv: ['\\frac{\\partial #1}{\\partial #2}', 2],
+                    pr: '\\prime',
+                    projdim: '\\operatorname{projdim}',
+                    q: '\\mathfrak{q}',
+                    rank: '\\operatorname{rank}',
+                    rt: '\\rightarrow',
+                    si: '\\sigma',
+                    sub: '\\subseteq',
+                    sxy: '\\sqrt{x^2+y^2}',
+                    type: '\\operatorname{type}',
+                    ve: '\\varepsilon',
+                    vi: '\\vec{i}',
+                    vj: '\\vec{j}',
+                    vk: '\\vec{k}',
+                    wh: '\\widehat',
+                    wt: '\\widetilde',
+                    xar: '\\longrightarrow'
+                }
+            },
+            svg: { fontCache: 'global', scale: 1.15 },
+            chtml: { scale: 1.15, matchFontHeight: true }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px; margin: 0 auto; padding: 30px 20px;
+            line-height: 1.75; background-color: #fafafa; color: #2c2c2c; font-size: 18px;
+        }
+        h1 { text-align: center; color: #8b2e3f; border-bottom: 3px solid #8b2e3f;
+             padding-bottom: 15px; font-size: 1.8em; }
+        .problem { background-color: white; padding: 25px; margin: 25px 0;
+                   border-left: 4px solid #4a90e2; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .problem-number { font-weight: bold; font-size: 1.1em; color: #2563eb; margin-bottom: 10px; }
+        .solution {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution .solution-title {
+            font-style: normal;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .math-display { margin: 30px 0; text-align: center; overflow-x: auto; }
+        p { margin: 20px 0; text-align: left; }
+        ol, ul { margin: 20px 0; padding-left: 40px; }
+        li { margin: 10px 0; }
+        strong { font-weight: 600; color: #1a1a1a; }
+        em { font-style: italic; }
+        .image-placeholder { display: inline-block; background: #f0f0f0; border: 1px dashed #999;
+            color: #555; font-style: italic; font-size: 0.9em; padding: 4px 10px;
+            border-radius: 3px; margin: 4px 0; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: #000;
+            color: #fff; padding: 8px; text-decoration: none; z-index: 100; }
+        .skip-link:focus { top: 0; }
+    </style>
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); alert(msg); });
+            var style = document.createElement('style');
+            style.innerHTML = 'body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+                if ((e.ctrlKey || e.metaKey) && ['s','u','a','c','p'].includes(key)) {
+                    e.preventDefault(); if (key !== 'a') alert(msg); return false;
+                }
+                if (e.key === 'F12') { e.preventDefault(); return false; }
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j'].includes(key)) {
+                    e.preventDefault(); return false;
+                }
+            });
+            document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header><h1>Fall 2025 Math 147: Midterm Exam I — Solutions</h1></header>
+    <main id="main-content">
+
+        <div class="problem">
+            <p>When applicable, show all work to receive full credit. When in doubt, it is better to show more work than less. Each problem is worth 25 points.</p>
+            <p><strong>Please work each problem on a separate sheet of paper, using the reverse side if necessary. Be sure to put your name on each page of your solutions.</strong>   Good luck on the exam!</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 1</div>
+            <p><strong>1.</strong> Let \(f : \mathbb{R}^n \to \mathbb{R}\) be a function of several variables.  <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) When \(n = 2\), define what it means for the partial derivative of \(f(x,y)\) with respect to \(x\) to exist at \((a,b)\).</li> <li style="list-style-type: none;">(ii) Define what it means for the partial derivative of \(f(x_1, \ldots, x_n)\) with respect to \(x_i\) to exist at \(P = (a_1, \ldots, a_n)\).</li> <li style="list-style-type: none;">(iii) Find the absolute maximum and absolute minimum values of the function \(f(x,y) = 5-(x^2+y^2)\) over the region \(D: = \{(x,y)\ |\ 1\leq x^2+y^2\leq 9\}\). Hint: To calculate or not to calculate, that is the question.</li> </ol></p>
+            <div class="solution"><span class="solution-title">Solution.</span> (i) The partial derivative of \(f(x,y)\) with respect to \(x\) exists at \((a,b)\) if \(\lim_{h\to 0}\frac{f(a+h,b)-f(a,b)}{h}\) exists. This value is then \(\pdv{f}{x}\)\((a,b)\).</p>
+<p>(ii)  The partial derivative of \(f(x_1, \ldots, x_n)\) with respect to \(x_i\) exists at \(P = (a_1, \ldots, a_n)\) if the limit <div class="math-display">\[ \lim_{h\to 0}\frac{f(a_1, \ldots, a_i+h,\ldots, a_n)-f(a_1, \ldots, a_i, \ldots, a_n)}{h} \]</div> exists. This value is then \(\pdv{f}{x_i}\)\((P)\).</p>
+<p>(iii) The value of \(x^2+y^2\) on \(D\) increases from 1 to 9, so the value of \(f(x,y)\) on \(D\) decreases from 4 to -4. That is, the absolute minimum value is -4 and the absolute maximum value is 4.</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 2</div>
+            <p><strong>2.</strong> On this problem, you need to calculate carefully as your answer in the later parts may depend on what you have calculated in the earlier parts. For the function \(f(x,y) = \begin{cases} \frac{x^3y^2 +xy}{x^2+y^2},\ \textrm{if} \ (x,y) \not = (0,0)\\0,\ \textrm{if}\ (x,y) = (0,0)\end{cases}\) <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) Determine if \(f(x,y)\) is continuous at (0,0).</li> <li style="list-style-type: none;">(ii) Find formulas for \(f_x(x,y)\) and \(f_y(x,y)\) valid for all \((x,y)\) in \(\mathbb{R}^2\).</li> <li style="list-style-type: none;">(iii) Determine if \(f(x,y)\) is differentiable at (0,0).</li> <li style="list-style-type: none;">(iv) Determine if \(f_x(x,y)\) and \(f_y(x,y)\) are continuous at (0,0) and explain the relevance of this to your answer in part (iii).</li> <li style="list-style-type: none;">(v) Determine if \(f_{xy}(0,0) = f_{yx}(0,0)\).</li> </ol></p>
+            <div class="solution"><span class="solution-title">Solution.</span> This is an unusual function since most of the limits don't exist.</p>
+<p>(i) \(\lim_{(x,y)\to (0,0)} f(x,y) = \lim_{r\to 0}\frac{r^5\cos^3\theta\sin^2\theta+r^2\cos\theta\sin\theta}{r^2} = \lim_{r\to 0} r^3\cos^3\theta\sin^2\theta+\cos\theta\sin\theta = \cos\theta\sin\theta\), so the limit does not exits (it depends upon \(\theta\)). Thus, \(f(x,y)\) is not continuous at (0,0).</p>
+<p>(ii) We first calculate \(\pdv{f}{x}\)\((0,0)\) and \(\pdv{f}{y}\)\((0,0)\).  <div class="math-display">\[ \pdv{f}{x}\ (0,0) = \lim_{h\to 0}\frac{(0+h)^30^2+(0+h)y - (0+0)}{h} = \lim_{h\to 0}\frac{0}{h} = 0. \]</div> Similarly, \(\pdv(f){y}\)\((0,0) = 0\). For points different from the origin, we can just differentiate \(\frac{x^3y^2+xy}{x^2+y^2}\) with respect to \(x\) and \(y\). Thus, we get <div class="math-display">\[ \pdv{f}{x}\ (x,y) = \begin{cases} \frac{x^4y^2-x^2y+3x^2y^4+y^3}{(x^2+y^2)^2},\ \textrm{if} \ (x,y) \not = (0,0)\\0,\ \textrm{if}\ (x,y) = (0,0)\end{cases} \]</div>and <div class="math-display">\[ \pdv{f}{y}\ (x,y) = \begin{cases} \frac{2x^5+x^2-xy^2}{(x^2+y^2)^2},\ \textrm{if} \ (x,y) \not = (0,0)\\0,\ \textrm{if}\ (x,y) = (0,0)\end{cases}. \]</div></p>
+<p>(iii) Since \(f(0,0) = f_x(0,0) = f_y(0,0) = 0\), we get \(L(x,y) = 0\) as the approximating linear function. \(f(x,y)\) is differentiable at (0,0) if \(\lim_{(x,y)\to (0,0)} \frac{f(x,y)-L(x,y)}{\sqrt{x^2+y^2}} = 0\). In this case, the limit becomes <div class="math-display">\[ \lim_{(x,y)\to (0,0)} \frac{\frac{x^3y^2+xy}{x^2+y^2} - 0}{\sqrt{x^2+y^2}} = \lim_{(x,y)\to (0,0)} \frac{x^3y^2+xy}{(x^2+y^2)^{\frac{3}{2}}} = \lim_{r\to 0} \frac{r^5\cos^3\theta\sin^2\theta + r^2\cos\theta\sin\theta}{r^3} = \lim_{r\to 0}  r^2\cos^3\theta\sin^2\theta +\frac{1}{r}\cos\theta\sin\theta, \]</div> which does not exist. Thus, \(f(x,y)\) is not differentiable at (0,0).</p>
+<p>(iv) Trigonometric substitution into the non-zero expressions for \(f_x(x,y)\) and \(f_y(x,y)\) in part (ii) shows that neither  \(\lim_{(x,y)\to (0,0)} f_x(x,y)\) nor \(\lim_{(x,y)\to (0,0)} f_y(x,y)\) exist, so that neither of these functions is continuous at \((0,0)\). Since \(f(x,y)\) is not differentiable at (0,0), we know from a theorem in class that at least one of the first order partials of \(f(x,y)\) is not continuous at (0,0). This part of the problem confirms this.</p>
+<p>(v) Neither \(f_{xy}(x,y)\) nor \(f_{yx}(x,y)\) exist at (0,0). To see this, using part (ii) we have  <div class="math-display">\[ f_{xy}\ (0,0) = \lim_{h\to 0}\frac{ f_x(0,0+h)-f_x(0,0)}{h} = \lim_{h\to 0}\frac{\frac{0+(0+h^3)-0}{h^4}}{h} = \lim_{h\to 0}\frac{1}{h^2} \]</div> and <div class="math-display">\[ f_{yx}\ (0,0) = \lim_{h\to 0} \frac{f_y(0+h,0)-f_y(0,0)}{h} = \lim_{h\to 0} \frac{\frac{2h^5+h^2}{h^4}-0}{h} = \lim_{h\to 0} 2+ \frac{1}{h^3}, \]</div> and neither of these limits exist.</p>
+<p>3. For the function \(f(x,y) = \begin{cases}  \frac{x^3}{x^2+y^2}, \ \textrm{if}\ (x,y) = (0,0)\\ 0,\ \textrm{if}\ (x,y) = (0,0) \end{cases}\) <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) Use the limit definition to calculate the directional \(D_{\vec{u}}f (0,0)\) for all directions \(\vec{u} = (u_1, u_2)\).</li> <li style="list-style-type: none;">(ii) Use the limit definition to show that \(f(x,y)\) is not differentiable at \((0,0)\).</li> </ol></p></div>
+            <div class="solution"><span class="solution-title">Solution.</span> Here one can either state that \(\vec{u}\) is a unit vector, or set \(\vec{v} = (v_1, v_2)\), where \(v_1 = \frac{u_1}{\sqrt{u_1^2+u_2^2}}\) and \(v_2 = \frac{v_1}{\sqrt{v_1^2+v_2^2}}\). Then, <div class="math-display">\[ D_{\vec{v}}f (0,0) = \lim_{h\to 0} \frac{\frac{(0+hv_1)^3}{(0+hv_1)^2+(0+hv_2)^2}-0}{h} = \lim_{h\to 0} \frac{h^3v_1^3}{h^3v_1^2+h^3v_2^2} = \frac{v_1^3}{v_1^2+v_2^2}. \]</div></p>
+<p>(ii) To see that \(f(x,y)\) is not differentiable at (0,0), we first calculate \(L(x,y)\), and for this we need \(f_x(0,0)\) and \(f_y(0,0)\), and for this, we can use part (i). Taking \(\vec{v} = (1,0)\) we get \(D_{\vec{v}}f(0,0) = f_x(0,0) = 1\) and taking \(\vec{v} = (0,1)\), we get \(D_{\vec{v}}f (0,0) = f_y(0,0) = 0\). Thus, \(L(x,y) = x\). We now have <div class="math-display">\[ \begin{align*} \lmz \frac{f(x,y)-L(x,y)}{\sxy} &= \lmz \frac{\frac{x^3}{x^2+y^2}-x}{\sxy}\\ &= \lmz \frac{x^3}{(x^2+y^2)^{\frac{3}{2}}}-\frac{x}{\sxy}\\ &= \lim_{r\to 0} \frac{r^3\cos^3\theta}{r^3}-\frac{r\cos\theta}{r}\\ &= \cos^3\theta-\cos\theta, \end{align*} \]</div> showing that the limit does not exist. In particular, the limit is not zero, so \(f(x,y)\) is not differentiable at (0,0).</p>
+<p>4. True or False. Explain why you chose true or false, either by giving an example or citing the appropriate theorem.  <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) For \(f : \mathbb{R}^2\to \mathbb{R}\), if \(f(x,y)\) is continuous at \((a,b)\), then \(f(x,y)\) is differentiable at \((a,b)\).</li> <li style="list-style-type: none;">(ii) There exists \(f : \mathbb{R}^2\to \mathbb{R}\) such that the first and second order partial derivatives of \(f(x,y)\) are continuous and \(f_x = 2y\) and \(f_y = 2x\).</li> <li style="list-style-type: none;">(iii) When optimizing a continuous function \(f(x,y)\) on the region \(D\), relative maxima, relative minima, and saddle points will only occur at the points where \(f_x(a,b) = f_y(a,b) = 0\).</li> <li style="list-style-type: none;">(iv) The plane tangent to the graph of \(f(x,y) = 2x^2+3y^2+10\) at (0,0) is parallel to the \(xy\)-plane.</li> <li style="list-style-type: none;">(v) If the directional derivative of \(f(x,y)\) exists in all directions at \((a,b)\), then \(f(x,y)\) is differentiable at \((a,b)\).</p>
+<p><li style="list-style-type: none;">(v) Let \(T : \mathbb{R}^n \to \mathbb{R}^n\) satisfy \(T(v) = -v\), for all \(v\in \mathbb{R}^n\). Then \(T\) is a linear transformation.</li> </ol></p></div>
+            <div class="solution"><span class="solution-title">Solution.</span> (i) False. One can just take the standard example from Calculus I, namely, \(f(x,y) = |x|\).</p>
+<p>(ii) True. For example, take \(f(x,y) =2 xy\).</p>
+<p>(iii) False. Critical points can occur at places where \(f_x(x,y)\) or \(f_y(x,y)\) are undefined.</p>
+<p>(iv) True, since the equation of this plane is \(z = 10\).</p>
+<p>(v) False, as exhibited by the function in problem 3.</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 5</div>
+            <p><strong>5.</strong> Find the dimensions of the rectangular box with largest volume, whose faces are parallel to the coordinate planes, that can be inscribed in the tetrahedron that has three faces in the coordinate planes and its fourth face in the plane with equation \(15x + 10y + 6z = 30\).    <div class="math-display">\[   <img src="data:image/png;base64,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" alt="pic1.png" style="max-width:100%;height:auto;display:block;margin:15px auto;">   \]</div></p>
+            <div class="solution"><span class="solution-title">Solution.</span> The volume of the box is \(xyz\) and \(z = 5-\ca x- \cb y\), so that <div class="math-display">\[V(x,y) = xy(5-\ca x-\cb y) = 5xy - \ca x^2y-\cb xy^2.   \]</div>   This leads to    <div class="math-display">\[ \begin{align*}   V_x(x,y) & = 5y -5 xy -\cb y^2 = 0\\   V_y(x,y) &= 5x-\ca x^2-\frac{10}{3} xy = 0.   \end{align*} \]</div>    Since neither \(x\) nor \(y\) can be zero, we divide the first equation above by \(5y\) and the second equation above by \(5x\), to obtain       <div class="math-display">\[ \begin{align*}   1 - x -\bb y &= 0\\   1-\aaa x-\frac{2}{3} y &= 0.   \end{align*} \]</div>    Subtracting the second of these last two equations from the first gives, \(-\aaa x+\bb y = 0\). Solving for \(y\) in terms of \(x\), we have \(y = \ba x\). Substituting into the first of the two equations above gives,    \(1-x-\bb (\ba x) = 0\), from which we infer, \(x = \frac{2}{3}\). Thus, \(y = \ba\cdot \frac{2}{3} = 1\). Note that, \((\frac{2}{3},1)\) is the only critical point of \(V(x,y)\) we have to consider. Substituing these values into the equation for \(z\) above yields    <div class="math-display">\[   z = 5-\ca \cdot \frac{2}{3} -\cb\cdot  1 = \frac{5}{3}.   \]</div> Thus, we obtain a box whose dimensions are \(\frac{2}{3}\times 1\times \frac{5}{3}\).    To see that these dimensions give a maximum volume, we use the second derivative test. \(V_{xx} = -5y\), \(V_{yy} = -\frac{10}{3}x\), and \(V_{xy} = 5-5x-\frac{10}{3}y\). Thus, \(V_{xx}(\frac{2}{3},1) = -5\),    \(V_{yy}(\frac{2}{3},1) = -\frac{20}{9}\), and \(V_{xy}(\frac{2}{3},1) = 5-\frac{10}{3}-\frac{10}{3} = -\frac{5}{3}\). Therefore, \(D(\frac{2}{3},1) = -5\cdot (-\frac{20}{9}) - (-\frac{5}{3})^2 = \frac{75}{9} > 0.\) Since \(V_{xx}(\frac{2}{3},1) < 0\), the second derivative test tells us the dimensions given above yeild a box of maximum volume.</p>
+<p><strong>6. </strong> Short Answer :  <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) For \(F(x,y,z) = (3x^2+y^3, 4xyz)\), find \(DF(1,0,2)\), the derivative of \(F(x,y,z)\) at (1,0,2).</li> <li style="list-style-type: none;">(ii) If \(f(x,y) = \cos(x^2+3xy)\), and \(x = 2u^2v, y = 3uv^2\), find a formula for \(\pdv{f}{u}\) in terms of \(u\) and \(v\).</li> <li style="list-style-type: none;">(iii) Find the directional derivative of \(f(x,y,z) = 3x^2y^3 + z^4\) at \((1,2,3)\) in the direction of the vector (1,1,1).</li> <li style="list-style-type: none;">(iv) Explain how properties of the quadratic function \(Q(x,y) = ax^2+bxy+cy^2\) gives insight into why the second derivative test for \(f(x,y)\) classifies a critical point (0,0). You may assume \(f(x,y)\) has a good quadratic approximation at (0,0).</li> <li style="list-style-type: none;">(v) Given \(f(x,y)\), what condition guarantees that \(f_{xy}(a,b) = f_{yx}(a,b)\)?</li> </ol></p></div>
+            <div class="solution"><span class="solution-title">Solution.</span> (i) \(DF(1,0,2) = \begin{pmatrix} 6 & 0 & 0\\0 & 8 & 0\end{pmatrix}\).</p>
+<p>(ii) Since \(f_u = f_x\cdot x_u+f_y\cdot y_u\), we have <div class="math-display">\[ \begin{align*} \pdv{f}{u} &= -(2x+3y)\sin(x^2+3xy)4uv- 3x\sin(x^2+3xy)3v^2\\ &= -(4u^2v+9uv^2)\sin(4u^4v^2+18u^3v^3) 4uv-6u^2v\sin(4u^4v^2+18u^3v^3) 3v^2. \end{align*} \]</div></p>
+<p>Since \(f_v = f_x\cdot x_v+f_y\cdot y_v\), we have <div class="math-display">\[ \begin{align*} \pdv{f}{v} &= -(2x+3y)\sin(x^2+3xy)\cdot 2u^2-3x\sin(x^2+3xy)\cdot 6uv\\ &= -(4u^2+9uv^2)\sin(4u^4v^2+18u^3v^3)2u^2-6u^2v\sin(4u^4v^2+18u^3v^3)6uv. \end{align*} \]</div></p>
+<p>(iii) We have \(D_{\vec{u}}f(1,2,3) = \nabla f (1,2,3)\cdot \vec{u}\), where \(u = \frac{1}{\sqrt{3}}(1,1,1)\). Since \(\nabla f (1,2,3) = (48, 36, 108)\), we have  <div class="math-display">\[ D_{\vec{u}}f (1,2,3) = \frac{1}{\sqrt{3}}\cdot (48+36+108) = \frac{192}{\sqrt{3}}. \]</div></p>
+<p>(iv) There was a typo in the statement, so no one lost any points for this part. The quadratic function \(Q(x,y)\) should be \(ax^2+2bxy+cy^2\). Since \(Q(x,y)\) is a good quadratic approximation to \(f(x,y)\) at (0,0), we can analyze \(Q(x,y)\). Then we have \(Q_{xx}(0,0) = 2a, Q_{xy}(0,0) = 2b, Q_{yy}(0,0) = 2c\). Thus, by the second derivative test, if \(4ac-4b^2 >0\), i.e., \(ac-b^2 > 0\), then \(Q(0,0)\) will be a relative maximum or minimum. However, completing the square on \(Q(x,y)\) gives  \(Q(x,y) =  a(x+\frac{b}{x}y)^2 +(\frac{ac-b^2}{a})y^2\). Thus, if \(ac-b^2 > 0\), \(Q(x,y) > 0\) when \(a > 0\) and \(Q(x,y) < 0\) when \(a < 0\), i.e., \(Q(0,0)\), and hence \(f(0,0)\), is a relative minimum when \(a > 0\) and \(Q(0,0)\), and hence \(f(0,0)\) is a relative maximum when \(a < 0\).</p>
+<p>(v) If the first and second order partial derivatives of \(f(x,y)\) are continuous in an open disk \(D\) about \((a,b)\), then \(f_{xy}(a,b) = f_{yx}(a,b)\). In fact, \(f_{xy}(c,d) = f_{yx}(c,d)\), for all \((c,d)\in D\).</p>
+<p><strong>Optional Bonus Problems.</strong> 1. Find and verify a formula for \(\nabla (\frac{f}{g})\), in terms of the gradients of \(f\) and \(g\). (10 points)</p></div>
+            <div class="solution"><span class="solution-title">Solution.</span> <div class="math-display">\[ \begin{align*} \nabla (\frac{f}{g})& = \frac{gf_x-fg_x}{g^2}\cdot \vec{i} + \frac{gf_y-fg_y}{g^2}\cdot \vec{j} + \frac{gf_z-fg_z}{g^2}\cdot \vec{k}\\ &= \frac{g\nabla f-f\nabla g}{g^2}\\ &= \frac{1}{g}\nabla f - \frac{f}{g^2}\nabla g. \end{align*} \]</div></p>
+<p>2.  Let \(S\) denote the paraboloid give by the equation \(z = f(x,y) = x^2+y^2\). Let \(C\) denote the curve on \(S\) obtained by substituting the points on the line \(y = 2x+3\) into the equation of the paraboloid. In other words, \(C\) consists of the points on \(S\) lying above the line \(y = 2x+3\). Find the equation of the line tangent to \(C\) at the point \((1, 5, 26)\). (10 points)</p></div>
+            <div class="solution"><span class="solution-title">Solution.</span> There is more than one way to solve this problem. The first method is to find the tangent plane and then find the line in the plane lying over \(y = 2x+3\). It is easy to check that the plane tangent to the graph of \(f(x,y)\) at (1,5,26) is the plane \(z = 2(x-1)+10(y-5)+26 = 2x+10y-26\). Since \(y = 2x+3\), substituting into the equation of the plane we get \(z = 2x + 10(2x+3)-26 = 22x+4\). Thus, using the parameter \(t\), we have \(L(t) = (t, 2t+3, 22t+4)\) gives the required tangent line.</p>
+<p>For the second method,  we first find the parametric equation of the line \(y = 2x+3\) in the \(xy\)-plane. Two points on the line are (1,5) and (0,3) and their difference (1,2) is a direction vector for the line, thus, \(C_0(t) = (1,5)+t(1,2) = (1+t, 5+2t)\) describes the line.  Therefore the curve on the surface is give by \(C(t) = (1+t, 5+2t, (1+t)^2+(5+2t)^2)\). Note that \(C(0) = (1, 5, 26)\) so that \(C'(0)\) is the tangent vector to the curve at (1,5, 26). Since \(C'(t) = (1,2, 2(1+t)+2(5+2t)\cdot 2)\), we have \(C'(0) = (1, 2, 22)\). Thus, the tangent line we seek is  <div class="math-display">\[ L(t) = (1, 5, 26)+t(1, 2, 22) = (1+t, 5+2t, 26+ 22t). \]</div></p>
+<p>Can you see that both methods yield the same line?</p></div>
+        </div>
+
+    </main>
+    <footer style="margin-top:40px;padding-top:20px;border-top:1px solid #ccc;text-align:center;color:#666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX source. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
