@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2025 Math 147: Bonus Problems</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    vi: '\\vec{i}',
+                    vj: '\\vec{j}',
+                    vk: '\\vec{k}'
+                }
+            },
+            svg: { fontCache: 'global', scale: 1.15 },
+            chtml: { scale: 1.15, matchFontHeight: true }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px; margin: 0 auto; padding: 30px 20px;
+            line-height: 1.75; background-color: #fafafa; color: #2c2c2c; font-size: 18px;
+        }
+        h1 { text-align: center; color: #8b2e3f; border-bottom: 3px solid #8b2e3f;
+             padding-bottom: 15px; font-size: 1.8em; }
+        .problem { background-color: white; padding: 25px; margin: 25px 0;
+                   border-left: 4px solid #4a90e2; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .problem-number { font-weight: bold; font-size: 1.1em; color: #2563eb; margin-bottom: 10px; }
+        .solution {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution .solution-title {
+            font-style: normal;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .math-display { margin: 30px 0; text-align: center; overflow-x: auto; }
+        p { margin: 20px 0; text-align: left; }
+        ol, ul { margin: 20px 0; padding-left: 40px; }
+        li { margin: 10px 0; }
+        strong { font-weight: 600; color: #1a1a1a; }
+        em { font-style: italic; }
+        .image-placeholder { display: inline-block; background: #f0f0f0; border: 1px dashed #999;
+            color: #555; font-style: italic; font-size: 0.9em; padding: 4px 10px;
+            border-radius: 3px; margin: 4px 0; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: #000;
+            color: #fff; padding: 8px; text-decoration: none; z-index: 100; }
+        .skip-link:focus { top: 0; }
+    </style>
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); alert(msg); });
+            var style = document.createElement('style');
+            style.innerHTML = 'body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+                if ((e.ctrlKey || e.metaKey) && ['s','u','a','c','p'].includes(key)) {
+                    e.preventDefault(); if (key !== 'a') alert(msg); return false;
+                }
+                if (e.key === 'F12') { e.preventDefault(); return false; }
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j'].includes(key)) {
+                    e.preventDefault(); return false;
+                }
+            });
+            document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header><h1>Fall 2025 Math 147: Bonus Problems</h1></header>
+    <main id="main-content">
+
+        <div class="problem">
+            <div class="problem-number">Problem 1</div>
+            <p><strong>1.</strong> Use items (i) and (ii) below to prove that for \(f(x,y) = xy\dfrac{x^2-y^2}{x^2+y^2}\), \(\lim_{(x,y)\to(0,0)} f(x,y)\) exists, and then find its value. (3 points) <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) Prove that if \(a,b\) are real numbers, then \(2|ab| \le a^2+b^2\).</li> <li style="list-style-type: none;">(ii) Use (i) to show that if \(0 < ||(x,y)|| < \delta\), then \(|f(x,y)| < \dfrac{\delta^2}{2}\).</li> </ol></p>
+            <div class="solution"><span class="solution-title">Solution.</span> For part (i), we have <div class="math-display">\[ 0 \le (|a|-|b|)^2 = |a|^2-2|a||b|+|b|^2 = a^2-2|a||b|+b^2, \]</div> so \(2|a||b| \le a^2+b^2\).</p>
+<p>For (ii), \(|x^2-y^2| \le |x^2+y^2|\), so that \(\left|\dfrac{x^2-y^2}{x^2+y^2}\right| \le 1\). Thus, <div class="math-display">\[ |f(x,y)| = \left|xy\cdot\frac{x^2-y^2}{x^2+y^2}\right| = |xy|\cdot\left|\frac{x^2-y^2}{x^2+y^2}\right| \le |xy| \le \frac{1}{2}(x^2+y^2), \]</div> where the last inequality follows from part (i). Thus, if \(||(x,y)|| = \sqrt{x^2+y^2} < \delta\), then \(\dfrac{1}{2}(x^2+y^2) < \dfrac{\delta^2}{2}\), and hence \(|f(x,y)| < \dfrac{\delta^2}{2}\).</p>
+<p>To finish, we show the desired limit is 0. For this, suppose \(\epsilon>0\). Take \(\delta = \sqrt{2\epsilon}\). If \(||(x,y)-(0,0)|| = ||(x,y)|| < \delta\), then by part (ii), \(|f(x,y)-0| = |f(x,y)| < \dfrac{\delta^2}{2} = \epsilon\), which is what we want.</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 2</div>
+            <p><strong>2.</strong> In Calculus I, \(f(x)\) is differentiable at \(x=a\) if \(\lim_{x\to a} \dfrac{f(x)-f(a)}{x-a}\) exists, and we call this limit \(f'(a)\). As we saw in class, this is equivalent to saying there exists a constant \(f'(a)\in\mathbb{R}\) such that <div class="math-display">\[ \lim_{x\to a} \frac{f(x)-L(x)}{x-a} = 0, \]</div> where \(L(x) = f'(a)(x-a)+f(a)\). However, for \(f(x,y)\) a function of two variables, the definition for \(f(x,y)\) to be differentiable at \((a,b)\) requires <div class="math-display">\[ \lim_{(x,y)\to(a,b)} \frac{f(x,y)-L(x,y)}{||(x,y)-(a,b)||} = 0, \]</div> for the designated \(L(x,y)\). Thus, in the single variable case the denominator in the limit is just a difference, whereas in the two variable case, the denominator is a distance. The purpose of this problem is to show that we could use a distance in the Calculus I definition. In other words, show that \(f(x)\) is differentiable at \(x=a\) if and only if there exists a constant \(f'(a)\in\mathbb{R}\) such that <div class="math-display">\[ \lim_{x\to a} \frac{f(x)-L(x)}{|x-a|} = 0, \qquad (*) \]</div> where \(L(x) = f'(a)(x-a)+f(a)\). (3 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> Suppose \(f(x)\) is differentiable at \(x=a\), so that <div class="math-display">\[ \lim_{x\to a} \frac{f(x)-L(x)}{x-a} = 0, \]</div> where \(L(x) = f'(a)(x-a)+f(a)\), for some constant \(f'(a)\). Thus, for all \(\epsilon>0\), there exists \(\delta>0\) so that <div class="math-display">\[ \left|\frac{f(x)-L(x)}{x-a}-0\right| = \left|\frac{f(x)-L(x)}{x-a}\right| < \epsilon, \]</div> whenever \(|x-a|<\delta\). However, <div class="math-display">\[ \left|\frac{f(x)-L(x)}{x-a}\right| = \left|\frac{f(x)-L(x)}{|x-a|}\right|, \]</div> so that \(\left|\dfrac{f(x)-L(x)}{|x-a|}\right| < \epsilon\), whenever \(|x-a|<\delta\), which shows that \(\lim_{x\to a} \dfrac{f(x)-L(x)}{|x-a|} = 0\).</p>
+<p>Similarly, suppose that <div class="math-display">\[ \lim_{x\to a} \frac{f(x)-L(x)}{|x-a|} = 0, \]</div> where \(L(x) = f'(a)(x-a)+f(a)\), for some constant \(f'(a)\). Thus, for all \(\epsilon>0\), there exists \(\delta>0\) so that <div class="math-display">\[ \left|\frac{f(x)-L(x)}{|x-a|}-0\right| = \left|\frac{f(x)-L(x)}{|x-a|}\right| < \epsilon, \]</div> whenever \(|x-a|<\delta\). However, <div class="math-display">\[ \left|\frac{f(x)-L(x)}{|x-a|}\right| = \left|\frac{f(x)-L(x)}{x-a}\right|, \]</div> so that \(\left|\dfrac{f(x)-L(x)}{x-a}\right| < \epsilon\), whenever \(|x-a|<\delta\), which shows that \(\lim_{x\to a} \dfrac{f(x)-L(x)}{x-a} = 0\), i.e., \(f(x)\) is differentiable at \(x=a\).</p>
+<p><strong>Alternatively.</strong> Analyze the limit \(\lim_{x\to a} \dfrac{f(x)-L(x)}{|x-a|}\) by approaching \(a\) separately from the left and from the right.</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 3</div>
+            <p><strong>3.</strong> Suppose \(f(x,y) = \alpha x^2+2\beta xy+\gamma y^2\), with \(\alpha\gamma-\beta^2 < 0\). Explain &mdash; without using the second derivative test &mdash; why \(f(x,y)\) has a saddle point at the origin. Then explain, without using the second derivative test, why one cannot draw any conclusions about the behavior of \(f(x,y)\) at \((0,0)\) if \(\alpha\gamma-\beta^2=0\). Due Monday, September 15. (4 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> Completing the square as in class, we have \(f(x,y) = \alpha(x+\tfrac{\beta}{\alpha}y)^2 + \dfrac{\alpha\gamma-\beta^2}{\alpha}y^2\). Now suppose \(\alpha\gamma-\beta^2 < 0\). We seek points near \((0,0)\) so that \(f\) is positive and \(f\) is negative at these points.</p>
+<p>First suppose \(\alpha>0\), so that \(\dfrac{\alpha\gamma-\beta^2}{\alpha}<0\). Along the line \(x=-\tfrac{\beta}{\alpha}y\), \(f(x,y) = \dfrac{\alpha\gamma-\beta^2}{\alpha}y^2 < 0\). On the other hand, along the line \(y=0\), \(f(x,y) = \alpha x^2 > 0\). This shows that in any small disk \(D\) about \((0,0)\), \(f(x,y)\) can be positive for some of the points in \(D\) and negative for some of the points in \(D\). Thus, \((0,0,0)\) is a saddle point.</p>
+<p>Now suppose \(\alpha<0\). Then the same calculation as in the previous paragraph shows that along the line \(x=-\tfrac{\beta}{\alpha}y\), \(f(x,y)\) is positive, while along the line \(y=0\), \(f(x,y)<0\), again showing that \((0,0,0)\) is a saddle point.</p>
+<p>Regarding the case \(\alpha\gamma-\beta^2=0\), I think most textbooks say the test is inconclusive because there are more possibilities to consider. The analysis above and the one done in class assume \(\alpha\ne 0\). Notice that if \(\alpha\ne 0\) and \(\alpha\gamma-\beta^2=0\), then \(f(x,y) = \alpha(x+\tfrac{\beta}{\alpha}y)^2\). Clearly \(f(x,y)\ge 0\) for all \((x,y)\) if \(\alpha>0\) and \(f(x,y)\le 0\) for all \((x,y)\) if \(\alpha<0\). But in these cases there are infinitely many critical points along the line \(x=-\tfrac{\beta}{\alpha}y\), which are either minima in the first case or maxima in the second case. So in fact, if \(\alpha\ne 0\), we can say something about the critical points of \(f(x,y)\). A symmetric analysis to all of this can be done if \(\gamma\ne 0\), since we can complete the square in the other direction. If \(\alpha=0=\gamma\), then \(f(x,y)=\beta xy\). Assuming \(\beta\ne 0\), then \((0,0)\) is the only critical point and \((0,0,0)\) is clearly a saddle point.</p>
+<p>Finally, for a general, not necessarily quadratic function \(f(x,y)\), suppose \((0,0)\) is a critical point. The analysis above applies when the function has a good quadratic approximation \(Q(x,y)\). However, in this case, if \(\alpha=\beta=\gamma=0\), the good approximation \(Q(x,y)=0\), which means the \(f(x,y)\) is very flat at the origin, and one cannot infer anything about the nature of \((0,0)\) as a critical point without some further analysis, beyond using second order partials. This is like the case \(f(x)=x^3\) or \(f(x)=x^4\) in Calculus I. In both cases 0 is a critical point and in both cases \(f''(0)=0\), so the second derivative test doesn't help, even though it is easy to discern that in the first case \(f(x)\) has a saddle point at \(x=0\), while in the second case \(f(x)\) has an absolute minimum at \(x=0\).</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 4</div>
+            <p><strong>4.</strong> This problem explores the interplay between the concepts of iterated partial limits and limits for a function of two variables.</p>
+            <p><strong>Equality of Iterated Limits.</strong> Given \(f(x,y)\) and \((a,b)\in\mathbb{R}^2\), if <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) \(\lim_{(x,y)\to(a,b)} f(x,y)\) exists, and</li> <li style="list-style-type: none;">(ii) \(\lim_{x\to a} f(x,y)\) exists for fixed \(y\), and</li> <li style="list-style-type: none;">(iii) \(\lim_{y\to b} f(x,y)\) exists for fixed \(x\),</li> </ol> then \(\lim_{x\to a}\lim_{y\to b} f(x,y) = \lim_{(x,y)\to(a,b)} f(x,y) = \lim_{y\to b}\lim_{x\to a} f(x,y)\).</p>
+            <p><ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(a) For \(f(x,y) = \dfrac{x^2}{x^2+y^2}\), show that \(\lim_{(x,y)\to(0,0)} f(x,y)\) does not exist, while each of \(\lim_{y\to 0}\lim_{x\to 0} f(x,y)\) and \(\lim_{x\to 0}\lim_{y\to 0} f(x,y)\) exist, but are not equal.</li> <li style="list-style-type: none;">(b) For \(f(x,y) = \dfrac{x^2+y+1}{x+y^2+1}\), show that \(\lim_{(x,y)\to(0,0)} f(x,y)\), \(\lim_{y\to 0}\lim_{x\to 0} f(x,y)\), \(\lim_{x\to 0}\lim_{y\to 0} f(x,y)\) exist and are all equal.</li> <li style="list-style-type: none;">(c) For \(f(x,y) = \begin{cases} 1, & \text{if } xy\ne 0 \\ 0, & \text{if } xy=0 \end{cases}\) show that \(\lim_{y\to 0}\lim_{x\to 0} f(x,y) = 1 = \lim_{x\to 0}\lim_{y\to 0} f(x,y)\), but \(\lim_{(x,y)\to(0,0)} f(x,y)\) does not exist.</li> </ol></p>
+            <div class="solution"><span class="solution-title">Solution.</span> For (a) it is easy to check that \(\lim_{(x,y)\to(0,0)} \dfrac{x^2}{x^2+y^2}\) does not exist, since the limit is 1 along the \(x\)-axis and 0 along the \(y\)-axis. On the other hand, <div class="math-display">\[ \lim_{y\to 0}\lim_{x\to 0} f(x,y) = \lim_{y\to 0}\lim_{x\to 0} \frac{x^2}{x^2+y^2} = \lim_{y\to 0} 0 = 0 \]</div> while <div class="math-display">\[ \lim_{x\to 0}\lim_{y\to 0} f(x,y) = \lim_{x\to 0}\lim_{y\to 0} \frac{x^2}{x^2+y^2} = \lim_{x\to 0} \frac{x^2}{x^2} = 1. \]</div></p>
+<p>For (b), \(f(x,y)\) is continuous at \((0,0)\), so \(\lim_{(x,y)\to(0,0)} f(x,y) = f(0,0) = 1\). Moreover, <div class="math-display">\[ \lim_{y\to 0}\lim_{x\to 0} f(x,y) = \lim_{y\to 0}\lim_{x\to 0} \frac{x^2+y+1}{x+y^2+1} = \lim_{y\to 0} \frac{y+1}{y^2+1} = 1 \]</div> and <div class="math-display">\[ \lim_{x\to 0}\lim_{y\to 0} f(x,y) = \lim_{x\to 0}\lim_{y\to 0} \frac{x^2+y+1}{x+y^2+1} = \lim_{x\to 0} \frac{x^2+1}{x+1} = 1. \]</div></p>
+<p>For (c), when taking limits approaching 0, we may assume the variable itself is never zero. For example, <div class="math-display">\[ \lim_{y\to 0}\lim_{x\to 0} f(x,y) = \lim_{y\to 0} \begin{cases} 1, & \text{if } y\ne 0 \\ 0, & \text{if } y=0 \end{cases} = 1. \]</div> Similarly, <div class="math-display">\[ \lim_{x\to 0}\lim_{y\to 0} f(x,y) = \lim_{x\to 0} \begin{cases} 1, & \text{if } x\ne 0 \\ 0, & \text{if } x=0 \end{cases} = 1. \]</div> On the other hand, since any open disk \(D\) about \((0,0)\) contains points on neither the \(x\) or \(y\) axis and points on the \(x\) and \(y\) axis, \(D\) contains points where \(f(x,y)\) is 1 and points where \(f(x,y)\) is 0, and hence there is no limiting value as the radii of disks about the origin go to 0. Therefore, \(\lim_{(x,y)\to(0,0)} f(x,y)\) does not exist.</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 5</div>
+            <p><strong>5.</strong> Let \(S\) be the surface that is the graph of the equation \(z=f(x,y)\) and suppose that \(P=(a,b,f(a,b))\) is a point on \(S\). Let \(L_0\) be a line in \(\mathbb{R}^2\) passing through \((a,b)\) and \(C\) denote the curve consisting of the points on \(S\) lying above \(L_0\). Let \(\vec{u} = u_1\vi+u_2\vj\) be a unit direction vector for \(L_0\). Give a rigorous explanation for why <div class="math-display">\[ L(t) = (a,b,f(a,b)) + t(u_1, u_2, D_{\vec{u}}f(a,b)) \]</div> is the parametric equation of the line tangent to \(C\) at the point \(P\). We will assume that \(f(x,y)\ge 0\) in an open disk about \((a,b)\) (so the surface lies above the \(xy\)-plane near \(P\)) and the first order partials of \(f(x,y)\) exist and are continuous in an open disk about \((a,b)\). Due Friday, September 26. (4 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> The key observation for this problem is that the tangent line we seek lies on the tangent plane to \(S\) at the point \(P\). So we need that portion of the tangent plane that lies over the line \(L_0\). We first note that the parametric equation of \(L_0\) is \(L_0(t) = (a,b)+t(u_1,u_2) = (a+tu_1, b+tu_2)\). On the other hand, the equation of the plane tangent to \(S\) at \(P\) is given by <div class="math-display">\[ z = f_x(a,b)(x-a)+f_y(a,b)(y-b)+f(a,b). \]</div> To see the \(z\) coordinate of the tangent line \(L(t)\) we substitute the \(x\) and \(y\) coordinates of \(L_0(t)\) into the equation of the tangent plane. This gives <div class="math-display">\[ \begin{align*} z &= f_x(a,b)(a+tu_1-a)+f_y(a,b)(b+tu_2-b)+f(a,b) \\ &= f_x(a,b)tu_1+f_y(a,b)tu_2+f(a,b) \\ &= f(a,b)+t(f_x(a,b)u_1+f_y(a,b)u_2) \\ &= f(a,b)+t\nabla f(a,b)\cdot \vec{u} \\ &= f(a,b)+tD_{\vec{u}}f(a,b). \end{align*} \]</div> Since the \(x\) and \(y\) coordinates of points on \(L(t)\) are the same as those on \(L_0(t)\), we have <div class="math-display">\[ L(t) = (a+tu_1, b+tu_2, f(a,b)+tD_{\vec{u}}f(a,b)) = (a,b,f(a,b))+t(u_1,u_2,D_{\vec{u}}f(a,b)), \]</div> which is what we want.</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 6</div>
+            <p><strong>6.</strong> Work the following problem for three bonus points and turn in your solution on Friday, October 3. Suppose \(a(t)\) is a function of one variable, and \(f(x,y) = a(x)a(y)\). Let \(R\) denote the square \([c,d]\times[c,d]\). Prove that \(\displaystyle\int\!\!\int_R f(x,y)\, dA = \left(\int_c^d a(x)\, dx\right)^2\).</p>
+            <div class="solution"><span class="solution-title">Solution.</span> Starting with Fubini's theorem, we have <div class="math-display">\[ \begin{align*} \int\!\!\int_R f(x,y)\, dA &= \int_c^d\!\int_c^d a(x)a(y)\, dx\, dy \\ &= \int_c^d \left\{\int_c^d a(x)a(y)\, dx\right\} dy \\ &= \int_c^d a(y)\left\{\int_c^d a(x)\, dx\right\} dy \qquad \text{since } a(y) \text{ is a constant with respect to } x \\ &= \left\{\int_c^d a(x)\, dx\right\}\int_c^d a(y)\, dy \qquad \text{since } \left\{\int_c^d a(x)\, dx\right\} \text{ is a constant} \\ &= \left\{\int_c^d a(x)\, dx\right\}\cdot \left\{\int_c^d a(x)\, dx\right\} \qquad \text{since a definite integral does not depend upon the variable used} \\ &= \left(\int_c^d a(x)\, dx\right)^2. \end{align*} \]</div></p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 7</div>
+            <p><strong>7.</strong> Suppose \(T(u,v) = (au+bv, cu+dv)\) is a linear transformation from the \(uv\)-plane to the \(xy\)-plane. Give a good proof that \(T\) is one-to-one if and only if \(ad-bc\) is not zero. This problem is due in class on Wednesday October 15 and is worth 5 points. Hint: For one direction, you will end up solving a system of two homogeneous equations in two unknowns.</p>
+            <div class="solution"><span class="solution-title">Solution.</span> Suppose first that \(\delta := ad-bc \ne 0\). To see that \(T\) is 1-1, we must check that if \(T(u_1,v_1) = T(u_2,v_2)\), then \((u_1,v_1) = (u_2,v_2)\). We have \(T(u_1,v_1) = (au_1+bv_1, cu_1+dv_1)\) and \(T(u_2,v_2) = (au_2+bv_2, cu_2+dv_2)\). If these quantities are equal, then we have the system of equations <div class="math-display">\[ \begin{align*} au_1+bv_1 &= au_2+bv_2 \\ cu_1+dv_1 &= cu_2+dv_2 \end{align*} \]</div> Subtracting we have <div class="math-display">\[ \begin{align*} a(u_1-u_2)+b(v_1-v_2) &= 0 \\ c(u_1-u_2)+d(v_1-v_2) &= 0 \end{align*} \]</div> Multiplying the first equation by \(d\), the second equation by \(b\) and subtracting we get \((ad-bc)(u_1-u_2) = 0\). Thus, since \(ad-bc\ne 0\), we have \(u_1-u_2=0\), i.e., \(u_1=u_2\). Similarly if we multiply the first row by \(c\), the second row by \(a\) and subtract the first row from the second we get \((ad-bc)(v_1-v_2) = 0\), which gives \(v_1=v_2\). Thus, \((u_1,v_1) = (u_2,v_2)\), which shows \(T\) is 1-1.</p>
+<p>Now suppose \(T\) is 1-1. We cannot have \(a,b,c,d\) all zero, so suppose \(c\ne 0\). Then \(T(d,-c) = (ad-bc, 0)\). If \(ad-bc=0\), then \(T(d,-c) = (0,0) = T(0,0)\), and \((d,-c)\ne(0,0)\), which contradicts the 1-1 property. Therefore, \(ad-bc\ne 0\).</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 8</div>
+            <p><strong>8.</strong> For a \(3\times 3\) matrix \(A = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}\), define \(A_{ij}\), for \(i\ne j\), to be the \(2\times 2\) matrix obtained by deleting the \(i\)th row and \(j\)th column of \(A\). We can define the determinant of \(A\) by expanding along any row or any column, according to the following formulas. In the formulas below, we use \(|C|\) to denote the determinant of the matrix \(C\), so that, in the present situation, \(|-|\) does not mean absolute value. <div class="math-display">\[ \begin{align*} |A| &= \sum_{j=1}^3 (-1)^{i+j}a_{ij}\cdot|A_{ij}|, \quad \text{expansion along the } i\text{th row} \\ &= \sum_{i=1}^3 (-1)^{i+j}a_{ij}\cdot|A_{ij}|, \quad \text{expansion along the } j\text{th column.} \end{align*} \]</div> Now let \(A\) denote the matrix \(\begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix}\). <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) Use the formulas above to show that \(|A|\) is the same when expanding along the third row or expanding along the second column. (2 points)</li> <li style="list-style-type: none;">(ii) Show that \(|A| = |A^t|\), where \(A^t\) denotes the transpose of \(A\), i.e., \(A^t = \begin{pmatrix} a & d & g \\ b & e & h \\ c & f & i \end{pmatrix}\). (3 points)</li> </ol></p>
+            <div class="solution"><span class="solution-title">Solution.</span> Expanding along the third row gives <div class="math-display">\[ \begin{align*} |A| &= (-1)^{3+1}g\cdot\begin{vmatrix} b & c \\ e & f \end{vmatrix} + (-1)^{3+2}h\cdot\begin{vmatrix} a & c \\ d & f \end{vmatrix} + (-1)^{3+3}i\cdot\begin{vmatrix} a & b \\ d & e \end{vmatrix} \\ &= g(bf-ce) - h(af-cd) + i(ae-bd) \\ &= gbf-gce-haf+hcd+iae-ibd. \end{align*} \]</div> Expanding along the second column gives <div class="math-display">\[ \begin{align*} |A| &= (-1)^{1+2}b\cdot\begin{vmatrix} d & f \\ g & i \end{vmatrix} + (-1)^{2+2}e\cdot\begin{vmatrix} a & c \\ g & i \end{vmatrix} + (-1)^{3+2}h\cdot\begin{vmatrix} a & c \\ d & f \end{vmatrix} \\ &= -b(di-fg) + e(ai-cg) - h(af-cd) \\ &= -bdi+bfg+eai-ecg-haf+hcd, \end{align*} \]</div> which is the same as the previous calculation.</p>
+<p>For \(|A^t|\), expanding along the first row we get <div class="math-display">\[ |A^t| = a(ei-fh) - d(bi-ch) + g(bf-ce) = aei-afh-dbi+dch+gbf-gce = |A|. \]</div></p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 9</div>
+            <p><strong>9.</strong> Give a proof of the following derivative properties. <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(iv) \((\mathbf{r}(g(t)))' = g'(t)\mathbf{r}'(g(t))\), for \(g(t)\) a scalar function.</li> <li style="list-style-type: none;">(v) For \(\mathbf{r}(t) = (x(t),y(t),z(t))\) and \(\mathbf{s}(t) = (a(t),b(t),c(t))\), find and verify a formula for \((\mathbf{r}(t)\cdot\mathbf{s}(t))'\).</li> <li style="list-style-type: none;">(vi) Using the notation in (v), find and verify a formula for \((\mathbf{r}(t)\times\mathbf{s}(t))'\).</li> </ol></p>
+            <div class="solution"><span class="solution-title">Solution.</span> (iv) <em>Proof:</em> \(\mathbf{r}(g(t)) = (x(g(t)), y(g(t)), z(g(t)))\), differentiating each coordinate and using the chain rule from Calculus I gives <div class="math-display">\[ (\mathbf{r}(g(t)))' = (x'(g(t))g'(t),\, y'(g(t))g'(t),\, z'(g(t))g'(t)) = g'(t)\mathbf{r}'(g(t)). \]</div></p>
+<p>(v) Differentiating \(\mathbf{r}(t)\cdot\mathbf{s}(t)\) we get <div class="math-display">\[ \begin{align*} (\mathbf{r}(t)\cdot\mathbf{s}(t))' &= (x(t)a(t)+y(t)b(t)+z(t)c(t))' \\ &= x'(t)a(t)+x(t)a'(t)+y'(t)b(t)+y(t)b'(t)+z'(t)c(t)+z(t)c'(t) \\ &= \mathbf{r}'(t)\cdot\mathbf{s}(t) + \mathbf{r}(t)\cdot\mathbf{s}'(t). \end{align*} \]</div></p>
+<p>(vi) Using the notation in (v), taking the cross product, we have <div class="math-display">\[ \mathbf{r}(t)\times\mathbf{s}(t) = \begin{vmatrix} \vi & \vj & \vk \\ x(t) & y(t) & z(t) \\ a(t) & b(t) & c(t) \end{vmatrix} = (y(t)c(t)-z(t)b(t))\vi+(z(t)a(t)-x(t)c(t))\vj+(x(t)b(t)-y(t)a(t))\vk. \]</div> Differentiating and dropping the \(t\)'s to save room we have <div class="math-display">\[ (*) \quad (\mathbf{r}(t)\times\mathbf{s}(t))' = \{y'c+yc'-z'b-zb'\}\vi + \{z'a+za'-x'c-xc'\}\vj + \{x'b+xb'-y'a-ya'\}\vk. \]</div> On the other hand <div class="math-display">\[ (**) \quad \mathbf{r}'(t)\times\mathbf{s}(t) = \begin{vmatrix} \vi & \vj & \vk \\ x' & y' & z' \\ a & b & c \end{vmatrix} = (y'c-z'b)\vi+(z'a-x'c)\vj+(x'b-y'a)\vk. \]</div> and <div class="math-display">\[ (***) \quad \mathbf{r}(t)\times\mathbf{s}'(t) = \begin{vmatrix} \vi & \vj & \vk \\ x & y & z \\ a' & b' & c' \end{vmatrix} = (yc'-zb')\vi+(za'-xc')\vj+(xb'-ya')\vk. \]</div> Adding (**) and (***) gives (*), as required.</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 10</div>
+            <p><strong>10.</strong> By definition, if \(\vec{a} = (u,v,w)\) and \(\vec{b} = (x,y,z)\), \(\vec{a}\times\vec{b} = \begin{vmatrix} \vi & \vj & \vk \\ u & v & w \\ x & y & z \end{vmatrix} = (vz-wy)\vi+(wx-uz)\vj+(uy-vx)\vk\). A typical vector in the plane spanned by \(\vec{a}, \vec{b}\) is of the form <div class="math-display">\[ \alpha\vec{a}+\beta\vec{b} = (\alpha u+\beta x,\, \alpha v+\beta y,\, \alpha w+\beta z). \]</div> Show that this vector, dotted with \(\vec{a}\times\vec{b}\), is zero, thereby showing \(\vec{a}\times\vec{b}\) is orthogonal to the plane spanned by \(\vec{a}\) and \(\vec{b}\).</p>
+            <div class="solution"><span class="solution-title">Solution.</span> Dotting \(\alpha\vec{a}+\beta\vec{b}\) with \(\vec{a}\times\vec{b}\) gives <div class="math-display">\[ (\alpha u+\beta x)(vz-wy) + (\alpha v+\beta y)(wx-uz) + (\alpha w+\beta z)(uy-vx) = 0, \]</div> which shows \(\vec{a}\times\vec{b}\) is orthogonal to the plane spanned by \(\vec{a}\) and \(\vec{b}\).</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 11</div>
+            <p><strong>11.</strong> Let \(S_\epsilon\) denote the sphere of radius \(\epsilon\) centered at the point \((x_0,y_0,z_0)\in\mathbb{R}^3\) and \(\mathbf{F} = x^2\vi+y^2\vj+z^2\vk\). Show that <div class="math-display">\[ \lim_{\epsilon\to 0} \frac{1}{\text{vol}(S_\epsilon)}\int\!\!\int_{S_\epsilon} \mathbf{F}\cdot d\mathbf{S} = 2x_0+2y_0+2z_0. \]</div> This problem is worth 5 points and is due at the start of class on Monday, November 25. You may use tables of integrals to solve this problem.</p>
+            <div class="solution"><span class="solution-title">Solution.</span> Parameterizing \(S_\epsilon\), we have <div class="math-display">\[ G(\phi,\theta) = (\epsilon\sin(\phi)\sin(\theta)+x_0,\, \epsilon\sin(\phi)\cos(\theta)+y_0,\, \epsilon\cos(\phi)+z_0) \]</div> <div class="math-display">\[ \mathbf{T}_\phi\times\mathbf{T}_\theta = \epsilon^2\sin(\phi)\,(\sin(\phi)\sin(\theta),\, \sin(\phi)\cos(\theta),\, \cos(\phi)) \]</div> <div class="math-display">\[ \mathbf{F}(G(\phi,\theta)) = \left((\epsilon\sin(\phi)\sin(\theta)+x_0)^2,\, (\epsilon\sin(\phi)\cos(\theta)+y_0)^2,\, (\epsilon\cos(\phi)+z_0)^2\right). \]</div> To calculate \(\int\!\!\int_{S_\epsilon} \mathbf{F}(G(\phi,\theta))\cdot(\mathbf{T}_\phi\times\mathbf{T}_\theta)\, dS\), we will first integrate the product of the \(x\) coordinates of the vectors \(\mathbf{F}(G(\phi,\theta))\) and \(\mathbf{T}_\phi\times\mathbf{T}_\theta\). This gives <div class="math-display">\[ \int_0^{2\pi}\!\int_0^\pi (\epsilon\sin(\phi)\sin(\theta)+x_0)^2\cdot \epsilon^2\sin^2(\phi)\sin(\theta)\, d\phi\, d\theta \]</div> <div class="math-display">\[ (*) \quad = \int_0^{2\pi}\!\int_0^\pi \epsilon^4\sin^4(\phi)\sin^3(\theta) + 2x_0\epsilon^3\sin^3(\phi)\sin^2(\theta) + x_0^2\epsilon^2\sin(\phi)\sin(\theta)\, d\phi\, d\theta. \]</div> Since \(\text{vol}(S_\epsilon) = \dfrac{4\pi\epsilon^3}{3}\), <div class="math-display">\[ \lim_{\epsilon\to 0} \frac{1}{\text{vol}(S_\epsilon)}\int_0^{2\pi}\!\int_0^\pi \epsilon^4\sin^4(\phi)\sin^3(\theta)\, d\phi\, d\theta = \lim_{\epsilon\to 0} \frac{\epsilon^4}{\text{vol}(S_\epsilon)}\int_0^{2\pi}\!\int_0^\pi \sin^4(\phi)\sin^3(\theta)\, d\phi\, d\theta = 0, \]</div> so the first term in (*) drops out. Integrating the third term in (*) gives zero since \(\int_0^{2\pi} \sin(\theta)\, d\theta = 0\). Thus we are left with <div class="math-display">\[ \begin{align*} \int_0^{2\pi}\!\int_0^\pi 2x_0\epsilon^3\sin^3(\phi)\sin^2(\theta)\, d\phi\, d\theta &= 2x_0\epsilon^3\int_0^{2\pi} \sin^2(\theta)\left\{\frac{1}{3}\cos^3(\phi)-\cos(\phi)\right\}\Big|_0^\pi\, d\theta \qquad \text{(using an integration table)} \\ &= 2x_0\cdot\frac{4\epsilon^3}{3}\int_0^{2\pi} \sin^2(\theta)\, d\theta \\ &= 2x_0\cdot\frac{4\epsilon^3}{3}\int_0^{2\pi} \frac{1}{2}-\frac{1}{2}\cos(2\theta)\, d\theta \\ &= 2x_0\cdot\frac{4\pi\epsilon^3}{3}. \end{align*} \]</div> Dividing by \(\text{vol}(S_\epsilon)\) and taking the limit as \(\epsilon\to 0\) gives \(2x_0\). Similarly, integrating the \(y\) and \(z\) products in \(\mathbf{F}(G(\phi,\theta))\cdot(\mathbf{T}_\phi\times\mathbf{T}_\theta)\) and taking the limits as \(\epsilon\to 0\) gives \(2y_0\) and \(2z_0\) respectively. Adding these three integrals then gives what we want.</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 12</div>
+            <p><strong>12.</strong> This bonus problem is more along the lines of a project. For this project, you will derive formulas for the volume of the sphere \(S_n\) of radius \(R\) in Euclidean \(n\)-space centered at the origin. By definition, \(S_n\) is the set of \(n\)-tuples \((x_1,\ldots,x_n)\in\mathbb{R}^n\) whose distance from the origin is \(R\), or equivalently, such that \(x_1^2+\cdots+x_n^2 = R^2\). You may use external resources for this, but must present the calculation and exposition in your own words in a way that shows you understand what is going on. You will see that the volume formulas split into two cases, depending upon whether or not \(n\) is even or odd. You can earn up to 10 bonus points for this; five points for your exposition and calculation and another 5 points if you typeset your work using some sort of typesetting software that accommodates mathematics, e.g., LaTeX. This project is due on the day of the final exam.</p>
+            <p style="font-size: 0.9em; color: #666;"><em>Note: some references use \(S_{n-1}\) to denote the sphere of radius one in \(\mathbb{R}^n\), since it is an \((n-1)\)-dimensional object.</em></p>
+        </div>
+
+    </main>
+    <footer style="margin-top:40px;padding-top:20px;border-top:1px solid #ccc;text-align:center;color:#666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX source. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
