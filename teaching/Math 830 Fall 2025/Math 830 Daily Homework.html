@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2025: Math 830 Daily Homework</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    QQ: '\\mathbb{Q}',
+                    ZZ: '\\mathbb{Z}',
+                    am: '\\operatorname{Ass}_R(M)',
+                    ann: '\\operatorname{ann}',
+                    exn: '\\operatorname{Ext}^n_R',
+                    hm: '\\operatorname{Hom}_R',
+                    hma: '\\operatorname{Hom}_R(M,A)',
+                    hmb: '\\operatorname{Hom}_R(M,B)',
+                    hmc: '\\operatorname{Hom}_R(M,C)',
+                    ham: '\\operatorname{Hom}_R(A,M)',
+                    hbm: '\\operatorname{Hom}_R(B,M)',
+                    hcm: '\\operatorname{Hom}_R(C,M)',
+                    p: '\\mathcal{P}',
+                    rmh: '\\mathit{R}\\text{-module homomorphism}'
+                }
+            },
+            svg: { fontCache: 'global', scale: 1.15 },
+            chtml: { scale: 1.15, matchFontHeight: true }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 800px; margin: 0 auto; padding: 30px 20px;
+            line-height: 1.75; background-color: #fafafa; color: #2c2c2c; font-size: 18px;
+        }
+        h1 { text-align: center; color: #8b2e3f; border-bottom: 3px solid #8b2e3f;
+             padding-bottom: 15px; font-size: 1.7em; }
+        .intro { background-color: white; padding: 18px 25px; margin: 25px 0;
+                 border-left: 4px solid #4a90e2; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .day { background-color: white; padding: 25px; margin: 25px 0;
+               border-left: 4px solid #4a90e2; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .day-date { font-weight: 600; font-size: 1.15em; color: #2563eb; margin-bottom: 14px; }
+        .day-intro { color: #444; margin-bottom: 16px; }
+        .math-display { margin: 26px 0; text-align: center; overflow-x: auto; }
+        p { margin: 16px 0; text-align: left; }
+        ol, ul { margin: 16px 0; padding-left: 40px; }
+        li { margin: 8px 0; }
+        strong { font-weight: 600; color: #1a1a1a; }
+        em { font-style: italic; }
+        .diagram-note { font-size: 0.9em; color: #666; font-style: italic; margin-top: -10px; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: #000;
+            color: #fff; padding: 8px; text-decoration: none; z-index: 100; }
+        .skip-link:focus { top: 0; }
+    </style>
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); alert(msg); });
+            var style = document.createElement('style');
+            style.innerHTML = 'body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+                if ((e.ctrlKey || e.metaKey) && ['s','u','a','c','p'].includes(key)) {
+                    e.preventDefault(); if (key !== 'a') alert(msg); return false;
+                }
+                if (e.key === 'F12') { e.preventDefault(); return false; }
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j'].includes(key)) {
+                    e.preventDefault(); return false;
+                }
+            });
+            document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header><h1>Fall 2025: Math 830 Daily Homework</h1></header>
+    <main id="main-content">
+
+        <div class="intro">
+            <p>Throughout \(R\) will denote a commutative ring.</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Monday, August 18.</div>
+            <p><strong>1.</strong> Let \(M\) be an \(R\)-module. Show that: <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) \(0\cdot x = 0\), for \(0\in R\) and all \(x\in M\).</li> <li style="list-style-type: none;">(ii) \(r\cdot 0 = 0\), for all \(r\in R\) and \(0\in M\).</li> <li style="list-style-type: none;">(iii) \(-1\cdot x = -x\), for all \(x\in M\).</li> </ol></p>
+            <p><strong>2.</strong> Let \(\phi: A\to B\) be a \rmh. Prove that the kernel of \(\phi\) is a submodule of \(A\), the image of \(\phi\) is a submodule of \(B\), and the inverse image of \(C\) is a submodule of \(A\), for any submodule \(C\subseteq B\).</p>
+            <p><strong>3.</strong> Suppose \(M\) is an \(R\)-module and \(I\subseteq R\) is an ideal. Define \(IM\) to be the set of all finite linear combinations of the form \(i_1x_1+\cdots+i_nx_n\), with each \(i_j\in I\) and \(x_j\in M\). <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) Prove that \(IM\) is a submodule of \(M\).</li> <li style="list-style-type: none;">(ii) Show that if \(X\subseteq M\) and \(\langle X\rangle = M\), then \(IM\) is the set of all finite linear combinations of the form \(i_1x_1+\cdots+i_nx_n\), with each \(i_j\in I\) and \(x_j\in X\).</li> <li style="list-style-type: none;">(iii) Prove that \(M/IM\) has the structure of an \(R/I\)-module.</li> <li style="list-style-type: none;">(iv) Conclude that if \(IM=0\), then \(M\) is also an \(R/I\)-module and \(N\subseteq M\) is an \(R\)-submodule of \(M\) if and only if \(N\) is an \(R/I\)-submodule of \(M\). Hence, the submodule structures of \(M\) as a module over \(R\) and as a module over \(R/I\) are the same.</li> </ol></p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Wednesday, August 20.</div>
+            <p><strong>1.</strong> Prove the third isomorphism theorem, as stated in class.</p>
+            <p><strong>2.</strong> Let \(M\) be an \(R\)-module and \(\{H_i\}_{i\in I}\) an arbitrary collection of submodules of \(M\). Define what it means for \(M = \bigoplus_{i\in I}H_i\), the direct sum of the \(H_i\), and then show that this is equivalent to requiring that every element \(x\in M\) can be written uniquely as a sum of finitely many elements of the form \(h_i\in H_i\).</p>
+            <p><strong>3.</strong> Let \(H_1,\ldots,H_r\subseteq M\) be submodules. Show that \(H_1\times\cdots\times H_r\) has the natural structure of an \(R\)-module, where \(H_1\times\cdots\times H_r\) denotes the set of \(r\)-tuples of the form \((h_1,\ldots,h_r)\), with each \(h_i\in H_i\). Prove that if \(M = H_1\oplus\cdots\oplus H_r\), then \(M\cong H_1\times\cdots\times H_r\).</p>
+            <p><strong>4.</strong> Look up or review the proof that any two bases for an infinite dimensional vector space \(V\) over the field \(F\) have the same cardinality.</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Friday, August 22.</div>
+            <p><strong>1.</strong> Let \(\{H_i\}_{i\in I}\) be a collection of \(R\)-modules and \(S := \bigoplus_{i\in I} H_i\) be the (external) direct sum of the \(H_i\). For each \(i\in I\), we have a canonical injective \(R\)-module homomorphism \(j_i: H_i\to S\), given by \(j_i(h) = t\), where \(t\in S\) is the \(I\)-tuple whose \(i\)th component is \(h\) and all other components are 0. <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) Suppose \(T\) is an \(R\)-module and for each \(i\in I\), we have an \(R\)-module homomorphism \(f_i: H_i\to T\). Show that there exists a unique \(R\)-module homomorphism \(F: S\to T\) such that \(Fj_i = f_i\), for all \(i\in I\).</li> <li style="list-style-type: none;">(ii) Let \(P\) be an \(R\)-module with the following property: For each \(i\in I\), there exists an injective \(R\)-module homomorphism \(k_i: H_i\to P\) such that given \(R\)-module homomorphisms \(g_i: H_i\to T\), there exists a unique \(R\)-module homomorphism \(G: P\to T\) satisfying \(Gk_i = g_i\). Prove that \(P\) is isomorphic to \(S\).</li> </ol> Thus direct sums are characterized by the existence of the inclusion maps \(j_i\) satisfying the universal property given in (i).</p>
+            <p><strong>2.</strong> Let \(\{H_i\}_{i\in I}\) be a collection of \(R\)-modules and \(S := \bigoplus_{i\in I} H_i\), the external direct sum. Prove that \(S\) is the internal direct sum of a collection of submodules isomorphic to the \(H_i\).</p>
+            <p><strong>3.</strong> Let \(R\) be a commutative ring, \(n\ge 1\), and suppose \(x_1,\ldots,x_n\in R\) satisfy \(\langle x_1,\ldots,x_n\rangle = R\). Let \(\phi: R^n\to R\) be defined by \(\phi\left(\begin{pmatrix} a_1\\ \vdots\\ a_n\end{pmatrix}\right) = a_1x_1+\cdots+a_nx_n\). Prove that \(R^n = K\bigoplus L\), where \(K\) is the kernel of \(\phi\) and \(L\) is a submodule of \(R^n\) isomorphic to \(R\).</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Monday, August 25.</div>
+            <p><strong>1.</strong> Suppose \(0\to A\overset{f}\to B\overset{g}\to C\to 0\) is a short exact sequence of \(R\)-modules. Prove that if \(C\) is a free \(R\)-module, then there exists an \(R\)-module homomorphism \(j: C\to B\) satisfying: <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) \(g\circ j = 1_C\).</li> <li style="list-style-type: none;">(ii) \(B = f(A)\bigoplus j(C)\).</li> </ol> Conclude that \(B\) is isomorphic to \(A\bigoplus C\).</p>
+            <p><strong>2.</strong> Let \(A\subseteq \ZZ^3\) be the \(\ZZ\)-submodule of \(\ZZ^3\) generated by the columns of the matrix \(\begin{pmatrix} 1 & 9 & 5\\ 2 & 6 & 4\\ -1 & 1 & 0\end{pmatrix}\). Find a basis for \(A\).</p>
+            <p><strong>3.</strong> Provide the details of the proof of the main theorem from today's lecture in the most general case, using the notation from class.</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Wednesday, August 27.</div>
+            <p><strong>1.</strong> Let \(M\) be a Noetherian \(R\)-module and \(\phi: M\to M\) a surjective \(R\)-module homomorphism. Prove that \(\phi\) is an isomorphism. Hint: Consider the kernels of the maps \(\phi^i\).</p>
+            <p><strong>2.</strong> Let \(0\to A\overset{f}\to B\overset{g}\to C\to 0\) be an exact sequence of \(R\)-modules. Prove that \(B\) is Noetherian (respectively, Artinian) if and only if \(A\) and \(C\) are Noetherian (respectively, Artinian). Note: To say that the sequence is exact means that \(f\) is injective, \(g\) is surjective and \(\text{im}(f) = \text{ker}(g)\).</p>
+            <p><strong>3.</strong> Let \(M\) be a Noetherian \(R\)-module and \(J\) the annihilator of \(M\), i.e., \(J := \{r\in R\ |\ rx=0\ \text{for all}\ x\in M\}\). Prove that \(R/J\) is a Noetherian ring (equivalently, a Noetherian \(R\)-module). Hint: Find an \(R\)-module homomorphism from \(R\) to a finite direct sum of \(M\) with itself. Conclude that \(R\) is a Noetherian ring.</p>
+            <p><strong>4.</strong> Assume that \(R\) has a <em>unique</em> maximal ideal \(P\) and let \(A\) be an Artinian \(R\)-module. For \(p\in P\) and \(x\in A\), prove there exists \(n\ge 1\) such that \(p^nx=0\). Conclude that if \(P\) is finitely generated (e.g., \(R\) is Noetherian), then for each \(x\in A\), there exists \(r\ge 1\) (depending on \(x\)) such that \(P^rx=0\).</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Friday, August 29.</div>
+            <p class="day-intro">The following exercises lead to a proof of the fundamental fact that an Artinian ring is a Noetherian ring.</p>
+            <p><strong>1.</strong> Let \(R\) be an Artinian ring. Prove that \(R\) has finitely many maximal ideals. (Recall that maximal ideals are prime ideals, and if \(P\subseteq R\) is a prime ideal containing the product of ideals \(IJ\), then \(P\) contains \(I\) or \(P\) contains \(J\).)</p>
+            <p><strong>2.</strong> Let \(J\subseteq R\) be the Jacobson radical of \(R\), i.e., \(J\) is the intersection of the maximal ideals of \(R\). Show that \(x\in J\) if and only if for all \(r\in R\), \(1-rx\) is a unit in \(R\).</p>
+            <p><strong>3.</strong> Let \(R\) be an Artinian ring and \(J\) its Jacobson radical. Prove that \(J^n=0\), for some \(n\ge 1\). Recall that \(J^n\) denotes the ideal of \(R\) generated by all \(n\)-fold products of elements of \(J\).</p>
+            <p><strong>4.</strong> The ring theoretic analogue of the Chinese Remainder Theorem states that if \(I,J\subseteq R\) are comaximal, i.e., \(I+J=R\), then \(R/(I\cap J)\cong R/I\bigoplus R/J\). Use this and the previous exercises to conclude that if \(R\) is Artinian with maximal ideals \(M_1,\ldots,M_r\), then there exists \(n\ge 1\) such that \(R\cong R/M_1^n\bigoplus\cdots\bigoplus R/M_r^n\).</p>
+            <p><strong>5.</strong> Explain why the previous exercise reduces the proof that an Artinian ring is Noetherian to the special case that \(R\) is Artinian with one maximal ideal \(M\) satisfying \(M^n=0\), for some \(n\ge 1\).</p>
+            <p><strong>6.</strong> Let \(R\) and \(M\) be as in the previous problem. Prove by induction on \(n\) that \(R\) is Noetherian. Hint: Use the exact sequences \(0\to M^{n-1}/M^n\to R/M^n\to R/M^{n-1}\to 0\) and the fact that any finite dimensional vector space over a field is both Noetherian and Artinian.</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Wednesday, September 3.</div>
+            <p><strong>1.</strong> Let \(M\) and \(N\) be simple \(R\)-modules and \(\phi: M\to N\) an \(R\)-module homomorphism. <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) Prove that either \(\phi\) is the zero map, or \(\phi\) is an isomorphism.</li> <li style="list-style-type: none;">(ii) Show that the set of \(R\)-module homomorphisms from \(M\) to \(M\) is a division ring, where multiplication is given by composition.</li> </ol></p>
+            <p><strong>2.</strong> Let <div class="math-display">\[ \mathcal{C}: \quad 0\to C_n\overset{f_n}\to C_{n-1}\overset{f_{n-1}}\longrightarrow \cdots \overset{f_2}\to C_1\overset{f_1}\to C_0\to 0 \]</div> be a sequence of finite length \(R\)-modules and \(R\)-module homomorphisms satisfying \(f_i\circ f_{i+1} = 0\), for all \(i\); in other words, \(\mathcal{C}\) is a <em>complex</em> of finite length \(R\)-modules. For each \(i\), define the \(i\)th <em>homology module</em> of the complex \(\mathcal{C}\) to be \(\text{H}_i(\mathcal{C}) := \text{ker}(f_i)/\text{im}(f_{i+1})\). Prove that the homology modules \(\text{H}_i(\mathcal{C})\) have finite length and <div class="math-display">\[ \sum_{i\ge 0} (-1)^i \lambda(C_i) = \sum_{i\ge 0} (-1)^i \lambda(\text{H}_i(\mathcal{C})). \]</div> The alternating sum \(\sum_{i\ge 0} (-1)^i \lambda(\text{H}_i(\mathcal{C}))\) is called the <em>Euler characteristic</em> of the complex \(\mathcal{C}\).</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Monday, September 15.</div>
+            <p class="day-intro">These exercises show that two of the facts established in class for finitely generated modules over a PID fail if the module is not finitely generated. In particular, these show: (i) If \(M\) is <em>not</em> finitely generated over the PID \(R\), then \(T(M)\) need not be a direct summand of \(M\), and (ii) an arbitrary torsion-free module over a PID need not be free. We take the case \(R := \ZZ\). Let \(\mathcal{P}\) denote the set of prime numbers in \(\ZZ\) and set \(M := \prod_{p\in\mathcal{P}} \ZZ_p\), the <em>direct product</em> of all \(\ZZ_p\).</p>
+            <p><strong>1.</strong> Show that \(T(M) = \bigoplus_{p\in\mathcal{P}} \ZZ_p\).</p>
+            <p><strong>2.</strong> Show that \(\bigcap_{p\in\mathcal{P}} pM = 0\), and thus \(\bigcap_{p\in\mathcal{P}} pN = 0\), for any submodule \(N\subseteq M\).</p>
+            <p><strong>3.</strong> Set \(x := (1,1,1,1,\cdots)\in M\). Show that the image of \(x\) in \(M/T(M)\) is not zero.</p>
+            <p><strong>4.</strong> Show that the image of \(x\) in \(M/T(M)\) belongs to \(\bigcap_{p\in\mathcal{P}} p(M/T(M))\).</p>
+            <p><strong>5.</strong> Conclude: (i) \(T(M)\) is not a direct summand of \(M\), and (ii) \(M/T(M)\) is torsion-free, but not free.</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Wednesday, September 17.</div>
+            <p><strong>1.</strong> Suppose \(R\) is a PID and \(M = \langle x\rangle \oplus \langle y\rangle\) with non-zero \(x,y\) satisfying \(\text{ann}(x) = aR\), \(\text{ann}(y) = bR\), and GCD\((a,b)=1\). Show that \(\text{ann}(x+y) = abR\).</p>
+            <p><strong>2.</strong> Under the assumptions in Problem 1, show that \(M = \langle x+y\rangle\). Hint: Adapt the proof of the Chinese remainder theorem.</p>
+            <p><strong>3.</strong> Let \(A\) be an \(n\times m\) matrix over the commutative ring \(R\), write \(K\) for the submodule of \(R^n\) generated by the columns of \(A\) and set \(M := R^n/K\). For an invertible \(n\times n\) matrix \(P\) and invertible \(m\times m\) matrix \(Q\), set \(\tilde{A} := P^{-1}AQ\). Let \(\tilde{K}\) be the submodule of \(R^n\) generated by the columns of \(\tilde{A}\) and set \(\tilde{M} := R^n/\tilde{K}\). Show that \(M\) is isomorphic to \(\tilde{M}\). Hint: Consider the maps \(R^m\overset{A}\to R^n\) and \(R^m\overset{\tilde{A}}\to R^n\), and think in terms of change of bases for \(R^n\) and \(R^m\).</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Friday, September 19.</div>
+            <p><strong>1.</strong> Let \(M\) be an \(R\)-module and consider the exact sequences <div class="math-display">\[ (*)\quad 0\to P_n\overset{f_n}\to P_{n-1}\overset{f_{n-1}}\to \cdots \to P_1\overset{f_1}\to P_0\overset{\pi}\to M\to 0 \]</div> and <div class="math-display">\[ (**)\quad \cdots \to P_{n+1}'\overset{g_{n+1}}\to P_n'\overset{g_n}\to P_{n-1}'\overset{g_{n-1}}\to \cdots \to P_1'\overset{g_1}\to P_0'\overset{\pi}\to M\to 0 \]</div> Prove that there exist projective \(R\)-modules \(Q_0,Q_0',\ldots,Q_n,Q_n'\) and homomorphisms \(\tilde{f}_j,\tilde{g}_j\) such that the sequences <div class="math-display">\[ (*)\quad 0\to P_n\oplus Q_n \overset{\tilde{f}_n}\to P_{n-1}\oplus Q_{n-1}\overset{\tilde{f}_{n-1}}\to \cdots \to P_1\oplus Q_1\overset{\tilde{f}_1}\to P_0\oplus Q_0\overset{\pi}\to M\to 0 \]</div> <div class="math-display">\[ (**)\quad \cdots \to P_{n+1}'\overset{g_{n+1}}\to P_n'\oplus Q_n'\overset{\tilde{g}_n}\to P_{n-1}'\oplus Q_{n-1}'\overset{\tilde{g}_{n-1}}\to \cdots \to P_1'\oplus Q_1'\overset{\tilde{g}_1}\to P_0'\oplus Q_0'\overset{\pi}\to M\to 0 \]</div> are exact and \(P_j\oplus Q_j\cong P_j'\oplus Q_j'\), for all \(0\le j\le n\).</p>
+            <p><strong>2.</strong> Prove the following variation of Nakayama's lemma: Let \(M\) be a finitely generated \(R\)-module and \(J\subseteq R\) a proper ideal. If \(JM=M\), then there exists \(j\in J\) such that \((1+j)\cdot M = 0\).</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Monday, September 22.</div>
+            <p><strong>1.</strong> Let \(S\subseteq R\) be a multiplicatively closed subset and \(M\) an \(R\)-module. For \((m,s),(m',s')\) in \(M\times S\), define \((m,s)\sim(m',s')\) if there exists \(s''\in S\) such that \(s''(s'm-sm')=0\). <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) Show the relation defined above is an equivalence relation.</li> <li style="list-style-type: none;">(ii) Writing \(m/s\) for the equivalence class of \((m,s)\), let \(M_S\) denote the set of all such equivalence classes and prove that \(M_S\) has a well-defined structure as an \(R\)-module.</li> </ol></p>
+            <p><strong>2.</strong> Let \(S\subseteq R\) be a multiplicatively closed set. Let \(\phi: R\to R_S\) be the canonical ring homomorphism taking \(r\in R\) to \(r/1\in R_S\). <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) Describe the kernel of \(\phi\).</li> <li style="list-style-type: none;">(ii) For an ideal \(I\subseteq R\), show that \(I_S\) is an ideal of \(R_S\). Show that \(P_S\) is a prime ideal, if \(P\subseteq R\) is a prime ideal.</li> <li style="list-style-type: none;">(iii) Let \(J\subseteq R_S\) be an ideal. Describe the ideal \(\phi^{-1}(J)\).</li> <li style="list-style-type: none;">(iv) Show that for an ideal \(J\subseteq R_S\), \(\phi^{-1}(J)_S = J\). Thus, every ideal \(J\subseteq R_S\) is of the form \(I_S\), for some ideal \(I\subseteq R\).</li> <li style="list-style-type: none;">(v) Give an example to show that for an ideal \(I\subseteq R\), \(\phi^{-1}(I_S)\) can strictly contain \(I\).</li> <li style="list-style-type: none;">(vi) Show that if \(P\subseteq R\) is a prime ideal, and \(P\cap S=\emptyset\), then \(\phi^{-1}(P_S) = P\).</li> <li style="list-style-type: none;">(vii) Conclude that there is a 1-1 correspondence between the prime ideals of \(R\) disjoint from \(S\) and the prime ideals of \(R_S\).</li> </ol></p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Wednesday, September 24.</div>
+            <p class="day-intro">Let \(S,T\subseteq R\) be multiplicatively closed sets.</p>
+            <p><strong>1.</strong> Give an example of an ideal \(I\) contained in a ring \(R\) with multiplicatively closed set \(S\) such that \(\phi^{-1}(I_S)\) properly contains \(I\), where \(\phi: R\to R_S\) is the canonical map. In particular, it is possible to have \(I_S = J_S\) for ideals \(I,J\subseteq R\), yet \(I\ne J\).</p>
+            <p><strong>2.</strong> Show that \(ST\) is a multiplicatively closed subset of \(R\) and that the rings \(R_{ST}\) and \((R_S)_{T'}\) are isomorphic, where \(T' := \{\tfrac{t}{1}\in R_S\ |\ t\in T\}\).</p>
+            <p><strong>3.</strong> Given an exact sequence \(0\to A\overset{f}\to B\overset{g}\to C\to 0\) of \(R\)-modules, prove that the induced sequence of \(R_S\)-modules \(0\to A_S\overset{f_S}\to B_S\overset{g_S}\to C_S\to 0\) is exact.</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Friday, September 26.</div>
+            <p class="day-intro">Throughout, all modules \(A,B,C,M\) are \(R\)-modules and all maps are \(R\)-module homomorphisms.</p>
+            <p><strong>1.</strong> Given \(A\overset{f}\to B\), show there are induced maps: <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) \(\hbm \overset{f^*}\to \ham\)</li> <li style="list-style-type: none;">(ii) \(\hma \overset{\hat{f}}\to \hmb\).</li> </ol></p>
+            <p><strong>2.</strong> Given a short exact sequence \(0\to A\overset{f}\to B\overset{g}\to C\to 0\), show that there are exact sequences <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) \(0\to \hcm \overset{g^*}\to \hbm \overset{f^*}\to \ham\)</li> <li style="list-style-type: none;">(ii) \(0\to \hma \overset{\hat{f}}\to \hmb \overset{\hat{g}}\to \hmc\).</li> </ol></p>
+            <p><strong>3.</strong> Assume the short exact sequence \(0\to A\overset{f}\to B\overset{g}\to C\to 0\) splits. Prove that \(f^*\) in 2(i) and \(\hat{g}\) in 2(ii) are surjective. In other words, the given exact sequence remains exact upon applying \(\text{Hom}_R(-,M)\) and \(\text{Hom}_R(M,-)\).</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Monday, September 29.</div>
+            <p class="day-intro">Use Baer's Criterion to work the following problems.</p>
+            <p><strong>1.</strong> Show that \(\ZZ_{p^\infty}\) is an injective \(\ZZ\)-module, where \(\ZZ_{p^\infty}\) is the set of elements in \(\QQ/\ZZ\) annihilated by some power of \(p\).</p>
+            <p><strong>2.</strong> For \(n\ge 2\), show that \(\ZZ_n\) is not an injective \(\ZZ\)-module, but it is an injective module over the ring \(\ZZ_n\).</p>
+            <p><strong>3.</strong> Let \(R\) be an integral domain with quotient field \(K\). Show that \(K\) is an injective \(R\)-module.</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Wednesday, October 1.</div>
+            <p><strong>1.</strong> Let \(\{Q_i\}_{i\in I}\) be a family of \(R\)-modules. Show that \(\prod_{i\in I} Q_i\) is an injective \(R\)-module if and only if each \(Q_i\) is an injective \(R\)-module.</p>
+            <p><strong>2.</strong> A theorem of H. Bass states that the ring \(R\) is Noetherian if and only if every direct sum of injective modules is injective. Use Baer's Criterion to prove part of Bass's Theorem, namely: Let \(R\) be a Noetherian ring, and \(\{Q_\alpha\}_{\alpha\in A}\) a collection of injective \(R\)-modules. Then \(\bigoplus_{\alpha\in A} Q_\alpha\) is injective. Hint: You must show that given an ideal \(I\subseteq R\), any diagram of the following form can be completed (i.e., the dotted map \(\rho\) exists making the triangle commute):</p>
+            <div class="math-display">
+                \[ \begin{array}{ccccc} 0 & \longrightarrow & I & \xrightarrow{\ i\ } & R \\ & & {\scriptstyle g}\big\downarrow & \diagdown & \\ & & \displaystyle\bigoplus_{\alpha\in A} Q_\alpha & & \end{array} \]
+            </div>
+            <p class="diagram-note">Diagram description: a short exact-style diagram with \(0\to I\) mapping via \(i\) into \(R\); \(I\) also maps down via \(g\) into \(\bigoplus_{\alpha\in A} Q_\alpha\); the dotted diagonal map \(\rho: R\to \bigoplus_{\alpha\in A} Q_\alpha\) is what must be shown to exist, completing the triangle so that \(\rho\circ i = g\).</p>
+            <p>Now use the fact that \(I\) is finitely generated.</p>
+            <p><strong>3.</strong> Let \(\{P_i\}_{i\in I}\) be a family of \(R\)-modules. Show that \(\bigoplus_{i\in I} P_i\) is a projective \(R\)-module if and only if each \(P_i\) is a projective \(R\)-module.</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Wednesday, October 15.</div>
+            <p><strong>1.</strong> Show that the direct limit of projective modules need not be projective by showing that as a \(\ZZ\)-module, \(\QQ\) is a direct limit of free \(\ZZ\)-modules, but is not a projective \(\ZZ\)-module.</p>
+            <p><strong>2.</strong> Give a rigorous proof that \(k[[x]]\) is the inverse limit of the ring \(k[x]/\langle x^n\rangle\).</p>
+            <p><strong>3.</strong> Show that over a Noetherian ring, the direct limit of injective modules is injective. <em>(Interesting fact: every module is the inverse limit of injective modules!)</em></p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Friday, October 17.</div>
+            <p><strong>1.</strong> Suppose \(\text{id}_R(M) = d\). Use an injective version of Schanuel's Lemma to prove that in any injective resolution of \(M\), the \((d-1)^{\text{st}}\) cokernel is injective.</p>
+            <p><strong>2.</strong> Let \(\{A_i\}_{i\in I}\), \(\{B_i\}_{i\in I}\), \(A\) and \(B\) be \(R\)-modules. <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) Show that \(\hm(\bigoplus_{i\in I} A_i, B)\cong \prod_{i\in I} \hm(A_i,B)\).</li> <li style="list-style-type: none;">(ii) Use (i) to show that \(\exn(\bigoplus_{i\in I} A_i, B) \cong \prod_{i\in I} \exn(A_i,B)\), for all \(n\ge 1\).</li> <li style="list-style-type: none;">(iii) Formulate and prove versions of (i) and (ii) for \(\hm(A, \bigoplus_{i\in I} B_i)\) and \(\exn(A, \bigoplus_{i\in I} B_i)\).</li> </ol></p>
+            <p><strong>3.</strong> Let \(A,B\) be \(R\)-modules with \(I := \text{ann}(A)\) and \(J := \text{ann}(B)\). Prove that \(I+J\subseteq \text{ann}(\exn(A,B))\), for all \(n\ge 0\).</p>
+            <p><strong>4.</strong> Let \(\phi: R^n\to R^m\) be an \(R\)-module homomorphism. First show that there is an \(m\times n\) matrix \(A\) such that \(\phi(v) = Av\), for all \(v\in R^n\). Here we are writing the elements of \(R^n\) and \(R^m\) as column vectors. Then show that the induced map \(\phi^*: \hm(R^m,R)\to \hm(R^n,R)\) is multiplication by \(A^t\), the transpose of \(A\).</p>
+            <p><strong>5.</strong> For \(R := k[x,y]\), the polynomial ring in two variables over the field \(k\), calculate \(\exn(k,R)\), for all \(n\ge 0\).</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Monday, October 20.</div>
+            <p><strong>1.</strong> Find an injective resolution of \(\ZZ_n\) as a \(\ZZ\)-module and then use it to calculate \(\text{Ext}^r_{\ZZ}(\ZZ_m,\ZZ_n)\), for all \(r\ge 0\).</p>
+            <p><strong>2.</strong> For the ring \(R = \ZZ_n\), show that \(R\) is an injective \(R\)-module.</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Wednesday, October 22.</div>
+            <p>State and prove an injective version of the proposition given in today's lecture.</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Monday, Wednesday, October 27.</div>
+            <p><strong>1.</strong> Use the results and techniques from today's lecture to show that \(\text{Ext}^3_R(A,B)\) is independent of the projective resolution of \(A\), the injective resolution of \(B\), and that the corresponding cohomology modules are isomorphic.</p>
+            <p><strong>2.</strong> Prove that a \(\ZZ\)-module \(M\) is torsion-free if and only if \(\text{Ext}^1_{\ZZ}(M,\ZZ)\) is divisible.</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Wednesday, October 29.</div>
+            <p><strong>1.</strong> Calculate \(\ZZ_n\otimes_{\ZZ} \ZZ_m\), for \(n,m\ge 1\).</p>
+            <p><strong>2.</strong> Prove that \(R/I\otimes_R M \cong M/IM\), for \(I\subseteq R\) an ideal and \(M\) an \(R\)-module. Conclude that for ideals \(I,J\subseteq R\), \((R/I)\otimes_R (R/J) \cong R/(I+J)\).</p>
+            <p><strong>3.</strong> For \(R\)-modules \(M,N,L\) prove that \((M\otimes_R N)\otimes_R L \cong M\otimes_R (N\otimes_R L)\).</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Friday, October 31.</div>
+            <p><strong>1.</strong> Let \(R\) be an integral domain with ideals \(I,J\subseteq R\). Let \(0\to I\overset{i}\to R\) be the natural inclusion. Prove: <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) The image of the induced map \(I\otimes_R J \overset{i\otimes 1_J}\to R\otimes J = R\) is the ideal \(IJ\).</li> <li style="list-style-type: none;">(ii) The kernel of the map \(I\otimes_R J \overset{i\otimes 1_J}\to IJ\) is the torsion submodule of \(I\otimes_R J\). For this, you should use property (x) of tensor products.</li> </ol></p>
+            <p><strong>2.</strong> Prove that if we tensor a short exact sequence of \(R\)-modules with a projective \(R\)-module, then the resulting sequence is also a short exact sequence.</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Monday, November 3.</div>
+            <p class="day-intro">For these exercises you may assume that \(\text{Tor}^R_n(A,B)\) modules are well defined and can be calculated by first resolving \(A\) and tensoring with \(B\), or resolving \(B\) and tensoring with \(A\).</p>
+            <p><strong>1.</strong> Let \(A,B\) be \(R\)-modules and \(S\subseteq R\) a multiplicatively closed set. Prove that there is an isomorphism of \(R_S\)-modules \(\text{Tor}_n^R(A,B)_S \cong \text{Tor}_n^{R_S}(A_S,B_S)\), for all \(n\ge 1\). You may use the fact that \((A\otimes_R B)_S \cong A_S\otimes_{R_S} B_S\), as \(R_S\)-modules.</p>
+            <p><strong>2.</strong> Calculate \(\text{Tor}_n^{\ZZ_{48}}(\ZZ_{12}, \ZZ_{16})\) in two ways, for all \(n\ge 0\).</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Wednesday, November 5.</div>
+            <p><strong>1.</strong> For the example in today's lecture where \(R = k[x,y]/\langle xy\rangle\), calculate \(\text{Tor}^R_n(A,B)\) for \(n=3,4,5\) by using the given resolution of \(R/\mathfrak{m}\).</p>
+            <p><strong>2.</strong> For a collection of \(R\)-modules \(\{A_i\}_{i\in I}\), \(B\), prove that \(\text{Tor}_n(\bigoplus_{i\in I} A_i, B)\cong \bigoplus_{i\in I} \text{Tor}^R_n(A_i,B)\), for all \(n\ge 1\).</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Monday, November 17.</div>
+            <p class="day-intro">Let \(R\) be a Noetherian ring, \(I\subseteq R\) an ideal, and \(M\) an \(R\)-module. The \(j\)th local cohomology module of \(R\) with respect to \(I\), denoted \(\text{H}_I^j(M)\), is the \(j\)th cohomology module obtained by applying the functor \(\Gamma_I(-)\) to a deleted injective resolution of \(M\), where for any \(R\)-module \(A\), \(\Gamma_I(A) = \{a\in A\ |\ I^na=0\ \text{for some}\ n\ge 1\}\).</p>
+            <p><strong>1.</strong> Show that: <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) \(\text{H}_I^0(M) = \Gamma_I(M)\).</li> <li style="list-style-type: none;">(ii) If \(M\) is torsion free, then \(\text{H}_I^0(M) = 0\), and if \(M\) has injective dimension \(d\), \(\text{H}_I^j(M) = 0\), for \(j > d\).</li> <li style="list-style-type: none;">(iii) If \(0\to M\to Q\to C\to 0\) is an exact sequence with \(Q\) injective, then \(\text{H}_I^{j+1}(M) = \text{H}_I^j(C)\), for all \(j\ge 1\).</li> </ol></p>
+            <p><strong>2.</strong> Suppose \(Q\) is an injective \(R\)-module. Show that \(\Gamma_I(Q)\) is an injective \(R\)-module. Note: This is not necessarily true when \(R\) is not Noetherian.</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Wednesday, November 19.</div>
+            <p class="day-intro">Suppose \(R\) is a Noetherian ring.</p>
+            <p><strong>1.</strong> Let \(\{M_i\}_{i\in I}\) be a collection of \(R\)-modules and set \(M := \bigoplus_{i\in I} M_i\). Show that \(\am = \bigcup_{i\in I} \text{Ass}_R(M_i)\).</p>
+            <p><strong>2.</strong> Let \(M\) be an \(R\)-module, \(I\subseteq R\) an ideal, and assume every element of \(M\) is annihilated by a power of \(I\). Let \(N\subseteq M\) be the elements of \(M\) annihilated by \(I\). Prove that \(\am = \text{Ass}_R(N)\).</p>
+            <p><strong>3.</strong> Let \(M\) be a finitely generated \(R\)-module and \(P\subseteq R\) a prime ideal minimal over the annihilator of \(M\). Prove that \(M_P\) has finite length as an \(R_P\)-module and that its length equals the number of times \(R/P\) appears in any prime filtration of \(M\).</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Friday, November 21.</div>
+            <p><strong>1.</strong> For \(R\)-modules \(N\subseteq M\), show that the following are equivalent: <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) \(L\cap N \ne 0\), for all submodules \(L\subseteq M\).</li> <li style="list-style-type: none;">(ii) Every non-zero element in \(M\) has a non-zero multiple in \(N\).</li> <li style="list-style-type: none;">(iii) For an \(R\)-module homomorphism \(\phi: M\to A\), if \(\phi|_N\) is injective, then \(\phi\) is injective.</li> </ol> If these conditions hold, we say that \(M\) is an <em>essential</em> extension of \(N\).</p>
+            <p><strong>2.</strong> Prove the following statements: <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) For modules \(L\subseteq N\subseteq M\), \(M\) is an essential extension of \(L\) if and only if \(N\) is an essential extension of \(L\) and \(M\) is an essential extension of \(N\).</li> <li style="list-style-type: none;">(ii) Suppose \(N\subseteq L_i\subseteq M\) with \(\{L_i\}_{i\in I}\) a collection of submodules of \(M\) containing \(N\) satisfying \(\bigcup_{i\in I} L_i = M\). Then \(M\) is an essential extension of \(N\) if and only if each \(L_i\) is an essential extension of \(N\).</li> <li style="list-style-type: none;">(iii) Given \(N\subseteq M\), there exists a submodule \(N\subseteq L\subseteq M\), such that \(L\) is maximal with respect to being an essential extension of \(N\) in \(M\).</li> </ol></p>
+            <p class="day-intro">Recall that every \(R\)-module \(A\) is contained in an injective \(R\)-module. For an \(R\)-module \(M\), with \(M\subseteq Q\), with \(Q\) injective, a maximal essential extension of \(M\) in \(Q\) is called an <em>injective envelope</em> of \(M\), denoted \(E(M)\).</p>
+            <p><strong>3.</strong> Prove an injective envelope of \(M\) is an injective \(R\)-module and any two injective envelopes of \(M\) are isomorphic. Hint: First note that an injective module has no essential extensions.</p>
+        </div>
+
+        <div class="day">
+            <div class="day-date">Monday, November 24.</div>
+            <p><strong>1.</strong> Suppose \(R\) is a \(\ZZ\)-graded ring that is not a field. Show that if \(R\) and \((0)\) are the only homogeneous ideals, then \(R\cong k[t,t^{-1}]\), the Laurent polynomial ring in one variable over a field \(k\). Hint: The element in \(R\) corresponding to \(t\) will be homogeneous of some degree greater than zero, and will be transcendental over \(R_0\), which you must show is a field.</p>
+            <p><strong>2.</strong> Suppose \(R\) is a \(\ZZ\)-graded ring and \(P\subseteq R\) is a prime ideal. Prove that there are no prime ideals properly between \(P^*\) and \(P\). Hint: Use the previous problem.</p>
+        </div>
+
+    </main>
+    <footer style="margin-top:40px;padding-top:20px;border-top:1px solid #ccc;text-align:center;color:#666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX source. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
