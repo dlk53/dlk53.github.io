@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2025 Math 147: Quiz 7 Solutions</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    vi: '\\vec{i}',
+                    vj: '\\vec{j}',
+                    vk: '\\vec{k}'
+                }
+            },
+            svg: { fontCache: 'global', scale: 1.15 },
+            chtml: { scale: 1.15, matchFontHeight: true }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px; margin: 0 auto; padding: 30px 20px;
+            line-height: 1.75; background-color: #fafafa; color: #2c2c2c; font-size: 18px;
+        }
+        h1 { text-align: center; color: #8b2e3f; border-bottom: 3px solid #8b2e3f;
+             padding-bottom: 15px; font-size: 1.8em; }
+        .problem { background-color: white; padding: 25px; margin: 25px 0;
+                   border-left: 4px solid #4a90e2; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .problem-number { font-weight: bold; font-size: 1.1em; color: #2563eb; margin-bottom: 10px; }
+        .solution {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution .solution-title {
+            font-style: normal;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .math-display { margin: 30px 0; text-align: center; overflow-x: auto; }
+        p { margin: 20px 0; text-align: left; }
+        ol, ul { margin: 20px 0; padding-left: 40px; }
+        li { margin: 10px 0; }
+        strong { font-weight: 600; color: #1a1a1a; }
+        em { font-style: italic; }
+        .image-placeholder { display: inline-block; background: #f0f0f0; border: 1px dashed #999;
+            color: #555; font-style: italic; font-size: 0.9em; padding: 4px 10px;
+            border-radius: 3px; margin: 4px 0; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: #000;
+            color: #fff; padding: 8px; text-decoration: none; z-index: 100; }
+        .skip-link:focus { top: 0; }
+    </style>
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); alert(msg); });
+            var style = document.createElement('style');
+            style.innerHTML = 'body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+                if ((e.ctrlKey || e.metaKey) && ['s','u','a','c','p'].includes(key)) {
+                    e.preventDefault(); if (key !== 'a') alert(msg); return false;
+                }
+                if (e.key === 'F12') { e.preventDefault(); return false; }
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j'].includes(key)) {
+                    e.preventDefault(); return false;
+                }
+            });
+            document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header><h1>Fall 2025 Math 147: Quiz 7 Solutions</h1></header>
+    <main id="main-content">
+
+        <div class="problem">
+            <div class="problem-number">Problem 1</div>
+            <p><strong>1.</strong> Let \(R\) be the triangular region with vertices \((0,0)\), \((1,1)\), \((1,2)\) in the \(xy\)-plane. Find the linear transformation that takes the triangle \(R_0\) with vertices \((0,0)\), \((0,1)\), \((1,0)\) in the \(uv\)-plane to \(R\). Then use the change of variables formula to find the area of \(R\). (5 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> Recall that a linear transform from the \(uv\)-plane to the \(xy\)-plane is of the form \((x(u,v),y(u,v)) = T(u,v) = (au+bv, cu+dv)\). Using this as a base, we plug in the requested points to come up with a transformation that works. Note that \(T(0,0) = (0,0)\) guarantees the transformation is linear and we have no constant term. Then, \(T(0,1) = (b,d)\), and we want this vertex to go to \((1,1)\), so \(b=1\) and \(d=1\). Similarly, \(T(1,0) = (a,c) = (1,2)\), so our final linear transformation is \(T(u,v) = (u+v, 2u+v)\). Taking the Jacobian gives <div class="math-display">\[ J = \begin{vmatrix} 1 & 1 \\ 2 & 1 \end{vmatrix} = |-1| = 1. \]</div> Lastly, we calculate the area with the change of variables formula. <div class="math-display">\[ \int\!\!\int_R dA = \int\!\!\int_{R_0} 1\, dA = \text{Area}(R_0) = 1/2. \]</div></p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 2</div>
+            <p><strong>2.</strong> Let \(R\) denote the parallelogram in the \(xy\)-plane with vertices \((0,0)\), \((1,0)\), \((2,1)\), \((1,1)\). Set up but do not calculate the double integral \(\displaystyle\int\!\!\int_R (y-x)\, dA\) using the change of variables theorem. Hint: Using the inverse transform \(u=y-x\), \(v=y\) will help find the corresponding region in the \(uv\)-plane. (5 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> As before, we already know the form of a linear transformation. In addition, we have the inverse already, and rearranging tells us that the forward transform must be \(T(u,v) = (v-u, v)\). Next, to find the region to integrate over, use the inverse transform on each of the points. Let \(S(x,y) = (y-x, y)\). Then \(S(0,0) = (0,0)\), \(S(1,0) = (-1,0)\), \(S(2,1) = (-1,1)\), and \(S(1,1) = (0,1)\). That is, the shape in the \(uv\)-plane is a square with vertices \((0,0)\), \((0,1)\), \((-1,0)\), \((-1,1)\). Lastly, we take the Jacobian of the transform, which is <div class="math-display">\[ J = \begin{vmatrix} -1 & 1 \\ 0 & 1 \end{vmatrix} = |-1| = 1. \]</div> Now we set up the integral. <div class="math-display">\[ \int\!\!\int_R y-x\, dA = \int_{-1}^0\!\int_0^1 u\, dv\, du. \]</div></p></div>
+        </div>
+
+    </main>
+    <footer style="margin-top:40px;padding-top:20px;border-top:1px solid #ccc;text-align:center;color:#666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX source. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>

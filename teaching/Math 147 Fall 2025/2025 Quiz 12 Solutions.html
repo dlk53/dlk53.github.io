@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2025 Math 147: Quiz 12 Solutions</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    vi: '\\vec{i}',
+                    vj: '\\vec{j}',
+                    vk: '\\vec{k}'
+                }
+            },
+            svg: { fontCache: 'global', scale: 1.15 },
+            chtml: { scale: 1.15, matchFontHeight: true }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px; margin: 0 auto; padding: 30px 20px;
+            line-height: 1.75; background-color: #fafafa; color: #2c2c2c; font-size: 18px;
+        }
+        h1 { text-align: center; color: #8b2e3f; border-bottom: 3px solid #8b2e3f;
+             padding-bottom: 15px; font-size: 1.8em; }
+        .problem { background-color: white; padding: 25px; margin: 25px 0;
+                   border-left: 4px solid #4a90e2; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .problem-number { font-weight: bold; font-size: 1.1em; color: #2563eb; margin-bottom: 10px; }
+        .solution {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution .solution-title {
+            font-style: normal;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .math-display { margin: 30px 0; text-align: center; overflow-x: auto; }
+        p { margin: 20px 0; text-align: left; }
+        ol, ul { margin: 20px 0; padding-left: 40px; }
+        li { margin: 10px 0; }
+        strong { font-weight: 600; color: #1a1a1a; }
+        em { font-style: italic; }
+        .image-placeholder { display: inline-block; background: #f0f0f0; border: 1px dashed #999;
+            color: #555; font-style: italic; font-size: 0.9em; padding: 4px 10px;
+            border-radius: 3px; margin: 4px 0; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: #000;
+            color: #fff; padding: 8px; text-decoration: none; z-index: 100; }
+        .skip-link:focus { top: 0; }
+    </style>
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); alert(msg); });
+            var style = document.createElement('style');
+            style.innerHTML = 'body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+                if ((e.ctrlKey || e.metaKey) && ['s','u','a','c','p'].includes(key)) {
+                    e.preventDefault(); if (key !== 'a') alert(msg); return false;
+                }
+                if (e.key === 'F12') { e.preventDefault(); return false; }
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j'].includes(key)) {
+                    e.preventDefault(); return false;
+                }
+            });
+            document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header><h1>Fall 2025 Math 147: Quiz 12 Solutions</h1></header>
+    <main id="main-content">
+
+        <div class="problem">
+            <div class="problem-number">Problem 1</div>
+            <p><strong>1.</strong> Use a line integral to find the area contained in the ellipse \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\). (5 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> This problem relies upon Green's theorem. We use the vector field \(\mathbf{F}(x,y) = \left(-\dfrac{y}{2}, \dfrac{x}{2}\right)\), as this has \(\text{Curl}\,\mathbf{F} = 1\). Then, applying Green's theorem, one has <div class="math-display">\[ \int_C \mathbf{F}\, d\mathbf{r} = \int\!\!\int_S \text{Curl}\,\mathbf{F}\cdot dA = \int\!\!\int_S dA = \text{Area}(S). \]</div> Thus, we calculate this line integral. We parameterize the ellipse in the standard way, that is \(\mathbf{r}(t) = (a\cos t, b\sin t)\), where \(t\) ranges from 0 to \(2\pi\). Note that this gives us \(\mathbf{r}'(t) = (-a\sin t, b\cos t)\). Then, \(\mathbf{F}(\mathbf{r}(t)) = \left(\dfrac{-b\sin t}{2}, \dfrac{a\cos t}{2}\right)\). We now have <div class="math-display">\[ \int_C \mathbf{F}\cdot d\mathbf{s} = \int_0^{2\pi} \left(\frac{-b\sin t}{2}, \frac{a\cos t}{2}\right)\cdot(-a\sin t, b\cos t)\, dt = \int_0^{2\pi} \frac{ab\sin^2 t}{2}+\frac{ab\cos^2 t}{2}\, dt = \int_0^{2\pi} \frac{ab}{2}\, dt = \pi ab. \]</div></p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 2</div>
+            <p><strong>2.</strong> Set \(\mathbf{F} = z^2\vi+x^2\vj-y^2\vk\). (5 points) <ol style="list-style-type: none; padding-left: 20px;"> <li style="list-style-type: none;">(i) Calculate \(\nabla\times\mathbf{F}\).</li> <li style="list-style-type: none;">(ii) Let \(C\) be the square path with sides equal to \(a\) centered at the point \((x_0,0,z_0)\) lying in the \(xz\)-plane, oriented so that each side is parallel to the \(x\) or \(z\) axis. Calculate \(\displaystyle\int_C \mathbf{F}\cdot d\mathbf{r}\).</li> <li style="list-style-type: none;">(iii) Divide your answer in (ii) by the area of the square and take the limit as \(a\) goes to zero.</li> <li style="list-style-type: none;">(iv) Use your answer in (i) to corroborate your answer in (iii).</li> </ol></p>
+            <div class="solution"><span class="solution-title">Solution.</span> (i) <div class="math-display">\[ \nabla\times\mathbf{F} = \begin{vmatrix} \vi & \vj & \vk \\ d/dx & d/dy & d/dz \\ z^2 & x^2 & -y^2 \end{vmatrix} = (-2y, 2z, 2x). \]</div></p>
+<p>(ii) We break down the path \(C\) into 4 separate lines for ease of calculation. Let \(C_1(t) = (x_0+\tfrac{a}{2}, 0, z_0+at)\), \(C_2(t) = (x_0-at, 0, z_0+\tfrac{a}{2})\), \(C_3(t) = (x_0-\tfrac{a}{2}, 0, z_0-at)\), and \(C_4(t) = (x_0+at, 0, z_0-\tfrac{a}{2})\), all individually with domain \(-1/2\le t\le 1/2\). Note this parameterization keeps the surface positively oriented. Note that for all of these lines, \(\mathbf{r}'(t) = (0,0,\pm a)\) or \((\pm a, 0, 0)\). Now, we can integrate over the path. One has <div class="math-display">\[ \begin{align*} \int_C \mathbf{F}\cdot d\mathbf{r} &= \sum_{i=1}^4 \int_{C_i} \mathbf{F}\cdot d\mathbf{r} \\ &= \int_{-1/2}^{1/2} \left((z_0+at)^2, \left(x_0+\tfrac{a}{2}\right)^2, 0\right)\cdot(0,0,a)\, dt + \int_{-1/2}^{1/2} \left(\left(z_0+\tfrac{a}{2}\right)^2, (x_0-at)^2, 0\right)\cdot(-a,0,0)\, dt \\ &\quad + \int_{-1/2}^{1/2} \left((z_0-at)^2, \left(x_0-\tfrac{a}{2}\right)^2, 0\right)\cdot(0,0,-a)\, dt + \int_{-1/2}^{1/2} \left(\left(z_0-\tfrac{a}{2}\right)^2, (x_0+at)^2, 0\right)\cdot(a,0,0)\, dt \\ &= \int_{-1/2}^{1/2} -a\left(z_0+\tfrac{a}{2}\right)^2 dt + \int_{-1/2}^{1/2} a\left(z_0-\tfrac{a}{2}\right)^2 dt \\ &= -a\left(z_0^2+z_0a+\frac{a^2}{4}\right) + a\left(z_0^2-z_0a+\frac{a^2}{4}\right) \\ &= -2z_0a^2. \end{align*} \]</div></p>
+<p>(iii) Dividing by the area gives \(-2z_0\), and taking the limit keeps it as \(-2z_0\).</p>
+<p>(iv) The process of surrounding a point with a path, taking the line integral of said path, dividing by the area, and then using limits to send the area to zero, is precisely the definition of the curl of a vector field, along a vector normal to the surface enclosed. As the normal vector to our square is \((0,1,0)\), it is expected that our answer in part (iii) is the \(y\)-component of the curl calculated in part (i), once the point \((x_0,0,z_0)\) is substituted in.</p></div>
+        </div>
+
+    </main>
+    <footer style="margin-top:40px;padding-top:20px;border-top:1px solid #ccc;text-align:center;color:#666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX source. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>

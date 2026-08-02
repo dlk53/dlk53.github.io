@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2025 Math 147: Quiz 10 Solutions</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    vi: '\\vec{i}',
+                    vj: '\\vec{j}',
+                    vk: '\\vec{k}'
+                }
+            },
+            svg: { fontCache: 'global', scale: 1.15 },
+            chtml: { scale: 1.15, matchFontHeight: true }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px; margin: 0 auto; padding: 30px 20px;
+            line-height: 1.75; background-color: #fafafa; color: #2c2c2c; font-size: 18px;
+        }
+        h1 { text-align: center; color: #8b2e3f; border-bottom: 3px solid #8b2e3f;
+             padding-bottom: 15px; font-size: 1.8em; }
+        .problem { background-color: white; padding: 25px; margin: 25px 0;
+                   border-left: 4px solid #4a90e2; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .problem-number { font-weight: bold; font-size: 1.1em; color: #2563eb; margin-bottom: 10px; }
+        .solution {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution .solution-title {
+            font-style: normal;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .math-display { margin: 30px 0; text-align: center; overflow-x: auto; }
+        p { margin: 20px 0; text-align: left; }
+        ol, ul { margin: 20px 0; padding-left: 40px; }
+        li { margin: 10px 0; }
+        strong { font-weight: 600; color: #1a1a1a; }
+        em { font-style: italic; }
+        .image-placeholder { display: inline-block; background: #f0f0f0; border: 1px dashed #999;
+            color: #555; font-style: italic; font-size: 0.9em; padding: 4px 10px;
+            border-radius: 3px; margin: 4px 0; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: #000;
+            color: #fff; padding: 8px; text-decoration: none; z-index: 100; }
+        .skip-link:focus { top: 0; }
+    </style>
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); alert(msg); });
+            var style = document.createElement('style');
+            style.innerHTML = 'body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+                if ((e.ctrlKey || e.metaKey) && ['s','u','a','c','p'].includes(key)) {
+                    e.preventDefault(); if (key !== 'a') alert(msg); return false;
+                }
+                if (e.key === 'F12') { e.preventDefault(); return false; }
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j'].includes(key)) {
+                    e.preventDefault(); return false;
+                }
+            });
+            document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header><h1>Fall 2025 Math 147: Quiz 10 Solutions</h1></header>
+    <main id="main-content">
+
+        <div class="problem">
+            <div class="problem-number">Problem 1</div>
+            <p><strong>1.</strong> Let \(C\) be the curve with parameterization \(\mathbf{r}(t) = (\cos(t),\sin(t),t)\), \(0\le t\le 2\pi\), so that \(C\) is that portion of the helix of radius one from \((1,0,0)\) to \((1,0,1)\). Find a second parameterization of \(C\) and use this to create a reparameterization of \(C\). Then, check that \(\displaystyle\int_C x+y+z\, ds\) is independent of the two parameterizations. (6 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> We see that another parameterization of the curve \(C\) is given by \(\mathbf{s}(t) = (\cos(2t),\sin(2t),2t)\) for \(0\le t\le \pi\). We then calculate the two integrals. Note that \(\mathbf{r}'(t) = (-\sin(t),\cos(t),1)\), so \(||\mathbf{r}'(t)|| = \sqrt{\sin^2(t)+\cos^2(t)+1} = \sqrt{2}\). Then, <div class="math-display">\[ \int_C x+y+z\, ds = \sqrt{2}\int_0^{2\pi} \cos(t)+\sin(t)+t\, dt = \sqrt{2}\left[\sin(t)-\cos(t)+\frac{t^2}{2}\right]_0^{2\pi} = 2\sqrt{2}\,\pi^2. \]</div> On the other hand, one has \(\mathbf{s}'(t) = (-2\sin(2t), 2\cos(2t), 2)\), giving \(||\mathbf{s}'(t)|| = \sqrt{8} = 2\sqrt{2}\). Using this, one has <div class="math-display">\[ \int_C x+y+z\, ds = 2\sqrt{2}\int_0^\pi \cos(2t)+\sin(2t)+2t\, dt = 2\sqrt{2}\left[\frac{1}{2}\sin(2t)-\frac{1}{2}\cos(2t)+t^2\right]_0^\pi = 2\sqrt{2}\,\pi^2. \]</div></p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 2</div>
+            <p><strong>2.</strong> For the sphere \(S: x^2+y^2+z^2=4\), find the plane tangent to \(S\) at \(P=(1,1,\sqrt{2})\). (4 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> To find the tangent plane, we first parameterize our surface. Since this is a sphere, we use spherical coordinates with \(\rho=2\). This gives us the parameterization \(S(\theta,\phi) = (2\cos(\theta)\sin(\phi), 2\sin(\theta)\sin(\phi), 2\cos(\phi))\). As \(z=\sqrt{2}=2\cos(\phi)\), we have the corresponding point \((\pi/4,\pi/4)\) in the \((\theta,\phi)\) plane. Then, the tangent vectors are <div class="math-display">\[ T_\theta = (-\sqrt{2}\sin(\theta), \sqrt{2}\cos(\theta), 0) \to T_\theta(\pi/4) = (-1,1,0) \]</div> and <div class="math-display">\[ T_\phi = (\sqrt{2}\cos(\phi), \sqrt{2}\cos(\phi), -2\sin(\phi)) \to T_\phi(\pi/4) = (1,1,-\sqrt{2}). \]</div> This allows us to find a normal vector to the plane with a cross product. <div class="math-display">\[ \begin{vmatrix} \vi & \vj & \vk \\ -1 & 1 & 0 \\ 1 & 1 & -\sqrt{2} \end{vmatrix} = (-\sqrt{2}, -\sqrt{2}, -2). \]</div> Note that we expect this to point up since we were at \((1,1,\sqrt{2})\), so we flip the sign. Finally, we take the dot product of the normal vector with \((x-1, y-1, z-\sqrt{2})\) to get the plane <div class="math-display">\[ \sqrt{2}(x-1) + \sqrt{2}(y-1) + 2(z-\sqrt{2}) = 0 \]</div> or equivalently <div class="math-display">\[ x+y+\sqrt{2}z = 4. \]</div></p></div>
+        </div>
+
+    </main>
+    <footer style="margin-top:40px;padding-top:20px;border-top:1px solid #ccc;text-align:center;color:#666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX source. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2025 Math 147: Quiz 8 Solutions</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    vi: '\\vec{i}',
+                    vj: '\\vec{j}',
+                    vk: '\\vec{k}'
+                }
+            },
+            svg: { fontCache: 'global', scale: 1.15 },
+            chtml: { scale: 1.15, matchFontHeight: true }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px; margin: 0 auto; padding: 30px 20px;
+            line-height: 1.75; background-color: #fafafa; color: #2c2c2c; font-size: 18px;
+        }
+        h1 { text-align: center; color: #8b2e3f; border-bottom: 3px solid #8b2e3f;
+             padding-bottom: 15px; font-size: 1.8em; }
+        .problem { background-color: white; padding: 25px; margin: 25px 0;
+                   border-left: 4px solid #4a90e2; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .problem-number { font-weight: bold; font-size: 1.1em; color: #2563eb; margin-bottom: 10px; }
+        .solution {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution .solution-title {
+            font-style: normal;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .math-display { margin: 30px 0; text-align: center; overflow-x: auto; }
+        p { margin: 20px 0; text-align: left; }
+        ol, ul { margin: 20px 0; padding-left: 40px; }
+        li { margin: 10px 0; }
+        strong { font-weight: 600; color: #1a1a1a; }
+        em { font-style: italic; }
+        .image-placeholder { display: inline-block; background: #f0f0f0; border: 1px dashed #999;
+            color: #555; font-style: italic; font-size: 0.9em; padding: 4px 10px;
+            border-radius: 3px; margin: 4px 0; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: #000;
+            color: #fff; padding: 8px; text-decoration: none; z-index: 100; }
+        .skip-link:focus { top: 0; }
+    </style>
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); alert(msg); });
+            var style = document.createElement('style');
+            style.innerHTML = 'body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+                if ((e.ctrlKey || e.metaKey) && ['s','u','a','c','p'].includes(key)) {
+                    e.preventDefault(); if (key !== 'a') alert(msg); return false;
+                }
+                if (e.key === 'F12') { e.preventDefault(); return false; }
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j'].includes(key)) {
+                    e.preventDefault(); return false;
+                }
+            });
+            document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header><h1>Fall 2025 Math 147: Quiz 8 Solutions</h1></header>
+    <main id="main-content">
+
+        <div class="problem">
+            <div class="problem-number">Problem 1</div>
+            <p><strong>1.</strong> Calculate the improper integral \(\displaystyle\int\!\!\int_D \ln\sqrt{x^2+y^2}\, dA\) for \(D = \{0\le x^2+y^2\le 1\}\). (5 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> We begin by making a polar substitution. Noting that \(x^2+y^2=r^2\), we get <div class="math-display">\[ \int\!\!\int_D \ln\sqrt{x^2+y^2}\, dA = \int_0^{2\pi}\!\int_0^1 \ln r\cdot r\, dr\, d\theta. \]</div> We note this is an improper integral as \(\ln(0)\) is undefined. Therefore, we instead look at \(\displaystyle\lim_{a\to 0}\int_0^{2\pi}\!\int_a^1 r\ln r\, dr\, d\theta\). To evaluate this integral, we perform integration by parts. Letting \(u=\ln r\) and \(dv=r\), one has <div class="math-display">\[ \begin{align*} \lim_{a\to 0}\int_0^{2\pi}\!\int_a^1 r\ln r\, dr\, d\theta &= \lim_{a\to 0}\int_0^{2\pi} \left(\frac{r^2}{2}\ln r - \int_a^1 \frac{r^2}{2}\cdot\frac{1}{r}\, dr\right)\Bigg|_a^1 d\theta \\ &= \lim_{a\to 0}\int_0^{2\pi} \left(\frac{r^2}{2}\ln r - \frac{r^2}{4}\right)\Bigg|_a^1 d\theta \\ &= \lim_{a\to 0}\int_0^{2\pi} \left(\frac{1}{2}\cdot 0 - \frac{1}{4}\right) - \left(\frac{a^2}{2}\ln a - \frac{a^2}{4}\right) d\theta \\ &= \lim_{a\to 0}\int_0^{2\pi} \frac{a^2}{4} - \frac{1}{4} - \frac{a^2}{2}\ln a\, d\theta \\ &= \lim_{a\to 0}\ \frac{\pi}{2}\left(a^2 - 1 - 2a^2\ln a\right) \\ &= -\frac{\pi}{2}. \end{align*} \]</div> This last limit is known but can also be evaluated with L'Hospital's rule.</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 2</div>
+            <p><strong>2.</strong> Calculate \(\displaystyle\int\!\!\int\!\!\int_B z\, dV\) where \(B\) is the region bounded by the planes \(x=0\), \(y=0\), \(z=0\), \(z=1\), and the cylinder \(x^2+y^2=1\) with \(x\ge 0\) and \(y\ge 0\). (5 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> We note that this region is \(z\)-simple. (Also \(x\)- and \(y\)-simple.) Then, the resulting bounds of integration are <div class="math-display">\[ \int\!\!\int\!\!\int_B z\, dV = \int_0^1\!\int_0^{\sqrt{1-y^2}}\!\int_0^1 z\, dz\, dx\, dy = \int_0^1\!\int_0^{\sqrt{1-y^2}} \frac{z^2}{2}\Bigg|_0^1 dx\, dy = \int_0^1\!\int_0^{\sqrt{1-y^2}} \frac{1}{2}\, dx\, dy = \frac{1}{2}\int_0^1 \sqrt{1-y^2}\, dy. \]</div> This last integral we evaluate using a trig substitution. Let \(y=\sin(\theta)\), so that \(dy=\cos(\theta)\, d\theta\). This gives <div class="math-display">\[ \frac{1}{2}\int_0^{\pi/2} \sqrt{1-\sin^2(\theta)}\cos(\theta)\, d\theta = \frac{1}{2}\int_0^{\pi/2} \cos^2(\theta)\, d\theta = \frac{1}{4}\int_0^{\pi/2} 1+\cos(2\theta)\, d\theta = \frac{1}{4}\left[\theta+\frac{1}{2}\sin(2\theta)\right]_0^{\pi/2} = \frac{\pi}{8}. \]</div></p></div>
+        </div>
+
+    </main>
+    <footer style="margin-top:40px;padding-top:20px;border-top:1px solid #ccc;text-align:center;color:#666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX source. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>

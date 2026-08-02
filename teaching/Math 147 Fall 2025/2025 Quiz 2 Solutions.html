@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2025 Math 147: Quiz 2 Solutions</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    vi: '\\vec{i}',
+                    vj: '\\vec{j}',
+                    vk: '\\vec{k}'
+                }
+            },
+            svg: { fontCache: 'global', scale: 1.15 },
+            chtml: { scale: 1.15, matchFontHeight: true }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px; margin: 0 auto; padding: 30px 20px;
+            line-height: 1.75; background-color: #fafafa; color: #2c2c2c; font-size: 18px;
+        }
+        h1 { text-align: center; color: #8b2e3f; border-bottom: 3px solid #8b2e3f;
+             padding-bottom: 15px; font-size: 1.8em; }
+        .problem { background-color: white; padding: 25px; margin: 25px 0;
+                   border-left: 4px solid #4a90e2; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .problem-number { font-weight: bold; font-size: 1.1em; color: #2563eb; margin-bottom: 10px; }
+        .solution {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution .solution-title {
+            font-style: normal;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .math-display { margin: 30px 0; text-align: center; overflow-x: auto; }
+        p { margin: 20px 0; text-align: left; }
+        ol, ul { margin: 20px 0; padding-left: 40px; }
+        li { margin: 10px 0; }
+        strong { font-weight: 600; color: #1a1a1a; }
+        em { font-style: italic; }
+        .image-placeholder { display: inline-block; background: #f0f0f0; border: 1px dashed #999;
+            color: #555; font-style: italic; font-size: 0.9em; padding: 4px 10px;
+            border-radius: 3px; margin: 4px 0; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: #000;
+            color: #fff; padding: 8px; text-decoration: none; z-index: 100; }
+        .skip-link:focus { top: 0; }
+    </style>
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); alert(msg); });
+            var style = document.createElement('style');
+            style.innerHTML = 'body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+                if ((e.ctrlKey || e.metaKey) && ['s','u','a','c','p'].includes(key)) {
+                    e.preventDefault(); if (key !== 'a') alert(msg); return false;
+                }
+                if (e.key === 'F12') { e.preventDefault(); return false; }
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j'].includes(key)) {
+                    e.preventDefault(); return false;
+                }
+            });
+            document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header><h1>Fall 2025 Math 147: Quiz 2 Solutions</h1></header>
+    <main id="main-content">
+
+        <div class="problem">
+            <div class="problem-number">Problem 1</div>
+            <p><strong>1.</strong> For the function \(f(x,y)\), the point \((a,b)\in\mathbb{R}^2\), define the partial derivative of \(f(x,y)\) with respect to \(y\) at \((a,b)\). (2 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> We define the partial derivative of \(f(x,y)\) w.r.t. \(y\) as <div class="math-display">\[ \frac{\partial f}{\partial y}(a,b) = \lim_{h\to 0} \frac{f(a,b+h)-f(a,b)}{h}. \]</div></p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 2</div>
+            <p><strong>2.</strong> For \( f(x,y) = \begin{cases} \dfrac{3x^2y-y^3}{x^2+y^2}, & \text{if } (x,y)\ne(0,0) \\ 0, & \text{if } (x,y)=(0,0), \end{cases} \) find a formula for \(f_x(x,y)\). (4 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> As this is a rational function in \(x\), it is differentiable everywhere except possibly for when \(x^2+y^2=0\). Thus, we first see what the function is doing away from the origin. Use the quotient rule to see <div class="math-display">\[ f_x(x,y) = \frac{(x^2+y^2)(6xy)-(3x^2y-y^3)(2x)}{(x^2+y^2)^2} = \frac{8xy^3}{(x^2+y^2)^2}. \]</div> Next, we use the limit definition of derivative to see what is happening at the origin. We should have <div class="math-display">\[ f_x(0,0) = \lim_{h\to 0} \frac{f(h,0)-f(0,0)}{h} = \lim_{h\to 0} \frac{\frac{0}{h^2}-0}{h} = \lim_{h\to 0} \frac{0}{h} = \lim_{h\to 0} 0 = 0. \]</div> Thus, we can say that <div class="math-display">\[ f_x(x,y) = \begin{cases} \dfrac{8xy^3}{(x^2+y^2)^2}, & \text{if } (x,y)\ne(0,0) \\ 0, & \text{if } (x,y)=(0,0). \end{cases} \]</div></p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 3</div>
+            <p><strong>3.</strong> Find the tangent plane to the graph of \(z=f(x,y) = -9x^3-3y^2\) at the point \((2,1,f(2,1))\). (4 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> We know that the equation for a tangent plane is \(z = f_x(a,b)(x-a)+f_y(a,b)(y-b)+f(a,b)\). Thus we first find the partial derivatives: \(f_x(x,y) = -27x^2\) and \(f_y(x,y) = -6y\), so we have \(f_x(2,1) = -108\) and \(f_y(2,1) = -6\). We also see that \(f(2,1) = -75\). Putting this together, we have that the equation for the tangent plane to the function \(f(x,y)\) at \((2,1)\) is given by the equation <div class="math-display">\[ z = -108(x-2)-6(y-1)-75. \]</div></p></div>
+        </div>
+
+    </main>
+    <footer style="margin-top:40px;padding-top:20px;border-top:1px solid #ccc;text-align:center;color:#666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX source. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2025 Math 147: Quiz 11 Solutions</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    vi: '\\vec{i}',
+                    vj: '\\vec{j}',
+                    vk: '\\vec{k}'
+                }
+            },
+            svg: { fontCache: 'global', scale: 1.15 },
+            chtml: { scale: 1.15, matchFontHeight: true }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px; margin: 0 auto; padding: 30px 20px;
+            line-height: 1.75; background-color: #fafafa; color: #2c2c2c; font-size: 18px;
+        }
+        h1 { text-align: center; color: #8b2e3f; border-bottom: 3px solid #8b2e3f;
+             padding-bottom: 15px; font-size: 1.8em; }
+        .problem { background-color: white; padding: 25px; margin: 25px 0;
+                   border-left: 4px solid #4a90e2; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .problem-number { font-weight: bold; font-size: 1.1em; color: #2563eb; margin-bottom: 10px; }
+        .solution {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution .solution-title {
+            font-style: normal;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .math-display { margin: 30px 0; text-align: center; overflow-x: auto; }
+        p { margin: 20px 0; text-align: left; }
+        ol, ul { margin: 20px 0; padding-left: 40px; }
+        li { margin: 10px 0; }
+        strong { font-weight: 600; color: #1a1a1a; }
+        em { font-style: italic; }
+        .image-placeholder { display: inline-block; background: #f0f0f0; border: 1px dashed #999;
+            color: #555; font-style: italic; font-size: 0.9em; padding: 4px 10px;
+            border-radius: 3px; margin: 4px 0; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: #000;
+            color: #fff; padding: 8px; text-decoration: none; z-index: 100; }
+        .skip-link:focus { top: 0; }
+    </style>
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); alert(msg); });
+            var style = document.createElement('style');
+            style.innerHTML = 'body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+                if ((e.ctrlKey || e.metaKey) && ['s','u','a','c','p'].includes(key)) {
+                    e.preventDefault(); if (key !== 'a') alert(msg); return false;
+                }
+                if (e.key === 'F12') { e.preventDefault(); return false; }
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j'].includes(key)) {
+                    e.preventDefault(); return false;
+                }
+            });
+            document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header><h1>Fall 2025 Math 147: Quiz 11 Solutions</h1></header>
+    <main id="main-content">
+
+        <div class="problem">
+            <div class="problem-number">Problem 1</div>
+            <p><strong>1.</strong> Calculate \(\displaystyle\int\!\!\int_S \sqrt{x^2+y^2+1}\, dS\) where \(S\) is the helicoid given parametrically by \(G(r,\theta) = (r\cos\theta, r\sin\theta, \theta)\), with \(0\le r\le 1\) and \(0\le \theta\le 2\pi\). What is the surface area of \(S\)? (5 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> As this is a surface integral, we begin with finding the magnitude of the normal to the surface. Note \(\mathbf{T}_r = (\cos\theta, \sin\theta, 0)\), \(\mathbf{T}_\theta = (-r\sin\theta, r\cos\theta, 1)\), so <div class="math-display">\[ \mathbf{T}_r\times\mathbf{T}_\theta = \begin{vmatrix} \vi & \vj & \vk \\ \cos\theta & \sin\theta & 0 \\ -r\sin\theta & r\cos\theta & 1 \end{vmatrix} = (\sin\theta, -\cos\theta, r). \]</div> Lastly, note that \(||\mathbf{T}_r\times\mathbf{T}_\theta|| = \sqrt{1+r^2}\). We proceed to the integral calculation itself. One has <div class="math-display">\[ \begin{align*} \int\!\!\int_S \sqrt{x^2+y^2+1}\, dS &= \int_0^{2\pi}\!\int_0^1 \left(\sqrt{r^2\cos^2\theta+r^2\sin^2\theta+1}\right)||\mathbf{T}_r\times\mathbf{T}_\theta||\, dr\, d\theta = \int_0^{2\pi}\!\int_0^1 \sqrt{r^2+1}\sqrt{r^2+1}\, dr\, d\theta \\ &= \int_0^{2\pi}\!\int_0^1 r^2+1\, dr\, d\theta = \int_0^{2\pi} \frac{4}{3}\, d\theta = \frac{8\pi}{3}. \end{align*} \]</div> To finish up the problem, note that the surface area of the helicoid is <div class="math-display">\[ \int\!\!\int_S dS = \int_0^{2\pi}\!\int_0^1 \sqrt{r^2+1}\, dr\, d\theta. \]</div></p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 2</div>
+            <p><strong>2.</strong> Suppose \(\mathbf{F} = x\vi+y\vj+(z-2)\vk\). Calculate \(\displaystyle\int\!\!\int_S \mathbf{F}\cdot d\mathbf{S}\), for \(S\) the helicoid with parameterization \(G(u,v) = (u\cos(v), u\sin(v), v)\), with \(0\le u\le 1\) and \(0\le v\le 2\pi\). (5 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> The parameterization is the same as the first problem, so we reuse the fact that \(\mathbf{T}_u\times\mathbf{T}_v = (\sin(v), -\cos(v), u)\). Doing so allows us to calculate <div class="math-display">\[ \begin{align*} \int\!\!\int_S \mathbf{F}\cdot d\mathbf{S} &= \int_0^{2\pi}\!\int_0^1 \mathbf{F}(G(u,v))\cdot \mathbf{T}_u\times\mathbf{T}_v\, du\, dv = \int_0^{2\pi}\!\int_0^1 (u\cos v, u\sin v, v-2)\cdot(\sin v, -\cos v, u)\, du\, dv \\ &= \int_0^{2\pi}\!\int_0^1 uv-2u\, du\, dv = \int_0^{2\pi} \left(\frac{u^2v}{2}-u^2\right)\Bigg|_0^1 dv = \int_0^{2\pi} \frac{v}{2}-1\, dv = \left(\frac{v^2}{4}-v\right)\Bigg|_0^{2\pi} = \pi^2-2\pi. \end{align*} \]</div></p></div>
+        </div>
+
+    </main>
+    <footer style="margin-top:40px;padding-top:20px;border-top:1px solid #ccc;text-align:center;color:#666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX source. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>

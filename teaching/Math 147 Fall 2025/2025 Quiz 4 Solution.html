@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2025 Math 147: Quiz 4 Solution</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    vi: '\\vec{i}',
+                    vj: '\\vec{j}',
+                    vk: '\\vec{k}'
+                }
+            },
+            svg: { fontCache: 'global', scale: 1.15 },
+            chtml: { scale: 1.15, matchFontHeight: true }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px; margin: 0 auto; padding: 30px 20px;
+            line-height: 1.75; background-color: #fafafa; color: #2c2c2c; font-size: 18px;
+        }
+        h1 { text-align: center; color: #8b2e3f; border-bottom: 3px solid #8b2e3f;
+             padding-bottom: 15px; font-size: 1.8em; }
+        .problem { background-color: white; padding: 25px; margin: 25px 0;
+                   border-left: 4px solid #4a90e2; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .problem-number { font-weight: bold; font-size: 1.1em; color: #2563eb; margin-bottom: 10px; }
+        .solution {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution .solution-title {
+            font-style: normal;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .math-display { margin: 30px 0; text-align: center; overflow-x: auto; }
+        p { margin: 20px 0; text-align: left; }
+        ol, ul { margin: 20px 0; padding-left: 40px; }
+        li { margin: 10px 0; }
+        strong { font-weight: 600; color: #1a1a1a; }
+        em { font-style: italic; }
+        .image-placeholder { display: inline-block; background: #f0f0f0; border: 1px dashed #999;
+            color: #555; font-style: italic; font-size: 0.9em; padding: 4px 10px;
+            border-radius: 3px; margin: 4px 0; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: #000;
+            color: #fff; padding: 8px; text-decoration: none; z-index: 100; }
+        .skip-link:focus { top: 0; }
+    </style>
+    <script>
+        (function() {
+            var msg = "This content is protected and may not be copied or saved.";
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); alert(msg); });
+            var style = document.createElement('style');
+            style.innerHTML = 'body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }';
+            document.head.appendChild(style);
+            document.addEventListener('keydown', function(e) {
+                var key = e.key.toLowerCase();
+                if ((e.ctrlKey || e.metaKey) && ['s','u','a','c','p'].includes(key)) {
+                    e.preventDefault(); if (key !== 'a') alert(msg); return false;
+                }
+                if (e.key === 'F12') { e.preventDefault(); return false; }
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j'].includes(key)) {
+                    e.preventDefault(); return false;
+                }
+            });
+            document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+        })();
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header><h1>Fall 2025 Math 147: Quiz 4 Solution</h1></header>
+    <main id="main-content">
+
+        <div class="problem">
+            <div class="problem-number">Problem 1</div>
+            <p><strong>1.</strong> Find and classify the critical points for \(f(x,y) = x^2+y^2-6x-14y+100\). (5 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> We take the partial derivatives with respect to \(x\) and \(y\). We have \(f_x = 2x-6\) and \(f_y = 2y-14\), giving us a critical point of \((3,7)\). We now perform the second derivative test. Seeing that \(f_{xx}=2=f_{yy}\) and \(f_{xy}=0\), we get \(D=4\), so we have a relative minimum at \((3,7)\).</p></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Problem 2</div>
+            <p><strong>2.</strong> Find the absolute maximum and minimum values for \(f(x,y) = \dfrac{-2y}{x^2+y^2+1}\) on \(D = \{(x,y)\in\mathbb{R}^2\ |\ x^2+y^2\le 4\}\). (5 points)</p>
+            <div class="solution"><span class="solution-title">Solution.</span> We begin by finding the critical points within the boundary. The partial derivatives are <div class="math-display">\[ f_x = \frac{4xy}{(x^2+y^2+1)^2} \quad \text{and} \quad f_y = \frac{-2(x^2-y^2+1)}{(x^2+y^2+1)^2}. \]</div> To find out when these give critical points, note that the denominators will never be zero. Thus, we need to only find the zeros of the above numerators. In particular, \(f_x=0\) only along the \(x\) and \(y\) axes. Note that if \(y=0\), then the numerator of \(f_y\) is \(-2(x^2+1)\), which cannot be zero. Thus, we restrict our attention to the case that \(x=0\), where now the numerator of \(f_y\) is \(-2(1-y^2)\) which has zeros at \(y^2=1\), meaning our critical points are \((0,1)\) and \((0,-1)\). As for the boundary, note that along \(x^2+y^2=4\), \(f(x,y)\) is of the form \(f(x,y) = -2y/5\). This is a linear function in \(y\), with constant derivative, so the absolute extrema will lie on the boundary, that is, \(y=\pm 2\). Thus, our 4 points to check are \((0,1)\), \((0,-1)\), \((0,2)\), \((0,-2)\). We see that the first two points, producing \(-1\) and \(1\) respectively, are the absolute extrema, as the points on the boundary only give \(-4/5\) and \(4/5\) respectively.</p></div>
+        </div>
+
+    </main>
+    <footer style="margin-top:40px;padding-top:20px;border-top:1px solid #ccc;text-align:center;color:#666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX source. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
