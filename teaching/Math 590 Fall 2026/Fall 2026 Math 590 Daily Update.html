@@ -118,62 +118,6 @@
             top: 0;
         }
     </style>
-    <!-- ============================================================
-         Content Protection Script
-         Prevents casual downloading, copying, and saving.
-         Screen readers are unaffected (they operate at browser level).
-         ============================================================ -->
-    <script>
-        (function() {
-            var msg = "This content is protected and may not be copied or saved.";
-
-            // Disable right-click context menu
-            document.addEventListener('contextmenu', function(e) {
-                e.preventDefault();
-                alert(msg);
-            });
-
-            // Disable text selection
-            var style = document.createElement('style');
-            style.innerHTML =
-                'body { -webkit-user-select: none; -moz-user-select: none;' +
-                ' -ms-user-select: none; user-select: none; }';
-            document.head.appendChild(style);
-
-            // Block common keyboard shortcuts
-            document.addEventListener('keydown', function(e) {
-                var key = e.key.toLowerCase();
-
-                // Ctrl/Cmd + S (Save), U (View Source), A (Select All),
-                // C (Copy), P (Print)
-                if ((e.ctrlKey || e.metaKey) &&
-                    ['s', 'u', 'a', 'c', 'p'].includes(key)) {
-                    e.preventDefault();
-                    if (key !== 'a') alert(msg);
-                    return false;
-                }
-
-                // F12 (DevTools)
-                if (e.key === 'F12') {
-                    e.preventDefault();
-                    return false;
-                }
-
-                // Ctrl+Shift+I or Ctrl+Shift+J (DevTools)
-                if ((e.ctrlKey || e.metaKey) && e.shiftKey &&
-                    ['i', 'j'].includes(key)) {
-                    e.preventDefault();
-                    return false;
-                }
-            });
-
-            // Block drag-to-copy
-            document.addEventListener('dragstart', function(e) {
-                e.preventDefault();
-            });
-
-        })();
-    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -187,6 +131,57 @@
             <p>Throughout, \(F\) will denote either the real or complex numbers.</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Monday, August 24</div>
+
+            <p>We began class by looking at examples of vector spaces, initially, the vector space \(\mathbb{R}^3\) of column vectors defined over the real numbers. Beginning with the basic properties of vector addition, where for \(v_1 = \begin{pmatrix} \alpha_1\\\beta_1\\\gamma_1 \end{pmatrix}\) and \(v_2 = \begin{pmatrix}\alpha_2\\\beta_2\\\gamma_2\end{pmatrix}\), \(v_1+v_2 := \begin{pmatrix}\alpha_1+\alpha_2\\\beta_1+\beta_2\\\gamma_1+\gamma_2\end{pmatrix}\), and scalar multiplication, \(\lambda v_1 := \begin{pmatrix} \lambda\alpha_1\\\lambda\beta_1\\\lambda\gamma_1\end{pmatrix}\), we discussed the following properties (and verified a few of them), all which follow from similar familiar properties of \(\mathbb{R}\):</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) The zero vector \(\vec{0} = \begin{pmatrix}0\\0\\0\end{pmatrix}\) has the property that \(\vec{0}+v = v\), for all \(v\in \mathbb{R}^3\). (Existence of additive identity)</li>
+                <li style="list-style-type: none;">(ii) For \(v = \begin{pmatrix}\alpha\\\beta\\\gamma\end{pmatrix}\), \(-v+v = \vec{0}\), where \(-v := \begin{pmatrix}-\alpha\\-\beta\\-\gamma\end{pmatrix}\). (Existence of additive inverses)</li>
+                <li style="list-style-type: none;">(iii) \(v_1+v_2 = v_2+v_1\), for all \(v_1, v_2\in \mathbb{R}^3\). (Commutativity of addition)</li>
+                <li style="list-style-type: none;">(iv) \(v_1+(v_2+v_3) = (v_1+v_2)+v_3\), for all \(v_i\in \mathbb{R}^3\). (Associativity of addition)</li>
+                <li style="list-style-type: none;">(v) \(\lambda(v_1+v_2) = \lambda v_1+\lambda v_2\), for all \(\lambda\in \mathbb{R}\) and \(v_i\in \mathbb{R}^3\). (First distributive property)</li>
+                <li style="list-style-type: none;">(vi) \((\lambda+\gamma)v = \lambda v+\gamma v\), for all \(\lambda, \gamma\in \mathbb{R}\) and \(v\in \mathbb{R}^3\). (Second distributive property)</li>
+                <li style="list-style-type: none;">(vii) \((\lambda\gamma)v = \lambda(\gamma v)\), for all \(\lambda, \gamma\in \mathbb{R}\) and \(v\in \mathbb{R}^3\). (Associativity of scalar multiplication)</li>
+                <li style="list-style-type: none;">(viii) \(1\cdot v = v\), for all \(v\in \mathbb{R}^3\).</li>
+            </ol>
+
+            <p>We then looked at the vector space \(P(2)\) of polynomials of degree two or less over \(\mathbb{R}\) and noted that since a typical element in \(P(2)\) has the form \(\alpha+\beta x+\gamma x^2\), when we add two expressions of this form, or multiply them by a scalar, the resulting expressions look very similar to what we get when we add or scalar multiply vectors in \(\mathbb{R}^3\). Something similar happens, if, for example, we take three vectors \(u, v, w\in \mathbb{R}^{17}\) and consider all expressions of the form \(\alpha u+\beta v+\gamma w\). This gives a vector space that looks very similar to \(\mathbb{R}^3\) and \(P(2)\). These examples show the advantage of defining vector spaces in an abstract setting in a way that captures all of the properties of particular vector spaces we might encounter in different contexts.</p>
+
+            <p>We also noted that \(\mathbb{R}^n\) and \(\mathrm{M}_2(\mathbb{R})\), the set of \(2\times 2\) matrices over \(\mathbb{R}\), form vector spaces over \(\mathbb{R}\) and \(\mathbb{C}^n\), with coordinate-wise addition and scalar multiplication, is a vector space over \(\mathbb{C}\). This led to the following:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Let \(F\) denote either \(\mathbb{R}\) or \(\mathbb{C}\). A <strong>vector space over \(F\)</strong> is a set \(V\) together with two operations, addition of elements of \(V\) and multiplication of elements from \(F\) times elements in \(V\), satisfying the eight properties above:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) There exists a zero vector \(\vec{0}\in V\) satisfying \(v+\vec{0} = v\), for all \(v\in V\). (Existence of additive identity)</li>
+                    <li style="list-style-type: none;">(ii) For each \(v\in V\), there exists \(-v\in V\) such that \(v+(-v) = \vec{0}\). (Existence of additive inverses)</li>
+                    <li style="list-style-type: none;">(iii) \(v_1+v_2 = v_2+v_1\), for all \(v_1, v_2\in V\). (Commutativity of addition)</li>
+                    <li style="list-style-type: none;">(iv) \(v_1+(v_2+v_3) = (v_1+v_2)+v_3\), for all \(v_i\in V\). (Associativity of addition)</li>
+                    <li style="list-style-type: none;">(v) \(\lambda(v_1+v_2) = \lambda v_1+\lambda v_2\), for all \(\lambda\in F\) and \(v_i\in V\). (First distributive property)</li>
+                    <li style="list-style-type: none;">(vi) \((\lambda+\gamma)v = \lambda v+\gamma v\), for all \(\lambda, \gamma\in F\) and \(v\in V\). (Second distributive property)</li>
+                    <li style="list-style-type: none;">(vii) \((\lambda\gamma)v = \lambda(\gamma v)\), for all \(\lambda, \gamma\in F\) and \(v\in V\). (Associativity of scalar multiplication)</li>
+                    <li style="list-style-type: none;">(viii) \(1\cdot v = v\), for all \(v\in V\).</li>
+                </ol>
+            </div>
+
+            <p>We ended class by recording the following proposition and proving the first two cases.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Proposition.</span> Let \(V\) be a vector space over \(F\). The following properties hold:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Cancellation holds: For all \(u, v, w\in V\), if \(v+w = v+u\), then \(w = u\).</li>
+                    <li style="list-style-type: none;">(ii) The additive identity \(\vec{0}\) is unique.</li>
+                    <li style="list-style-type: none;">(iii) \(0\cdot v = \vec{0}\), for all \(v\in V\).</li>
+                    <li style="list-style-type: none;">(iv) For any \(v\in V\), its additive inverse \(-v\) is unique.</li>
+                    <li style="list-style-type: none;">(v) For all \(\lambda\in F\) and \(v\in V\), \(-\lambda\cdot v = -(\lambda v)\). In particular, \(-1\cdot v = -v\), for all \(v\in V\).</li>
+                </ol>
+            </div>
+        </div>
+
     </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX course daily update. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
 </body>
 </html>
