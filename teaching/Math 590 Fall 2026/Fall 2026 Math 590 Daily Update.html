@@ -202,6 +202,49 @@
             <p><strong>Eigenspaces.</strong> Given an \(n\times n\) matrix over \(\mathbb{R}\) and \(\lambda\in\mathbb{R}\), we saw that the set of \(v\in\mathbb{R}^n\) satisfying \(Av = \lambda v\) forms a subspace of \(\mathbb{R}^n\).</p>
 
             <p><strong>The span of a set of vectors.</strong> Given a finite set of vectors \(v_1, \ldots, v_t\) in the vector space \(V\), we defined \(\mathrm{Span}\{v_1, \ldots, v_t\}\) to be the set of all \(F\)-linear combinations of \(v_1, \ldots, v_t\), i.e., the set of all expressions of the form \(\alpha_1 v_1+\cdots+\alpha_t v_t\), with each \(\alpha_i\in F\), and noted that \(\mathrm{Span}\{v_1, \ldots, v_t\}\) is a subspace of \(V\). We call this subspace <em>the subspace of \(V\) spanned by \(v_1, \ldots, v_t\)</em>.</p>
+
+            <p>We ended class by observing that the unit vectors \(e_1, e_2, e_3\in\mathbb{R}^3\) span \(\mathbb{R}^3\).</p>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">Friday, August 28</div>
+
+            <p>We began class by reviewing the definition of subspace of a vector space and then showed that the set \(\{A\in\mathrm{M}_2(\mathbb{R})\ |\ \mathrm{tr}(A) = 0\}\) is a subspace of \(\mathrm{M}_2(\mathbb{R})\), where \(\mathrm{tr}(A)\) denotes the trace of the matrix \(A\), which, if \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), is given by \(\mathrm{tr}(A) = a+d\).</p>
+
+            <p>For subspaces \(W_1, W_2\) contained in the vector space \(V\), we then considered two constructions:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Define the sets \(W_1+W_2\) and \(W_1\cap W_2\), the <em>sum</em> of \(W_1, W_2\) and the <em>intersection</em> of \(W_1, W_2\), as follows:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(W_1+W_2 := \{w_1+w_2\ |\ w_1\in W_1\ \text{and}\ w_2\in W_2\}\).</li>
+                    <li style="list-style-type: none;">(ii) \(W_1\cap W_2 = \{v\ |\ v\in W_1\ \text{and}\ v\in W_2\}\).</li>
+                </ol>
+            </div>
+
+            <p>We showed that \(W_1+W_2\) and \(W_1\cap W_2\) are subspaces of \(V\). We also noted that:</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(\mathbb{R}^2 = W_1+W_2\), where \(W_1\) and \(W_2\) are two distinct lines through the origin in \(\mathbb{R}^2\), and</li>
+                <li style="list-style-type: none;">(ii) \(\mathrm{M}_2(\mathbb{R}) = W_1+W_2\), where \(W_1\) consists of all matrices of the form \(\begin{pmatrix} a & 0\\0 & d\end{pmatrix}\) and \(W_2\) consists of all matrices of the form \(\begin{pmatrix} 0 & b\\c & 0\end{pmatrix}\). We noted that for these examples, \(W_1\cap W_2 = \{\vec{0}\}\), which turns out to be an important property.</li>
+            </ol>
+
+            <p>We then discussed how \(\mathbb{R}^3\) is the sum of two subspaces that are distinct planes through the origin, with non-zero intersection. For this, we appealed to our geometric intuition and our basic knowledge of linear algebra, namely, the points in the intersection of two such planes corresponds to the solution set of a homogeneous system of two equations in three variables, which always has a one parameter solution set.</p>
+
+            <div class="definition">
+                <span class="statement-title">Important Fact.</span> If \(W_1 = \mathrm{Span}\{v_1, \ldots, v_r\}\) and \(W_2 = \mathrm{Span}\{u_1, \ldots, u_s\}\), then \(W_1+W_2 = \mathrm{Span}\{v_1, \ldots, v_r, u_1, \ldots, u_s\}\).
+            </div>
+
+            <p>This was followed by a brief discussion about subspaces spanned by a set of vectors, noting in particular that</p>
+            <div class="math-display">
+                \[\mathrm{Span}\{v_1, v_2\} = \mathrm{Span}\{v_2, v_1\} = \mathrm{Span}\{2v_1, 3v_2\}.\]
+            </div>
+
+            <p>We ended class with a discussion of the following definition.</p>
+
+            <div class="definition">
+                <span class="statement-title">Definition.</span> Let \(W_1, W_2\subseteq V\) be subspaces. We say the sum \(W_1+W_2\) is a <em>direct sum</em> if \(W_1\cap W_2 = \{\vec{0}\}\), and in this case we write \(W_1\bigoplus W_2\) to indicate the sum is direct. We say \(V\) is <em>the direct sum of</em> \(W_1\) and \(W_2\) if \(V = W_1+W_2\) and \(W_1\cap W_2 = \{\vec{0}\}\), in which case we write \(V = W_1\bigoplus W_2\).
+            </div>
+
+            <p>Thus \(\mathbb{R}^2\) is the direct sum of any two distinct lines through the origin and \(\mathrm{M}_2(\mathbb{R})\) is the direct sum of the space of matrices of the form \(\begin{pmatrix} a & 0\\0 & d\end{pmatrix}\) with the space of matrices of the form \(\begin{pmatrix} 0 & b\\c & 0\end{pmatrix}\).</p>
         </div>
 
     </main>
