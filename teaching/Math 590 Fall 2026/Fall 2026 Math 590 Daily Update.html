@@ -247,6 +247,44 @@
             <p>Thus \(\mathbb{R}^2\) is the direct sum of any two distinct lines through the origin and \(\mathrm{M}_2(\mathbb{R})\) is the direct sum of the space of matrices of the form \(\begin{pmatrix} a & 0\\0 & d\end{pmatrix}\) with the space of matrices of the form \(\begin{pmatrix} 0 & b\\c & 0\end{pmatrix}\).</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Monday, August 31</div>
+
+            <p>The first fifteen minutes of class were devoted to Quiz 1. We then reviewed the definition of direct sum and worked through the following proposition.</p>
+
+            <div class="definition">
+                <span class="statement-title">Proposition.</span> Let \(W_1, W_2\subseteq V\) be subspaces of the vector space \(V\). Then \(V = W_1\bigoplus W_2\) if and only if every \(v\in V\) can be written <em>uniquely</em> as \(v = w_1+w_2\), with \(w_1\in W_1\) and \(w_2\in W_2\). In other words, if \(v = w_1'+w_2'\), with \(w_1'\in W_1\) and \(w_2'\in W_2\), then \(w_1 = w_1'\) and \(w_2 = w_2'\).
+            </div>
+
+            <p>We then discussed at length how to determine if a column vector belongs to the span of a given set of column vectors, illustrating this with the question of when does \(v = \begin{pmatrix} a\\b\\c\\d\end{pmatrix}\) belong to the span of the vectors \(A = \begin{pmatrix} v_1\\v_2\\v_3\\v_4\end{pmatrix}\), \(B = \begin{pmatrix} u_1\\u_2\\u_3\\u_4\end{pmatrix}\), \(C = \begin{pmatrix} w_1\\w_2\\w_3\\w_4\end{pmatrix}\). We noted that \(v\in\mathrm{Span}\{A, B, C\}\) if and only if \(v\) is a solution to the system of linear equations</p>
+            <div class="math-display">
+                \[\begin{align*}
+                v_1x+u_1y+w_1z &= a\\
+                v_2x+u_2y+w_2z &= b\\
+                v_3x+u_3y+w_3z &= c\\
+                v_4x+u_4y+w_4z &= d.
+                \end{align*}\]
+            </div>
+
+            <p>We then reviewed at length how to solve such a system of equations via Gaussian elimination: One forms the augmented matrix \(\left[\begin{array}{ccc|c} v_1 & u_1 & w_1 & a\\v_2 & u_2 & w_2 & b\\v_3 & u_3 & w_3 & c\\v_4 & u_4 & w_4 & d\end{array}\right]\) and uses elementary row operations to put the augmented matrix into RREF, i.e., <em>reduced row echelon form</em>.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Reduced Row Echelon Form.</span> Suppose \(L\) is an augmented matrix arising from a system of linear equations over \(F\). Then \(L\) is in reduced row echelon form if it satisfies the following conditions:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) The first entry of any non-zero row is 1. This is called a <em>leading 1</em> or <em>pivot</em>.</li>
+                    <li style="list-style-type: none;">(ii) \(L\) has zeros above and below each leading 1.</li>
+                    <li style="list-style-type: none;">(iii) The leading 1s move from left to right as one moves down the rows of \(L\).</li>
+                    <li style="list-style-type: none;">(iv) All non-zero rows are at the top of the matrix.</li>
+                </ol>
+            </div>
+
+            <p>We then discussed the algorithm for rendering an augmented matrix into its RREF, whereby the solutions to the system can be read off. We noted the crucial:</p>
+
+            <div class="definition">
+                <span class="statement-title">Fundamental Fact.</span> Given a system of \(m\) linear equations in \(n\) unknowns, the number of independent parameters needed to describe the solution space is \(n\) minus the number of leading 1s in the RREF of the augmented matrix corresponding to the system.
+            </div>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
