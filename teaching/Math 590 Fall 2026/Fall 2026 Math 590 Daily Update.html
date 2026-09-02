@@ -285,6 +285,62 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Wednesday, September 2</div>
+
+            <p>We continued our discussion of spanning properties by recording a general statement analogous to the one presented in the previous lecture, namely, given vectors \(w = \begin{pmatrix} a_1\\\vdots\\a_m\end{pmatrix}\), \(v_1, \ldots, v_n\) in \(\mathbb{R}^m\), with \(v_j = \begin{pmatrix} \alpha_{1j}\\\vdots\\\alpha_{mj}\end{pmatrix}\), then \(w\in\mathrm{Span}\{v_1, \ldots, v_n\}\) if and only if the system of equations</p>
+            <div class="math-display">
+                \[\begin{align*}
+                \alpha_{11}x_1+\cdots+\alpha_{1n}x_n &= a_1\\
+                \alpha_{21}x_1+\cdots+\alpha_{2n}x_n &= a_2\\
+                \vdots\\
+                \alpha_{m1}x_1+\cdots+\alpha_{mn}x_n &= a_m
+                \end{align*}\]
+            </div>
+            <p>has a solution.</p>
+
+            <p>We then made the following crucial observation which plays a key role throughout this semester.</p>
+
+            <div class="definition">
+                <span class="statement-title">Crucial Observation.</span> Let \(A = [C_1\ C_2\ \cdots\ C_n]\) be an \(m\times n\) matrix with columns \(C_1, \ldots, C_n\) and suppose \(v = \begin{pmatrix}\lambda_1\\\lambda_2\\\vdots\\\lambda_n\end{pmatrix}\) is a column vector. Then the column vector \(Av = \lambda_1 C_1+\lambda_2 C_2+\cdots+\lambda_n C_n\).
+            </div>
+
+            <p>We then discussed at length the following crucial definitions.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definitions.</span> Let \(V\) be a vector space over \(F\) and \(v_1, \ldots, v_r\in V\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(v_1, \ldots, v_r\) are <em>linearly dependent</em> if some \(v_j\) is in the span of the remaining vectors, in other words, \(v_j\in\mathrm{Span}\{v_1, \ldots, \widehat{v_j}, \ldots, v_r\}\).</li>
+                    <li style="list-style-type: none;">(ii) \(v_1, \ldots, v_r\) are <em>linearly independent</em> if they are not linearly dependent, i.e., no \(v_j\) is in the span of the remaining vectors.</li>
+                </ol>
+            </div>
+
+            <p>These definitions were re-formulated in the following observation.</p>
+
+            <div class="definition">
+                <span class="statement-title">Observation.</span> The vectors \(v_1, \ldots, v_r\in V\) are linearly dependent if and only if there exists a non-trivial dependence relation \(\lambda_1 v_1+\cdots+\lambda_r v_r = \vec{0}\), with at least one \(\lambda_j\not= 0\).
+            </div>
+
+            <p>The observation had the immediate consequence:</p>
+
+            <div class="definition">
+                <span class="statement-title">Corollary.</span> The vectors \(v_1, \ldots, v_r\in V\) are linearly independent if and only if there is no non-trivial dependence relation among them, i.e., if \(\alpha_1 v_1+\cdots+\alpha_r v_r = \vec{0}\), then \(\alpha_1 = \cdots = \alpha_r = 0\).
+            </div>
+
+            <p>Returning to the setting of column vectors in \(\mathbb{R}^m\), using the crucial observation, we summarized our discussion as follows.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Summary.</span> Suppose we have vectors \(w = \begin{pmatrix} a_1\\\vdots\\a_m\end{pmatrix}\), \(v_1, \ldots, v_n\) in \(\mathbb{R}^m\), with \(v_j = \begin{pmatrix}\alpha_{1j}\\\vdots\\\alpha_{mj}\end{pmatrix}\). Let \(A\) denote the \(m\times n\) matrix whose columns are \(v_1, \ldots, v_n\). Then, upon setting \(X = \begin{pmatrix} x_1\\\vdots\\x_n\end{pmatrix}\), we have:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(w\in\mathrm{Span}\{v_1, \ldots, v_n\}\) if and only if the system of equations \(AX = w\) has a solution.</li>
+                    <li style="list-style-type: none;">(ii) The vectors \(v_1, \ldots, v_n\) are linearly dependent if and only if the system of equations \(AX = \vec{0}\) has a non-zero solution.</li>
+                    <li style="list-style-type: none;">(iii) The vectors \(v_1, \ldots, v_n\) are linearly independent if and only if the system of equations \(AX = \vec{0}\) has only the zero solution.</li>
+                </ol>
+            </div>
+
+            <p>We ended class by noting that a vector space is <em>finite dimensional</em> if it is the span of a finite set of vectors. We also discussed informally how a redundant spanning set can be reduced to a set that spans efficiently. In particular, we showed that if \(V = \mathrm{Span}\{v_1, v_2, v_3\}\) and \(v_2\in\mathrm{Span}\{v_1, v_3\}\), then \(V = \mathrm{Span}\{v_1, v_3\}\).</p>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
