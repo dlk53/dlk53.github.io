@@ -341,6 +341,34 @@
             <p>We ended class by noting that a vector space is <em>finite dimensional</em> if it is the span of a finite set of vectors. We also discussed informally how a redundant spanning set can be reduced to a set that spans efficiently. In particular, we showed that if \(V = \mathrm{Span}\{v_1, v_2, v_3\}\) and \(v_2\in\mathrm{Span}\{v_1, v_3\}\), then \(V = \mathrm{Span}\{v_1, v_3\}\).</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Friday, September 4</div>
+
+            <p>We began class by reviewing the definitions of linear dependence and linear independence as well as the equivalent conditions for each stated in the previous lecture. We then used Gaussian elimination to show that the vectors \(v_1 = \begin{pmatrix} 1\\1\\0\\0\end{pmatrix}\), \(v_2 = \begin{pmatrix} 0\\1\\1\\0\end{pmatrix}\), \(v_3 = \begin{pmatrix} 0\\0\\1\\1\end{pmatrix}\) are linearly independent and that \(w = \begin{pmatrix} 1\\0\\2\\3\end{pmatrix}\in\mathrm{Span}\{v_1, v_2, v_3\}\).</p>
+
+            <p>Most of the remainder of the class was spent discussing at length the Fundamental Property: <em>In any vector space, the number of elements in any spanning set is always greater than or equal to the number of elements in a set of linearly independent vectors.</em> We then worked through a special case of the</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Exchange Theorem.</span> Let \(V\) be a vector space with \(V = \mathrm{Span}\{v_1, \ldots, v_r\}\) and assume \(w_1, \ldots, w_s\in V\) are linearly independent in \(V\). Then \(s\leq r\) and after re-indexing the \(v_j\)'s, we have \(V = \mathrm{Span}\{w_1, \ldots, w_s, v_{s+1}, \ldots, v_r\}\).</p>
+            </div>
+
+            <p>In particular, we showed explicitly that one cannot have \(V = \mathrm{Span}\{v_1, v_2\}\) and \(w_1, w_2, w_3\) linearly independent in \(V\). This process involved <em>exchanging</em> \(w_1, w_2\) for \(v_1, v_2\). A key observation was that after each exchange, we had a new set of vectors that still spanned \(V\).</p>
+
+            <p>We ended class with the following corollary and its consequences.</p>
+
+            <div class="definition">
+                <span class="statement-title">Corollary.</span> Let \(\{v_1, \ldots, v_r\}\) and \(\{w_1, \ldots, w_s\}\) be two sets of vectors that are both linearly independent and span \(V\). Then \(r = s\).
+            </div>
+
+            <div class="definition">
+                <p><span class="statement-title">Definitions.</span></p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Let \(B := \{v_1, \ldots, v_n\}\subseteq V\) be a linearly independent set such that \(V = \mathrm{Span}\{v_1, \ldots, v_n\}\). Then \(B\) is called a <em>basis</em> for \(V\). Note that by the previous corollary, <strong><span style="color: purple;">any two bases have the same number of elements</span></strong>.</li>
+                    <li style="list-style-type: none;">(ii) The <em>dimension</em> of \(V\) is the number of elements in any basis of \(V\). We often write \(\dim(V) = n\), if \(V\) has a basis with \(n\) elements.</li>
+                </ol>
+            </div>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
