@@ -395,6 +395,68 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Friday, September 11</div>
+
+            <p>We began class by reviewing the statement of the proposition given at the end of the previous lecture. We then discussed at length the following theorem.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> Let \(V\) be a vector space with \(\dim(V) = n\) and \(v_1, \ldots, v_n\in V\). Then the following are equivalent:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(v_1, \ldots, v_n\) form a basis for \(V\).</li>
+                    <li style="list-style-type: none;">(ii) \(\mathrm{Span}\{v_1, \ldots, v_n\} = V\).</li>
+                    <li style="list-style-type: none;">(iii) \(v_1, \ldots, v_n\) are linearly independent.</li>
+                </ol>
+            </div>
+
+            <p>The crucial point about the theorem above is that the dimension of \(V\) is given <em>a priori</em> to be \(n\). The theorem above was followed by a discussion of the following special case involving column vectors in \(\mathbb{R}^n\) or \(\mathbb{C}^n\).</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Very Important Special Case of Column Vectors.</span> Suppose \(v_1, \ldots, v_n\) are column vectors in \(\mathbb{R}^n\) or \(\mathbb{C}^n\) and let \(A\) denote the \(n\times n\) matrix whose columns are \(v_1, \ldots, v_n\). Then the following conditions are equivalent.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(v_1, \ldots, v_n\) form a basis for \(\mathbb{R}^n\) or \(\mathbb{C}^n\).</li>
+                    <li style="list-style-type: none;">(ii) \(\mathrm{Span}\{v_1, \ldots, v_n\} = \mathbb{R}^n\) or \(\mathbb{C}^n\).</li>
+                    <li style="list-style-type: none;">(iii) \(v_1, \ldots, v_n\) are linearly independent.</li>
+                    <li style="list-style-type: none;">(iv) The system of equations \(AX = \vec{0}\) has only the zero solution, where \(X = \begin{pmatrix} x_1\\x_2\\\vdots\\x_n\end{pmatrix}\).</li>
+                    <li style="list-style-type: none;">(v) The system of equations \(AX = b\) has a (unique) solution for any \(b\in\mathbb{R}^n\).</li>
+                    <li style="list-style-type: none;">(vi) The RREF of \(A\) equals \(I_n\), the \(n\times n\) identity matrix.</li>
+                    <li style="list-style-type: none;">(vii) \(A\) is invertible, i.e., there exists an \(n\times n\) matrix \(A^{-1}\) such that \(A^{-1}A = I_n = AA^{-1}\).</li>
+                    <li style="list-style-type: none;">(viii) \(\det A\), the determinant of \(A\), is not zero.</li>
+                </ol>
+            </div>
+
+            <p>As a corollary to the discussion above, we noted:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Uniqueness of Representation.</span> If \(v_1, \ldots, v_n\) is a basis for \(V\), then every \(v\in V\) can be written <em>uniquely</em> as a linear combination of \(v_1, \ldots, v_n\). In other words, if \(v\in V\) and</p>
+                <div class="math-display">
+                    \[\begin{aligned} v &= \alpha_1 v_1+\cdots+\alpha_n v_n\\ &= \beta_1 v_1+\cdots+\beta_n v_n,\end{aligned}\]
+                </div>
+                <p>then \(\alpha_1 = \beta_1, \ldots, \alpha_n = \beta_n\).</p>
+            </div>
+
+            <p>We then turned to a concept that plays a central role in this course.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Let \(T: V\to W\) be a function between the \(F\)-vector spaces \(V\) and \(W\). Then \(T\) is a <em>linear transformation</em> if it satisfies:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(T(v_1+v_2) = T(v_1)+T(v_2)\), for all \(v_1, v_2\in V\).</li>
+                    <li style="list-style-type: none;">(ii) \(T(\lambda v) = \lambda T(v)\), for all \(\lambda\in F\) and \(v\in V\).</li>
+                </ol>
+            </div>
+
+            <p>We ended class with the following examples of linear transformations.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Examples.</span></p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Let \(A\) denote an \(m\times n\) matrix over \(F\). For a column vector \(v\in F^n\), define \(T_A(v) := A\cdot v\in F^m\). Then \(T_A\) is a linear transformation.</li>
+                    <li style="list-style-type: none;">(ii) Rotation of \(\mathbb{R}^2\) counter-clockwise through an angle of \(\theta\) is a linear transformation from \(\mathbb{R}^2\) to \(\mathbb{R}^2\). This can be seen as follows: the transformation \(T\begin{pmatrix} a\\b\end{pmatrix} = \begin{pmatrix} a\cos(\theta)-b\sin(\theta)\\a\sin(\theta)+b\cos(\theta)\end{pmatrix}\) rotates the vector \(\begin{pmatrix} a\\b\end{pmatrix}\) by \(\theta\) degrees counter-clockwise and is given by multiplication by \(A = \begin{pmatrix} \cos(\theta) & -\sin(\theta)\\\sin(\theta) & \cos(\theta)\end{pmatrix}\), so that \(T = T_A\). Note that the columns of \(A\) are orthogonal and have length one. In this case \(A\) is called an <em>orthogonal</em> matrix, a property to be considered later in the semester.</li>
+                    <li style="list-style-type: none;">(iii) Let \(V\) be the vector space of polynomials over \(\mathbb{R}\) (or \(\mathbb{C}\)) having degree less than or equal to \(n\). Define \(T: V\to V\) by \(T(p(x)) = p'(x)\), the derivative of \(p(x)\). Then \(T\) is a linear transformation.</li>
+                </ol>
+            </div>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
