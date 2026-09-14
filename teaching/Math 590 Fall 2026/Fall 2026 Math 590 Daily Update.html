@@ -457,6 +457,28 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Monday, September 14</div>
+
+            <p>The first 13 minutes of class were devoted to Quiz 3. We then spent most of the remaining time in class discussing the following algorithm.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Algorithm for finding a basis.</span> Suppose \(W\) is a subspace of \(\mathbb{R}^m\) or \(\mathbb{C}^m\) spanned by the column vectors \(v_1, \ldots, v_n\) and let \(A\) denote the \(m\times n\) matrix whose columns are \(v_1, \ldots, v_n\). Let \(R\) denote the RREF form of \(A\) and suppose the columns of \(R\) are \(w_1, \ldots, w_n\). Let \(w_{i_1}, \ldots, w_{i_r}\) denote the columns of \(R\) containing the pivots of \(R\), i.e., those columns consisting of one 1 and having all remaining entries equal to zero. Then \(v_{i_1}, \ldots, v_{i_r}\) form a basis for \(W\).</p>
+            </div>
+
+            <p>We illustrated this algorithm on the matrix \(A = \begin{pmatrix} 1 & 2 & 3 & 0\\1 & 2 & 3 & 0\\0 & 3 & 4 & 1\\0 & 3 & 4 & 1\end{pmatrix}\). We also noted that the algorithm follows from the two facts: (i) \(w_{i_1}, \ldots, w_{i_r}\) is clearly a basis for the column space of \(R\) and (ii) the solution spaces associated to \(A\) and \(R\) are the same, and therefore any dependence relation on \(v_1, \ldots, v_n\) is a dependence relation on \(w_1, \ldots, w_n\) and conversely. We then showed why elementary row operations preserve solution spaces.</p>
+
+            <p>We ended class by returning to our discussion of linear transformations and noted the following.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Two properties of linear transformations.</span> Let \(T: V\to W\) be a linear transformation between vector spaces over \(F\). Then:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(T(\vec{0}_V) = \vec{0}_W\).</li>
+                    <li style="list-style-type: none;">(ii) \(T(-v) = -T(v)\), for all \(v\in V\).</li>
+                </ol>
+            </div>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">

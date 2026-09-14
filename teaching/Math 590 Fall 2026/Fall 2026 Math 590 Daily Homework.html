@@ -187,6 +187,22 @@
             <p>3. Use basic trigonometry to verify that multiplication of column vectors in \(\mathbb{R}^2\) by \(A = \begin{pmatrix}\cos(\theta) & \sin(\theta)\\-\sin(\theta) & \cos(\theta)\end{pmatrix}\) gives rotation counter-clockwise by verifying that \(A\cdot\begin{pmatrix}1\\0\end{pmatrix}\) is the result of rotating \(\begin{pmatrix}1\\0\end{pmatrix}\) by \(\theta\) degrees counter-clockwise and \(A\cdot\begin{pmatrix}0\\1\end{pmatrix}\) is the result of rotating \(\begin{pmatrix}0\\1\end{pmatrix}\) by \(\theta\) degrees counter-clockwise.</p>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Monday, September 14</div>
+
+            <p>Consider the matrices</p>
+            <div class="math-display">
+                \[\begin{aligned} &A = \begin{pmatrix} a & b & c\\d & e & f\\g & h & i\end{pmatrix},\quad L = \begin{pmatrix} a & b & c\\g & h & i\\d & e & f\end{pmatrix},\\[10pt] &M = \begin{pmatrix} a & b & c\\d & e & f\\\lambda g & \lambda h & \lambda i\end{pmatrix},\quad N = \begin{pmatrix} a & b & c\\d+\lambda a & e+\lambda b & f+\lambda c\\g & h & i\end{pmatrix},\end{aligned}\]
+            </div>
+            <p>with \(\lambda\not= 0\). Note that the matrices \(L, M, N\) are obtained from \(A\) by elementary row operations. Let \(C = \begin{pmatrix}\alpha_1\\\alpha_2\\\alpha_3\end{pmatrix}\) be a column vector.</p>
+
+            <p>1. Show that \(AC = \vec{0}\) if and only if \(LC = \vec{0}\).</p>
+            <p>2. Show that \(AC = \vec{0}\) if and only if \(MC = \vec{0}\).</p>
+            <p>3. Show that \(AC = \vec{0}\) if and only if \(NC = \vec{0}\).</p>
+
+            <p>Thus the solution space of \(A\) is the same as the solution space of the row reduced echelon form of \(A\).</p>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
