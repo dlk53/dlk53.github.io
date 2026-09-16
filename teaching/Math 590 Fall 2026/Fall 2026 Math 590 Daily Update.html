@@ -479,6 +479,41 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Wednesday, September 16</div>
+
+            <p>We began class with the following set up. \(T: V\to W\) is a linear transformation of vector spaces over \(F\), \(\alpha = \{v_1, \ldots, v_n\}\) is a basis for \(V\) and \(\beta = \{w_1, \ldots, w_m\}\) is a basis for \(W\). We then discussed the following.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Important points about linear transformations.</span> In the notation established above,</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(T\) is determined by its effect on a basis. In particular, given values \(T(v_1) = w_1, \ldots, T(v_n) = w_n\), we can calculate the value \(T(v)\) for any \(v\in V\), namely, if \(v = a_1v_1+\cdots+a_nv_n\), then we have \(T(v) = a_1w_1+\cdots+a_nw_n\).</li>
+                    <li style="list-style-type: none;">(ii) To define a linear transformation \(T:V\to W\), it suffices to assign values to the basis elements \(v_1, \ldots, v_n\). The value of an arbitrary \(v\in V\) is then determined as follows: If \(T(v_i) = w_i\), for \(i = 1,\ldots, n\) and \(v = b_1v_1+\cdots+b_nv_n\), then \(T(v) = b_1w_1+\cdots+b_nw_m\).</li>
+                </ol>
+            </div>
+
+            <p>We then gave the following <strong>very important definition</strong>, using the notation established above.</p>
+
+            <div class="definition">
+                <span class="statement-title">Definition.</span> The matrix of \(T\) with respect to \(\alpha\) and \(\beta\) is denoted \([T]_{\alpha}^{\beta}\) and is determined as follows: For each \(1\leq j\leq n\), if \(T(v_j) = a_{1j}w_1+a_{2j}w_2+\cdots+a_{mj}w_m\), then the \(j\)th column of \([T]_{\alpha}^{\beta}\) is \(\begin{pmatrix} a_{1j}\\a_{2j}\\\vdots\\a_{mj}\end{pmatrix}\).
+            </div>
+
+            <p>We then worked the following examples.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Examples.</span> 1. Let \(T: \mathbb{R}^2\to\mathbb{R}^2\) be defined by \(T\begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix} 3x-2y\\x+4y\end{pmatrix}\), and write \(e_1, e_2\) for the standard basis of \(\mathbb{R}^2\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) For \(\alpha = \{e_1, e_2\} = \beta\), we saw that \([T]_{\alpha}^{\beta} = \begin{pmatrix} 3 & -2\\1 & 4\end{pmatrix}\).</li>
+                    <li style="list-style-type: none;">(ii) For \(\alpha' = \left\{\begin{pmatrix} 1\\1\end{pmatrix}, \begin{pmatrix} -1\\1\end{pmatrix}\right\}\), we saw that \([T]_{\alpha'}^{\beta} = \begin{pmatrix} 1 & -5\\5 & 3\end{pmatrix}\).</li>
+                    <li style="list-style-type: none;">(iii) For \(\alpha'\) as in (ii) and \(\beta' = \left\{\begin{pmatrix} 1\\2\end{pmatrix}, \begin{pmatrix} 1\\1\end{pmatrix}\right\}\), we saw that \([T]_{\alpha'}^{\beta'} = \begin{pmatrix} 4 & 8\\-3 & -13\end{pmatrix}\).</li>
+                </ol>
+                <p>2. Taking \(V\) to be the space of real polynomials of degree less than or equal to three, with basis \(\alpha = \{1, x, x^2, x^3\} = \beta\), and \(T(p(x)) = p'(x)\), we saw that</p>
+                <div class="math-display">
+                    \[[T]_{\alpha}^{\beta} = \begin{pmatrix} 0 & 1 & 0 & 0\\0 & 0 & 2 & 0\\0 & 0 & 0 & 3\\0 & 0 & 0 & 0\end{pmatrix}.\]
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
