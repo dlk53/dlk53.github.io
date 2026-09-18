@@ -514,6 +514,39 @@
             </div>
         </div>
 
+        <div class="problem">
+            <div class="problem-number">Friday, September 18</div>
+
+            <p>We began class by recalling the definition \([T]_{\alpha}^{\beta}\) given in the previous lecture. We then considered the derivative as a linear transformation on polynomials of degree two or less, and noted that the matrix of this transformation with respect to the basis \(\{1, x, x^2\}\) is the matrix \(A = \begin{pmatrix} 0 & 1 & 0\\0 & 0 & 2\\0 & 0 & 0\end{pmatrix}\). We then noted \(A^3 = 0\) and discussed informally why this is true and how it relates composition of transformations to products of matrices.</p>
+
+            <p>We then re-established our set up: \(T: V\to W\) is a linear transformation, \(\alpha = \{v_1, \ldots, v_n\}\) is a basis for \(V\) and \(\beta = \{w_1, \ldots, w_m\}\) is a basis for \(W\). For a vector \(v = a_1v_1+\cdots+a_nv_n \in V\), we defined \([v]_{\alpha} = \begin{pmatrix} a_1\\\vdots\\a_n\end{pmatrix}\), a vector in \(F^n\), and noted this gives a dictionary that often allows us to transcribe a statement about vectors in an arbitrary vector space to a statement about vectors in \(\mathbb{R}^n.\) We then discussed the following.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Three Important Formulas.</span> Keeping the same set up:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) For \(c, d\in F\) and \(u, v\in V\), \([cu+dv]_{\alpha} = c[u]_{\alpha}+d[v]_{\alpha}\).</li>
+                    <li style="list-style-type: none;">(ii) For \(v\in V\), we have \([T(v)]_\beta = [T]_\alpha^\beta\cdot [v]_\alpha\).</li>
+                    <li style="list-style-type: none;">(iii) Suppose \(S: W\to U\) is a linear transformation and \(\gamma = \{u_1, \ldots, u_t\}\) is a basis for \(U\). Then \(ST: V\to U\) is a linear transformation and \([ST]_\alpha^\gamma = [S]_\beta^\gamma\cdot [T]_\alpha^\beta\).</li>
+                </ol>
+            </div>
+
+            <p>We proved (i) directly in the case \(n = 2\) and verified (ii) and (iii) for the example with \(V = W = U = \mathbb{R}^n\), \(T\begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix} 2x-y\\x+y\end{pmatrix}\), \(S\begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix} x-y\\x+3y\end{pmatrix}\), \(\alpha = \left\{\begin{pmatrix}1\\-1\end{pmatrix}, \begin{pmatrix}3\\1\end{pmatrix}\right\},\) \(\beta = \{e_1, e_2\} = \gamma\), and \(v = \begin{pmatrix}11\\1\end{pmatrix}\).</p>
+
+            <p>We ended class with the following observations.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Observations.</span> Suppose \(I: V\to V\) is the identity transformation, i.e., \(I(v) = v\), for all \(v\in V\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \([I]_\alpha^\alpha = I_n\), the \(n\times n\) identity matrix.</li>
+                    <li style="list-style-type: none;">(ii) Let \(\alpha'\) be another basis for \(V\). Then \([I]_\alpha^{\alpha'}\) is called a <em>change of basis matrix</em> and satisfies
+                    <div class="math-display">
+                        \[[I]_\alpha^{\alpha'}\cdot [I]_{\alpha'}^\alpha = I_n = [I]_{\alpha'}^\alpha\cdot [I]_\alpha^{\alpha'}.\]
+                    </div>
+                    In particular, any change of basis matrix is invertible.</li>
+                </ol>
+            </div>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
