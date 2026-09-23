@@ -63,6 +63,10 @@
             color: #2563eb;
             margin-bottom: 10px;
         }
+        h2.problem-number {
+            margin-top: 0;
+            line-height: inherit;
+        }
         .definition {
             font-style: italic;
             background-color: #fff3cd;
@@ -572,6 +576,46 @@
             </div>
 
             <p>We then spent the rest of class verifying the change of basis formula for \(T\begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix} x+y\\x-y\end{pmatrix}\) and \(\alpha = \{e_1, e_2\}\), \(\beta = \{f_1, f_2\}\), with \(f_1 = \begin{pmatrix} -1\\1\end{pmatrix}\) and \(f_2 = \begin{pmatrix} 1\\-2\end{pmatrix}\).</p>
+        </div>
+
+        <div class="problem">
+            <h2 class="problem-number">Wednesday, September 23</h2>
+
+            <p>Today's class was devoted to a discussion of determinants. After recalling the familiar definition of the determinant of a \(2\times 2\) matrix, we calculated the determinant of \(A = \begin{pmatrix} a & b & c\\d & e & f\\g & h & i\end{pmatrix}\) in the usual way by expanding along the first row. We then noted that we get the same result by expanding along the second column, if we make the correct choices of + or −.</p>
+
+            <p>We then gave the following formulas. We noted that the determinant of a matrix \(A\) can be written either as \(\mathrm{det}(A)\) or \(|A|\).</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Let \(A = (a_{ij})\) be an \(n\times n\) matrix with entries in \(F\). Write \(A_{ij}\) for the \((n-1)\times(n-1)\) matrix obtained from \(A\) by deleting its \(i\)th row and \(j\)th column.</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    |A| &= \sum_{j=1}^n (-1)^{i+j} a_{ij}\cdot |A_{ij}| \qquad \textit{Expansion along the } i^{\mathrm{th}} \textit{ row}\\
+                    |A| &= \sum_{i=1}^n (-1)^{i+j} a_{ij}\cdot |A_{ij}| \qquad \textit{Expansion along the } j^{\mathrm{th}} \textit{ column}.
+                    \end{align*}\]
+                </div>
+            </div>
+
+            <p>We then discussed the following properties:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Properties of the determinant.</span> Let \(A\) be an \(n\times n\) matrix over \(F\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) If \(A'\) is obtained from \(A\) by multiplying a row (or column) of \(A\) times \(\lambda\in F\), then \(|A'| = \lambda\cdot |A|\).</li>
+                    <li style="list-style-type: none;">(ii) If \(A'\) is obtained from \(A\) by interchanging two rows (or two columns), then \(|A'| = -|A|\).</li>
+                    <li style="list-style-type: none;">(iii) If a row (or column) of \(A\) consists entirely of 0s, then \(|A| = 0\).</li>
+                    <li style="list-style-type: none;">(iv) If two rows (or columns) of \(A\) are the same, then \(|A| = 0\).</li>
+                    <li style="list-style-type: none;">(v) If \(A'\) is obtained from \(A\) by adding a multiple of one row of \(A\) to <strong>another</strong> row, then \(|A'| = |A|\).</li>
+                    <li style="list-style-type: none;">(vi) If \(A\) is an upper or lower triangular matrix, then \(|A|\) is the product of the diagonal entries of \(A\).</li>
+                    <li style="list-style-type: none;">(vii) The determinant is a linear function of its rows (or columns). For example, if \(R_1, \ldots, R_n\) are rows in \(F^n\) and \(D(R_1, \ldots, R_n)\) denotes the determinant of the matrix whose rows are \(R_1, \ldots, R_n\), then
+                        <ol style="list-style-type: none; padding-left: 20px;">
+                            <li style="list-style-type: none;">(a) \(D(R_1, \ldots, R_i+R_i', \ldots, R_n) = D(R_1, \ldots, R_i, \ldots, R_n)+D(R_1, \ldots, R_i', \ldots, R_n)\)</li>
+                            <li style="list-style-type: none;">(b) \(D(R_1, \ldots, \lambda R_i, \ldots, R_n) = \lambda D(R_1, \ldots, R_i, \ldots, R_n)\), for \(\lambda\in F\).</li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+
+            <p>We ended class by using elementary row operations to see that \(\begin{vmatrix} 2 & 6 & -4\\3 & 10 & -3\\-2 & -3 & 2\end{vmatrix} = -22\).</p>
         </div>
 
     </main>
