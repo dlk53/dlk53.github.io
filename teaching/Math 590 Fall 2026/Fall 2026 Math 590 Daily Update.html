@@ -618,6 +618,45 @@
             <p>We ended class by using elementary row operations to see that \(\begin{vmatrix} 2 & 6 & -4\\3 & 10 & -3\\-2 & -3 & 2\end{vmatrix} = -22\).</p>
         </div>
 
+        <div class="problem">
+            <h2 class="problem-number">Friday, September 25</h2>
+
+            <p>We continued our discussion of determinants, first by recalling the definition in terms of expanding along the \(i\)th row or \(j\)th column. We then showed directly how the determinant behaves under elementary row operations in the case of \(2\times 2\) matrices. We then discussed at length the following:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Additional Important Properties.</span> Suppose \(A\) and \(B\) are \(n\times n\) matrices over \(F\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(|AB| = |A|\cdot |B|\).</li>
+                    <li style="list-style-type: none;">(ii) Let \(C\) denote the \(n\times n\) matrix whose \((i,j)\) entry is \((-1)^{i+j}|A_{ij}|\) and set \(A' := C^{\mathrm{tr}}\), the transpose of \(C\). Then \(A'\) is called the <em>classical adjoint</em> or <em>adjugate</em> of \(A\) and satisfies \(AA' = |A|\cdot I_n = A'A\).</li>
+                </ol>
+            </div>
+
+            <p>We noted that property (i) implies that if \(A\) is invertible, then \(|A|\not= 0\), which then led to (ii) and the conclusion that conversely, if \(|A|\not= 0\), then \(A^{-1}\) exists and equals \(\frac{1}{|A|}\cdot A'\). We then stated and discussed the following <strong><span style="color: purple;">very important theorem.</span></strong></p>
+
+            <div class="definition">
+                <p><span class="statement-title">Theorem.</span> Let \(A\) be an \(n\times n\) matrix over \(F\). The following conditions are equivalent.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(|A|\not= 0\).</li>
+                    <li style="list-style-type: none;">(ii) \(A\) has an inverse.</li>
+                    <li style="list-style-type: none;">(iii) The rows (respectively, columns) of \(A\) are linearly independent.</li>
+                    <li style="list-style-type: none;">(iv) The rows (respectively, columns) of \(A\) span \(F^n\).</li>
+                    <li style="list-style-type: none;">(v) The rows (respectively, columns) of \(A\) form a basis for \(F^n\).</li>
+                    <li style="list-style-type: none;">(vi) \(A\) reduces to \(I_n\) via elementary row (or column) operations.</li>
+                    <li style="list-style-type: none;">(vii) For any column vector \(b\in F^n\), the system of linear equations \(AX = b\) has a unique solution, namely \(X = A^{-1}b\).</li>
+                    <li style="list-style-type: none;">(viii) The linear transformation \(T_A: F^n\to F^n\) is one-to-one and onto, i.e., if \(T_A(x) = T_A(y)\), then \(x = y\) and if \(y\in F^n\), there exists \(x\in F^n\) such that \(T_A(x) = y\).</li>
+                </ol>
+            </div>
+
+            <p>We ended class by stating and giving an example of:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Cramer's Rule.</span> Let \(A\) be an \(n\times n\) matrix over \(F\) and consider the system of linear equations \(AX = b\), for the column vector \(b\in F^n\). Suppose \(|A|\not= 0\). For each \(1\leq j\leq n\) let \(B_j\) denote the matrix obtained by replacing the \(j\)th column of \(A\) by \(b\). Then:</p>
+                <div class="math-display">
+                    \[x_1 = \frac{|B_1|}{|A|},\quad x_2 = \frac{|B_2|}{|A|},\quad \ldots,\quad x_n = \frac{|B_n|}{|A|}.\]
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
