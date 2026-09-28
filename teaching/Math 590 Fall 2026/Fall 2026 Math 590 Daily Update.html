@@ -657,6 +657,43 @@
             </div>
         </div>
 
+        <div class="problem">
+            <h2 class="problem-number">Monday, September 28</h2>
+
+            <p>The first thirteen minutes of class were devoted to Quiz 5. We then began a discussion of <em>eigenvectors</em> and <em>eigenvalues</em>.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definition.</span> Let \(T: V\to V\) be a linear transformation and \(A\) an \(n\times n\) matrix.</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(\lambda\in F\) is an eigenvalue of \(T\) if there exists \(0\not= v\in V\) with \(T(v) = \lambda v\). In this case, \(v\) is an eigenvector of \(T\) associated with \(\lambda\).</li>
+                    <li style="list-style-type: none;">(ii) \(\lambda\in F\) is an eigenvalue of \(A\) if there exists a non-zero column vector \(v\in F^n\) with \(Av = \lambda v\). In this case, \(v\) is an eigenvector of \(A\) associated with \(\lambda\).</li>
+                </ol>
+            </div>
+
+            <p>We then discussed the following properties of eigenvectors and eigenvalues.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Properties of eigenvectors and eigenvalues.</span> Maintaining the notation above, we have:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) An eigenvector is never the zero vector, though eigenvalues can be the zero scalar. For example, the non-trivial solutions to a system of equations \(AX = \vec{0}\) correspond to eigenvectors of \(A\) with eigenvalue equal to 0.</li>
+                    <li style="list-style-type: none;">(ii) Suppose \(\lambda\) is an eigenvalue of \(A\). For any invertible \(n\times n\) matrix \(P\), set \(B = P^{-1}AP\). Then \(\lambda\) is an eigenvalue of \(B\). Moreover, if \(Av = \lambda v\), then \(B(P^{-1}v) = \lambda\cdot P^{-1}v\).</li>
+                    <li style="list-style-type: none;">(iii) Suppose \(\alpha\) is a basis for \(V\), \(T: V\to V\) is a linear transformation and \(A = [T]_\alpha^\alpha\). Then \(\lambda\in F\) is an eigenvalue of \(T\) if and only if \(\lambda\) is an eigenvalue for \(A\).</li>
+                    <li style="list-style-type: none;">(iv) Thus, we can use \(A = [T]_\alpha^\alpha\) to find the eigenvalues for \(T\) and this works for any basis \(\alpha\).</li>
+                    <li style="list-style-type: none;">(v) For \(v\) a column vector in \(F^n\), the following are equivalent:
+                        <ol style="list-style-type: none; padding-left: 20px;">
+                            <li style="list-style-type: none;">(a) \(Av = \lambda v\).</li>
+                            <li style="list-style-type: none;">(b) \((A-\lambda I_n)v = \vec{0}\).</li>
+                            <li style="list-style-type: none;">(c) \(v\) is a non-trivial solution to the system of equations \((A-\lambda I_n)X = \vec{0}\).</li>
+                            <li style="list-style-type: none;">(d) \(|A-\lambda I_n| = 0\).</li>
+                        </ol>
+                    </li>
+                    <li style="list-style-type: none;">(vi) To find the eigenvalues of \(A\), we must find the roots of the polynomial \(p_A(x) = |A-x\cdot I_n|\), the <em>characteristic polynomial</em> of \(A\). This polynomial is sometimes written as \(p_A(\lambda) = |A-\lambda I_n|\).</li>
+                    <li style="list-style-type: none;">(vii) Suppose \(\lambda\) is an eigenvalue of \(A\). Then the set of all eigenvectors associated to \(\lambda\) is exactly the set of all non-zero solutions to the system of equations \((A-\lambda I_n)X = \vec{0}\).</li>
+                    <li style="list-style-type: none;">(viii) Suppose \(\lambda\) is an eigenvalue of \(A\). Then \(E_{\lambda}\), the <em>eigenspace</em> of \(\lambda\), is the set of all \(v\in F^n\) such that \((A-\lambda I_n)v = \vec{0}\). Note that \(E_{\lambda}\) is a subspace of \(F^n\) and consists of all eigenvectors associated with \(\lambda\) together with \(\vec{0}\), which is not an eigenvector of \(A\).</li>
+                </ol>
+            </div>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
