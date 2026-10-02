@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2026: Math 590 Exam 1 Practice Problems with Solutions</title>
+    <script>
+        MathJax = {
+            loader: {load: ['[tex]/amscd']},
+            tex: {
+                packages: {'[+]': ['amscd']},
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.0
+            },
+            chtml: {
+                scale: 1.0,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        h2.section-title {
+            color: #8b2e3f;
+            font-size: 1.35em;
+            margin: 40px 0 10px;
+        }
+        h2.section-title .points {
+            font-weight: normal;
+            font-size: 0.8em;
+            color: #555;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        h2.problem-number,
+        h3.problem-number {
+            margin-top: 0;
+            line-height: inherit;
+        }
+        .solution {
+            background-color: #fff3cd;
+            padding: 5px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution-label {
+            font-weight: 600;
+            color: #2563eb;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Fall 2026: Math 590 Exam 1 Practice Problems with Solutions</h1>
+    </header>
+
+    <main id="main-content">
+        <div class="instructions">
+            <p><strong>Instructions:</strong> The problems below are computational problems representative of the material covered so far. A solution follows each problem. When in doubt, it is always better to provide more detail than less. No calculators or other computational aids allowed.</p>
+        </div>
+
+        <!-- Problem 1 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 1</h2>
+
+            <p>For each of the following subsets, determine whether or not it is a subspace of the given vector space. For those that are subspaces, find a basis and give the dimension.</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(a) \(W = \left\{\begin{pmatrix} x\\y\\z\end{pmatrix}\in\mathbb{R}^3\ \Big|\ x+2y-3z = 0\right\}\).</li>
+                <li style="list-style-type: none;">(b) \(W = \left\{\begin{pmatrix} x\\y\\z\end{pmatrix}\in\mathbb{R}^3\ \Big|\ xy = 0\right\}\).</li>
+                <li style="list-style-type: none;">(c) \(W = \left\{A\in\mathrm{M}_2(\mathbb{R})\ \Big|\ A\begin{pmatrix} 1\\1\end{pmatrix} = \begin{pmatrix} 0\\0\end{pmatrix}\right\}\).</li>
+                <li style="list-style-type: none;">(d) \(W = \{p(x)\in P(2)\ |\ p(1) = 2p(0)\}\).</li>
+                <li style="list-style-type: none;">(e) \(W = \{p(x)\in P(2)\ |\ p(0) = 1\}\).</li>
+            </ol>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> (a) \(W\) is a subspace, since it is the solution space of a homogeneous system of linear equations (a single equation in three unknowns), and such solution spaces are subspaces, as noted in the lecture of August 26. Solving \(x = -2y+3z\), with \(y, z\) free, every element of \(W\) has the form</p>
+                <div class="math-display">
+                    \[\begin{pmatrix} -2y+3z\\y\\z\end{pmatrix} = y\begin{pmatrix} -2\\1\\0\end{pmatrix}+z\begin{pmatrix} 3\\0\\1\end{pmatrix}.\]
+                </div>
+                <p>Thus \(\left\{\begin{pmatrix} -2\\1\\0\end{pmatrix}, \begin{pmatrix} 3\\0\\1\end{pmatrix}\right\}\) spans \(W\), and these vectors are linearly independent (look at the second and third coordinates), so they form a basis for \(W\) and \(\dim(W) = 2\).</p>
+
+                <p>(b) \(W\) is not a subspace, since it is not closed under addition, condition (i) in the definition of subspace given in the lecture of August 26: \(\begin{pmatrix} 1\\0\\0\end{pmatrix}, \begin{pmatrix} 0\\1\\0\end{pmatrix}\in W\), but their sum \(\begin{pmatrix} 1\\1\\0\end{pmatrix}\not\in W\), since \(1\cdot 1 = 1\not= 0\).</p>
+
+                <p>(c) \(W\) is a subspace. Write \(u = \begin{pmatrix} 1\\1\end{pmatrix}\). If \(A, B\in W\) and \(\lambda\in\mathbb{R}\), then \((A+B)u = Au+Bu = \vec{0}+\vec{0} = \vec{0}\) and \((\lambda A)u = \lambda(Au) = \lambda\vec{0} = \vec{0}\), so \(A+B, \lambda A\in W\). For \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), \(Au = \begin{pmatrix} a+b\\c+d\end{pmatrix}\), so \(A\in W\) if and only if \(b = -a\) and \(d = -c\), i.e.,</p>
+                <div class="math-display">
+                    \[A = \begin{pmatrix} a & -a\\c & -c\end{pmatrix} = a\begin{pmatrix} 1 & -1\\0 & 0\end{pmatrix}+c\begin{pmatrix} 0 & 0\\1 & -1\end{pmatrix}.\]
+                </div>
+                <p>The two matrices on the right span \(W\) and are clearly linearly independent, so they form a basis for \(W\) and \(\dim(W) = 2\).</p>
+
+                <p>(d) \(W\) is a subspace: if \(p(1) = 2p(0)\) and \(q(1) = 2q(0)\), then \((p+q)(1) = p(1)+q(1) = 2p(0)+2q(0) = 2(p+q)(0)\), and \((\lambda p)(1) = \lambda p(1) = \lambda\cdot 2p(0) = 2(\lambda p)(0)\). Writing \(p(x) = a+bx+cx^2\), the condition \(p(1) = 2p(0)\) becomes \(a+b+c = 2a\), i.e., \(a = b+c\). Thus</p>
+                <div class="math-display">
+                    \[p(x) = (b+c)+bx+cx^2 = b(1+x)+c(1+x^2),\]
+                </div>
+                <p>so \(1+x, 1+x^2\) span \(W\). They are linearly independent (neither is a multiple of the other), so \(\{1+x, 1+x^2\}\) is a basis for \(W\) and \(\dim(W) = 2\).</p>
+
+                <p>(e) \(W\) is not a subspace: as noted in the lecture of August 26, every subspace contains \(\vec{0}\), but the zero polynomial satisfies \(0(0) = 0\not= 1\), so \(\vec{0}\not\in W\). (Alternatively, \(1\in W\), but \(1+1 = 2\not\in W\).)</p>
+            </div>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 2</h2>
+
+            <p>Let \(v_1 = \begin{pmatrix} 1\\2\\0\\1\end{pmatrix}\), \(v_2 = \begin{pmatrix} 0\\1\\1\\-1\end{pmatrix}\), \(v_3 = \begin{pmatrix} 2\\3\\-1\\3\end{pmatrix}\) and \(w = \begin{pmatrix} 3\\5\\h\\4\end{pmatrix}\) in \(\mathbb{R}^4\).</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(a) Find all values of \(h\) for which \(w\in\mathrm{Span}\{v_1, v_2, v_3\}\).</li>
+                <li style="list-style-type: none;">(b) Are \(v_1, v_2, v_3\) linearly independent? If not, find a non-trivial dependence relation among them.</li>
+                <li style="list-style-type: none;">(c) For the value(s) of \(h\) found in (a), write \(w\) as a linear combination of \(v_1, v_2, v_3\) in two different ways. Why doesn't this contradict uniqueness of representation?</li>
+                <li style="list-style-type: none;">(d) Find a basis for \(\mathrm{Span}\{v_1, v_2, v_3\}\) and give its dimension.</li>
+            </ol>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> (a) As discussed in the lecture of August 31 (see also the Summary in the lecture of September 2), \(w\in\mathrm{Span}\{v_1, v_2, v_3\}\) if and only if the system with augmented matrix \([v_1\ v_2\ v_3\ |\ w]\) has a solution. Row reducing (\(R_2-2R_1\), \(R_4-R_1\), then \(R_3-R_2\), \(R_4+R_2\)):</p>
+                <div class="math-display">
+                    \[\begin{aligned}
+                    \left[\begin{array}{ccc|c} 1 & 0 & 2 & 3\\2 & 1 & 3 & 5\\0 & 1 & -1 & h\\1 & -1 & 3 & 4\end{array}\right]
+                    &\longrightarrow
+                    \left[\begin{array}{ccc|c} 1 & 0 & 2 & 3\\0 & 1 & -1 & -1\\0 & 1 & -1 & h\\0 & -1 & 1 & 1\end{array}\right]\\[6pt]
+                    &\longrightarrow
+                    \left[\begin{array}{ccc|c} 1 & 0 & 2 & 3\\0 & 1 & -1 & -1\\0 & 0 & 0 & h+1\\0 & 0 & 0 & 0\end{array}\right].
+                    \end{aligned}\]
+                </div>
+                <p>The system is consistent if and only if \(h+1 = 0\). Thus \(w\in\mathrm{Span}\{v_1, v_2, v_3\}\) if and only if \(h = -1\).</p>
+
+                <p>(b) From the RREF of the coefficient matrix above, the homogeneous system \(x_1v_1+x_2v_2+x_3v_3 = \vec{0}\) has solutions \(x_1 = -2t\), \(x_2 = t\), \(x_3 = t\). Taking \(t = -1\) gives the non-trivial dependence relation \(2v_1-v_2-v_3 = \vec{0}\), i.e., \(v_3 = 2v_1-v_2\). By the Observation in the lecture of September 2, \(v_1, v_2, v_3\) are linearly dependent.</p>
+
+                <p>(c) For \(h = -1\), the solutions of the system in (a) are \(x_1 = 3-2t\), \(x_2 = -1+t\), \(x_3 = t\). Taking \(t = 0\) and \(t = 1\) gives</p>
+                <div class="math-display">
+                    \[w = 3v_1-v_2+0\cdot v_3 \quad \text{and}\quad w = v_1+0\cdot v_2+v_3.\]
+                </div>
+                <p>(Check: \(v_1+v_3 = \begin{pmatrix} 3\\5\\-1\\4\end{pmatrix} = w\).) This does not contradict Uniqueness of Representation, from the lecture of September 11, since that result requires \(v_1, v_2, v_3\) to be a basis, and by (b) they are not linearly independent.</p>
+
+                <p>(d) The pivots in the RREF of \([v_1\ v_2\ v_3]\) lie in columns 1 and 2, so by the algorithm for finding a basis, given in the lecture of September 14, \(\{v_1, v_2\}\) is a basis for \(\mathrm{Span}\{v_1, v_2, v_3\}\), which therefore has dimension 2.</p>
+            </div>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 3</h2>
+
+            <p>For \(k\in\mathbb{C}\), consider the vectors</p>
+            <div class="math-display">
+                \[v_1 = \begin{pmatrix} 1\\k\\0\end{pmatrix},\quad v_2 = \begin{pmatrix} 0\\1\\k\end{pmatrix},\quad v_3 = \begin{pmatrix} k\\0\\1\end{pmatrix}\]
+            </div>
+            <p>in \(\mathbb{C}^3\).</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(a) Find all \(k\in\mathbb{C}\) for which \(v_1, v_2, v_3\) are linearly dependent.</li>
+                <li style="list-style-type: none;">(b) For each real value of \(k\) found in (a), find a non-trivial dependence relation among \(v_1, v_2, v_3\).</li>
+                <li style="list-style-type: none;">(c) For \(k = 1\), explain without further calculation why \(v_1, v_2, v_3\) form a basis for \(\mathbb{C}^3\), and why the system \(AX = b\) has a unique solution for every \(b\in\mathbb{C}^3\), where \(A = [v_1\ v_2\ v_3]\).</li>
+            </ol>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> (a) Let \(A = [v_1\ v_2\ v_3] = \begin{pmatrix} 1 & 0 & k\\k & 1 & 0\\0 & k & 1\end{pmatrix}\). By the Very Important Special Case of Column Vectors, given in the lecture of September 11, the vectors are linearly dependent if and only if \(|A| = 0\). Expanding along the first row,</p>
+                <div class="math-display">
+                    \[|A| = 1\cdot\begin{vmatrix} 1 & 0\\k & 1\end{vmatrix}-0+k\cdot\begin{vmatrix} k & 1\\0 & k\end{vmatrix} = 1+k^3 = (k+1)(k^2-k+1).\]
+                </div>
+                <p>Thus \(v_1, v_2, v_3\) are linearly dependent if and only if \(k^3 = -1\), i.e.,</p>
+                <div class="math-display">
+                    \[k = -1,\quad k = \frac{1+i\sqrt{3}}{2},\quad k = \frac{1-i\sqrt{3}}{2}.\]
+                </div>
+
+                <p>(b) The only real value is \(k = -1\), where \(v_1 = \begin{pmatrix} 1\\-1\\0\end{pmatrix}\), \(v_2 = \begin{pmatrix} 0\\1\\-1\end{pmatrix}\), \(v_3 = \begin{pmatrix} -1\\0\\1\end{pmatrix}\). Then \(v_1+v_2+v_3 = \vec{0}\), a non-trivial dependence relation.</p>
+
+                <p>(c) For \(k = 1\), \(|A| = 1+1 = 2\not= 0\). By the theorem stated in the lecture of September 25 (see also the Very Important Special Case of Column Vectors from the lecture of September 11), the columns \(v_1, v_2, v_3\) of \(A\) are linearly independent and span \(\mathbb{C}^3\), so they form a basis for \(\mathbb{C}^3\); and \(A\) is invertible, so \(AX = b\) has the unique solution \(X = A^{-1}b\) for every \(b\in\mathbb{C}^3\).</p>
+            </div>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 4</h2>
+
+            <p>Let</p>
+            <div class="math-display">
+                \[A = \begin{pmatrix} 1 & 2 & 0 & 1 & 1\\2 & 4 & 1 & 3 & 0\\-1 & -2 & 1 & 0 & 1\\0 & 0 & 1 & 1 & 2\end{pmatrix},\]
+            </div>
+            <p>and let \(W\subseteq\mathbb{R}^4\) be the subspace spanned by the columns \(C_1, \ldots, C_5\) of \(A\).</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(a) Find the RREF of \(A\).</li>
+                <li style="list-style-type: none;">(b) Use the algorithm for finding a basis to find a basis for \(W\) consisting of columns of \(A\). What is \(\dim(W)\)?</li>
+                <li style="list-style-type: none;">(c) Express each column of \(A\) not in your basis as a linear combination of the basis vectors.</li>
+                <li style="list-style-type: none;">(d) Find a basis for the solution space of the homogeneous system \(AX = \vec{0}\) and give its dimension.</li>
+                <li style="list-style-type: none;">(e) Extend your basis for \(W\) from part (b) to a basis for \(\mathbb{R}^4\).</li>
+            </ol>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> (a) Using \(R_2-2R_1\), \(R_3+R_1\), then \(R_3-R_2\), \(R_4-R_2\), and finally \(\frac{1}{4}R_3\), \(R_4-4R_3\), \(R_2+2R_3\), \(R_1-R_3\):</p>
+                <div class="math-display">
+                    \[\begin{aligned}
+                    A &\longrightarrow \begin{pmatrix} 1 & 2 & 0 & 1 & 1\\0 & 0 & 1 & 1 & -2\\0 & 0 & 1 & 1 & 2\\0 & 0 & 1 & 1 & 2\end{pmatrix}
+                    \longrightarrow \begin{pmatrix} 1 & 2 & 0 & 1 & 1\\0 & 0 & 1 & 1 & -2\\0 & 0 & 0 & 0 & 4\\0 & 0 & 0 & 0 & 4\end{pmatrix}\\[6pt]
+                    &\longrightarrow R = \begin{pmatrix} 1 & 2 & 0 & 1 & 0\\0 & 0 & 1 & 1 & 0\\0 & 0 & 0 & 0 & 1\\0 & 0 & 0 & 0 & 0\end{pmatrix}.
+                    \end{aligned}\]
+                </div>
+
+                <p>(b) The pivots of \(R\) lie in columns 1, 3 and 5. By the algorithm for finding a basis, given in the lecture of September 14, \(\{C_1, C_3, C_5\}\) is a basis for \(W\), and \(\dim(W) = 3\).</p>
+
+                <p>(c) As shown in the lecture of September 14, elementary row operations preserve solution spaces, so dependence relations among the columns of \(R\) are the same as those among the columns of \(A\). In \(R\), column 2 is \(2\cdot\)(column 1) and column 4 is (column 1)\(+\)(column 3). Therefore</p>
+                <div class="math-display">
+                    \[C_2 = 2C_1 \quad\text{and}\quad C_4 = C_1+C_3,\]
+                </div>
+                <p>which is easily checked directly.</p>
+
+                <p>(d) From \(R\), the solutions of \(AX = \vec{0}\) satisfy \(x_1 = -2x_2-x_4\), \(x_3 = -x_4\), \(x_5 = 0\), with \(x_2, x_4\) free. Thus</p>
+                <div class="math-display">
+                    \[X = x_2\begin{pmatrix} -2\\1\\0\\0\\0\end{pmatrix}+x_4\begin{pmatrix} -1\\0\\-1\\1\\0\end{pmatrix},\]
+                </div>
+                <p>and these two vectors form a basis for the solution space, which has dimension \(2 = 5-3\), in agreement with the Fundamental Fact from the lecture of August 31.</p>
+
+                <p>(e) Since \(\dim(\mathbb{R}^4) = 4\) (Example (i) in the lecture of September 9), we need one more vector. Try \(e_1\): expanding along the last column,</p>
+                <div class="math-display">
+                    \[\begin{aligned}
+                    \big|[C_1\ C_3\ C_5\ e_1]\big| &= \begin{vmatrix} 1 & 0 & 1 & 1\\2 & 1 & 0 & 0\\-1 & 1 & 1 & 0\\0 & 1 & 2 & 0\end{vmatrix} = -\begin{vmatrix} 2 & 1 & 0\\-1 & 1 & 1\\0 & 1 & 2\end{vmatrix}\\[6pt]
+                    &= -\big(2(2-1)-1(-2-0)\big) = -4\not= 0.
+                    \end{aligned}\]
+                </div>
+                <p>By the Very Important Special Case of Column Vectors from the lecture of September 11, \(C_1, C_3, C_5, e_1\) are four linearly independent vectors in \(\mathbb{R}^4\), and hence form a basis for \(\mathbb{R}^4\). (Other choices are possible.)</p>
+            </div>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 5</h2>
+
+            <p>Let \(W_1 = \mathrm{Span}\left\{\begin{pmatrix} 1\\0\\1\\0\end{pmatrix}, \begin{pmatrix} 0\\1\\1\\1\end{pmatrix}\right\}\) and \(W_2 = \mathrm{Span}\left\{\begin{pmatrix} 1\\1\\0\\0\end{pmatrix}, \begin{pmatrix} 1\\1\\2\\1\end{pmatrix}\right\}\) be subspaces of \(\mathbb{R}^4\).</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(a) Find a basis for \(W_1+W_2\) and give its dimension.</li>
+                <li style="list-style-type: none;">(b) Find a basis for \(W_1\cap W_2\) and give its dimension.</li>
+                <li style="list-style-type: none;">(c) Is the sum \(W_1+W_2\) a direct sum? Is \(\mathbb{R}^4 = W_1+W_2\)?</li>
+                <li style="list-style-type: none;">(d) Find a subspace \(W_3\subseteq\mathbb{R}^4\) such that \(\mathbb{R}^4 = W_1\bigoplus W_3\).</li>
+            </ol>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> Write \(a_1 = \begin{pmatrix} 1\\0\\1\\0\end{pmatrix}\), \(a_2 = \begin{pmatrix} 0\\1\\1\\1\end{pmatrix}\), \(b_1 = \begin{pmatrix} 1\\1\\0\\0\end{pmatrix}\), \(b_2 = \begin{pmatrix} 1\\1\\2\\1\end{pmatrix}\). Note that a typical element of \(W_1\) is \(aa_1+ba_2 = \begin{pmatrix} a\\b\\a+b\\b\end{pmatrix}\), so \(v = \begin{pmatrix} x_1\\x_2\\x_3\\x_4\end{pmatrix}\in W_1\) if and only if \(x_3 = x_1+x_2\) and \(x_4 = x_2\).</p>
+
+                <p>(a) By the Important Fact from the lecture of August 28, \(W_1+W_2 = \mathrm{Span}\{a_1, a_2, b_1, b_2\}\). Observe \(b_2 = a_1+a_2\), so \(W_1+W_2 = \mathrm{Span}\{a_1, a_2, b_1\}\). These three are linearly independent: \(b_1\not\in W_1\), since its third coordinate \(0\not= 1+1\), and \(a_1, a_2\) are linearly independent. (Alternatively, the RREF of \([a_1\ a_2\ b_1\ b_2]\) has pivots in columns 1, 2, 3, and one can apply the algorithm for finding a basis from the lecture of September 14.) Thus \(\{a_1, a_2, b_1\}\) is a basis for \(W_1+W_2\) and \(\dim(W_1+W_2) = 3\).</p>
+
+                <p>(b) A typical element of \(W_2\) is \(sb_1+tb_2 = \begin{pmatrix} s+t\\s+t\\2t\\t\end{pmatrix}\). By the description of \(W_1\) above, this lies in \(W_1\) if and only if \(2t = (s+t)+(s+t)\) and \(t = s+t\), i.e., if and only if \(s = 0\). Thus \(W_1\cap W_2 = \mathrm{Span}\{b_2\} = \mathrm{Span}\left\{\begin{pmatrix} 1\\1\\2\\1\end{pmatrix}\right\}\), with basis \(\{b_2\}\), and \(\dim(W_1\cap W_2) = 1\).</p>
+
+                <p>(c) The sum is not direct, since \(W_1\cap W_2\not= \{\vec{0}\}\); see the definition of direct sum in the lecture of August 28. And \(W_1+W_2\not= \mathbb{R}^4\), since \(\dim(W_1+W_2) = 3 < 4\).</p>
+
+                <p>(d) Take \(W_3 = \mathrm{Span}\{e_1, e_2\}\), the set of vectors of the form \(\begin{pmatrix} c\\d\\0\\0\end{pmatrix}\). If \(v\in W_1\cap W_3\), then \(x_3 = x_4 = 0\), so \(x_2 = x_4 = 0\) and \(x_1 = x_3-x_2 = 0\); thus \(W_1\cap W_3 = \{\vec{0}\}\). Moreover, if \(aa_1+ba_2+ce_1+de_2 = \vec{0}\), then comparing coordinates gives \(a+c = 0\), \(b+d = 0\), \(a+b = 0\), \(b = 0\), so \(a = b = c = d = 0\). Thus \(a_1, a_2, e_1, e_2\) are four linearly independent vectors in \(\mathbb{R}^4\), hence a basis by the theorem in the lecture of September 11, and by the Important Fact from the lecture of August 28, \(W_1+W_3 = \mathrm{Span}\{a_1, a_2, e_1, e_2\} = \mathbb{R}^4\). Therefore, by the definition of direct sum in the lecture of August 28, \(\mathbb{R}^4 = W_1\bigoplus W_3\). (Other choices of \(W_3\) are possible.)</p>
+            </div>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 6</h2>
+
+            <p>Let \(P(3)\) denote the vector space of real polynomials of degree less than or equal to three, and let</p>
+            <div class="math-display">
+                \[\alpha = \{1,\ 1+x,\ (1+x)^2,\ (1+x)^3\}.\]
+            </div>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(a) Show that \(\alpha\) is a basis for \(P(3)\).</li>
+                <li style="list-style-type: none;">(b) For \(p(x) = 2-x+3x^2+x^3\), find \([p(x)]_\alpha\).</li>
+                <li style="list-style-type: none;">(c) Let \(\beta = \{1, x, x^2, x^3\}\). Find the change of basis matrix \([I]_\alpha^\beta\).</li>
+            </ol>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> (a) Expanding, \(1+x\), \((1+x)^2 = 1+2x+x^2\) and \((1+x)^3 = 1+3x+3x^2+x^3\). Writing the coordinate vectors of the elements of \(\alpha\) with respect to \(\{1, x, x^2, x^3\}\) as columns gives</p>
+                <div class="math-display">
+                    \[M = \begin{pmatrix} 1 & 1 & 1 & 1\\0 & 1 & 2 & 3\\0 & 0 & 1 & 3\\0 & 0 & 0 & 1\end{pmatrix}.\]
+                </div>
+                <p>\(M\) is upper triangular, so by property (vi) of the determinant from the lecture of September 23, \(|M| = 1\not= 0\). By the Very Important Special Case of Column Vectors from the lecture of September 11, the columns of \(M\) are linearly independent. Since coordinates respect linear combinations (formula (i) of the Three Important Formulas, lecture of September 18), the elements of \(\alpha\) are linearly independent in \(P(3)\). As \(\dim(P(3)) = 4\) (Example (iii) in the lecture of September 9), the theorem in the lecture of September 11 shows that the four linearly independent elements of \(\alpha\) form a basis.</p>
+
+                <p>(b) We seek \(a, b, c, d\) with \(p(x) = a+b(1+x)+c(1+x)^2+d(1+x)^3\). Comparing coefficients:</p>
+                <div class="math-display">
+                    \[x^3:\ d = 1;\quad x^2:\ c+3d = 3;\quad x:\ b+2c+3d = -1;\quad 1:\ a+b+c+d = 2.\]
+                </div>
+                <p>Back substitution gives \(d = 1\), \(c = 0\), \(b = -4\), \(a = 5\). Thus</p>
+                <div class="math-display">
+                    \[[p(x)]_\alpha = \begin{pmatrix} 5\\-4\\0\\1\end{pmatrix}.\]
+                </div>
+                <p>Check: \(5-4(1+x)+(1+x)^3 = 5-4-4x+1+3x+3x^2+x^3 = 2-x+3x^2+x^3\). (Alternatively, substitute \(x = y-1\) into \(p\) to get \(y^3-4y+5\).)</p>
+
+                <p>(c) By the definition of \([T]_\alpha^\beta\) given in the lecture of September 16 (applied to \(T = I\), as in the lecture of September 18), the \(j\)th column of \([I]_\alpha^\beta\) is the coordinate vector with respect to \(\beta\) of the \(j\)th element of \(\alpha\), so \([I]_\alpha^\beta = M\) from part (a):</p>
+                <div class="math-display">
+                    \[[I]_\alpha^\beta = \begin{pmatrix} 1 & 1 & 1 & 1\\0 & 1 & 2 & 3\\0 & 0 & 1 & 3\\0 & 0 & 0 & 1\end{pmatrix}.\]
+                </div>
+                <p>As a check, using formula (ii) of the Three Important Formulas from the lecture of September 18,</p>
+                <div class="math-display">
+                    \[[I]_\alpha^\beta\cdot[p]_\alpha = \begin{pmatrix} 5-4+0+1\\-4+0+3\\0+3\\1\end{pmatrix} = \begin{pmatrix} 2\\-1\\3\\1\end{pmatrix} = [p]_\beta.\]
+                </div>
+            </div>
+        </div>
+
+        <!-- Problem 7 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 7</h2>
+
+            <p>Define \(T: P(2)\to\mathbb{R}^3\) by</p>
+            <div class="math-display">
+                \[T(p(x)) = \begin{pmatrix} p(0)\\p(1)\\p'(1)\end{pmatrix}.\]
+            </div>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(a) Verify that \(T\) is a linear transformation.</li>
+                <li style="list-style-type: none;">(b) Let \(\alpha = \{1, x, x^2\}\) and \(\beta = \left\{\begin{pmatrix} 1\\0\\0\end{pmatrix}, \begin{pmatrix} 1\\1\\0\end{pmatrix}, \begin{pmatrix} 1\\1\\1\end{pmatrix}\right\}\). Find \([T]_\alpha^\beta\).</li>
+                <li style="list-style-type: none;">(c) For \(p(x) = 1-2x+x^2\), calculate \([T(p(x))]_\beta\) in two ways: directly, and by using the formula \([T(v)]_\beta = [T]_\alpha^\beta\cdot[v]_\alpha\).</li>
+                <li style="list-style-type: none;">(d) Use a determinant to decide whether \(T\) is one-to-one and onto.</li>
+            </ol>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> (a) We verify the two conditions in the definition of linear transformation given in the lecture of September 11. For \(p, q\in P(2)\) and \(\lambda\in\mathbb{R}\), using \((p+q)' = p'+q'\) and \((\lambda p)' = \lambda p'\),</p>
+                <div class="math-display">
+                    \[\begin{aligned}
+                    T(p+q) &= \begin{pmatrix} p(0)+q(0)\\p(1)+q(1)\\p'(1)+q'(1)\end{pmatrix} = T(p)+T(q),\\[6pt]
+                    T(\lambda p) &= \begin{pmatrix} \lambda p(0)\\\lambda p(1)\\\lambda p'(1)\end{pmatrix} = \lambda T(p).
+                    \end{aligned}\]
+                </div>
+
+                <p>(b) We have \(T(1) = \begin{pmatrix} 1\\1\\0\end{pmatrix}\), \(T(x) = \begin{pmatrix} 0\\1\\1\end{pmatrix}\), \(T(x^2) = \begin{pmatrix} 0\\1\\2\end{pmatrix}\). By the definition of \([T]_\alpha^\beta\) given in the lecture of September 16, we must write these in terms of \(\beta\). Writing \(\beta = \{u_1, u_2, u_3\}\), a vector \(\begin{pmatrix} a\\b\\c\end{pmatrix} = c_1u_1+c_2u_2+c_3u_3\) exactly when \(c_3 = c\), \(c_2 = b-c\), \(c_1 = a-b\). Hence</p>
+                <div class="math-display">
+                    \[T(1) = 0u_1+1u_2+0u_3,\quad T(x) = -u_1+0u_2+u_3,\quad T(x^2) = -u_1-u_2+2u_3,\]
+                </div>
+                <p>and</p>
+                <div class="math-display">
+                    \[[T]_\alpha^\beta = \begin{pmatrix} 0 & -1 & -1\\1 & 0 & -1\\0 & 1 & 2\end{pmatrix}.\]
+                </div>
+
+                <p>(c) Directly: \(p(x) = (x-1)^2\), so \(p(0) = 1\), \(p(1) = 0\), \(p'(1) = 0\), and \(T(p) = \begin{pmatrix} 1\\0\\0\end{pmatrix} = u_1\). Thus \([T(p)]_\beta = \begin{pmatrix} 1\\0\\0\end{pmatrix}\). Using formula (ii) of the Three Important Formulas from the lecture of September 18: \([p]_\alpha = \begin{pmatrix} 1\\-2\\1\end{pmatrix}\) and</p>
+                <div class="math-display">
+                    \[[T]_\alpha^\beta\cdot[p]_\alpha = \begin{pmatrix} 0 & -1 & -1\\1 & 0 & -1\\0 & 1 & 2\end{pmatrix}\begin{pmatrix} 1\\-2\\1\end{pmatrix} = \begin{pmatrix} 0+2-1\\1+0-1\\0-2+2\end{pmatrix} = \begin{pmatrix} 1\\0\\0\end{pmatrix},\]
+                </div>
+                <p>in agreement.</p>
+
+                <p>(d) Expanding along the first column, \(\big|[T]_\alpha^\beta\big| = -1\cdot\begin{vmatrix} -1 & -1\\1 & 2\end{vmatrix} = -1\cdot(-2+1) = 1\not= 0\), so \([T]_\alpha^\beta\) is invertible by the theorem in the lecture of September 25. If \(T(p) = \vec{0}\), then by formula (ii) of the Three Important Formulas (lecture of September 18), \([T]_\alpha^\beta[p]_\alpha = \vec{0}\), so \([p]_\alpha = \vec{0}\) and \(p = 0\); thus \(T\) is one-to-one (if \(T(p) = T(q)\), apply this to \(p-q\)). Given \(w\in\mathbb{R}^3\), set \(X = ([T]_\alpha^\beta)^{-1}[w]_\beta\) and let \(p\) be the polynomial with \([p]_\alpha = X\); then \([T(p)]_\beta = [w]_\beta\), so \(T(p) = w\). Thus \(T\) is onto.</p>
+            </div>
+        </div>
+
+        <!-- Problem 8 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 8</h2>
+
+            <p>Let \(T: \mathbb{R}^2\to\mathbb{R}^3\) be the linear transformation satisfying</p>
+            <div class="math-display">
+                \[T\begin{pmatrix} 1\\1\end{pmatrix} = \begin{pmatrix} 1\\0\\2\end{pmatrix} \quad\text{and}\quad T\begin{pmatrix} 1\\-1\end{pmatrix} = \begin{pmatrix} 3\\2\\0\end{pmatrix},\]
+            </div>
+            <p>and let \(S: \mathbb{R}^3\to\mathbb{R}^2\) be given by \(S\begin{pmatrix} x\\y\\z\end{pmatrix} = \begin{pmatrix} x-z\\y+2z\end{pmatrix}\).</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(a) Find a formula for \(T\begin{pmatrix} x\\y\end{pmatrix}\), and use it to calculate \(T\begin{pmatrix} 5\\1\end{pmatrix}\).</li>
+                <li style="list-style-type: none;">(b) Find \([T]_{\epsilon_2}^{\epsilon_3}\), where \(\epsilon_2\) and \(\epsilon_3\) denote the standard bases of \(\mathbb{R}^2\) and \(\mathbb{R}^3\).</li>
+                <li style="list-style-type: none;">(c) Let \(\alpha = \left\{\begin{pmatrix} 1\\1\end{pmatrix}, \begin{pmatrix} 1\\-1\end{pmatrix}\right\}\). Write down \([T]_\alpha^{\epsilon_3}\) and \([S]_{\epsilon_3}^{\epsilon_2}\), and use them to calculate \([ST]_\alpha^{\epsilon_2}\).</li>
+                <li style="list-style-type: none;">(d) Check your answer to (c) by calculating \(ST\begin{pmatrix} 1\\1\end{pmatrix}\) and \(ST\begin{pmatrix} 1\\-1\end{pmatrix}\) directly.</li>
+            </ol>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> (a) Solving \(\begin{pmatrix} x\\y\end{pmatrix} = a\begin{pmatrix} 1\\1\end{pmatrix}+b\begin{pmatrix} 1\\-1\end{pmatrix}\) gives \(a = \frac{x+y}{2}\), \(b = \frac{x-y}{2}\). Since a linear transformation is determined by its effect on a basis (lecture of September 16),</p>
+                <div class="math-display">
+                    \[T\begin{pmatrix} x\\y\end{pmatrix} = \frac{x+y}{2}\begin{pmatrix} 1\\0\\2\end{pmatrix}+\frac{x-y}{2}\begin{pmatrix} 3\\2\\0\end{pmatrix} = \begin{pmatrix} 2x-y\\x-y\\x+y\end{pmatrix}.\]
+                </div>
+                <p>In particular, \(T\begin{pmatrix} 5\\1\end{pmatrix} = \begin{pmatrix} 9\\4\\6\end{pmatrix}\). (Check: this formula gives the stated values of \(T\) at \(\begin{pmatrix} 1\\1\end{pmatrix}\) and \(\begin{pmatrix} 1\\-1\end{pmatrix}\).)</p>
+
+                <p>(b) By the definition of \([T]_\alpha^\beta\) given in the lecture of September 16, the columns are \(T(e_1)\) and \(T(e_2)\):</p>
+                <div class="math-display">
+                    \[[T]_{\epsilon_2}^{\epsilon_3} = \begin{pmatrix} 2 & -1\\1 & -1\\1 & 1\end{pmatrix}.\]
+                </div>
+
+                <p>(c) The columns of \([T]_\alpha^{\epsilon_3}\) are the given values of \(T\) on the elements of \(\alpha\), and the columns of \([S]_{\epsilon_3}^{\epsilon_2}\) are \(S(e_1), S(e_2), S(e_3)\):</p>
+                <div class="math-display">
+                    \[[T]_\alpha^{\epsilon_3} = \begin{pmatrix} 1 & 3\\0 & 2\\2 & 0\end{pmatrix}, \qquad [S]_{\epsilon_3}^{\epsilon_2} = \begin{pmatrix} 1 & 0 & -1\\0 & 1 & 2\end{pmatrix}.\]
+                </div>
+                <p>By formula (iii) of the Three Important Formulas from the lecture of September 18,</p>
+                <div class="math-display">
+                    \[[ST]_\alpha^{\epsilon_2} = [S]_{\epsilon_3}^{\epsilon_2}\cdot[T]_\alpha^{\epsilon_3} = \begin{pmatrix} 1 & 0 & -1\\0 & 1 & 2\end{pmatrix}\begin{pmatrix} 1 & 3\\0 & 2\\2 & 0\end{pmatrix} = \begin{pmatrix} -1 & 3\\4 & 2\end{pmatrix}.\]
+                </div>
+
+                <p>(d) \(ST\begin{pmatrix} 1\\1\end{pmatrix} = S\begin{pmatrix} 1\\0\\2\end{pmatrix} = \begin{pmatrix} 1-2\\0+4\end{pmatrix} = \begin{pmatrix} -1\\4\end{pmatrix}\) and \(ST\begin{pmatrix} 1\\-1\end{pmatrix} = S\begin{pmatrix} 3\\2\\0\end{pmatrix} = \begin{pmatrix} 3\\2\end{pmatrix}\). These are the columns found in (c).</p>
+            </div>
+        </div>
+
+        <!-- Problem 9 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 9</h2>
+
+            <p>Let \(T: \mathbb{R}^2\to\mathbb{R}^2\) be given by \(T\begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix} 4x-2y\\x+y\end{pmatrix}\). Let \(\alpha = \{e_1, e_2\}\) be the standard basis and \(\beta = \{f_1, f_2\}\), where \(f_1 = \begin{pmatrix} 2\\1\end{pmatrix}\) and \(f_2 = \begin{pmatrix} 1\\1\end{pmatrix}\).</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(a) Find \([T]_\alpha^\alpha\).</li>
+                <li style="list-style-type: none;">(b) Find the change of basis matrices \([I]_\beta^\alpha\) and \([I]_\alpha^\beta\), and verify that their product is \(I_2\).</li>
+                <li style="list-style-type: none;">(c) Use the change of basis formula to calculate \([T]_\beta^\beta\).</li>
+                <li style="list-style-type: none;">(d) Check your answer to (c) by calculating \(T(f_1)\) and \(T(f_2)\) directly and expressing them in terms of \(f_1, f_2\).</li>
+            </ol>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> (a) \(T(e_1) = \begin{pmatrix} 4\\1\end{pmatrix}\) and \(T(e_2) = \begin{pmatrix} -2\\1\end{pmatrix}\), so \(A := [T]_\alpha^\alpha = \begin{pmatrix} 4 & -2\\1 & 1\end{pmatrix}\).</p>
+
+                <p>(b) The columns of \([I]_\beta^\alpha\) are \(f_1, f_2\) written in the standard basis, so \(P := [I]_\beta^\alpha = \begin{pmatrix} 2 & 1\\1 & 1\end{pmatrix}\). By the Observations at the end of the lecture of September 18, \([I]_\alpha^\beta\) is its inverse; since \(|P| = 1\), using \(P^{-1} = \frac{1}{|P|}P'\) from the lecture of September 25,</p>
+                <div class="math-display">
+                    \[[I]_\alpha^\beta = P^{-1} = \begin{pmatrix} 1 & -1\\-1 & 2\end{pmatrix}.\]
+                </div>
+                <p>(Directly: \(e_1 = f_1-f_2\) and \(e_2 = -f_1+2f_2\).) Check: \(\begin{pmatrix} 2 & 1\\1 & 1\end{pmatrix}\begin{pmatrix} 1 & -1\\-1 & 2\end{pmatrix} = \begin{pmatrix} 1 & 0\\0 & 1\end{pmatrix}\), and similarly in the other order.</p>
+
+                <p>(c) By the Change of Basis Formula from the lecture of September 21,</p>
+                <div class="math-display">
+                    \[\begin{aligned}
+                    [T]_\beta^\beta &= [I]_\alpha^\beta\,[T]_\alpha^\alpha\,[I]_\beta^\alpha = P^{-1}AP = \begin{pmatrix} 1 & -1\\-1 & 2\end{pmatrix}\begin{pmatrix} 4 & -2\\1 & 1\end{pmatrix}\begin{pmatrix} 2 & 1\\1 & 1\end{pmatrix}\\[6pt]
+                    &= \begin{pmatrix} 1 & -1\\-1 & 2\end{pmatrix}\begin{pmatrix} 6 & 2\\3 & 2\end{pmatrix} = \begin{pmatrix} 3 & 0\\0 & 2\end{pmatrix}.
+                    \end{aligned}\]
+                </div>
+
+                <p>(d) \(T(f_1) = \begin{pmatrix} 8-2\\2+1\end{pmatrix} = \begin{pmatrix} 6\\3\end{pmatrix} = 3f_1+0f_2\) and \(T(f_2) = \begin{pmatrix} 4-2\\1+1\end{pmatrix} = \begin{pmatrix} 2\\2\end{pmatrix} = 0f_1+2f_2\). So \([T]_\beta^\beta = \begin{pmatrix} 3 & 0\\0 & 2\end{pmatrix}\), as in (c).</p>
+            </div>
+        </div>
+
+        <!-- Problem 10 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 10</h2>
+
+            <p>Determinants.</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(a) Use elementary row operations to calculate \(\begin{vmatrix} 1 & 2 & 0 & 3\\2 & 5 & 1 & 4\\-1 & 0 & 3 & 2\\3 & 6 & 1 & 10\end{vmatrix}\).</li>
+                <li style="list-style-type: none;">(b) Let \(B = \begin{pmatrix} 1 & 0 & 2\\2 & 1 & 0\\0 & 3 & 1\end{pmatrix}\). Calculate \(|B|\), the classical adjoint \(B'\) of \(B\), and use these to find \(B^{-1}\).</li>
+                <li style="list-style-type: none;">(c) Use Cramer's Rule to find \(x_2\) in the solution to the system
+                    <div class="math-display">
+                        \[\begin{array}{rcrcrcr}
+                        x_1 & & & + & 2x_3 & = & 1\\
+                        2x_1 & + & x_2 & & & = & 4\\
+                         & & 3x_2 & + & x_3 & = & 2.
+                        \end{array}\]
+                    </div>
+                </li>
+                <li style="list-style-type: none;">(d) Suppose \(A\) is a \(3\times 3\) matrix with \(|A| = 3\). Calculate \(|2A|\), \(|A^{-1}|\), \(|A^4|\) and \(|A'|\), where \(A'\) denotes the classical adjoint of \(A\).</li>
+            </ol>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> (a) By property (v) of the determinant from the lecture of September 23, adding a multiple of one row to another row does not change the determinant. Using \(R_2-2R_1\), \(R_3+R_1\), \(R_4-3R_1\), and then \(R_3-2R_2\), \(R_4-R_3\):</p>
+                <div class="math-display">
+                    \[\begin{aligned}
+                    \begin{vmatrix} 1 & 2 & 0 & 3\\2 & 5 & 1 & 4\\-1 & 0 & 3 & 2\\3 & 6 & 1 & 10\end{vmatrix}
+                    &= \begin{vmatrix} 1 & 2 & 0 & 3\\0 & 1 & 1 & -2\\0 & 2 & 3 & 5\\0 & 0 & 1 & 1\end{vmatrix}
+                    = \begin{vmatrix} 1 & 2 & 0 & 3\\0 & 1 & 1 & -2\\0 & 0 & 1 & 9\\0 & 0 & 1 & 1\end{vmatrix}\\[6pt]
+                    &= \begin{vmatrix} 1 & 2 & 0 & 3\\0 & 1 & 1 & -2\\0 & 0 & 1 & 9\\0 & 0 & 0 & -8\end{vmatrix} = 1\cdot 1\cdot 1\cdot(-8) = -8,
+                    \end{aligned}\]
+                </div>
+                <p>the last step using property (vi) from the lecture of September 23, since the last matrix is upper triangular.</p>
+
+                <p>(b) Expanding along the first row, as in the definition of the determinant from the lecture of September 23, \(|B| = 1(1\cdot 1-0\cdot 3)-0+2(2\cdot 3-1\cdot 0) = 1+12 = 13\). The cofactors \((-1)^{i+j}|B_{ij}|\) are</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    &C_{11} = 1, && C_{12} = -2, && C_{13} = 6,\\
+                    &C_{21} = -(0-6) = 6, && C_{22} = 1, && C_{23} = -(3-0) = -3,\\
+                    &C_{31} = 0-2 = -2, && C_{32} = -(0-4) = 4, && C_{33} = 1.
+                    \end{align*}\]
+                </div>
+                <p>By the definition in the lecture of September 25, the classical adjoint is the transpose of the matrix of cofactors, and, as shown in that lecture, \(B^{-1} = \frac{1}{|B|}B'\):</p>
+                <div class="math-display">
+                    \[B' = \begin{pmatrix} 1 & 6 & -2\\-2 & 1 & 4\\6 & -3 & 1\end{pmatrix}, \qquad B^{-1} = \frac{1}{13}\begin{pmatrix} 1 & 6 & -2\\-2 & 1 & 4\\6 & -3 & 1\end{pmatrix}.\]
+                </div>
+                <p>(Check: the first row of \(B\) times the columns of \(B'\) gives \((1+12,\ 6-6,\ -2+2) = (13, 0, 0)\), etc.)</p>
+
+                <p>(c) The coefficient matrix of the system is \(B\) from part (b), and \(b = \begin{pmatrix} 1\\4\\2\end{pmatrix}\). Replacing the second column of \(B\) by \(b\),</p>
+                <div class="math-display">
+                    \[|B_2| = \begin{vmatrix} 1 & 1 & 2\\2 & 4 & 0\\0 & 2 & 1\end{vmatrix} = 1(4-0)-1(2-0)+2(4-0) = 10,\]
+                </div>
+                <p>so by Cramer's Rule, from the lecture of September 25, \(x_2 = \frac{|B_2|}{|B|} = \frac{10}{13}\). (In fact, \(X = B^{-1}b = \frac{1}{13}\begin{pmatrix} 21\\10\\-4\end{pmatrix}\).)</p>
+
+                <p>(d) By property (i) of the determinant from the lecture of September 23, multiplying each of the three rows of \(A\) by 2 multiplies the determinant by 2 three times, so \(|2A| = 2^3|A| = 24\). From \(AA^{-1} = I_3\) and \(|AB| = |A||B|\) (lecture of September 25), \(|A||A^{-1}| = 1\), so \(|A^{-1}| = \frac{1}{3}\). Similarly \(|A^4| = |A|^4 = 81\). Finally, \(AA' = |A|\cdot I_3\) (lecture of September 25) gives \(|A|\cdot|A'| = \big||A|\cdot I_3\big| = |A|^3\), so \(|A'| = |A|^2 = 9\).</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX exam practice problems and solutions. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>

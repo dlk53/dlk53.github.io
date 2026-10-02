@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2026: Math 590 Exam 1 Solutions</title>
+    <script>
+        MathJax = {
+            loader: {load: ['[tex]/amscd']},
+            tex: {
+                packages: {'[+]': ['amscd']},
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.0
+            },
+            chtml: {
+                scale: 1.0,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        h2.section-title {
+            color: #8b2e3f;
+            font-size: 1.35em;
+            margin: 40px 0 10px;
+        }
+        h2.section-title .points {
+            font-weight: normal;
+            font-size: 0.8em;
+            color: #555;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        h2.problem-number,
+        h3.problem-number {
+            margin-top: 0;
+            line-height: inherit;
+        }
+        .solution {
+            background-color: #fff3cd;
+            padding: 5px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution-label {
+            font-weight: 600;
+            color: #2563eb;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Fall 2026: Math 590 Exam 1 Solutions</h1>
+    </header>
+
+    <main id="main-content">
+        <div class="instructions">
+            <p>Throughout, unless \(V\) is identified explicitly, \(V\) will denote a vector space over \(F\), where \(F\) denotes either \(\mathbb{R}\) or \(\mathbb{C}\).</p>
+        </div>
+
+        <h2 class="section-title">True-False and Short Answer <span class="points">(40 points)</span></h2>
+
+        <div class="problem">
+            <h3 class="problem-number">Problem 1</h3>
+
+            <p>True or False: If \(V\) is a 10 dimensional vector space, then \(V\) can be spanned by 15 vectors.</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Answer.</span> True.</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3 class="problem-number">Problem 2</h3>
+
+            <p>True or False: There exists a system of \(m\) linear equations in \(n\) unknowns with exactly 17 solutions.</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Answer.</span> False.</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3 class="problem-number">Problem 3</h3>
+
+            <p>Define what it means for the vectors \(v_1, \ldots, v_n\in V\) to be linearly independent. Do not just say the vectors are not linearly dependent.</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> The vectors \(v_1, \ldots, v_n\) are linearly independent if whenever \(a_1, \ldots, a_n\in F\) satisfy</p>
+                <div class="math-display">
+                    \[a_1v_1+a_2v_2+\cdots+a_nv_n = 0,\]
+                </div>
+                <p>then \(a_1 = a_2 = \cdots = a_n = 0\). Equivalently, no \(v_j\) belongs to \(\mathrm{Span}\{v_1, \ldots, v_{j-1}, v_{j+1}, \ldots, v_n\}\).</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3 class="problem-number">Problem 4</h3>
+
+            <p>State the Exchange Theorem.</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> Suppose \(v_1, \ldots, v_t\) span the subspace \(W\) and \(w_1, \ldots, w_s\in W\) are linearly independent. Then \(s\leq t\), and after renumbering the \(v_i\) if necessary, the vectors</p>
+                <div class="math-display">
+                    \[w_1, \ldots, w_s, v_{s+1}, \ldots, v_t\]
+                </div>
+                <p>span \(W\).</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3 class="problem-number">Problem 5</h3>
+
+            <p>Let \(A\) be an \(n\times n\) matrix. State three equivalent conditions for \(|A|\not= 0\).</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> Possible answers include the following which are equivalent to \(|A|\neq 0\):</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(A\) is invertible.</li>
+                    <li style="list-style-type: none;">(ii) The rows (or columns) of \(A\) form a basis for \(F^n\).</li>
+                    <li style="list-style-type: none;">(iii) For every \(b\in F^n\), the system \(AX = b\) has a unique solution.</li>
+                    <li style="list-style-type: none;">(iv) The columns (equivalently, the rows) of \(A\) are linearly independent.</li>
+                    <li style="list-style-type: none;">(v) \(A\) is row equivalent to the identity matrix \(I_n\).</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3 class="problem-number">Problem 6</h3>
+
+            <p>Write \(\mathrm{det}\begin{pmatrix} 1 & 0 & 3 & -4\\2 & 1 & 0 & -6\\0 & 0 & 2 & 5\\1 & 1 & 2 & 9\end{pmatrix}\) by expanding along the 3rd column. <strong>Do not calculate</strong> the resulting \(3\times 3\) determinants.</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> The entries of the third column are \(a_{13} = 3\), \(a_{23} = 0\), \(a_{33} = 2\), \(a_{43} = 2\), with signs \((-1)^{i+3}\), namely \(+, -, +, -\). Thus</p>
+                <div class="math-display">
+                    \[\begin{aligned}
+                    \mathrm{det}\begin{pmatrix} 1 & 0 & 3 & -4\\2 & 1 & 0 & -6\\0 & 0 & 2 & 5\\1 & 1 & 2 & 9\end{pmatrix}
+                    &= 3\,\mathrm{det}\begin{pmatrix} 2 & 1 & -6\\0 & 0 & 5\\1 & 1 & 9\end{pmatrix}
+                    - 0\,\mathrm{det}\begin{pmatrix} 1 & 0 & -4\\0 & 0 & 5\\1 & 1 & 9\end{pmatrix}\\[6pt]
+                    &\quad + 2\,\mathrm{det}\begin{pmatrix} 1 & 0 & -4\\2 & 1 & -6\\1 & 1 & 9\end{pmatrix}
+                    - 2\,\mathrm{det}\begin{pmatrix} 1 & 0 & -4\\2 & 1 & -6\\0 & 0 & 5\end{pmatrix}.
+                    \end{aligned}\]
+                </div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3 class="problem-number">Problem 7</h3>
+
+            <p>True or False: \(\mathrm{det}\begin{pmatrix} a & b & c\\d & e & f\\a & b & c\end{pmatrix} = -\mathrm{det}\begin{pmatrix} a & b & c\\d & e & f\\a & b & c\end{pmatrix}\).</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Answer.</span> True.</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3 class="problem-number">Problem 8</h3>
+
+            <p>Let \(V, W, U\) be vector spaces over \(F\) with bases \(\alpha, \beta, \gamma\) and suppose \(T: V\to W\) and \(S: W\to U\) are linear transformations. Place the given bases in the appropriate places to make the formula \([ST] = [S]\cdot [T]\) valid.</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span></p>
+                <div class="math-display">
+                    \[[ST]_{\alpha}^{\gamma} = [S]_{\beta}^{\gamma}\cdot [T]_{\alpha}^{\beta}.\]
+                </div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3 class="problem-number">Problem 9</h3>
+
+            <p>Let \(T: V\to V\) be a linear transformation and suppose \(\alpha, \beta\) are bases for \(V\). Write the change of basis formula relating the matrix of \(T\) with respect to \(\alpha\) to the matrix of \(T\) with respect to \(\beta\).</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> Let \(I: V\to V\) be the identity map. Then</p>
+                <div class="math-display">
+                    \[[T]_{\beta}^{\beta} = [I]_{\alpha}^{\beta}\,[T]_{\alpha}^{\alpha}\,[I]_{\beta}^{\alpha}.\]
+                </div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3 class="problem-number">Problem 10</h3>
+
+            <p>For the matrix \(A = \begin{pmatrix} 2 & 4 & -9\\0 & 2 & 5\\1 & 5 & 2\end{pmatrix}\), find the \((2,3)\) entry of \(A'\), the adjugate or classical adjoint of \(A\).</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> The adjugate is the transpose of the cofactor matrix \(C\) whose \((i,j)\) entry is \((-1)^{i+j}|A_{ij}|\), so the \((2,3)\) entry of \(A'\) is the \((3,2)\) entry of \(C\). Deleting row 3 and column 2 of \(A\) gives</p>
+                <div class="math-display">
+                    \[(A')_{23} = C_{32} = (-1)^{3+2}\,\mathrm{det}\begin{pmatrix} 2 & -9\\0 & 5\end{pmatrix} = -(10-0) = -10.\]
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Calculation Problems <span class="points">(60 points)</span></h2>
+
+        <p>For these problems, we let \(V\) denote the vector space of real \(2\times 2\) matrices and recall that if \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\), then \(\mathrm{tr}(A)\), the trace of \(A\), is \(a+d\).</p>
+
+        <div class="problem">
+            <h3 class="problem-number">Problem 1</h3>
+
+            <p>Let \(W = \{A\in V\ |\ \mathrm{tr}(A) = 0\}\). Verify that \(W\) is a subspace of \(V\).</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> We check the two subspace conditions. Let \(A = \begin{pmatrix} a_1 & b_1\\c_1 & d_1\end{pmatrix}\) and \(B = \begin{pmatrix} a_2 & b_2\\c_2 & d_2\end{pmatrix}\) be in \(W\), so \(a_1+d_1 = 0\) and \(a_2+d_2 = 0\), and let \(\lambda\in\mathbb{R}\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(A+B = \begin{pmatrix} a_1+a_2 & b_1+b_2\\c_1+c_2 & d_1+d_2\end{pmatrix}\), so \(\mathrm{tr}(A+B) = (a_1+a_2)+(d_1+d_2) = (a_1+d_1)+(a_2+d_2) = 0+0 = 0\). Hence \(A+B\in W\), so \(W\) is closed under addition.</li>
+                    <li style="list-style-type: none;">(ii) \(\lambda A = \begin{pmatrix} \lambda a_1 & \lambda b_1\\\lambda c_1 & \lambda d_1\end{pmatrix}\), so \(\mathrm{tr}(\lambda A) = \lambda a_1+\lambda d_1 = \lambda(a_1+d_1) = \lambda\cdot 0 = 0\). Hence \(\lambda A\in W\), so \(W\) is closed under scalar multiplication.</li>
+                </ol>
+                <p>Therefore \(W\) is a subspace of \(V\).</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3 class="problem-number">Problem 2</h3>
+
+            <p>Find a basis \(\alpha\) for \(W\). Be sure to justify your answer.</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> If \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\in W\), then \(d = -a\), so</p>
+                <div class="math-display">
+                    \[A = \begin{pmatrix} a & b\\c & -a\end{pmatrix} = a\begin{pmatrix} 1 & 0\\0 & -1\end{pmatrix}+b\begin{pmatrix} 0 & 1\\0 & 0\end{pmatrix}+c\begin{pmatrix} 0 & 0\\1 & 0\end{pmatrix}.\]
+                </div>
+                <p>Let</p>
+                <div class="math-display">
+                    \[v_1 = \begin{pmatrix} 1 & 0\\0 & -1\end{pmatrix},\quad v_2 = \begin{pmatrix} 0 & 1\\0 & 0\end{pmatrix},\quad v_3 = \begin{pmatrix} 0 & 0\\1 & 0\end{pmatrix},\]
+                </div>
+                <p>and \(\alpha = \{v_1, v_2, v_3\}\). Each \(v_i\) has trace \(0\), so \(\alpha\subseteq W\).</p>
+
+                <p><em>Spanning:</em> The displayed equation shows every \(A\in W\) is a linear combination of \(v_1, v_2, v_3\), so \(\alpha\) spans \(W\).</p>
+
+                <p><em>Linear independence:</em> If \(av_1+bv_2+cv_3 = 0\), then</p>
+                <div class="math-display">
+                    \[\begin{pmatrix} a & b\\c & -a\end{pmatrix} = \begin{pmatrix} 0 & 0\\0 & 0\end{pmatrix},\]
+                </div>
+                <p>so \(a = b = c = 0\).</p>
+
+                <p>Hence \(\alpha\) is a basis for \(W\), and \(\dim W = 3\).</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3 class="problem-number">Problem 3</h3>
+
+            <p>For \(A = \begin{pmatrix} a & b\\c & d\end{pmatrix}\) in \(W\), let \(T: W\to W\) be the linear transformation defined by \(T(A) = A'\), where \(A'\) is the adjugate or classical adjoint of \(A\). For \(\alpha\) in Problem 2, find \([T]_{\alpha}^{\alpha}\).</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> For a \(2\times 2\) matrix, \(\begin{pmatrix} a & b\\c & d\end{pmatrix}' = \begin{pmatrix} d & -b\\-c & a\end{pmatrix}\). Applying this to the basis vectors:</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    T(v_1) &= \begin{pmatrix} -1 & 0\\0 & 1\end{pmatrix} = -1\cdot v_1+0\cdot v_2+0\cdot v_3,\\
+                    T(v_2) &= \begin{pmatrix} 0 & -1\\0 & 0\end{pmatrix} = 0\cdot v_1-1\cdot v_2+0\cdot v_3,\\
+                    T(v_3) &= \begin{pmatrix} 0 & 0\\-1 & 0\end{pmatrix} = 0\cdot v_1+0\cdot v_2-1\cdot v_3.
+                    \end{align*}\]
+                </div>
+                <p>Thus:</p>
+                <div class="math-display">
+                    \[[T]_{\alpha}^{\alpha} = \begin{pmatrix} -1 & 0 & 0\\0 & -1 & 0\\0 & 0 & -1\end{pmatrix} = -I_3.\]
+                </div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3 class="problem-number">Problem 4</h3>
+
+            <p>For \(A\in W\), let \(S: W\to V\) be defined by \(S(A) = A\). Let \(\beta\subseteq V\) be the standard basis. Find \([ST]_{\alpha}^{\beta}\) in two ways: directly and by using the product formula.</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> Here \(S(A) = A\) is the inclusion of \(W\) into \(V\), and \(\beta = \{E_1, E_2, E_3, E_4\}\), where</p>
+                <div class="math-display">
+                    \[E_1 = \begin{pmatrix} 1 & 0\\0 & 0\end{pmatrix},\quad E_2 = \begin{pmatrix} 0 & 1\\0 & 0\end{pmatrix},\quad E_3 = \begin{pmatrix} 0 & 0\\1 & 0\end{pmatrix},\quad E_4 = \begin{pmatrix} 0 & 0\\0 & 1\end{pmatrix}.\]
+                </div>
+
+                <p><em>Directly.</em> By Problem 3, \(ST(A) = S(-A) = -A\) for \(A\in W\). Thus</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    ST(v_1) &= \begin{pmatrix} -1 & 0\\0 & 1\end{pmatrix} = -E_1+0E_2+0E_3+E_4,\\
+                    ST(v_2) &= \begin{pmatrix} 0 & -1\\0 & 0\end{pmatrix} = 0E_1-E_2+0E_3+0E_4,\\
+                    ST(v_3) &= \begin{pmatrix} 0 & 0\\-1 & 0\end{pmatrix} = 0E_1+0E_2-E_3+0E_4,
+                    \end{align*}\]
+                </div>
+                <p>so</p>
+                <div class="math-display">
+                    \[[ST]_{\alpha}^{\beta} = \begin{pmatrix} -1 & 0 & 0\\0 & -1 & 0\\0 & 0 & -1\\1 & 0 & 0\end{pmatrix}.\]
+                </div>
+
+                <p><em>Using the product formula.</em> First compute \([S]_{\alpha}^{\beta}\):</p>
+                <div class="math-display">
+                    \[\begin{align*}
+                    S(v_1) &= \begin{pmatrix} 1 & 0\\0 & -1\end{pmatrix} = E_1+0E_2+0E_3-E_4,\\
+                    S(v_2) &= \begin{pmatrix} 0 & 1\\0 & 0\end{pmatrix} = 0E_1+E_2+0E_3+0E_4,\\
+                    S(v_3) &= \begin{pmatrix} 0 & 0\\1 & 0\end{pmatrix} = 0E_1+0E_2+E_3+0E_4,
+                    \end{align*}\]
+                </div>
+                <p>so</p>
+                <div class="math-display">
+                    \[[S]_{\alpha}^{\beta} = \begin{pmatrix} 1 & 0 & 0\\0 & 1 & 0\\0 & 0 & 1\\-1 & 0 & 0\end{pmatrix}.\]
+                </div>
+                <p>Then</p>
+                <div class="math-display">
+                    \[[ST]_{\alpha}^{\beta} = [S]_{\alpha}^{\beta}\,[T]_{\alpha}^{\alpha} = \begin{pmatrix} 1 & 0 & 0\\0 & 1 & 0\\0 & 0 & 1\\-1 & 0 & 0\end{pmatrix}\begin{pmatrix} -1 & 0 & 0\\0 & -1 & 0\\0 & 0 & -1\end{pmatrix} = \begin{pmatrix} -1 & 0 & 0\\0 & -1 & 0\\0 & 0 & -1\\1 & 0 & 0\end{pmatrix},\]
+                </div>
+                <p>which agrees with the direct computation.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Bonus Problem <span class="points">(10 points)</span></h2>
+
+        <div class="problem">
+            <p>Let \(T: V\to W\) be a linear transformation and suppose \(\alpha, \alpha'\) are bases for \(V\) and \(\beta, \beta'\) are bases for \(W\). Find a change of basis formula relating the matrix of \(T\) with respect to \(\alpha, \beta\) to the matrix of \(T\) with respect to \(\alpha', \beta'\).</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> Let \(I_V: V\to V\) and \(I_W: W\to W\) be the identity maps. Then \(T = I_W\circ T\circ I_V\). Viewing \(I_V\) as a map from \(V\) with basis \(\alpha'\) to \(V\) with basis \(\alpha\), \(T\) as a map from \(V\) with basis \(\alpha\) to \(W\) with basis \(\beta\), and \(I_W\) as a map from \(W\) with basis \(\beta\) to \(W\) with basis \(\beta'\), the product formula from Problem 8 (applied twice) gives</p>
+                <div class="math-display">
+                    \[[T]_{\alpha'}^{\beta'} = [I_W T I_V]_{\alpha'}^{\beta'} = [I_W]_{\beta}^{\beta'}\,[T]_{\alpha}^{\beta}\,[I_V]_{\alpha'}^{\alpha}.\]
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX exam solutions. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
