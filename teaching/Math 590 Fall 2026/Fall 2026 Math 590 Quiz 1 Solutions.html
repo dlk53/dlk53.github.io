@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2026: Math 590 Quiz 1 Solutions</title>
+    <script>
+        MathJax = {
+            loader: {load: ['[tex]/amscd']},
+            tex: {
+                packages: {'[+]': ['amscd']},
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.0
+            },
+            chtml: {
+                scale: 1.0,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        h2.section-title {
+            color: #8b2e3f;
+            font-size: 1.35em;
+            margin: 40px 0 10px;
+        }
+        h2.section-title .points {
+            font-weight: normal;
+            font-size: 0.8em;
+            color: #555;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        h2.problem-number,
+        h3.problem-number {
+            margin-top: 0;
+            line-height: inherit;
+        }
+        .solution {
+            background-color: #fff3cd;
+            padding: 5px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution-label {
+            font-weight: 600;
+            color: #2563eb;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Fall 2026: Math 590 Quiz 1 Solutions</h1>
+    </header>
+
+    <main id="main-content">
+
+        <!-- Problem 1 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 1</h2>
+
+            <p>Let \(V\) denote the set \(\mathbb{R}_+^2\) with the following binary operations: \((x_1, y_1)+'(x_2, y_2) := (x_1x_2, y_1y_2)\) and \(c\cdot'(x, y) := (x^c, y^c)\). Verify the following vector space axioms, where the scalars are from \(\mathbb{R}\):</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) Additive inverses exist.</li>
+                <li style="list-style-type: none;">(ii) Scalar multiplication distributes over vector sum.</li>
+                <li style="list-style-type: none;">(iii) Scalar multiplication is associative.</li>
+            </ol>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> (i) The additive identity for \(+'\) is \((1,1)\), since</p>
+                <div class="math-display">
+                    \[(x,y)+'(1,1) = (x\cdot 1,\, y\cdot 1) = (x,y).\]
+                </div>
+                <p>Given \((x,y)\in V\), take \(\left(\frac{1}{x}, \frac{1}{y}\right)\in V\) (this lies in \(V\) since \(x, y > 0\) implies \(1/x, 1/y > 0\)). Then</p>
+                <div class="math-display">
+                    \[(x,y)+'\left(\frac{1}{x}, \frac{1}{y}\right) = \left(x\cdot\frac{1}{x},\ y\cdot\frac{1}{y}\right) = (1,1),\]
+                </div>
+                <p>so every element of \(V\) has an additive inverse with respect to \(+'\).</p>
+
+                <p>(ii) Let \(c\in\mathbb{R}\) and \((x_1, y_1), (x_2, y_2)\in V\). Then</p>
+                <div class="math-display">
+                    \[c\cdot'\big((x_1,y_1)+'(x_2,y_2)\big) = c\cdot'(x_1x_2,\, y_1y_2) = \big((x_1x_2)^c,\ (y_1y_2)^c\big) = \big(x_1^cx_2^c,\ y_1^cy_2^c\big).\]
+                </div>
+                <p>On the other hand,</p>
+                <div class="math-display">
+                    \[c\cdot'(x_1,y_1)+'c\cdot'(x_2,y_2) = (x_1^c, y_1^c)+'(x_2^c, y_2^c) = (x_1^cx_2^c,\ y_1^cy_2^c).\]
+                </div>
+                <p>The two expressions agree, so \(c\cdot'\big((x_1,y_1)+'(x_2,y_2)\big) = c\cdot'(x_1,y_1)+'c\cdot'(x_2,y_2)\).</p>
+
+                <p>(iii) Let \(c, d\in\mathbb{R}\) and \((x,y)\in V\). Then</p>
+                <div class="math-display">
+                    \[c\cdot'\big(d\cdot'(x,y)\big) = c\cdot'(x^d, y^d) = \big((x^d)^c,\ (y^d)^c\big) = (x^{cd}, y^{cd}).\]
+                </div>
+                <p>On the other hand,</p>
+                <div class="math-display">
+                    \[(cd)\cdot'(x,y) = (x^{cd}, y^{cd}).\]
+                </div>
+                <p>Since these agree, \(c\cdot'(d\cdot'(x,y)) = (cd)\cdot'(x,y)\).</p>
+            </div>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 2</h2>
+
+            <p>Let \(V\) be a vector space over \(F\) and \(W_1, W_2\) subspaces of \(V\). First define what it means for \(V\) to be the direct sum of \(W_1\) and \(W_2\) and then give an example of spaces \(V, W_1, W_2\) such that \(V = W_1\bigoplus W_2\).</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> \(V\) is the (internal) direct sum of \(W_1\) and \(W_2\), written \(V = W_1\bigoplus W_2\), if both of the following hold:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(a) \(V = W_1+W_2\), i.e., every \(v\in V\) can be written as \(v = w_1+w_2\) for some \(w_1\in W_1\), \(w_2\in W_2\); and</li>
+                    <li style="list-style-type: none;">(b) \(W_1\cap W_2 = \{0\}\).</li>
+                </ol>
+
+                <p><strong>Example.</strong> Let \(V = \mathbb{R}^2\), and let</p>
+                <div class="math-display">
+                    \[W_1 = \{(x,0) : x\in\mathbb{R}\}, \qquad W_2 = \{(0,y) : y\in\mathbb{R}\}\]
+                </div>
+                <p>be the \(x\)-axis and \(y\)-axis, respectively. Each \(W_i\) is a subspace of \(V\). Given any \((x,y)\in V\), we have \((x,y) = (x,0)+(0,y)\) with \((x,0)\in W_1\) and \((0,y)\in W_2\), so \(V = W_1+W_2\). Moreover if \((x,0) = (0,y)\) then \(x = 0\) and \(y = 0\), so \(W_1\cap W_2 = \{(0,0)\}\). Hence \(V = W_1\bigoplus W_2\).</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX quiz solutions. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
