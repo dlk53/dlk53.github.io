@@ -703,6 +703,39 @@
             <h2 class="problem-number">Friday, October 2</h2>  Exam 1.
             </div>
 
+        <div class="problem">
+            <h2 class="problem-number">Monday, October 5</h2>
+
+            <p>We continued our discussion of eigenvectors and eigenvalues by recalling the definitions and items (vi) and (vii) from the properties of eigenvectors and eigenvalues given in the lecture of September 28. We also discussed at length the following important points.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Important points.</span> Suppose \(T: V\to V\) is a linear transformation of the finite dimensional vector space \(V\) to itself, i.e., \(T\) is a linear operator on \(V\). Let \(\alpha = \{v_1, \ldots, v_n\}\), \(\beta\) be bases for \(V\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) To find the eigenvalues of \(T\), it suffices to find the eigenvalues of \([T]_{\alpha}^{\alpha}\).</li>
+                    <li style="list-style-type: none;">(ii) The eigenvalues of \([T]_\alpha^\alpha\) and \([T]_\beta^\beta\) are the same, so we can use any matrix representation of \(T\) to find the eigenvalues of \(T\).</li>
+                    <li style="list-style-type: none;">(iii) If \(u = \begin{pmatrix} a_1\\\vdots\\a_n\end{pmatrix}\) is an eigenvector of \([T]_\alpha^\alpha\) associated with \(\lambda\), i.e., \([T]_\alpha^\alpha\cdot u = \lambda u\), then \(v = a_1v_1+\cdots+a_nv_n\) is an eigenvector of \(T\) associated with \(\lambda\), i.e., \(T(v) = \lambda v\).</li>
+                    <li style="list-style-type: none;">(iv) In some texts \(p_A(x)\) is given by \(|A-xI_n|\), while in other texts \(p_A(x)\) is given by \(|xI_n-A|\). Both give the eigenvalues of \(A\) since the second polynomial is just \((-1)^n\) times the first polynomial.</li>
+                </ol>
+            </div>
+
+            <p>The rest of the class was devoted to the following:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Example.</span> Take \(A = \begin{pmatrix} 1 & 2 & 3\\0 & 4 & 5\\0 & 0 & 6\end{pmatrix}\). We saw:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(p_A(x) = (x-1)(x-4)(x-6)\), so the eigenvalues of \(A\) are 1, 4, 6.</li>
+                    <li style="list-style-type: none;">(ii) \(v_1 := \begin{pmatrix} 1\\0\\0\end{pmatrix}\) is a basis for \(E_1\).</li>
+                    <li style="list-style-type: none;">(iii) \(v_2 := \begin{pmatrix} \frac{2}{3}\\1\\0\end{pmatrix}\) is a basis for \(E_4\).</li>
+                    <li style="list-style-type: none;">(iv) \(v_3 := \begin{pmatrix} \frac{8}{5}\\\frac{5}{2}\\1\end{pmatrix}\) is a basis for \(E_6\).</li>
+                    <li style="list-style-type: none;">(v) \(\beta := \{v_1, v_2, v_3\}\) is a basis for \(\mathbb{R}^3\) consisting of eigenvectors for \(A\). In particular, \(P^{-1}\) exists.</li>
+                    <li style="list-style-type: none;">(vi) \(P^{-1}AP = \begin{pmatrix} 1 & 0 & 0\\0 & 4 & 0\\0 & 0 & 6\end{pmatrix}\).</li>
+                    <li style="list-style-type: none;">(vii) For \(T: \mathbb{R}^3\to\mathbb{R}^3\) defined by \(T(v) = Av\), \(A = [T]_\alpha^\alpha\), for \(\alpha\) the standard basis of \(\mathbb{R}^3\).</li>
+                    <li style="list-style-type: none;">(viii) \([T]_\beta^\beta = \begin{pmatrix} 1 & 0 & 0\\0 & 4 & 0\\0 & 0 & 6\end{pmatrix}\). Call this matrix \(B\). Thus, \(T\) is <em>diagonalizable</em>.</li>
+                    <li style="list-style-type: none;">(ix) \(B = P^{-1}AP\), so that the change of basis matrix \(P\) is the matrix whose columns are the eigenvectors found above.</li>
+                </ol>
+            </div>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
