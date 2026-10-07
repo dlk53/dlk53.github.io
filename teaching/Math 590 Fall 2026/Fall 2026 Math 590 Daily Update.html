@@ -736,6 +736,48 @@
             </div>
         </div>
 
+        <div class="problem">
+            <h2 class="problem-number">Wednesday, October 7</h2>
+
+            <p>We began with the following definitions.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Definitions.</span> Suppose \(V\) is a finite dimensional vector space over \(F\), \(T: V\to V\) a linear transformation and \(A\) is an \(n\times n\) matrix over \(F\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(T\) is said to be <em>diagonalizable</em> if there exists a basis \(\alpha\subseteq V\) such that \([T]_\alpha^\alpha\) is a diagonal matrix.</li>
+                    <li style="list-style-type: none;">(ii) \(A\) is said to be <em>diagonalizable</em> if there exists an invertible \(n\times n\) matrix \(P\) over \(F\) such that \(P^{-1}AP\) is a diagonal matrix.</li>
+                </ol>
+            </div>
+
+            <p>We noted that diagonalizability depends not just on \(T\) or \(A\), but also on the underlying number system \(F\) as well as the following:</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Important Fact.</span> Suppose \(T\) or \(A\) is diagonalizable with associated diagonal matrix \(D\). Then the diagonal entries of \(D\) are precisely the eigenvalues of \(T\) or \(A\) respectively. This follows since the characteristic polynomial of \(T\) or \(A\) is \(p_D(x)\) so that if \(\lambda_1, \lambda_2, \ldots, \lambda_n\) are the diagonal entries of \(D\), then</p>
+                <div class="math-display">
+                    \[p_T(x) = p_A(x) = p_D(x) = (x-\lambda_1)(x-\lambda_2)\cdots(x-\lambda_n).\]
+                </div>
+                <p>In particular, <strong><span style="color: purple;">if \(p_T(x)\) or \(p_A(x)\) fails to have a root in \(F\), then neither \(T\) nor \(A\) is diagonalizable.</span></strong> Thus, a necessary condition for \(T\) or \(A\) to be diagonalizable is that its characteristic polynomial factors over \(F\) as a product of linear polynomials.</p>
+            </div>
+
+            <p>We then discussed at length the following examples.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Examples.</span> (i) We saw in the previous lecture that \(A = \begin{pmatrix} 1 & 2 & 3\\0 & 4 & 5\\0 & 0 & 6\end{pmatrix}\) is diagonalizable. Some relevant observations here are \(p_A(x) = (x-1)(x-4)(x-6)\), each root has multiplicity one, and each eigenspace has dimension one.</p>
+
+                <p>(ii) \(A = \begin{pmatrix} 1 & 2\\0 & 1\end{pmatrix}\) is not diagonalizable over \(F\). Here we noted that \(p_A(x) = (x-1)^2\), so that 1 is a root of multiplicity two, but we saw that \(E_1\) has dimension one.</p>
+
+                <p>(iii) For \(A = \begin{pmatrix} 0 & -1\\1 & 0\end{pmatrix}\), \(p_A(x) = x^2+1\) so that if \(F = \mathbb{R}\), \(A\) does not have any eigenvalues in \(\mathbb{R}\), so that it is not diagonalizable over \(\mathbb{R}\). We then noted that over \(\mathbb{C}\), \(p_A(x) = (x-i)(x+i)\), so that over \(\mathbb{C}\), \(A\) has two distinct eigenvalues \(i, -i\) with eigenvectors \(v_1 = \begin{pmatrix} i\\1\end{pmatrix}\), \(v_2 = \begin{pmatrix} -i\\1\end{pmatrix}\), respectively. We then calculated that for \(P = [v_1\ v_2]\), \(P^{-1}AP = \begin{pmatrix} i & 0\\0 & -i\end{pmatrix}\), so that \(A\) <em>is</em> diagonalizable over \(\mathbb{C}\).</p>
+            </div>
+
+            <p>We then began a discussion of the diagonalizability of \(2\times 2\) matrices in general. We gave a detailed analysis showing the following case.</p>
+
+            <div class="definition">
+                <span class="statement-title">Case 1.</span> Suppose \(A\) is a \(2\times 2\) matrix over \(F\) with distinct eigenvalues in \(F\). Then \(A\) is diagonalizable.
+            </div>
+
+            <p>The analysis of this case relied on the fact that if \(\lambda_1, \lambda_2\) are the distinct eigenvalues of \(A\) with eigenvectors \(v_1, v_2\) respectively, then \(v_1, v_2\) are linearly independent. This latter fact will be verified in the next lecture. Given this, we saw that if \(P = [v_1\ v_2]\), then \(P^{-1}AP = \begin{pmatrix} \lambda_1 & 0\\0 & \lambda_2\end{pmatrix}\).</p>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
