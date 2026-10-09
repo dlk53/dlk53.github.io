@@ -778,6 +778,38 @@
             <p>The analysis of this case relied on the fact that if \(\lambda_1, \lambda_2\) are the distinct eigenvalues of \(A\) with eigenvectors \(v_1, v_2\) respectively, then \(v_1, v_2\) are linearly independent. This latter fact will be verified in the next lecture. Given this, we saw that if \(P = [v_1\ v_2]\), then \(P^{-1}AP = \begin{pmatrix} \lambda_1 & 0\\0 & \lambda_2\end{pmatrix}\).</p>
         </div>
 
+        <div class="problem">
+            <h2 class="problem-number">Friday, October 9</h2>
+
+            <p>We continued our discussion of diagonalizability of \(2\times 2\) matrices by first reviewing the case that the \(2\times 2\) matrix \(A\) has distinct eigenvalues. We then demonstrated the missing component from the previous lecture, namely that the two eigenvectors associated to the eigenvalues are linearly independent. We then considered the case where \(A\) has a repeated eigenvalue \(\lambda\) and \(\dim E_{\lambda} = 1\), and noted that in this case \(A\) is not diagonalizable. Finally, we noted that if \(A\) has a repeated eigenvalue and \(\dim E_{\lambda} = 2\), then \(A = \begin{pmatrix} \lambda & 0\\0 & \lambda\end{pmatrix}\) is already a diagonal, in fact, scalar matrix.</p>
+
+            <p>We then gave the following definitions.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Important definitions.</span> Assume \(T: V\to V\) is a linear transformation and \(A\) is an \(n\times n\) matrix. Assume \(\lambda\in F\) is an eigenvalue of \(T\) or \(A\) and \(v\in V\) or \(v\in F^n\) is a corresponding eigenvector. Write either \(p_T(x)\) or \(p_A(x)\) in the form \((x-\lambda)^e q(x)\), with \(q(\lambda)\not= 0\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Then \(e\) is called the <em>algebraic multiplicity</em> of \(\lambda\).</li>
+                    <li style="list-style-type: none;">(ii) \(\dim E_\lambda\) is called the <em>geometric multiplicity</em> of \(\lambda\).</li>
+                </ol>
+            </div>
+
+            <p>We then stated and discussed the following major theorem, noting how the examples we have worked thus far conform to the conclusions of the theorem.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Diagonalizability theorem for matrices.</span> Let \(A\) be an \(n\times n\) matrix with entries in \(F\). Assume that \(p_A(x) = (x-\lambda_1)^{e_1}\cdots(x-\lambda_r)^{e_r}\) with each \(\lambda_i\in F\) and \(\dim E_{\lambda_i} = e_i\), for each \(1\leq i\leq r\). Then \(A\) is diagonalizable (over \(F\)), i.e., there exists an invertible \(n\times n\) matrix \(P\) with entries in \(F\) such that \(P^{-1}AP\) is diagonal. In fact, if \(\{v_{i1}, \ldots, v_{ie_i}\}\) is a basis for \(E_{\lambda_i}\) and</p>
+                <div class="math-display">
+                    \[P = [v_{11}\ \cdots\ v_{1e_1}\ v_{21}\ \cdots\ v_{2e_2}\ \cdots\ v_{r1}\ \cdots\ v_{re_r}]\]
+                </div>
+                <p>then \(P^{-1}AP = D\), where \(D\) is the diagonal matrix with diagonal entries \(\lambda_1, \ldots, \lambda_1, \lambda_2, \ldots, \lambda_2, \ldots, \lambda_r, \ldots, \lambda_r\), where each \(\lambda_i\) is repeated \(e_i\) times.</p>
+
+                <p>Conversely, suppose \(A\) is diagonalizable over \(F\), i.e., there exists an invertible \(n\times n\) matrix \(P\) with entries in \(F\) such that \(P^{-1}AP = D\), with \(D\) as above. Then \(p_A(x) = (x-\lambda_1)^{e_1}\cdots(x-\lambda_r)^{e_r}\) and \(\dim E_{\lambda_i} = e_i\), for each \(1\leq i\leq r\).</p>
+
+                <p>In short, \(A\) is diagonalizable over \(F\) if and only if all of its eigenvalues belong to \(F\) and for each eigenvalue, its algebraic multiplicity equals its geometric multiplicity.</p>
+            </div>
+
+            <p>We ended class by noting in a couple of different ways that the matrix \(A = \begin{pmatrix} 2 & 1 & 0\\0 & 2 & 0\\0 & 0 & 3\end{pmatrix}\) is not diagonalizable.</p>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
