@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2026: Math 590 Quiz 6 Solutions</title>
+    <script>
+        MathJax = {
+            loader: {load: ['[tex]/amscd']},
+            tex: {
+                packages: {'[+]': ['amscd']},
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.0
+            },
+            chtml: {
+                scale: 1.0,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        h2.section-title {
+            color: #8b2e3f;
+            font-size: 1.35em;
+            margin: 40px 0 10px;
+        }
+        h2.section-title .points {
+            font-weight: normal;
+            font-size: 0.8em;
+            color: #555;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        h2.problem-number,
+        h3.problem-number {
+            margin-top: 0;
+            line-height: inherit;
+        }
+        .solution {
+            background-color: #fff3cd;
+            padding: 5px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution-label {
+            font-weight: 600;
+            color: #2563eb;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Fall 2026: Math 590 Quiz 6 Solutions</h1>
+    </header>
+
+    <main id="main-content">
+
+        <!-- Problem 1 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 1</h2>
+
+            <p>Let \(A\) be an \(n\times n\) matrix over \(\mathbb{R}\) and suppose \(\lambda\) is an eigenvalue of \(A\). Define the algebraic and geometric multiplicities of \(\lambda\). (5 points)</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> The characteristic polynomial \(p_A(x) = \det(xI - A)\) has \(\lambda\) as a root, so we can write</p>
+                <div class="math-display">
+                    \[p_A(x) = (x - \lambda)^{e}\, q(x), \qquad q(\lambda) \neq 0.\]
+                </div>
+                <p>The <em>algebraic multiplicity</em> of \(\lambda\) is this exponent \(e\), i.e., the number of times \((x - \lambda)\) occurs as a factor of \(p_A(x)\).</p>
+
+                <p>The <em>eigenspace</em> of \(\lambda\) is \(E_\lambda = \mathrm{nullspace}(A - \lambda I) = \{ v \in \mathbb{R}^n : Av = \lambda v\}\). The <em>geometric multiplicity</em> of \(\lambda\) is \(\mathrm{dim}\, E_\lambda\), the maximum number of linearly independent eigenvectors for \(\lambda\). Equivalently, it is \(n - \mathrm{rank}(A - \lambda I)\).</p>
+            </div>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 2</h2>
+
+            <p>Determine whether or not the matrix \(A = \begin{pmatrix} 2 & 2\\0 & 2\end{pmatrix}\) is diagonalizable. You must fully justify your answer. (5 points)</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> \(A\) is upper triangular, so</p>
+                <div class="math-display">
+                    \[p_A(x) = \det\begin{pmatrix} x-2 & -2\\0 & x-2\end{pmatrix} = (x-2)^2.\]
+                </div>
+                <p>Thus \(\lambda = 2\) is the only eigenvalue, with algebraic multiplicity \(2\).</p>
+
+                <p>To find the eigenspace, solve \((A - 2I)v = 0\):</p>
+                <div class="math-display">
+                    \[A - 2I = \begin{pmatrix} 0 & 2\\0 & 0\end{pmatrix}.\]
+                </div>
+                <p>This says \(2y = 0\), so \(y = 0\) and \(x\) is free. Hence</p>
+                <div class="math-display">
+                    \[E_2 = \ker(A - 2I) = \mathrm{Span}\left\{ \begin{pmatrix} 1\\0\end{pmatrix} \right\}, \qquad \mathrm{dim}\, E_2 = 1.\]
+                </div>
+                <p>So the geometric multiplicity of \(\lambda = 2\) is \(1\), which is less than its algebraic multiplicity \(2\). Every eigenvector of \(A\) is a multiple of \((1,0)^T\), so there is no basis of \(\mathbb{R}^2\) consisting of eigenvectors of \(A\). Therefore \(A\) is <strong>not</strong> diagonalizable.</p>
+
+                <p>(Alternatively: if \(A = PDP^{-1}\) with \(D\) diagonal, the diagonal entries of \(D\) are the eigenvalues of \(A\), so \(D = 2I\) and \(A = P(2I)P^{-1} = 2I\). But \(A \neq 2I\), a contradiction.) \(\square\)</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX quiz solutions. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
