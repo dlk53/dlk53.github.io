@@ -829,10 +829,22 @@
         <div class="problem">
             <h2 class="problem-number">Wednesday, October 14</h2>
 
-            <p>We began class with the following important observation, which justifies devoting our attention to matrices.</p>
+            <p>We began class with the following important proposition, which justifies devoting our attention to matrices.</p>
 
             <div class="definition">
-                <span class="statement-title">Important Observation.</span> Let \(T: V\to V\) be a linear transformation from the finite dimensional vector space \(V\) to itself. Then \(T\) is diagonalizable, i.e., there exists a basis \(\alpha\subseteq V\) such that \([T]_\alpha^\alpha\) is a diagonal matrix, if and only if any matrix representing \(T\) is diagonalizable.
+                <p><span class="statement-title">Important Proposition.</span> Let \(T: V\to V\) be a linear transformation from the finite dimensional vector space \(V\) to itself. Then \(T\) is diagonalizable, i.e., there exists a basis \(\alpha\subseteq V\) such that \([T]_\alpha^\alpha\) is a diagonal matrix, if and only if any (respectively, some) matrix representing \(T\) is diagonalizable (over \(F\)).</p>
+
+                <p style="font-style: normal;"><em>Proof.</em> Suppose \(T\) is diagonalizable so that \([T]_\alpha^\alpha = D\), for some basis \(\alpha\subseteq V\) and diagonal matrix \(D\) over \(F\). Suppose \(B = [T]_\beta^\beta\), for a basis \(\beta\subseteq V\). Then</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[D = [T]_\alpha^\alpha = [I_V]_\beta^\alpha\cdot[T]_\beta^\beta\cdot[I_V]_\alpha^\beta = P^{-1}BP,\]
+                </div>
+                <p style="font-style: normal;">for \(P = [I_V]_\alpha^\beta\), showing that \(B\) is diagonalizable.</p>
+
+                <p style="font-style: normal;">For the converse, suppose some matrix \(A = [T]_\alpha^\alpha\) representing \(T\) is diagonalizable over \(F\). Thus, there exists an invertible matrix \(P\) over \(F\) so that \(P^{-1}AP = D\), a diagonal matrix. Let \(\beta\subseteq V\) be a basis such that \([I_V]_\beta^\alpha = P\). In other words, if \(\alpha = \{v_1, \ldots, v_n\}\) and \(\beta = \{u_1, \ldots, u_n\}\), then \(u_j = p_{1j}v_1+\cdots+p_{nj}v_n\), where the \(j\)th column of \(P\) is \(\begin{pmatrix} p_{1j}\\\vdots\\p_{nj}\end{pmatrix}\). Thus,</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[[T]_\beta^\beta = [I_V]_\alpha^\beta\cdot[T]_\alpha^\alpha\cdot[I_V]_\beta^\alpha = P^{-1}AP = D,\]
+                </div>
+                <p style="font-style: normal;">showing that \(T\) is diagonalizable.</p>
             </div>
 
             <p>We then turned our attention to a standard application of diagonalizability, namely how to solve a system of first order linear differential equations, such as</p>
