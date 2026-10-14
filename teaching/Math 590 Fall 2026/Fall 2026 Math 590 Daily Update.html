@@ -832,15 +832,22 @@
             <p>We began class with the following important proposition, which justifies devoting our attention to matrices.</p>
 
             <div class="definition">
-                <p><span class="statement-title">Important Proposition.</span> Let \(T: V\to V\) be a linear transformation from the finite dimensional vector space \(V\) to itself. Then \(T\) is diagonalizable, i.e., there exists a basis \(\alpha\subseteq V\) such that \([T]_\alpha^\alpha\) is a diagonal matrix, if and only if any (respectively, some) matrix representing \(T\) is diagonalizable (over \(F\)).</p>
+                <p><span class="statement-title">Important Proposition.</span> Let \(T: V\to V\) be a linear transformation from the finite dimensional vector space \(V\) to itself. The following are equivalent:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(T\) is diagonalizable, i.e., there exists a basis \(\alpha\subseteq V\) such that \([T]_\alpha^\alpha\) is a diagonal matrix.</li>
+                    <li style="list-style-type: none;">(ii) Every matrix representing \(T\) is diagonalizable (over \(F\)).</li>
+                    <li style="list-style-type: none;">(iii) Some matrix representing \(T\) is diagonalizable (over \(F\)).</li>
+                </ol>
 
-                <p style="font-style: normal;"><em>Proof.</em> Suppose \(T\) is diagonalizable so that \([T]_\alpha^\alpha = D\), for some basis \(\alpha\subseteq V\) and diagonal matrix \(D\) over \(F\). Suppose \(B = [T]_\beta^\beta\), for a basis \(\beta\subseteq V\). Then</p>
+                <p style="font-style: normal;"><em>Proof.</em> (i) \(\Rightarrow\) (ii): Suppose \(T\) is diagonalizable so that \([T]_\alpha^\alpha = D\), for some basis \(\alpha\subseteq V\) and diagonal matrix \(D\) over \(F\). Suppose \(B = [T]_\beta^\beta\), for a basis \(\beta\subseteq V\). Then</p>
                 <div class="math-display" style="margin: 10px 0;">
                     \[D = [T]_\alpha^\alpha = [I_V]_\beta^\alpha\cdot[T]_\beta^\beta\cdot[I_V]_\alpha^\beta = P^{-1}BP,\]
                 </div>
-                <p style="font-style: normal;">for \(P = [I_V]_\alpha^\beta\), showing that \(B\) is diagonalizable.</p>
+                <p style="font-style: normal;">for \(P = [I_V]_\alpha^\beta\), showing that \(B\) is diagonalizable. Since \(\beta\) was an arbitrary basis, every matrix representing \(T\) is diagonalizable.</p>
 
-                <p style="font-style: normal;">For the converse, suppose some matrix \(A = [T]_\alpha^\alpha\) representing \(T\) is diagonalizable over \(F\). Thus, there exists an invertible matrix \(P\) over \(F\) so that \(P^{-1}AP = D\), a diagonal matrix. Let \(\beta\subseteq V\) be a basis such that \([I_V]_\beta^\alpha = P\). In other words, if \(\alpha = \{v_1, \ldots, v_n\}\) and \(\beta = \{u_1, \ldots, u_n\}\), then \(u_j = p_{1j}v_1+\cdots+p_{nj}v_n\), where the \(j\)th column of \(P\) is \(\begin{pmatrix} p_{1j}\\\vdots\\p_{nj}\end{pmatrix}\). Thus,</p>
+                <p style="font-style: normal;">(ii) \(\Rightarrow\) (iii): This is clear, since \(T\) has at least one matrix representation.</p>
+
+                <p style="font-style: normal;">(iii) \(\Rightarrow\) (i): Suppose some matrix \(A = [T]_\alpha^\alpha\) representing \(T\) is diagonalizable over \(F\). Thus, there exists an invertible matrix \(P\) over \(F\) so that \(P^{-1}AP = D\), a diagonal matrix. Let \(\beta\subseteq V\) be a basis such that \([I_V]_\beta^\alpha = P\). In other words, if \(\alpha = \{v_1, \ldots, v_n\}\) and \(\beta = \{u_1, \ldots, u_n\}\), then \(u_j = p_{1j}v_1+\cdots+p_{nj}v_n\), where the \(j\)th column of \(P\) is \(\begin{pmatrix} p_{1j}\\\vdots\\p_{nj}\end{pmatrix}\). Thus,</p>
                 <div class="math-display" style="margin: 10px 0;">
                     \[[T]_\beta^\beta = [I_V]_\alpha^\beta\cdot[T]_\alpha^\alpha\cdot[I_V]_\beta^\alpha = P^{-1}AP = D,\]
                 </div>
