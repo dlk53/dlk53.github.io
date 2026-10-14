@@ -810,6 +810,63 @@
             <p>We ended class by noting in a couple of different ways that the matrix \(A = \begin{pmatrix} 2 & 1 & 0\\0 & 2 & 0\\0 & 0 & 3\end{pmatrix}\) is not diagonalizable.</p>
         </div>
 
+        <div class="problem">
+            <h2 class="problem-number">Monday, October 12</h2>
+
+            <p>The first thirteen minutes of class were devoted to Quiz 6. We then restated and discussed the Diagonalizability theorem from the previous lecture. We also discussed the following key components that one would use in a formal derivation of the Diagonalizability theorem.</p>
+
+            <div class="definition">
+                <p><span class="statement-title">Key Components.</span> Suppose \(A\) is an \(n\times n\) matrix over \(F\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Suppose \(\lambda\in F\) is an eigenvalue of \(A\) and \(p_A(x) = (x-\lambda)^e q(x)\), with \(q(\lambda)\not= 0\). Then \(\dim E_{\lambda}\leq e\). In other words, for any matrix \(A\) and eigenvalue \(\lambda\) of \(A\), the geometric multiplicity of \(\lambda\) is less than or equal to the algebraic multiplicity of \(\lambda\).</li>
+                    <li style="list-style-type: none;">(ii) Suppose \(\lambda_1, \ldots, \lambda_r\) are distinct eigenvalues of \(A\) with associated eigenvectors \(v_1, \ldots, v_r\). Then \(v_1, \ldots, v_r\) are linearly independent.</li>
+                </ol>
+            </div>
+
+            <p>We discussed in detail how (i) above works for \(5\times 5\) matrices by arguing that if \(\lambda\) has algebraic multiplicity two, then \(\dim E_{\lambda}\) cannot equal three.</p>
+        </div>
+
+        <div class="problem">
+            <h2 class="problem-number">Wednesday, October 14</h2>
+
+            <p>We began class with the following important observation, which justifies devoting our attention to matrices.</p>
+
+            <div class="definition">
+                <span class="statement-title">Important Observation.</span> Let \(T: V\to V\) be a linear transformation from the finite dimensional vector space \(V\) to itself. Then \(T\) is diagonalizable, i.e., there exists a basis \(\alpha\subseteq V\) such that \([T]_\alpha^\alpha\) is a diagonal matrix, if and only if any matrix representing \(T\) is diagonalizable.
+            </div>
+
+            <p>We then turned our attention to a standard application of diagonalizability, namely how to solve a system of first order linear differential equations, such as</p>
+            <div class="definition">
+                <div class="math-display" style="margin: 10px 0;">
+                    \[\begin{align*}
+                    x_1'(t) &= 3x_1(t)+x_2(t)\\
+                    x_2'(t) &= 3x_1(t)+2x_2(t).
+                    \end{align*}\]
+                </div>
+            </div>
+
+            <p>We noted that the goal is to turn the given system of equations into a system where each equation has the form \(y'(t) = \lambda y(t)\). We therefore began with an \(n\times n\) system of first order linear differential equations which we represent in matrix form</p>
+            <div class="definition">
+                <div class="math-display" style="margin: 10px 0;">
+                    \[X'(t) = AX(t),\]
+                </div>
+            </div>
+            <p>where \(A\) is an \(n\times n\) matrix over \(\mathbb{R}\), \(X(t) = \begin{pmatrix} x_1(t)\\\vdots\\x_n(t)\end{pmatrix}\) and \(X'(t) = \begin{pmatrix} x_1'(t)\\\vdots\\x_n'(t)\end{pmatrix}\). Assuming \(A\) is diagonalizable with \(P^{-1}AP = D\), a diagonal matrix with diagonal entries \(\lambda_1, \ldots, \lambda_n\), we saw that the general solution was given by</p>
+            <div class="definition">
+                <div class="math-display" style="margin: 10px 0;">
+                    \[X(t) = P\cdot\begin{pmatrix} c_1e^{\lambda_1 t}\\\vdots\\c_ne^{\lambda_n t}\end{pmatrix},\]
+                </div>
+            </div>
+            <p>where the constants \(c_i\) are determined by an initial condition of the form \(X(0) = \begin{pmatrix} a_1\\\vdots\\a_n\end{pmatrix}\). Thus, we can solve</p>
+            <div class="definition">
+                <div class="math-display" style="margin: 10px 0;">
+                    \[\begin{pmatrix} c_1\\\vdots\\c_n\end{pmatrix} = P^{-1}\cdot\begin{pmatrix} a_1\\\vdots\\a_n\end{pmatrix}.\]
+                </div>
+            </div>
+
+            <p>We ended class by working through the details of solving the \(2\times 2\) system given above with initial conditions \(x_1(0) = -2\) and \(x_2(0) = 1\).</p>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
