@@ -886,6 +886,32 @@
             <p>We ended class by working through the details of solving the \(2\times 2\) system given above with initial conditions \(x_1(0) = -2\) and \(x_2(0) = 1\).</p>
         </div>
 
+        <div class="problem">
+            <h2 class="problem-number">Friday, October 16</h2>
+
+            <p>Today's class was devoted to an introductory discussion of real symmetric matrices as a first step to understanding the Spectral Theorem for real symmetric matrices. We began with the following example.</p>
+
+            <div class="definition">
+                <span class="statement-title">Example.</span> \(A = \begin{pmatrix} 2 & 1\\1 & 2\end{pmatrix}\). As a prelude to the spectral theorem we saw that \(A\) has two distinct real eigenvalues and that the corresponding eigenvectors were orthogonal. Thus, \(A\) can be diagonalized by a \(2\times 2\) real, invertible matrix whose columns are orthogonal. In fact, we saw that we have \(Q^{-1}AQ = \begin{pmatrix} 1 & 0\\0 & 3\end{pmatrix}\), with \(Q = \begin{pmatrix} \frac{-1}{\sqrt{2}} & \frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}\end{pmatrix}\), an <em>orthogonal</em> matrix.
+            </div>
+
+            <p>This led to the following definition.</p>
+
+            <div class="definition">
+                <span class="statement-title">Definition.</span> Suppose that \(Q\) is an \(n\times n\) matrix over \(\mathbb{R}\). \(Q\) is said to be an <em>orthogonal matrix</em> if its columns are mutually orthogonal and have length one. Equivalently, writing \(C_1, \ldots, C_n\) for the columns of \(Q\), we have: (i) \(C_i\cdot C_j = 0\), for \(1\leq i, j\leq n\) with \(i\not= j\) and (ii) \(C_i\cdot C_i = 1\), for all \(1\leq i\leq n\).
+            </div>
+
+            <p>We then analyzed the \(2\times 2\) case.</p>
+
+            <div class="definition">
+                <span class="statement-title">The \(2\times 2\) case for symmetric matrices over \(\mathbb{R}\).</span> Taking \(A = \begin{pmatrix} a & b\\b & c\end{pmatrix}\), we first saw that \(p_A(x)\) has two real roots and that these roots are distinct, unless \(A = \begin{pmatrix} a & 0\\0 & a\end{pmatrix}\). From there we assumed that the roots \(\lambda_1, \lambda_2\) are distinct. Taking the associated eigenvectors \(v_1, v_2\), we wanted to see that these vectors are orthogonal. Rather than computing \(E_{\lambda_1}\) and \(E_{\lambda_2}\), we verified orthogonality by using the basic fact below. From there we noted that if we set \(u_1 := \frac{1}{||v_1||}v_1\) and \(u_2 := \frac{1}{||v_2||}v_2\) and take \(Q = [u_1\ u_2]\), then \(Q\) is an orthogonal matrix and \(Q^{-1}AQ = \begin{pmatrix} \lambda_1 & 0\\0 & \lambda_2\end{pmatrix}\). That is, \(A\) is orthogonally diagonalizable, thus demonstrating the \(2\times 2\) case of the Spectral Theorem.
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">Basic Fact.</span> Suppose \(B\) is a \(2\times 2\) matrix over \(\mathbb{R}\) and \(v, w\in\mathbb{R}^2\) are column vectors. Then the dot product \(Bv\cdot w = v\cdot B^{\mathrm{tr}}w\).
+            </div>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
