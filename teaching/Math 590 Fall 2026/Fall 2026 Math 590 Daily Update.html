@@ -912,6 +912,37 @@
             </div>
         </div>
 
+        <div class="problem">
+            <h2 class="problem-number">Wednesday, October 21</h2>
+
+            <p>The first fifteen minutes of class were devoted to Quiz 7. We then continued our discussion of symmetric matrices by stating</p>
+
+            <div class="definition">
+                <span class="statement-title">Spectral Theorem for real symmetric matrices.</span> Let \(A\) be an \(n\times n\) matrix with entries in \(\mathbb{R}\). If \(A\) is symmetric, then \(A\) is orthogonally diagonalizable, i.e., there exists an orthogonal matrix \(Q\) such that \(Q^{-1}AQ = D\), where \(D\) is a diagonal matrix.
+            </div>
+
+            <p>We noted that the theorem above relies on the following key components.</p>
+
+            <div class="definition">
+                <span class="statement-title">Key Components.</span> Let \(A\) be a symmetric matrix over \(\mathbb{R}\).
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) If \(\lambda_i, \lambda_j\) are distinct eigenvalues of \(A\) with \(Av_i = \lambda_iv_i\) and \(Av_j = \lambda_jv_j\), then \(v_i\cdot v_j = 0\), i.e., \(v_i\) and \(v_j\) are orthogonal.</li>
+                    <li style="list-style-type: none;">(ii) \(A\) has all of its eigenvalues in \(\mathbb{R}\).</li>
+                    <li style="list-style-type: none;">(iii) If \(\dim E_{\lambda_i} > 1\), then \(E_{\lambda_i}\) has a basis consisting of mutually orthogonal vectors of length one. Putting all of these vectors from each eigenspace into a matrix \(Q\) gives the required orthogonal matrix.</li>
+                </ol>
+            </div>
+
+            <p>We then spent most of the rest of the class working through the following example.</p>
+
+            <div class="definition">
+                <span class="statement-title">Example.</span> We showed that the matrix \(A = \begin{pmatrix} 2 & 1 & 1\\1 & 2 & 1\\1 & 1 & 2\end{pmatrix}\) is orthogonally diagonalizable, by showing that 1, 1, 4 are the eigenvalues and
+                <div class="math-display" style="margin: 10px 0;">
+                    \[Q = \begin{pmatrix} -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}}\\ \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}}\\ 0 & -\frac{2}{\sqrt{6}} & \frac{1}{\sqrt{3}}\end{pmatrix}\]
+                </div>
+                is an orthogonal diagonalizing matrix. A crucial point was finding an orthogonal basis for \(E_1\).
+            </div>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
