@@ -942,6 +942,61 @@
                 is an orthogonal diagonalizing matrix. A crucial point was finding an orthogonal basis for \(E_1\).
             </div>
         </div>
+        <div class="problem">
+            <h2 class="problem-number">Friday, October 22</h2>
+
+            <p>We spent the entire class discussing the \(3\times 3\) case of the Spectral Theorem stated in the previous lecture. We began with</p>
+
+            <div class="definition">
+                <span class="statement-title">Technical Observations.</span> For \(B, D, Q, C\) \(n\times n\) matrices with entries in \(\mathbb{R}\), we have:
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \((BD)^{\mathrm{tr}} = D^{\mathrm{tr}}B^{\mathrm{tr}}\).</li>
+                    <li style="list-style-type: none;">(ii) \(Q\) is orthogonal if and only if \(Q^{\mathrm{tr}} = Q^{-1}\).</li>
+                    <li style="list-style-type: none;">(iii) If \(Q\) and \(C\) are orthogonal, then \(QC\) is an orthogonal matrix.</li>
+                    <li style="list-style-type: none;">(iv) If
+                        <div class="math-display" style="margin: 10px 0;">
+                            \[B = \left(\begin{array}{c|c} b & \begin{matrix} 0 & \cdots & 0\end{matrix}\\ \hline \begin{matrix} 0\\ \vdots\\ 0\end{matrix} & B_0\end{array}\right) \quad\text{and}\quad C = \left(\begin{array}{c|c} c & \begin{matrix} 0 & \cdots & 0\end{matrix}\\ \hline \begin{matrix} 0\\ \vdots\\ 0\end{matrix} & C_0\end{array}\right),\]
+                        </div>
+                        where \(B_0, C_0\) are \((n-1)\times(n-1)\) matrices, then
+                        <div class="math-display" style="margin: 10px 0;">
+                            \[BC = \left(\begin{array}{c|c} bc & \begin{matrix} 0 & \cdots & 0\end{matrix}\\ \hline \begin{matrix} 0\\ \vdots\\ 0\end{matrix} & B_0C_0\end{array}\right).\]
+                        </div>
+                        In particular, \(B\) is symmetric if and only if \(B_0\) is symmetric, \(B\) is orthogonal if and only if \(b = \pm 1\) and \(B_0\) is orthogonal, and \(B\) is invertible if and only if \(b\not= 0\) and \(B_0\) is invertible, in which case
+                        <div class="math-display" style="margin: 10px 0;">
+                            \[B^{-1} = \left(\begin{array}{c|c} b^{-1} & \begin{matrix} 0 & \cdots & 0\end{matrix}\\ \hline \begin{matrix} 0\\ \vdots\\ 0\end{matrix} & B_0^{-1}\end{array}\right).\]
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <p>We then discussed at length:</p>
+
+            <div class="definition">
+                <span class="statement-title">Spectral Theorem for \(3\times 3\) matrices.</span> Let \(A\) be a \(3\times 3\) symmetric matrix with entries in \(\mathbb{R}\).
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(p_A(x)\) has degree three, and thus a root \(\lambda\in\mathbb{R}\) and an associated eigenvector \(v\in\mathbb{R}^3\).</li>
+                    <li style="list-style-type: none;">(ii) The set \(W\) of vectors orthogonal to \(v\) is a two-dimensional subspace of \(\mathbb{R}^3\). We take \(v_2, v_3\) as a basis for \(W\).</li>
+                    <li style="list-style-type: none;">(iii) \(v\cdot v_2 = 0 = v\cdot v_3\), but it may not hold that \(v_2\cdot v_3 = 0\).</li>
+                    <li style="list-style-type: none;">(iv) We choose \(v_3'\in W\) so that \(v_2\cdot v_3' = 0\). Thus, \(v, v_2, v_3'\) are mutually orthogonal.</li>
+                    <li style="list-style-type: none;">(v) Set \(u_1 := \frac{1}{||v||}v\), \(u_2 := \frac{1}{||v_2||}v_2\), \(u_3 := \frac{1}{||v_3'||}v_3'\), so that \(Q = [u_1\ u_2\ u_3]\) is an orthogonal matrix.</li>
+                    <li style="list-style-type: none;">(vi) One checks that \(Q^{-1}AQ = \begin{pmatrix} \lambda & r & h\\0 & s & i\\0 & t & j\end{pmatrix}\), for some \(r, s, t, h, i, j\in\mathbb{R}\). This follows since \(u_1, u_2, u_3\) are the columns of an invertible matrix and therefore form a basis for \(\mathbb{R}^3\).</li>
+                    <li style="list-style-type: none;">(vii) Since \(Q^{-1}AQ = Q^{\mathrm{tr}}AQ\) is symmetric, we have \(Q^{-1}AQ = \begin{pmatrix} \lambda & 0 & 0\\0 & s & t\\0 & t & j\end{pmatrix}\).</li>
+                    <li style="list-style-type: none;">(viii) Setting \(B = \begin{pmatrix} s & t\\t & j\end{pmatrix}\), then since \(B\) is symmetric, by the \(2\times 2\) case there exists an orthogonal \(2\times 2\) matrix \(C_0\) such that \(C_0^{-1}BC_0 = \begin{pmatrix} \lambda_2 & 0\\0 & \lambda_3\end{pmatrix}\), with \(\lambda_2, \lambda_3\in\mathbb{R}\).</li>
+                    <li style="list-style-type: none;">(ix) Setting \(C := \left(\begin{array}{c|c} 1 & \begin{matrix} 0 & 0\end{matrix}\\ \hline \begin{matrix} 0\\ 0\end{matrix} & C_0\end{array}\right)\) we have
+                        <div class="math-display" style="margin: 10px 0;">
+                            \[\begin{aligned} C^{-1}\left(\begin{array}{c|c} \lambda & \begin{matrix} 0 & 0\end{matrix}\\ \hline \begin{matrix} 0\\ 0\end{matrix} & B\end{array}\right)C &= \left(\begin{array}{c|c} 1 & \begin{matrix} 0 & 0\end{matrix}\\ \hline \begin{matrix} 0\\ 0\end{matrix} & C_0^{-1}\end{array}\right)\left(\begin{array}{c|c} \lambda & \begin{matrix} 0 & 0\end{matrix}\\ \hline \begin{matrix} 0\\ 0\end{matrix} & B\end{array}\right)\left(\begin{array}{c|c} 1 & \begin{matrix} 0 & 0\end{matrix}\\ \hline \begin{matrix} 0\\ 0\end{matrix} & C_0\end{array}\right)\\[6pt] &= \left(\begin{array}{c|c} \lambda & \begin{matrix} 0 & 0\end{matrix}\\ \hline \begin{matrix} 0\\ 0\end{matrix} & C_0^{-1}BC_0\end{array}\right) = \begin{pmatrix} \lambda & 0 & 0\\0 & \lambda_2 & 0\\0 & 0 & \lambda_3\end{pmatrix},\end{aligned}\]
+                        </div>
+                        since \(C^{-1} = \left(\begin{array}{c|c} 1 & \begin{matrix} 0 & 0\end{matrix}\\ \hline \begin{matrix} 0\\ 0\end{matrix} & C_0^{-1}\end{array}\right)\).
+                    </li>
+                    <li style="list-style-type: none;">(x) Taking \(H = QC\), we have that \(H\) is orthogonal and
+                        <div class="math-display" style="margin: 10px 0;">
+                            \[H^{-1}AH = (QC)^{-1}A(QC) = C^{-1}(Q^{-1}AQ)C = C^{-1}\left(\begin{array}{c|c} \lambda & \begin{matrix} 0 & 0\end{matrix}\\ \hline \begin{matrix} 0\\ 0\end{matrix} & B\end{array}\right)C = \begin{pmatrix} \lambda & 0 & 0\\0 & \lambda_2 & 0\\0 & 0 & \lambda_3\end{pmatrix}.\]
+                        </div>
+                    </li>
+                </ol>
+                Thus, \(A\) is orthogonally diagonalizable.
+            </div>
+        </div>
 
     </main>
 
