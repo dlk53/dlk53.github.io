@@ -997,6 +997,47 @@
                 Thus, \(A\) is orthogonally diagonalizable.
             </div>
         </div>
+        <div class="problem">
+            <h2 class="problem-number">Monday, October 26</h2>
+
+            <p>The first thirteen minutes of class were devoted to Quiz 8. We then reviewed the basic properties of the dot product in \(\mathbb{R}^3\), noting that for vectors \(v, w\in\mathbb{R}^3\) and \(\lambda\in\mathbb{R}\),</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(v\cdot w = w\cdot v\).</li>
+                <li style="list-style-type: none;">(ii) \((v_1+v_2)\cdot w = v_1\cdot w + v_2\cdot w\) and \(v\cdot(w_1+w_2) = v\cdot w_1 + v\cdot w_2\).</li>
+                <li style="list-style-type: none;">(iii) \((\lambda v)\cdot w = \lambda(v\cdot w) = v\cdot(\lambda w)\).</li>
+                <li style="list-style-type: none;">(iv) \(v\cdot v\geq 0\) and \(v\cdot v = 0\) if and only if \(v = \vec{0}\).</li>
+            </ol>
+
+            <p>Two further properties were noted:</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(v) \(||v|| = \sqrt{v\cdot v}\), where \(||v||\) denotes the length of \(v\).</li>
+                <li style="list-style-type: none;">(vi) The angle between \(v, w\) is given by \(\cos^{-1}\left(\frac{v\cdot w}{||v||\,||w||}\right)\), so that \(v\cdot w = 0\) if and only if \(v\) and \(w\) are orthogonal.</li>
+            </ol>
+
+            <p>We then defined the dot product of vectors \(v = (a_1, \ldots, a_n)\) and \(w = (b_1, \ldots, b_n)\) in \(\mathbb{R}^n\) as</p>
+            <div class="math-display">
+                \[v\cdot w := a_1b_1+\cdots+a_nb_n,\]
+            </div>
+            <p>and similarly if we take column vectors in \(\mathbb{R}^n\). We then noted (but did not prove) that properties (i)–(vi) hold for the dot product in \(\mathbb{R}^n\). This led to the following definitions.</p>
+
+            <div class="definition">
+                <span class="statement-title">Definitions.</span> Let \(V\) be a vector space over \(\mathbb{R}\).
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(A) A function from \(V\times V\) to \(\mathbb{R}\) taking the pair of vectors \((v,w)\) to the real number \(\langle v, w\rangle\) is an <em>inner product</em> on \(V\) if it satisfies properties (i)–(iv) above, namely, for all \(v, w\in V\) and \(\lambda\in\mathbb{R}\),
+                        <ol style="list-style-type: none; padding-left: 20px;">
+                            <li style="list-style-type: none;">(i) \(\langle v, w\rangle = \langle w, v\rangle\).</li>
+                            <li style="list-style-type: none;">(ii) \(\langle v_1+v_2, w\rangle = \langle v_1, w\rangle + \langle v_2, w\rangle\).</li>
+                            <li style="list-style-type: none;">(iii) \(\langle\lambda v, w\rangle = \lambda\langle v, w\rangle = \langle v, \lambda w\rangle\).</li>
+                            <li style="list-style-type: none;">(iv) \(\langle v, v\rangle\geq 0\) and \(\langle v, v\rangle = 0\) if and only if \(v = \vec{0}\).</li>
+                        </ol>
+                    </li>
+                    <li style="list-style-type: none;">(B) The <em>length</em> \(||v||\) of the vector \(v\) is given by \(\sqrt{\langle v, v\rangle}\).</li>
+                    <li style="list-style-type: none;">(C) The <em>angle</em> between non-zero vectors \(v, w\in V\) is given by \(\cos^{-1}\left(\frac{\langle v, w\rangle}{||v||\,||w||}\right)\). In particular, \(v\) and \(w\) are orthogonal if \(\langle v, w\rangle = 0\).</li>
+                </ol>
+            </div>
+
+            <p>We ended class by noting that the dot product on \(\mathbb{R}^n\) is an inner product and that for \(V\), the vector space of real polynomials of degree less than \(n\), \(\langle f(x), g(x)\rangle := \int_{-1}^1 f(x)\cdot g(x)\ dx\) defines an inner product on \(V\). We also noted, but did not fully verify, that if \(V\) is the vector space of real \(2\times 2\) matrices, then \(\langle A, B\rangle := \mathrm{tr}(A^tB)\), for all \(A, B\in V\), is an inner product on \(V\).</p>
+        </div>
 
     </main>
 
