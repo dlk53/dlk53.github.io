@@ -1038,6 +1038,60 @@
 
             <p>We ended class by noting that the dot product on \(\mathbb{R}^n\) is an inner product and that for \(V\), the vector space of real polynomials of degree less than \(n\), \(\langle f(x), g(x)\rangle := \int_{-1}^1 f(x)\cdot g(x)\ dx\) defines an inner product on \(V\). We also noted, but did not fully verify, that if \(V\) is the vector space of real \(2\times 2\) matrices, then \(\langle A, B\rangle := \mathrm{tr}(A^tB)\), for all \(A, B\in V\), is an inner product on \(V\).</p>
         </div>
+        <div class="problem">
+            <h2 class="problem-number">Wednesday, October 28</h2>
+
+            <p>We continued our discussion of inner products by reviewing the definition given in the previous lecture. We then considered the case \(V\) is the set of \(2\times 2\) matrices over \(\mathbb{R}\) with inner product \(\langle A, B\rangle = \mathrm{tr}(A^tB)\). We verified properties (i), (iv) in the definition of inner product and noted that property (iv) fails if we attempt to define \(\langle A, B\rangle = \mathrm{tr}(AB)\).</p>
+
+            <p>We then gave the following</p>
+
+            <div class="definition">
+                <span class="statement-title">Definitions.</span> Let \(V\) be a vector space over \(\mathbb{R}\) with inner product \(\langle\ ,\ \rangle\).
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(iii) The set of vectors \(\{v_1, \ldots, v_r\}\subseteq V\) is an <em>orthogonal set</em> if \(\langle v_i, v_j\rangle = 0\), for all \(v_i\not= v_j\).</li>
+                    <li style="list-style-type: none;">(iv) The set of vectors \(\{u_1, \ldots, u_r\}\) is <em>orthonormal</em> if it is orthogonal and \(||u_j|| = 1\), for all \(1\leq j\leq r\).</li>
+                </ol>
+            </div>
+
+            <p>With these definitions in hand, we were able to establish the following:</p>
+
+            <div class="definition">
+                <span class="statement-title">Two important facts.</span> Let \(V\) be a real vector space with an inner product.
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) If \(\{v_1, \ldots, v_r\}\) is an orthogonal subset of \(V\) consisting of non-zero vectors, then \(v_1, \ldots, v_r\) are linearly independent.</li>
+                    <li style="list-style-type: none;">(ii) If \(\{u_1, \ldots, u_n\}\) is an orthonormal basis for \(V\) and \(v\in V\), then \(v = \langle v, u_1\rangle u_1+\cdots+\langle v, u_n\rangle u_n\).</li>
+                </ol>
+            </div>
+
+            <p>We ended class by observing that \(u_1 := \frac{1}{\sqrt{2}}\begin{pmatrix} -1\\1\\0\end{pmatrix}\), \(u_2 := \frac{1}{\sqrt{3}}\begin{pmatrix} 1\\1\\1\end{pmatrix}\), \(u_3 := \frac{1}{\sqrt{6}}\begin{pmatrix} 1\\1\\-2\end{pmatrix}\) is an orthonormal basis for \(\mathbb{R}^3\) and using Fact (ii) above to quickly find \(x, y, z\in\mathbb{R}\) such that \(\begin{pmatrix} 2\\7\\13\end{pmatrix} = xu_1+yu_2+zu_3\).</p>
+        </div>
+
+        <div class="problem">
+            <h2 class="problem-number">Friday, October 30</h2>
+
+            <p>We began by stating the following theorem.</p>
+
+            <div class="definition">
+                <span class="statement-title">Theorem.</span> Let \(V\) be a finite dimensional vector space with an inner product \(\langle\ ,\ \rangle\). Then \(V\) has an orthonormal basis.
+            </div>
+
+            <p>We discussed at length the Gram-Schmidt process, which is the tool for finding an orthogonal basis. We began the discussion by seeing how to start with two linearly independent vectors \(v_1, v_2\) and construct orthogonal vectors \(w_1, w_2\) so that \(\mathrm{Span}\{v_1, v_2\} = \mathrm{Span}\{w_1, w_2\}\). We then stated the:</p>
+
+            <div class="definition">
+                <span class="statement-title">Gram-Schmidt Process.</span> Let \(V\) be a vector space with inner product \(\langle\ ,\ \rangle\) and suppose \(\{v_1, \ldots, v_r\}\) is a linearly independent set of vectors. Then there exists an orthogonal set of vectors \(\{w_1, \ldots, w_r\}\) such that \(\mathrm{Span}\{w_1, \ldots, w_r\} = \mathrm{Span}\{v_1, \ldots, v_r\}\). Moreover, the vectors \(w_1, \ldots, w_r\) can be constructed inductively as follows:
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(w_1 := v_1\).</li>
+                    <li style="list-style-type: none;">(ii) If \(w_1, \ldots, w_i\) have been constructed so that \(\mathrm{Span}\{w_1, \ldots, w_i\} = \mathrm{Span}\{v_1, \ldots, v_i\}\) and \(w_1, \ldots, w_i\) are mutually orthogonal, then taking
+                        <div class="math-display" style="margin: 10px 0;">
+                            \[w_{i+1} = v_{i+1} - \frac{\langle v_{i+1}, w_1\rangle}{\langle w_1, w_1\rangle}\cdot w_1 - \cdots - \frac{\langle v_{i+1}, w_i\rangle}{\langle w_i, w_i\rangle}\cdot w_i,\]
+                        </div>
+                        we have that \(\mathrm{Span}\{w_1, \ldots, w_{i+1}\} = \mathrm{Span}\{v_1, \ldots, v_{i+1}\}\) and \(\{w_1, \ldots, w_{i+1}\}\) is an orthogonal set of vectors.
+                    </li>
+                </ol>
+            </div>
+
+            <p>We verified the formula above for the case \(r = 3\) and then applied it to find an orthonormal basis for \(V\), starting with \(\{1, x, x^2\}\), in the case \(V\) is the space of real polynomials of degree less than or equal to two and \(\langle f(x), g(x)\rangle = \int_{-1}^1 f(x)\cdot g(x)\ dx\).</p>
+        </div>
 
     </main>
 
