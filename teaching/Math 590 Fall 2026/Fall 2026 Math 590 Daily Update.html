@@ -1048,8 +1048,8 @@
             <div class="definition">
                 <span class="statement-title">Definitions.</span> Let \(V\) be a vector space over \(\mathbb{R}\) with inner product \(\langle\ ,\ \rangle\).
                 <ol style="list-style-type: none; padding-left: 20px;">
-                    <li style="list-style-type: none;">(iii) The set of vectors \(\{v_1, \ldots, v_r\}\subseteq V\) is an <em>orthogonal set</em> if \(\langle v_i, v_j\rangle = 0\), for all \(v_i\not= v_j\).</li>
-                    <li style="list-style-type: none;">(iv) The set of vectors \(\{u_1, \ldots, u_r\}\) is <em>orthonormal</em> if it is orthogonal and \(||u_j|| = 1\), for all \(1\leq j\leq r\).</li>
+                    <li style="list-style-type: none;">(i) The set of vectors \(\{v_1, \ldots, v_r\}\subseteq V\) is an <em>orthogonal set</em> if \(\langle v_i, v_j\rangle = 0\), for all \(v_i\not= v_j\).</li>
+                    <li style="list-style-type: none;">(ii) The set of vectors \(\{u_1, \ldots, u_r\}\) is <em>orthonormal</em> if it is orthogonal and \(||u_j|| = 1\), for all \(1\leq j\leq r\).</li>
                 </ol>
             </div>
 
@@ -1091,6 +1091,42 @@
             </div>
 
             <p>We verified the formula above for the case \(r = 3\) and then applied it to find an orthonormal basis for \(V\), starting with \(\{1, x, x^2\}\), in the case \(V\) is the space of real polynomials of degree less than or equal to two and \(\langle f(x), g(x)\rangle = \int_{-1}^1 f(x)\cdot g(x)\ dx\).</p>
+        </div>
+        <div class="problem">
+            <h2 class="problem-number">Monday, November 2</h2>
+
+            <p>The first twelve minutes of class were devoted to Quiz 9. We spent the rest of the class discussing and working an example illustrating the singular value decomposition. We began with the following example.</p>
+
+            <div class="definition">
+                <span class="statement-title">Example.</span> For \(A = \begin{pmatrix} 1 & 0\\1 & 1\\0 & 1\end{pmatrix}\), we found orthogonal matrices \(Q, P\) and a pseudo-diagonal matrix \(\Sigma\) such that \(A = Q\Sigma P^t\), as follows.
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) We noted that \(A^tA = \begin{pmatrix} 2 & 1\\1 & 2\end{pmatrix}\) is a real symmetric matrix with eigenvalues 3, 1. We noted \(A^tA\) is orthogonally diagonalizable.</li>
+                    <li style="list-style-type: none;">(ii) We found an orthonormal basis \(v_1 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1\\1\end{pmatrix}\) for \(E_3\) and an orthonormal basis \(v_2 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1\\-1\end{pmatrix}\) for \(E_1\) and set \(P = [v_1\ v_2]\), an orthogonal matrix.</li>
+                    <li style="list-style-type: none;">(iii) We noted that \(\sqrt{3}\) and \(\sqrt{1} = 1\) are called the <em>singular values</em> of \(A\).</li>
+                    <li style="list-style-type: none;">(iv) We set \(u_1 = \frac{1}{\sqrt{3}}Av_1 = \frac{1}{\sqrt{6}}\begin{pmatrix} 1\\2\\1\end{pmatrix}\), \(u_2 = \frac{1}{1}Av_2 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1\\0\\-1\end{pmatrix}\) and found \(u_3 = \frac{1}{\sqrt{3}}\begin{pmatrix} 1\\-1\\1\end{pmatrix}\), so that \(u_1, u_2, u_3\) is an orthonormal basis for \(\mathbb{R}^3\).</li>
+                    <li style="list-style-type: none;">(v) We set \(Q = [u_1\ u_2\ u_3]\) and \(\Sigma = \begin{pmatrix} \sqrt{3} & 0\\0 & 1\\0 & 0\end{pmatrix}\).</li>
+                    <li style="list-style-type: none;">(vi) We saw that \(AP = Q\Sigma\), which gives \(A = Q\Sigma P^t\), as required.</li>
+                </ol>
+            </div>
+
+            <p>We then stated the</p>
+
+            <div class="definition">
+                <span class="statement-title">Singular Value Decomposition.</span> Let \(A\) be an \(m\times n\) matrix with entries in \(\mathbb{R}\). Then over \(\mathbb{R}\) there exists an orthogonal \(m\times m\) matrix \(Q\), an orthogonal \(n\times n\) matrix \(P\), and an \(m\times n\) diagonal matrix \(\Sigma\) such that \(A = Q\Sigma P^t\) and the non-zero diagonal entries of \(\Sigma\) are real numbers \(\sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r > 0\), where \(r\) is the rank of \(A\). The real numbers \(\sigma_1, \ldots, \sigma_r\) are called the <em>singular values of \(A\)</em>.
+            </div>
+
+            <p>After stating the SVD, we had a lengthy discussion concerning the following comments:</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) \(r = \mathrm{rank}(A)\), where the rank of a matrix is the number of pivots in its RREF, or equivalently the dimension of the row space of the matrix.</li>
+                <li style="list-style-type: none;">(ii) The SVD gives a <em>pseudo-diagonalization</em>: \(Q^{-1}AP = \Sigma\).</li>
+                <li style="list-style-type: none;">(iii) The SVD is obtained by applying the Spectral Theorem to either \(A^tA\) or \(AA^t\).</li>
+                <li style="list-style-type: none;">(iv) An orthogonal matrix corresponds to either a reflection or rotation. This is because \((Pv)\cdot(Pw) = v\cdot w\) for column vectors \(v, w\) and orthogonal matrix \(P\). In particular, if \(P\) is an orthogonal \(2\times 2\) matrix over \(\mathbb{R}\), then either \(P = \begin{pmatrix} \cos\theta & -\sin\theta\\\sin\theta & \cos\theta\end{pmatrix}\), which gives a rotation counter-clockwise through an angle of \(\theta\), or \(P = \begin{pmatrix} \cos\theta & \sin\theta\\\sin\theta & -\cos\theta\end{pmatrix}\), which gives a reflection about a line making an angle of \(\frac{\theta}{2}\) with the \(x\)-axis.</li>
+                <li style="list-style-type: none;">(v) Thus, multiplication by <strong>any</strong> \(m\times n\) matrix \(A\) gives a linear transformation from \(\mathbb{R}^n\to\mathbb{R}^m\) which is a rotation or reflection of \(\mathbb{R}^n\), followed by an elongation, followed by a reflection or rotation of \(\mathbb{R}^m\).</li>
+            </ol>
+
+            <div class="math-display">
+                \[\begin{CD} \mathbb{R}^n @>{A}>> \mathbb{R}^m\\ @V{P^t}VV @AA{Q}A\\ \mathbb{R}^n @>{\Sigma}>> \mathbb{R}^m \end{CD}\]
+            </div>
         </div>
 
     </main>
