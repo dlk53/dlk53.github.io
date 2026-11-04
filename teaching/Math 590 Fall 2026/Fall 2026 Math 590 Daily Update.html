@@ -1116,16 +1116,62 @@
             </div>
 
             <p>After stating the SVD, we had a lengthy discussion concerning the following comments:</p>
-            <ol style="list-style-type: none; padding-left: 20px;">
+
+            <div class="definition">
+                <span class="statement-title">Comments on the SVD.</span> In the notation as above,
+                <ol style="list-style-type: none; padding-left: 20px;">
                 <li style="list-style-type: none;">(i) \(r = \mathrm{rank}(A)\), where the rank of a matrix is the number of pivots in its RREF, or equivalently the dimension of the row space of the matrix.</li>
                 <li style="list-style-type: none;">(ii) The SVD gives a <em>pseudo-diagonalization</em>: \(Q^{-1}AP = \Sigma\).</li>
                 <li style="list-style-type: none;">(iii) The SVD is obtained by applying the Spectral Theorem to either \(A^tA\) or \(AA^t\).</li>
                 <li style="list-style-type: none;">(iv) An orthogonal matrix corresponds to either a reflection or rotation. This is because \((Pv)\cdot(Pw) = v\cdot w\) for column vectors \(v, w\) and orthogonal matrix \(P\). In particular, if \(P\) is an orthogonal \(2\times 2\) matrix over \(\mathbb{R}\), then either \(P = \begin{pmatrix} \cos\theta & -\sin\theta\\\sin\theta & \cos\theta\end{pmatrix}\), which gives a rotation counter-clockwise through an angle of \(\theta\), or \(P = \begin{pmatrix} \cos\theta & \sin\theta\\\sin\theta & -\cos\theta\end{pmatrix}\), which gives a reflection about a line making an angle of \(\frac{\theta}{2}\) with the \(x\)-axis.</li>
-                <li style="list-style-type: none;">(v) Thus, multiplication by <strong>any</strong> \(m\times n\) matrix \(A\) gives a linear transformation from \(\mathbb{R}^n\to\mathbb{R}^m\) which is a rotation or reflection of \(\mathbb{R}^n\), followed by an elongation, followed by a reflection or rotation of \(\mathbb{R}^m\).</li>
-            </ol>
+                <li style="list-style-type: none;">(v) Thus, multiplication by <strong>any</strong> \(m\times n\) matrix \(A\) gives a linear transformation from \(\mathbb{R}^n\to\mathbb{R}^m\) which is a rotation or reflection of \(\mathbb{R}^n\), followed by an elongation, followed by a reflection or rotation of \(\mathbb{R}^m\). Pictorially we have</li>
+                </ol>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[\begin{CD} \mathbb{R}^n @>{A}>> \mathbb{R}^m\\ @V{P^t}VV @AA{Q}A\\ \mathbb{R}^n @>{\Sigma}>> \mathbb{R}^m. \end{CD}\]
+                </div>
+            </div>
+        </div>
+        <div class="problem">
+            <h2 class="problem-number">Wednesday, November 4</h2>
 
+            <p>We began class by re-stating the Singular Value Decomposition theorem and the comments after it, including</p>
+
+            <div class="definition">
+                <span class="statement-title">Comments continued.</span> Maintaining the notation from the comments in the previous lecture, we have
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(vi) \(A\) has a <em>pseudo-inverse</em> \(A^+\): We set \(\Sigma^+\) to be the \(n\times m\) pseudo-diagonal matrix with \(\sigma_1^{-1}, \ldots, \sigma_r^{-1}\) down its diagonal, and \(A^+ := P\Sigma^+Q^t\), where \(A = Q\Sigma P^t\). Now consider the system \(AX = B\) of \(m\) equations in \(n\) unknowns and set \(X_0 = A^+B\). When the system has infinitely many solutions, \(X_0\) is the solution with \(||X_0||\) minimal among all solutions. When the system does not have a solution, \(X_0\) is the <em>best approximation</em> to a solution in the sense that \(||AX_0-B||\) is minimal among all values \(||Av-B||\), with \(v\in\mathbb{R}^n\). In other words, \(X_0\) solves the <em>least squares</em> problem of finding the minimum value of \(||AX-B||^2\).</li>
+                    <li style="list-style-type: none;">(vii) Other applications of the SVD include: data compression, image restoration and noise removal.</li>
+                </ol>
+            </div>
+
+            <p>We then presented and discussed</p>
+
+            <div class="definition">
+                <span class="statement-title">Steps to the SVD.</span> Let \(A\) be an \(m\times n\) matrix with entries in \(\mathbb{R}\) and set \(r = \mathrm{rank}\,A\).
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">1. Starting with \(A^tA\), which is symmetric, let \(\lambda_1\geq\cdots\geq\lambda_r > 0\) be the non-zero eigenvalues of \(A^tA\). Note that properties of \(A^tA\) guarantee that its eigenvalues are non-negative.</li>
+                    <li style="list-style-type: none;">2. Let \(P\) be an orthogonal matrix diagonalizing \(A^tA\), so that \(P^{-1}(A^tA)P\) has diagonal entries \(\lambda_1, \lambda_2, \ldots, \lambda_r, 0, \ldots, 0\), in order.</li>
+                    <li style="list-style-type: none;">3. For \(1\leq i\leq r\), set \(\sigma_i = \sqrt{\lambda_i}\), so that \(\sigma_1, \ldots, \sigma_r\) are the <em>singular values of \(A\)</em>.</li>
+                    <li style="list-style-type: none;">4. For \(1\leq i\leq r\), set \(u_i := \frac{1}{\sigma_i}Av_i\), where \(v_1, \ldots, v_r\) are the first \(r\) columns of \(P\).</li>
+                    <li style="list-style-type: none;">5. \(u_1, \ldots, u_r\) is an orthonormal system. Why: \(v_i, v_j\) are orthogonal, therefore \(u_i, u_j\) are orthogonal. And
+                        <div class="math-display" style="margin: 10px 0;">
+                            \[u_i\cdot u_i = \left(\frac{1}{\sigma_i}Av_i\right)\cdot\left(\frac{1}{\sigma_i}Av_i\right) = \frac{1}{\sigma_i^2}(Av_i\cdot Av_i) = \frac{1}{\lambda_i}(v_i\cdot A^tAv_i) = \frac{1}{\lambda_i}(v_i\cdot\lambda_iv_i) = \frac{\lambda_i}{\lambda_i}(v_i\cdot v_i) = 1.\]
+                        </div>
+                        Extend (via Gram-Schmidt, if necessary) \(u_1, \ldots, u_r\) to an orthonormal basis \(u_1, \ldots, u_r, u_{r+1}, \ldots, u_m\) for \(\mathbb{R}^m\).
+                    </li>
+                    <li style="list-style-type: none;">6. Set \(Q = [u_1\ \cdots\ u_m]\) and let \(\Sigma\) be the \(m\times n\) pseudo-diagonal matrix with diagonal entries \(\sigma_1, \ldots, \sigma_r, 0, \ldots, 0\). Then \(A = Q\Sigma P^t\).</li>
+                </ol>
+            </div>
+
+            <p>We followed this with the</p>
+
+            <div class="definition">
+                <span class="statement-title">Important Remark.</span> We can also find an SVD for \(A\) by starting with the symmetric matrix \(AA^t\). One employs the six steps above, but with the following minor changes: (a) In Step 4, we set \(u_i = \frac{1}{\sigma_i}A^tv_i\) and (b) In Step 6, we obtain \(A = P\Sigma Q^t\).
+            </div>
+
+            <p>We ended class by finding the SVD of \(A = \begin{pmatrix} -1 & 1 & 0\\0 & 0 & 2\end{pmatrix}\) by starting with \(AA^t\). This led to \(P = \begin{pmatrix} 0 & 1\\1 & 0\end{pmatrix}\), \(Q = \begin{pmatrix} 0 & -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}\\ 0 & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}\\ 1 & 0 & 0\end{pmatrix}\) and</p>
             <div class="math-display">
-                \[\begin{CD} \mathbb{R}^n @>{A}>> \mathbb{R}^m\\ @V{P^t}VV @AA{Q}A\\ \mathbb{R}^n @>{\Sigma}>> \mathbb{R}^m \end{CD}\]
+                \[A = \begin{pmatrix} -1 & 1 & 0\\0 & 0 & 2\end{pmatrix} = \begin{pmatrix} 0 & 1\\1 & 0\end{pmatrix}\begin{pmatrix} 2 & 0 & 0\\0 & \sqrt{2} & 0\end{pmatrix}\begin{pmatrix} 0 & 0 & 1\\-\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\\\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\end{pmatrix} = P\Sigma Q^t.\]
             </div>
         </div>
 
