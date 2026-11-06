@@ -1174,6 +1174,39 @@
                 \[A = \begin{pmatrix} -1 & 1 & 0\\0 & 0 & 2\end{pmatrix} = \begin{pmatrix} 0 & 1\\1 & 0\end{pmatrix}\begin{pmatrix} 2 & 0 & 0\\0 & \sqrt{2} & 0\end{pmatrix}\begin{pmatrix} 0 & 0 & 1\\-\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\\\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\end{pmatrix} = P\Sigma Q^t.\]
             </div>
         </div>
+        <div class="problem">
+            <h2 class="problem-number">Friday, November 6</h2>
+
+            <p>Professor Dao covered the following properties of complex numbers.</p>
+
+            <div class="definition">
+                <span class="statement-title">Arithmetic of complex numbers.</span> In what follows, \(\mathbb{C}\) denotes the complex numbers, and vectors \(v, w\), etc., will be column vectors in \(\mathbb{C}^2\). Matrices will be \(2\times 2\) matrices with entries in \(\mathbb{C}\).
+
+                <p>1. If \(z = x+iy\in\mathbb{C}\), then \(\overline{z} = x-yi\) is its conjugate. If \(v = \begin{pmatrix} a\\b\end{pmatrix}\in\mathbb{C}^2\), then \(\overline{v} = \begin{pmatrix} \overline{a}\\\overline{b}\end{pmatrix}\) and if \(A = \begin{pmatrix} a & c\\b & d\end{pmatrix}\), then \(\overline{A} = \begin{pmatrix} \overline{a} & \overline{c}\\\overline{b} & \overline{d}\end{pmatrix}\). Moreover the following properties hold:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(\overline{xy+zw} = \bar{x}\bar{y}+\bar{z}\overline{w}\), for \(x, y, z, w\in\mathbb{C}\).</li>
+                    <li style="list-style-type: none;">(ii) \(\overline{Av} = \bar{A}\bar{v}\).</li>
+                    <li style="list-style-type: none;">(iii) \(\overline{AB} = \bar{A}\bar{B}\), for \(2\times 2\) matrices \(A, B\).</li>
+                </ol>
+
+                <p>2. For \(v = \begin{pmatrix} z_1\\z_2\end{pmatrix}\) and \(w = \begin{pmatrix} t_1\\t_2\end{pmatrix}\), the <em>dot product</em> is defined by \(v\cdot w = z_1\overline{t_1}+z_2\overline{t_2}\). As a matrix product, we have \(v\cdot w = v^t\overline{w}\). The following properties hold:</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(v\cdot w = \overline{w}\cdot\overline{v}\), equivalently, \(w\cdot v = \overline{v}\cdot\overline{w}\).</li>
+                    <li style="list-style-type: none;">(ii) \((v_1+v_2)\cdot w = (v_1\cdot w)+(v_2\cdot w)\) and \(v\cdot(w_1+w_2) = (v\cdot w_1)+(v\cdot w_2)\).</li>
+                    <li style="list-style-type: none;">(iii) For \(\lambda\in\mathbb{C}\), \((\lambda v)\cdot w = \lambda(v\cdot w)\) and \(v\cdot(\lambda w) = \overline{\lambda}(v\cdot w)\).</li>
+                    <li style="list-style-type: none;">(iv) \(v\cdot v\) is a real number greater than or equal to 0 and equals 0 if and only if \(v = \vec{0}\).</li>
+                </ol>
+
+                <p>For \(v\in\mathbb{C}^2\), its length \(||v||\) is defined by \(||v|| = \sqrt{v\cdot v}\).</p>
+
+                <p>3. For the \(2\times 2\) matrix \(A\), the <em>adjoint</em> of \(A\), denoted \(A^*\), is the conjugate transpose of \(A\), i.e., \(A^* = (\overline{A})^t = \overline{A^t}\). It follows that \(Av\cdot w = v\cdot A^*w\). To see this:</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[Av\cdot w = (Av)^t\overline{w}\ (\text{matrix product}) = (v^tA^t)\overline{w} = v^t(A^t\overline{w}) = v^t\overline{A^*w} = v\cdot A^*w.\]
+                </div>
+
+                <p>4. \(A\) is said to be self-adjoint if \(A^* = A\). This is the complex version of a symmetric matrix. Thus, if \(A\) is self-adjoint, then \((Av)\cdot w = v\cdot(Aw)\).</p>
+            </div>
+        </div>
 
     </main>
 
