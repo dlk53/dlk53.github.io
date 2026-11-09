@@ -1207,6 +1207,24 @@
                 <p>4. \(A\) is said to be self-adjoint if \(A^* = A\). This is the complex version of a symmetric matrix. Thus, if \(A\) is self-adjoint, then \((Av)\cdot w = v\cdot(Aw)\).</p>
             </div>
         </div>
+        <div class="problem">
+            <h2 class="problem-number">Monday, November 9</h2>
+
+            <p>We began by discussing the following key facts that make the SVD work, and give the same answer starting with \(A^tA\) or \(AA^t\).</p>
+
+            <div class="definition">
+                <span class="statement-title">Key Facts that make SVD work.</span> Let \(A\) be an \(m\times n\) matrix with coefficients in \(\mathbb{R}\).
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) The eigenvalues of \(A^tA\) and \(AA^t\) are real numbers greater than or equal to zero.</li>
+                    <li style="list-style-type: none;">(ii) \(A^tA\) and \(A\) have the same null space. Similarly, \(AA^t\) and \(A^t\) have the same null space.</li>
+                    <li style="list-style-type: none;">(iii) \(A^tA\) and \(AA^t\) have the same non-zero eigenvalues with corresponding algebraic multiplicities equal.</li>
+                </ol>
+            </div>
+
+            <p>We ended class by continuing with the example \(A = \begin{pmatrix} -1 & 1 & 0\\0 & 0 & 2\end{pmatrix}\) from Wednesday's lecture of last week. We first calculated \(A^+ = \begin{pmatrix} -\frac{1}{2} & 0\\\frac{1}{2} & 0\\0 & \frac{1}{2}\end{pmatrix}\). We noted that the system \(A\begin{pmatrix} x\\y\\z\end{pmatrix} = \begin{pmatrix} 2\\3\end{pmatrix}\) has infinitely many solutions. We calculated that \(A^+\begin{pmatrix} 2\\3\end{pmatrix}\) is a solution which has length \(\sqrt{4.25}\) and noted this length is smaller than a few other (more or less) randomly selected solutions.</p>
+
+            <p>We then considered the overdetermined system \(B\begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix} 6\\3\\0\end{pmatrix}\), where \(B = A^t = \begin{pmatrix} -1 & 0\\1 & 0\\0 & 2\end{pmatrix}\). This system has no solutions, since the first two equations give \(-x = 6\) and \(x = 3\). Noting that \(B^+ = (A^+)^t = \begin{pmatrix} -\frac{1}{2} & \frac{1}{2} & 0\\0 & 0 & \frac{1}{2}\end{pmatrix}\) (since \(A = P\Sigma Q^t\) from Wednesday's lecture, \(B = A^t = Q\Sigma^tP^t\) is an SVD of \(B\), so \(B^+ = P(\Sigma^t)^+Q^t = P(\Sigma^+)^tQ^t = (Q\Sigma^+P^t)^t = (A^+)^t\)), we calculated \(X_0 = B^+\begin{pmatrix} 6\\3\\0\end{pmatrix} = \begin{pmatrix} -\frac{3}{2}\\0\end{pmatrix}\). Then we saw that \(BX_0 = \begin{pmatrix} \frac{3}{2}\\-\frac{3}{2}\\0\end{pmatrix}\) and \(\left|\left|BX_0 - \begin{pmatrix} 6\\3\\0\end{pmatrix}\right|\right| = \frac{9}{\sqrt{2}}\). Taking \(v = \begin{pmatrix} 1\\-1\end{pmatrix}\), we saw that \(\left|\left|Bv - \begin{pmatrix} 6\\3\\0\end{pmatrix}\right|\right| = \sqrt{57}\approx 7.55 > 6.36\approx\frac{9}{\sqrt{2}}\), as expected.</p>
+        </div>
 
     </main>
 

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2026: Math 590 Quiz 10 Solutions</title>
+    <script>
+        MathJax = {
+            loader: {load: ['[tex]/amscd']},
+            tex: {
+                packages: {'[+]': ['amscd']},
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.0
+            },
+            chtml: {
+                scale: 1.0,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        h2.section-title {
+            color: #8b2e3f;
+            font-size: 1.35em;
+            margin: 40px 0 10px;
+        }
+        h2.section-title .points {
+            font-weight: normal;
+            font-size: 0.8em;
+            color: #555;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        h2.problem-number,
+        h3.problem-number {
+            margin-top: 0;
+            line-height: inherit;
+        }
+        .solution {
+            background-color: #fff3cd;
+            padding: 5px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution-label {
+            font-weight: 600;
+            color: #2563eb;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Fall 2026: Math 590 Quiz 10 Solutions</h1>
+    </header>
+
+    <main id="main-content">
+
+        <!-- Problem 1 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 1</h2>
+
+            <p>State the Singular Value Decomposition theorem. (3 points)</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> <em>Singular Value Decomposition theorem.</em> Let \(A\) be an \(m\times n\) matrix with entries in \(\mathbb{R}\) and rank \(r\). Then there exist an \(m\times m\) orthogonal matrix \(Q\), an \(n\times n\) orthogonal matrix \(P\), and an \(m\times n\) matrix</p>
+                <div class="math-display">
+                    \[\Sigma = \begin{pmatrix}
+                    \sigma_1 & 0 & \cdots & 0 & 0 & \cdots & 0\\
+                    0 & \sigma_2 & \cdots & 0 & 0 & \cdots & 0\\
+                    \vdots & \vdots & \ddots & \vdots & \vdots & & \vdots\\
+                    0 & 0 & \cdots & \sigma_r & 0 & \cdots & 0\\
+                    0 & 0 & \cdots & 0 & 0 & \cdots & 0\\
+                    \vdots & \vdots & & \vdots & \vdots & \ddots & \vdots\\
+                    0 & 0 & \cdots & 0 & 0 & \cdots & 0
+                    \end{pmatrix}, \qquad \sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_r > 0,\]
+                </div>
+                <p>that is, the \((i,i)\) entry of \(\Sigma\) is \(\sigma_i\) for \(1 \leq i \leq r\), and every other entry of \(\Sigma\) is \(0\), such that</p>
+                <div class="math-display">
+                    \[A = Q\Sigma P^t.\]
+                </div>
+                <p>The numbers \(\sigma_1, \ldots, \sigma_r\) are the <em>singular values</em> of \(A\): \(\sigma_i = \sqrt{\lambda_i}\), where \(\lambda_1 \geq \cdots \geq \lambda_r > 0\) are the nonzero eigenvalues of \(A^tA\).</p>
+            </div>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 2</h2>
+
+            <p>Find the singular value decomposition for the matrix \(A = \begin{pmatrix} 1 & 2\\2 & 1\\2 & -2\end{pmatrix}\). (7 points)</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> <em>Step 1: the eigenvalues of \(A^tA\).</em> We have</p>
+                <div class="math-display">
+                    \[A^tA = \begin{pmatrix} 1 & 2 & 2\\ 2 & 1 & -2\end{pmatrix} \begin{pmatrix} 1 & 2\\2 & 1\\2 & -2\end{pmatrix} = \begin{pmatrix} 9 & 0\\ 0 & 9\end{pmatrix} = 9I,\]
+                </div>
+                <p>so the eigenvalues of \(A^tA\) are \(\lambda_1 = \lambda_2 = 9\), and the singular values of \(A\) are \(\sigma_1 = \sigma_2 = 3\). Thus</p>
+                <div class="math-display">
+                    \[\Sigma = \begin{pmatrix} 3 & 0\\ 0 & 3\\ 0 & 0\end{pmatrix}.\]
+                </div>
+
+                <p><em>Step 2: the matrix \(P\).</em> Since \(A^tA = 9I\), every nonzero vector in \(\mathbb{R}^2\) is an eigenvector of \(A^tA\), so any orthonormal basis of \(\mathbb{R}^2\) will do. We take \(p_1 = \begin{pmatrix} 1\\0\end{pmatrix}\), \(p_2 = \begin{pmatrix} 0\\1\end{pmatrix}\), so \(P = I\).</p>
+
+                <p><em>Step 3: the matrix \(Q\).</em> The first two columns of \(Q\) are</p>
+                <div class="math-display">
+                    \[q_1 = \frac{1}{\sigma_1}Ap_1 = \frac{1}{3}\begin{pmatrix} 1\\2\\2\end{pmatrix}, \qquad q_2 = \frac{1}{\sigma_2}Ap_2 = \frac{1}{3}\begin{pmatrix} 2\\1\\-2\end{pmatrix}.\]
+                </div>
+                <p>These are orthonormal: \(q_1\cdot q_2 = \frac{1}{9}(2 + 2 - 4) = 0\) and \(\|q_1\| = \|q_2\| = \frac{1}{3}\sqrt{9} = 1\). To complete \(q_1, q_2\) to an orthonormal basis of \(\mathbb{R}^3\), we choose a vector not in \(\mathrm{Span}\{q_1, q_2\}\), say \(v_3 = \begin{pmatrix} 1\\0\\0\end{pmatrix}\), and use the Gram-Schmidt formula to find a vector orthogonal to \(q_1\) and \(q_2\):<sup><a href="#fn1" id="fnref1" aria-label="Footnote 1">1</a></sup></p>
+                <div class="math-display">
+                    \[u_3 = v_3 - (v_3\cdot q_1)\,q_1 - (v_3\cdot q_2)\,q_2.\]
+                </div>
+                <p>(Since \(q_1\) and \(q_2\) are unit vectors, the denominators \(q_1\cdot q_1\) and \(q_2\cdot q_2\) in the Gram-Schmidt formula are both \(1\).) Here \(v_3\cdot q_1 = \frac{1}{3}\) and \(v_3\cdot q_2 = \frac{2}{3}\), so</p>
+                <div class="math-display">
+                    \[u_3 = \begin{pmatrix} 1\\0\\0\end{pmatrix} - \frac{1}{3}\cdot\frac{1}{3}\begin{pmatrix} 1\\2\\2\end{pmatrix} - \frac{2}{3}\cdot\frac{1}{3}\begin{pmatrix} 2\\1\\-2\end{pmatrix}
+                    = \begin{pmatrix} 1 - \frac{1}{9} - \frac{4}{9}\\[4pt] 0 - \frac{2}{9} - \frac{2}{9}\\[4pt] 0 - \frac{2}{9} + \frac{4}{9}\end{pmatrix}
+                    = \frac{1}{9}\begin{pmatrix} 4\\-4\\2\end{pmatrix}.\]
+                </div>
+                <p><em>Check:</em> \(u_3\cdot q_1 = \frac{1}{27}(4 - 8 + 4) = 0\) and \(u_3\cdot q_2 = \frac{1}{27}(8 - 4 - 4) = 0\). Since \(\|u_3\| = \frac{1}{9}\sqrt{16 + 16 + 4} = \frac{6}{9} = \frac{2}{3}\), normalizing gives</p>
+                <div class="math-display">
+                    \[q_3 = \frac{u_3}{\|u_3\|} = \frac{3}{2}\cdot\frac{1}{9}\begin{pmatrix} 4\\-4\\2\end{pmatrix} = \frac{1}{3}\begin{pmatrix} 2\\-2\\1\end{pmatrix}.\]
+                </div>
+
+                <p>Therefore</p>
+                <div class="math-display">
+                    \[A = Q\Sigma P^t, \qquad Q = \frac{1}{3}\begin{pmatrix} 1 & 2 & 2\\ 2 & 1 & -2\\ 2 & -2 & 1\end{pmatrix}, \qquad \Sigma = \begin{pmatrix} 3 & 0\\ 0 & 3\\ 0 & 0\end{pmatrix}, \qquad P = \begin{pmatrix} 1 & 0\\ 0 & 1\end{pmatrix}.\]
+                </div>
+                <p><em>Check:</em> \(Q\Sigma = \frac{1}{3}\begin{pmatrix} 3 & 6\\ 6 & 3\\ 6 & -6\end{pmatrix} = A\), and \(P^t = I\).</p>
+            </div>
+
+            <div class="footnotes" style="margin-top: 20px; padding-top: 10px; border-top: 1px solid #ccc; font-size: 0.9em;">
+                <p id="fn1"><sup>1</sup> Alternatively, one can take the cross product \(q_1\times q_2 = \frac{1}{9}\begin{pmatrix} 1\\2\\2\end{pmatrix}\times\begin{pmatrix} 2\\1\\-2\end{pmatrix} = \frac{1}{9}\begin{pmatrix} -6\\6\\-3\end{pmatrix} = \frac{1}{3}\begin{pmatrix} -2\\2\\-1\end{pmatrix}\), which is orthogonal to both \(q_1\) and \(q_2\). Since \(q_1\) and \(q_2\) are orthonormal, \(q_1\times q_2\) is already a unit vector, so no normalization is needed. This is \(-q_3\), which works equally well as the third column of \(Q\). <a href="#fnref1" aria-label="Back to text">&#8617;</a></p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX quiz solutions. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
