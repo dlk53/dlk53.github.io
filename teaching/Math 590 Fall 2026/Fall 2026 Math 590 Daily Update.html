@@ -1226,6 +1226,115 @@
             <p>We then considered the overdetermined system \(B\begin{pmatrix} x\\y\end{pmatrix} = \begin{pmatrix} 6\\3\\0\end{pmatrix}\), where \(B = A^t = \begin{pmatrix} -1 & 0\\1 & 0\\0 & 2\end{pmatrix}\). This system has no solutions, since the first two equations give \(-x = 6\) and \(x = 3\). Noting that \(B^+ = (A^+)^t = \begin{pmatrix} -\frac{1}{2} & \frac{1}{2} & 0\\0 & 0 & \frac{1}{2}\end{pmatrix}\) (since \(A = P\Sigma Q^t\) from Wednesday's lecture, \(B = A^t = Q\Sigma^tP^t\) is an SVD of \(B\), so \(B^+ = P(\Sigma^t)^+Q^t = P(\Sigma^+)^tQ^t = (Q\Sigma^+P^t)^t = (A^+)^t\)), we calculated \(X_0 = B^+\begin{pmatrix} 6\\3\\0\end{pmatrix} = \begin{pmatrix} -\frac{3}{2}\\0\end{pmatrix}\). Then we saw that \(BX_0 = \begin{pmatrix} \frac{3}{2}\\-\frac{3}{2}\\0\end{pmatrix}\) and \(\left|\left|BX_0 - \begin{pmatrix} 6\\3\\0\end{pmatrix}\right|\right| = \frac{9}{\sqrt{2}}\). Taking \(v = \begin{pmatrix} 1\\-1\end{pmatrix}\), we saw that \(\left|\left|Bv - \begin{pmatrix} 6\\3\\0\end{pmatrix}\right|\right| = \sqrt{57}\approx 7.55 > 6.36\approx\frac{9}{\sqrt{2}}\), as expected.</p>
         </div>
 
+        <div class="problem">
+            <h2 class="problem-number">Wednesday, November 11</h2>
+
+            <p>The class worked in groups on the practice problems for Exam 2.</p>
+        </div>
+        <div class="problem">
+            <h2 class="problem-number">Friday, November 13</h2>
+
+            <p>Exam 2.</p>
+        </div>
+
+        <div class="problem">
+            <h2 class="problem-number">Monday, November 16</h2>
+
+            <p>We began class with the following question: What form should the spectral theorem take over \(\mathbb{C}\)? Before addressing this, we briefly reviewed some of the properties of the dot product over \(\mathbb{C}\) covered in the lecture of Friday, November 6. We also noted the following:</p>
+
+            <div class="definition">
+                <span class="statement-title">Properties of the adjoint.</span> For an \(n\times n\) matrix \(A\) over \(\mathbb{C}\), the adjoint of \(A\), denoted \(A^*\), is the matrix defined by \(A^* = (\overline{A})^t = \overline{A^t}\), i.e., the adjoint of \(A\) is the <em>conjugate transpose</em> of \(A\).
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \((A^*)^* = A\).</li>
+                    <li style="list-style-type: none;">(ii) \((AB)^* = B^*A^*\), for \(B\) an \(n\times n\) matrix over \(\mathbb{C}\).</li>
+                    <li style="list-style-type: none;">(iii) \((Av)\cdot w = v\cdot(A^*w)\), for \(v, w\in\mathbb{C}^n\).</li>
+                    <li style="list-style-type: none;">(iv) For the complex \(n\times n\) matrix \(Q\), the following are equivalent:
+                        <ol style="list-style-type: none; padding-left: 20px;">
+                            <li style="list-style-type: none;">(a) \(Q^* = Q^{-1}\).</li>
+                            <li style="list-style-type: none;">(b) If the columns of \(Q\) are \(C_1, \ldots, C_n\), then \(C_i\cdot C_j = 0\), if \(i\not= j\) and \(C_i\cdot C_i = 1\), for \(1\leq i\leq n\).</li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+
+            <p>We noted that for \(Q\) in (iv), \(Q\) is the complex version of an orthogonal matrix. We will continue to use this term, even though it is not common practice. The standard term for such \(Q\) is <em>unitary</em>. Likewise, though we will say that such a matrix orthogonally diagonalizes \(A\) in the complex sense if \(Q^{-1}AQ\) is diagonal, or \(Q^*AQ\) is diagonal, the standard terminology is that \(Q\) <em>unitarily diagonalizes</em> \(A\). I think that for our class, the fewer terms we have to memorize, the better.</p>
+
+            <p>We then gave the following definition, followed by the first version of the spectral theorem over the complex numbers.</p>
+
+            <div class="definition">
+                <span class="statement-title">Definition.</span> Let \(A\) be an \(n\times n\) matrix with entries in \(\mathbb{C}\). Then \(A\) is <em>self-adjoint</em> if \(A^* = A\).
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">Complex Spectral Theorem (first version).</span> Let \(A\) be an \(n\times n\) self-adjoint matrix with entries in \(\mathbb{C}\). Then \(A\) is orthogonally diagonalizable in the complex sense, i.e., there exists an \(n\times n\) matrix \(Q\) over \(\mathbb{C}\) such that \(Q^{-1} = Q^*\) and \(Q^{-1}AQ = D\), a diagonal matrix.
+            </div>
+
+            <p>We ended class by working through the following example.</p>
+
+            <div class="definition">
+                <span class="statement-title">Example.</span> Let \(A = \begin{pmatrix} 0 & i\\-i & 0\end{pmatrix}\).
+
+                <p>1. \(A\) is self-adjoint: Conjugating every entry of \(A\) gives \(\begin{pmatrix} 0 & -i\\ i & 0\end{pmatrix}\), and transposing gives</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[A^* = \overline{A}^{\,T} = \begin{pmatrix} 0 & i\\ -i & 0\end{pmatrix} = A.\]
+                </div>
+                <p>So \(A\) is self-adjoint. By the Spectral Theorem, every self-adjoint matrix is complex orthogonally diagonalizable.</p>
+
+                <p><em>Remark.</em> \(A\) is <em>not</em> symmetric in the ordinary sense, since \(A^T = -A\). This is why over \(\mathbb{C}\) we use \(A^*\) rather than \(A^T\).</p>
+
+                <p>2. Eigenvalues:</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[\det(xI_2-A) = \det\begin{pmatrix} x & -i\\ i & x\end{pmatrix} = x^2-(i)(-i) = x^2+i^2 = x^2-1.\]
+                </div>
+                <p>So the eigenvalues are \(\lambda = 1\) and \(\lambda = -1\), listed in the order they will appear in \(D\).</p>
+
+                <p>3. Eigenspaces: For each eigenvalue \(\lambda\), the eigenspace is \(E_\lambda = \operatorname{Nul}(A-\lambda I)\). We find a basis for it by row reducing \(A-\lambda I\).</p>
+
+                <p>For \(E_1\), row reduce \(A-I\):</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[\begin{pmatrix} -1 & i\\ -i & -1\end{pmatrix} \xrightarrow{\;R_1\,\to\,-R_1\;} \begin{pmatrix} 1 & -i\\ -i & -1\end{pmatrix} \xrightarrow{\;R_2\,\to\,R_2+iR_1\;} \begin{pmatrix} 1 & -i\\ -i+i\cdot 1 & -1+i(-i)\end{pmatrix} = \begin{pmatrix} 1 & -i\\ 0 & 0\end{pmatrix}.\]
+                </div>
+                <p>The vector \(v_1 = \begin{pmatrix} i\\1\end{pmatrix}\) is clearly a basis for \(E_1\).</p>
+
+                <p>For \(E_{-1}\), row reduce \(A+(1)I\):</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[\begin{pmatrix} 1 & i\\ -i & 1\end{pmatrix} \xrightarrow{\;R_2\,\to\,R_2+iR_1\;} \begin{pmatrix} 1 & i\\ -i+i\cdot 1 & 1+i\cdot i\end{pmatrix} = \begin{pmatrix} 1 & i\\ 0 & 0\end{pmatrix}.\]
+                </div>
+                <p>Clearly \(v_2 = \begin{pmatrix} i\\-1\end{pmatrix}\) is a basis for \(E_{-1}\).</p>
+
+                <p>4. Orthogonality and normalization: We use the standard inner product on \(\mathbb{C}^2\), \(\langle u, v\rangle = \sum_k u_k\overline{v_k}\).</p>
+                <ul>
+                    <li>\(\langle v_1, v_2\rangle = i\cdot\overline{i} + 1\cdot\overline{(-1)} = i(-i) + 1\cdot(-1) = 1-1 = 0\), so \(v_1\) and \(v_2\) are orthogonal.</li>
+                    <li>\(\|v_1\| = \sqrt{\langle v_1, v_1\rangle} = \sqrt{i\cdot\overline{i} + 1\cdot\overline{1}} = \sqrt{i(-i)+1} = \sqrt{1+1} = \sqrt{2}\).</li>
+                    <li>\(\|v_2\| = \sqrt{\langle v_2, v_2\rangle} = \sqrt{i\cdot\overline{i} + (-1)\cdot\overline{(-1)}} = \sqrt{i(-i)+(-1)(-1)} = \sqrt{1+1} = \sqrt{2}\).</li>
+                </ul>
+                <p>Dividing each vector by \(\sqrt{2}\) gives an orthonormal eigenbasis:</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[u_1 = \frac{1}{\sqrt{2}}\begin{pmatrix} i\\ 1\end{pmatrix},\qquad u_2 = \frac{1}{\sqrt{2}}\begin{pmatrix} i\\ -1\end{pmatrix}.\]
+                </div>
+
+                <p>5. The complex orthogonal matrix \(U\): Using the orthonormal eigenvectors as columns,</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[U = \frac{1}{\sqrt{2}}\begin{pmatrix} i & i\\ 1 & -1\end{pmatrix}.\]
+                </div>
+                <p>To find \(U^*\), conjugate every entry to get \(\begin{pmatrix} -i & -i\\ 1 & -1\end{pmatrix}\), then transpose:</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[U^* = \frac{1}{\sqrt{2}}\begin{pmatrix} -i & 1\\ -i & -1\end{pmatrix}.\]
+                </div>
+
+                <p>6. Check that \(U^*AU = D\): First,</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[AU = \frac{1}{\sqrt{2}}\begin{pmatrix} 0 & i\\ -i & 0\end{pmatrix}\begin{pmatrix} i & i\\ 1 & -1\end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} 0\cdot i+i\cdot 1 & 0\cdot i+i(-1)\\ (-i)(i)+0\cdot 1 & (-i)(i)+0\cdot(-1)\end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} i & -i\\ 1 & 1\end{pmatrix}.\]
+                </div>
+                <p>Then</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[\begin{aligned} U^*AU &= \frac{1}{\sqrt{2}}\begin{pmatrix} -i & 1\\ -i & -1\end{pmatrix}\cdot\frac{1}{\sqrt{2}}\begin{pmatrix} i & -i\\ 1 & 1\end{pmatrix}\\ &= \frac12\begin{pmatrix} (-i)(i)+1\cdot 1 & (-i)(-i)+1\cdot 1\\ (-i)(i)+(-1)\cdot 1 & (-i)(-i)+(-1)\cdot 1\end{pmatrix} = \frac12\begin{pmatrix} 1+1 & -1+1\\ 1-1 & -1-1\end{pmatrix} = \begin{pmatrix} 1 & 0\\ 0 & -1\end{pmatrix}.\end{aligned}\]
+                </div>
+
+                <p>Conclusion: \(U^*AU = D\), so that \(A\) is orthogonally diagonalizable in the complex sense (or, more formally, \(A\) is unitarily diagonalizable).</p>
+            </div>
+        </div>
+
     </main>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
