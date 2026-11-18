@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2026: Math 590 Exam 2 Solutions</title>
+    <script>
+        MathJax = {
+            loader: {load: ['[tex]/amscd']},
+            tex: {
+                packages: {'[+]': ['amscd']},
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.0
+            },
+            chtml: {
+                scale: 1.0,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        h2.section-title {
+            color: #8b2e3f;
+            font-size: 1.35em;
+            margin: 40px 0 10px;
+        }
+        h2.section-title .points {
+            font-weight: normal;
+            font-size: 0.8em;
+            color: #555;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        h2.problem-number,
+        h3.problem-number {
+            margin-top: 0;
+            line-height: inherit;
+        }
+        .solution {
+            background-color: #fff3cd;
+            padding: 5px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution-label {
+            font-weight: 600;
+            color: #2563eb;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Fall 2026: Math 590 Exam 2 Solutions</h1>
+    </header>
+
+    <main id="main-content">
+
+        <h2 class="section-title">True-False and Short Answer <span class="points">(50 points)</span></h2>
+
+        <!-- Short Answer 1 -->
+        <div class="problem">
+            <h3 class="problem-number">Problem 1</h3>
+
+            <p>Let \(A\) be an \(n\times n\) matrix over \(F\) with eigenvalue \(\lambda\). Define both the <em>algebraic multiplicity</em> and the <em>geometric multiplicity</em> of \(\lambda\).</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> Write \(p_A(x) = (x-\lambda)^e q(x)\) with \(q(\lambda)\neq 0\). The <em>algebraic multiplicity</em> of \(\lambda\) is \(e\), the number of times \(x-\lambda\) appears as a factor of \(p_A(x)\). The <em>geometric multiplicity</em> of \(\lambda\) is \(\dim E_\lambda\), where \(E_\lambda = \{v\in F^n \mid (A-\lambda I_n)v = \vec{0}\}\) is the eigenspace of \(\lambda\).</p>
+            </div>
+        </div>
+
+        <!-- Short Answer 2 -->
+        <div class="problem">
+            <h3 class="problem-number">Problem 2</h3>
+
+            <p>In terms of your answers in 1., when is \(A\) diagonalizable?</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> \(A\) is diagonalizable over \(F\) if and only if \(p_A(x) = (x-\lambda_1)^{e_1}\cdots(x-\lambda_r)^{e_r}\) with every \(\lambda_i\in F\), and for each eigenvalue \(\lambda_i\) the geometric multiplicity equals the algebraic multiplicity, i.e., \(\dim E_{\lambda_i} = e_i\) for \(1\le i\le r\).</p>
+            </div>
+        </div>
+
+        <!-- Short Answer 3 -->
+        <div class="problem">
+            <h3 class="problem-number">Problem 3</h3>
+
+            <p>Let \(A\) be a \(4\times 4\) symmetric matrix with \(p_A(x) = (x-1)^3(x-4)\). Describe how you would find an orthogonal matrix diagonalizing \(A\).</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> By the Spectral Theorem, \(A\) is orthogonally diagonalizable, so \(\dim E_1 = 3\) and \(\dim E_4 = 1\).</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) Solve \((A - I_4)X = \vec{0}\) to find a basis \(v_1, v_2, v_3\) of \(E_1\).</li>
+                    <li style="list-style-type: none;">(ii) Apply Gram-Schmidt to \(v_1, v_2, v_3\) to get an orthogonal basis \(w_1, w_2, w_3\) of \(E_1\).</li>
+                    <li style="list-style-type: none;">(iii) Solve \((A-4I_4)X = \vec{0}\) to find a basis vector \(w_4\) of \(E_4\). It is automatically orthogonal to \(w_1, w_2, w_3\), since eigenvectors of a symmetric matrix for distinct eigenvalues are orthogonal.</li>
+                    <li style="list-style-type: none;">(iv) Normalize: \(u_i = \frac{1}{\|w_i\|}w_i\), and set \(Q = [u_1\ u_2\ u_3\ u_4]\). Then \(Q\) is orthogonal and \(Q^{-1}AQ = \begin{pmatrix} 1&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&4\end{pmatrix}\).</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Short Answer 4 -->
+        <div class="problem">
+            <h3 class="problem-number">Problem 4</h3>
+
+            <p>Give an example of a \(2\times 2\) matrix over \(\mathbb{R}\) that is not diagonalizable. Justify your answer.</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> Take \(A = \begin{pmatrix} 1 & 2\\0 & 1\end{pmatrix}\). Then \(p_A(x) = (x-1)^2\), so \(\lambda = 1\) has algebraic multiplicity 2. But \(A - I_2 = \begin{pmatrix} 0 & 2\\0 & 0\end{pmatrix}\) has rank 1, so \(\dim E_1 = 1 &lt; 2\). By the Diagonalizability Theorem, \(A\) is not diagonalizable.</p>
+
+                <p>(Another correct answer: \(A = \begin{pmatrix} 0 & -1\\1 & 0\end{pmatrix}\), since \(p_A(x) = x^2+1\) has no roots in \(\mathbb{R}\).)</p>
+            </div>
+        </div>
+
+        <!-- Short Answer 5 -->
+        <div class="problem">
+            <h3 class="problem-number">Problem 5</h3>
+
+            <p>Suppose \(A\) has distinct eigenvalues \(\lambda_1, \ldots, \lambda_r\), with corresponding eigenvectors \(v_1, v_2, \ldots, v_r\). What property does the set \(\{v_1, \ldots, v_r\}\) have?</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> The set \(\{v_1, \ldots, v_r\}\) is linearly independent.</p>
+            </div>
+        </div>
+
+        <!-- Short Answer 6 -->
+        <div class="problem">
+            <h3 class="problem-number">Problem 6</h3>
+
+            <p>True-False: Let \(A\) be a real \(n\times n\) symmetric matrix with eigenvalues \(\lambda_1, \ldots, \lambda_n\) and corresponding eigenvectors \(v_1, \ldots, v_n\). Then \(\{v_1, \ldots, v_n\}\) is an orthogonal set.</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> <strong>False.</strong> Eigenvectors for <em>distinct</em> eigenvalues are orthogonal, but eigenvectors for a repeated eigenvalue need not be. For example, \(A = I_2\) has eigenvalues \(1, 1\) with eigenvectors \(v_1 = \begin{pmatrix} 1\\0\end{pmatrix}\) and \(v_2 = \begin{pmatrix} 1\\1\end{pmatrix}\), and \(v_1\cdot v_2 = 1\neq 0\).</p>
+            </div>
+        </div>
+
+        <!-- Short Answer 7 -->
+        <div class="problem">
+            <h3 class="problem-number">Problem 7</h3>
+
+            <p>Let \(Q\) be an \(n\times n\) matrix with entries in \(\mathbb{R}\). Define what it means for \(Q\) to be <em>orthogonal</em>. In this case, what is \(Q^{-1}\)?</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> \(Q\) is orthogonal if its columns \(C_1, \ldots, C_n\) are mutually orthogonal and have length one: \(C_i\cdot C_j = 0\) for \(i\neq j\) and \(C_i\cdot C_i = 1\) for all \(i\). In this case \(Q^{-1} = Q^t\).</p>
+            </div>
+        </div>
+
+        <!-- Short Answer 8 -->
+        <div class="problem">
+            <h3 class="problem-number">Problem 8</h3>
+
+            <p>True-False: Given any matrix \(A\), there exists a non-zero matrix \(B\) such that \(AB\) is a symmetric matrix.</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> <strong>True.</strong> If \(A\) is \(m\times n\), take \(B = A^t\). Then \(AB = AA^t\) is \(m\times m\) and \((AA^t)^t = (A^t)^tA^t = AA^t\), so \(AA^t\) is symmetric. (If \(A\) is the zero matrix, then \(A^t = 0\) as well, but in that case \(AB = 0\) is symmetric for every non-zero \(n\times m\) matrix \(B\).)</p>
+            </div>
+        </div>
+
+        <!-- Short Answer 9 -->
+        <div class="problem">
+            <h3 class="problem-number">Problem 9</h3>
+
+            <p>Let \(A\) be an \(m\times n\) real matrix. What are the <em>singular values</em> of \(A\)?</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> Let \(\lambda_1\ge\lambda_2\ge\cdots\ge\lambda_r&gt;0\) be the nonzero eigenvalues of the symmetric matrix \(A^tA\), where \(r = \mathrm{rank}(A)\). The singular values of \(A\) are \(\sigma_i = \sqrt{\lambda_i}\), for \(1\le i\le r\). They are the nonzero diagonal entries of \(\Sigma\) in the SVD \(A = Q\Sigma P^t\).</p>
+            </div>
+        </div>
+
+        <!-- Short Answer 10 -->
+        <div class="problem">
+            <h3 class="problem-number">Problem 10</h3>
+
+            <p>Suppose \(\{v_1, v_2, v_3\}\) are linearly independent vectors and the Gram-Schmidt process yields orthogonal vectors \(w_1, w_2\) such that \(\mathrm{Span}\{w_1, w_2, v_3\} = \mathrm{Span}\{v_1, v_2, v_3\}\). What is the formula for \(w_3\) such that \(\{w_1, w_2, w_3\}\) is an orthogonal set and \(\mathrm{Span}\{w_1, w_2, w_3\} = \mathrm{Span}\{v_1, v_2, v_3\}\)?</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span></p>
+                <div class="math-display">
+                    \[w_3 = v_3 - \frac{\langle v_3, w_1\rangle}{\langle w_1, w_1\rangle}\, w_1 - \frac{\langle v_3, w_2\rangle}{\langle w_2, w_2\rangle}\, w_2.\]
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Long Answer and Calculation Problems</h2>
+
+        <!-- Long Answer 1 -->
+        <div class="problem">
+            <h3 class="problem-number">Problem 1</h3>
+
+            <p>Let \(V\) be a vector space over \(\mathbb{R}\) and \(\langle\ ,\ \rangle\) be a function from \(V\times V\to \mathbb{R}\). Define what it means for \(\langle\ ,\ \rangle\) to be an inner product on \(V\) and give an example of an inner product that is not the usual dot product on Euclidean space. For the example you give you do not have to verify the inner product properties. (10 points)</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> \(\langle\ ,\ \rangle\) is an inner product on \(V\) if, for all \(v, v_1, v_2, w\in V\) and \(\lambda\in\mathbb{R}\):</p>
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">(i) \(\langle v, w\rangle = \langle w, v\rangle\);</li>
+                    <li style="list-style-type: none;">(ii) \(\langle v_1 + v_2, w\rangle = \langle v_1, w\rangle + \langle v_2, w\rangle\);</li>
+                    <li style="list-style-type: none;">(iii) \(\langle \lambda v, w\rangle = \lambda\langle v, w\rangle = \langle v, \lambda w\rangle\);</li>
+                    <li style="list-style-type: none;">(iv) \(\langle v, v\rangle \ge 0\), and \(\langle v, v\rangle = 0\) if and only if \(v = \vec{0}\).</li>
+                </ol>
+                <p><em>Examples.</em> On the space of real polynomials of degree at most \(n\), \(\langle f(x), g(x)\rangle = \int_{-1}^1 f(x)g(x)\,dx\). On \(\mathrm{M}_2(\mathbb{R})\), \(\langle A, B\rangle = \mathrm{tr}(A^tB)\).</p>
+            </div>
+        </div>
+
+        <!-- Long Answer 2 -->
+        <div class="problem">
+            <h3 class="problem-number">Problem 2</h3>
+
+            <p>Find an orthogonal matrix diagonalizing \(A = \begin{pmatrix} 1 & 1 & 1\\1 & 1 & 1\\1 & 1 & 1\end{pmatrix}\). (20 points)</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> <em>Characteristic polynomial.</em> Expanding along the first row,</p>
+                <div class="math-display">
+                    \[\begin{aligned}
+                    p_A(x) &= \begin{vmatrix} 1-x & 1 & 1\\ 1 & 1-x & 1\\ 1 & 1 & 1-x\end{vmatrix}
+                    = (1-x)\big[(1-x)^2 - 1\big] - \big[(1-x) - 1\big] + \big[1 - (1-x)\big]\\[6pt]
+                    &= -x^3 + 3x^2 = -x^2(x-3).
+                    \end{aligned}\]
+                </div>
+                <p>So the eigenvalues are \(\lambda = 0\) (algebraic multiplicity 2) and \(\lambda = 3\) (algebraic multiplicity 1). (Using \(|xI_3 - A|\) instead gives \(x^2(x-3)\).)</p>
+
+                <p><em>Eigenspaces.</em> For \(\lambda = 0\), Gaussian elimination on \(A - 0\cdot I_3 = A\) gives</p>
+                <div class="math-display">
+                    \[\begin{pmatrix} 1 & 1 & 1\\ 1 & 1 & 1\\ 1 & 1 & 1\end{pmatrix} \longrightarrow \begin{pmatrix} 1 & 1 & 1\\ 0 & 0 & 0\\ 0 & 0 & 0\end{pmatrix},\]
+                </div>
+                <p>so \(y\) and \(z\) are free variables and</p>
+                <div class="math-display">
+                    \[E_0 = \mathrm{Span}\left\{ v_1 = \begin{pmatrix} -1\\1\\0\end{pmatrix},\ v_2 = \begin{pmatrix} -1\\0\\1\end{pmatrix}\right\}.\]
+                </div>
+                <p>For \(\lambda = 3\), Gaussian elimination on \(A - 3I_3\) gives</p>
+                <div class="math-display">
+                    \[\begin{aligned}
+                    &\begin{pmatrix} -2 & 1 & 1\\ 1 & -2 & 1\\ 1 & 1 & -2\end{pmatrix}
+                    \longrightarrow
+                    \begin{pmatrix} 1 & 1 & -2\\ 1 & -2 & 1\\ -2 & 1 & 1\end{pmatrix}
+                    \longrightarrow
+                    \begin{pmatrix} 1 & 1 & -2\\ 0 & -3 & 3\\ 0 & 3 & -3\end{pmatrix}\\[6pt]
+                    &\longrightarrow
+                    \begin{pmatrix} 1 & 1 & -2\\ 0 & 1 & -1\\ 0 & 0 & 0\end{pmatrix}
+                    \longrightarrow
+                    \begin{pmatrix} 1 & 0 & -1\\ 0 & 1 & -1\\ 0 & 0 & 0\end{pmatrix},
+                    \end{aligned}\]
+                </div>
+                <p>so \(z\) is a free variable and</p>
+                <div class="math-display">
+                    \[E_3 = \mathrm{Span}\left\{ v_3 = \begin{pmatrix} 1\\1\\1\end{pmatrix}\right\}.\]
+                </div>
+                <p>\(v_3\) is orthogonal to \(v_1\) and \(v_2\), but \(v_1\cdot v_2 = 1\neq 0\), so we apply Gram-Schmidt to \(E_0\).</p>
+
+                <p><em>Gram-Schmidt on \(E_0\).</em> Set \(w_1 = v_1 = \begin{pmatrix} -1\\1\\0\end{pmatrix}\). Then</p>
+                <div class="math-display">
+                    \[v_2 - \frac{v_2\cdot w_1}{w_1\cdot w_1}\,w_1 = \begin{pmatrix} -1\\0\\1\end{pmatrix} - \frac12\begin{pmatrix} -1\\1\\0\end{pmatrix} = \begin{pmatrix} -\frac12\\[2pt] -\frac12\\[2pt] 1\end{pmatrix},\]
+                </div>
+                <p>and we rescale to \(w_2 = \begin{pmatrix} 1\\1\\-2\end{pmatrix}\). Check: \(w_1\cdot w_2 = -1 + 1 + 0 = 0\).</p>
+
+                <p><em>Normalize.</em></p>
+                <div class="math-display">
+                    \[u_1 = \frac{1}{\sqrt2}\begin{pmatrix} -1\\1\\0\end{pmatrix}, \qquad u_2 = \frac{1}{\sqrt6}\begin{pmatrix} 1\\1\\-2\end{pmatrix}, \qquad u_3 = \frac{1}{\sqrt3}\begin{pmatrix} 1\\1\\1\end{pmatrix}.\]
+                </div>
+                <p>Therefore</p>
+                <div class="math-display">
+                    \[Q = \begin{pmatrix} -\frac{1}{\sqrt2} & \frac{1}{\sqrt6} & \frac{1}{\sqrt3}\\[4pt] \frac{1}{\sqrt2} & \frac{1}{\sqrt6} & \frac{1}{\sqrt3}\\[4pt] 0 & -\frac{2}{\sqrt6} & \frac{1}{\sqrt3}\end{pmatrix} \quad\text{is orthogonal, and}\quad Q^{-1}AQ = Q^tAQ = \begin{pmatrix} 0&0&0\\0&0&0\\0&0&3\end{pmatrix}.\]
+                </div>
+                <p>(Any orthonormal basis of the plane \(x+y+z=0\) may be used for the first two columns, and the columns may be reordered provided the diagonal matrix is reordered to match.)</p>
+            </div>
+        </div>
+
+        <!-- Long Answer 3 -->
+        <div class="problem">
+            <h3 class="problem-number">Problem 3</h3>
+
+            <p>Consider the matrix \(A = \begin{pmatrix} 1 & 1\\ 1 & -1\\ 1 & 1\end{pmatrix}\), so that \(A^tA = \begin{pmatrix} 3 & 1\\ 1 & 3\end{pmatrix}\). Assume that we write the SVD of \(A\) as \(A = Q\Sigma P^t\), with \(Q\) and \(P\) orthogonal. If \(P = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1\\ 1 & -1\end{pmatrix}\), find \(\Sigma\) and \(Q\). (20 points)</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> <em>Eigenvalues of \(A^tA\).</em></p>
+                <div class="math-display">
+                    \[p_{A^tA}(x) = \begin{vmatrix} 3-x & 1\\ 1 & 3-x\end{vmatrix} = (3-x)^2 - 1 = (x-4)(x-2),\]
+                </div>
+                <p>so the eigenvalues of \(A^tA\) are \(\lambda_1 = 4\) and \(\lambda_2 = 2\), and \(r = \mathrm{rank}(A) = 2\).</p>
+
+                <p><em>The matrix \(P\).</em> The columns of \(P\) are \(v_1 = \frac{1}{\sqrt2}\begin{pmatrix} 1\\1\end{pmatrix}\) and \(v_2 = \frac{1}{\sqrt2}\begin{pmatrix} 1\\-1\end{pmatrix}\), which are eigenvectors of \(A^tA\) for \(4\) and \(2\), respectively:</p>
+                <div class="math-display">
+                    \[\begin{pmatrix} 3 & 1\\ 1 & 3\end{pmatrix}\begin{pmatrix} 1\\1\end{pmatrix} = \begin{pmatrix} 4\\4\end{pmatrix} = 4\begin{pmatrix} 1\\1\end{pmatrix}, \qquad \begin{pmatrix} 3 & 1\\ 1 & 3\end{pmatrix}\begin{pmatrix} 1\\-1\end{pmatrix} = \begin{pmatrix} 2\\-2\end{pmatrix} = 2\begin{pmatrix} 1\\-1\end{pmatrix}.\]
+                </div>
+
+                <p><em>Singular values and \(\Sigma\).</em> The singular values of \(A\) are \(\sigma_1 = \sqrt4 = 2\) and \(\sigma_2 = \sqrt2\). Hence</p>
+                <div class="math-display">
+                    \[\Sigma = \begin{pmatrix} 2 & 0\\ 0 & \sqrt2\\ 0 & 0\end{pmatrix}.\]
+                </div>
+
+                <p><em>The first two columns of \(Q\).</em> Using \(u_i = \frac{1}{\sigma_i}Av_i\):</p>
+                <div class="math-display">
+                    \[u_1 = \frac12 Av_1 = \frac12\cdot\frac{1}{\sqrt2}\begin{pmatrix} 1 & 1\\ 1 & -1\\ 1 & 1\end{pmatrix}\begin{pmatrix} 1\\1\end{pmatrix} = \frac{1}{2\sqrt2}\begin{pmatrix} 2\\0\\2\end{pmatrix} = \frac{1}{\sqrt2}\begin{pmatrix} 1\\0\\1\end{pmatrix},\]
+                </div>
+                <div class="math-display">
+                    \[u_2 = \frac{1}{\sqrt2} Av_2 = \frac{1}{\sqrt2}\cdot\frac{1}{\sqrt2}\begin{pmatrix} 1 & 1\\ 1 & -1\\ 1 & 1\end{pmatrix}\begin{pmatrix} 1\\-1\end{pmatrix} = \frac12\begin{pmatrix} 0\\2\\0\end{pmatrix} = \begin{pmatrix} 0\\1\\0\end{pmatrix}.\]
+                </div>
+
+                <p><em>Extend to an orthonormal basis of \(\mathbb{R}^3\).</em> Temporarily ignoring the factor \(\frac{1}{\sqrt2}\) in \(u_1\), we see by inspection that \(\begin{pmatrix} 1\\0\\-1\end{pmatrix}\) is orthogonal to both \(\begin{pmatrix} 1\\0\\1\end{pmatrix}\) and \(\begin{pmatrix} 0\\1\\0\end{pmatrix}\). Normalizing gives</p>
+                <div class="math-display">
+                    \[u_3 = \frac{1}{\sqrt2}\begin{pmatrix} 1\\0\\-1\end{pmatrix}.\]
+                </div>
+
+                <p><em>The matrix \(Q\).</em> Therefore</p>
+                <div class="math-display">
+                    \[Q = \begin{pmatrix} u_1 & u_2 & u_3\end{pmatrix} = \begin{pmatrix} \frac{1}{\sqrt2} & 0 & \frac{1}{\sqrt2}\\[4pt] 0 & 1 & 0\\[4pt] \frac{1}{\sqrt2} & 0 & -\frac{1}{\sqrt2}\end{pmatrix}, \qquad \Sigma = \begin{pmatrix} 2 & 0\\ 0 & \sqrt2\\ 0 & 0\end{pmatrix}.\]
+                </div>
+
+                <p><em>Check.</em></p>
+                <div class="math-display">
+                    \[\begin{aligned}
+                    Q\Sigma P^t &= \begin{pmatrix} \frac{1}{\sqrt2} & 0 & \frac{1}{\sqrt2}\\[4pt] 0 & 1 & 0\\[4pt] \frac{1}{\sqrt2} & 0 & -\frac{1}{\sqrt2}\end{pmatrix} \begin{pmatrix} 2 & 0\\ 0 & \sqrt2\\ 0 & 0\end{pmatrix} \frac{1}{\sqrt2}\begin{pmatrix} 1 & 1\\ 1 & -1\end{pmatrix}\\[6pt]
+                    &= \begin{pmatrix} \sqrt2 & 0\\ 0 & \sqrt2\\ \sqrt2 & 0\end{pmatrix} \frac{1}{\sqrt2}\begin{pmatrix} 1 & 1\\ 1 & -1\end{pmatrix} = \begin{pmatrix} 1 & 1\\ 1 & -1\\ 1 & 1\end{pmatrix} = A.
+                    \end{aligned}\]
+                </div>
+                <p>(The first two columns of \(Q\) are determined by \(P\). The third column may also be taken to be \(-\frac{1}{\sqrt2}\begin{pmatrix} 1\\0\\-1\end{pmatrix}\).)</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Bonus Problem <span class="points">(15 points)</span></h2>
+
+        <!-- Bonus -->
+        <div class="problem">
+            <h3 class="problem-number">Bonus Problem</h3>
+
+            <p>Let \(A\) be the \(10\times 10\) matrix all of whose entries are 1. Explain why \(A\) is diagonalizable and find the characteristic polynomial for \(A\). <strong>You may not simply quote the Spectral Theorem.</strong> Hint: Consider the vectors \(v_1 = \begin{pmatrix} 1\\-1\\0\\0\\\vdots\\0\end{pmatrix}\), \(v_2 = \begin{pmatrix} 1\\0\\-1\\0\\\vdots\\0\end{pmatrix}\), \(\ldots\), \(v_9 = \begin{pmatrix} 1\\0\\0\\0\\\vdots\\-1\end{pmatrix}\), \(v_{10} = \begin{pmatrix} 1\\1\\1\\1\\\vdots\\1\end{pmatrix}\). (15 points)</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> <em>Eigenvectors.</em> Every row of \(A\) is \((1\ 1\ \cdots\ 1)\), so for any column vector \(v\), each entry of \(Av\) is the sum of the entries of \(v\). For \(1\le i\le 9\), the entries of \(v_i\) sum to \(1 - 1 = 0\), so \(Av_i = \vec{0} = 0\cdot v_i\). The entries of \(v_{10}\) sum to \(10\), so \(Av_{10} = 10\,v_{10}\). Thus \(v_1, \ldots, v_9\) are eigenvectors for \(\lambda = 0\) and \(v_{10}\) is an eigenvector for \(\lambda = 10\).</p>
+
+                <p><em>Linear independence.</em> Suppose \(c_1v_1 + \cdots + c_9v_9 + c_{10}v_{10} = \vec{0}\). Applying \(A\) gives \(10c_{10}v_{10} = \vec{0}\), so \(c_{10} = 0\). Then \(c_1v_1 + \cdots + c_9v_9 = \vec{0}\). For \(1\le i\le 9\), the entry in row \(i+1\) of this vector is \(-c_i\), since \(v_i\) is the only one of \(v_1, \ldots, v_9\) with a nonzero entry in row \(i+1\). Hence every \(c_i = 0\), and \(v_1, \ldots, v_{10}\) are linearly independent.</p>
+
+                <p><em>Diagonalizability.</em> So \(\{v_1, \ldots, v_{10}\}\) is a basis of \(\mathbb{R}^{10}\) consisting of eigenvectors of \(A\). With \(P = [v_1\ \cdots\ v_{10}]\), \(P\) is invertible and</p>
+                <div class="math-display">
+                    \[P^{-1}AP = D = \begin{pmatrix} 0 & & & \\ & \ddots & & \\ & & 0 & \\ & & & 10\end{pmatrix},\]
+                </div>
+                <p>with nine 0s and one 10 on the diagonal. Thus \(A\) is diagonalizable.</p>
+
+                <p><em>Characteristic polynomial.</em> Since \(A\) and \(D\) are similar, \(p_A(x) = p_D(x) = x^9(x - 10)\). (Equivalently, \(\lambda = 0\) has \(\dim E_0 \ge 9\) and \(\lambda = 10\) has \(\dim E_{10}\ge 1\); since the multiplicities can total at most 10, these are the algebraic multiplicities.)</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX exam solutions. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
