@@ -1292,7 +1292,7 @@
 
                 <p>For \(E_1\), row reduce \(A-I\):</p>
                 <div class="math-display" style="margin: 10px 0;">
-                    \[\begin{pmatrix} -1 & i\\ -i & -1\end{pmatrix} \xrightarrow{\;R_1\,\to\,-R_1\;} \begin{pmatrix} 1 & -i\\ -i & -1\end{pmatrix} \xrightarrow{\;R_2\,\to\,R_2+iR_1\;} \begin{pmatrix} 1 & -i\\ -i+i\cdot 1 & -1+i(-i)\end{pmatrix} = \begin{pmatrix} 1 & -i\\ 0 & 0\end{pmatrix}.\]
+                    \[\begin{aligned} \begin{pmatrix} -1 & i\\ -i & -1\end{pmatrix} &\xrightarrow{\;R_1\,\to\,-R_1\;} \begin{pmatrix} 1 & -i\\ -i & -1\end{pmatrix}\\ &\xrightarrow{\;R_2\,\to\,R_2+iR_1\;} \begin{pmatrix} 1 & -i\\ -i+i\cdot 1 & -1+i(-i)\end{pmatrix} = \begin{pmatrix} 1 & -i\\ 0 & 0\end{pmatrix}.\end{aligned}\]
                 </div>
                 <p>The vector \(v_1 = \begin{pmatrix} i\\1\end{pmatrix}\) is clearly a basis for \(E_1\).</p>
 
@@ -1305,8 +1305,8 @@
                 <p>4. Orthogonality and normalization: We use the standard inner product on \(\mathbb{C}^2\), \(\langle u, v\rangle = \sum_k u_k\overline{v_k}\).</p>
                 <ul>
                     <li>\(\langle v_1, v_2\rangle = i\cdot\overline{i} + 1\cdot\overline{(-1)} = i(-i) + 1\cdot(-1) = 1-1 = 0\), so \(v_1\) and \(v_2\) are orthogonal.</li>
-                    <li>\(\|v_1\| = \sqrt{\langle v_1, v_1\rangle} = \sqrt{i\cdot\overline{i} + 1\cdot\overline{1}} = \sqrt{i(-i)+1} = \sqrt{1+1} = \sqrt{2}\).</li>
-                    <li>\(\|v_2\| = \sqrt{\langle v_2, v_2\rangle} = \sqrt{i\cdot\overline{i} + (-1)\cdot\overline{(-1)}} = \sqrt{i(-i)+(-1)(-1)} = \sqrt{1+1} = \sqrt{2}\).</li>
+                    <li>\(\|v_1\| = \sqrt{\langle v_1, v_1\rangle} = \sqrt{i\cdot\overline{i} + 1\cdot\overline{1}}\)<br>\(\phantom{\|v_1\|} = \sqrt{i(-i)+1} = \sqrt{1+1} = \sqrt{2}\).</li>
+                    <li>\(\|v_2\| = \sqrt{\langle v_2, v_2\rangle} = \sqrt{i\cdot\overline{i} + (-1)\cdot\overline{(-1)}}\)<br>\(\phantom{\|v_2\|} = \sqrt{i(-i)+(-1)(-1)} = \sqrt{1+1} = \sqrt{2}\).</li>
                 </ul>
                 <p>Dividing each vector by \(\sqrt{2}\) gives an orthonormal eigenbasis:</p>
                 <div class="math-display" style="margin: 10px 0;">
@@ -1324,11 +1324,11 @@
 
                 <p>6. Check that \(U^*AU = D\): First,</p>
                 <div class="math-display" style="margin: 10px 0;">
-                    \[AU = \frac{1}{\sqrt{2}}\begin{pmatrix} 0 & i\\ -i & 0\end{pmatrix}\begin{pmatrix} i & i\\ 1 & -1\end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} 0\cdot i+i\cdot 1 & 0\cdot i+i(-1)\\ (-i)(i)+0\cdot 1 & (-i)(i)+0\cdot(-1)\end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} i & -i\\ 1 & 1\end{pmatrix}.\]
+                    \[\begin{aligned} AU &= \frac{1}{\sqrt{2}}\begin{pmatrix} 0 & i\\ -i & 0\end{pmatrix}\begin{pmatrix} i & i\\ 1 & -1\end{pmatrix}\\ &= \frac{1}{\sqrt{2}}\begin{pmatrix} 0\cdot i+i\cdot 1 & 0\cdot i+i(-1)\\ (-i)(i)+0\cdot 1 & (-i)(i)+0\cdot(-1)\end{pmatrix}\\ &= \frac{1}{\sqrt{2}}\begin{pmatrix} i & -i\\ 1 & 1\end{pmatrix}.\end{aligned}\]
                 </div>
                 <p>Then</p>
                 <div class="math-display" style="margin: 10px 0;">
-                    \[\begin{aligned} U^*AU &= \frac{1}{\sqrt{2}}\begin{pmatrix} -i & 1\\ -i & -1\end{pmatrix}\cdot\frac{1}{\sqrt{2}}\begin{pmatrix} i & -i\\ 1 & 1\end{pmatrix}\\ &= \frac12\begin{pmatrix} (-i)(i)+1\cdot 1 & (-i)(-i)+1\cdot 1\\ (-i)(i)+(-1)\cdot 1 & (-i)(-i)+(-1)\cdot 1\end{pmatrix} = \frac12\begin{pmatrix} 1+1 & -1+1\\ 1-1 & -1-1\end{pmatrix} = \begin{pmatrix} 1 & 0\\ 0 & -1\end{pmatrix}.\end{aligned}\]
+                    \[\begin{aligned} U^*AU &= \frac{1}{\sqrt{2}}\begin{pmatrix} -i & 1\\ -i & -1\end{pmatrix}\cdot\frac{1}{\sqrt{2}}\begin{pmatrix} i & -i\\ 1 & 1\end{pmatrix}\\ &= \frac12\begin{pmatrix} (-i)(i)+1\cdot 1 & (-i)(-i)+1\cdot 1\\ (-i)(i)+(-1)\cdot 1 & (-i)(-i)+(-1)\cdot 1\end{pmatrix}\\ &= \frac12\begin{pmatrix} 1+1 & -1+1\\ 1-1 & -1-1\end{pmatrix} = \begin{pmatrix} 1 & 0\\ 0 & -1\end{pmatrix}.\end{aligned}\]
                 </div>
 
                 <p>Conclusion: \(U^*AU = D\), so that \(A\) is orthogonally diagonalizable in the complex sense (or, more formally, \(A\) is unitarily diagonalizable).</p>
