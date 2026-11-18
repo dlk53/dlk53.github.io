@@ -301,18 +301,10 @@
         <div class="problem">
             <h3 class="problem-number">Problem 2</h3>
 
-            <p>Find an orthogonal matrix diagonalizing \(A = \begin{pmatrix} 1 & 1 & 1\\1 & 1 & 1\\1 & 1 & 1\end{pmatrix}\). (20 points)</p>
+            <p>Find an orthogonal matrix diagonalizing \(A = \begin{pmatrix} 1 & 1 & 1\\1 & 1 & 1\\1 & 1 & 1\end{pmatrix}\). You may use the fact that \(p_A(x) = x^2(x-3)\). (20 points)</p>
 
             <div class="solution">
-                <p><span class="solution-label">Solution.</span> <em>Characteristic polynomial.</em> Expanding along the first row,</p>
-                <div class="math-display">
-                    \[\begin{aligned}
-                    p_A(x) &= \begin{vmatrix} 1-x & 1 & 1\\ 1 & 1-x & 1\\ 1 & 1 & 1-x\end{vmatrix}
-                    = (1-x)\big[(1-x)^2 - 1\big] - \big[(1-x) - 1\big] + \big[1 - (1-x)\big]\\[6pt]
-                    &= -x^3 + 3x^2 = -x^2(x-3).
-                    \end{aligned}\]
-                </div>
-                <p>So the eigenvalues are \(\lambda = 0\) (algebraic multiplicity 2) and \(\lambda = 3\) (algebraic multiplicity 1). (Using \(|xI_3 - A|\) instead gives \(x^2(x-3)\).)</p>
+                <p><span class="solution-label">Solution.</span> Since \(p_A(x) = x^2(x-3)\), the eigenvalues are \(\lambda = 0\) (algebraic multiplicity 2) and \(\lambda = 3\) (algebraic multiplicity 1).</p>
 
                 <p><em>Eigenspaces.</em> For \(\lambda = 0\), Gaussian elimination on \(A - 0\cdot I_3 = A\) gives</p>
                 <div class="math-display">
@@ -354,7 +346,11 @@
                 </div>
                 <p>Therefore</p>
                 <div class="math-display">
-                    \[Q = \begin{pmatrix} -\frac{1}{\sqrt2} & \frac{1}{\sqrt6} & \frac{1}{\sqrt3}\\[4pt] \frac{1}{\sqrt2} & \frac{1}{\sqrt6} & \frac{1}{\sqrt3}\\[4pt] 0 & -\frac{2}{\sqrt6} & \frac{1}{\sqrt3}\end{pmatrix} \quad\text{is orthogonal, and}\quad Q^{-1}AQ = Q^tAQ = \begin{pmatrix} 0&0&0\\0&0&0\\0&0&3\end{pmatrix}.\]
+                    \[Q = \begin{pmatrix} -\frac{1}{\sqrt2} & \frac{1}{\sqrt6} & \frac{1}{\sqrt3}\\[4pt] \frac{1}{\sqrt2} & \frac{1}{\sqrt6} & \frac{1}{\sqrt3}\\[4pt] 0 & -\frac{2}{\sqrt6} & \frac{1}{\sqrt3}\end{pmatrix}\]
+                </div>
+                <p>is orthogonal, and</p>
+                <div class="math-display">
+                    \[Q^{-1}AQ = Q^tAQ = \begin{pmatrix} 0&0&0\\0&0&0\\0&0&3\end{pmatrix}.\]
                 </div>
                 <p>(Any orthonormal basis of the plane \(x+y+z=0\) may be used for the first two columns, and the columns may be reordered provided the diagonal matrix is reordered to match.)</p>
             </div>
