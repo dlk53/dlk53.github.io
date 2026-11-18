@@ -1334,6 +1334,104 @@
                 <p>Conclusion: \(U^*AU = D\), so that \(A\) is orthogonally diagonalizable in the complex sense (or, more formally, \(A\) is unitarily diagonalizable).</p>
             </div>
         </div>
+        <div class="problem">
+            <h2 class="problem-number">Wednesday, November 18</h2>
+
+            <p>We continued our discussion of how the spectral theorem over \(\mathbb{C}\) differs from the spectral theorem over \(\mathbb{R}\). We began with the following example.</p>
+
+            <div class="definition">
+                <span class="statement-title">Example.</span> \(A = \begin{pmatrix} 0 & -1\\1 & 0\end{pmatrix}\) is not self-adjoint, yet it's orthogonally diagonalizable in the complex sense, as follows.
+
+                <p>1. Eigenvalues:</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[\det(xI-A) = \det\begin{pmatrix} x & 1\\ -1 & x\end{pmatrix} = x^2-(-1)(1) = x^2+1.\]
+                </div>
+                <p>So the eigenvalues are \(\lambda = i\) and \(\lambda = -i\), listed in the order they will appear in \(D\).</p>
+
+                <p>2. Eigenspaces: For each eigenvalue \(\lambda\), the eigenspace is \(E_\lambda = \operatorname{Nul}(A-\lambda I)\). We find a basis for it by row reducing \(A-\lambda I\).</p>
+
+                <p><em>For \(E_i\).</em> Row reduce \(A-iI\):</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[\begin{pmatrix} -i & -1\\ 1 & -i\end{pmatrix} \xrightarrow{\;R_1\,\to\,iR_1\;} \begin{pmatrix} 1 & -i\\ 1 & -i\end{pmatrix} \xrightarrow{\;R_2\,\to\,R_2-R_1\;} \begin{pmatrix} 1 & -i\\ 0 & 0\end{pmatrix}.\]
+                </div>
+                <p>Thus, \(E_i = \operatorname{span}\{v_1\}\), for \(v_1 = \begin{pmatrix} i\\ 1\end{pmatrix}\).</p>
+
+                <p><em>For \(E_{-i}\).</em> Row reduce \(A-(-i)I = A+iI\):</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[\begin{pmatrix} i & -1\\ 1 & i\end{pmatrix} \xrightarrow{\;R_1\,\to\,-iR_1\;} \begin{pmatrix} 1 & i\\ 1 & i\end{pmatrix} \xrightarrow{\;R_2\,\to\,R_2-R_1\;} \begin{pmatrix} 1 & i\\ 0 & 0\end{pmatrix}.\]
+                </div>
+                <p>Thus, for \(v_2 = \begin{pmatrix} i\\ -1\end{pmatrix}\), \(E_{-i} = \operatorname{span}\{v_2\}\).</p>
+
+                <p>3. Orthogonality and normalization:</p>
+                <ul>
+                    <li>\(\langle v_1, v_2\rangle = i\cdot\overline{i} + 1\cdot\overline{(-1)} = i(-i) + 1\cdot(-1) = 1-1 = 0\), so \(v_1\) and \(v_2\) are orthogonal.</li>
+                    <li>\(\|v_1\| = \sqrt{\langle v_1, v_1\rangle} = \sqrt{i\cdot\overline{i} + 1\cdot\overline{1}}\)<br>\(\phantom{\|v_1\|} = \sqrt{i(-i)+1} = \sqrt{1+1} = \sqrt{2}\).</li>
+                    <li>\(\|v_2\| = \sqrt{\langle v_2, v_2\rangle} = \sqrt{i\cdot\overline{i} + (-1)\cdot\overline{(-1)}}\)<br>\(\phantom{\|v_2\|} = \sqrt{i(-i)+(-1)(-1)} = \sqrt{1+1} = \sqrt{2}\).</li>
+                </ul>
+                <p>Dividing each vector by \(\sqrt{2}\) gives an orthonormal eigenbasis:</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[u_1 = \frac{1}{\sqrt{2}}\begin{pmatrix} i\\ 1\end{pmatrix},\qquad u_2 = \frac{1}{\sqrt{2}}\begin{pmatrix} i\\ -1\end{pmatrix}.\]
+                </div>
+
+                <p>4. The complex orthogonal matrix \(Q\): Using the orthonormal eigenvectors as columns,</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[Q = \frac{1}{\sqrt{2}}\begin{pmatrix} i & i\\ 1 & -1\end{pmatrix}.\]
+                </div>
+                <p>To find \(Q^*\), conjugate every entry to get \(\begin{pmatrix} -i & -i\\ 1 & -1\end{pmatrix}\), then transpose:</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[Q^* = \frac{1}{\sqrt{2}}\begin{pmatrix} -i & 1\\ -i & -1\end{pmatrix}.\]
+                </div>
+
+                <p><em>Check that \(Q\) is complex orthogonal.</em></p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[\begin{aligned} Q^*Q &= \frac12\begin{pmatrix} (-i)(i)+1\cdot 1 & (-i)(i)+1\cdot(-1)\\ (-i)(i)+(-1)\cdot 1 & (-i)(i)+(-1)(-1)\end{pmatrix}\\ &= \frac12\begin{pmatrix} 1+1 & 1-1\\ 1-1 & 1+1\end{pmatrix} = \frac12\begin{pmatrix} 2 & 0\\ 0 & 2\end{pmatrix} = I. \quad\checkmark\end{aligned}\]
+                </div>
+
+                <p>5. Check that \(Q^*AQ = D\): First,</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[\begin{aligned} AQ &= \frac{1}{\sqrt{2}}\begin{pmatrix} 0 & -1\\ 1 & 0\end{pmatrix}\begin{pmatrix} i & i\\ 1 & -1\end{pmatrix}\\ &= \frac{1}{\sqrt{2}}\begin{pmatrix} 0\cdot i+(-1)\cdot 1 & 0\cdot i+(-1)(-1)\\ 1\cdot i+0\cdot 1 & 1\cdot i+0\cdot(-1)\end{pmatrix}\\ &= \frac{1}{\sqrt{2}}\begin{pmatrix} -1 & 1\\ i & i\end{pmatrix}.\end{aligned}\]
+                </div>
+                <p>The columns of \(AQ\) are \(iu_1\) and \(-iu_2\), as expected. Then</p>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[\begin{aligned} Q^*AQ &= \frac12\begin{pmatrix} -i & 1\\ -i & -1\end{pmatrix}\begin{pmatrix} -1 & 1\\ i & i\end{pmatrix}\\ &= \frac12\begin{pmatrix} (-i)(-1)+1\cdot i & (-i)\cdot 1+1\cdot i\\ (-i)(-1)+(-1)\cdot i & (-i)\cdot 1+(-1)\cdot i\end{pmatrix}\\ &= \frac12\begin{pmatrix} i+i & -i+i\\ i-i & -i-i\end{pmatrix} = \begin{pmatrix} i & 0\\ 0 & -i\end{pmatrix}.\end{aligned}\]
+                </div>
+
+                <p>Conclusion: \(Q^*AQ = D\), so that \(A\) is orthogonally diagonalizable over \(\mathbb{C}\), even though it is not self-adjoint.</p>
+            </div>
+
+            <p>The calculation above led to the following definition and statement of the complex spectral theorem.</p>
+
+            <div class="definition">
+                <span class="statement-title">Definition.</span> Let \(A\) be an \(n\times n\) matrix with entries in \(\mathbb{C}\). Then \(A\) is said to be a <em>normal matrix</em> if \(AA^* = A^*A\).
+            </div>
+
+            <p>For \(A = \begin{pmatrix} 0 & -1\\1 & 0\end{pmatrix}\), \(A^* = \begin{pmatrix} 0 & 1\\-1 & 0\end{pmatrix}\) and \(AA^* = \begin{pmatrix} 1 & 0\\0 & 1\end{pmatrix} = A^*A\), so in this case, \(A\) is a normal matrix. Thus, the following version of the spectral theorem makes sense.</p>
+
+            <div class="definition">
+                <span class="statement-title">Complex Spectral Theorem.</span> Let \(A\) be an \(n\times n\) matrix with entries in \(\mathbb{C}\). If \(A\) is a normal matrix, then there exists an \(n\times n\) matrix \(Q\) with entries in \(\mathbb{C}\) satisfying \(Q^{-1} = Q^*\) and \(Q^*AQ = D\), a diagonal matrix. In other words, \(A\) is orthogonally diagonalizable as a matrix over \(\mathbb{C}\). Conversely, suppose there exists an \(n\times n\) matrix \(Q\) with entries in \(\mathbb{C}\) such that \(Q^{-1} = Q^*\) and \(Q^*AQ = D\), a diagonal matrix. Then, \(A\) is a normal matrix.
+            </div>
+
+            <p>We followed this statement with a discussion of the following key facts in the case of matrices over \(\mathbb{C}\).</p>
+
+            <div class="definition">
+                <span class="statement-title">Key Facts.</span> Let \(A\) be an \(n\times n\) matrix over \(\mathbb{C}\).
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">1. If \(\lambda\in\mathbb{C}\) is an eigenvalue of \(A\), then \(\overline{\lambda}\) is an eigenvalue of \(A^*\).</li>
+                    <li style="list-style-type: none;">2. If \(Av = \lambda v\), it need not be the case that \(A^*v = \overline{\lambda}v\) or \(A^*v = \overline{\lambda}\,\overline{v}\). Indeed \(A = \begin{pmatrix} 1 & 1+i\\ 0 & 2i\end{pmatrix}\) showed this in class.</li>
+                    <li style="list-style-type: none;">3. If \(A\) is a normal matrix, then for any \(v\in\mathbb{C}^n\), \(||Av|| = ||A^*v||\).</li>
+                    <li style="list-style-type: none;">4. If \(A\) is a normal matrix and \(Av = \lambda v\), then it is the case that \(A^*v = \overline{\lambda}v\).</li>
+                    <li style="list-style-type: none;">5. If \(A\) is a normal matrix and \(Av_1 = \lambda_1v_1\) and \(Av_2 = \lambda_2v_2\), with \(\lambda_1\not= \lambda_2\), then \(v_1\cdot v_2 = 0\). In other words, eigenvectors corresponding to distinct eigenvalues are orthogonal.</li>
+                </ol>
+            </div>
+
+            <p>We ended class by noting that even though the key facts above are what makes the spectral theorem work over \(\mathbb{C}\), the process for finding an orthogonal matrix diagonalizing a normal matrix over \(\mathbb{C}\) is the same as for finding an orthogonal matrix over \(\mathbb{R}\) diagonalizing a symmetric matrix: For the normal matrix \(A\)</p>
+            <ol style="list-style-type: none; padding-left: 20px;">
+                <li style="list-style-type: none;">(i) One first finds the eigenvalues of \(A\) and bases for the corresponding eigenspaces.</li>
+                <li style="list-style-type: none;">(ii) One then applies Gram-Schmidt to find an orthonormal basis for each eigenspace.</li>
+                <li style="list-style-type: none;">(iii) One puts all of the orthonormal bases as columns in a matrix \(Q\), so that \(Q\) is a complex orthogonal matrix, i.e., \(Q^{-1} = Q^*\).</li>
+                <li style="list-style-type: none;">(iv) \(Q^*AQ = D\), a diagonal matrix with the eigenvalues of \(A\) down its diagonal.</li>
+            </ol>
+        </div>
 
     </main>
 
