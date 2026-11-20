@@ -1432,6 +1432,36 @@
                 <li style="list-style-type: none;">(iv) \(Q^*AQ = D\), a diagonal matrix with the eigenvalues of \(A\) down its diagonal.</li>
             </ol>
         </div>
+        <div class="problem">
+            <h2 class="problem-number">Friday, November 20</h2>
+
+            <p>We began class by re-stating the complex spectral theorem and noting that if \(A\) is an \(n\times n\) normal matrix over \(\mathbb{C}\), the steps towards finding \(Q\) orthogonally diagonalizing \(A\) in the complex sense are the same steps that find an orthogonal matrix over \(\mathbb{R}\) that diagonalizes a symmetric matrix over \(\mathbb{R}\). In a similar vein, we noted that the complex spectral theorem gives a singular value decomposition for any \(m\times n\) matrix \(A\) over \(\mathbb{C}\) in the expected sense: There exist complex orthogonal matrices \(Q\) and \(P\) over \(\mathbb{C}\) and an \(m\times n\) diagonal matrix \(\Sigma\) such that \(A = Q\Sigma P^*\). Noting that in the complex case, we use \(A^*\) in place of \(A^t\), then as before, the non-zero entries of \(\Sigma\) are the singular values of \(A\) and are positive real numbers satisfying \(\sigma_1\geq\cdots\geq\sigma_r > 0\), where \(r\) is the rank of \(A\) and \(\sigma_i = \sqrt{\lambda_i}\), with \(\lambda_1, \ldots, \lambda_r\) the non-zero (and positive) eigenvalues of \(A^*A\) or \(AA^*\). The steps leading to \(P\) and \(Q\) in this case are the same as before, starting with \(P\) an \(n\times n\) matrix orthogonally diagonalizing \(A^*A\).</p>
+
+            <p>We then began a discussion of the <em>Jordan Canonical Form</em> (JCF) of an \(n\times n\) matrix over \(F\), where, as before, \(F\) denotes either \(\mathbb{R}\) or \(\mathbb{C}\). We noted that the JCF&mdash;say \(J\)&mdash;of \(A\) applies to matrices having all eigenvalues in \(F\) and is close to being diagonal, in the sense that the eigenvalues of \(A\) are down the diagonal of \(J\), with 1s and 0s above the main diagonal of \(J\) and zeros elsewhere.</p>
+
+            <p>We then computed the JCF of \(A = \begin{pmatrix} 5 & -1\\4 & 1\end{pmatrix}\) to be \(J = \begin{pmatrix} 3 & 1\\0 & 3\end{pmatrix}\) and found that for \(P = \begin{pmatrix} 2 & 1\\4 & 0\end{pmatrix},\) we have \(P^{-1}AP = J\).</p>
+
+            <p>We ended class by stating the Jordan canonical form theorem, after giving the following definition.</p>
+
+            <div class="definition">
+                <span class="statement-title">Definition.</span> For \(s\geq 1\) and \(\lambda\in F\), the \(s\times s\) <em>Jordan block</em> \(J(\lambda, s)\) is the \(s\times s\) matrix given by
+                <div class="math-display" style="margin: 10px 0;">
+                    \[J(\lambda, s) = \begin{pmatrix} \lambda & 1 & 0 & \cdots & 0\\ 0 & \lambda & 1 & \cdots & 0\\ \vdots & \vdots & \ddots & \ddots & \vdots\\ 0 & 0 & \cdots & \lambda & 1\\ 0 & 0 & \cdots & 0 & \lambda\end{pmatrix}_{s\times s}.\]
+                </div>
+                So for example,
+                <div class="math-display" style="margin: 10px 0;">
+                    \[J(3,2) = \begin{pmatrix} 3 & 1\\0 & 3\end{pmatrix} \quad\quad \text{and} \quad\quad J(7,4) = \begin{pmatrix} 7 & 1 & 0 & 0\\0 & 7 & 1 & 0\\0 & 0 & 7 & 1\\0 & 0 & 0 & 7\end{pmatrix}.\]
+                </div>
+            </div>
+
+            <div class="definition">
+                <span class="statement-title">Jordan Canonical Form Theorem.</span> Let \(A\) be an \(n\times n\) matrix over \(F\) such that \(A\) has all of its eigenvalues in \(F\). Then there exists an invertible matrix \(P\) with entries in \(F\), such that \(P^{-1}AP = J\), where \(J\) is a block diagonal matrix
+                <div class="math-display" style="margin: 10px 0;">
+                    \[J = \begin{pmatrix} \boxed{J_1} & & & \text{\huge 0}\\ & \boxed{J_2} & & \\ & & \ddots & \\ \text{\huge 0} & & & \boxed{J_l}\end{pmatrix}\]
+                </div>
+                and each \(J_i\) is a Jordan block associated to an eigenvalue of \(A\) and all eigenvalues of \(A\) appear in \(J\).
+            </div>
+        </div>
 
     </main>
 
