@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall 2026: Math 590 Quiz 11 Solutions</title>
+    <script>
+        MathJax = {
+            loader: {load: ['[tex]/amscd']},
+            tex: {
+                packages: {'[+]': ['amscd']},
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.0
+            },
+            chtml: {
+                scale: 1.0,
+                matchFontHeight: true
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+        body {
+            font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            line-height: 1.75;
+            background-color: #fafafa;
+            color: #2c2c2c;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b2e3f;
+            border-bottom: 3px solid #8b2e3f;
+            padding-bottom: 15px;
+            font-size: 1.8em;
+        }
+        h2.section-title {
+            color: #8b2e3f;
+            font-size: 1.35em;
+            margin: 40px 0 10px;
+        }
+        h2.section-title .points {
+            font-weight: normal;
+            font-size: 0.8em;
+            color: #555;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .problem {
+            background-color: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem-number {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        h2.problem-number,
+        h3.problem-number {
+            margin-top: 0;
+            line-height: inherit;
+        }
+        .solution {
+            background-color: #fff3cd;
+            padding: 5px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .solution-label {
+            font-weight: 600;
+            color: #2563eb;
+        }
+        .definition {
+            font-style: italic;
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+        .definition .statement-title {
+            font-style: normal;
+            font-weight: 600;
+        }
+        .math-display {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        ol, ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        em {
+            font-style: italic;
+        }
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+        /* Skip to main content link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Fall 2026: Math 590 Quiz 11 Solutions</h1>
+    </header>
+
+    <main id="main-content">
+
+        <!-- Problem 1 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 1</h2>
+
+            <p>Consider the matrix \(A = \begin{pmatrix} 1+i & 1+i\\ -1-i & 1+i\end{pmatrix}\). Verify that \(A\) is a normal matrix. (5 points)</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> Recall that \(A\) is <em>normal</em> if \(AA^* = A^*A\), where \(A^*\) is the adjoint of \(A\), obtained by conjugating the entries of \(A\) and then transposing. Here</p>
+                <div class="math-display">
+                    \[A^* = \begin{pmatrix} 1-i & -1+i\\ 1-i & 1-i\end{pmatrix}.\]
+                </div>
+                <p>Using \((1+i)(1-i) = 2\), we compute</p>
+                <div class="math-display">
+                    \[\begin{aligned}
+                    AA^* &= \begin{pmatrix} 1+i & 1+i\\ -1-i & 1+i\end{pmatrix} \begin{pmatrix} 1-i & -1+i\\ 1-i & 1-i\end{pmatrix}\\[4pt]
+                    &= \begin{pmatrix} (1+i)(1-i) + (1+i)(1-i) & (1+i)(-1+i) + (1+i)(1-i)\\ (-1-i)(1-i) + (1+i)(1-i) & (-1-i)(-1+i) + (1+i)(1-i)\end{pmatrix}\\[4pt]
+                    &= \begin{pmatrix} 2 + 2 & -2 + 2\\ -2 + 2 & 2 + 2\end{pmatrix} = \begin{pmatrix} 4 & 0\\ 0 & 4\end{pmatrix}
+                    \end{aligned}\]
+                </div>
+                <p>and</p>
+                <div class="math-display">
+                    \[\begin{aligned}
+                    A^*A &= \begin{pmatrix} 1-i & -1+i\\ 1-i & 1-i\end{pmatrix} \begin{pmatrix} 1+i & 1+i\\ -1-i & 1+i\end{pmatrix}\\[4pt]
+                    &= \begin{pmatrix} (1-i)(1+i) + (-1+i)(-1-i) & (1-i)(1+i) + (-1+i)(1+i)\\ (1-i)(1+i) + (1-i)(-1-i) & (1-i)(1+i) + (1-i)(1+i)\end{pmatrix}\\[4pt]
+                    &= \begin{pmatrix} 2 + 2 & 2 - 2\\ 2 - 2 & 2 + 2\end{pmatrix} = \begin{pmatrix} 4 & 0\\ 0 & 4\end{pmatrix}.
+                    \end{aligned}\]
+                </div>
+                <p>Thus \(AA^* = 4I_2 = A^*A\), so \(A\) is normal.</p>
+            </div>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="problem">
+            <h2 class="problem-number">Problem 2</h2>
+
+            <p>Find a complex orthogonal matrix \(Q\) diagonalizing \(A\). You do not have to check that \(Q\) diagonalizes \(A\). (5 points)</p>
+
+            <div class="solution">
+                <p><span class="solution-label">Solution.</span> <em>Eigenvalues.</em> Using \((1+i)^2 = 1 + 2i + i^2 = 2i\),</p>
+                <div class="math-display">
+                    \[\begin{aligned}
+                    p_A(x) = |xI_2 - A| &= \begin{vmatrix} x - (1+i) & -(1+i)\\ 1+i & x - (1+i)\end{vmatrix}\\[4pt]
+                    &= \big(x - (1+i)\big)^2 - \big(-(1+i)\big)(1+i)\\[4pt]
+                    &= x^2 - 2(1+i)x + (1+i)^2 + (1+i)^2\\[4pt]
+                    &= x^2 - (2 + 2i)x + 4i = (x - 2)(x - 2i).
+                    \end{aligned}\]
+                </div>
+                <p>The eigenvalues of \(A\) are \(\lambda = 2\) and \(\lambda = 2i\).</p>
+
+                <p><em>Eigenvectors.</em> For \(\lambda = 2\):</p>
+                <div class="math-display">
+                    \[A - 2I = \begin{pmatrix} -1+i & 1+i\\ -1-i & -1+i\end{pmatrix}.\]
+                </div>
+                <p>The first row gives \((-1+i)x + (1+i)y = 0\), so \(y = \frac{1-i}{1+i}\,x = \frac{(1-i)^2}{2}\,x = -ix\). Taking \(x = 1\), \(E_2\) is spanned by \(v_1 = \begin{pmatrix} 1\\ -i\end{pmatrix}\). (Check with the second row: \((-1-i)(1) + (-1+i)(-i) = (-1 - i) + (i + 1) = 0\).)</p>
+
+                <p>For \(\lambda = 2i\):</p>
+                <div class="math-display">
+                    \[A - 2iI = \begin{pmatrix} 1-i & 1+i\\ -1-i & 1-i\end{pmatrix}.\]
+                </div>
+                <p>The first row gives \((1-i)x + (1+i)y = 0\), so \(y = -\frac{1-i}{1+i}\,x = ix\). Taking \(x = 1\), \(E_{2i}\) is spanned by \(v_2 = \begin{pmatrix} 1\\ i\end{pmatrix}\).</p>
+
+                <p><em>Orthonormalize.</em> With respect to the complex inner product \(v\cdot w = a_1\overline{b_1} + a_2\overline{b_2}\) on \(\mathbb{C}^2\), where \(v = \begin{pmatrix} a_1\\ a_2\end{pmatrix}\) and \(w = \begin{pmatrix} b_1\\ b_2\end{pmatrix}\),</p>
+                <div class="math-display">
+                    \[v_1\cdot v_2 = 1\,\overline{1} + (-i)\,\overline{i} = 1 + (-i)(-i) = 1 + i^2 = 0,\]
+                </div>
+                <p>so \(v_1\) and \(v_2\) are orthogonal, as they must be, since \(A\) is normal and the eigenvalues are distinct. Also \(\|v_1\|^2 = v_1\cdot v_1 = 1 + (-i)(i) = 2\) and \(\|v_2\|^2 = v_2\cdot v_2 = 1 + (i)(-i) = 2\), so normalizing gives</p>
+                <div class="math-display">
+                    \[u_1 = \frac{1}{\sqrt2}\begin{pmatrix} 1\\ -i\end{pmatrix}, \qquad u_2 = \frac{1}{\sqrt2}\begin{pmatrix} 1\\ i\end{pmatrix}.\]
+                </div>
+                <p>Therefore</p>
+                <div class="math-display">
+                    \[Q = \frac{1}{\sqrt2}\begin{pmatrix} 1 & 1\\ -i & i\end{pmatrix}\]
+                </div>
+                <p>is a complex orthogonal matrix, i.e., \(Q^{-1} = Q^*\), and</p>
+                <div class="math-display">
+                    \[Q^{-1}AQ = Q^*AQ = \begin{pmatrix} 2 & 0\\ 0 & 2i\end{pmatrix}.\]
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; color: #666;">
+        <p><em>This is an ADA Title II compliant, accessible HTML conversion of the LaTeX quiz solutions. Mathematical content is rendered using MathJax for screen reader compatibility.</em></p>
+    </footer>
+</body>
+</html>
