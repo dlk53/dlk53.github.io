@@ -1462,6 +1462,32 @@
                 and each \(J_i\) is a Jordan block associated to an eigenvalue of \(A\) and all eigenvalues of \(A\) appear in \(J\).
             </div>
         </div>
+        <div class="problem">
+            <h2 class="problem-number">Monday, November 23</h2>
+
+            <p>The first 20 minutes of class were devoted to Quiz 11. We then resumed our discussion of the JCF, re-examining the Jordan blocks associated to an eigenvalue \(\lambda\). For example, we noted that the block \(J(\lambda, 3) = \begin{pmatrix} \lambda & 1 & 0\\0 & \lambda & 1\\0 & 0 & \lambda\end{pmatrix}\) has algebraic multiplicity 3, but geometric multiplicity 1, since subtracting \(\lambda\) from its diagonal gives the matrix \(\begin{pmatrix} 0 & 1 & 0\\0 & 0 & 1\\0 & 0 & 0\end{pmatrix}\) which is already in RREF and its nullspace has dimension 1. Similarly, we noted that the algebraic multiplicity of \(J(\lambda, s)\) is \(s\), while its geometric multiplicity is 1. Thus, Jordan blocks are quintessentially non-diagonalizable.</p>
+
+            <p>After re-stating the Jordan Canonical Form Theorem from the previous lecture, we recorded the following comments.</p>
+
+            <div class="definition">
+                <span class="statement-title">Comments.</span> Let \(A\) be an \(n\times n\) matrix over \(F\) with \(p_A(x) = (x-\lambda_1)^{e_1}\cdots(x-\lambda_r)^{e_r}\) and JCF \(J\).
+                <ol style="list-style-type: none; padding-left: 20px;">
+                    <li style="list-style-type: none;">1. Every eigenvalue of \(A\) appears along the diagonal of \(J\). This follows since \(p_A(x) = p_J(x)\).</li>
+                    <li style="list-style-type: none;">2. Each \(\lambda_i\) appears \(e_i\) times down the diagonal of \(J\). Again, since \(p_A(x) = p_J(x)\).</li>
+                    <li style="list-style-type: none;">3. We can find an invertible matrix \(P_0\) such that \(P_0^{-1}AP_0 = J_0\) is a canonical form so that the Jordan blocks of \(J_0\) corresponding to the same eigenvalue are adjacent in \(J_0\) and in decreasing size. We then say this is a <em>standard</em> Jordan canonical form for \(A\).</li>
+                </ol>
+            </div>
+
+            <p>We ended class by noting that if \(A\) is a \(4\times 4\) matrix with \(p_A(x) = (x-2)^2(x-3)^2\), the Jordan canonical form for \(A\) would be one of the following four matrices</p>
+            <div class="definition">
+                <div class="math-display" style="margin: 10px 0;">
+                    \[J_1 = \begin{pmatrix} \boxed{\begin{matrix} 2 & 1\\0 & 2\end{matrix}} & \bbox[3pt]{\begin{matrix} 0 & 0\\0 & 0\end{matrix}}\\ \bbox[3pt]{\begin{matrix} 0 & 0\\0 & 0\end{matrix}} & \boxed{\begin{matrix} 3 & 1\\0 & 3\end{matrix}}\end{pmatrix} \qquad J_2 = \begin{pmatrix} \boxed{2} & 0 & \bbox[3pt]{\begin{matrix} 0 & 0\end{matrix}}\\ 0 & \boxed{2} & \bbox[3pt]{\begin{matrix} 0 & 0\end{matrix}}\\ \bbox[3pt]{\begin{matrix} 0\\0\end{matrix}} & \bbox[3pt]{\begin{matrix} 0\\0\end{matrix}} & \boxed{\begin{matrix} 3 & 1\\0 & 3\end{matrix}}\end{pmatrix}\]
+                </div>
+                <div class="math-display" style="margin: 10px 0;">
+                    \[J_3 = \begin{pmatrix} \boxed{\begin{matrix} 2 & 1\\0 & 2\end{matrix}} & \bbox[3pt]{\begin{matrix} 0\\0\end{matrix}} & \bbox[3pt]{\begin{matrix} 0\\0\end{matrix}}\\ \bbox[3pt]{\begin{matrix} 0 & 0\end{matrix}} & \boxed{3} & 0\\ \bbox[3pt]{\begin{matrix} 0 & 0\end{matrix}} & 0 & \boxed{3}\end{pmatrix} \qquad J_4 = \begin{pmatrix} \boxed{2} & 0 & 0 & 0\\ 0 & \boxed{2} & 0 & 0\\ 0 & 0 & \boxed{3} & 0\\ 0 & 0 & 0 & \boxed{3}\end{pmatrix}.\]
+                </div>
+            </div>
+        </div>
 
     </main>
 
